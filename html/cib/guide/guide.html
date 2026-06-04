@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>수협은행</title>
+	<link rel="stylesheet" href="/cl/guide.css"/>
+	<link rel="stylesheet" href="/css/cib/reset.css">
+	<link rel="stylesheet" href="/css/cib/component.css">
+</head>
+<body>
+	<div id="wrap">
+		<div id="container">
+			<main id="content">
+				<div class="prototype-wrap">
+					<div class="prototype-shortcut-box">
+						<div class="wrap-btn">
+							<a href="#contentTypograph">Typograph</a>
+						</div>
+					</div>
+
+					<div class="prototype-content">
+						<h1 class="prototype-title">퍼블리싱 작업 가이드</h1>
+						<div class="prototype-group">
+							<h2 class="prototype-group-title01" id="contentFonts">Typograph</h2>
+							<div class="prototype-group-sub">
+								<h3 class="prototype-group-title02">heading</h3>
+								<div class="prototype-view">
+									<h1 class="typeH1">typeH1</h1>
+									<h1 class="typeH2">typeH2</h2>
+									<h3 class="typeH3">typeH3</h3>
+									<h4 class="typeH4">typeH4</h4>
+									<h5 class="typeH5">typeH5</h5>
+									<h6 class="typeH6">typeH6</h6>
+									<h7 class="typeH7">typeH7</h7>
+								</div>
+								<div class="prototype-code">
+									<div class="options">
+										<button type="button" class="btn-copy">
+											<span>copy</span>
+										</button>
+										<div class="toast-copy">
+											<span>copied!</span>
+										</div>
+									</div>
+									<div class="prototype-code-box ces-public-body">
+										<textarea readonly><h1 class="typeH1">typeH1</h1></textarea>
+									</div>
+								</div>
+							</div>
+							
+							<div class="prototype-group-sub">
+								<div class="prototype-view">
+
+								</div>
+								<div class="prototype-code">
+									<div class="options">
+										<button type="button" class="btn-copy">
+											<span>copy</span>
+										</button>
+										<div class="toast-copy">
+											<span>copied!</span>
+										</div>
+									</div>
+									<div class="prototype-code-box ces-public-body">
+										<textarea readonly></textarea>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</main>
+		</div>
+	</div>
+<!-- guide page -->
+<script>
+window.addEventListener('load', function () {
+	const $codes = document.querySelectorAll(".prototype-code-box textarea");
+	const $btnCopies = document.querySelectorAll(".prototype-code .btn-copy");
+	function copyCode(event) {
+	const index = Array.from($btnCopies).indexOf(event.currentTarget);
+	const codeToCopy = $codes[index].value;
+
+	navigator.clipboard.writeText(codeToCopy).then(() => {
+		console.log("복사되었습니다.");
+	}).catch(() => {
+		const tempTextarea = document.createElement("textarea");
+		document.body.appendChild(tempTextarea);
+		tempTextarea.value = codeToCopy;
+		tempTextarea.select();
+		document.execCommand("copy");
+		document.body.removeChild(tempTextarea);
+	});
+
+	const $toastCopy = event.currentTarget.nextElementSibling;
+	document.querySelectorAll(".toast-copy").forEach(function (element) {
+		element.classList.remove("on");
+	});
+	$toastCopy.classList.add("on");
+		setTimeout(function () {
+			$toastCopy.classList.remove("on");
+		}, 1000);
+	}
+
+	$btnCopies.forEach(function ($btnCopy) {
+		$btnCopy.addEventListener("click", copyCode);
+	});
+});
+</script>
+<!-- // guide page -->    
+</body>
+</html>

@@ -1,26 +1,27 @@
 {
   "name": "inb_cib",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "private": true,
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
-    "sass:dev-build": "sass public/css/cib:public/css/cib --source-map",
-    "sass:watch": "sass public/css/cib:public/css/cib --watch --source-map",
-    "sass:build": "sass public/css/cib:public/css/cib --style compressed --no-source-map",
-    "vite:dev": "vite",
-    "dev": "npm run sass:dev-build && npm-run-all --parallel vite:dev sass:watch",
-    "clean:maps": "rimraf --glob \"public/css/cib/*.map\"",
-    "clean:dist-scss": "rimraf --glob \"dist/css/cib/*.scss\"",
-    "build": "npm run clean:maps && npm run sass:build && vite build && npm run clean:dist-scss"
+    "dev": "gulp",
+    "build": "gulp build"
   },
   "devDependencies": {
-    "autoprefixer": "^10.5.0",
-    "glob": "^13.0.6",
-    "npm-run-all": "^4.1.5",
-    "rimraf": "^6.1.3",
-    "sass": "^1.100.0",
-    "vite": "^8.0.12",
-    "vite-plugin-html-inject": "^1.1.2",
-    "vite-plugin-mpa-plus": "^0.6.1"
-  }
+    "autoprefixer": "^10.4.19",
+    "browser-sync": "^3.0.2",
+    "del": "^8.0.1",
+    "gulp": "^5.0.0",
+    "gulp-file-include": "^2.3.0",
+    "gulp-postcss": "^10.0.0",
+    "gulp-sass": "^6.0.1",
+    "gulp-sourcemaps": "^3.0.0",
+    "postcss": "^8.4.38",
+    "sass": "^1.100.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
 }
