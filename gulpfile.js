@@ -27,13 +27,14 @@ function html() {
 function styles() {
     return gulp.src(['css/**/*.scss', 'cl/**/*.scss'], { base: '.' })
         .pipe(sourcemaps.init())
-        .pipe(sass({ outputStyle: 'expanded' }).on('error', sass.logError))
+        .pipe(sass({ outputStyle: 'expanded' }))
+        .on('error', function(err) {
+            console.error('❌ Sass 컴파일 에러 발생:\n', err.messageFormatted || err.message);
+            this.emit('end');
+        })
         .pipe(postcss([autoprefixer()]))
-        // 중요: write() 내부를 비워두면 .css.map 파일을 따로 만들지 않고, 
-        // 생성되는 .css 파일 가장 아랫줄에 소스맵 코드를 글자 형태로 심어버립니다(Inlined).
-        .pipe(sourcemaps.write()) 
-        // 절대 루트의 css 폴더에 .css를 뽑지 않고, 곧바로 dist 폴더로만 결과물을 보냅니다.
-        .pipe(gulp.dest('dist')) 
+        .pipe(sourcemaps.write())
+        .pipe(gulp.dest('dist'))
         .pipe(browserSync.stream());
 }
 
