@@ -92,6 +92,22 @@
             font-size: 13px;
         }
 
+		table th:hover {
+			background-color: #f5f5f5;
+		}
+		
+		table th.asc::after {
+			content: ' ▲';
+			font-size: 11px;
+			color: #333;
+		}
+		
+		table th.desc::after {
+			content: ' ▼';
+			font-size: 11px;
+			color: #333;
+		}
+
         table tbody td {
             padding: 7px 3px;
             background: #e5e5e5;
@@ -10241,6 +10257,51 @@
             })
             resultPercent = resultComplate === 0 ? 0 : resultComplate / resultTotal * 100
             $(`<p>전체 <span class="total-count">${resultTotal}</span>중 <span class="total-complate">${resultComplate}</span> 완료, <span class="percent">${Math.round(resultPercent)}%</span></p>`).appendTo('#total')
+
+			$('.cont > table th').css('cursor', 'pointer').on('click', function () {
+				const $th = $(this);
+				const $table = $th.closest('table');
+				const $tbody = $table.find('tbody');
+				const $rows = $tbody.find('tr').get(); // 정렬을 위해 순수 배열로 변환
+				const index = $th.index();
+				
+				// 현재 th에 'asc' 클래스가 있으면 내림차순, 없으면 오름차순으로 판단
+				const isAscending = !$th.hasClass('asc');
+
+				// 행 정렬 정렬 알고리즘
+				$rows.sort(function (rowA, rowB) {
+					const cellA = $(rowA).children('td').eq(index).text().trim();
+					const cellB = $(rowB).children('td').eq(index).text().trim();
+
+					if (cellA === cellB) return 0;
+
+					// 숫자 데이터 판별 (날짜 포함)
+					const numA = Number(cellA);
+					const numB = Number(cellB);
+
+					if (!isNaN(numA) && !isNaN(numB) && cellA !== '' && cellB !== '') {
+						return isAscending ? numA - numB : numB - numA;
+					} else {
+						// 문자열 정렬 (jQuery 1.8 환경을 고려한 안전한 비교)
+						return isAscending 
+							? cellA.localeCompare(cellB, undefined, { numeric: true, sensitivity: 'base' })
+							: cellB.localeCompare(cellA, undefined, { numeric: true, sensitivity: 'base' });
+					}
+				});
+
+				// 정렬 완료된 행들을 tbody에 다시 삽입
+				$.each($rows, function (i, row) {
+					$tbody.append(row);
+				});
+
+				// 다른 th들의 정렬 클래스 초기화 및 현재 th 클래스 부여
+				$th.siblings().removeClass('asc desc');
+				if (isAscending) {
+					$th.addClass('asc').removeClass('desc');
+				} else {
+					$th.addClass('desc').removeClass('asc');
+				}
+			});
         });
     </script>
 </body>
