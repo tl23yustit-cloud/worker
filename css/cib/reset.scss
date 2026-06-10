@@ -314,6 +314,7 @@
 	--colorFgHighlight: var(--colorOrange500);
 	--colorFgHighlightAccent: var(--colorOrange600);
 	--colorFgHighlightInvert: var(--colorOrange300);
+	--colorBgNone: transparent;
 	--colorBgBase: var(--colorWhite);
 	--colorBgSecondary: var(--colorGrayCool25);
 	--colorBgTertiary: var(--colorGrayCool50);
@@ -353,6 +354,7 @@
 	--colorBgHighlightHover: var(--colorYellow100);
 	--colorBgNeutralTint: var(--colorAlphaGray12);
 	--colorBgNeutralTintAccent: var(--colorAlphaGray16);
+	--colorBgNeutralTintHover: #E4E9EE;
 	--colorBgPrimaryTint: var(--colorBlue25);
 	--colorBgPrimaryTintAccent: var(--colorAlphaBlue16);
 	--colorBgErrorTint: var(--colorRed50);
@@ -639,6 +641,10 @@ video {
 button {
 	border: 0;
 	background: transparent;
+	cursor: pointer;
+	&:disabled {
+		cursor: default;
+	}
 }
 
 a {
@@ -656,7 +662,8 @@ table {
 }
 
 legend,
-caption {
+caption,
+.blind {
 	overflow: hidden;
 	position: absolute;
 	margin: -1px;
@@ -733,8 +740,6 @@ input[type=password],
 input[type=image],
 textarea,
 button {
-	border-radius: 0;
-	-webkit-border-radius: 0;
 	font-family: inherit;
 	-webkit-text-size-adjust: none;
 	appearance: none;
@@ -756,14 +761,19 @@ hr {
 
 /* placeholder */
 ::placeholder {
-	color: var(--colorGrayCool400);
-	opacity: var(--opacity100);
+	overflow:hidden;
+	color: var(--colorFgHint);
+	text-overflow:ellipsis;
 }
 
 :-ms-input-placeholder {
-	color: var(--colorGrayCool400);
+	overflow:hidden;
+	color: var(--colorFgHint);
+	text-overflow:ellipsis;
 }
 
 ::-ms-input-placeholder {
-	color: var(--colorGrayCool400);
+	overflow:hidden;
+	color: var(--colorFgHint);
+	text-overflow:ellipsis;
 }
