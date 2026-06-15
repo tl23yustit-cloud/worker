@@ -2,7 +2,7 @@ window.addEventListener('load', function () {
 	fnSelectColorChange(); // select 태그 class 추가
     fnBoxSearchDetail(); // 상세검색
 	fnBoxMultiSelect(); // 멀티 드롭다운
-	fnTextareaCounter()
+	fnTextareaCounter() // Textarea
 });
 // select 태그 class 추가
 function fnSelectColorChange(){
@@ -119,7 +119,6 @@ function fnBoxMultiSelect() {
         closeAllMultiSelects();
     });
 }
-// 전역 드롭다운 일괄 전역 폐쇄 및 aria-expanded/blind 텍스트 복원
 function closeAllMultiSelects() {
     const $activeTriggers = document.querySelectorAll('.box-multi-select .select.active');
     const $openComponents = document.querySelectorAll('.box-multi-select.is-open');
@@ -158,7 +157,7 @@ function updateAllCheckboxState($allCheck, $items) {
         $allCheck.setAttribute('aria-checked', 'mixed');
     }
 }
-
+// Textarea
 function fnTextareaCounter() {
     const $formTextAreas = document.querySelectorAll('.form-text-area');
 
