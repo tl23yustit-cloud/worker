@@ -3,6 +3,8 @@ window.addEventListener('load', function () {
     fnBoxSearchDetail(); // 상세검색
 	fnBoxMultiSelect(); // 멀티 드롭다운
 	fnTextareaCounter() // Textarea
+    var defaultTabIndex = 0
+    fnTab(0) // Tab
 });
 // select 태그 class 추가
 function fnSelectColorChange(){
@@ -176,5 +178,117 @@ function fnTextareaCounter() {
 
         $currentSpan.textContent = $textarea.value.length;
 		$totalSpan.textContent = numTotal;
+    });
+}
+// Tab
+function fnTab(initialActiveIndex){
+    var classTabWrapper = "box-tab";
+    var classTabButton = "btn-tab";
+    var classTabContent = "box-tab-content";
+    var classActiveState = "active";
+    var classDisabledState = "disabled";
+    var textDisabledGuide = "비활성화됨";
+
+    var $tabWrappers = document.querySelectorAll("." + classTabWrapper);
+    if ($tabWrappers.length === 0) return;
+
+    $tabWrappers.forEach(function ($container) {
+        var $currentButtons = Array.prototype.filter.call($container.querySelectorAll("." + classTabButton), function ($btn) {
+            return $btn.closest("." + classTabWrapper) === $container;
+        });
+        var $currentContents = Array.prototype.filter.call($container.querySelectorAll("." + classTabContent), function ($content) {
+            return $content.closest("." + classTabWrapper) === $container;
+        });
+
+        var $disabledButtons = $container.querySelectorAll("." + classDisabledState + " ." + classTabButton + ", ." + classTabButton + "." + classDisabledState);
+        $disabledButtons.forEach(function ($button) {
+            $button.setAttribute("title", textDisabledGuide);
+            $button.setAttribute("disabled", "true"); 
+        });
+
+        $currentButtons.forEach(function ($button) {
+            var isDisabled = $button.classList.contains(classDisabledState) || $button.hasAttribute("disabled");
+            var hasActive = $button.classList.contains(classActiveState);
+
+            if (hasActive) {
+                $button.setAttribute("aria-selected", "true");
+            } else {
+                $button.setAttribute("aria-selected", "false");
+            }
+        });
+
+        $currentContents.forEach(function ($content) {
+            var hasActive = $content.classList.contains(classActiveState);
+            if (hasActive) {
+                $content.style.display = "block";
+            } else {
+                $content.style.display = "none";
+            }
+        });
+    });
+
+    document.addEventListener("click", function (event) {
+        var $clickedButton = event.target.closest("." + classTabWrapper + " ." + classTabButton);
+        if (!$clickedButton) return;
+
+        var $menuWrap = $clickedButton.closest("." + classTabWrapper);
+        if (!$menuWrap) return;
+
+        var $scopeButtons = Array.prototype.filter.call($menuWrap.querySelectorAll("." + classTabButton), function ($btn) {
+            return $btn.closest("." + classTabWrapper) === $menuWrap;
+        });
+        var $scopeContents = Array.prototype.filter.call($menuWrap.querySelectorAll("." + classTabContent), function ($content) {
+            return $content.closest("." + classTabWrapper) === $menuWrap;
+        });
+
+        var targetActiveIndex = $scopeButtons.indexOf($clickedButton);
+
+        var isAlreadyActive = $clickedButton.classList.contains(classActiveState);
+        var isDisabledTab = $clickedButton.classList.contains(classDisabledState) || $clickedButton.hasAttribute("disabled");
+
+        if (!isAlreadyActive && !isDisabledTab) {
+            
+            $scopeButtons.forEach(function ($button, index) {
+                var isThisButtonDisabled = $button.classList.contains(classDisabledState) || $button.hasAttribute("disabled");
+                if (isThisButtonDisabled) return;
+
+                if (index === targetActiveIndex) {
+                    $button.classList.add(classActiveState);
+                    $button.setAttribute("aria-selected", "true");
+                } else {
+                    $button.classList.remove(classActiveState);
+                    $button.setAttribute("aria-selected", "false");
+                }
+            });
+
+            $scopeContents.forEach(function ($content, index) {
+                var $matchingButton = $scopeButtons[index];
+                var isMatchingButtonDisabled = $matchingButton ? ($matchingButton.classList.contains(classDisabledState) || $matchingButton.hasAttribute("disabled")) : false;
+                
+                if (isMatchingButtonDisabled) return;
+
+                if (index === targetActiveIndex) {
+                    $content.classList.add(classActiveState);
+                    $content.style.display = "block";
+                } else {
+                    $content.classList.remove(classActiveState);
+                    $content.style.display = "none";
+                }
+            });
+        }
+
+        var $forcedTargetLists1 = document.querySelectorAll("[id^='tabSingleList']");
+        if ($forcedTargetLists1.length > 0) {
+            $forcedTargetLists1.forEach(function ($targetItem) {
+                $targetItem.classList.add(classActiveState);
+            });
+        }
+
+        var $forcedTargetLists2 = document.querySelectorAll("[id^='tabSingleList2']");
+        if ($forcedTargetLists2.length > 0) {
+            $forcedTargetLists2.forEach(function ($targetItem) {
+                $targetItem.classList.add(classActiveState);
+            });
+        }
     });
 }
