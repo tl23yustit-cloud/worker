@@ -6,13 +6,12 @@
                 <a href="#">개인</a>
             </nav>
 
-            <div class="utility-menu">
-                <div class="user-info">
-                    <span class="user-name">로그인</span>
-                </div>
+            <div class="util-menu">
+                <!-- <a href="#" class="user-name">로그인</a> -->
+                <a href="#" class="user-name">김수협님</a>
                 <a href="#" class="util-link">인증센터</a>
-                <a href="#" class="util-link">전체서비스</a>
-                <a href="#" class="util-link">Global</a>
+                <button class="btn-select">전체서비스</button>
+                <button class="btn-select">GLOBAL</button>
             </div>
         </div>
     </div>
@@ -46,3 +45,16 @@
         </div>
     </div>
 </header>
+
+<!-- 화살표 반전 임시 스크립트 (test) -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const selectButtons = document.querySelectorAll(".util-menu .btn-select");
+
+            selectButtons.forEach(function (button) {
+                button.addEventListener("click", function () {
+                    this.classList.toggle("active");
+                });
+            });
+        });
+    </script>
