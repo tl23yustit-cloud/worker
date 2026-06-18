@@ -1,11 +1,27 @@
 window.addEventListener('load', function () {
+    fnBtnAnchor() // Anchor
 	fnSelectColorChange(); // select 태그 class 추가
     fnBoxSearchDetail(); // 상세검색
 	fnBoxMultiSelect(); // 멀티 드롭다운
 	fnTextareaCounter() // Textarea
     var defaultTabIndex = 0
     fnTab(0) // Tab
+    fnBoxTooltip(); // Tooltip
 });
+// Anchor
+function fnBtnAnchor(){
+    const $BtnsAnchor = document.querySelectorAll('.btn-anchor');
+    $BtnsAnchor.forEach(function($btnAnchor){
+        $btnAnchor.addEventListener('click', function () {
+            console.log(this.classList)
+			if (!this.classList.contains("active")) {
+				this.classList.add('active');
+			} else {
+				this.classList.remove('active');
+            }
+        });
+    });
+}
 // select 태그 class 추가
 function fnSelectColorChange(){
 	const $selects = document.querySelectorAll('.select');
@@ -291,4 +307,65 @@ function fnTab(initialActiveIndex){
             });
         }
     });
+}
+// Tooltip
+function fnBoxTooltip(){
+    var classTooltipContainer = "box-tooltip";
+    var classTriggerButton = "btn";
+    var classActiveState = "active";
+
+    var $tooltipWrappers = document.querySelectorAll("." + classTooltipContainer);
+    if ($tooltipWrappers.length === 0) return;
+
+    $tooltipWrappers.forEach(function ($wrapper) {
+        var $button = $wrapper.querySelector("." + classTriggerButton);
+        if (!$button) return;
+
+        var tooltipTargetId = $button.getAttribute("aria-describedby");
+        if (!tooltipTargetId) return;
+
+        var $layer = document.getElementById(tooltipTargetId);
+        if (!$layer) return;
+
+        $button.addEventListener("click", function (event) {
+            event.stopPropagation(); 
+
+            var isCurrentlyActive = this.classList.contains(classActiveState);
+
+            fnCloseAllClickTooltips();
+
+            if (!isCurrentlyActive) {
+                this.classList.add(classActiveState);
+                $layer.setAttribute("aria-hidden", "false");
+            }
+        });
+
+        $layer.addEventListener("click", function (event) {
+            event.stopPropagation();
+        });
+    });
+
+    document.addEventListener("click", function () {
+        fnCloseAllClickTooltips();
+    });
+
+    document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape" || event.key === "Esc") {
+            fnCloseAllClickTooltips();
+        }
+    });
+
+    function fnCloseAllClickTooltips() {
+        var $activeButtons = document.querySelectorAll("." + classTooltipContainer + " ." + classTriggerButton + "." + classActiveState);
+        
+        $activeButtons.forEach(function ($activeBtn) {
+            $activeBtn.classList.remove(classActiveState);
+            
+            var targetId = $activeBtn.getAttribute("aria-describedby");
+            if (targetId) {
+                var $targetLayer = document.getElementById(targetId);
+                if ($targetLayer) $targetLayer.setAttribute("aria-hidden", "true");
+            }
+        });
+    }
 }
