@@ -638,6 +638,10 @@
 	box-sizing: border-box;
 }
 
+html {
+	scrollbar-color: var(--colorBgScroll);
+}
+
 picture,
 video {
 	display: block;
@@ -763,6 +767,34 @@ select {
 hr {
 	display: none
 }
+
+/* scrollbar */
+::-webkit-scrollbar {
+    width: var(--sizeBase4Xs);
+    height: var(--sizeBase4Xs);
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent; 
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: var(--radiusLg);
+    background-color: var(--colorBgScroll); 
+
+    &:hover {
+        background-color: var(--colorBgScrollHover);
+    }
+
+	&:active {
+        background-color: var(--colorBgScrollFocus);
+    }
+
+	&:disabled {
+		background-color: var(--colorBgScrolDisabled);
+	}
+}
+
 
 /* placeholder */
 ::placeholder {

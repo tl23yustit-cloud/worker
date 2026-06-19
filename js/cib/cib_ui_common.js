@@ -1,13 +1,70 @@
 window.addEventListener('load', function () {
-    fnBtnAnchor() // Anchor
+    fnBoxAccordion(); // Accordion
+    fnBtnAnchor(); // Anchor
 	fnSelectColorChange(); // select 태그 class 추가
     fnBoxSearchDetail(); // 상세검색
 	fnBoxMultiSelect(); // 멀티 드롭다운
-	fnTextareaCounter() // Textarea
+	fnTextareaCounter(); // Textarea
     var defaultTabIndex = 0
-    fnTab(0) // Tab
+    fnTab(0); // Tab
     fnBoxTooltip(); // Tooltip
 });
+// Accordion
+function fnBoxAccordion() {
+    var CONFIG = {
+        WRAPPER: "box-accordion",
+        TRIGGER: "btn-accordion",
+        OPEN_CLASS: "is-open",
+        BLIND_CLASS: "blind",
+        TEXT_OPEN: "상세내용 열기",
+        TEXT_CLOSE: "상세내용 닫기"
+    };
+
+    var $accordions = document.querySelectorAll("." + CONFIG.WRAPPER);
+    if ($accordions.length === 0) return;
+
+    $accordions.forEach(function ($container) {
+        var $button = $container.querySelector("." + CONFIG.TRIGGER);
+        if (!$button) return;
+
+        var $blindTextSpan = $button.querySelector("." + CONFIG.BLIND_CLASS);
+        var isOpen = $container.classList.contains(CONFIG.OPEN_CLASS);
+
+        $button.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        if ($blindTextSpan) {
+            $blindTextSpan.textContent = isOpen ? CONFIG.TEXT_CLOSE : CONFIG.TEXT_OPEN;
+        }
+    });
+
+    document.addEventListener("click", function (event) {
+        var $clickedButton = event.target.closest("." + CONFIG.WRAPPER + " ." + CONFIG.TRIGGER);
+        if (!$clickedButton) return;
+
+        var $currentContainer = $clickedButton.closest("." + CONFIG.WRAPPER);
+        if (!$currentContainer) return;
+
+        var $blindTextSpan = $clickedButton.querySelector("." + CONFIG.BLIND_CLASS);
+        
+        var isAlreadyOpen = $currentContainer.classList.contains(CONFIG.OPEN_CLASS);
+
+        if (isAlreadyOpen) {
+            $currentContainer.classList.remove(CONFIG.OPEN_CLASS);
+            $clickedButton.setAttribute("aria-expanded", "false"); 
+            
+            if ($blindTextSpan) {
+                $blindTextSpan.textContent = CONFIG.TEXT_OPEN; 
+            }
+        } else {
+            $currentContainer.classList.add(CONFIG.OPEN_CLASS);
+            $clickedButton.setAttribute("aria-expanded", "true");  
+            
+            if ($blindTextSpan) {
+                $blindTextSpan.textContent = CONFIG.TEXT_CLOSE; 
+            }
+        }
+    });
+}
+
 // Anchor
 function fnBtnAnchor(){
     const $BtnsAnchor = document.querySelectorAll('.btn-anchor');
