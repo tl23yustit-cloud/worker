@@ -7879,20 +7879,87 @@
 <!-- guide page -->
 <script>
 window.addEventListener('load', function () {
-	fnShortcutBtn();
+	fnInitGuideScrollSpy();
 	fnCodeCopy();
 });
-function fnShortcutBtn (){
-	const $shortcutButtons = document.querySelectorAll('.prototype-shortcut-box .group-btn a');
+function fnInitGuideScrollSpy() {
+    var classShortcutBox = "prototype-shortcut-box";
+    var classActiveState = "on"; // 가이드 페이지 규칙에 맞춘 클래스명
 
-	$shortcutButtons.forEach(function ($btn) {
-		$btn.addEventListener('click', function () {
-			$shortcutButtons.forEach(function ($item) {
-				$item.classList.remove('on');
-			});
-			this.classList.add('on');
-		});
-	});
+    var $shortcutBox = document.querySelector("." + classShortcutBox);
+    if (!$shortcutBox) return;
+
+    var $shortcutButtons = $shortcutBox.querySelectorAll(".group-btn a");
+    if ($shortcutButtons.length === 0) return;
+
+    var contentSections = [];
+    $shortcutButtons.forEach(function ($btn) {
+        var targetId = $btn.getAttribute("href");
+        if (targetId && targetId.startsWith("#")) {
+            var $targetElement = document.getElementById(targetId.substring(1));
+            if ($targetElement) {
+                contentSections.push({
+                    $btn: $btn,
+                    $element: $targetElement
+                });
+            }
+        }
+    });
+
+    function updateActiveShortcut() {
+        var scrollBuffer = 140; 
+        var currentScrollTop = window.scrollY || window.pageYOffset;
+        var $activeBtn = null;
+
+        for (var i = 0; i < contentSections.length; i++) {
+            var section = contentSections[i];
+            var sectionTop = section.$element.offsetTop;
+
+            if (currentScrollTop >= sectionTop - scrollBuffer) {
+                $activeBtn = section.$btn;
+            } else {
+                break;
+            }
+        }
+
+        if (!$activeBtn && contentSections.length > 0) {
+            $activeBtn = contentSections[0].$btn;
+        }
+
+        contentSections.forEach(function (section) {
+            if (section.$btn === $activeBtn) {
+                if (!section.$btn.classList.contains(classActiveState)) {
+                    section.$btn.classList.add(classActiveState);
+                }
+            } else {
+                if (section.$btn.classList.contains(classActiveState)) {
+                    section.$btn.classList.remove(classActiveState);
+                }
+            }
+        });
+    }
+
+    var isTicking = false;
+    window.addEventListener("scroll", function () {
+        if (!isTicking) {
+            window.requestAnimationFrame(function () {
+                updateActiveShortcut();
+                isTicking = false;
+            });
+            isTicking = true;
+        }
+    }, { passive: true });
+
+    updateActiveShortcut();
+
+    $shortcutButtons.forEach(function ($btn) {
+        $btn.addEventListener("click", function () {
+            $shortcutButtons.forEach(function ($item) {
+                $item.classList.remove(classActiveState);
+            });
+            this.classList.add(classActiveState);
+        });
+    });
 }
 function fnCodeCopy (){
 	const $codes = document.querySelectorAll(".prototype-code-box textarea");
