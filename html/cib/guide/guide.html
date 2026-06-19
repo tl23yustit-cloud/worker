@@ -33,6 +33,7 @@
 							<a href="#contentButtonForm">Button Form</a>
 							<a href="#contentChip">Chip</a>
 							<a href="#contentLink">Link</a>
+							<a href="#contentListItem">List Item</a>
 							<a href="#contentSearch">Search</a>
 							<a href="#contentSelectBox">Select</a>
 							<a href="#contentSteps">Steps</a>
@@ -3028,8 +3029,8 @@
 								<h3 class="prototype-group-title02">Basic</h3>
 								<div class="prototype-view">
 									<div class="box-accordion">
-										<div class="visual-accordion">
-											<div class="title-accordion">
+										<div class="box-item-list">
+											<div class="box-title">
 												<span class="badge-light size-md type-neutral">
 													<span class="blind">$상태 이름$ : </span>
 													<span class="text">$Badge$</span>
@@ -3059,8 +3060,65 @@
 									<div class="prototype-code-box">
 										<textarea readonly>
 <div class="box-accordion">
-	<div class="visual-accordion">
-		<div class="title-accordion">
+	<div class="box-item-list">
+		<div class="box-title">
+			<span class="badge-light size-md type-neutral">
+				<span class="blind">$상태 이름$ : </span>
+				<span class="text">$Badge$</span>
+			</span>
+			<span class="marks typeLgMedium">mark.</span>
+			<span class="title typeLg">Accordion Title</span>
+		</div>
+		<button type="button" class="btn-accordion" aria-expanded="false" aria-controls="accordionContent01">
+			<i class="ico-arrow" aria-hidden="true"></i>
+			<span class="blind">상세내용 열기</span>
+		</button>
+	</div>
+	<div id="accordionContent01" class="content-accordion">
+		$Accordion Content$
+	</div>
+</div>
+										</textarea>
+									</div>
+								</div>
+							</div>
+							<div class="prototype-group-sub">
+								<h3 class="prototype-group-title02">line</h3>
+								<div class="prototype-view">
+									<div class="box-accordion line">
+										<div class="box-item-list">
+											<div class="box-title">
+												<span class="badge-light size-md type-neutral">
+													<span class="blind">$상태 이름$ : </span>
+													<span class="text">$Badge$</span>
+												</span>
+												<span class="marks typeLgMedium">mark.</span>
+												<span class="title typeLg">Accordion Title</span>
+											</div>
+											<button type="button" class="btn-accordion" aria-expanded="false" aria-controls="accordionContent01">
+												<i class="ico-arrow" aria-hidden="true"></i>
+												<span class="blind">상세내용 열기</span>
+											</button>
+										</div>
+										<div id="accordionContent01" class="content-accordion">
+											$Accordion Content$
+										</div>
+									</div>
+								</div>
+								<div class="prototype-code">
+									<div class="options">
+										<button type="button" class="btn-copy">
+											<span>copy</span>
+										</button>
+										<div class="toast-copy">
+											<span>copied!</span>
+										</div>
+									</div>
+									<div class="prototype-code-box">
+										<textarea readonly>
+<div class="box-accordion line">
+	<div class="box-item-list">
+		<div class="box-title">
 			<span class="badge-light size-md type-neutral">
 				<span class="blind">$상태 이름$ : </span>
 				<span class="text">$Badge$</span>
@@ -5610,6 +5668,7 @@
 									</div>
 									<div class="prototype-code-box">
 										<textarea readonly>
+<!-- [dev] - click 시 class="active" 추가 -->
 <button type="button" class="chip-toggle">
 	<span class="text">Label</span>
 </button>							
@@ -5627,11 +5686,11 @@
 										<table class="prototype-table">
 											<caption>Default, Disabled로 구분한 Link의 설명표</caption>
 											<colgroup>
-												<col>
-												<col>
-												<col>
-												<col>
-												<col>
+												<col style="width: 20%;">
+												<col style="width: 20%;">
+												<col style="width: 20%;">
+												<col style="width: 20%;">
+												<col style="width: 20%;">
 											</colgroup>
 											<thead>
 												<tr>
@@ -5658,7 +5717,7 @@
 													<td><a href="javascript:;" class="btn-link size-sm type-neutral disabled"><span class="text">Link Label</span></a></td>
 												</tr>
 												<tr>
-													<th scope="row">Medium</th>
+													<th scope="row">Medium (Default)</th>
 													<td><a href="javascript:;" class="btn-link"><span class="text">Link Label</span></a></td>
 													<td><a href="javascript:;" class="btn-link type-neutral"><span class="text">Link Label</span></a></td>
 													<td><a href="javascript:;" class="btn-link disabled"><span class="text">Link Label</span></a></td>
@@ -5675,6 +5734,9 @@
 										</table>
 									</div>
 								</div>
+								<p class="prototype-code-description">
+
+								</p>
 								<div class="prototype-code">
 									<div class="options">
 										<button type="button" class="btn-copy">
@@ -5685,7 +5747,60 @@
 										</div>
 									</div>
 									<div class="prototype-code-box">
-										<textarea readonly></textarea>
+										<textarea readonly>
+<a href="javascript:;" class="btn-link"><span class="text">Link Label</span></a>											
+										</textarea>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- List Item -->
+						<div class="prototype-group">
+							<h2 class="prototype-group-title01" id="contentListItem">List Item</h2>
+							<div class="prototype-group-sub">
+								<h3 class="prototype-group-title02">Type01</h3>
+								<div class="prototype-view">
+									<div class="box-item-list">
+										<div class="box-title">
+											<span class="badge-light size-md type-neutral">
+												<span class="blind">$상태 이름$ : </span>
+												<span class="text">$Badge$</span>
+											</span>
+											<span class="marks typeLgMedium">mark.</span>
+											<span class="title typeLg">Accordion Title</span>
+										</div>
+										<button type="button" class="btn-accordion" aria-expanded="false" aria-controls="accordionContent01">
+											<i class="ico-arrow" aria-hidden="true"></i>
+											<span class="blind">상세내용 열기</span>
+										</button>
+									</div>
+								</div>
+								<div class="prototype-code">
+									<div class="options">
+										<button type="button" class="btn-copy">
+											<span>copy</span>
+										</button>
+										<div class="toast-copy">
+											<span>copied!</span>
+										</div>
+									</div>
+									<div class="prototype-code-box">
+										<textarea readonly>
+<div class="box-item-list">
+	<div class="box-title">
+		<span class="badge-light size-md type-neutral">
+			<span class="blind">$상태 이름$ : </span>
+			<span class="text">$Badge$</span>
+		</span>
+		<span class="marks typeLgMedium">mark.</span>
+		<span class="title typeLg">Accordion Title</span>
+	</div>
+	<button type="button" class="btn-accordion" aria-expanded="false" aria-controls="accordionContent01">
+		<i class="ico-arrow" aria-hidden="true"></i>
+		<span class="blind">상세내용 열기</span>
+	</button>
+</div>											
+										</textarea>
 									</div>
 								</div>
 							</div>
@@ -7327,6 +7442,48 @@
 										<textarea readonly><!-- [dev] input 내용이 invalid 또는 에러인 경우 class="is-error" 추가 또는 attribute로 required 추가 -->
 <input type="password" class="input" placeholder="Hint Text" title="">
 										</textarea>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- Table -->
+						<div class="prototype-group">
+							<h2 class="prototype-group-title01" id="">Table</h2>
+							<div class="prototype-group-sub">
+								<h3 class="prototype-group-title02">기본</h3>
+								<div class="prototype-view">
+
+								</div>
+								<div class="prototype-code">
+									<div class="options">
+										<button type="button" class="btn-copy">
+											<span>copy</span>
+										</button>
+										<div class="toast-copy">
+											<span>copied!</span>
+										</div>
+									</div>
+									<div class="prototype-code-box">
+										<textarea readonly></textarea>
+									</div>
+								</div>
+							</div>
+							<div class="prototype-group-sub">
+								<h3 class="prototype-group-title02">Form Table</h3>
+								<div class="prototype-view">
+
+								</div>
+								<div class="prototype-code">
+									<div class="options">
+										<button type="button" class="btn-copy">
+											<span>copy</span>
+										</button>
+										<div class="toast-copy">
+											<span>copied!</span>
+										</div>
+									</div>
+									<div class="prototype-code-box">
+										<textarea readonly></textarea>
 									</div>
 								</div>
 							</div>
