@@ -370,6 +370,7 @@ function fnBoxTooltip(){
     var classTooltipContainer = "box-tooltip";
     var classTriggerButton = "btn";
     var classActiveState = "active";
+    var classButtonClose = "btn-close";
 
     var $tooltipWrappers = document.querySelectorAll("." + classTooltipContainer);
     if ($tooltipWrappers.length === 0) return;
@@ -383,6 +384,9 @@ function fnBoxTooltip(){
 
         var $layer = document.getElementById(tooltipTargetId);
         if (!$layer) return;
+
+        var $buttonClose = $wrapper.querySelector("." + classButtonClose);
+        if (!$buttonClose) return
 
         $button.addEventListener("click", function (event) {
             event.stopPropagation(); 
@@ -399,6 +403,10 @@ function fnBoxTooltip(){
 
         $layer.addEventListener("click", function (event) {
             event.stopPropagation();
+        });
+
+        $buttonClose.addEventListener("click", function () {
+            fnCloseAllClickTooltips();
         });
     });
 
