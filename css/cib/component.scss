@@ -2646,3 +2646,60 @@
 		}
 	}
 }
+
+.pagination {
+	display: inline-flex;
+	gap :var(--spacingXs);
+	align-items: center;
+	justify-content: center;
+
+	&.size-sm{
+	font-size: var(--contentFontSizeSm);
+	.pagination-item{
+		width: var(--sizeBaseXsSm);
+		height:var(--sizeBaseXsSm);
+	 }
+	}
+	&.size-md{
+	font-size: var(--contentFontSizeMd);
+	.pagination-item{
+		width: var(--sizeBaseSmMd);
+		height:var(--sizeBaseSmMd);
+	 }
+	}
+
+	&-item {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		color: var(--colorGray700);
+    	cursor: pointer;
+		&.icon{
+			width: var(--sizeIconSm);
+			height: var(--sizeIconSm);
+			fill: var(--colorGray700);
+			svg{
+				fill: currentColor;
+			}
+		}
+		&.active {
+			background-color: var(--colorBlue50);
+			color: var(--colorBlue500);
+			border-radius: 50%;
+		}
+		&.disabled {
+			color:var(--colorGray300);
+			 cursor: not-allowed;
+		}
+  }
+  &.disabled {
+	.pagination-item {
+	  color: var(--colorGray300);
+	  cursor: not-allowed;
+	  &.active{
+		color:var(--colorGrayCool200);
+		background-color: var(--colorGray100);
+	  }
+	}
+  }
+}
