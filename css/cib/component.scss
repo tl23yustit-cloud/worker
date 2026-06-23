@@ -2647,59 +2647,59 @@
 	}
 }
 
+
 .pagination {
-	display: inline-flex;
-	gap :var(--spacingXs);
-	align-items: center;
-	justify-content: center;
+  display: inline-flex;
+  gap: var(--spacingXs);
+  align-items: center;
+  justify-content: center;
 
-	&.size-sm{
-	font-size: var(--contentFontSizeSm);
-	.pagination-item{
-		width: var(--sizeBaseXsSm);
-		height:var(--sizeBaseXsSm);
-	 }
-	}
-	&.size-md{
-	font-size: var(--contentFontSizeMd);
-	.pagination-item{
-		width: var(--sizeBaseSmMd);
-		height:var(--sizeBaseSmMd);
-	 }
-	}
+  &.size-sm { font-size: var(--contentFontSizeSm); --btn-size: var(--sizeBaseSm); }
+  &.size-md { font-size: var(--contentFontSizeMd); --btn-size: var(--sizeBaseMd); }
 
-	&-item {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		color: var(--colorGray700);
-    	cursor: pointer;
-		&.icon{
-			width: var(--sizeIconSm);
-			height: var(--sizeIconSm);
-			fill: var(--colorGray700);
-			svg{
-				fill: currentColor;
-			}
-		}
-		&.active {
-			background-color: var(--colorBlue50);
-			color: var(--colorBlue500);
-			border-radius: 50%;
-		}
-		&.disabled {
-			color:var(--colorGray300);
-			 cursor: not-allowed;
-		}
+  .pagination-list {
+    display: flex; gap: var(--spacingXs); list-style: none; padding: 0; margin: 0;
+    
+    .btn-page {
+      width: var(--btn-size); height: var(--btn-size);
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 50%; border: none; background: transparent;
+      color: var(--colorGray700); cursor: pointer;
+      
+      &.active, &[aria-current="page"] {
+        background-color: var(--colorBlue50); 
+        color: var(--colorBlue500); 
+        font-weight: 600;
+        /* 필요하다면 여기에 transform: scale(1.1); 추가 */
+      }
+
+      &:disabled {
+        cursor: not-allowed;
+        background-color: var(--colorGray100);
+        color: var(--colorGrayCool200);
+      }
+    }
   }
-  &.disabled {
-	.pagination-item {
-	  color: var(--colorGray300);
-	  cursor: not-allowed;
-	  &.active{
-		color:var(--colorGrayCool200);
-		background-color: var(--colorGray100);
-	  }
-	}
+
+  .btn-nav {
+    width: var(--btn-size); height: var(--btn-size);
+    border: none; background-color: transparent;
+    background-repeat: no-repeat; 
+    background-position: center;
+    background-size: contain; 
+    cursor: pointer;
+
+    &.first { background-image: url("../../images/components/ico_chevron-left-double_on_x3.png"); }
+    &.prev  { background-image: url("../../images/components/ico_chevron-left_on_x3.png"); } 
+    &.next  { background-image: url("../../images/components/ico_chevron-right_on_x3.png"); }
+    &.last  { background-image: url("../../images/components/ico_chevron-right-double_on_x3.png"); }
+
+    &:disabled {
+      cursor: not-allowed;
+      &.first { background-image: url("../../images/components/ico_chevron-left-double_disable_x3.png"); }
+      &.prev  { background-image: url("../../images/components/ico_chevron-left_disable_x3.png"); }
+      &.next  { background-image: url("../../images/components/ico_chevron-right_disable_x3.png"); }
+      &.last  { background-image: url("../../images/components/ico_chevron-right-double_disable_x3.png"); } 
+    }
   }
 }
