@@ -375,6 +375,117 @@
 				-webkit-text-fill-color: transparent;
 			}
 		}
+
+		&.type-line-rounded{
+		&-primary {
+			border-radius: var(--radiusFull);
+			border: var(--borderWidthUnit1) solid var(--colorBorderPrimary);
+			color: var(--colorFgPrimary);
+	
+			&:hover {
+				background-color: var(--colorBgPrimaryHover);
+				border-color: var(--colorBorderPrimaryHover);
+			}
+			&:active {
+				background-color: var(--colorBgPrimaryAccent);
+				border-color:	var(--colorBorderPrimaryAccent);
+			}
+			&:disabled {
+				color: var(--colorFgPrimaryDisabled);
+				border-color: var(--colorBorderPrimaryDisabled);
+				background-color: var(--colorBgBase);
+			}
+		}
+		&-secondary {
+			border-radius: var(--radiusFull);
+			border: var(--borderWidthUnit1) solid var(--colorBorderBase);
+			color: var(--colorFgNeutral);
+			background-color: var(--colorBgBase);
+			&:hover {
+				border-color: var(--colorBorderHover);
+				background-color: var(--colorBgHover);
+			}
+			&:active {
+				border-color: var(--colorBorderHover);
+				background-color: var(--colorBgAccent);
+			}
+			&:disabled {
+				color: var(--colorFgNeutralDisabled);
+				border-color: var(--colorBorderDisabled);
+				background-color: var(--colorBgBase);
+			}
+		}
+		
+		&-error {
+			border-radius: var(--radiusFull);
+			border: var(--borderWidthUnit1) solid var(--colorBorderError);
+			color: var(--colorFgError);
+			background-color: var(--colorBgBase);
+			&:hover {
+				border-color: var(--colorBorderErrorHover);
+				background-color: var(--colorBgErrorTint);
+			}
+			&:active {
+				border-color: var(--colorBorderErrorHover);
+				background-color: var(--colorBgErrorTintAccent);
+			}
+			&:disabled {
+				color: var(--colorFgErrorDisabled);
+				border-color: var(--colorBorderErrorDisabled);
+				background-color: var(--colorBgBase);
+			}
+		}
+	}
+
+	&.type-bg-rounded{
+		&-primary {
+			border-radius: var(--radiusFull);
+			color: var(--colorFgLightSolid);
+			background-color: var(--colorBgPrimary);
+			&:hover {
+				background-color: var(--colorBgPrimaryDarkHover);
+			}
+			&:active {
+				background-color: var(--colorBgPrimaryDarkAccent);
+			}
+			&:disabled {
+				background-color: var(--colorBgPrimaryDisabled);
+			}
+		}
+		&-neutral-tint {
+			border-radius: var(--radiusFull);
+			color: var(--colorFgNeutral);
+			background-color: var(--colorBgSecondary);
+			&:hover {
+				background-color: var(--colorBgNeutralTintAccent);
+				color: var(--colorFgNeutralHover);
+			}
+			&:active {
+				background-color: var(--colorBgAccent);
+				color: var(--colorFgNeutralAccent);
+			}
+			&:disabled {
+				background-color: var(--colorBgNeutralTint);
+				color: var(--colorFgNeutralDisabled);
+			}
+		}
+		
+		&-neutral {
+			border-radius: var(--radiusFull);
+			color: var(--colorFgLightSolid);
+			background-color: var(--colorBgNeutral);
+			&:hover {
+				background-color: var(--colorBgNeutralHover);
+			}
+			&:active {
+				background-color: var(--colorBgNeutralAccent);
+			}
+			&:disabled {
+				background-color: var(--colorBgNeutralDisabled);
+				color: var(--colorFgLightSolid);
+			}
+		}
+	}
 	}
 
 	&-dot {
@@ -730,11 +841,13 @@
 	gap: var(--spacingXs);
 	border-color: transparent;
 	border-radius: var(--radiusSm);
+	
 	.loading {
 		display:inline-flex;
 		align-items:center;
 		justify-content:center;
 	}
+	
 	.ico-loading {
 		display:inline-block;
 		width: var(--sizeIconSmMd);
@@ -983,6 +1096,117 @@
 			&:disabled {
 				color: var(--colorBgErrorDisabled);
 				background-color: var(--colorBgNone);
+			}
+		}
+	}
+
+	&.type-line-rounded {
+		&-primary {
+			border-radius: var(--radiusFull);
+			border: var(--borderWidthUnit1) solid var(--colorBorderPrimary);
+			color: var(--colorFgPrimary);
+	
+			&:hover {
+				background-color: var(--colorBgPrimaryHover);
+				border-color: var(--colorBorderPrimaryHover);
+			}
+			&:active {
+				background-color: var(--colorBgPrimaryAccent);
+				border-color:	var(--colorBorderPrimaryAccent);
+			}
+			&:disabled {
+				color: var(--colorFgPrimaryDisabled);
+				border-color: var(--colorBorderPrimaryDisabled);
+				background-color: var(--colorBgBase);
+			}
+		}
+		&-secondary {
+			border-radius: var(--radiusFull);
+			border: var(--borderWidthUnit1) solid var(--colorBorderBase);
+			color: var(--colorFgNeutral);
+			background-color: var(--colorBgBase);
+			&:hover {
+				border-color: var(--colorBorderHover);
+				background-color: var(--colorBgHover);
+			}
+			&:active {
+				border-color: var(--colorBorderHover);
+				background-color: var(--colorBgAccent);
+			}
+			&:disabled {
+				color: var(--colorFgNeutralDisabled);
+				border-color: var(--colorBorderDisabled);
+				background-color: var(--colorBgBase);
+			}
+		}
+		
+		&-error {
+			border-radius: var(--radiusFull);
+			border: var(--borderWidthUnit1) solid var(--colorBorderError);
+			color: var(--colorFgError);
+			background-color: var(--colorBgBase);
+			&:hover {
+				border-color: var(--colorBorderErrorHover);
+				background-color: var(--colorBgErrorTint);
+			}
+			&:active {
+				border-color: var(--colorBorderErrorHover);
+				background-color: var(--colorBgErrorTintAccent);
+			}
+			&:disabled {
+				color: var(--colorFgErrorDisabled);
+				border-color: var(--colorBorderErrorDisabled);
+				background-color: var(--colorBgBase);
+			}
+		}
+	}
+
+	&.type-bg-rounded {
+		&-primary {
+			border-radius: var(--radiusFull);
+			color: var(--colorFgLightSolid);
+			background-color: var(--colorBgPrimary);
+			&:hover {
+				background-color: var(--colorBgPrimaryDarkHover);
+			}
+			&:active {
+				background-color: var(--colorBgPrimaryDarkAccent);
+			}
+			&:disabled {
+				background-color: var(--colorBgPrimaryDisabled);
+			}
+		}
+		&-neutral-tint {
+			border-radius: var(--radiusFull);
+			color: var(--colorFgNeutral);
+			background-color: var(--colorBgSecondary);
+			&:hover {
+				background-color: var(--colorBgNeutralTintAccent);
+				color: var(--colorFgNeutralHover);
+			}
+			&:active {
+				background-color: var(--colorBgAccent);
+				color: var(--colorFgNeutralAccent);
+			}
+			&:disabled {
+				background-color: var(--colorBgNeutralTint);
+				color: var(--colorFgNeutralDisabled);
+			}
+		}
+		
+		&-neutral {
+			border-radius: var(--radiusFull);
+			color: var(--colorFgLightSolid);
+			background-color: var(--colorBgNeutral);
+			&:hover {
+				background-color: var(--colorBgNeutralHover);
+			}
+			&:active {
+				background-color: var(--colorBgNeutralAccent);
+			}
+			&:disabled {
+				background-color: var(--colorBgNeutralDisabled);
+				color: var(--colorFgLightSolid);
 			}
 		}
 	}
