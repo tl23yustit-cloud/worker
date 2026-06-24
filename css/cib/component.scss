@@ -177,6 +177,29 @@
 	}
 }
 
+/* Skip Navigation*/
+.skip-nav {
+	.btn-skip-nav {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: fixed;
+		top: calc(var(--sizeBaseLg) * -1);
+		left: 0;
+		z-index: -1;
+		width: 100%;
+		height: var(--sizeBaseLg);
+		color: var(--colorFgBaseInvert);
+		text-align: center;
+		background-color: var(--colorBgPrimary);
+		
+		&.is-open {
+			top: 0;
+			z-index: 2001;
+		}
+	}
+}
+
 /* Accordion */
 .box-accordion	{
 	position: relative;
@@ -721,7 +744,7 @@
 		animation: loadingSpinner .8s linear infinite;
 	}
 
-	& > .text {
+	& .text {
 		font-size: var(--contentFontSizeSm);
 		font-weight: var(--fontWeightSemibold);
 		line-height: var(--contentLineHeightSm);
@@ -732,9 +755,14 @@
 			padding: 0 var(--spacingSm); 
 			min-width: calc(var(--sizeBase3Xl) - var(--sizeBase4Xs));
 			min-height: var(--sizeBaseSmMd);
+
 			.ico-loading {
 				width: var(--sizeIconSm);
 				height: var(--sizeIconSm);
+			}
+
+			.text {
+				font-weight: var(--fontWeightRegular);
 			}
 		}
 
