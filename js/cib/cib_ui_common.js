@@ -45,7 +45,6 @@ function fnBoxAccordion() {
 		var $blindTextSpan = $button.querySelector("." + CONFIG.BLIND_CLASS);
 		var isOpen = $container.classList.contains(CONFIG.OPEN_CLASS);
 
-		$button.setAttribute("aria-expanded", isOpen ? "true" : "false");
 		if ($blindTextSpan) {
 			$blindTextSpan.textContent = isOpen ? CONFIG.TEXT_CLOSE : CONFIG.TEXT_OPEN;
 		}
@@ -64,14 +63,12 @@ function fnBoxAccordion() {
 
 		if (isAlreadyOpen) {
 			$currentContainer.classList.remove(CONFIG.OPEN_CLASS);
-			$clickedButton.setAttribute("aria-expanded", "false"); 
 			
 			if ($blindTextSpan) {
 				$blindTextSpan.textContent = CONFIG.TEXT_OPEN; 
 			}
 		} else {
 			$currentContainer.classList.add(CONFIG.OPEN_CLASS);
-			$clickedButton.setAttribute("aria-expanded", "true");  
 			
 			if ($blindTextSpan) {
 				$blindTextSpan.textContent = CONFIG.TEXT_CLOSE; 
@@ -79,17 +76,17 @@ function fnBoxAccordion() {
 		}
 	});
 }
-
 // Anchor
 function fnBtnAnchor(){
 	const $BtnsAnchor = document.querySelectorAll('.btn-anchor');
 	$BtnsAnchor.forEach(function($btnAnchor){
 		$btnAnchor.addEventListener('click', function () {
-			console.log(this.classList)
 			if (!this.classList.contains("active")) {
 				this.classList.add('active');
+				this.setAttribute('title', '선택됨');
 			} else {
 				this.classList.remove('active');
+				this.removeAttribute("title");
 			}
 		});
 	});
@@ -117,17 +114,13 @@ function fnBoxSearchDetail() {
 		const $blindText = $toggleBtn.querySelector('.btn .blind');
 		if (!$toggleBtn || !$hiddenPanel) return;
 		$toggleBtn.addEventListener('click', function () {
-			const isExpanded = this.getAttribute('aria-expanded') === 'true';
+			const isExpanded = this.classList.contains('active');
 			if (isExpanded) {
-				this.setAttribute('aria-expanded', 'false');
 				$boxSearchDetail.classList.remove('active');
 				if ($blindText) $blindText.textContent = '펼침';
-				$hiddenPanel.setAttribute('aria-hidden', 'true'); 
 			} else {
-				this.setAttribute('aria-expanded', 'true');
 				$boxSearchDetail.classList.add('active'); 
 				if ($blindText) $blindText.textContent = '접힘';
-				$hiddenPanel.removeAttribute('aria-hidden');
 			}
 		});
 	});
@@ -153,7 +146,6 @@ function fnBoxMultiSelect() {
 
 			if (!isOpen) {
 				this.classList.add('active');
-				this.setAttribute('aria-expanded', 'true');
 				$boxMultiSelect.classList.add('is-open');
 				if ($blindText) $blindText.textContent = '접힘';
 			}
@@ -170,7 +162,6 @@ function fnBoxMultiSelect() {
 				$itemCheckboxes.forEach(function ($itemCheck) {
 					$itemCheck.checked = isChecked;
 					const $liItem = $itemCheck.closest('.item-mulit-select');
-					if ($liItem) $liItem.setAttribute('aria-selected', isChecked ? 'true' : 'false');
 				});
 
 				updateAllCheckboxState($allCheckbox, $itemCheckboxes);
@@ -179,9 +170,6 @@ function fnBoxMultiSelect() {
 
 		$itemCheckboxes.forEach(function ($itemCheck) {
 			$itemCheck.addEventListener('change', function () {
-				const $liItem = this.closest('.item-mulit-select');
-				if ($liItem) $liItem.setAttribute('aria-selected', this.checked ? 'true' : 'false');
-
 				if ($allCheckbox) {
 					updateAllCheckboxState($allCheckbox, $itemCheckboxes);
 				}
@@ -192,8 +180,6 @@ function fnBoxMultiSelect() {
 			$resetBtn.addEventListener('click', function () {
 				$itemCheckboxes.forEach(function ($itemCheck) {
 					$itemCheck.checked = false;
-					const $liItem = $itemCheck.closest('.item-mulit-select');
-					if ($liItem) $liItem.setAttribute('aria-selected', 'false');
 				});
 				
 				if ($allCheckbox) {
@@ -216,7 +202,6 @@ function closeAllMultiSelects() {
 	$activeTriggers.forEach(function ($btn) { 
 		const $blindText = $btn.querySelector('.blind');
 		$btn.classList.remove('active'); 
-		$btn.setAttribute('aria-expanded', 'false');
 		
 		if ($blindText) $blindText.textContent = '펼침';
 	});
@@ -234,17 +219,14 @@ function updateAllCheckboxState($allCheck, $items) {
 		$allCheck.checked = false;
 		$allCheck.indeterminate = false;
 		$allCheck.classList.remove('is-indeterminate');
-		$allCheck.removeAttribute('aria-checked');
 	} else if (checkedCount === totalCount) {
 		$allCheck.checked = true;
 		$allCheck.indeterminate = false;
 		$allCheck.classList.remove('is-indeterminate');
-		$allCheck.removeAttribute('aria-checked');
 	} else {
 		$allCheck.checked = false;
 		$allCheck.indeterminate = true;
 		$allCheck.classList.add('is-indeterminate');
-		$allCheck.setAttribute('aria-checked', 'mixed');
 	}
 }
 // Textarea
@@ -294,17 +276,6 @@ function fnTab(initialActiveIndex){
 			$button.setAttribute("disabled", "true"); 
 		});
 
-		$currentButtons.forEach(function ($button) {
-			var isDisabled = $button.classList.contains(classDisabledState) || $button.hasAttribute("disabled");
-			var hasActive = $button.classList.contains(classActiveState);
-
-			if (hasActive) {
-				$button.setAttribute("aria-selected", "true");
-			} else {
-				$button.setAttribute("aria-selected", "false");
-			}
-		});
-
 		$currentContents.forEach(function ($content) {
 			var hasActive = $content.classList.contains(classActiveState);
 			if (hasActive) {
@@ -342,10 +313,8 @@ function fnTab(initialActiveIndex){
 
 				if (index === targetActiveIndex) {
 					$button.classList.add(classActiveState);
-					$button.setAttribute("aria-selected", "true");
 				} else {
 					$button.classList.remove(classActiveState);
-					$button.setAttribute("aria-selected", "false");
 				}
 			});
 
@@ -383,69 +352,61 @@ function fnTab(initialActiveIndex){
 // Tooltip
 function fnBoxTooltip(){
 	var classTooltipContainer = "box-tooltip";
-	var classTriggerButton = "btn";
-	var classActiveState = "active";
-	var classButtonClose = "btn-close";
+    var classTriggerButton = "btn";
+    var classActiveState = "active";
+    var classButtonClose = "btn-close";
+    var classTooltipLayer = "layer-tooltip";
+	
+    var $tooltipWrappers = document.querySelectorAll("." + classTooltipContainer);
+    if ($tooltipWrappers.length === 0) return;
 
-	var $tooltipWrappers = document.querySelectorAll("." + classTooltipContainer);
-	if ($tooltipWrappers.length === 0) return;
+    $tooltipWrappers.forEach(function ($wrapper) {
+        var $button = $wrapper.querySelector("." + classTriggerButton);
+        var $buttonClose = $wrapper.querySelector("." + classButtonClose);
+        if (!$button) return;
 
-	$tooltipWrappers.forEach(function ($wrapper) {
-		var $button = $wrapper.querySelector("." + classTriggerButton);
-		if (!$button) return;
+        var $layer = $wrapper.querySelector("." + classTooltipLayer);
+        if (!$layer) return;
 
-		var tooltipTargetId = $button.getAttribute("aria-describedby");
-		if (!tooltipTargetId) return;
+        $button.addEventListener("click", function (event) {
+            event.stopPropagation(); 
 
-		var $layer = document.getElementById(tooltipTargetId);
-		if (!$layer) return;
+            var isCurrentlyActive = this.classList.contains(classActiveState);
 
-		var $buttonClose = $wrapper.querySelector("." + classButtonClose);
-		if (!$buttonClose) return
+            fnCloseAllClickTooltips();
 
-		$button.addEventListener("click", function (event) {
-			event.stopPropagation(); 
+            if (!isCurrentlyActive) {
+                this.classList.add(classActiveState);
+            }
+        });
 
-			var isCurrentlyActive = this.classList.contains(classActiveState);
+        $layer.addEventListener("click", function (event) {
+            event.stopPropagation();
+        });
 
-			fnCloseAllClickTooltips();
+        if ($buttonClose) {
+            $buttonClose.addEventListener("click", function (event) {
+                event.stopPropagation();
+                fnCloseAllClickTooltips();
+            });
+        }
+    });
 
-			if (!isCurrentlyActive) {
-				this.classList.add(classActiveState);
-				$layer.setAttribute("aria-hidden", "false");
-			}
-		});
+    document.addEventListener("click", function () {
+        fnCloseAllClickTooltips();
+    });
 
-		$layer.addEventListener("click", function (event) {
-			event.stopPropagation();
-		});
+    document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape" || event.key === "Esc") {
+            fnCloseAllClickTooltips();
+        }
+    });
 
-		$buttonClose.addEventListener("click", function () {
-			fnCloseAllClickTooltips();
-		});
-	});
-
-	document.addEventListener("click", function () {
-		fnCloseAllClickTooltips();
-	});
-
-	document.addEventListener("keydown", function (event) {
-		if (event.key === "Escape" || event.key === "Esc") {
-			fnCloseAllClickTooltips();
-		}
-	});
-
-	function fnCloseAllClickTooltips() {
-		var $activeButtons = document.querySelectorAll("." + classTooltipContainer + " ." + classTriggerButton + "." + classActiveState);
-		
-		$activeButtons.forEach(function ($activeBtn) {
-			$activeBtn.classList.remove(classActiveState);
-			
-			var targetId = $activeBtn.getAttribute("aria-describedby");
-			if (targetId) {
-				var $targetLayer = document.getElementById(targetId);
-				if ($targetLayer) $targetLayer.setAttribute("aria-hidden", "true");
-			}
-		});
-	}
+    function fnCloseAllClickTooltips() {
+        var $activeButtons = document.querySelectorAll("." + classTooltipContainer + " ." + classTriggerButton + "." + classActiveState);
+        
+        $activeButtons.forEach(function ($activeBtn) {
+            $activeBtn.classList.remove(classActiveState);
+        });
+    }
 }

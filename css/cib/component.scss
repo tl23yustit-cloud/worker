@@ -1352,11 +1352,11 @@
 			min-height: var(--sizeBase6Xl);
 			background-color: var(--colorBgBase);
 
-			&:not(:disabled, :read-only, :invalid, .error):hover {
+			&:not(:disabled, :read-only, .error):hover {
 				border-color: var(--colorBorderHover);
 			}
 
-			&:not(:disabled, :read-only, :invalid, .error):focus-visible {
+			&:not(:disabled, :read-only, .error):focus-visible {
 				// border-color: var(--colorBorderPrimary);
 				outline-color: var(--colorBorderPrimary);
 				& + .box-unit {
@@ -1389,7 +1389,6 @@
 				color: var(--colorFgHint);
 			}
 
-			&:invalid,
 			&.error {
 				border-color: var(--colorBorderError);
 			
@@ -1426,13 +1425,12 @@
 			textarea {
 				border: 0;
 
-				&:not(:disabled, :read-only, :invalid, .error):focus-visible {
+				&:not(:disabled, :read-only, .error):focus-visible {
 					& + .box-unit {
 						bottom: var(--borderWidthUnit1);
 					}
 				}
 
-				&:invalid,
 				&.error {
 					border: var(--borderWidthUnit1) solid var(--colorBorderError);
 
@@ -1773,7 +1771,6 @@
 	&:hover {
 		border-color: var(--colorBorderBase);
 	}
-	&:invalid,
 	&.is-error {
 		border-color: var(--colorBorderError);
 	}
@@ -1784,25 +1781,13 @@
 	&:read-only {
 		background-color: var(--colorBgDisabled);
 	}
-	&[type=search] {
-		padding:calc(var(--spacingSm) + var(--borderWidthUnit1)) calc(var(--spacing3Xl) - var(--borderWidthUnit1)) calc(var(--spacingSm) + var(--borderWidthUnit1)) calc(var(--spacingLg) - var(--borderWidthUnit1));
-	}
-	&::-webkit-search-cancel-button {
-		-webkit-appearance: none;
-		appearance: none;
-		margin:0;
-		width: var(--sizeIconSmMd);
-		height: var(--sizeIconSmMd);
-		cursor: pointer;
-		background: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M5.52864 5.52864C5.78899 5.26829 6.2111 5.26829 6.47145 5.52864L10 9.05723L13.5286 5.52864C13.789 5.26829 14.2111 5.26829 14.4714 5.52864C14.7318 5.78899 14.7318 6.2111 14.4714 6.47145L10.9428 10L14.4714 13.5286C14.7318 13.789 14.7318 14.2111 14.4714 14.4714C14.2111 14.7318 13.789 14.7318 13.5286 14.4714L10 10.9428L6.47145 14.4714C6.2111 14.7318 5.78899 14.7318 5.52864 14.4714C5.26829 14.2111 5.26829 13.789 5.52864 13.5286L9.05723 10L5.52864 6.47145C5.26829 6.2111 5.26829 5.78899 5.52864 5.52864Z' fill='%23343F54'/%3E%3C/svg%3E") no-repeat center center;
-		background-size: contain;
-	}
 }
 
 /* Search - default */
 .box-input-search {
 	position: relative;
 	.input {
+		padding:calc(var(--spacingSm) + var(--borderWidthUnit1)) calc(var(--spacing3Xl) - var(--borderWidthUnit1)) calc(var(--spacingSm) + var(--borderWidthUnit1)) calc(var(--spacingLg) - var(--borderWidthUnit1));
 		width: 100%;
 	}
 	.group-button {
@@ -1945,7 +1930,6 @@
 		outline-color: var(--colorBorderPrimary);
 	}
 
-	&:invalid,
 	&.error {
 		border-color: var(--colorBorderError);
 		&:hover,
