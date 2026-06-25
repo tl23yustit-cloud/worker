@@ -21,8 +21,6 @@
 .img-bg-bnr {
   display: block;
   background-color: var(--colorChartCyanLight);
-  min-height: 188px;
-  padding: var(--spacing2Xl) var(--spacing3Xl);
   border-radius: var(--radius2Xl);
   .typeH3 {
     padding-top: var(--spacingXs);
@@ -33,13 +31,13 @@
     color: var(--colorFgSecondary);
   }
   &.type01 {
+    padding: var(--spacing2Xl) var(--spacing3Xl);
     background-color: var(--colorChartCyanLight);
     width: 100%;
     height: 100%;
     min-height: 188px;
     position: relative;
     padding: var(--spacing3Xl);
-
     &::after {
       //가져가서 커스텀 bg넣을시 tbd, border삭제 해주세요
       content: "TBD";
@@ -47,6 +45,31 @@
       position: absolute;
       right: var(--spacingLgXl);
       top: 18px;
+      border: 1px solid #ddd; //임시
+      //   background: url(../../images/main/ico_piggy_01_x3.png) no-repeat / contain;
+      background-size: 162px;
+      width: 162px;
+      height: 162px;
+    }
+  }
+  &.type02 {
+    padding: var(--spacing2Xl);
+    background-color: var(--colorFgNeutralDisabled);
+    width: 100%;
+    height: 236px;
+    min-height: 188px;
+    position: relative;
+    padding: var(--spacing3Xl);
+    .btn-icon-text {
+      padding-top: var(--spacing2Xl);
+    }
+    &::after {
+      //가져가서 커스텀 bg넣을시 tbd, border삭제 해주세요
+      content: "TBD";
+      display: inline-block;
+      position: absolute;
+      right: 0;
+      bottom: 0;
       border: 1px solid #ddd; //임시
       //   background: url(../../images/main/ico_piggy_01_x3.png) no-repeat / contain;
       background-size: 162px;
@@ -86,9 +109,8 @@
 /*텍스트아이콘버튼*/
 .btn-icon-text {
   display: inline-flex;
-  //   align-items: center;
+  align-items: center;
   gap: var(--spacingXs);
-  height: 32px;
   font-size: var(--contentFontSizeLg);
   font-weight: var(--fontWeightSemibold);
   color: var(--colorGray700);
@@ -142,3 +164,50 @@
   }
 }
 
+/* 리스트*/
+.notice-list {
+  padding: var(--spacingXl) var(--spacing2Xl);
+  border-radius: var(--radius2Xl);
+  border: 1px solid var(--colorBorderSecondary);
+  li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    + li {
+      padding-top: var(--spacingLg);
+    }
+    .typeMd {
+      flex: 1;
+      display: block;
+      padding-left: var(--spacingSm);
+      text-decoration: none;
+
+      &:hover,
+      &:focus-visible {
+        text-decoration: underline;
+      }
+    }
+    .update-date {
+      font-size: var(--contentFontSizeMd);
+      font-weight: var(--fontWeightRegular);
+      line-height: var(--contentLineHeightMd);
+      color: var(--colorBorderBaseInvertDisabled);
+    }
+  }
+}
+//스와이퍼
+.swiper-pagination {
+  // position: static !important;
+  // width: auto !important;
+  .swiper-pagination-bullet {
+    width: var(--sizeBase3Xs);
+    height: var(--sizeBase3Xs);
+    + .swiper-pagination-bullet {
+      margin-left: var(--spacingSm);
+    }
+    background-color: var(--colorFgNeutral);
+    &.swiper-pagination-bullet-active {
+      background-color: var(--colorBgNeutral);
+    }
+  }
+}

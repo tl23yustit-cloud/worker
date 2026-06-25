@@ -9,18 +9,19 @@
     <link rel="stylesheet" href="/css/cib/main.css" />
     <link rel="stylesheet" href="/css/cib/component.css" />
     <link rel="stylesheet" href="/css/cib/common.css" />
-    <link
+    <link rel="stylesheet" href="/css/cib/swiper-bundle.min.css" />
+    <!-- <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-    />
+    /> -->
 
     <!-- <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script> -->
-<!-- <link rel="stylesheet" href="../../../css/lib/swiper-bundle.min.css"> -->
-<!-- 
+    <!-- <link rel="stylesheet" href="../../../css/lib/swiper-bundle.min.css"> -->
+    <!-- 
 <script src="../../../js/lib/swiper-bundle.min.js"></script>
 <script src="../../../js/common.js"></script>
 <script src="../../../js/swiper-bundle.min.js"></script> -->
-<script src="/js/cib/swiper.min.js"></script>
+    <script src="/js/cib/swiper.min.js"></script>
   </head>
   <body>
     <div class="wrap">
@@ -208,7 +209,7 @@
             </div>
           </div>
           <div class="tab-controls">
-            <div class="swiper-pagination"></div>
+            <div class="swiper-pagination tab-pagination"></div>
           </div>
         </div>
         <div class="service-view">
@@ -291,6 +292,30 @@
               </li>
             </ul>
           </div>
+
+          <div class="event-bnr-wrap">
+            <h3 class="typeH3">
+              이벤트
+              <div class="swiper-pagination bnr-pagination"></div>
+            </h3>
+            <div class="swiper bnr-swiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <div class="swiper-bnr">
+                    <div class="img-bg-bnr type02 bnr01">
+                      <h3 class="typeH3">바다모래 채취반대 <br>온라인 서명운동</h3>
+                      <button type="button" class="btn-icon-text arrow-right">
+                        <span class="text">서명운동 참여하기</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">내용2</div>
+                <div class="swiper-slide">내용3</div>
+                <div class="swiper-slide">내용4</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -300,6 +325,7 @@
     <script src="/js/publish-layout.js"></script>
     <script src="../../../js/cib/cib_ui_common.js"></script>
     <script>
+      //텝스와이퍼
       const tabs = document.querySelectorAll(".btn-tab");
 
       const swiper = new Swiper(".tab-swiper", {
@@ -308,7 +334,7 @@
           prevEl: ".swiper-prev",
         },
         pagination: {
-          el: ".swiper-pagination",
+          el: ".tab-pagination",
           clickable: true,
         },
         on: {
@@ -323,6 +349,14 @@
         tab.addEventListener("click", () => {
           swiper.slideTo(index);
         });
+      });
+      //스와이퍼베너
+
+      const bnrSwiper = new Swiper(".bnr-swiper", {
+        pagination: {
+          el: ".bnr-pagination",
+          clickable: true,
+        },
       });
     </script>
   </body>
