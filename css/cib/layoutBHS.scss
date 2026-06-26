@@ -1,0 +1,326 @@
+@charset "UTF-8";
+
+:root {
+    --max-width: 1360px;
+}
+
+body {
+    position: relative;
+    width: 100%;
+    min-width: 1440px; // 1440px 미만일 때 가로 스크롤 생성
+    min-height: 100vh;
+    font-size: 14px;
+    background-color: var(--colorWhite);
+}
+
+.wrap {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: var(--colorBgBase);
+}
+
+.container {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 var(--spacingLg);
+    box-sizing: border-box;
+    flex: 1;
+
+    &.sub {
+        display: grid;
+        grid-template-columns: 280px 1fr;
+        gap: var(--spacing5Xl);
+        margin-top: 32px;
+        margin-bottom: 64px;
+    }
+
+    &.main {
+        display: block;
+        margin-top: 40px;
+        margin-bottom: 80px;
+    }
+}
+
+.footer {
+    width: 100%;
+    min-width: 1440px;
+    background-color: var(--colorBgSecondary);
+
+    .footer-inner {
+        width: 100%;
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 0 40px;
+    }
+}
+
+
+// ----------------------------------------------------
+// 1. HEADER
+// ----------------------------------------------------
+.header {
+    width: 100%;
+    min-width: 1440px;
+    background-color: var(--colorWhite);
+    font-family: var(--baseFontFamily);
+
+    .header-top {
+        width: 100%;
+
+        .header-top-inner {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            justify-content: space-between;
+            height: 48px;
+            padding: 0 40px;
+
+            // 내부 텍스트 스타일 일괄 적용
+            &, * {
+                font-size: var(--contentFontSizeMd); // 14px
+                font-weight: var(--fontWeightSemibold);
+                color: var(--colorGray700);
+            }
+        }
+
+        .user-type {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            a {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 72px;
+                height: 32px;
+                border-radius: 20px;
+                transition: all 0.2s ease;
+
+                &.active {
+                    background-color: var(--colorGray800);
+                    color: var(--colorWhite);
+                    font-weight: var(--fontWeightBold);
+                }
+            }
+        }
+
+        .util-menu {
+            display: flex;
+            align-items: center;
+            gap: 20px; // 상단 우측 메뉴들 간의 기본 간격
+
+            .user-name {
+                
+            }
+
+            .util-link {
+                position: relative;
+            }
+
+            .btn-select {
+                display: inline-flex;
+                align-items: center;
+                gap: 6px;
+                background: transparent;
+                border: none;
+                cursor: pointer;
+                position: relative;
+                padding: 0;
+                flex-shrink: 0;
+
+                &::after {
+                    content: '';
+                    display: inline-block;
+                    width: 6px;
+                    height: 6px;
+                    border-right: 1.5px solid var(--colorGray700);
+                    border-bottom: 1.5px solid var(--colorGray700);
+                    transform: rotate(45deg);
+                    transition: transform 0.3s ease;
+                    margin-left: 2px;
+                    margin-top: -4px; // 화살표 수직 중앙 맞춤
+                }
+
+                &.active::after {
+                    transform: rotate(225deg);
+                    margin-top: 2px;
+                }
+            }
+        }
+    }
+
+    .header-bottom {
+        width: 100%;
+        border-bottom: var(--borderWidthSm) solid var(--colorGray200);
+
+        .header-bottom-inner {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            justify-content: space-between;
+            height: 74px;
+            padding: 0 40px;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            img {
+                width: auto;
+            }
+        }
+
+        .gnb {
+            height: 100%; // 부모 높이를 그대로 상속
+
+            ul {
+                display: flex;
+                gap: 40px;
+                height: 100%;
+                align-items: center; // 세로 중앙 정렬
+
+                li {
+                    display: flex;
+                    align-items: center;
+                    height: 100%; // li도 높이 100% 유지
+
+                    a {
+                        display: flex;
+                        align-items: center;
+                        height: 100%; // 글자 영역 전체에 마우스 오버 반응 및 border-bottom 하단 밀착
+                        font-size: 17px;
+                        font-weight: var(--fontWeightBold);
+                        color: var(--colorGray900);
+                        border-bottom: 3px solid transparent;
+                        box-sizing: border-box;
+
+                        &.active,
+                        &:hover {
+                            color: var(--colorBlue500);
+                            border-bottom: 3px solid var(--colorBlue500);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .icon-menu-area {
+        display: flex;
+        align-items: center;
+        gap: var(--spacingXl);
+
+        button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            width: 24px;
+            height: 24px;
+            position: relative;
+            padding: 0;
+
+            &.btn-search i {
+                display: block;
+                width: 15px;
+                height: 15px;
+                border: 2px solid var(--colorGray800);
+                border-radius: var(--radiusFull);
+                position: absolute;
+                top: 3px;
+                left: 3px;
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    width: 2px;
+                    height: 7px;
+                    background-color: var(--colorGray800);
+                    transform: rotate(-45deg);
+                    top: 11px;
+                    left: 11px;
+                }
+            }
+
+            &.btn-hamburger i {
+                display: block;
+                width: 20px;
+                height: 2px;
+                background-color: var(--colorGray800);
+                position: absolute;
+                top: 11px;
+                left: 2px;
+
+                &::before,
+                &::after {
+                    content: '';
+                    position: absolute;
+                    width: 20px;
+                    height: 2px;
+                    background-color: var(--colorGray800);
+                    left: 0;
+                }
+
+                &::before { top: -6px; }
+                &::after { top: 6px; }
+            }
+        }
+    }
+}
+
+
+
+// ----------------------------------------------------
+// 2. FOOTER
+// ----------------------------------------------------
+.footer {
+    width: 100%;
+    background-color: var(--colorBgSecondary);
+    border-top: var(--borderWidthSm) solid var(--colorBorderSecondary);
+    padding: var(--spacing5Xl) var(--spacingNone);
+
+    .footer-inner {
+        width: 100%;
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: var(--spacingNone) var(--spacingLg);
+    }
+
+    .footer-links {
+        padding-bottom: var(--spacingLg);
+        margin-bottom: var(--spacing2Xl);
+
+        ul {
+            display: flex;
+            gap: var(--spacingXl);
+
+            li a {
+                font-size: var(--contentFontSizeMd);
+                color: var(--colorFgSecondary);
+
+                &.point {
+                    font-weight: var(--fontWeightBold);
+                    color: var(--colorFgBase);
+                }
+            }
+        }
+    }
+
+
+}
+
+
+// ----------------------------------------------------
+// 3. LNB 
+// ----------------------------------------------------
+
+
+// ----------------------------------------------------
+// 4. CONTENTS
+// ----------------------------------------------------
