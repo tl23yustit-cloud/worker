@@ -60,7 +60,7 @@
     min-height: 188px;
     position: relative;
     padding: var(--spacing3Xl);
-    .btn-icon-text {
+    .btn-ico-text {
       padding-top: var(--spacing2Xl);
     }
     &::after {
@@ -76,6 +76,16 @@
       width: 162px;
       height: 162px;
     }
+  }
+  &.type3 {
+    display: flex;
+    width: 400px;
+    height: 72px;
+    padding: 0 var(--Base-spacingXl, 24px) 0 120px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: var(--spacingLgXl, 20px);
   }
 }
 /*아이콘배경버튼*/
@@ -107,23 +117,28 @@
 }
 
 /*텍스트아이콘버튼*/
-.btn-icon-text {
+.btn-ico-text {
   display: inline-flex;
   align-items: center;
   gap: var(--spacingXs);
   font-size: var(--contentFontSizeLg);
   font-weight: var(--fontWeightSemibold);
-  color: var(--colorGray700);
-  &.arrow-right {
-    &::after {
-      content: "";
-      width: var(--numUnit5);
-      height: var(--numUnit5);
-      flex-shrink: 0;
-      background: url("../../images/ico_r_allow_x3.png") no-repeat center /
-        contain;
-    }
+  color: var(--colorFgNeutral);
+  .arrow-right {
+    content: "";
+    width: var(--sizeBaseXsSm);
+    height: var(--sizeBaseXsSm);
+    flex-shrink: 0;
+    background: url("../../images/ico_r_allow_x3.png") no-repeat center /
+      contain;
   }
+}
+.ico-refresh {
+  content: "";
+  width: var(--sizeBaseXs);
+  height: var(--sizeBaseXs);
+  flex-shrink: 0;
+  background: url("../../images/ico_refresh_16.png") no-repeat center / contain;
 }
 /*아이콘버튼*/
 .blind {
