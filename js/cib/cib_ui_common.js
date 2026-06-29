@@ -1,5 +1,6 @@
 window.addEventListener('load', function () {
 	fnSkipNavigation() // skip Navigation
+	fnLNB() // LNB
 	fnBoxAccordion(); // Accordion
 	fnBtnAnchor(); // Anchor
 	fnSelectColorChange(); // select 태그 class 추가
@@ -23,6 +24,64 @@ function fnSkipNavigation() {
 			this.classList.remove("is-open");
 		});
 	});
+}
+// LNB
+function fnLNB() {
+    var classLnbContainer = "wrap-left-menu";
+    var classTriggerLink = "link";
+    var classActiveState = "selected";
+    var classBlindText = "blind";
+    var classHasNoChild = "none";
+
+    var textOpenGuide = "메뉴 펼침";
+    var textCloseGuide = "메뉴 접힘";
+
+    var $lnbWrapper = document.querySelector("." + classLnbContainer);
+    if (!$lnbWrapper) return;
+
+    var $links = $lnbWrapper.querySelectorAll("." + classTriggerLink);
+    $links.forEach(function ($link) {
+        var $li = $link.parentElement;
+        if (!$li || $li.classList.contains(classHasNoChild)) return;
+
+        var $subList = $link.nextElementSibling;
+        var $blindSpan = $link.querySelector("." + classBlindText);
+
+        if ($link.classList.contains(classActiveState)) {
+            if ($blindSpan) $blindSpan.textContent = textOpenGuide;
+        } else {
+            if ($blindSpan) $blindSpan.textContent = textCloseGuide;
+        }
+    });
+
+    // [단계 2] 전역 클릭 위임 이벤트
+    $lnbWrapper.addEventListener("click", function (event) {
+        var $clickedLink = event.target.closest("." + classTriggerLink);
+        if (!$clickedLink) return;
+
+        var $currentLi = $clickedLink.parentElement;
+        if (!$currentLi) return;
+
+        if ($currentLi.classList.contains(classHasNoChild) || $currentLi.classList.contains("item-depth4")) {
+            return; 
+        }
+
+        event.preventDefault();
+
+        var $correspondingSubList = $clickedLink.nextElementSibling;
+        var $blindTextSpan = $clickedLink.querySelector("." + classBlindText);
+        var isAlreadySelected = $clickedLink.classList.contains(classActiveState);
+
+        if (isAlreadySelected) {
+            $clickedLink.classList.remove(classActiveState);
+            
+            if ($blindTextSpan) $blindTextSpan.textContent = textCloseGuide;
+        } else {
+            $clickedLink.classList.add(classActiveState);
+            
+            if ($blindTextSpan) $blindTextSpan.textContent = textOpenGuide;
+        }
+    });
 }
 // Accordion
 function fnBoxAccordion() {
