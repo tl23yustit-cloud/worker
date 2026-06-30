@@ -15,136 +15,135 @@ window.addEventListener('load', function () {
 function fnSkipNavigation() {
 	const $btnsSkipNav = document.querySelectorAll(".skip-nav .btn-skip-nav");
 
-	$btnsSkipNav.forEach(function($btn) {
-		$btn.addEventListener('focus', function(){
+	$btnsSkipNav.forEach(function ($btn) {
+		$btn.addEventListener('focus', function () {
 			this.classList.add("is-open");
 		});
 
-		$btn.addEventListener('blur', function(){
+		$btn.addEventListener('blur', function () {
 			this.classList.remove("is-open");
 		});
 	});
 }
 //GNB
 const header = document.querySelector(".header");
-  const items = document.querySelectorAll(".gnb-item");
-  const links = document.querySelectorAll(".gnb-link");
-  const menus = document.querySelectorAll(".mega-menu");
-  document.addEventListener("DOMContentLoaded", function () {
-    const selectButtons = document.querySelectorAll(".util-menu .btn-select");
+const items = document.querySelectorAll(".gnb-item");
+const links = document.querySelectorAll(".gnb-link");
+const menus = document.querySelectorAll(".mega-menu");
+document.addEventListener("DOMContentLoaded", function () {
+	const selectButtons = document.querySelectorAll(".util-menu .btn-select");
 
-    selectButtons.forEach(function (button) {
-      button.addEventListener("click", function () {
-        this.classList.toggle("active");
-      });
-    });
-  });
+	selectButtons.forEach(function (button) {
+		button.addEventListener("click", function () {
+			this.classList.toggle("active");
+		});
+	});
+});
 
-  links.forEach((link) => {
-    link.addEventListener("mouseenter", function () {
-      header.classList.add("is-open");
+links.forEach((link) => {
+	link.addEventListener("mouseenter", function () {
+		header.classList.add("is-open");
 
-      items.forEach((item) => item.classList.remove("is-active"));
-      menus.forEach((menu) => menu.classList.remove("is-active"));
+		items.forEach((item) => item.classList.remove("is-active"));
+		menus.forEach((menu) => menu.classList.remove("is-active"));
 
-      const item = this.closest(".gnb-item");
-      item.classList.add("is-active");
+		const item = this.closest(".gnb-item");
+		item.classList.add("is-active");
+		item.querySelector(".mega-menu").classList.add("is-active");
+	});
+});
+header.addEventListener("mouseleave", () => {
+	header.classList.remove("is-open");
 
-      item.querySelector(".mega-menu").classList.add("is-active");
-    });
-  });
-  header.addEventListener("mouseleave", () => {
-    header.classList.remove("is-open");
+	items.forEach((item) => item.classList.remove("is-active"));
+	menus.forEach((menu) => menu.classList.remove("is-active"));
+});
 
-    items.forEach((item) => item.classList.remove("is-active"));
-    menus.forEach((menu) => menu.classList.remove("is-active"));
-  });
+const gnb = document.querySelector(".header-bottom");
 
-  const gnb = document.querySelector(".header-bottom");
+window.addEventListener("scroll", () => {
+	if (window.scrollY > 0) {
+		gnb.classList.add("is-fixed");
+	} else {
+		gnb.classList.remove("is-fixed");
+	}
+});
 
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 0) {
-      gnb.classList.add("is-fixed");
-    } else {
-      gnb.classList.remove("is-fixed");
-    }
-  });
+document.querySelectorAll(".menu-toggle").forEach((button) => {
+	button.addEventListener("click", () => {
+		const item = button.closest(".menu-item");
 
-  document.querySelectorAll(".menu-toggle").forEach((button) => {
-    button.addEventListener("click", () => {
-      const item = button.closest(".menu-item");
+		item.classList.toggle("is-open");
 
-      item.classList.toggle("is-open");
+		button.setAttribute("aria-expanded", item.classList.contains("is-open"));
+	});
+});
+document.querySelectorAll(".menu-item.has-depth").forEach((item) => {
+	const depthCount = item.querySelectorAll(".depth-list > li").length;
 
-      button.setAttribute("aria-expanded", item.classList.contains("is-open"));
-    });
-  });
-  document.querySelectorAll(".menu-item.has-depth").forEach((item) => {
-    const depthCount = item.querySelectorAll(".depth-list > li").length;
-
-    if (depthCount >= 2) {
-      item.classList.add("is-toggle");
-    } else {
-      item.classList.add("is-single");
-    }
-  });
+	if (depthCount >= 2) {
+		item.classList.add("is-toggle");
+	} else {
+		item.classList.add("is-single");
+	}
+});
 // LNB
 function fnLNB() {
-    var classLnbContainer = "wrap-left-menu";
-    var classTriggerLink = "link";
-    var classActiveState = "selected";
-    var classBlindText = "blind";
-    var classHasNoChild = "none";
+	var classLnbContainer = "wrap-left-menu";
+	var classTriggerLink = "link";
+	var classActiveState = "selected";
+	var classBlindText = "blind";
+	var classHasNoChild = "none";
 
-    var textOpenGuide = "메뉴 펼침";
-    var textCloseGuide = "메뉴 접힘";
+	var textOpenGuide = "메뉴 펼침";
+	var textCloseGuide = "메뉴 접힘";
 
-    var $lnbWrapper = document.querySelector("." + classLnbContainer);
-    if (!$lnbWrapper) return;
+	var $lnbWrapper = document.querySelector("." + classLnbContainer);
+	if (!$lnbWrapper) return;
 
-    var $links = $lnbWrapper.querySelectorAll("." + classTriggerLink);
-    $links.forEach(function ($link) {
-        var $li = $link.parentElement;
-        if (!$li || $li.classList.contains(classHasNoChild)) return;
+	var $links = $lnbWrapper.querySelectorAll("." + classTriggerLink);
+	$links.forEach(function ($link) {
+		var $li = $link.parentElement;
+		if (!$li || $li.classList.contains(classHasNoChild)) return;
 
-        var $subList = $link.nextElementSibling;
-        var $blindSpan = $link.querySelector("." + classBlindText);
+		var $subList = $link.nextElementSibling;
+		var $blindSpan = $link.querySelector("." + classBlindText);
 
-        if ($link.classList.contains(classActiveState)) {
-            if ($blindSpan) $blindSpan.textContent = textOpenGuide;
-        } else {
-            if ($blindSpan) $blindSpan.textContent = textCloseGuide;
-        }
-    });
+		if ($link.classList.contains(classActiveState)) {
+			if ($blindSpan) $blindSpan.textContent = textOpenGuide;
+		} else {
+			if ($blindSpan) $blindSpan.textContent = textCloseGuide;
+		}
+	});
 
-    // [단계 2] 전역 클릭 위임 이벤트
-    $lnbWrapper.addEventListener("click", function (event) {
-        var $clickedLink = event.target.closest("." + classTriggerLink);
-        if (!$clickedLink) return;
+	// [단계 2] 전역 클릭 위임 이벤트
+	$lnbWrapper.addEventListener("click", function (event) {
+		var $clickedLink = event.target.closest("." + classTriggerLink);
+		if (!$clickedLink) return;
 
-        var $currentLi = $clickedLink.parentElement;
-        if (!$currentLi) return;
+		var $currentLi = $clickedLink.parentElement;
+		if (!$currentLi) return;
 
-        if ($currentLi.classList.contains(classHasNoChild) || $currentLi.classList.contains("item-depth4")) {
-            return; 
-        }
+		if ($currentLi.classList.contains(classHasNoChild) || $currentLi.classList.contains("item-depth4")) {
+			return;
+		}
 
-        event.preventDefault();
+		event.preventDefault();
 
-        var $correspondingSubList = $clickedLink.nextElementSibling;
-        var $blindTextSpan = $clickedLink.querySelector("." + classBlindText);
-        var isAlreadySelected = $clickedLink.classList.contains(classActiveState);
+		var $correspondingSubList = $clickedLink.nextElementSibling;
+		var $blindTextSpan = $clickedLink.querySelector("." + classBlindText);
+		var isAlreadySelected = $clickedLink.classList.contains(classActiveState);
 
-        if (isAlreadySelected) {
-            $clickedLink.classList.remove(classActiveState);
-            
-            if ($blindTextSpan) $blindTextSpan.textContent = textCloseGuide;
-        } else {
-            $clickedLink.classList.add(classActiveState);
-            
-            if ($blindTextSpan) $blindTextSpan.textContent = textOpenGuide;
-        }
-    });
+		if (isAlreadySelected) {
+			$clickedLink.classList.remove(classActiveState);
+
+			if ($blindTextSpan) $blindTextSpan.textContent = textCloseGuide;
+		} else {
+			$clickedLink.classList.add(classActiveState);
+
+			if ($blindTextSpan) $blindTextSpan.textContent = textOpenGuide;
+		}
+	});
 }
 // Accordion
 function fnBoxAccordion() {
@@ -180,28 +179,28 @@ function fnBoxAccordion() {
 		if (!$currentContainer) return;
 
 		var $blindTextSpan = $clickedButton.querySelector("." + CONFIG.BLIND_CLASS);
-		
+
 		var isAlreadyOpen = $currentContainer.classList.contains(CONFIG.OPEN_CLASS);
 
 		if (isAlreadyOpen) {
 			$currentContainer.classList.remove(CONFIG.OPEN_CLASS);
-			
+
 			if ($blindTextSpan) {
-				$blindTextSpan.textContent = CONFIG.TEXT_OPEN; 
+				$blindTextSpan.textContent = CONFIG.TEXT_OPEN;
 			}
 		} else {
 			$currentContainer.classList.add(CONFIG.OPEN_CLASS);
-			
+
 			if ($blindTextSpan) {
-				$blindTextSpan.textContent = CONFIG.TEXT_CLOSE; 
+				$blindTextSpan.textContent = CONFIG.TEXT_CLOSE;
 			}
 		}
 	});
 }
 // Anchor
-function fnBtnAnchor(){
+function fnBtnAnchor() {
 	const $BtnsAnchor = document.querySelectorAll('.btn-anchor');
-	$BtnsAnchor.forEach(function($btnAnchor){
+	$BtnsAnchor.forEach(function ($btnAnchor) {
 		$btnAnchor.addEventListener('click', function () {
 			if (!this.classList.contains("active")) {
 				this.classList.add('active');
@@ -214,7 +213,7 @@ function fnBtnAnchor(){
 	});
 }
 // select 태그 class 추가
-function fnSelectColorChange(){
+function fnSelectColorChange() {
 	const $selects = document.querySelectorAll('.select');
 	$selects.forEach(function ($select) {
 		$select.addEventListener('change', function () {
@@ -241,7 +240,7 @@ function fnBoxSearchDetail() {
 				$boxSearchDetail.classList.remove('active');
 				if ($blindText) $blindText.textContent = '펼침';
 			} else {
-				$boxSearchDetail.classList.add('active'); 
+				$boxSearchDetail.classList.add('active');
 				if ($blindText) $blindText.textContent = '접힘';
 			}
 		});
@@ -262,7 +261,7 @@ function fnBoxMultiSelect() {
 
 		$triggerBtn.addEventListener('click', function (e) {
 			e.stopPropagation();
-			
+
 			const isOpen = this.classList.contains('active');
 			closeAllMultiSelects();
 
@@ -280,7 +279,7 @@ function fnBoxMultiSelect() {
 		if ($allCheckbox) {
 			$allCheckbox.addEventListener('change', function () {
 				const isChecked = this.checked;
-				
+
 				$itemCheckboxes.forEach(function ($itemCheck) {
 					$itemCheck.checked = isChecked;
 					const $liItem = $itemCheck.closest('.item-mulit-select');
@@ -303,7 +302,7 @@ function fnBoxMultiSelect() {
 				$itemCheckboxes.forEach(function ($itemCheck) {
 					$itemCheck.checked = false;
 				});
-				
+
 				if ($allCheckbox) {
 					$allCheckbox.checked = false;
 					updateAllCheckboxState($allCheckbox, $itemCheckboxes);
@@ -321,10 +320,10 @@ function closeAllMultiSelects() {
 	const $activeTriggers = document.querySelectorAll('.box-multi-select .select.active');
 	const $openComponents = document.querySelectorAll('.box-multi-select.is-open');
 
-	$activeTriggers.forEach(function ($btn) { 
+	$activeTriggers.forEach(function ($btn) {
 		const $blindText = $btn.querySelector('.blind');
-		$btn.classList.remove('active'); 
-		
+		$btn.classList.remove('active');
+
 		if ($blindText) $blindText.textContent = '펼침';
 	});
 	$openComponents.forEach(function ($comp) { $comp.classList.remove('is-open'); });
@@ -373,7 +372,7 @@ function fnTextareaCounter() {
 	});
 }
 // Tab
-function fnTab(initialActiveIndex){
+function fnTab(initialActiveIndex) {
 	var classTabWrapper = "box-tab";
 	var classTabButton = "btn-tab";
 	var classTabContent = "box-tab-content";
@@ -395,7 +394,7 @@ function fnTab(initialActiveIndex){
 		var $disabledButtons = $container.querySelectorAll("." + classDisabledState + " ." + classTabButton + ", ." + classTabButton + "." + classDisabledState);
 		$disabledButtons.forEach(function ($button) {
 			$button.setAttribute("title", textDisabledGuide);
-			$button.setAttribute("disabled", "true"); 
+			$button.setAttribute("disabled", "true");
 		});
 
 		$currentContents.forEach(function ($content) {
@@ -428,7 +427,7 @@ function fnTab(initialActiveIndex){
 		var isDisabledTab = $clickedButton.classList.contains(classDisabledState) || $clickedButton.hasAttribute("disabled");
 
 		if (!isAlreadyActive && !isDisabledTab) {
-			
+
 			$scopeButtons.forEach(function ($button, index) {
 				var isThisButtonDisabled = $button.classList.contains(classDisabledState) || $button.hasAttribute("disabled");
 				if (isThisButtonDisabled) return;
@@ -443,7 +442,7 @@ function fnTab(initialActiveIndex){
 			$scopeContents.forEach(function ($content, index) {
 				var $matchingButton = $scopeButtons[index];
 				var isMatchingButtonDisabled = $matchingButton ? ($matchingButton.classList.contains(classDisabledState) || $matchingButton.hasAttribute("disabled")) : false;
-				
+
 				if (isMatchingButtonDisabled) return;
 
 				if (index === targetActiveIndex) {
@@ -472,112 +471,93 @@ function fnTab(initialActiveIndex){
 	});
 }
 // Tooltip
-function fnBoxTooltip(){
+function fnBoxTooltip() {
 	var classTooltipContainer = "box-tooltip";
-    var classTriggerButton = "btn";
-    var classActiveState = "active";
-    var classButtonClose = "btn-close";
-    var classTooltipLayer = "layer-tooltip";
-	
-    var $tooltipWrappers = document.querySelectorAll("." + classTooltipContainer);
-    if ($tooltipWrappers.length === 0) return;
+	var classTriggerButton = "btn";
+	var classActiveState = "active";
+	var classButtonClose = "btn-close";
+	var classTooltipLayer = "layer-tooltip";
 
-    $tooltipWrappers.forEach(function ($wrapper) {
-        var $button = $wrapper.querySelector("." + classTriggerButton);
-        var $buttonClose = $wrapper.querySelector("." + classButtonClose);
-        if (!$button) return;
+	var $tooltipWrappers = document.querySelectorAll("." + classTooltipContainer);
+	if ($tooltipWrappers.length === 0) return;
 
-        var $layer = $wrapper.querySelector("." + classTooltipLayer);
-        if (!$layer) return;
+	$tooltipWrappers.forEach(function ($wrapper) {
+		var $button = $wrapper.querySelector("." + classTriggerButton);
+		var $buttonClose = $wrapper.querySelector("." + classButtonClose);
+		if (!$button) return;
 
-        $button.addEventListener("click", function (event) {
-            event.stopPropagation(); 
+		var $layer = $wrapper.querySelector("." + classTooltipLayer);
+		if (!$layer) return;
 
-            var isCurrentlyActive = this.classList.contains(classActiveState);
+		$button.addEventListener("click", function (event) {
+			event.stopPropagation();
 
-            fnCloseAllClickTooltips();
+			var isCurrentlyActive = this.classList.contains(classActiveState);
 
-            if (!isCurrentlyActive) {
-                this.classList.add(classActiveState);
-            }
-        });
+			fnCloseAllClickTooltips();
 
-        $layer.addEventListener("click", function (event) {
-            event.stopPropagation();
-        });
+			if (!isCurrentlyActive) {
+				this.classList.add(classActiveState);
+			}
+		});
 
-        if ($buttonClose) {
-            $buttonClose.addEventListener("click", function (event) {
-                event.stopPropagation();
-                fnCloseAllClickTooltips();
-            });
-        }
-    });
+		$layer.addEventListener("click", function (event) {
+			event.stopPropagation();
+		});
 
-    document.addEventListener("click", function () {
-        fnCloseAllClickTooltips();
-    });
+		if ($buttonClose) {
+			$buttonClose.addEventListener("click", function (event) {
+				event.stopPropagation();
+				fnCloseAllClickTooltips();
+			});
+		}
+	});
 
-    document.addEventListener("keydown", function (event) {
-        if (event.key === "Escape" || event.key === "Esc") {
-            fnCloseAllClickTooltips();
-        }
-    });
+	document.addEventListener("click", function () {
+		fnCloseAllClickTooltips();
+	});
 
-    function fnCloseAllClickTooltips() {
-        var $activeButtons = document.querySelectorAll("." + classTooltipContainer + " ." + classTriggerButton + "." + classActiveState);
-        
-        $activeButtons.forEach(function ($activeBtn) {
-            $activeBtn.classList.remove(classActiveState);
-        });
-    }
+	document.addEventListener("keydown", function (event) {
+		if (event.key === "Escape" || event.key === "Esc") {
+			fnCloseAllClickTooltips();
+		}
+	});
+
+	function fnCloseAllClickTooltips() {
+		var $activeButtons = document.querySelectorAll("." + classTooltipContainer + " ." + classTriggerButton + "." + classActiveState);
+
+		$activeButtons.forEach(function ($activeBtn) {
+			$activeBtn.classList.remove(classActiveState);
+		});
+	}
 }
 
 //서치레이어팝업
-const btnSearch=document.querySelector(".btn-search");
-const searchLayer=document.querySelector(".search-layer");
-const input=document.querySelector(".search-input");
-const dropdown=document.querySelector(".search-dropdown");
-
-btnSearch.addEventListener("click",()=>{
-
-    searchLayer.classList.toggle("is-open");
-
-    input.focus();
-
+const btnSearch = document.querySelector(".btn-search");
+const searchLayer = document.querySelector(".search-layer");
+const input = document.querySelector(".input");
+const dropdown = document.querySelector(".search-dropdown");
+const btnSearchClose = document.querySelector(".btn-search-close");
+btnSearch.addEventListener("click", () => {
+  header.classList.remove("is-open");
+  items.forEach(item => item.classList.remove("is-active"));
+  menus.forEach(menu => menu.classList.remove("is-active"));
+  searchLayer.classList.add("is-search-open");
+  input.focus();
 });
-input.addEventListener("focus",()=>{
-
-    dropdown.classList.add("is-open");
-
+input.addEventListener("focus", () => {
+	dropdown.classList.add("is-search-open");
 });
 
-input.addEventListener("blur",()=>{
-
-    setTimeout(()=>{
-
-        dropdown.classList.remove("is-open");
-
-    },100);
-
+links.forEach(link => {
+  link.addEventListener("mouseenter", () => {
+    searchLayer.classList.remove("is-search-open");
+    dropdown.classList.remove("is-search-open");
+  });
 });
-btnSearch.addEventListener("click",()=>{
-
-    header.classList.remove("is-open");
-
-    items.forEach(item=>item.classList.remove("is-active"));
-
-    menus.forEach(menu=>menu.classList.remove("is-active"));
-
-    searchLayer.classList.toggle("is-open");
-
-});
-links.forEach(link=>{
-
-    link.addEventListener("mouseenter",()=>{
-
-        searchLayer.classList.remove("is-open");
-
-    });
-
+btnSearchClose.addEventListener("click", () => {
+  searchLayer.classList.remove("is-search-open");
+  dropdown.classList.remove("is-search-open");
+  input.value = "";
+  btnSearch.focus();
 });

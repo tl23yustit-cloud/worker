@@ -1,442 +1,519 @@
 .main-hero {
   position: relative;
   height: 456px;
-  background: url("../../images/main/img_main_bg_x3.png") no-repeat center /
-    cover;
+  background: url("../../images/main/img_main_bg_x3.png") no-repeat center / cover;
   border-radius: 0 0 40px 40px;
 }
+
 .main {
+  // width: 100%;
+
   .typeH2 {
     text-align: center;
   }
-  .easy-service {
+
+  .visual-main {
+    position: relative;
     width: 100%;
-    padding-top: var(--spacing4Xl);
-    padding-bottom: var(--spacing4Xl);
+    margin-top: -209px;
 
-    .easy-service-list {
-      display: flex;
-      justify-content: center;
-      padding-top: var(--spacing2Xl);
-      li {
-        + li {
-          margin-left: var(--spacingLgXl);
-        }
-        .ico-btn {
-          &.type-bg {
-            &.quick-inquiry {
-              &::before {
-                content: "";
-                background: url(../../images/main/ico_easy_01_x3.png);
-                background-size: 100px;
-                display: inline-block;
-                width: 100px;
-                height: 100px;
-                margin: 6px;
-              }
-            }
-          }
-        }
-      }
+    .bg-visual {
+      border-radius: 0 0 40px 40px;
+      width: 1880px;
+      max-width: 1880px;
+      height: 456px;
+      background: url("../../images/main/img_main_bg_x3.png") no-repeat center/cover
     }
   }
-  .recommend-service {
-    padding-top: var(--spacingLgXl);
-    .box-tab {
-      display: flex;
-      justify-content: space-between;
-      .swiper-btn-wrap {
-        display: flex;
-        .btn-nav {
-          + .btn-nav {
-            margin-left: var(--spacingSm);
-          }
-        }
-      }
-    }
-    .tab-controls {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding-top: var(--spacingLg);
-    }
 
-    .banner-list {
-      display: flex;
-      li {
-        flex: 1;
-        + li {
-          margin-left: var(--spacingLgXl);
-        }
-        .img-bg-bnr {
-          display: block;
-          background-color: var(--colorChartCyanLight);
-          padding: var(--spacing2Xl) var(--spacing3Xl);
-          border-radius: var(--radius2Xl);
-          &.installment-saving {
-            background-color: var(--colorChartCyanLight);
-            width: 100%;
-            height: 100%;
-            min-height: 188px;
-            position: relative;
-            padding: var(--spacing3Xl);
-            .typeH3 {
-              padding-top: var(--spacingXs);
-              color: var(--colorFgBase);
-            }
-            .typeLg {
-              padding-top: var(--spacingMd);
-              color: var(--colorFgSecondary);
-            }
-            &::after {
-              content: "";
-              display: inline-block;
-              position: absolute;
-              right: var(--spacingLgXl);
-              top: 18px;
-              background: url(../../images/main/ico_piggy_01_x3.png);
-              background-size: 162px;
-              object-fit: cover;
-              background-repeat: no-repeat;
-              width: 162px;
-              height: 162px;
-            }
-          }
-        }
-      }
-    }
-  }
-  .event-bnr-wrap {
-    .typeH3 {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      .bnr-pagination {
-        position: relative;
-      }
-    }
-    .swiper-bnr {
-      .bnr01 {
-        height: 236px;
-        background-color: var(--colorFgNeutralDisabled);
-        .btn-ico-text {
-          padding-top: var(--spacing2Xl);
-        }
-      }
-    }
-  }
-  .bnr-swiper {
-    width: 316px;
-    padding-top: var(--spacingMd);
-  }
-  .service-view {
-    display: flex;
-    padding: var(--spacing4Xl) 0;
-    > div {
-      + div {
-        padding-left: var(--spacing2Xl);
-      }
-    }
-    .notice-list-wrap {
-      //   flex: 1;
-      width: 560px;
-      .typeH3 {
+  .main-bottom-wrap {
+    width: 1360px;
+    margin: 0 auto;
+    .easy-service {
+      width: 100%;
+      padding-top: var(--spacing4Xl);
+      padding-bottom: var(--spacing4Xl);
+
+      .easy-service-list {
         display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: var(--Base-spacingXs, 4px);
-        flex: 1 0 0;
-      }
-      .notice-list {
-        margin-top: var(--spacingMd);
-        padding: var(--spacingXl) var(--spacing2Xl);
-        border-radius: var(--radius2Xl);
-        border: 1px solid var(--colorBorderSecondary);
-        height: 236px;
+        justify-content: center;
+        padding-top: var(--spacing2Xl);
+
         li {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          + li {
-            padding-top: var(--spacingLg);
-          }
-          .typeMd {
-            flex: 1;
-            display: block;
-            padding-left: var(--spacingSm);
-            text-decoration: none;
-
-            &:hover,
-            &:focus-visible {
-              text-decoration: underline;
-            }
-          }
-          .update-date {
-            font-size: var(--contentFontSizeMd);
-            font-weight: var(--fontWeightRegular);
-            line-height: var(--contentLineHeightMd);
-            color: var(--colorBorderBaseInvertDisabled);
-          }
-        }
-      }
-    }
-  }
-  //로그인 이후
-  .main-content {
-    display: flex;
-    .financial-manage {
-      width: 864px;
-      padding: var(--spacingXl) var(--spacing2Xl);
-      // flex-direction: column;
-      // align-items: flex-start;
-      // gap: 16px;
-      // flex: 1 0 0;
-      border: 1px solid var(--colorBorderSecondary);
-      border-radius: var(--radius2Xl);
-      .typeH3 {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: var(--Base-spacingXs, 4px);
-        flex: 1 0 0;
-        .refresh-btn-wrap {
-          display: flex;
-          align-items: center;
-          .typeSmMedium {
-            padding-right: var(--spacingXs);
-            color: var(--colorFgNeutral);
-          }
-        }
-      }
-      .box-accordion {
-        padding: 0;
-        padding-top: var(--spacingLg);
-        .box-item-list {
-          height: var(--sizeBaseLg);
-          align-items: center;
-          .box-title {
-            .schedule-num {
-              padding-left: var(--spacingXs);
-              color: var(--colorFgPrimary);
-            }
-          }
-        }
-        .content-accordion {
-          .choice-wrap {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            select {
-              width: 180px;
-            }
-            .ico-calendar {
-              display: flex;
-              align-items: center;
-              &::before {
-                content: "";
-                width: var(--sizeBaseXs);
-                height: var(--sizeBaseXs);
-                background: url("../../images/ico_calendar_16.png") no-repeat
-                  center / contain;
-              }
-
-              &:hover {
-                background: #f8f8f8;
-              }
-
-              &:focus-visible {
-                outline: 2px solid #0064de;
-                outline-offset: 2px;
-              }
-            }
-          }
-          .history-list {
-            padding: var(--spacingSm) var(--spacingNone) var(--spacingNone)
-              var(--spacingSm);
-          }
-          .history-item {
-            display: flex;
-            align-items: flex-start;
-            gap: var(--spacingLg);
-            padding: var(--spacingLgXl) var(--spacingNone);
-          }
-          .history-info {
-            flex: 1;
+          +li {
+            margin-left: var(--spacingLgXl);
           }
 
-          .typeLgBold {
-            display: block;
-            margin-bottom: var(--spacingXsSm);
-            color: var(--colorFgBase);
-          }
-
-          .history-account {
-            display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-            color: var(--colorFgSecondary);
-            .typeMd {
-              position: relative;
-              display: flex;
-              width: auto;
-              .typeMdSemibold {
-                padding-left: var(--spacingXsSm);
-              }
-
-              & + .typeMd {
-                margin-left: 17px;
-
+          .ico-btn {
+            &.type-bg {
+              &.quick-inquiry {
                 &::before {
                   content: "";
-                  position: absolute;
-                  left: -9px;
-                  top: 50%;
-                  width: 1px;
-                  height: 12px;
-                  background: #d8d8d8;
-                  transform: translateY(-50%);
+                  background: url(../../images/main/ico_easy_01_x3.png);
+                  background-size: 100px;
+                  display: inline-block;
+                  width: 100px;
+                  height: 100px;
+                  margin: 6px;
                 }
               }
             }
           }
+        }
+      }
+    }
 
-          .history-amount {
-            flex-shrink: 0;
-            align-self: center;
-            font-size: var(--contentFontSize2Xl);
-            font-weight: var(--fontWeightBold);
-            text-align: right;
-            padding-right: var(--spacingLg);
-            .typeXlBold {
-              color: var(--colorFgPrimary);
+    .recommend-service {
+      padding-top: var(--spacingLgXl);
+
+      .box-tab {
+        display: flex;
+        justify-content: space-between;
+
+
+        .swiper-btn-wrap {
+          display: flex;
+
+          .btn-nav {
+            +.btn-nav {
+              margin-left: var(--spacingSm);
             }
-            .typeLgMedium {
-              padding-left: var(--spacingXs);
-              color: var(--colorFgSecondary);
+          }
+        }
+      }
+
+      .tab-controls {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: var(--spacingLg);
+      }
+
+      .banner-list {
+        display: flex;
+
+        li {
+          flex: 1;
+
+          +li {
+            margin-left: var(--spacingLgXl);
+          }
+
+          .img-bg-bnr {
+            display: block;
+            background-color: var(--colorChartCyanLight);
+            padding: var(--spacing2Xl) var(--spacing3Xl);
+            border-radius: var(--radius2Xl);
+
+            &.installment-saving {
+              background-color: var(--colorChartCyanLight);
+              width: 100%;
+              height: 100%;
+              min-height: 188px;
+              position: relative;
+              padding: var(--spacing3Xl);
+
+              .typeH3 {
+                padding-top: var(--spacingXs);
+                color: var(--colorFgBase);
+              }
+
+              .typeLg {
+                padding-top: var(--spacingMd);
+                color: var(--colorFgSecondary);
+              }
+
+              &::after {
+                content: "";
+                display: inline-block;
+                position: absolute;
+                right: var(--spacingLgXl);
+                top: 18px;
+                background: url(../../images/main/ico_piggy_01_x3.png);
+                background-size: 162px;
+                object-fit: cover;
+                background-repeat: no-repeat;
+                width: 162px;
+                height: 162px;
+              }
             }
           }
-          .history-date,
-          .history-date-placeholder {
-            flex-shrink: 0;
-            width: var(--sizeBaseSm);
+        }
+      }
+    }
+
+    .event-bnr-wrap {
+      .typeH3 {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .bnr-pagination {
+          position: relative;
+        }
+      }
+
+      .swiper-bnr {
+        .bnr01 {
+          height: 236px;
+          background-color: var(--colorFgNeutralDisabled);
+
+          .btn-ico-text {
+            padding-top: var(--spacing2Xl);
           }
+        }
+      }
+    }
 
-          .typeMdBold {
-            color: var(--colorFgBase);
-          }
+    .bnr-swiper {
+      width: 316px;
+      padding-top: var(--spacingMd);
+    }
 
-          .typeMd {
-            flex-shrink: 0;
-            width: var(--sizeBaseMd);
-            color: var(--colorFgSecondary);
-          }
+    .service-view {
+      display: flex;
+      padding: var(--spacing4Xl) 0;
 
-          .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border: 0;
-          }
-          .history-summary {
-            padding: var(--spacingLgXl) var(--spacingLg) 0;
-            // border-top: 1px solid #e5e7eb;
+      >div {
+        +div {
+          padding-left: var(--spacing2Xl);
+        }
+      }
 
-            dl {
-              display: flex;
-              justify-content: flex-end;
-              align-items: center;
-              gap: var(--spacingLg);
+      .notice-list-wrap {
+        //   flex: 1;
+        width: 560px;
 
-              &:not(:last-child) {
-                margin-bottom: 8px;
+        .typeH3 {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: var(--Base-spacingXs, 4px);
+          flex: 1 0 0;
+        }
+
+        .notice-list {
+          margin-top: var(--spacingMd);
+          padding: var(--spacingXl) var(--spacing2Xl);
+          border-radius: var(--radius2Xl);
+          border: 1px solid var(--colorBorderSecondary);
+          height: 236px;
+
+          li {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            +li {
+              padding-top: var(--spacingLg);
+            }
+
+            .typeMd {
+              flex: 1;
+              display: block;
+              padding-left: var(--spacingSm);
+              text-decoration: none;
+
+              &:hover,
+              &:focus-visible {
+                text-decoration: underline;
               }
             }
 
-            dt {
-              color: #6b7280;
-              text-align: left;
-              min-width: 105px;
+            .update-date {
+              font-size: var(--contentFontSizeMd);
+              font-weight: var(--fontWeightRegular);
+              line-height: var(--contentLineHeightMd);
+              color: var(--colorBorderBaseInvertDisabled);
+            }
+          }
+        }
+      }
+    }
+
+    //로그인 이후
+    .main-content {
+      display: flex;
+
+      .financial-manage {
+        width: 864px;
+        padding: var(--spacingXl) var(--spacing2Xl);
+        // flex-direction: column;
+        // align-items: flex-start;
+        // gap: 16px;
+        // flex: 1 0 0;
+        border: 1px solid var(--colorBorderSecondary);
+        border-radius: var(--radius2Xl);
+
+        .typeH3 {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: var(--Base-spacingXs, 4px);
+          flex: 1 0 0;
+
+          .refresh-btn-wrap {
+            display: flex;
+            align-items: center;
+
+            .typeSmMedium {
+              padding-right: var(--spacingXs);
+              color: var(--colorFgNeutral);
+            }
+          }
+        }
+
+        .box-accordion {
+          padding: 0;
+          padding-top: var(--spacingLg);
+
+          .box-item-list {
+            height: var(--sizeBaseLg);
+            align-items: center;
+
+            .box-title {
+              .schedule-num {
+                padding-left: var(--spacingXs);
+                color: var(--colorFgPrimary);
+              }
+            }
+          }
+
+          .content-accordion {
+            .choice-wrap {
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+
+              select {
+                width: 180px;
+              }
+
+              .ico-calendar {
+                display: flex;
+                align-items: center;
+
+                &::before {
+                  content: "";
+                  width: var(--sizeBaseXs);
+                  height: var(--sizeBaseXs);
+                  background: url("../../images/ico_calendar_16.png") no-repeat center / contain;
+                }
+
+                &:hover {
+                  background: #f8f8f8;
+                }
+
+                &:focus-visible {
+                  outline: 2px solid #0064de;
+                  outline-offset: 2px;
+                }
+              }
             }
 
-            dd {
-              min-width: 200px;
+            .history-list {
+              padding: var(--spacingSm) var(--spacingNone) var(--spacingNone) var(--spacingSm);
+            }
+
+            .history-item {
+              display: flex;
+              align-items: flex-start;
+              gap: var(--spacingLg);
+              padding: var(--spacingLgXl) var(--spacingNone);
+            }
+
+            .history-info {
+              flex: 1;
+            }
+
+            .typeLgBold {
+              display: block;
+              margin-bottom: var(--spacingXsSm);
+              color: var(--colorFgBase);
+            }
+
+            .history-account {
+              display: flex;
+              align-items: center;
+              flex-wrap: wrap;
+              color: var(--colorFgSecondary);
+
+              .typeMd {
+                position: relative;
+                display: flex;
+                width: auto;
+
+                .typeMdSemibold {
+                  padding-left: var(--spacingXsSm);
+                }
+
+                &+.typeMd {
+                  margin-left: 17px;
+
+                  &::before {
+                    content: "";
+                    position: absolute;
+                    left: -9px;
+                    top: 50%;
+                    width: 1px;
+                    height: 12px;
+                    background: #d8d8d8;
+                    transform: translateY(-50%);
+                  }
+                }
+              }
+            }
+
+            .history-amount {
+              flex-shrink: 0;
+              align-self: center;
+              font-size: var(--contentFontSize2Xl);
+              font-weight: var(--fontWeightBold);
               text-align: right;
-              font-size: 24px;
-              font-weight: 700;
-              color: var(--colorFgPrimary);
+              padding-right: var(--spacingLg);
+
+              .typeXlBold {
+                color: var(--colorFgPrimary);
+              }
 
               .typeLgMedium {
                 padding-left: var(--spacingXs);
                 color: var(--colorFgSecondary);
               }
             }
-            .balance-amount {
+
+            .history-date,
+            .history-date-placeholder {
+              flex-shrink: 0;
+              width: var(--sizeBaseSm);
+            }
+
+            .typeMdBold {
               color: var(--colorFgBase);
             }
 
-            dl:last-child dd {
-              color: #111827;
+            .typeMd {
+              flex-shrink: 0;
+              width: var(--sizeBaseMd);
+              color: var(--colorFgSecondary);
             }
-          }
-        }
-      }
 
-      .bg-box-card {
-        display: flex;
-        align-items: center;
-        align-self: stretch;
-        border-radius: var(--radiusXl);
-        background: var(--colorBgSecondary);
-        // padding: var(--spacingXl) var(--spacing2Xl);
-        margin-top: var(--spacingLg);
+            .sr-only {
+              position: absolute;
+              width: 1px;
+              height: 1px;
+              padding: 0;
+              margin: -1px;
+              overflow: hidden;
+              clip: rect(0, 0, 0, 0);
+              white-space: nowrap;
+              border: 0;
+            }
 
-        .financial-view {
-          position: relative;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          flex: 1 0 0;
-          color: var(--colorFgBase);
-          padding: var(--spacingXl) var(--spacing2Xl);
-          .typeLgMedium {
-            display: flex;
-            align-items: center;
-            .box-tooltip {
-              margin-top: var(--spacingXs);
-              margin-left: var(--spacingXs);
-              .ex_mark {
-                background: url(../../images/ico_ex_mark_14.png) no-repeat;
-                background-size: 14px;
-                width: 14px;
-                height: 14px;
+            .history-summary {
+              padding: var(--spacingLgXl) var(--spacingLg) 0;
+              // border-top: 1px solid #e5e7eb;
+
+              dl {
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                gap: var(--spacingLg);
+
+                &:not(:last-child) {
+                  margin-bottom: 8px;
+                }
+              }
+
+              dt {
+                color: #6b7280;
+                text-align: left;
+                min-width: 105px;
+              }
+
+              dd {
+                min-width: 200px;
+                text-align: right;
+                font-size: 24px;
+                font-weight: 700;
+                color: var(--colorFgPrimary);
+
+                .typeLgMedium {
+                  padding-left: var(--spacingXs);
+                  color: var(--colorFgSecondary);
+                }
+              }
+
+              .balance-amount {
+                color: var(--colorFgBase);
+              }
+
+              dl:last-child dd {
+                color: #111827;
               }
             }
           }
-          .balance {
+        }
+
+        .bg-box-card {
+          display: flex;
+          align-items: center;
+          align-self: stretch;
+          border-radius: var(--radiusXl);
+          background: var(--colorBgSecondary);
+          // padding: var(--spacingXl) var(--spacing2Xl);
+          margin-top: var(--spacingLg);
+
+          .financial-view {
+            position: relative;
             display: flex;
             align-items: center;
-            font-size: var(--contentFontSize3Xl);
-            font-weight: var(--fontWeightBold);
-            span {
-              padding-left: var(--spacingXs);
+            justify-content: space-between;
+            flex: 1 0 0;
+            color: var(--colorFgBase);
+            padding: var(--spacingXl) var(--spacing2Xl);
+
+            .typeLgMedium {
+              display: flex;
+              align-items: center;
+
+              .box-tooltip {
+                margin-top: var(--spacingXs);
+                margin-left: var(--spacingXs);
+
+                .ex_mark {
+                  background: url(../../images/ico_ex_mark_14.png) no-repeat;
+                  background-size: 14px;
+                  width: 14px;
+                  height: 14px;
+                }
+              }
             }
-          }
-          + .financial-view {
-            padding-left: var(--spacingXl);
-            &::before {
-              content: "";
-              position: absolute;
-              left: 0;
-              top: 50%;
-              transform: translateY(-50%);
-              background: var(--colorBgDisabled);
-              width: 1px;
-              height: var(--sizeBaseMd);
+
+            .balance {
+              display: flex;
+              align-items: center;
+              font-size: var(--contentFontSize3Xl);
+              font-weight: var(--fontWeightBold);
+
+              span {
+                padding-left: var(--spacingXs);
+              }
+            }
+
+            +.financial-view {
+              padding-left: var(--spacingXl);
+
+              &::before {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                background: var(--colorBgDisabled);
+                width: 1px;
+                height: var(--sizeBaseMd);
+              }
             }
           }
         }
