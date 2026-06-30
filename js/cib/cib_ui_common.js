@@ -1,9 +1,11 @@
 window.addEventListener('load', function () {
 	fnSkipNavigation() // skip Navigation
+	fnGnb() // GNB
 	fnLNB() // LNB
 	fnBoxAccordion(); // Accordion
 	fnBtnAnchor(); // Anchor
 	fnSelectColorChange(); // select 태그 class 추가
+	fnInputClear(); // 기본 검색
 	fnBoxSearchDetail(); // 상세검색
 	fnBoxMultiSelect(); // 멀티 드롭다운
 	fnTextareaCounter(); // Textarea
@@ -15,136 +17,154 @@ window.addEventListener('load', function () {
 function fnSkipNavigation() {
 	const $btnsSkipNav = document.querySelectorAll(".skip-nav .btn-skip-nav");
 
-	$btnsSkipNav.forEach(function($btn) {
-		$btn.addEventListener('focus', function(){
+	$btnsSkipNav.forEach(function ($btn) {
+		$btn.addEventListener('focus', function () {
 			this.classList.add("is-open");
 		});
 
-		$btn.addEventListener('blur', function(){
+		$btn.addEventListener('blur', function () {
 			this.classList.remove("is-open");
 		});
 	});
 }
 //GNB
-const header = document.querySelector(".header");
-  const items = document.querySelectorAll(".gnb-item");
-  const links = document.querySelectorAll(".gnb-link");
-  const menus = document.querySelectorAll(".mega-menu");
-  document.addEventListener("DOMContentLoaded", function () {
-    const selectButtons = document.querySelectorAll(".util-menu .btn-select");
+function fnGnb() {
+    var $header = document.querySelector(".header");
+    var $gnb = document.querySelector(".header-bottom");
+    var $items = document.querySelectorAll(".gnb-item");
+    var $links = document.querySelectorAll(".gnb-link");
+    var $menus = document.querySelectorAll(".mega-menu");
+    var $selectButtons = document.querySelectorAll(".util-menu .btn-select");
+    var $menuToggleButtons = document.querySelectorAll(".menu-toggle");
+    var $hasDepthItems = document.querySelectorAll(".menu-item.has-depth");
 
-    selectButtons.forEach(function (button) {
-      button.addEventListener("click", function () {
-        this.classList.toggle("active");
-      });
-    });
-  });
-
-  links.forEach((link) => {
-    link.addEventListener("mouseenter", function () {
-      header.classList.add("is-open");
-
-      items.forEach((item) => item.classList.remove("is-active"));
-      menus.forEach((menu) => menu.classList.remove("is-active"));
-
-      const item = this.closest(".gnb-item");
-      item.classList.add("is-active");
-
-      item.querySelector(".mega-menu").classList.add("is-active");
-    });
-  });
-  header.addEventListener("mouseleave", () => {
-    header.classList.remove("is-open");
-
-    items.forEach((item) => item.classList.remove("is-active"));
-    menus.forEach((menu) => menu.classList.remove("is-active"));
-  });
-
-  const gnb = document.querySelector(".header-bottom");
-
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 0) {
-      gnb.classList.add("is-fixed");
-    } else {
-      gnb.classList.remove("is-fixed");
+    if ($selectButtons.length > 0) {
+        $selectButtons.forEach(function ($button) {
+            $button.addEventListener("click", function () {
+                this.classList.toggle("active");
+            });
+        });
     }
-  });
 
-  document.querySelectorAll(".menu-toggle").forEach((button) => {
-    button.addEventListener("click", () => {
-      const item = button.closest(".menu-item");
+    if ($links.length > 0 && $header) {
+        $links.forEach(function ($link) {
+            $link.addEventListener("mouseenter", function () {
+                $header.classList.add("is-open");
 
-      item.classList.toggle("is-open");
+                $items.forEach(function ($item) { $item.classList.remove("is-active"); });
+                $menus.forEach(function ($menu) { $menu.classList.remove("is-active"); });
 
-      button.setAttribute("aria-expanded", item.classList.contains("is-open"));
-    });
-  });
-  document.querySelectorAll(".menu-item.has-depth").forEach((item) => {
-    const depthCount = item.querySelectorAll(".depth-list > li").length;
-
-    if (depthCount >= 2) {
-      item.classList.add("is-toggle");
-    } else {
-      item.classList.add("is-single");
+                var $currentItem = this.closest(".gnb-item");
+                if ($currentItem) {
+                    $currentItem.classList.add("is-active");
+                    
+                    var $targetMegaMenu = $currentItem.querySelector(".mega-menu");
+                    if ($targetMegaMenu) {
+                        $targetMegaMenu.classList.add("is-active");
+                    }
+                }
+            });
+        });
     }
-  });
+
+    if ($header) {
+        $header.addEventListener("mouseleave", function () {
+            $header.classList.remove("is-open");
+            $items.forEach(function ($item) { $item.classList.remove("is-active"); });
+            $menus.forEach(function ($menu) { $menu.classList.remove("is-active"); });
+        });
+    }
+
+    if ($gnb) {
+        window.addEventListener("scroll", function () {
+            if (window.scrollY > 0) {
+                $gnb.classList.add("is-fixed");
+            } else {
+                $gnb.classList.remove("is-fixed");
+            }
+        });
+    }
+
+    if ($menuToggleButtons.length > 0) {
+        $menuToggleButtons.forEach(function ($button) {
+            $button.addEventListener("click", function () {
+                var $item = this.closest(".menu-item");
+                if ($item) {
+                    $item.classList.toggle("is-open");
+                    this.setAttribute("aria-expanded", $item.classList.contains("is-open"));
+                }
+            });
+        });
+    }
+
+    if ($hasDepthItems.length > 0) {
+        $hasDepthItems.forEach(function ($item) {
+            var depthCount = $item.querySelectorAll(".depth-list > li").length;
+            if (depthCount >= 2) {
+                $item.classList.add("is-toggle");
+            } else {
+                $item.classList.add("is-single");
+            }
+        });
+    }
+}
 // LNB
 function fnLNB() {
-    var classLnbContainer = "wrap-left-menu";
-    var classTriggerLink = "link";
-    var classActiveState = "selected";
-    var classBlindText = "blind";
-    var classHasNoChild = "none";
+	var classLnbContainer = "wrap-left-menu";
+	var classTriggerLink = "link";
+	var classActiveState = "selected";
+	var classBlindText = "blind";
+	var classHasNoChild = "none";
 
-    var textOpenGuide = "메뉴 펼침";
-    var textCloseGuide = "메뉴 접힘";
+	var textOpenGuide = "메뉴 펼침";
+	var textCloseGuide = "메뉴 접힘";
 
-    var $lnbWrapper = document.querySelector("." + classLnbContainer);
-    if (!$lnbWrapper) return;
+	var $lnbWrapper = document.querySelector("." + classLnbContainer);
+	if (!$lnbWrapper) return;
 
-    var $links = $lnbWrapper.querySelectorAll("." + classTriggerLink);
-    $links.forEach(function ($link) {
-        var $li = $link.parentElement;
-        if (!$li || $li.classList.contains(classHasNoChild)) return;
+	var $links = $lnbWrapper.querySelectorAll("." + classTriggerLink);
+	$links.forEach(function ($link) {
+		var $li = $link.parentElement;
+		if (!$li || $li.classList.contains(classHasNoChild)) return;
 
-        var $subList = $link.nextElementSibling;
-        var $blindSpan = $link.querySelector("." + classBlindText);
+		var $subList = $link.nextElementSibling;
+		var $blindSpan = $link.querySelector("." + classBlindText);
 
-        if ($link.classList.contains(classActiveState)) {
-            if ($blindSpan) $blindSpan.textContent = textOpenGuide;
-        } else {
-            if ($blindSpan) $blindSpan.textContent = textCloseGuide;
-        }
-    });
+		if ($link.classList.contains(classActiveState)) {
+			if ($blindSpan) $blindSpan.textContent = textOpenGuide;
+		} else {
+			if ($blindSpan) $blindSpan.textContent = textCloseGuide;
+		}
+	});
 
-    // [단계 2] 전역 클릭 위임 이벤트
-    $lnbWrapper.addEventListener("click", function (event) {
-        var $clickedLink = event.target.closest("." + classTriggerLink);
-        if (!$clickedLink) return;
+	// [단계 2] 전역 클릭 위임 이벤트
+	$lnbWrapper.addEventListener("click", function (event) {
+		var $clickedLink = event.target.closest("." + classTriggerLink);
+		if (!$clickedLink) return;
 
-        var $currentLi = $clickedLink.parentElement;
-        if (!$currentLi) return;
+		var $currentLi = $clickedLink.parentElement;
+		if (!$currentLi) return;
 
-        if ($currentLi.classList.contains(classHasNoChild) || $currentLi.classList.contains("item-depth4")) {
-            return; 
-        }
+		if ($currentLi.classList.contains(classHasNoChild) || $currentLi.classList.contains("item-depth4")) {
+			return;
+		}
 
-        event.preventDefault();
+		event.preventDefault();
 
-        var $correspondingSubList = $clickedLink.nextElementSibling;
-        var $blindTextSpan = $clickedLink.querySelector("." + classBlindText);
-        var isAlreadySelected = $clickedLink.classList.contains(classActiveState);
+		var $correspondingSubList = $clickedLink.nextElementSibling;
+		var $blindTextSpan = $clickedLink.querySelector("." + classBlindText);
+		var isAlreadySelected = $clickedLink.classList.contains(classActiveState);
 
-        if (isAlreadySelected) {
-            $clickedLink.classList.remove(classActiveState);
-            
-            if ($blindTextSpan) $blindTextSpan.textContent = textCloseGuide;
-        } else {
-            $clickedLink.classList.add(classActiveState);
-            
-            if ($blindTextSpan) $blindTextSpan.textContent = textOpenGuide;
-        }
-    });
+		if (isAlreadySelected) {
+			$clickedLink.classList.remove(classActiveState);
+
+			if ($blindTextSpan) $blindTextSpan.textContent = textCloseGuide;
+		} else {
+			$clickedLink.classList.add(classActiveState);
+
+			if ($blindTextSpan) $blindTextSpan.textContent = textOpenGuide;
+		}
+	});
 }
 // Accordion
 function fnBoxAccordion() {
@@ -180,28 +200,28 @@ function fnBoxAccordion() {
 		if (!$currentContainer) return;
 
 		var $blindTextSpan = $clickedButton.querySelector("." + CONFIG.BLIND_CLASS);
-		
+
 		var isAlreadyOpen = $currentContainer.classList.contains(CONFIG.OPEN_CLASS);
 
 		if (isAlreadyOpen) {
 			$currentContainer.classList.remove(CONFIG.OPEN_CLASS);
-			
+
 			if ($blindTextSpan) {
-				$blindTextSpan.textContent = CONFIG.TEXT_OPEN; 
+				$blindTextSpan.textContent = CONFIG.TEXT_OPEN;
 			}
 		} else {
 			$currentContainer.classList.add(CONFIG.OPEN_CLASS);
-			
+
 			if ($blindTextSpan) {
-				$blindTextSpan.textContent = CONFIG.TEXT_CLOSE; 
+				$blindTextSpan.textContent = CONFIG.TEXT_CLOSE;
 			}
 		}
 	});
 }
 // Anchor
-function fnBtnAnchor(){
+function fnBtnAnchor() {
 	const $BtnsAnchor = document.querySelectorAll('.btn-anchor');
-	$BtnsAnchor.forEach(function($btnAnchor){
+	$BtnsAnchor.forEach(function ($btnAnchor) {
 		$btnAnchor.addEventListener('click', function () {
 			if (!this.classList.contains("active")) {
 				this.classList.add('active');
@@ -214,7 +234,7 @@ function fnBtnAnchor(){
 	});
 }
 // select 태그 class 추가
-function fnSelectColorChange(){
+function fnSelectColorChange() {
 	const $selects = document.querySelectorAll('.select');
 	$selects.forEach(function ($select) {
 		$select.addEventListener('change', function () {
@@ -224,6 +244,50 @@ function fnSelectColorChange(){
 				this.classList.remove('selected');
 			}
 		});
+	});
+}
+// 기본 검색
+function fnInputClear() {
+	var classSearchContainer = "box-input-search";
+	var classInput = "input";
+	var classButtonDelete = "btn-delete";
+
+	var $searchWrappers = document.querySelectorAll("." + classSearchContainer);
+	if ($searchWrappers.length === 0) return;
+
+	$searchWrappers.forEach(function ($wrapper) {
+		var $input = $wrapper.querySelector("." + classInput);
+		var $btnDelete = $wrapper.querySelector("." + classButtonDelete);
+
+		if (!$input || !$btnDelete) return;
+
+		function toggleDeleteButton() {
+			var hasText = $input.value.trim().length > 0;
+
+			if (hasText) {
+				$btnDelete.style.display = "block";
+			} else {
+				$btnDelete.style.display = "none";
+			}
+		}
+
+		$input.addEventListener("input", toggleDeleteButton);
+		$input.addEventListener("keyup", toggleDeleteButton);
+		$input.addEventListener("paste", function () {
+			setTimeout(toggleDeleteButton, 0);
+		});
+
+		$btnDelete.addEventListener("click", function (event) {
+			event.preventDefault();
+
+			$input.value = "";
+
+			this.style.display = "none";
+
+			$input.focus();
+		});
+
+		toggleDeleteButton();
 	});
 }
 // 상세검색
@@ -241,7 +305,7 @@ function fnBoxSearchDetail() {
 				$boxSearchDetail.classList.remove('active');
 				if ($blindText) $blindText.textContent = '펼침';
 			} else {
-				$boxSearchDetail.classList.add('active'); 
+				$boxSearchDetail.classList.add('active');
 				if ($blindText) $blindText.textContent = '접힘';
 			}
 		});
@@ -262,7 +326,7 @@ function fnBoxMultiSelect() {
 
 		$triggerBtn.addEventListener('click', function (e) {
 			e.stopPropagation();
-			
+
 			const isOpen = this.classList.contains('active');
 			closeAllMultiSelects();
 
@@ -280,7 +344,7 @@ function fnBoxMultiSelect() {
 		if ($allCheckbox) {
 			$allCheckbox.addEventListener('change', function () {
 				const isChecked = this.checked;
-				
+
 				$itemCheckboxes.forEach(function ($itemCheck) {
 					$itemCheck.checked = isChecked;
 					const $liItem = $itemCheck.closest('.item-mulit-select');
@@ -303,7 +367,7 @@ function fnBoxMultiSelect() {
 				$itemCheckboxes.forEach(function ($itemCheck) {
 					$itemCheck.checked = false;
 				});
-				
+
 				if ($allCheckbox) {
 					$allCheckbox.checked = false;
 					updateAllCheckboxState($allCheckbox, $itemCheckboxes);
@@ -321,10 +385,10 @@ function closeAllMultiSelects() {
 	const $activeTriggers = document.querySelectorAll('.box-multi-select .select.active');
 	const $openComponents = document.querySelectorAll('.box-multi-select.is-open');
 
-	$activeTriggers.forEach(function ($btn) { 
+	$activeTriggers.forEach(function ($btn) {
 		const $blindText = $btn.querySelector('.blind');
-		$btn.classList.remove('active'); 
-		
+		$btn.classList.remove('active');
+
 		if ($blindText) $blindText.textContent = '펼침';
 	});
 	$openComponents.forEach(function ($comp) { $comp.classList.remove('is-open'); });
@@ -373,7 +437,7 @@ function fnTextareaCounter() {
 	});
 }
 // Tab
-function fnTab(initialActiveIndex){
+function fnTab(initialActiveIndex) {
 	var classTabWrapper = "box-tab";
 	var classTabButton = "btn-tab";
 	var classTabContent = "box-tab-content";
@@ -395,7 +459,7 @@ function fnTab(initialActiveIndex){
 		var $disabledButtons = $container.querySelectorAll("." + classDisabledState + " ." + classTabButton + ", ." + classTabButton + "." + classDisabledState);
 		$disabledButtons.forEach(function ($button) {
 			$button.setAttribute("title", textDisabledGuide);
-			$button.setAttribute("disabled", "true"); 
+			$button.setAttribute("disabled", "true");
 		});
 
 		$currentContents.forEach(function ($content) {
@@ -428,7 +492,7 @@ function fnTab(initialActiveIndex){
 		var isDisabledTab = $clickedButton.classList.contains(classDisabledState) || $clickedButton.hasAttribute("disabled");
 
 		if (!isAlreadyActive && !isDisabledTab) {
-			
+
 			$scopeButtons.forEach(function ($button, index) {
 				var isThisButtonDisabled = $button.classList.contains(classDisabledState) || $button.hasAttribute("disabled");
 				if (isThisButtonDisabled) return;
@@ -443,7 +507,7 @@ function fnTab(initialActiveIndex){
 			$scopeContents.forEach(function ($content, index) {
 				var $matchingButton = $scopeButtons[index];
 				var isMatchingButtonDisabled = $matchingButton ? ($matchingButton.classList.contains(classDisabledState) || $matchingButton.hasAttribute("disabled")) : false;
-				
+
 				if (isMatchingButtonDisabled) return;
 
 				if (index === targetActiveIndex) {
@@ -472,112 +536,111 @@ function fnTab(initialActiveIndex){
 	});
 }
 // Tooltip
-function fnBoxTooltip(){
+function fnBoxTooltip() {
 	var classTooltipContainer = "box-tooltip";
-    var classTriggerButton = "btn";
-    var classActiveState = "active";
-    var classButtonClose = "btn-close";
-    var classTooltipLayer = "layer-tooltip";
-	
-    var $tooltipWrappers = document.querySelectorAll("." + classTooltipContainer);
-    if ($tooltipWrappers.length === 0) return;
+	var classTriggerButton = "btn";
+	var classActiveState = "active";
+	var classButtonClose = "btn-close";
+	var classTooltipLayer = "layer-tooltip";
 
-    $tooltipWrappers.forEach(function ($wrapper) {
-        var $button = $wrapper.querySelector("." + classTriggerButton);
-        var $buttonClose = $wrapper.querySelector("." + classButtonClose);
-        if (!$button) return;
+	var $tooltipWrappers = document.querySelectorAll("." + classTooltipContainer);
+	if ($tooltipWrappers.length === 0) return;
 
-        var $layer = $wrapper.querySelector("." + classTooltipLayer);
-        if (!$layer) return;
+	$tooltipWrappers.forEach(function ($wrapper) {
+		var $button = $wrapper.querySelector("." + classTriggerButton);
+		var $buttonClose = $wrapper.querySelector("." + classButtonClose);
+		if (!$button) return;
 
-        $button.addEventListener("click", function (event) {
-            event.stopPropagation(); 
+		var $layer = $wrapper.querySelector("." + classTooltipLayer);
+		if (!$layer) return;
 
-            var isCurrentlyActive = this.classList.contains(classActiveState);
+		$button.addEventListener("click", function (event) {
+			event.stopPropagation();
 
-            fnCloseAllClickTooltips();
+			var isCurrentlyActive = this.classList.contains(classActiveState);
 
-            if (!isCurrentlyActive) {
-                this.classList.add(classActiveState);
-            }
-        });
+			fnCloseAllClickTooltips();
 
-        $layer.addEventListener("click", function (event) {
-            event.stopPropagation();
-        });
+			if (!isCurrentlyActive) {
+				this.classList.add(classActiveState);
+			}
+		});
 
-        if ($buttonClose) {
-            $buttonClose.addEventListener("click", function (event) {
-                event.stopPropagation();
-                fnCloseAllClickTooltips();
-            });
-        }
-    });
+		$layer.addEventListener("click", function (event) {
+			event.stopPropagation();
+		});
 
-    document.addEventListener("click", function () {
-        fnCloseAllClickTooltips();
-    });
+		if ($buttonClose) {
+			$buttonClose.addEventListener("click", function (event) {
+				event.stopPropagation();
+				fnCloseAllClickTooltips();
+			});
+		}
+	});
 
-    document.addEventListener("keydown", function (event) {
-        if (event.key === "Escape" || event.key === "Esc") {
-            fnCloseAllClickTooltips();
-        }
-    });
+	document.addEventListener("click", function () {
+		fnCloseAllClickTooltips();
+	});
 
-    function fnCloseAllClickTooltips() {
-        var $activeButtons = document.querySelectorAll("." + classTooltipContainer + " ." + classTriggerButton + "." + classActiveState);
-        
-        $activeButtons.forEach(function ($activeBtn) {
-            $activeBtn.classList.remove(classActiveState);
-        });
-    }
+	document.addEventListener("keydown", function (event) {
+		if (event.key === "Escape" || event.key === "Esc") {
+			fnCloseAllClickTooltips();
+		}
+	});
+
+	function fnCloseAllClickTooltips() {
+		var $activeButtons = document.querySelectorAll("." + classTooltipContainer + " ." + classTriggerButton + "." + classActiveState);
+
+		$activeButtons.forEach(function ($activeBtn) {
+			$activeBtn.classList.remove(classActiveState);
+		});
+	}
 }
-
 //서치레이어팝업
-const btnSearch=document.querySelector(".btn-search");
-const searchLayer=document.querySelector(".search-layer");
-const input=document.querySelector(".search-input");
-const dropdown=document.querySelector(".search-dropdown");
+const btnSearch = document.querySelector(".btn-search");
+const searchLayer = document.querySelector(".search-layer");
+const input = document.querySelector(".search-input");
+const dropdown = document.querySelector(".search-dropdown");
 
-btnSearch.addEventListener("click",()=>{
+btnSearch.addEventListener("click", () => {
 
-    searchLayer.classList.toggle("is-open");
+	searchLayer.classList.toggle("is-open");
 
-    input.focus();
-
-});
-input.addEventListener("focus",()=>{
-
-    dropdown.classList.add("is-open");
+	input.focus();
 
 });
+input.addEventListener("focus", () => {
 
-input.addEventListener("blur",()=>{
-
-    setTimeout(()=>{
-
-        dropdown.classList.remove("is-open");
-
-    },100);
+	dropdown.classList.add("is-open");
 
 });
-btnSearch.addEventListener("click",()=>{
 
-    header.classList.remove("is-open");
+input.addEventListener("blur", () => {
 
-    items.forEach(item=>item.classList.remove("is-active"));
+	setTimeout(() => {
 
-    menus.forEach(menu=>menu.classList.remove("is-active"));
+		dropdown.classList.remove("is-open");
 
-    searchLayer.classList.toggle("is-open");
+	}, 100);
 
 });
-links.forEach(link=>{
+btnSearch.addEventListener("click", () => {
 
-    link.addEventListener("mouseenter",()=>{
+	header.classList.remove("is-open");
 
-        searchLayer.classList.remove("is-open");
+	items.forEach(item => item.classList.remove("is-active"));
 
-    });
+	menus.forEach(menu => menu.classList.remove("is-active"));
+
+	searchLayer.classList.toggle("is-open");
+
+});
+links.forEach(link => {
+
+	link.addEventListener("mouseenter", () => {
+
+		searchLayer.classList.remove("is-open");
+
+	});
 
 });
