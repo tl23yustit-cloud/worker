@@ -4,6 +4,7 @@ window.addEventListener('load', function () {
 	fnBoxAccordion(); // Accordion
 	fnBtnAnchor(); // Anchor
 	fnSelectColorChange(); // select 태그 class 추가
+	fnInputClear(); // 기본 검색
 	fnBoxSearchDetail(); // 상세검색
 	fnBoxMultiSelect(); // 멀티 드롭다운
 	fnTextareaCounter(); // Textarea
@@ -223,6 +224,50 @@ function fnSelectColorChange() {
 				this.classList.remove('selected');
 			}
 		});
+	});
+}
+// 기본 검색
+function fnInputClear() {
+	var classSearchContainer = "box-input-search";
+	var classInput = "input";
+	var classButtonDelete = "btn-delete";
+
+	var $searchWrappers = document.querySelectorAll("." + classSearchContainer);
+	if ($searchWrappers.length === 0) return;
+
+	$searchWrappers.forEach(function ($wrapper) {
+		var $input = $wrapper.querySelector("." + classInput);
+		var $btnDelete = $wrapper.querySelector("." + classButtonDelete);
+
+		if (!$input || !$btnDelete) return;
+
+		function toggleDeleteButton() {
+			var hasText = $input.value.trim().length > 0;
+
+			if (hasText) {
+				$btnDelete.style.display = "block";
+			} else {
+				$btnDelete.style.display = "none";
+			}
+		}
+
+		$input.addEventListener("input", toggleDeleteButton);
+		$input.addEventListener("keyup", toggleDeleteButton);
+		$input.addEventListener("paste", function () {
+			setTimeout(toggleDeleteButton, 0);
+		});
+
+		$btnDelete.addEventListener("click", function (event) {
+			event.preventDefault();
+
+			$input.value = "";
+
+			this.style.display = "none";
+
+			$input.focus();
+		});
+
+		toggleDeleteButton();
 	});
 }
 // 상세검색
