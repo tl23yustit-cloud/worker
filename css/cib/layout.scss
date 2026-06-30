@@ -21,14 +21,16 @@
 	position: relative;
 	top: 0;
 	z-index: 2001;
-	background: transparent;
-	transition: background 0.3s;
+	border-bottom: 1px solid transparent;
 	width: 100%;
 	min-width: var(--contentLayoutWidth);
+	background: transparent;
+	transition: background 0.3s;
 
 	.header-top {
-		width: var(--contentLayoutWidth);
 		margin: 0 auto;
+		width: var(--contentLayoutWidth);
+		height: var(--sizeBaseXl);
 
 		.header-top-inner {
 			display: flex;
@@ -439,11 +441,12 @@
 	}
 
 	.header-bottom {
+		top: 0;
+		z-index: 2002;
 		margin: 0 auto;
 		width: var(--contentLayoutWidth);
+		height: var(--sizeBase3Xl);
 		background-color: transparent;
-		top: 0;
-		z-index: 1000;
 
 		//대메뉴 픽시드스타일
 		&.is-fixed {
