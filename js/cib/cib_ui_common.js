@@ -532,3 +532,24 @@ function fnBoxTooltip(){
         });
     }
 }
+
+//레이어팝업
+const popup = document.getElementById('layerPopup');
+
+function openPopup() {
+  popup.classList.add('is-active');
+  popup.setAttribute('aria-hidden', 'false');
+  
+  popup.querySelector('.btn-close').focus(); 
+}
+
+function closePopup() {
+  popup.classList.remove('is-active');
+  popup.setAttribute('aria-hidden', 'true');
+}
+
+popup.addEventListener('click', function(e) {
+  if (e.target === popup) {
+    closePopup();
+  }
+});

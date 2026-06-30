@@ -5,7 +5,7 @@
         <div class="logo-area">
           <div class="logo">
             <a href="javascript:;">
-            <span class="blind">Sh수협은행</span>
+              <span class="blind">Sh수협은행</span>
               <!-- <img src="/images/common/img_logo_x3_white.png" alt="Sh수협은행" /> -->
             </a>
           </div>
@@ -26,7 +26,9 @@
         <!--//로그인 후 노출-->
         <a href="javascript:;" class="util-link">인증센터</a>
         <a href="javascript:;" class="btn-select">전체서비스</a>
-        <a href="javascript:;" class="btn-select">GLOBAL</a>
+        <a href="javascript:;" class="btn-select">GLOBAL</a>        <button type="button" class="btn-open" onclick="openPopup()">
+          팝업 열기
+        </button>
       </div>
     </div>
   </div>
@@ -173,65 +175,9 @@
                 </div>
                 <div class="menu-group">
                   <div class="menu-inner">
-                    <h6 class="typeH6"><a href="javascript:;">우대금리예상조회</a></h6>
-                    <!-- <ul>
-                      <li class="menu-item" data-count="1">
-                        <button
-                          type="button"
-                          class="menu-toggle typeMdMedium"
-                          aria-expanded="false"
-                        >
-                          모든보유계좌조회
-                        </button>
-                      </li>
-                      <li class="menu-item has-depth" data-count="2">
-                        <button
-                          type="button"
-                          class="menu-toggle typeMdMedium"
-                          aria-expanded="false"
-                        >
-                          예금/신탁계좌조회
-                        </button>
-                        <ul class="depth-list">
-                          <li class="list-bar">
-                            <a href="javascript:;" class="typeSm"
-                              >모든보유계좌조회</a
-                            >
-                          </li>
-                          <li>
-                            <a href="javascript:;" class="typeSm"
-                              >모든보유계좌조회</a
-                            >
-                          </li>
-                        </ul>
-                      </li>
-                      <li class="menu-item has-depth" data-count="3">
-                        <button
-                          type="button"
-                          class="menu-toggle typeMdMedium"
-                          aria-expanded="false"
-                        >
-                          출금계좌조회
-                        </button>
-                        <ul class="depth-list">
-                          <li class="list-bar">
-                            <a href="javascript:;" class="typeSm"
-                              >모든보유계좌조회</a
-                            >
-                          </li>
-                          <li>
-                            <a href="javascript:;" class="typeSm"
-                              >모든보유계좌조회</a
-                            >
-                          </li>
-                        </ul>
-                      </li>
-                      <li>
-                        <a href="javascript:;" class="typeMdMedium"
-                          >출금계좌조회</a
-                        >
-                      </li>
-                    </ul> -->
+                    <h6 class="typeH6">
+                      <a href="javascript:;">우대금리예상조회</a>
+                    </h6>
                   </div>
                   <div class="menu-inner">
                     <h6 class="typeH6"><a href="javascript:;">예금조회</a></h6>
@@ -1377,6 +1323,31 @@
         <button type="button" class="btn-hamburger" aria-label="전체메뉴">
           <i></i>
         </button>
+
+
+        <div
+          id="layerPopup"
+          class="popup-overlay"
+          aria-hidden="true"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="popupTitle"
+        >
+          <div class="popup-content">
+            <h2 id="popupTitle" class="popup-title">공지사항</h2>
+            <div class="popup-body">
+              <p>
+                여기에 팝업 내용을 입력하세요. 테이블의 '상세보기'를 누르면
+                나오는 상세 페이지 대용으로 활용하기 좋습니다.
+              </p>
+            </div>
+            <div class="popup-footer">
+              <button type="button" class="btn-close" onclick="closePopup()">
+                닫기
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </nav>
   </div>
