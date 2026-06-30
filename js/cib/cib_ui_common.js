@@ -28,9 +28,11 @@ function fnSkipNavigation() {
 }
 //GNB
 const header = document.querySelector(".header");
+
 const items = document.querySelectorAll(".gnb-item");
 const links = document.querySelectorAll(".gnb-link");
 const menus = document.querySelectorAll(".mega-menu");
+console.log("헤더 요소 확인:", header);
 document.addEventListener("DOMContentLoaded", function () {
 	const selectButtons = document.querySelectorAll(".util-menu .btn-select");
 
@@ -51,25 +53,31 @@ links.forEach((link) => {
 		const item = this.closest(".gnb-item");
 		item.classList.add("is-active");
 		item.querySelector(".mega-menu").classList.add("is-active");
+		
+		console.log(item);
+		// console.log(menu);
 	});
 });
-header.addEventListener("mouseleave", () => {
-	header.classList.remove("is-open");
 
-	items.forEach((item) => item.classList.remove("is-active"));
-	menus.forEach((menu) => menu.classList.remove("is-active"));
-});
+if (header) {
+  header.addEventListener("mouseleave", () => {
+    header.classList.remove("is-open");
 
+    items.forEach(item => item.classList.remove("is-active"));
+    menus.forEach(menu => menu.classList.remove("is-active"));
+  });
+}
 const gnb = document.querySelector(".header-bottom");
 
-window.addEventListener("scroll", () => {
-	if (window.scrollY > 0) {
-		gnb.classList.add("is-fixed");
-	} else {
-		gnb.classList.remove("is-fixed");
-	}
-});
-
+if (gnb) {
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 0) {
+      gnb.classList.add("is-fixed");
+    } else {
+      gnb.classList.remove("is-fixed");
+    }
+  });
+}
 document.querySelectorAll(".menu-toggle").forEach((button) => {
 	button.addEventListener("click", () => {
 		const item = button.closest(".menu-item");
@@ -88,6 +96,39 @@ document.querySelectorAll(".menu-item.has-depth").forEach((item) => {
 		item.classList.add("is-single");
 	}
 });
+//서치레이어팝업
+const btnSearch = document.querySelector(".btn-search");
+const searchLayer = document.querySelector(".search-layer");
+const input = document.querySelector(".input");
+const dropdown = document.querySelector(".search-dropdown");
+const btnSearchClose = document.querySelector(".btn-search-close");
+
+btnSearch.addEventListener("click", () => {
+	header.classList.remove("is-open");
+	items.forEach(item => item.classList.remove("is-active"));
+	menus.forEach(menu => menu.classList.remove("is-active"));
+	searchLayer.classList.add("is-search-open");
+	input.focus();
+});
+input.addEventListener("focus", () => {
+	dropdown.classList.add("is-search-open");
+});
+
+links.forEach(link => {
+	link.addEventListener("mouseenter", () => {
+		searchLayer.classList.remove("is-search-open");
+		dropdown.classList.remove("is-search-open");
+	});
+});
+
+if (btnSearchClose) {
+  btnSearchClose.addEventListener("click", () => {
+    searchLayer.classList.remove("is-search-open");
+    dropdown.classList.remove("is-search-open");
+    input.value = "";
+    btnSearch.focus();
+  });
+}
 // LNB
 function fnLNB() {
 	var classLnbContainer = "wrap-left-menu";
@@ -576,32 +617,3 @@ function fnBoxTooltip() {
 		});
 	}
 }
-//서치레이어팝업
-const btnSearch = document.querySelector(".btn-search");
-const searchLayer = document.querySelector(".search-layer");
-const input = document.querySelector(".input");
-const dropdown = document.querySelector(".search-dropdown");
-const btnSearchClose = document.querySelector(".btn-search-close");
-btnSearch.addEventListener("click", () => {
-  header.classList.remove("is-open");
-  items.forEach(item => item.classList.remove("is-active"));
-  menus.forEach(menu => menu.classList.remove("is-active"));
-  searchLayer.classList.add("is-search-open");
-  input.focus();
-});
-input.addEventListener("focus", () => {
-	dropdown.classList.add("is-search-open");
-});
-
-links.forEach(link => {
-  link.addEventListener("mouseenter", () => {
-    searchLayer.classList.remove("is-search-open");
-    dropdown.classList.remove("is-search-open");
-  });
-});
-btnSearchClose.addEventListener("click", () => {
-  searchLayer.classList.remove("is-search-open");
-  dropdown.classList.remove("is-search-open");
-  input.value = "";
-  btnSearch.focus();
-});
