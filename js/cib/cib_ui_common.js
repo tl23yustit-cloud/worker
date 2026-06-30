@@ -533,4 +533,51 @@ function fnBoxTooltip(){
     }
 }
 
-//레이어팝업
+//서치레이어팝업
+const btnSearch=document.querySelector(".btn-search");
+const searchLayer=document.querySelector(".search-layer");
+const input=document.querySelector(".search-input");
+const dropdown=document.querySelector(".search-dropdown");
+
+btnSearch.addEventListener("click",()=>{
+
+    searchLayer.classList.toggle("is-open");
+
+    input.focus();
+
+});
+input.addEventListener("focus",()=>{
+
+    dropdown.classList.add("is-open");
+
+});
+
+input.addEventListener("blur",()=>{
+
+    setTimeout(()=>{
+
+        dropdown.classList.remove("is-open");
+
+    },100);
+
+});
+btnSearch.addEventListener("click",()=>{
+
+    header.classList.remove("is-open");
+
+    items.forEach(item=>item.classList.remove("is-active"));
+
+    menus.forEach(menu=>menu.classList.remove("is-active"));
+
+    searchLayer.classList.toggle("is-open");
+
+});
+links.forEach(link=>{
+
+    link.addEventListener("mouseenter",()=>{
+
+        searchLayer.classList.remove("is-open");
+
+    });
+
+});
