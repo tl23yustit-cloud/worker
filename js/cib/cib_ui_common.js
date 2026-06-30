@@ -25,6 +25,69 @@ function fnSkipNavigation() {
 		});
 	});
 }
+//GNB
+const header = document.querySelector(".header");
+  const items = document.querySelectorAll(".gnb-item");
+  const links = document.querySelectorAll(".gnb-link");
+  const menus = document.querySelectorAll(".mega-menu");
+  document.addEventListener("DOMContentLoaded", function () {
+    const selectButtons = document.querySelectorAll(".util-menu .btn-select");
+
+    selectButtons.forEach(function (button) {
+      button.addEventListener("click", function () {
+        this.classList.toggle("active");
+      });
+    });
+  });
+
+  links.forEach((link) => {
+    link.addEventListener("mouseenter", function () {
+      header.classList.add("is-open");
+
+      items.forEach((item) => item.classList.remove("is-active"));
+      menus.forEach((menu) => menu.classList.remove("is-active"));
+
+      const item = this.closest(".gnb-item");
+      item.classList.add("is-active");
+
+      item.querySelector(".mega-menu").classList.add("is-active");
+    });
+  });
+  header.addEventListener("mouseleave", () => {
+    header.classList.remove("is-open");
+
+    items.forEach((item) => item.classList.remove("is-active"));
+    menus.forEach((menu) => menu.classList.remove("is-active"));
+  });
+
+  const gnb = document.querySelector(".header-bottom");
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 0) {
+      gnb.classList.add("is-fixed");
+    } else {
+      gnb.classList.remove("is-fixed");
+    }
+  });
+
+  document.querySelectorAll(".menu-toggle").forEach((button) => {
+    button.addEventListener("click", () => {
+      const item = button.closest(".menu-item");
+
+      item.classList.toggle("is-open");
+
+      button.setAttribute("aria-expanded", item.classList.contains("is-open"));
+    });
+  });
+  document.querySelectorAll(".menu-item.has-depth").forEach((item) => {
+    const depthCount = item.querySelectorAll(".depth-list > li").length;
+
+    if (depthCount >= 2) {
+      item.classList.add("is-toggle");
+    } else {
+      item.classList.add("is-single");
+    }
+  });
 // LNB
 function fnLNB() {
     var classLnbContainer = "wrap-left-menu";
