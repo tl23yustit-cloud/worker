@@ -18,9 +18,9 @@ function fnSkipNavigation() {
 	const $btnsSkipNav = document.querySelectorAll(".skip-nav .btn-skip-nav");
 
 	$btnsSkipNav.forEach(function ($btn) {
-		$btn.addEventListener('focus', function () {
-			this.classList.add("is-open");
-		});
+		// $btn.addEventListener('focus', function () {
+		// 	this.classList.add("is-open");
+		// });
 
 		$btn.addEventListener('blur', function () {
 			this.classList.remove("is-open");
@@ -124,13 +124,13 @@ function fnHeader() {
             $menus.forEach(function ($menu) { $menu.classList.remove("is-active"); });
             
             $searchLayer.classList.add("is-search-open");
-            if ($input) $input.focus();
+            // if ($input) $input.focus();
         });
 
         if ($input && $dropdown) {
-            $input.addEventListener("focus", function () {
-                $dropdown.classList.add("is-search-open");
-            });
+            // $input.addEventListener("focus", function () {
+            //     $dropdown.classList.add("is-search-open");
+            // });
 
             $input.addEventListener("blur", function () {
                 setTimeout(function () {
