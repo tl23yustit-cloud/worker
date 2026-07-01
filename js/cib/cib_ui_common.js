@@ -32,7 +32,6 @@ const header = document.querySelector(".header");
 const items = document.querySelectorAll(".gnb-item");
 const links = document.querySelectorAll(".gnb-link");
 const menus = document.querySelectorAll(".mega-menu");
-console.log("헤더 요소 확인:", header);
 document.addEventListener("DOMContentLoaded", function () {
 	const selectButtons = document.querySelectorAll(".util-menu .btn-select");
 
