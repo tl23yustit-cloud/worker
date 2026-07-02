@@ -30,134 +30,280 @@ function fnSkipNavigation() {
 // header
 function fnHeader() {
 	var $header = document.querySelector(".header");
-    var $gnb = document.querySelector(".header-bottom");
-    
-    var $items = document.querySelectorAll(".gnb-item");
-    var $links = document.querySelectorAll(".gnb-link");
-    var $menus = document.querySelectorAll(".mega-menu");
-    
-    var $selectButtons = document.querySelectorAll(".util-menu .btn-select");
-    var $menuToggleButtons = document.querySelectorAll(".menu-toggle");
-    var $hasDepthItems = document.querySelectorAll(".menu-item.has-depth");
-	
+	var $gnb = document.querySelector(".header-bottom");
+
+	var $items = document.querySelectorAll(".gnb-item");
+	var $links = document.querySelectorAll(".gnb-link");
+	var $menus = document.querySelectorAll(".mega-menu");
+
+	var $selectButtons = document.querySelectorAll(".util-menu .btn-select");
+	var $menuToggleButtons = document.querySelectorAll(".menu-toggle");
+	var $hasDepthItems = document.querySelectorAll(".menu-item.has-depth");
+
 	// 서치 레이어 관련 요소
-    var $searchLayer = document.querySelector(".search-layer");
-    var $btnSearch = document.querySelector(".btn-search");
-    var $input = document.querySelector(".search-input, .box-input-search .input");
-    var $dropdown = document.querySelector(".search-dropdown");
-    var $btnSearchClose = document.querySelector(".btn-search-close");
+	var $searchLayer = document.querySelector(".search-layer");
+	var $btnSearch = document.querySelector(".btn-search");
+	var $input = document.querySelector(".search-input, .box-input-search .input");
+	var $dropdown = document.querySelector(".search-dropdown");
+	var $btnSearchClose = document.querySelector(".btn-search-close");
+
+	const focusInput = document.querySelector("#headerSearch");
+	const autoBox = document.querySelector(".search-autocomplete");
+	const list = document.querySelector(".autocomplete-list");
+	const searchArea = document.querySelector(".search-area");
+
+	// 검색패널
+	const historyBox = document.querySelector(".autocomplete-history");
+	const keywordBox = document.querySelector(".autocomplete-keyword");
+	const noResultBox = document.querySelector(".autocomplete-no-result");
+	const historyWrap = document.querySelector(".history-wrap");
+	const historyList = historyWrap.querySelector(".history-list");
+
+	const hasHistory = historyList.children.length > 0;
+	const historyEmpty = document.querySelector(".history-empty");
+	const btnDeleteAll = document.querySelector(".btn-delete-all");
+	const btnPannelClose = document.querySelector(".btn-pannel-close");
 
 	// 유틸 메뉴 셀렉트 버튼 토글
 	if ($selectButtons.length > 0) {
-        $selectButtons.forEach(function ($button) {
-            $button.addEventListener("click", function () {
-                this.classList.toggle("active");
-            });
-        });
-    }
+		$selectButtons.forEach(function ($button) {
+			$button.addEventListener("click", function () {
+				this.classList.toggle("active");
+			});
+		});
+	}
 	// GNB 메가메뉴 Hover
 	if ($links.length > 0 && $header) {
-        $links.forEach(function ($link) {
-            $link.addEventListener("mouseenter", function () {
-                $header.classList.add("is-open");
+		$links.forEach(function ($link) {
+			$link.addEventListener("mouseenter", function () {
+				$header.classList.add("is-open");
 
-                $items.forEach(function ($item) { $item.classList.remove("is-active"); });
-                $menus.forEach(function ($menu) { $menu.classList.remove("is-active"); });
+				$items.forEach(function ($item) { $item.classList.remove("is-active"); });
+				$menus.forEach(function ($menu) { $menu.classList.remove("is-active"); });
 
-                var $currentItem = this.closest(".gnb-item");
-                if ($currentItem) {
-                    $currentItem.classList.add("is-active");
-                    
-                    var $targetMegaMenu = $currentItem.querySelector(".mega-menu");
-                    if ($targetMegaMenu) $targetMegaMenu.classList.add("is-active");
-                }
-            });
-        });
+				var $currentItem = this.closest(".gnb-item");
+				if ($currentItem) {
+					$currentItem.classList.add("is-active");
 
-        $header.addEventListener("mouseleave", function () {
-            $header.classList.remove("is-open");
-            $items.forEach(function ($item) { $item.classList.remove("is-active"); });
-            $menus.forEach(function ($menu) { $menu.classList.remove("is-active"); });
-        });
-    }
+					var $targetMegaMenu = $currentItem.querySelector(".mega-menu");
+					if ($targetMegaMenu) $targetMegaMenu.classList.add("is-active");
+				}
+			});
+		});
+
+		$header.addEventListener("mouseleave", function () {
+			$header.classList.remove("is-open");
+			$items.forEach(function ($item) { $item.classList.remove("is-active"); });
+			$menus.forEach(function ($menu) { $menu.classList.remove("is-active"); });
+		});
+	}
 	// 스크롤에 따른 GNB 고정 (is-fixed)
 	if ($gnb) {
-        window.addEventListener("scroll", function () {
-            if (window.scrollY > 0) {
-                $gnb.classList.add("is-fixed");
-            } else {
-                $gnb.classList.remove("is-fixed");
-            }
-        });
-    }
+		window.addEventListener("scroll", function () {
+			if (window.scrollY > 0) {
+				$gnb.classList.add("is-fixed");
+			} else {
+				$gnb.classList.remove("is-fixed");
+			}
+		});
+	}
 	//  사이드/전체 메뉴 토글 버튼 및 뎁스 분류 스타일링
 	if ($menuToggleButtons.length > 0) {
-        $menuToggleButtons.forEach(function ($button) {
-            $button.addEventListener("click", function () {
-                var $item = this.closest(".menu-item");
-                if ($item) {
-                    $item.classList.toggle("is-open");
-                    this.setAttribute("aria-expanded", $item.classList.contains("is-open"));
-                }
-            });
-        });
-    }
+		$menuToggleButtons.forEach(function ($button) {
+			$button.addEventListener("click", function () {
+				var $item = this.closest(".menu-item");
+				if ($item) {
+					$item.classList.toggle("is-open");
+					this.setAttribute("aria-expanded", $item.classList.contains("is-open"));
+				}
+			});
+		});
+	}
 
-    if ($hasDepthItems.length > 0) {
-        $hasDepthItems.forEach(function ($item) {
-            var depthCount = $item.querySelectorAll(".depth-list > li").length;
-            if (depthCount >= 2) {
-                $item.classList.add("is-toggle");
-            } else {
-                $item.classList.add("is-single");
-            }
-        });
-    }
+	if ($hasDepthItems.length > 0) {
+		$hasDepthItems.forEach(function ($item) {
+			var depthCount = $item.querySelectorAll(".depth-list > li").length;
+			if (depthCount >= 2) {
+				$item.classList.add("is-toggle");
+			} else {
+				$item.classList.add("is-single");
+			}
+		});
+	}
 
 	//  검색 레이어 팝업 및 드롭다운 연동 인터랙션
 	if ($btnSearch && $searchLayer) {
-        $btnSearch.addEventListener("click", function (event) {
-            event.preventDefault();
-            
-            if ($header) $header.classList.remove("is-open");
-            $items.forEach(function ($item) { $item.classList.remove("is-active"); });
-            $menus.forEach(function ($menu) { $menu.classList.remove("is-active"); });
-            
-            $searchLayer.classList.add("is-search-open");
-            // if ($input) $input.focus();
-        });
+		$btnSearch.addEventListener("click", function (event) {
+			event.preventDefault();
 
-        if ($input && $dropdown) {
-            // $input.addEventListener("focus", function () {
-            //     $dropdown.classList.add("is-search-open");
-            // });
+			if ($header) $header.classList.remove("is-open");
+			$items.forEach(function ($item) { $item.classList.remove("is-active"); });
+			$menus.forEach(function ($menu) { $menu.classList.remove("is-active"); });
 
-            $input.addEventListener("blur", function () {
-                setTimeout(function () {
-                    $dropdown.classList.remove("is-search-open");
-                }, 100);
-            });
-        }
+			$searchLayer.classList.add("is-search-open");
+		});
 
-        if ($links.length > 0) {
-            $links.forEach(function ($link) {
-                $link.addEventListener("mouseenter", function () {
-                    $searchLayer.classList.remove("is-search-open");
-                    if ($dropdown) $dropdown.classList.remove("is-search-open");
-                });
-            });
-        }
+		if ($input && $dropdown) {
+			$input.addEventListener("blur", function () {
+				setTimeout(function () {
+					$dropdown.classList.remove("is-search-open");
+				}, 100);
+			});
+		}
 
-        if ($btnSearchClose) {
-            $btnSearchClose.addEventListener("click", function (event) {
-                event.preventDefault();
-                $searchLayer.classList.remove("is-search-open");
-                if ($dropdown) $dropdown.classList.remove("is-search-open");
-                if ($input) $input.value = "";
-                $btnSearch.focus();
-            });
-        }
-    }
+		if ($links.length > 0) {
+			$links.forEach(function ($link) {
+				$link.addEventListener("mouseenter", function () {
+					$searchLayer.classList.remove("is-search-open");
+					if ($dropdown) $dropdown.classList.remove("is-search-open");
+				});
+			});
+		}
+
+		if ($btnSearchClose) {
+			$btnSearchClose.addEventListener("click", function (event) {
+				event.preventDefault();
+				$searchLayer.classList.remove("is-search-open");
+				if ($dropdown) $dropdown.classList.remove("is-search-open");
+				if ($input) $input.value = "";
+				$btnSearch.focus();
+			});
+		}
+	}
+	historyWrap.classList.toggle("is-empty", !hasHistory);
+
+	// 검색어
+	const items = document.querySelectorAll(".autocomplete-list .typeMd");
+
+	// 원본 검색어 저장
+	items.forEach((item) => {
+		item.dataset.keyword = item.textContent.trim();
+	});
+
+	// 자동완성 열기
+	function openAutocomplete() {
+		autoBox.classList.add("is-active");
+		searchArea.classList.add("is-active");
+	}
+
+	// 자동완성 닫기
+	function closeAutocomplete() {
+		autoBox.classList.remove("is-active");
+		searchArea.classList.remove("is-active");
+
+		document.querySelectorAll(".autocomplete-panel").forEach((panel) => {
+			panel.classList.remove("is-active");
+		});
+	}
+	btnPannelClose.addEventListener("click", () => {
+		closeAutocomplete();
+	});
+	// 패널 전환
+	function showPanel(panel) {
+		document.querySelectorAll(".autocomplete-panel").forEach((item) => {
+			item.classList.remove("is-active");
+		});
+
+		if (panel) {
+			panel.classList.add("is-active");
+		}
+	}
+
+	// 포커스
+	focusInput.addEventListener("focus", () => {
+		openAutocomplete();
+		const hasHistory = true; // 나중에 실제 데이터로 변경
+
+		showPanel(hasHistory ? historyBox : "");
+	});
+
+	focusInput.addEventListener("input", () => {
+		const value = focusInput.value.trim();
+
+		// 입력 없으면 최근검색어
+		if (!value) {
+			items.forEach((textEl) => {
+				const li = textEl.closest("li");
+
+				li.style.display = "";
+				textEl.textContent = textEl.dataset.keyword;
+			});
+
+			const hasHistory = true;
+			showPanel(hasHistory ? historyBox : "");
+			return;
+		}
+
+		let hasResult = false;
+
+		items.forEach((textEl) => {
+			const keyword = textEl.dataset.keyword;
+			const li = textEl.closest("li");
+
+			if (keyword.includes(value)) {
+				li.style.display = "";
+				hasResult = true;
+
+				textEl.innerHTML = keyword.replace(
+					new RegExp(value, "g"),
+					`<strong>${value}</strong>`,
+				);
+			} else {
+				li.style.display = "none";
+				textEl.textContent = keyword;
+			}
+		});
+
+		if (hasResult) {
+			showPanel(keywordBox);
+		} else {
+			showPanel(noResultBox);
+		}
+
+		openAutocomplete();
+	});
+
+	// 키워드 클릭
+	list.addEventListener("click", (e) => {
+		const link = e.target.closest(".keyword-btn");
+		if (!link) return;
+		e.preventDefault();
+		focusInput.value = link.querySelector(".text").textContent.trim();
+		closeAutocomplete();
+	});
+
+	// 바깥 클릭
+	document.addEventListener("click", (e) => {
+		if (!e.target.closest(".search-area")) {
+			closeAutocomplete();
+		}
+	});
+
+
+	function updateHistoryState() {
+		const hasHistory = historyList.children.length > 0;
+
+		historyList.style.display = hasHistory ? "" : "none";
+		historyEmpty.style.display = hasHistory ? "none" : "flex";
+		btnDeleteAll.style.display = hasHistory ? "" : "none";
+	}
+	historyList.addEventListener("click", (e) => {
+		const btn = e.target.closest(".btn-delete-item");
+
+		if (!btn) return;
+
+		btn.closest("li").remove();
+		e.preventDefault();
+		e.stopPropagation();
+
+		btn.closest("li").remove();
+		updateHistoryState();
+	});
+	btnDeleteAll.addEventListener("click", () => {
+		historyList.innerHTML = "";
+
+		updateHistoryState();
+	});
 }
 // LNB
 function fnLNB() {
@@ -587,7 +733,7 @@ function fnTab(initialActiveIndex) {
 	});
 }
 // Tooltip
-function fnBoxTooltip(){
+function fnBoxTooltip() {
 	var classTooltipContainer = "box-tooltip";
 	var classTriggerButton = "btn";
 	var classActiveState = "active";
@@ -610,7 +756,7 @@ function fnBoxTooltip(){
 		if (!$buttonClose) return
 
 		$button.addEventListener("click", function (event) {
-			event.stopPropagation(); 
+			event.stopPropagation();
 
 			var isCurrentlyActive = this.classList.contains(classActiveState);
 
@@ -643,10 +789,10 @@ function fnBoxTooltip(){
 
 	function fnCloseAllClickTooltips() {
 		var $activeButtons = document.querySelectorAll("." + classTooltipContainer + " ." + classTriggerButton + "." + classActiveState);
-		
+
 		$activeButtons.forEach(function ($activeBtn) {
 			$activeBtn.classList.remove(classActiveState);
-			
+
 			var targetId = $activeBtn.getAttribute("aria-describedby");
 			if (targetId) {
 				var $targetLayer = document.getElementById(targetId);
