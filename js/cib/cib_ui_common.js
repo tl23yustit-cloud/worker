@@ -98,8 +98,11 @@ function fnHeader() {
 		});
 	}
 	// 스크롤에 따른 GNB 고정 (is-fixed)
+	
 	if ($gnb) {
+		let timer;
 		window.addEventListener("scroll", function () {
+			clearTimeout(timer);
 			if (window.scrollY > 64) {
 				$gnb.classList.add("is-fixed");
 			} else {
