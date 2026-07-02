@@ -587,26 +587,30 @@ function fnTab(initialActiveIndex) {
 	});
 }
 // Tooltip
-function fnBoxTooltip() {
+function fnBoxTooltip(){
 	var classTooltipContainer = "box-tooltip";
 	var classTriggerButton = "btn";
 	var classActiveState = "active";
 	var classButtonClose = "btn-close";
-	var classTooltipLayer = "layer-tooltip";
 
 	var $tooltipWrappers = document.querySelectorAll("." + classTooltipContainer);
 	if ($tooltipWrappers.length === 0) return;
 
 	$tooltipWrappers.forEach(function ($wrapper) {
 		var $button = $wrapper.querySelector("." + classTriggerButton);
-		var $buttonClose = $wrapper.querySelector("." + classButtonClose);
 		if (!$button) return;
 
-		var $layer = $wrapper.querySelector("." + classTooltipLayer);
+		var tooltipTargetId = $button.getAttribute("aria-describedby");
+		if (!tooltipTargetId) return;
+
+		var $layer = document.getElementById(tooltipTargetId);
 		if (!$layer) return;
 
+		var $buttonClose = $wrapper.querySelector("." + classButtonClose);
+		if (!$buttonClose) return
+
 		$button.addEventListener("click", function (event) {
-			event.stopPropagation();
+			event.stopPropagation(); 
 
 			var isCurrentlyActive = this.classList.contains(classActiveState);
 
@@ -614,6 +618,7 @@ function fnBoxTooltip() {
 
 			if (!isCurrentlyActive) {
 				this.classList.add(classActiveState);
+				$layer.setAttribute("aria-hidden", "false");
 			}
 		});
 
@@ -621,12 +626,9 @@ function fnBoxTooltip() {
 			event.stopPropagation();
 		});
 
-		if ($buttonClose) {
-			$buttonClose.addEventListener("click", function (event) {
-				event.stopPropagation();
-				fnCloseAllClickTooltips();
-			});
-		}
+		$buttonClose.addEventListener("click", function () {
+			fnCloseAllClickTooltips();
+		});
 	});
 
 	document.addEventListener("click", function () {
@@ -641,9 +643,15 @@ function fnBoxTooltip() {
 
 	function fnCloseAllClickTooltips() {
 		var $activeButtons = document.querySelectorAll("." + classTooltipContainer + " ." + classTriggerButton + "." + classActiveState);
-
+		
 		$activeButtons.forEach(function ($activeBtn) {
 			$activeBtn.classList.remove(classActiveState);
+			
+			var targetId = $activeBtn.getAttribute("aria-describedby");
+			if (targetId) {
+				var $targetLayer = document.getElementById(targetId);
+				if ($targetLayer) $targetLayer.setAttribute("aria-hidden", "true");
+			}
 		});
 	}
 }
