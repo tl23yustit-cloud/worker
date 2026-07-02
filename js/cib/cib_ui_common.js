@@ -100,7 +100,7 @@ function fnHeader() {
 	// 스크롤에 따른 GNB 고정 (is-fixed)
 	if ($gnb) {
 		window.addEventListener("scroll", function () {
-			if (window.scrollY > 0) {
+			if (window.scrollY > 64) {
 				$gnb.classList.add("is-fixed");
 			} else {
 				$gnb.classList.remove("is-fixed");
