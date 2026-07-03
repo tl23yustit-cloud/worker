@@ -253,3 +253,96 @@
 		}
 	}
 }
+
+//line-box
+[class^=line-box] {
+	border: 1px solid var(--colorBorderSecondary);
+	height: auto;
+}
+
+.line-box {
+	&.size {
+		&-md {
+			padding: var(--spacingXl) var(--spacing2Xl) var(--spacingSm);
+			border-radius: var(--spacingLgXl);
+		}
+
+		&-xl {
+			padding: var(--spacingXl) var(--spacing2Xl);
+			border-radius: var(--radius2Xl);
+		}
+	}
+}
+
+//bg-box
+[class^=bg-box] {
+	border-radius: var(--radiusXl);
+	background: var(--colorBgSecondary); //기본
+}
+
+.bg-box {
+	&.type {
+		&-light-blue {
+			background: var(--colorBgSecondary);
+			border-radius: var(--radiusXl) var(--spacingLgXl);
+		}
+	}
+}
+
+//banner-btn
+[class^=banner-btn] {
+	width: 100%;
+	border-radius: var(--radiusXl);
+	background: var(--colorBgSecondary); //기본
+	height: var(--sizeBase4Xl);
+
+	a {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		height: 100%;
+		cursor: pointer;
+		color: var(--colorFgLightSolid);
+
+		.btn-ico-text {
+			display: inline-flex;
+			justify-content: center;
+			align-items: center;
+			text-decoration: none;
+			gap: 8px;
+		}
+
+		.arrow-right-white {
+			content: "";
+			width: var(--sizeBaseXsSm);
+			height: var(--sizeBaseXsSm);
+			flex-shrink: 0;
+			display: inline-block;
+			background: url("../../images/common/ico_r_arrow_fglightsolid.svg") no-repeat center / contain;
+
+		}
+	}
+}
+
+.banner-btn {
+	&.type {
+		&-blue {
+
+			background: #5AB1F1;
+			border-radius: var(--radiusXl) var(--spacingLgXl);
+			position: relative;
+			&::before {
+				content: "";
+				position: absolute;
+				background: url(../../images/main/img_character_x3.svg) no-repeat;
+				background-size: 79px auto;
+				width: 79px;
+				height: 80px;
+				top:9px;
+				left:21px;
+			}
+
+		}
+	}
+}
