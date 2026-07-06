@@ -140,21 +140,33 @@
 	color: var(--colorFgNeutral);
 
 	.arrow-right {
-		content: "";
 		width: var(--sizeBaseXsSm);
 		height: var(--sizeBaseXsSm);
-		flex-shrink: 0;
-		background: url("../../images/ico_r_allow_x3.png") no-repeat center / contain;
+		background: url("../../images/common/ico_r_allow.svg") no-repeat center / contain;
 	}
 }
 
 .ico-refresh {
-	content: "";
 	width: var(--sizeBaseXs);
 	height: var(--sizeBaseXs);
-	flex-shrink: 0;
 	background: url("../../images/ico_refresh_16.png") no-repeat center / contain;
 }
+
+.ico-custom {
+	width: var(--sizeBaseXsSm);
+	height: var(--sizeBaseXsSm);
+	background: url("../../images/common/ico_custom_black.svg") no-repeat center / contain;
+}
+
+.btn-wrap {
+	padding: var(--spacingXsSm);
+	.ico-custom {
+		width: var(--sizeBaseXsSm);
+		height: var(--sizeBaseXsSm);
+		background: url("../../images/common/ico_custom_black.svg") no-repeat center / contain;
+	}
+}
+
 
 /*아이콘버튼*/
 .blind {
@@ -290,10 +302,11 @@
 }
 
 //banner-btn
+//*텍스트자체가 센터로 아이콘을 before잡음*
 [class^=banner-btn] {
 	width: 100%;
 	border-radius: var(--radiusXl);
-	background: var(--colorBgSecondary); //기본
+	background: var(--colorBgSecondary); //기본색상
 	height: var(--sizeBase4Xl);
 
 	a {
@@ -305,22 +318,20 @@
 		cursor: pointer;
 		color: var(--colorFgLightSolid);
 
-		.btn-ico-text {
-			display: inline-flex;
-			justify-content: center;
-			align-items: center;
-			text-decoration: none;
-			gap: 8px;
-		}
+		.text {
+			position: relative;
+			display: block;
 
-		.arrow-right-white {
-			content: "";
-			width: var(--sizeBaseXsSm);
-			height: var(--sizeBaseXsSm);
-			flex-shrink: 0;
-			display: inline-block;
-			background: url("../../images/common/ico_r_arrow_fglightsolid.svg") no-repeat center / contain;
+			&:after {
+				content: "";
+				position: absolute;
+				right: -22px;
+				top: 0;
+				width: var(--sizeBaseXsSm);
+				height: var(--sizeBaseXsSm);
+				background: url("../../images/common/ico_r_arrow_fglightsolid.svg") no-repeat center / contain;
 
+			}
 		}
 	}
 }
@@ -331,6 +342,7 @@
 			background: #5AB1F1;
 			border-radius: var(--radiusXl) var(--spacingLgXl);
 			position: relative;
+
 			&::before {
 				content: "";
 				position: absolute;
@@ -338,9 +350,23 @@
 				background-size: 79px auto;
 				width: 79px;
 				height: 80px;
-				top:9px;
-				left:21px;
+				top: 9px;
+				left: 21px;
 			}
 		}
+	}
+}
+
+.btn {
+	i.arrow-right {
+		width: 16px;
+		height: 16px;
+		background: url("../../images/common/ico_r_allow.svg") no-repeat center / contain;
+	}
+
+	i.ico-calendar {
+		width: 16px;
+		height: 16px;
+		background: url("../../images/common/ico_calendar_black.svg") no-repeat center / contain;
 	}
 }
