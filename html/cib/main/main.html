@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="/css/cib/common.css" />
     <link rel="stylesheet" href="/css/cib/swiper-bundle.min.css" />
     <script src="/js/cib/swiper.min.js"></script>
+    <script src="/js/cib/Chart.js"></script>
+    <script src="/js/cib/Chart.min.js"></script>
   </head>
   <body>
     <div class="wrapper">
@@ -55,13 +57,113 @@
                 </ul>
               </div>
               <!--로그인 이후 화면-->
+              <div class="main-dashboard-wrap">
+                <div class="main-dashboard-inner">
+                  <div class="main-dashboard">
+                    <h3 class="typeH3">
+                      자금 관리
+                      <div class="refresh-btn-wrap">
+                        <span class="typeSmMedium"
+                          >오늘 <span class="today-time">15:12</span> 기준</span
+                        >
+                        <button class="btn ico-refresh">
+                          <span class="blind">새로고침</span>
+                        </button>
+                      </div>
+                    </h3>
+                    <div class="my-funds-area">
+                      <div class="my-funds-wrap">
+                        <div class="typeLgMedium tooltip">
+                          총 자산
+                          <div class="box-tooltip tail-bottom-center">
+                            <button type="button" class="btn ex_mark active">
+                              <span class="blind">유의사항설명</span>
+                            </button>
+                            <div class="layer-tooltip">
+                              <div class="header-tooltip">
+                                <span class="typeH7">Tooltip Title</span>
+                              </div>
+                              <div class="content-tooltip">
+                                <span class="text">Tooltip Label</span>
+                              </div>
+                              <button type="button" class="btn-close">
+                                <i class="ico-close ico-size-sm"></i>
+                                <span class="blind">툴팁 닫기</span>
+                              </button>
+                              <i class="ico-tail-tooltip"></i>
+                            </div>
+                          </div>
+                          <span class="btn-switch size-lg">
+                            <input
+                              type="checkbox"
+                              id="SAMPLESWITCHLG01"
+                              class="blind"
+                              role="switch"
+                              aria-checked="false"
+                              title="자산"
+                            />
+                            <label
+                              for="SAMPLESWITCHLG01"
+                              class="ico-btn-switch"
+                            ></label
+                            ><span class="typeLgMedium">자산</span>
+                          </span>
+                        </div>
+                        <div class="typeH1 balance">
+                          2,125,612,100<span class="type2Xl">원</span>
+                        </div>
+                        <button type="button" class="btn-ico-text">
+                          <span class="typeSm"
+                            >이전보다
+                            <strong class="typeLgBold">8,000,400원</strong
+                            >늘었어요</span
+                          >
+                          <i class="arrow-right"></i>
+                        </button>
+                        <div class="line-box size-sm">
+                          <ul>
+                            <li>
+                              <span class="typeLgSemibold">순자산</span>
+                              <span class="badge-outline type-neutral">
+                                <span class="blind">40%</span>
+                                <span class="text">40%</span>
+                              </span>
+                              <div class="history-amount">
+                                <span class="typeXlBold">128,000,000</span
+                                ><span class="typeLgMedium">원</span>
+                              </div>
+                            </li>
+                            <li>
+                              <span class="typeLgSemibold">부채</span>
+                              <span class="badge-outline type-neutral">
+                                <span class="blind">60%</span>
+                                <span class="text">60%</span>
+                              </span>
+                              <div class="history-amount">
+                                <span class="typeXlBold">192,000,000</span
+                                ><span class="typeLgMedium">원</span>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="chart-area">
+                        <div
+                          style="width: 280px; height: 140px"
+                          class="chart-wrap"
+                        >
+                          <canvas id="myDoughnutChart"> </canvas>
+                          <ul class="chart-legend"></ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
               <div class="main-content">
                 <div class="line-box size-xl financial-manage">
                   <h3 class="typeH3">
                     자금 관리
-                    <!-- <button type="button" class="btn-ico-text arrow-right">
-										<span class="text">전체보기</span>
-									</button> -->
                     <div class="refresh-btn-wrap">
                       <span class="typeSmMedium"
                         >오늘 <span class="today-time">15:12</span> 기준</span
@@ -73,7 +175,7 @@
                   </h3>
                   <div class="bg-box">
                     <div class="financial-view">
-                      <div class="typeLgMedium">
+                      <div class="typeLgMedium tooltip">
                         총 계좌잔액
                         <div class="box-tooltip tail-bottom-center">
                           <button type="button" class="btn ex_mark active">
@@ -99,7 +201,7 @@
                       </div>
                     </div>
                     <div class="financial-view">
-                      <div class="typeLgMedium">
+                      <div class="typeLgMedium tooltip">
                         총 계좌잔액
                         <div class="box-tooltip tail-bottom-center">
                           <button type="button" class="btn ex_mark active">
@@ -810,6 +912,124 @@
           clickable: true,
         },
       });
+    </script>
+    <script>
+      // 1. 차트를 그릴 canvas 요소 가져오기
+      const ctx = document.getElementById("myDoughnutChart").getContext("2d");
+
+      // 2. 차트 데이터 설정
+      const data = {
+        labels: ["대출", "예금", "펀드", "신탁/ISA", "퇴직연금"],
+        datasets: [
+          {
+            label: "# of Votes",
+            data: [12, 19, 3, 5, 2],
+            backgroundColor: [
+              "#1E3BB3",
+              "#51D2ED",
+              "#FEDC61",
+              "#FF8A80",
+              "#AED581",
+            ],
+            borderColor: [
+              "#1E3BB3",
+              "#51D2ED",
+              "#FEDC61",
+              "#FF8A80",
+              "#AED581",
+            ],
+            borderWidth: 1,
+          },
+        ],
+      };
+
+      // 3. 차트 옵션 설정
+      const options = {
+        responsive: true,
+        cutout: "100%",
+        plugins: {
+          legend: {
+            position: "top",
+          },
+          title: {
+            display: true,
+            text: "Chart.js 도넛 차트 기본 예제",
+          },
+        },
+        legend: {
+          display: false,
+          labels: {
+            // usePointStyle: true,
+            // pointStyle: "circle",
+            // fontSize: 15,
+            // fontColor: "#101828",
+            // padding: 20,
+            // boxWidth: 10,
+          },
+        },
+      };
+
+      // 4. 차트 생성
+      const myDoughnutChart = new window.Chart(ctx, {
+        type: "doughnut",
+        data: data,
+        options: options,
+      });
+      //   const data = chart.data;
+
+      //       const legend = document.querySelector(".chart-legend");
+      //       legend.innerHTML = "";
+
+      //       data.labels.forEach((label, index) => {
+      //         legend.innerHTML += `
+      //     <li>
+      //       <span class="dot" style="background:${data.datasets[0].backgroundColor[index]}"></span>
+      //       <span class="text">${label}</span>
+      //     </li>
+      //   `;
+      //       });
+      const chart = new Chart(ctx, {
+        type: "doughnut",
+        data: data,
+        options: {
+          legend: {
+            display: false,
+          },
+        },
+      });
+
+      const legend = document.querySelector(".chart-legend");
+      const values = data.datasets[0].data;
+
+      // 총합
+      const total = values.reduce((sum, value) => sum + value, 0);
+      values.forEach((value, index) => {
+        const percent = ((value / total) * 100).toFixed(1);
+      });
+      data.labels.forEach((label, index) => {
+        const value = data.datasets[0].data[index];
+        const total = data.datasets[0].data.reduce((a, b) => a + b, 0);
+        const percent = ((value / total) * 100).toFixed(1);
+
+        legend.innerHTML += `
+        <li>
+            <span class="dot" style="background:${data.datasets[0].backgroundColor[index]}"></span>
+            <span class="text">${label}</span>
+            <span class="percent typeLgSemibold"><strong class="typeLgBold">${percent}</strong>%</span>
+        </li>
+    `;
+      });
+
+      // const legendItems = Chart.defaults.global.legend.labels.generateLabels(chart);
+
+      // const legend = document.querySelector('.chart-legend');
+
+      // legend.innerHTML = legendItems.map(item => `
+      //   <li>
+      //     <span class="dot" style="background:${item.fillStyle}"></span>
+      //     <span class="text">${item.text}</span>
+      //   </li>
+      // `).join('');
     </script>
   </body>
 </html>

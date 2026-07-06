@@ -53,11 +53,12 @@ function copyAssets() {
         'images/**/*', 
         'css/**/font/**/*', 
         'cl/**/*', 
-        '!cl/**/*.scss'
+        '!cl/**/*.scss',
     ], { 
         base: '.', 
         encoding: false,      
-        sourcemaps: false     
+        sourcemaps: false,
+        allowEmpty: true  
     })
         .pipe(gulp.dest('dist'))
         .pipe(browserSync.stream());
