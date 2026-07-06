@@ -34,7 +34,7 @@ function fnHeader() {
 
 	var $items = document.querySelectorAll(".gnb-item");
 	var $links = document.querySelectorAll(".gnb-link");
-	var $menus = document.querySelectorAll(".mega-menu");
+	var $menus = document.querySelectorAll(".mega-wrap");
 
 	var $selectButtons = document.querySelectorAll(".util-menu .btn-select");
 	var $menuToggleButtons = document.querySelectorAll(".menu-toggle");
@@ -85,7 +85,7 @@ function fnHeader() {
 				if ($currentItem) {
 					$currentItem.classList.add("is-active");
 
-					var $targetMegaMenu = $currentItem.querySelector(".mega-menu");
+					var $targetMegaMenu = $currentItem.querySelector(".mega-wrap");
 					if ($targetMegaMenu) $targetMegaMenu.classList.add("is-active");
 				}
 			});

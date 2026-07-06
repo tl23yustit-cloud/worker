@@ -230,22 +230,19 @@
 					position: static;
 
 					.mega-wrap {
+						display: none;
 						position: absolute;
 						top: 100%;
 						left: 0;
+						border-top: 1px solid var(--colorBorderSecondary);
 						width: 100%;
 						background: var(--colorFgLightSolid);
-
+						
 						.mega-menu {
-							display: none;
 							z-index: 99;
-							max-width: var(--contentLayoutWidth);
 							margin: 0 auto;
 							padding: 48px 0 60px;
-
-							&.is-active {
-								display: block;
-							}
+							max-width: var(--contentLayoutWidth);
 
 							.mega-inner {
 								display: grid;
@@ -390,6 +387,10 @@
 								}
 							}
 						}
+
+						&.is-active {
+							display: block;
+						}
 					}
 
 					&.is-active {
@@ -479,10 +480,6 @@
 		}
 
 		.header-bottom {
-			width: 100%;
-			margin: 0 auto;
-			border-bottom: 1px solid var(--colorBorderSecondary);
-
 			.gnb {
 				.gnb-list {
 					.gnb-item {
