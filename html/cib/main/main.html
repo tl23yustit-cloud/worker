@@ -148,12 +148,15 @@
                         </div>
                       </div>
                       <div class="chart-area">
-                        <div
-                          style="width: 280px; height: 140px"
-                          class="chart-wrap"
-                        >
-                          <canvas id="myDoughnutChart"> </canvas>
-                          <ul class="chart-legend"></ul>
+                        <div class="typeXl">
+                          내 금융자산은
+                          <strong class="typeXlBold">대출이 가장 많아요</strong>
+                        </div>
+                        <div class="chart-inner">
+                          <div class="chart-wrap">
+                            <canvas id="myDoughnutChart"> </canvas>
+                            <ul class="chart-legend"></ul>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -1009,8 +1012,8 @@
       data.labels.forEach((label, index) => {
         const value = data.datasets[0].data[index];
         const total = data.datasets[0].data.reduce((a, b) => a + b, 0);
-        const percent = ((value / total) * 100).toFixed(1);
-
+        // const percent = ((value / total) * 100).toFixed(1);// 소수점
+		const percent = Math.floor((value / total) * 100);
         legend.innerHTML += `
         <li>
             <span class="dot" style="background:${data.datasets[0].backgroundColor[index]}"></span>
