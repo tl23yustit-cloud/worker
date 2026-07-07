@@ -380,64 +380,22 @@
 }
 
 //은행아이콘
+$bank-list: "kb", "shinhan", "woori", "hana", "kakaobank", "suhyup", "toss";
 
-$bank-icons: (
-	"kb": "ico_kb_bank.svg",
-	"shinhan": "ico_shinhan_bank.svg",
-	"woori": "ico_woori_bank.svg",
-	"hana": "ico_hana_bank.svg",
-	"kakaobank": "ico_kakao_bank.svg",
-	"suhyup": "ico_suhyup_bank.svg",
-	"toss": "ico_toss_bank.svg"
-);
-
-@mixin bank-icon($bank_name) {
-	$icon-file: map-get($bank-icons, $bank-name);
-
-	&::before {
-		content: "";
-		display: inline-block;
-		vertical-align: middle;
-		width: 20px;
-		height: 20px;
-		margin-right: 8px;
-		background-image: url("../../images/common/banks/#{$icon-file}");
-		background-size: contain;
-		background-repeat: no-repeat;
-		background-position: center;
-
-		@content;
-	}
-}
-
-@each $bank, $file in $bank-icons {
-	.bank-#{$bank} {
-		@include bank-icon($bank);
-	}
-}
-
-.bank-kb {
-	&::before {
-		content: "";
-		display: inline-block;
-		vertical-align: middle;
-		margin-right: 8px;
-		background-image: url("../../images/common/banks/ico_kb_bank.svg");
-		background-size: contain;
-		background-repeat: no-repeat;
-		background-position: center;
-	}
-}
-
-.bank-shinhan {
-	&::before {
-		content: "";
-		background-image: url("../../images/common/banks/ico_shinhan_bank.svg");
-	}
-}
-.bank-suhyup {
-	&::before {
-		content: "";
-		background-image: url("../../images/common/banks/ico_suhyup_bank.svg");
-	}
+@each $bank in $bank-list {
+  .bank-#{$bank} {
+    &::before {
+      content: "";
+      display: inline-block;
+      vertical-align: middle;
+      width: var(--sizeBaseXs);
+      height: var(--sizeBaseXs);
+      margin-right: var(--spacingSm);
+      
+      background-image: url("../../images/common/banks/ico_#{$bank}_bank.svg");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
 }
