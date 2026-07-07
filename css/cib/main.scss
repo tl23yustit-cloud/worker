@@ -567,6 +567,11 @@
                 justify-content: space-between;
                 color: var(--colorFgBase);
 
+                a {
+                  display: flex;
+                  gap: var(--spacingXs)
+                }
+
                 .time {
                   color: var(colorFgTertiary);
                 }
@@ -749,6 +754,7 @@
   .main-dashboard-inner {
     width: 1360px;
     margin: 0 auto;
+    display: flex;
 
     .main-dashboard {
       width: 928px;
@@ -879,13 +885,8 @@
         }
 
         .chart-area {
-
-
           flex: 1;
 
-          // padding: var(--spacingLgXl);
-          // display: flex;
-          // align-items: center;
           .typeXl {
             padding-bottom: var(--spacingMd);
           }
@@ -896,7 +897,8 @@
             background-color: var(--colorBgSecondary);
             border-radius: var(--radius2Xl);
             padding: var(--spacingLgXl);
-            .chart-wrap {              
+
+            .chart-wrap {
               display: flex;
               align-items: center;
               width: 280px;
@@ -948,6 +950,49 @@
           }
 
         }
+      }
+    }
+
+    .transaction-status {
+      width: 400px;
+      height: 326px;
+      margin-left: var(--spacingXl);
+      padding: var(--spacingXl) var(--spacing2Xl);
+      gap: var(--spacingLgXl);
+      border-radius: var(--radius2Xl);
+      background: var(--colorBgBase);
+      box-shadow: 0 1px 1px -3px rgba(16, 24, 40, 0.06), 0 1px 4px 0 rgba(16, 24, 40, 0.10);
+
+      ul {
+        margin-top: var(--spacingLg);
+        li {
+          a {
+            display: flex;
+            justify-content: space-between;
+            padding: var(--spacingSm) var(--spacingNone);
+            .trans-amount {
+              display: flex;
+              align-items: center;
+
+              .text {
+                color: var(--colorFgBase);
+                font-size: 18px;
+                font-weight: var(--fontWeightBold);
+                line-height: var(--lineHeightH6);
+              }
+
+              .ico-arrow-up-right {
+                background-image: url("../../images/common/ico_arrow_up_right.svg");
+                margin: var(--spacingXsSm);
+              }
+            }
+          }
+
+          +li {
+            padding-top: var(--spacingSm);
+          }
+        }
+
       }
     }
   }
