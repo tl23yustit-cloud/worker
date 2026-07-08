@@ -392,10 +392,26 @@
 					&.is-active {
 						.gnb-link {
 							color: var(--colorFgPrimary);
-
-							// border-bottom: 3px solid #0067d8;
 							&::after {
 								transform: scaleX(1);
+							}
+
+							.typeXlSemibold {
+								height: var(--sizeBase3Xl);
+								color: var(--colorFgPrimary);
+								line-height: var(--sizeBase3Xl);
+								transition: color .25s;
+
+								&:after {
+									content:'';
+									display:block;
+									position:absolute;
+									bottom:0;
+									left:0;
+									width: 100%;
+									height: 3px; 
+									background-color: var(--colorBgPrimary);
+								}
 							}
 						}
 					}
