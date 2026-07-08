@@ -64,6 +64,10 @@ function fnHeader() {
 	const btnDeleteAll = document.querySelector(".btn-delete-all");
 	const btnPannelClose = document.querySelector(".btn-pannel-close");
 
+	//스위치
+	const autoSaveSwitch = document.querySelector("#SAMPLESWITCHSM01");
+	const autoSaveText = document.querySelector(".switch-wrap .typeSm");
+	const offBox = document.querySelector(".autocomplete-off");
 	// 유틸 메뉴 셀렉트 버튼 토글
 	if ($selectButtons.length > 0) {
 		$selectButtons.forEach(function ($button) {
@@ -98,7 +102,7 @@ function fnHeader() {
 		});
 	}
 	// 스크롤에 따른 GNB 고정 (is-fixed)
-	
+
 	if ($gnb) {
 		let timer;
 		window.addEventListener("scroll", function () {
@@ -215,9 +219,15 @@ function fnHeader() {
 	// 포커스
 	focusInput.addEventListener("focus", () => {
 		openAutocomplete();
-		const hasHistory = true; // 나중에 실제 데이터로 변경
+		// const hasHistory = true;
+		// 나중에 실제 데이터로 변경
 
-		showPanel(hasHistory ? historyBox : "");
+		// showPanel(hasHistory ? historyBox : "");
+		if (autoSaveSwitch.checked) {
+			showPanel(historyBox);
+		} else {
+			showPanel(offBox);
+		}
 	});
 
 	focusInput.addEventListener("input", () => {
@@ -232,8 +242,9 @@ function fnHeader() {
 				textEl.textContent = textEl.dataset.keyword;
 			});
 
-			const hasHistory = true;
-			showPanel(hasHistory ? historyBox : "");
+			// const hasHistory = true;
+			// showPanel(hasHistory ? historyBox : "");
+			showPanel(autoSaveSwitch.checked ? historyBox : offBox);
 			return;
 		}
 
@@ -307,7 +318,26 @@ function fnHeader() {
 
 		updateHistoryState();
 	});
+	function updateAutoSave() {
+		if (autoSaveSwitch.checked) {
+			autoSaveText.textContent = "자동저장 켜기";
+		} else {
+			autoSaveText.textContent = "자동저장 끄기";
+		}
+	}
+
+	autoSaveSwitch.addEventListener("change", () => {
+		updateAutoSave();
+
+		// 검색창에 입력이 없을 때만 패널 변경
+		if (!focusInput.value.trim()) {
+			showPanel(autoSaveSwitch.checked ? historyBox : offBox);
+		}
+	});
+
+	updateAutoSave();
 }
+
 // LNB
 function fnLNB() {
 	var classLnbContainer = "wrap-left-menu";
