@@ -75,7 +75,7 @@ function fnHeader() {
 	// GNB 메가메뉴 Hover
 	if ($links.length > 0 && $header) {
 		$links.forEach(function ($link) {
-			$link.addEventListener("mouseenter", function () {
+			$link.addEventListener("click", function () {
 				$header.classList.add("is-open");
 
 				$items.forEach(function ($item) { $item.classList.remove("is-active"); });
