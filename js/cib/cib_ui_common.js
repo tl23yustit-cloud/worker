@@ -29,6 +29,7 @@ function fnSkipNavigation() {
 }
 // header
 function fnHeader() {
+
 	var $header = document.querySelector(".header");
 	var $gnb = document.querySelector(".header-bottom");
 
@@ -57,6 +58,10 @@ function fnHeader() {
 	const keywordBox = document.querySelector(".autocomplete-keyword");
 	const noResultBox = document.querySelector(".autocomplete-no-result");
 	const historyWrap = document.querySelector(".history-wrap");
+
+	if (!searchArea || !focusInput || !autoBox || !historyWrap) {
+		return;
+	}
 	const historyList = historyWrap.querySelector(".history-list");
 
 	const hasHistory = historyList.children.length > 0;
@@ -68,6 +73,8 @@ function fnHeader() {
 	const autoSaveSwitch = document.querySelector("#SAMPLESWITCHSM01");
 	const autoSaveText = document.querySelector(".switch-wrap .typeSm");
 	const offBox = document.querySelector(".autocomplete-off");
+
+
 	// 유틸 메뉴 셀렉트 버튼 토글
 	if ($selectButtons.length > 0) {
 		$selectButtons.forEach(function ($button) {
