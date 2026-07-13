@@ -6,9 +6,97 @@
     }
 
     .search-result {
-        color:var(--colorFgBase);
-        em{
-            color:var(--colorFgPrimary)
+        color: var(--colorFgBase);
+
+        .typeH2 {
+            text-align: center;
+            margin-top: var(--spacing3Xl);
+            padding-bottom: var(--spacing3Xl);
+
+            em {
+                color: var(--colorFgPrimary)
+            }
+        }
+
+    }
+
+    .empty-page {
+        padding: var(--spacing6Xl) var(--spacingNone);
+    }
+}
+
+.total-search {
+    .total-search-head {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: var(--spacingMd);
+
+        .typeH4 {
+            .active {
+                color: var(--colorFgPrimary);
+                padding-left: var(--spacingXs);
+            }
+        }
+    }
+
+    .list-search {
+        gap: var(--spacingXl);
+    }
+
+    .item-search {
+        .typeMd {
+            color: var(--colorFgNeutral);
+
+            .search-keyword {
+                color: var(--colorFgPrimary);
+            }
+        }
+    }
+
+    +.total-search {
+        padding-top: var(--spacing4Xl)
+    }
+
+    .line-box {
+        .typeH5 {
+            color: var(--colorFgBase);
+            padding-top: var(--spacingMd);
+
+            .active {
+                color: var(--colorFgPrimary);
+            }
+        }
+
+        .typeMd {
+            color: var(--colorFgSecondary);
+            padding-top: var(--spacingSm);
+
+            .active {
+                color: var(--colorFgPrimary);
+            }
+        }
+
+        +.line-box {
+            margin-top: var(--spacingMd);
+        }
+
+        .typeLg {
+            color: var(--colorFgBase);
+
+            .active {
+                color: var(--colorFgPrimary);
+            }
+        }
+        &.type-top-bot-round{
+            ul{
+                li{
+                    display: flex;
+                    justify-content: space-between;
+                    .date{
+                         color: var(--colorFgTertiary);
+                    }
+                }
+            }
         }
     }
 }
