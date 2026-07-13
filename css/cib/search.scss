@@ -1,5 +1,13 @@
 .search {
     .search-dropdown {
+        position: relative;
+
+        .form-box {
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+
         +.search-dropdown {
             margin-top: var(--spacingSm);
         }
@@ -23,77 +31,104 @@
     .empty-page {
         padding: var(--spacing6Xl) var(--spacingNone);
     }
-}
 
-.total-search {
-    .total-search-head {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: var(--spacingMd);
+    .box-tab-content {
+        padding-top: var(--spacing4Xl);
 
-        .typeH4 {
-            .active {
-                color: var(--colorFgPrimary);
-                padding-left: var(--spacingXs);
+        .line-box {
+            .check-group {
+                align-items: center;
+                .typeSmMedium{
+                    width: 80px;
+                }
+                + .check-group{
+                    padding-top: var(--spacingMd);
+                }
+            }
+            .btn-wrap {
+               display: flex;
+               justify-content: center;
+               border-top: 1px solid var(--colorBorderSecondary);
+               padding-top: var(--spacingXl);
+               margin-top: var(--spacingXl);
             }
         }
+
     }
 
-    .list-search {
-        gap: var(--spacingXl);
-    }
+    .total-search {
 
-    .item-search {
-        .typeMd {
-            color: var(--colorFgNeutral);
+        .total-search-head {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: var(--spacingMd);
 
-            .search-keyword {
-                color: var(--colorFgPrimary);
-            }
-        }
-    }
-
-    +.total-search {
-        padding-top: var(--spacing4Xl)
-    }
-
-    .line-box {
-        .typeH5 {
-            color: var(--colorFgBase);
-            padding-top: var(--spacingMd);
-
-            .active {
-                color: var(--colorFgPrimary);
+            .typeH4 {
+                .active {
+                    color: var(--colorFgPrimary);
+                    padding-left: var(--spacingXs);
+                }
             }
         }
 
-        .typeMd {
-            color: var(--colorFgSecondary);
-            padding-top: var(--spacingSm);
+        .list-search {
+            gap: var(--spacingXl);
+        }
 
-            .active {
-                color: var(--colorFgPrimary);
+        .item-search {
+            .typeMd {
+                color: var(--colorFgNeutral);
+
+                .search-keyword {
+                    color: var(--colorFgPrimary);
+                }
             }
         }
 
-        +.line-box {
-            margin-top: var(--spacingMd);
+        +.total-search {
+            padding-top: var(--spacing4Xl)
         }
 
-        .typeLg {
-            color: var(--colorFgBase);
+        .line-box {
+            .typeH5 {
+                color: var(--colorFgBase);
+                padding-top: var(--spacingMd);
 
-            .active {
-                color: var(--colorFgPrimary);
+                .active {
+                    color: var(--colorFgPrimary);
+                }
             }
-        }
-        &.type-top-bot-round{
-            ul{
-                li{
-                    display: flex;
-                    justify-content: space-between;
-                    .date{
-                         color: var(--colorFgTertiary);
+
+            .typeMd {
+                color: var(--colorFgSecondary);
+                padding-top: var(--spacingSm);
+
+                .active {
+                    color: var(--colorFgPrimary);
+                }
+            }
+
+            +.line-box {
+                margin-top: var(--spacingMd);
+            }
+
+            .typeLg {
+                color: var(--colorFgBase);
+
+                .active {
+                    color: var(--colorFgPrimary);
+                }
+            }
+
+            &.type-top-bot-round {
+                ul {
+                    li {
+                        display: flex;
+                        justify-content: space-between;
+
+                        .date {
+                            color: var(--colorFgTertiary);
+                        }
                     }
                 }
             }
