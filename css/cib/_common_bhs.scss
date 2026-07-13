@@ -424,3 +424,57 @@ $bank-list: "kb", "shinhan", "woori", "hana", "kakaobank", "suhyup", "toss";
 		margin-top: var(--spacingLg);
 	}
 }
+
+
+//리스트타입
+[class^=list] {
+	&.type {
+		&-dotted {
+			ul {
+				li {
+					color: var(--colorFgSecondary);
+					display: flex;
+					align-items: center;
+
+					&::before {
+						content: "";
+						display: inline-block;
+						width: 3px;
+						height: 3px;
+						margin-right: var(--spacingXs);
+						border-radius: var(--radiusFull);
+						background-color: var(--colorFgSecondary);
+					}
+
+					+li {
+						margin-top: var(--spacingXsSm);
+					}
+				}
+			}
+		}
+
+		&-bar {
+			ul {
+				li {
+					color: var(--colorFgSecondary);
+					display: flex;
+					align-items: center;
+
+					&::before {
+						content: "";
+						display: inline-block;
+						width: 7px;
+						height: 1px;
+						margin-right: var(--spacingXs);
+						border-radius: var(--radiusFull);
+						background-color: var(--colorFgSecondary);
+					}
+
+					+li {
+						margin-top: var(--spacingXsSm);
+					}
+				}
+			}
+		}
+	}
+}
