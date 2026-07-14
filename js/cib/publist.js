@@ -4,7 +4,10 @@ const depthName = {
     inquiry: "조회",
     guide: "가이드",
     popup: "팝업",
-    common: "공통"
+    common: "공통",
+    components: "컴포넌트",
+    main: "메인",
+    sub: "서브"
 
 };
 async function loadList() {
@@ -124,7 +127,13 @@ function render(data) {
             let depthTd = "";
 
             for (let i = 0; i < maxDepth; i++) {
-                depthTd += `<td>${item.depths[i] || "-"}</td>`;
+
+                const depth = item.depths[i];
+
+                depthTd += `<td>${depth
+                        ? (depthName[depth] || depth)
+                        : "-"
+                    }</td>`;
             }
 
             html += `
