@@ -822,30 +822,56 @@ hr {
 	text-overflow: ellipsis;
 }
 
-// flex
 
+.w-100 {
+	width: 100%;
+}
+
+.h-100 {
+	height: 100%;
+}
+
+.text-right {
+	text-align: right;
+}
+// flex
 .flex {
 	display: flex;
+	&.inline-flex {
+        display: inline-flex;
+    }
 	&.items-center {
 		align-items: center;
+	}
+
+	&.items-stretch {
+		align-items: stretch;
 	}
 
 	&.justify-center {
 		justify-content: center;
 	}
-	&.justify-between{
+
+	&.justify-end {
+		justify-content: flex-end;
+	}
+
+	&.justify-between {
 		justify-content: space-between;
 	}
+
 	&.flex-column {
-			flex-direction: column;
+		flex-direction: column;
 	}
+
 	@for $i from 0 through 30 {
-    $value: $i * 2;
-    &.gap-#{$value} {
-      gap: #{$value}px;
-    }
-	
-  }
+		$value: $i * 2;
+
+		&.gap-#{$value} {
+			gap: #{$value}px;
+		}
+
+	}
 }
 
 // 설정: 4px 단위로 40px까지 생성
@@ -853,10 +879,13 @@ $max-px: 40;
 
 // 유틸리티 클래스 생성 믹스인
 @mixin generate-spacing($prefix, $property) {
-  @for $i from 1 through math.div($max-px, 4) {
-    $val: $i * 4;
-    .#{$prefix}-#{$val} { #{$property}: #{$val}px !important; }
-  }
+	@for $i from 1 through math.div($max-px, 4) {
+		$val: $i * 4;
+
+		.#{$prefix}-#{$val} {
+			#{$property}: #{$val}px !important;
+		}
+	}
 }
 
 // 1. 전체 패딩/마진 (pa, ma)
@@ -877,11 +906,25 @@ $max-px: 40;
 
 // 4. 가로/세로 축 패딩 및 마진 (px, py, mx, my)
 @for $i from 1 through math.div($max-px, 4) {
-  $val: $i * 4;
-  
-  .px-#{$val} { padding-left: #{$val}px !important; padding-right: #{$val}px !important; }
-  .py-#{$val} { padding-top: #{$val}px !important; padding-bottom: #{$val}px !important; }
-  
-  .mx-#{$val} { margin-left: #{$val}px !important; margin-right: #{$val}px !important; }
-  .my-#{$val} { margin-top: #{$val}px !important; margin-bottom: #{$val}px !important; }
+	$val: $i * 4;
+
+	.px-#{$val} {
+		padding-left: #{$val}px !important;
+		padding-right: #{$val}px !important;
+	}
+
+	.py-#{$val} {
+		padding-top: #{$val}px !important;
+		padding-bottom: #{$val}px !important;
+	}
+
+	.mx-#{$val} {
+		margin-left: #{$val}px !important;
+		margin-right: #{$val}px !important;
+	}
+
+	.my-#{$val} {
+		margin-top: #{$val}px !important;
+		margin-bottom: #{$val}px !important;
+	}
 }
