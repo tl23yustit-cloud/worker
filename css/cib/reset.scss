@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@use "sass:math";
 @import url(./font/font.css);
 :root {
 	/* Seed variable */
@@ -245,7 +246,7 @@
 	--borderWidthUnit8: 8px;
 
 	/* 0. Typography */
-	--baseFontFamily : "Pretendard", "맑은 고딕", "Malgun Gothic", sans-serif;
+	--baseFontFamily: "Pretendard", "맑은 고딕", "Malgun Gothic", sans-serif;
 	--headingFontFamily: 'Pretendard Variable';
 	--contentFontFamily: 'Pretendard Variable';
 	--fontFamilyCode: 'Roboto Mono';
@@ -655,6 +656,7 @@ button {
 	border: 0;
 	background: transparent;
 	cursor: pointer;
+
 	&:disabled {
 		cursor: default;
 	}
@@ -774,25 +776,25 @@ hr {
 
 /* scrollbar */
 ::-webkit-scrollbar {
-    width: var(--sizeBase4Xs);
-    height: var(--sizeBase4Xs);
+	width: var(--sizeBase4Xs);
+	height: var(--sizeBase4Xs);
 }
 
 ::-webkit-scrollbar-track {
-    background-color: transparent; 
+	background-color: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-    border-radius: var(--radiusLg);
-    background-color: var(--colorBgScroll); 
+	border-radius: var(--radiusLg);
+	background-color: var(--colorBgScroll);
 
-    &:hover {
-        background-color: var(--colorBgScrollHover);
-    }
+	&:hover {
+		background-color: var(--colorBgScrollHover);
+	}
 
 	&:active {
-        background-color: var(--colorBgScrollFocus);
-    }
+		background-color: var(--colorBgScrollFocus);
+	}
 
 	&:disabled {
 		background-color: var(--colorBgScrolDisabled);
@@ -802,19 +804,83 @@ hr {
 
 /* placeholder */
 ::placeholder {
-	overflow:hidden;
+	overflow: hidden;
 	color: var(--colorFgHint);
-	text-overflow:ellipsis;
+	text-overflow: ellipsis;
 }
 
 :-ms-input-placeholder {
-	overflow:hidden;
+	overflow: hidden;
 	color: var(--colorFgHint);
-	text-overflow:ellipsis;
+	text-overflow: ellipsis;
 }
 
 ::-ms-input-placeholder {
-	overflow:hidden;
+	overflow: hidden;
 	color: var(--colorFgHint);
-	text-overflow:ellipsis;
+	text-overflow: ellipsis;
+}
+
+// flex
+
+.flex {
+	display: flex;
+	&.items-center {
+		align-items: center;
+	}
+
+	&.justify-center {
+		justify-content: center;
+	}
+	&.justify-between{
+		justify-content: space-between;
+	}
+	&.flex-column {
+			flex-direction: column;
+	}
+	@for $i from 0 through 30 {
+    $value: $i * 2;
+    &.gap-#{$value} {
+      gap: #{$value}px;
+    }
+	
+  }
+}
+
+// 설정: 4px 단위로 40px까지 생성
+$max-px: 40;
+
+// 유틸리티 클래스 생성 믹스인
+@mixin generate-spacing($prefix, $property) {
+  @for $i from 1 through math.div($max-px, 4) {
+    $val: $i * 4;
+    .#{$prefix}-#{$val} { #{$property}: #{$val}px !important; }
+  }
+}
+
+// 1. 전체 패딩/마진 (pa, ma)
+@include generate-spacing('pa', 'padding');
+@include generate-spacing('ma', 'margin');
+
+// 2. 단방향 패딩 (pt, pb, pl, pr)
+@include generate-spacing('pt', 'padding-top');
+@include generate-spacing('pb', 'padding-bottom');
+@include generate-spacing('pl', 'padding-left');
+@include generate-spacing('pr', 'padding-right');
+
+// 3. 단방향 마진 (mt, mb, ml, mr)
+@include generate-spacing('mt', 'margin-top');
+@include generate-spacing('mb', 'margin-bottom');
+@include generate-spacing('ml', 'margin-left');
+@include generate-spacing('mr', 'margin-right');
+
+// 4. 가로/세로 축 패딩 및 마진 (px, py, mx, my)
+@for $i from 1 through math.div($max-px, 4) {
+  $val: $i * 4;
+  
+  .px-#{$val} { padding-left: #{$val}px !important; padding-right: #{$val}px !important; }
+  .py-#{$val} { padding-top: #{$val}px !important; padding-bottom: #{$val}px !important; }
+  
+  .mx-#{$val} { margin-left: #{$val}px !important; margin-right: #{$val}px !important; }
+  .my-#{$val} { margin-top: #{$val}px !important; margin-bottom: #{$val}px !important; }
 }
