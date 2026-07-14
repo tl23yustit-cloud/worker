@@ -7,6 +7,7 @@ window.addEventListener('load', function () {
 	fnSelectColorChange(); // select 태그 class 추가
 	fnInputClear(); // 기본 검색
 	fnBoxSearchDetail(); // 상세검색
+	fnBoxSelect(); // 기본 드롭다운
 	fnBoxMultiSelect(); // 멀티 드롭다운
 	fnTextareaCounter(); // Textarea
 	var defaultTabIndex = 0
@@ -549,7 +550,53 @@ function fnBoxSearchDetail() {
 		});
 	});
 }
-// 멀티 드롭다운
+// 기본 드롭다운
+function fnBoxSelect() {
+	const $boxeSelect = document.querySelectorAll('.box-select');
+
+	$boxeSelect.forEach(function ($boxeSelect) {
+		const $triggerBtn = $boxeSelect.querySelector('.select');
+		const $blindText = $boxeSelect.querySelector('.select .blind');
+
+		if (!$triggerBtn) return;
+
+		$triggerBtn.addEventListener('click', function (e) {
+			e.stopPropagation();
+
+			const isOpen = this.classList.contains('active');
+			closeAllSelects();
+
+			if (!isOpen) {
+				this.classList.add('active');
+				$boxeSelect.classList.add('is-open');
+				if ($blindText) $blindText.textContent = '접힘';
+			}
+		});
+
+		$boxeSelect.addEventListener('click', function (e) {
+			e.stopPropagation();
+		});
+
+	});
+
+	// 드롭다운 바깥 영역 클릭 시 일괄 닫기
+	document.addEventListener('click', function () {
+		closeAllSelects();
+	});
+}
+function closeAllSelects() {
+	const $activeTriggers = document.querySelectorAll('.box-select .select.active');
+	const $openComponents = document.querySelectorAll('.box-select.is-open');
+
+	$activeTriggers.forEach(function ($btn) {
+		const $blindText = $btn.querySelector('.blind');
+		$btn.classList.remove('active');
+
+		if ($blindText) $blindText.textContent = '펼침';
+	});
+	$openComponents.forEach(function ($comp) { $comp.classList.remove('is-open'); });
+}
+//멀티 드롭다운
 function fnBoxMultiSelect() {
 	const $boxesMultiSelect = document.querySelectorAll('.box-multi-select');
 
@@ -557,7 +604,7 @@ function fnBoxMultiSelect() {
 		const $triggerBtn = $boxMultiSelect.querySelector('.select');
 		const $blindText = $boxMultiSelect.querySelector('.select .blind');
 		const $allCheckbox = $boxMultiSelect.querySelector('.box-list-select-all .form-checkbox');
-		const $itemCheckboxes = $boxMultiSelect.querySelectorAll('.list-multi-select .form-checkbox');
+		const $itemCheckboxes = $boxMultiSelect.querySelectorAll('.list-select .form-checkbox');
 		const $resetBtn = $boxMultiSelect.querySelector('.utilities .btn-reset');
 
 		if (!$triggerBtn) return;
