@@ -47,11 +47,13 @@ function generatePubList(done) {
             .replace(/^html[\\/]/, "")
             .split(/[\\/]/)
             .slice(1);
+            const statusKey = depths.concat(fileName).join("/");
+
         return {
             depths,
             title,
             file: fileName,
-            status: statusMap[fileName] || "대기",
+            status: statusMap[statusKey] || "대기",
             link: file.replace(/\\/g, "/"),
             modified: stat.mtime.toLocaleString("ko-KR")
         };

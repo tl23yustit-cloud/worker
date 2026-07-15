@@ -8,7 +8,9 @@ const depthName = {
     components: "컴포넌트",
     main: "메인",
     sub: "서브",
-    cst: "고객센터"
+    cst: "고객센터",
+    fin: "금융상품",
+    loan:"대출"
 
 };
 async function loadList() {
