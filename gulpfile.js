@@ -22,10 +22,10 @@ function generatePubList(done) {
             fs.readFileSync("status.json", "utf8")
         );
     }
-    const files = fg.sync([
-        "html/**/*.html",
-        "!html/**/layout/*.html"
-    ]);
+const files = fg.sync([
+    "html/pub/**/*.html",
+    "!html/pub/**/layout/*.html"
+]);
 
     const list = files.map(file => {
 
@@ -74,7 +74,7 @@ function generatePubList(done) {
 }
 // 1. HTML 조립
 function html() {
-    return gulp.src(['html/**/*.html', 'index.html', '!html/**/layout/*.html'], { base: '.' })
+    return gulp.src(['html/pub/**/*.html', 'index.html', '!html/pub/**/layout/*.html'], { base: '.' })
         .pipe(fileinclude({
             prefix: '@@',
             basepath: '@file'
