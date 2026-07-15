@@ -1,14 +1,14 @@
 const depthName = {
     card: "카드",
-    transfer: "이체",
-    inquiry: "조회",
+    trn: "이체",
+    inq: "조회",
     guide: "가이드",
     popup: "팝업",
     common: "공통",
     components: "컴포넌트",
     main: "메인",
     sub: "서브",
-    customer: "고객센터"
+    cst: "고객센터"
 
 };
 async function loadList() {
