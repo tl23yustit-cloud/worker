@@ -77,7 +77,7 @@ function html() {
     return gulp.src(['html/pub/**/*.html', 'index.html', '!html/pub/**/layout/*.html'], { base: '.' })
         .pipe(fileinclude({
             prefix: '@@',
-            basepath: '@file'
+            basepath: '@root'
         }))
         .pipe(gulp.dest('dist'))
         .pipe(browserSync.stream());
