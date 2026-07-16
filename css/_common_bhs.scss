@@ -573,5 +573,55 @@ $bank-list: "kb", "shinhan", "woori", "hana", "kakaobank", "suhyup", "toss";
 	opacity: .5;
 	cursor: not-allowed;
 }
+//버튼형라디오박스 컴포넌트로 옮겨야함
+.radio-group {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--spacingXs);
+}
+
+.radio-btn {
+	position: absolute;
+	opacity: 0;
+	pointer-events: none;
+}
+
+.radio-btn {
+	+label {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		height: var(--sizeBaseSmMd);
+		padding: 0 var(--spacingMd);
+		border: 1px solid var(--colorBorderSecondary);;
+		border-radius: var(--radiusMd);
+		background: #fff;
+		color: var(--colorFgSecondary);
+		font-size: 14px;
+		font-weight: 600;
+		cursor: pointer;
+		transition: all .2s ease;
+	}
+}
+
+.radio-btn+label:hover {
+	border-color: var(--colorBorderSecondary);
+}
+
+.radio-btn:checked+label {
+	background: var(--colorBgSelected);
+	border-color: var(--colorBgSelected);
+	color: var(--colorFgPrimary);
+}
+
+.radio-btn:focus-visible+label {
+	outline: 2px solid #2563eb;
+	outline-offset: 2px;
+}
+
+.radio-btn:disabled+label {
+	opacity: .5;
+	cursor: not-allowed;
+}
 
 //퍼블리스트상태
