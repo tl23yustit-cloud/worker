@@ -160,15 +160,24 @@
 	&.ico-line-rounded {
 		border: var(--borderWidthMd) solid var(--colorBorderBase);
 		border-radius: var(--radiusMd);
-		padding:9px;		
+		padding: 9px;
 	}
 }
 
 .ico-download {
 	background: url("../images/common/ico_download_black.svg") no-repeat center / contain;
 }
+
 .ico-fax {
 	background: url("../images/common/ico_fax_black.svg") no-repeat center / contain;
+}
+
+.ico-edit {
+	background: url("../images/common/ico_edit_black.svg") no-repeat center / contain;
+}
+
+.ico-copy {
+	background: url("../images/common/ico_copy_black.svg") no-repeat center / contain;
 }
 
 .btn-wrap {
@@ -644,6 +653,7 @@ $bank-list: "kb", "shinhan", "woori", "hana", "kakaobank", "suhyup", "toss";
 	opacity: .5;
 	cursor: not-allowed;
 }
+
 .asset-summary-wrap {
 	.login-time {
 		margin-bottom: 16px;
@@ -672,7 +682,7 @@ $bank-list: "kb", "shinhan", "woori", "hana", "kakaobank", "suhyup", "toss";
 		justify-content: center;
 		padding: 0 24px;
 
-		& + .summary-item {
+		&+.summary-item {
 			border-left: 1px solid rgba(255, 255, 255, .08);
 		}
 
@@ -708,19 +718,41 @@ $bank-list: "kb", "shinhan", "woori", "hana", "kakaobank", "suhyup", "toss";
 		}
 	}
 }
+
 .account-card {
 	.account-header {
 		display: flex;
 		align-items: center;
 		gap: 8px;
 		margin-bottom: 10px;
+
+		.edit-btn-wrap {
+			display: flex;
+			align-items: center;
+
+			.btn {
+				margin-left: var(--spacingSm);
+
+				.typeSmMedium {
+					color:var(--colorFgNeutral);
+				}
+			}
+
+			&::before {
+				content: "";
+				display: inline-block;
+				width: 1px;
+				height: 10px;
+				background-color: var(--colorBorderSecondary);
+			}
+		}
 	}
 
 	.bank {
 		display: flex;
 		align-items: center;
-		gap: 4px;
 		flex-shrink: 0;
+		color: var(--colorFgSecondary);
 
 		.bank-logo {
 			width: 24px;
@@ -783,6 +815,7 @@ $bank-list: "kb", "shinhan", "woori", "hana", "kakaobank", "suhyup", "toss";
 		}
 	}
 }
+
 //퍼블리스트상태
 .pagination {
 	display: flex;
