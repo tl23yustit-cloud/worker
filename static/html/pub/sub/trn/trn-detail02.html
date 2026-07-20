@@ -5,25 +5,25 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>수협은행</title>
-  <link rel="stylesheet" href="/static/css/reset.css" />
-  <link rel="stylesheet" href="/static/css/layout.css" />
-  <link rel="stylesheet" href="/static/css/component.css" />
-  <link rel="stylesheet" href="/static/css/common.css" />
-  <link rel="stylesheet" href="/static/css/trn.css" />
+  <link rel="stylesheet" href="/css/reset.css" />
+  <link rel="stylesheet" href="/css/layout.css" />
+  <link rel="stylesheet" href="/css/component.css" />
+  <link rel="stylesheet" href="/css/common.css" />
+  <link rel="stylesheet" href="/css/trn.css" />
 </head>
 
 <body>
   <div class="wrapper">
     <div id="header">
-      @@include('static/html/pub/layout/skipNavigation.html')
-      @@include('static/html/pub/layout/header_sub.html')
+      @@include('html/pub/layout/skipNavigation.html')
+      @@include('html/pub/layout/header_sub.html')
     </div>
 
     <div id="container" class="container">
-      <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+      <div id="leftArea">@@include('html/pub/layout/leftArea.html')</div>
       <div id="contents">
         <div class="content">
-          @@include('static/html/pub/layout/breadcrumb.html')
+          @@include('html/pub/layout/breadcrumb.html')
           <div class="trn">
             <h2 class="typeH2">
               전체계좌조회
@@ -118,46 +118,65 @@
                       <div class="box-tab-content active" id="tabPanelTypeChip01" role="tabpanel"
                         aria-labelledby="tabBtnTypeChip01" style="display: block;">
                         <div class="table-type02">
-                          <table class="financial-product-list">
+                          <table>
                             <caption>
                               금융상품목록
                             </caption>
                             <colgroup>
+                              <col width="auto">
                               <col width="auto">
                               <col width="200px">
                               <col width="160px">
                             </colgroup>
                             <thead>
                               <tr>
-                                <th>
-                                  <span class="typeSmMedium">상품명</span>
+                                <th colspan="2">
+                                  <span class="typeSmMedium">상품정보</span>
                                 </th>
-                                <th><span class="typeSmMedium">금리</span></th>
+                                <th><span class="typeSmMedium">잔액(원)</span></th>
                                 <th>
-                                  <span class="typeSmMedium">가입/상담</span>
+                                  <span class="typeSmMedium">바로가기</span>
                                 </th>
                               </tr>
                             </thead>
                             <tbody>
                               <tr>
-                                <td class="pr-40">
+                                <td>
+                                  <div class="favorite-wrap">
+                                    <input type="checkbox" id="favorite01" class="favorite-check">
+
+                                    <label for="favorite01" class="favorite-btn">
+                                      <span class="blind">즐겨찾기</span>
+                                      <i class="ico-star" aria-hidden="true"></i>
+                                    </label>
+                                  </div>
+                                  <i class="ico-star" aria-hidden="true"></i>
+                                </td>
+                                <td>
                                   <div class="account-card">
                                     <div class="account-header">
                                       <div class="bank">
-                                       <span class="ico-text"><i class="bank-suhyup ico-size-md"></i>Sh평생주거래우대통장</span>
+                                        <span class="ico-text typeSmMedium">
+                                          <i class="bank-suhyup ico-size-md"></i>
+                                          Sh평생주거래우대통장
+                                        </span>
                                       </div>
-                                      <button type="button" class="btn-edit" aria-label="">
-                                        <div class="text">부모님 용돈</div>
-                                        <i class="ico-edit"></i>
-                                      </button>
+                                      <div class="edit-btn-wrap">
+                                        <button type="button" class="btn" aria-label="텍스트수정 ">
+                                          <div class="typeSmMedium">부모님 용돈</div>
+                                          <i class="ico-edit ico-size-xs"></i>
+                                          <span class="blind">부모님 용돈</span>
+                                        </button>
+                                      </div>
                                     </div>
                                     <div class="typeH4 flex items-center items-stretch">
-                                      <i class="ico-star" aria-hidden="true"></i><span class="mr-4">Sh 모두행복海기업적금</span>
+                                      <span class="mr-4">Sh 모두행복海기업적금</span>
                                     </div>
                                     <div class="account-number">
                                       <span>1900-0419-5187</span>
-                                      <button type="button" class="btn-copy" aria-label="계좌번호 복사">
-                                        <i class="ico-copy"></i>
+                                      <button type="button" class="btn" aria-label="계좌번호 복사">
+                                        <i class="ico-copy ico-size-sm"></i>
+                                        <span class="blind">계좌번호 복사</span>
                                       </button>
                                     </div>
                                   </div>
@@ -639,11 +658,11 @@
           </div>
         </div>
       </div>
-      <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      <div id="aside">@@include('html/pub/layout/aside.html')</div>
     </div>
-    <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    <div id="footer">@@include('html/pub/layout/footer.html')</div>
   </div>
-  <script src="/static/js/ui/cib_ui_common.js"></script>
+  <script src="/js/cib_ui_common.js"></script>
 </body>
 
 </html>
