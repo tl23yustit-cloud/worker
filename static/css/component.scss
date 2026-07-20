@@ -2298,7 +2298,7 @@
 		gap: var(--spacingXs);
 		padding: var(--spacingXl);
 		border-radius: var(--radiusLg) var(--radiusLg);
-		background-color: var(--colorBgSecondary);
+		background-color: var(--colorBgCustomCardStandbyby);
 	}
 
 	.box-input-search {
@@ -2369,7 +2369,16 @@
 		.ico-arrow {
 			transform: rotateZ(0);
 		}
+
+		.box-top-visual {
+		border-radius: var(--radiusLg) var(--radiusLg) 0 0;
+		border-bottom: var(--borderWidthUnit1) solid var(--colorBorderBase);
+		}
 	}
+
+    & + .box-tab {
+        margin-top: var(--spacing5Xl);
+    }
 }
 
 /*통합검색*/
@@ -3065,7 +3074,7 @@
 		&.type-outline {
 			padding: var(--spacingXs);
 			border-radius: var(--radiusLg);
-			background-color: var(--colorBgSecondary);
+			background-color: var(--colorBgCustomCardStandbyby);
 
 			.item-tab-button {
 				flex: 1;
@@ -3711,3 +3720,87 @@
 
 
 }
+.box-tab-content {
+    /* 자식 요소로 .financial-product-wrapper가 올 때 */
+    .financial-product-wrapper {
+        margin-top: var(--spacing2Xl);
+    }
+}
+
+.sticky-bar {
+    position: fixed;
+    bottom: var(--spacingXl);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    
+    width: calc(100% - (var(--spacingXl) * 2));
+    max-width: 1520px;
+    
+    background-color: var(--colorBgNeutralAccent);
+    border: var(--borderWidthUnit1) solid var(--colorBorderSecondary);
+    border-radius: var(--radiusXl);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+
+    .sticky-bar-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: var(--spacingMd) var(--spacingXl);
+        gap: var(--spacingMd);
+    }
+
+    .chip-group {
+        display: flex;
+        align-items: center;
+        gap: var(--spacingSm);
+        flex-wrap: wrap;
+
+        .chip-input {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacingLg);
+            padding: var(--spacingMd) var(--spacingLg);
+            background-color: var(--colorBgNeutralAccent);			
+            border-radius: var(--radiusMd);
+			border: 1px solid var(--colorBorderNeutral);
+
+            .btn-cancel {
+				display: block;
+				margin: 0 -8px 0 0;
+				width: var(--sizeBaseXsSm);
+				min-height: var(--sizeBaseXsSm);	
+				background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M3.52876 3.52864C3.78911 3.26829 4.21122 3.26829 4.47157 3.52864L8.00016 7.05723L11.5288 3.52864C11.7891 3.26829 12.2112 3.26829 12.4716 3.52864C12.7319 3.78899 12.7319 4.2111 12.4716 4.47145L8.94297 8.00004L12.4716 11.5286C12.7319 11.789 12.7319 12.2111 12.4716 12.4714C12.2112 12.7318 11.7891 12.7318 11.5288 12.4714L8.00016 8.94285L4.47157 12.4714C4.21122 12.7318 3.78911 12.7318 3.52876 12.4714C3.26841 12.2111 3.26841 11.789 3.52876 11.5286L7.05735 8.00004L3.52876 4.47145C3.26841 4.2111 3.26841 3.78899 3.52876 3.52864Z' fill='%23F4F8FD'/%3E%3C/svg%3E%0A");
+				background-size: var(--sizeBaseXsSm);
+            }
+
+			.text {				
+				font-size: var(--sizeBaseXs);
+            	color: var(--colorFgLightSolid) !important;
+			}
+        }
+    }
+    .btn-wrap {
+        display: flex;
+        align-items: center;
+        gap: var(--spacingSm);
+        flex-shrink: 0;
+		.btn.type-line-neutral {
+			&:hover {
+			background-color: var(--colorBgNeutralDisabled);
+			}
+		}
+	.ico-reset {
+			display: inline-block;
+			width: 20px;  
+			height: 20px;
+			flex-shrink: 0;        
+			background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M0.833496 9.99996C0.833496 5.39759 4.56446 1.66663 9.16683 1.66663C11.4688 1.66663 13.5541 2.60112 15.0614 4.10944C15.5945 4.64284 16.1653 5.30202 16.6668 5.91199V3.33329C16.6668 2.87306 17.0399 2.49996 17.5002 2.49996C17.9604 2.49996 18.3335 2.87306 18.3335 3.33329V8.33329C18.3335 8.79353 17.9604 9.16663 17.5002 9.16663H12.5002C12.0399 9.16663 11.6668 8.79353 11.6668 8.33329C11.6668 7.87306 12.0399 7.49996 12.5002 7.49996H15.8078C15.231 6.77602 14.5139 5.91942 13.8825 5.28755C12.675 4.07924 11.0088 3.33329 9.16683 3.33329C5.48493 3.33329 2.50016 6.31806 2.50016 9.99996C2.50016 13.6819 5.48493 16.6666 9.16683 16.6666C12.2049 16.6666 14.7704 14.6337 15.573 11.8523C15.7006 11.4101 16.1625 11.155 16.6047 11.2826C17.0469 11.4102 17.302 11.8721 17.1744 12.3143C16.1714 15.79 12.9672 18.3333 9.16683 18.3333C4.56446 18.3333 0.833496 14.6023 0.833496 9.99996Z' fill='%23343F54'/%3E%3C/svg%3E%0A");
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: contain;
+		}
+    }
+}
+
+
