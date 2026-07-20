@@ -307,6 +307,11 @@
 }
 
 .line-box {
+	.typeLgSemibold {
+		display: block;
+		padding-bottom: var(--spacingSm);
+	}
+
 	&.size {
 
 		//라인박스안에 박스일때 쓰였음
@@ -666,18 +671,6 @@ $bank-list: "kb", "shinhan", "woori", "hana", "kakaobank", "suhyup", "toss";
 	}
 }
 
-.asset-summary-wrap {
-	.typeMd {
-		margin-bottom: var(--spacingMd);
-		text-align: right;
-		color: var(--colorFgSecondary);
-
-		span {
-			color: #4d638b;
-			font-weight: 500;
-		}
-	}
-}
 
 .asset-summary {
 	display: flex;
@@ -752,6 +745,14 @@ $bank-list: "kb", "shinhan", "woori", "hana", "kakaobank", "suhyup", "toss";
 //     transform: scale(1.08);
 // }
 .account-card-list {
+	td {
+		&:first-child {
+			.account-card {
+				padding: 0 var(--spacing2Xl);
+			}
+		}
+	}
+
 	.account-card {
 		.account-header {
 			display: flex;
