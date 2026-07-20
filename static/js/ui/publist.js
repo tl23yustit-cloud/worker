@@ -10,7 +10,8 @@ const depthName = {
     sub: "서브",
     cst: "고객센터",
     fin: "금융상품",
-    loan:"대출"
+    loan:"대출",
+    interest_situation:"이자상환"
 
 };
 async function loadList() {
