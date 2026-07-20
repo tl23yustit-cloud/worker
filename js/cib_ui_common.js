@@ -15,6 +15,7 @@ window.addEventListener('load', function () {
 	fnBoxTooltip(); // Tooltip
 	fnModal(); // Modal
 	fnInitSortButtons()//정렬 버튼
+	initTableCheckbox()//allcheck
 });
 // skip Navigation
 function fnSkipNavigation() {
@@ -971,4 +972,58 @@ function fnInitSortButtons() {
             });
         });
     });
+}
+//allcheck
+function initTableCheckbox() {
+
+    var tables = document.querySelectorAll(".js-check-table");
+
+    tables.forEach(function (table) {
+
+        var checkAlls = table.querySelectorAll(".check-all");
+        var rowChecks = table.querySelectorAll(".row-check");
+        var count = table.querySelector(".selected-count span");
+
+        if (!checkAlls.length || !rowChecks.length) return;
+
+        function updateState() { 
+
+            var checked = table.querySelectorAll(".row-check:checked").length;
+
+            if (count) {
+                count.textContent = checked;
+            }
+
+            checkAlls.forEach(function (checkAll) {
+                checkAll.checked = checked === rowChecks.length;
+                checkAll.indeterminate = checked > 0 && checked < rowChecks.length;
+            });
+        }
+
+        checkAlls.forEach(function (checkAll) {
+
+            checkAll.addEventListener("change", function () {
+
+                rowChecks.forEach(function (item) {
+                    item.checked = checkAll.checked;
+                });
+
+                updateState();
+
+            });
+
+        });
+
+        rowChecks.forEach(function (item) {
+
+            item.addEventListener("change", function () {
+                updateState();
+            });
+
+        });
+
+        updateState();
+
+    });
+
 }
