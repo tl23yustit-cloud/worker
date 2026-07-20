@@ -9,10 +9,12 @@ const { deleteAsync } = require('del');
 const fg = require("fast-glob");
 const fs = require("fs");
 const path = require("path");
+
 // 기존 dist 폴더를 완전히 삭제하는 태스크
 function clean() {
     return deleteAsync(['dist']);
 }
+
 // 퍼블리스트용 JSON 생성
 function generatePubList(done) {
     let statusMap = {};
@@ -22,32 +24,32 @@ function generatePubList(done) {
             fs.readFileSync("status.json", "utf8")
         );
     }
-const files = fg.sync([
-    "html/pub/**/*.html",
-    "!html/pub/**/layout/*.html"
-]);
+
+    // static/html 경로 반영
+    const files = fg.sync([
+        "static/html/pub/**/*.html",
+        "!static/html/pub/**/layout/*.html"
+    ]);
 
     const list = files.map(file => {
-
         const stat = fs.statSync(file);
 
+        // static/html 경로를 제거하여 깊이 계산
         const folders = path
             .dirname(file)
-            .replace(/^html[\\/]/, "")
+            .replace(/^static[\\/]html[\\/]/, "")
             .split(/[\\/]/);
 
-        const lastFolder = folders[folders.length - 1] || "";
-
-
         const fileName = path.basename(file);
-        
         const title = path.basename(file, ".html");
+        
         const depths = path
             .dirname(file)
-            .replace(/^html[\\/]/, "")
+            .replace(/^static[\\/]html[\\/]/, "")
             .split(/[\\/]/)
             .slice(1);
-            const statusKey = depths.concat(fileName).join("/");
+            
+        const statusKey = depths.concat(fileName).join("/");
 
         return {
             depths,
@@ -57,7 +59,6 @@ const files = fg.sync([
             link: file.replace(/\\/g, "/"),
             modified: stat.mtime.toLocaleString("ko-KR")
         };
-
     });
 
     // dist 폴더가 없으면 생성
@@ -72,9 +73,10 @@ const files = fg.sync([
 
     done();
 }
+
 // 1. HTML 조립
 function html() {
-    return gulp.src(['html/pub/**/*.html', 'index.html', '!html/pub/**/layout/*.html'], { base: '.' })
+    return gulp.src(['static/html/pub/**/*.html', 'index.html', '!static/html/pub/**/layout/*.html'], { base: '.' })
         .pipe(fileinclude({
             prefix: '@@',
             basepath: '@root'
@@ -83,9 +85,9 @@ function html() {
         .pipe(browserSync.stream());
 }
 
-// 2. SCSS 컴파일
+// 2. SCSS 컴파일 (static/css 및 static/cl 경로 수정)
 function styles() {
-    return gulp.src(['css/**/*.scss', 'cl/**/*.scss'], { base: '.' })
+    return gulp.src(['static/css/**/*.scss', 'static/cl/**/*.scss'], { base: '.' })
         .pipe(sourcemaps.init())
         .pipe(sass({ outputStyle: 'expanded' }))
         .on('error', function (err) {
@@ -98,22 +100,22 @@ function styles() {
         .pipe(browserSync.stream());
 }
 
-// 2-1. SCSS 컴파일 (배포용: 압축 및 소스맵 완전히 제거)
+// 2-1. SCSS 컴파일 (배포용)
 function stylesBuild() {
-    return gulp.src(['css/**/*.scss', 'cl/**/*.scss'], { base: '.' })
+    return gulp.src(['static/css/**/*.scss', 'static/cl/**/*.scss'], { base: '.' })
         .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
         .pipe(postcss([autoprefixer()]))
         .pipe(gulp.dest('dist'));
 }
 
-// 3. 자산 파일 복사 (js, images, font, cl 내부의 일반 파일까지 포함)
+// 3. 자산 파일 복사 (static 폴더 내 js, images, font, cl 등 반영)
 function copyAssets() {
     return gulp.src([
-        'js/**/*',
-        'images/**/*',
-        'css/**/font/**/*',
-        'cl/**/*',
-        '!cl/**/*.scss'
+        'static/js/**/*',
+        'static/images/**/*',
+        'static/css/**/font/**/*',
+        'static/cl/**/*',
+        '!static/cl/**/*.scss'
     ], {
         base: '.',
         encoding: false,
@@ -134,9 +136,9 @@ function watchFiles() {
     });
 
     // 파일 변경 감지 및 실시간 반영
-    gulp.watch(['html/**/*.html', 'index.html','status.json'], gulp.series(generatePubList, html));
-    gulp.watch(['css/**/*.scss', 'cl/**/*.scss'], styles);
-    gulp.watch(['js/**/*', 'images/**/*', 'css/**/font/**/*', 'cl/**/*', '!cl/**/*.scss'], copyAssets);
+    gulp.watch(['static/html/**/*.html', 'index.html', 'status.json'], gulp.series(generatePubList, html));
+    gulp.watch(['static/css/**/*.scss', 'static/cl/**/*.scss'], styles);
+    gulp.watch(['static/js/**/*', 'static/images/**/*', 'static/css/**/font/**/*', 'static/cl/**/*', '!static/cl/**/*.scss'], copyAssets);
 }
 
 // 실행 순서 정의
