@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/fin.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <div id="header">
+        @@include('static/html/pub/layout/skipNavigation.html')
+        @@include('static/html/pub/layout/header_sub.html')
+      </div>
+
+      <div id="container" class="container">
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="fin">
+              <h2 class="typeH2">
+                이자납입
+                <div class="box-steps">
+                  <ol class="list-steps">
+                    <!-- 
+												[dev] 상태값 class 안내
+												class="item-steps" 기본 숫자 표기
+												class="item-steps passed" 완료
+												class="item-steps current" 현재
+											 -->
+                    <li class="item-steps passed">
+                      <span class="blind">완료된 단계</span>
+                      <i class="icon" aria-hidden="true">1</i>
+                      <span class="text">Step Title Text</span>
+                    </li>
+                    <li class="item-steps passed">
+                      <i class="icon" aria-hidden="true">2</i>
+                      <span class="text">정보확인 및 인증</span>
+                    </li>
+                    <li class="item-steps current"  aria-current="step">
+                      <i class="icon" aria-hidden="true">3</i>
+                      <span class="text">정보확인 및 인증</span>
+                    </li>
+                    <li class="item-steps">
+                      <i class="icon" aria-hidden="true">4</i>
+                      <span class="text">Step Title Text</span>
+                    </li>
+                  </ol>
+                </div>
+              </h2>              
+              <table class="table-type01">
+                <caption>
+                  대출기간연장신청 조회
+                </caption>
+                <colgroup>
+                  <col />
+                  <col />
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th scope="row">
+                      <span>조회기간</span>
+                    </th>
+                    <td>
+                      <div class="form-box-wrap">
+                        <span class="form-box">
+                          <input
+                            type="radio"
+                            name="SampleRadio0302"
+                            id="SampleRadio0302"
+                            class="form-radio size-lg"
+                            checked=""
+                          />
+                          <label for="SampleRadio0302" class="form-label"
+                            >당일</label
+                          >
+                        </span>
+                        <span class="form-box">
+                          <input
+                            type="radio"
+                            name="SampleRadio0302"
+                            id="SampleRadio0302"
+                            class="form-radio size-lg"
+                          />
+                          <label for="SampleRadio0302" class="form-label"
+                            >1개월전</label
+                          >
+                        </span>
+                        <span class="form-box">
+                          <input
+                            type="radio"
+                            name="SampleRadio0302"
+                            id="SampleRadio0302"
+                            class="form-radio size-lg"
+                          />
+                          <label for="SampleRadio0302" class="form-label"
+                            >3개월전</label
+                          >
+                        </span>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <span>정렬기준</span>
+                    </th>
+                    <td>
+                      <div class="form-box-wrap">
+                        <span class="form-box">
+                          <input
+                            type="radio"
+                            name="SampleRadio0303"
+                            id="SampleRadio0303"
+                            class="form-radio size-lg"
+                            checked="SampleRadio0303"
+                          />
+                          <label for="SampleRadio0303" class="form-label"
+                            >오름차순</label
+                          >
+                        </span>
+                        <span class="form-box">
+                          <input
+                            type="radio"
+                            name="SampleRadio0303"
+                            id="SampleRadio0303"
+                            class="form-radio size-lg"
+                          />
+                          <label for="SampleRadio0303" class="form-label"
+                            >내림차순</label
+                          >
+                        </span>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="btn-wrap center">
+                <button type="button" class="btn type-line-neutral size-lg">
+                  <span class="text">취소</span>
+                </button>
+                <button type="button" class="btn type-bg-neutral size-lg">
+                  <span class="text">이체</span>
+                </button>
+              </div>
+              <div class="table-header flex items-center justify-between">
+                <div class="total flex gap-4">
+                  <span class="typeSm">총건수 : </span
+                  ><span class="count typeSmSemibold">100</span
+                  ><span class="typeSm">건</span>
+                </div>
+              </div>
+              <table class="table-type03">
+                <caption>
+                  대출기간연장신청 조회 정보
+                </caption>
+                <colgroup>
+                  <col width="auto" />
+                  <col width="200px" />
+                  <col width="160px" />
+                  <col width="140px" />
+                  <col width="140px" />
+                  <col width="140px" />
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th>상품명</th>
+                    <th>계좌번호</th>
+                    <th>연장금액</th>
+                    <th>약정일</th>
+                    <th>만기일</th>
+                    <th>진행상태</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <tr>
+                    <td>Sh더드림신용대출(일반-사업자대출) 1</td>
+                    <td>000-000000-00-000</td>
+                    <td>30,000,000원</td>
+                    <td>2026-07-15</td>
+                    <td>2026-07-15<br />(만기 15일 전)</td>
+                    <td>
+                      <button type="button" class="btn type-bg-neutral size-sm">
+                        <span class="text">신청</span>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Sh더드림신용대출(일반-사업자대출) 2</td>
+                    <td>000-000000-00-000</td>
+                    <td>30,000,000원</td>
+                    <td>2026-07-16</td>
+                    <td>2026-07-16<br />(만기 15일 전)</td>
+                    <td>
+                      <button type="button" class="btn type-bg-neutral size-sm">
+                        <span class="text">신청중</span>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Sh더드림신용대출(일반-사업자대출) 3</td>
+                    <td>000-000000-00-000</td>
+                    <td>30,000,000원</td>
+                    <td>2026-07-17</td>
+                    <td>2026-07-17<br />(만기 15일 전)</td>
+                    <td>
+                      <button type="button" class="btn type-bg-neutral size-sm">
+                        <span class="text">심사중</span>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Sh더드림신용대출(일반-사업자대출) 3</td>
+                    <td>000-000000-00-000</td>
+                    <td>30,000,000원</td>
+                    <td>2026-07-17</td>
+                    <td>2026-07-17<br />(만기 15일 전)</td>
+                    <td>
+                      <button type="button" class="btn type-bg-neutral size-sm">
+                        <span class="text">신청승인</span>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <nav class="pagination size-md" aria-label="페이지네이션">
+                <button
+                  type="button"
+                  class="btn-nav first"
+                  disabled=""
+                  aria-disabled="true"
+                  aria-label="첫 페이지"
+                >
+                  <span class="blind">첫 페이지</span>
+                </button>
+                <button
+                  type="button"
+                  class="btn-nav prev"
+                  disabled=""
+                  aria-disabled="true"
+                  aria-label="이전 페이지"
+                >
+                  <span class="blind">이전 페이지</span>
+                </button>
+
+                <ol class="list-pagination">
+                  <li>
+                    <button
+                      type="button"
+                      class="btn-page active"
+                      aria-current="page"
+                      aria-label="1페이지"
+                    >
+                      1
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button" class="btn-page" aria-label="2페이지">
+                      2
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button" class="btn-page" aria-label="3페이지">
+                      3
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button" class="btn-page" aria-label="4페이지">
+                      4
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button" class="btn-page" aria-label="5페이지">
+                      5
+                    </button>
+                  </li>
+                </ol>
+
+                <button
+                  type="button"
+                  class="btn-nav next"
+                  aria-label="다음 페이지"
+                >
+                  <span class="blind">다음 페이지</span>
+                </button>
+                <button
+                  type="button"
+                  class="btn-nav last"
+                  aria-label="마지막 페이지"
+                >
+                  <span class="blind">마지막 페이지</span>
+                </button>
+              </nav>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
+</html>
