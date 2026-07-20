@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="/static/css/layout.css" />
     <link rel="stylesheet" href="/static/css/main.css" />
     <link rel="stylesheet" href="/static/css/component.css" />
-    <link rel="stylesheet" href="/static/css/common.css" />
     <link rel="stylesheet" href="/static/css/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
     <script src="/static/js/ui/swiper.min.js"></script>
     <script src="/static/js/chart/Chart.js"></script>
     <script src="/static/js/chart/Chart.min.js"></script>
@@ -17,14 +17,14 @@
   <body>
     <div class="wrapper">
       @@include('static/html/pub/layout/header.html')
-      <div id="container" class="container">
+      <div id="container" class="container" style="display:block;margin:0;padding:0;width:auto;">
         <div id="contents">
           <div class="main">
-            <div class="visual-main type-slide">
-              <div class="wrap-visual swiper">
-                <div class="list-visual swiper-wrapper">
+            <div class="visual-main type-slide full">
+              <div class="wrap-full-slide swiper" style="overflow:hidden;">
+                <div class="swiper-wrapper">
                   <div class="swiper-slide">
-                    <div class="item-visual" style="background-image:url(../../../images/main/img_main_bg_x3.png);">
+                    <div class="bg" style="background-image:url(../../../images/main/@sample_img_main_bg01.png);">
                       <div class="box-text">
                         <h3 class="typeH0">간편하고 빠른 기업뱅킹 비대면 서비스</h3>
                         <p class="type2XlMedium">법인서비스 Best 3를 비대면으로 쉽고 빠르게 가입해보세요!</p>
@@ -37,7 +37,7 @@
                     </div>
                   </div>
                   <div class="swiper-slide">
-                    <div class="item-visual" style="background-image:url(../../../images/main/@sample_img_main_bg02_x3.png);">
+                    <div class="bg" style="background-image:url(../../../images/main/@sample_img_main_bg01.png);">
                       <div class="box-text">
                         <h3 class="typeH0">간편하고 빠른 기업뱅킹 비대면 서비스</h3>
                         <p class="type2XlMedium">법인서비스 Best 3를 비대면으로 쉽고 빠르게 가입해보세요!</p>
@@ -50,7 +50,7 @@
                     </div>
                   </div>
                   <div class="swiper-slide">
-                    <div class="item-visual" style="background-color:black;">
+                    <div class="bg" style="background-color: black;">
                       <div class="box-text">
                         <h3 class="typeH0">$Title goes here$</h3>
                         <p class="type2XlMedium">$Text goes here$</p>
@@ -64,6 +64,49 @@
                   </div>
                 </div>
               </div>
+              <!-- <div class="wrap-visual">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide" style="background-image:url(../../../images/main/@sample_img_main_bg01.png);">
+                    <div class="item-visual">
+                      <div class="box-text">
+                        <h3 class="typeH0">간편하고 빠른 기업뱅킹 비대면 서비스</h3>
+                        <p class="type2XlMedium">법인서비스 Best 3를 비대면으로 쉽고 빠르게 가입해보세요!</p>
+                        <a href="javacript:;" class="btn type-line-rounded-secondary size-lg">
+                          <span class="text">자세히 보기</span>
+                          <i class="ico-arrow ico-size-sm" aria-hidden="true"></i>
+                          <span class="blind">페이지 이동</span>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide" style="background-image:url(../../../images/main/@sample_img_main_bg02.png);">
+                    <div class="item-visual" >
+                      <div class="box-text">
+                        <h3 class="typeH0">간편하고 빠른 기업뱅킹 비대면 서비스</h3>
+                        <p class="type2XlMedium">법인서비스 Best 3를 비대면으로 쉽고 빠르게 가입해보세요!</p>
+                        <a href="javacript:;" class="btn type-line-rounded-secondary size-lg">
+                          <span class="text">자세히 보기</span>
+                          <i class="ico-arrow ico-size-sm" aria-hidden="true"></i>
+                          <span class="blind">페이지 이동</span>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide"  style="background-color:black;">
+                    <div class="item-visual">
+                      <div class="box-text">
+                        <h3 class="typeH0">$Title goes here$</h3>
+                        <p class="type2XlMedium">$Text goes here$</p>
+                        <a href="javacript:;" class="btn type-line-rounded-secondary size-lg">
+                          <span class="text">자세히 보기</span>
+                          <i class="ico-arrow ico-size-sm" aria-hidden="true"></i>
+                          <span class="blind">페이지 이동</span>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div> -->
               <div class="box-login">
                 <ul class="list-btn">
                   <li>
@@ -170,9 +213,12 @@
     <script src="/static/js/ui/cib_ui_common.js"></script>
     <script>
       // visual
-      // const visualSlider = new Swiper('.wrap-visual', {
-
-      // })
+      const visualSlider = new Swiper('.wrap-full-slide', {
+        slidesPerView: 1,
+        initialSlide: 0,
+        spaceBetween: 0,
+        loop: true,
+      })
     </script>
   </body>
 </html>
