@@ -179,6 +179,9 @@
 .ico-copy {
 	background: url("../images/common/ico_copy_black.svg") no-repeat center / contain;
 }
+.ico-dot {
+	background: url("../images/common/ico_dot3_black.svg") no-repeat center / contain;
+}
 
 .btn-wrap {
 	padding: var(--spacingXsSm);
@@ -719,6 +722,34 @@ $bank-list: "kb", "shinhan", "woori", "hana", "kakaobank", "suhyup", "toss";
 	}
 }
 
+//즐겨찾기 버튼
+.favorite-check {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+
+	.favorite-btn {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 32px;
+		height: 32px;
+		cursor: pointer;
+
+	}
+}
+
+.favorite-check:checked+.favorite-btn {
+	.ico-star {
+		background-image: url("../images/common/ico_star_gray.svg");
+	}
+}
+
+// .favorite-btn:hover .ico-star {
+//     transform: scale(1.08);
+// }
 .account-card {
 	.account-header {
 		display: flex;
@@ -734,7 +765,7 @@ $bank-list: "kb", "shinhan", "woori", "hana", "kakaobank", "suhyup", "toss";
 				margin-left: var(--spacingSm);
 
 				.typeSmMedium {
-					color:var(--colorFgNeutral);
+					color: var(--colorFgNeutral);
 				}
 			}
 
@@ -773,45 +804,17 @@ $bank-list: "kb", "shinhan", "woori", "hana", "kakaobank", "suhyup", "toss";
 		color: #4d5665;
 	}
 
-	.btn-edit,
-	.btn-copy {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		padding: 0;
-		border: 0;
-		background: transparent;
-		cursor: pointer;
-		color: #4b566a;
-
-		i {
-			display: block;
-			width: 20px;
-			height: 20px;
-		}
-	}
-
-	.btn-edit {
-		margin-left: -2px;
-	}
-
-	.account-title {
-		margin-bottom: 8px;
-		font-size: 40px;
-		font-weight: 700;
-		line-height: 1.3;
-		color: #1f2430;
-	}
-
 	.account-number {
 		display: flex;
 		align-items: center;
-		gap: 8px;
+		gap: var(--spacing2Xs);
 
-		span {
-			font-size: 32px;
-			font-weight: 500;
+		.typeMd {
 			color: #374151;
+			color: vaR(--colorFgBase);
+		}
+		.btn{
+			margin: var(--spacingXs);
 		}
 	}
 }
