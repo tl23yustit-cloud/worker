@@ -559,51 +559,55 @@ $bank-list: "kb", "shinhan", "woori", "hana", "kakaobank", "suhyup", "toss";
 	display: flex;
 	flex-wrap: wrap;
 	gap: var(--spacingXs);
-}
 
-.check-btn {
-	position: absolute;
-	opacity: 0;
-	pointer-events: none;
-}
+	.check-btn {
+		position: absolute;
+		opacity: 0;
+		pointer-events: none;
 
-.check-btn {
-	+label {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		height: var(--sizeBaseSmMd);
-		padding: 0 var(--spacingMd);
-		border: 1px solid var(--colorBorderSecondary);
-		;
-		border-radius: var(--radiusMd);
-		background: #fff;
-		color: var(--colorFgSecondary);
-		font-size: 14px;
-		font-weight: 600;
-		cursor: pointer;
-		transition: all .2s ease;
+		+label {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			height: var(--sizeBaseSmMd);
+			padding: 0 var(--spacingMd);
+			border: 1px solid var(--colorBorderSecondary);
+			;
+			border-radius: var(--radiusMd);
+			background: #fff;
+			color: var(--colorFgSecondary);
+			font-size: 14px;
+			font-weight: 600;
+			cursor: pointer;
+			transition: all .2s ease;
+		}
+
+		&:hover {
+			border-color: var(--colorBorderSecondary);
+		}
+
+		&:checked {
+			+label {
+				background: var(--colorBgSelected);
+				border-color: var(--colorBgSelected);
+				color: var(--colorFgPrimary);
+			}
+		}
+
+		&:focus-visible {
+			+label {
+				outline: 2px solid #2563eb;
+				outline-offset: 2px;
+			}
+		}
+
+		&:disabled {
+			+label {
+				opacity: .5;
+				cursor: not-allowed;
+			}
+		}
 	}
-}
-
-.check-btn+label:hover {
-	border-color: var(--colorBorderSecondary);
-}
-
-.check-btn:checked+label {
-	background: var(--colorBgSelected);
-	border-color: var(--colorBgSelected);
-	color: var(--colorFgPrimary);
-}
-
-.check-btn:focus-visible+label {
-	outline: 2px solid #2563eb;
-	outline-offset: 2px;
-}
-
-.check-btn:disabled+label {
-	opacity: .5;
-	cursor: not-allowed;
 }
 
 //버튼형라디오박스 컴포넌트로 옮겨야함
@@ -611,59 +615,62 @@ $bank-list: "kb", "shinhan", "woori", "hana", "kakaobank", "suhyup", "toss";
 	display: flex;
 	flex-wrap: wrap;
 	gap: var(--spacingXs);
-}
 
-.radio-btn {
-	position: absolute;
-	opacity: 0;
-	pointer-events: none;
-}
+	.radio-btn {
+		position: absolute;
+		opacity: 0;
+		pointer-events: none;
 
-.radio-btn {
-	+label {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		height: var(--sizeBaseSmMd);
-		padding: 0 var(--spacingMd);
-		border: 1px solid var(--colorBorderSecondary);
-		;
-		border-radius: var(--radiusMd);
-		background: #fff;
-		color: var(--colorFgSecondary);
-		font-size: 14px;
-		font-weight: 600;
-		cursor: pointer;
-		transition: all .2s ease;
+		+label {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			height: var(--sizeBaseSmMd);
+			padding: 0 var(--spacingMd);
+			border: 1px solid var(--colorBorderSecondary);
+			;
+			border-radius: var(--radiusMd);
+			background: #fff;
+			color: var(--colorFgSecondary);
+			font-size: 14px;
+			font-weight: 600;
+			cursor: pointer;
+			transition: all .2s ease;
+
+			&:hover {
+				border-color: var(--colorBorderSecondary);
+			}
+		}
+
+		&:checked {
+			+label {
+				background: var(--colorBgSelected);
+				border-color: var(--colorBgSelected);
+				color: var(--colorFgPrimary);
+			}
+		}
+
+		&:focus-visible {
+			+label {
+				outline: 2px solid #2563eb;
+				outline-offset: 2px;
+			}
+		}
+
+		&:disabled {
+			+label {
+				opacity: .5;
+				cursor: not-allowed;
+			}
+		}
 	}
 }
 
-.radio-btn+label:hover {
-	border-color: var(--colorBorderSecondary);
-}
-
-.radio-btn:checked+label {
-	background: var(--colorBgSelected);
-	border-color: var(--colorBgSelected);
-	color: var(--colorFgPrimary);
-}
-
-.radio-btn:focus-visible+label {
-	outline: 2px solid #2563eb;
-	outline-offset: 2px;
-}
-
-.radio-btn:disabled+label {
-	opacity: .5;
-	cursor: not-allowed;
-}
-
 .asset-summary-wrap {
-	.login-time {
-		margin-bottom: 16px;
+	.typeMd {
+		margin-bottom: var(--spacingMd);
 		text-align: right;
-		font-size: 14px;
-		color: #667085;
+		color: var(--colorFgSecondary);
 
 		span {
 			color: #4d638b;
@@ -677,48 +684,41 @@ $bank-list: "kb", "shinhan", "woori", "hana", "kakaobank", "suhyup", "toss";
 	align-items: stretch;
 	background: #374256;
 	border-radius: 12px;
-	padding: 26px 24px;
+	padding: var(--spacing2Xl);
 
 	.summary-item {
 		flex: 1;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
-		padding: 0 24px;
+		padding: var(--spacingNone) var(--spacing2Xl);
 
 		&+.summary-item {
-			border-left: 1px solid rgba(255, 255, 255, .08);
+			border-left: 1px solid rgba(214, 223, 237, .1);
 		}
 
-		.title {
-			margin-bottom: 10px;
-			font-size: 14px;
-			font-weight: 500;
-			color: rgba(255, 255, 255, .9);
+		.typeMd {
+			text-align: left;
+			color: var(--colorFgLightSolid);
 		}
 
-		.value {
-			font-size: 38px;
-			font-weight: 700;
-			line-height: 1;
-			color: #d7e6ff;
+		.typeH3 {
+			color: var(--colorFgPrimaryDisabled);
+
+			&.normal {
+				color: var(--colorFgBaseInvert);
+			}
 		}
 
 		.value-wrap {
 			display: flex;
 			align-items: flex-end;
-			gap: 12px;
+			gap: var(--spacingSm);
 		}
 
-		.sub-text {
-			padding-bottom: 3px;
-			font-size: 13px;
-			color: rgba(255, 255, 255, .6);
-
-			strong {
-				font-weight: 600;
-				color: rgba(255, 255, 255, .85);
-			}
+		.typeXs {
+			padding-bottom: var(--spacingXs);
+			color: var(--colorFgDisabled);
 		}
 	}
 }
@@ -821,7 +821,8 @@ $bank-list: "kb", "shinhan", "woori", "hana", "kakaobank", "suhyup", "toss";
 			}
 		}
 	}
-	.typeLgSemibold{
+
+	.typeLgSemibold {
 		text-align: right;
 		padding-right: var(--spacing2Xl);
 	}
