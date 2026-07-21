@@ -1363,7 +1363,116 @@
 		}
 	}
 }
+//버튼형체크박스
+.check-group {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--spacingXs);
 
+	.check-btn {
+		position: absolute;
+		opacity: 0;
+		pointer-events: none;
+
+		+label {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			height: var(--sizeBaseSmMd);
+			padding: 0 var(--spacingMd);
+			border: 1px solid var(--colorBorderSecondary);
+			;
+			border-radius: var(--radiusMd);
+			background: #fff;
+			color: var(--colorFgSecondary);
+			font-size: 14px;
+			font-weight: 600;
+			cursor: pointer;
+			transition: all .2s ease;
+		}
+
+		&:hover {
+			border-color: var(--colorBorderSecondary);
+		}
+
+		&:checked {
+			+label {
+				background: var(--colorBgSelected);
+				border-color: var(--colorBgSelected);
+				color: var(--colorFgPrimary);
+			}
+		}
+
+		&:focus-visible {
+			+label {
+				outline: 2px solid #2563eb;
+				outline-offset: 2px;
+			}
+		}
+
+		&:disabled {
+			+label {
+				opacity: .5;
+				cursor: not-allowed;
+			}
+		}
+	}
+}
+//버튼형라디오박스
+.radio-group {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--spacingXs);
+
+	.radio-btn {
+		position: absolute;
+		opacity: 0;
+		pointer-events: none;
+
+		+label {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			height: var(--sizeBaseSmMd);
+			padding: 0 var(--spacingMd);
+			border: 1px solid var(--colorBorderSecondary);
+			;
+			border-radius: var(--radiusMd);
+			background: #fff;
+			color: var(--colorFgSecondary);
+			font-size: 14px;
+			font-weight: 600;
+			cursor: pointer;
+			transition: all .2s ease;
+
+			&:hover {
+				border-color: var(--colorBorderSecondary);
+			}
+		}
+
+		&:checked {
+			+label {
+				background: var(--colorBgSelected);
+				border-color: var(--colorBgSelected);
+				color: var(--colorFgPrimary);
+			}
+		}
+
+		&:focus-visible {
+			+label {
+				outline: 2px solid #2563eb;
+				outline-offset: 2px;
+			}
+		}
+
+		&:disabled {
+			+label {
+				opacity: .5;
+				cursor: not-allowed;
+			}
+		}
+	}
+}
 /* Icon btn Tooltip */
 .btn-tooltip-wrapper {
 	display: inline-block;
