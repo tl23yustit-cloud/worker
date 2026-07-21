@@ -1,7 +1,21 @@
 const depthName = {
-    card: "카드",
-    trn: "이체",
     inq: "조회",
+    trn: "이체",
+    card: "카드",
+    fin: "금융상품",
+    fns: "금융서비스",
+    b2b: "B2B전자결제",
+    bmg: "뱅킹관리",
+    aug: "인증센터",
+    fpd: "공시실",
+    cbu: "기업뱅킹 이용가이드",
+    bop: "뱅킹업무",
+    sil: "간편조회",
+    mnd: "메인",
+    bni: "은행소개",
+    cmn: "공통 팝업 및 화면",
+    cst: "고객센터",
+    fcp: "금융소비자포털",
     guide: "가이드",
     popup: "팝업",
     common: "공통",
@@ -9,7 +23,7 @@ const depthName = {
     main: "메인",
     sub: "서브",
     cst: "고객센터",
-    fin: "금융상품",
+   
     loan:"대출",
     interest_situation:"이자상환"
 
