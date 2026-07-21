@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>수협은행</title>
+  <link rel="stylesheet" href="/static/css/reset.css" />
+  <link rel="stylesheet" href="/static/css/layout.css" />
+  <link rel="stylesheet" href="/static/css/component.css" />
+  <link rel="stylesheet" href="/static/css/common.css" />
+  <link rel="stylesheet" href="/static/css/fin.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <div id="header">
+      @@include('static/html/pub/layout/skipNavigation.html')
+      @@include('static/html/pub/layout/header_sub.html')
+    </div>
+
+    <div id="container" class="container">
+      <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+      <div id="contents">
+        <div class="content">
+          @@include('static/html/pub/layout/breadcrumb.html')
+          <div class="fin">
+            <h2 class="typeH2">
+              원금상환
+              <div class="box-steps">
+                <ol class="list-steps">
+                  <!-- 
+												[dev] 상태값 class 안내
+												class="item-steps" 기본 숫자 표기
+												class="item-steps passed" 완료
+												class="item-steps current" 현재
+											 -->
+                  <li class="item-steps current" aria-current="step">
+                    <span class="blind">완료된 단계</span>
+                    <i class="icon" aria-hidden="true">1</i>
+                    <span class="text">계좌조회</span>
+                  </li>
+                  <li class="item-steps ">
+                    <i class="icon" aria-hidden="true">2</i>
+                    <span class="text">정보확인 및 인증</span>
+                  </li>
+                  <li class="item-steps ">
+                    <i class="icon" aria-hidden="true">3</i>
+                    <span class="text">정보확인 및 인증</span>
+                  </li>
+                  <li class="item-steps">
+                    <i class="icon" aria-hidden="true">4</i>
+                    <span class="text">결제 요청 완료</span>
+                  </li>
+                </ol>
+              </div>
+            </h2>
+            <div class="line-box size-xl">
+              <span class="typeLgSemibold">이용안내</span>
+              <div class="list type-dotted">
+                <ul>
+                  <li class="typeMd">
+                    <p>일부상환 : 납부하시는 금액으로 대출금을 상환하는 방식으로, 분할상환(원금균등, 원리금균등)의 경우에는 다음과 같이 합니다.</p>
+                    <p class="typeSm">①납부하시는 금액이 1회차 상환금액보다 많은 경우에는 상환금액에 대한 이자 수납을 하고 상환계획을 재조정합니다.</p>
+                    <p class="typeSm">②납부하시는 금액이 1회차 금액보다 적거나 같은 경우에는 잔액에 대한 이자 수납을 하고, 상환계획은 재조정하지 않습니다.</p>
+                  </li>
+                  <li class="typeMd">
+                    회차상환 : 납부하시는 금액으로 앞 회차부터 상환하는 방식입니다.
+                  </li>
+                  <li class="typeMd">
+                    완제 : 대출금(이자포함)을 모두 납부하여 계좌해지하는 방식입니다.
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="tbl-area">
+              <table class="table-type01 mt40">
+                <caption>
+                  대출기간연장신청 조회
+                </caption>
+                <colgroup>
+                  <col />
+                  <col />
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th scope="row">
+                      <span>계좌번호</span>
+                    </th>
+                    <td>
+                      <div class="box-select size-md">
+                        <button type="button" class="select size-lg" role="combobox" aria-expanded="false"
+                          aria-haspopup="listbox" aria-controls="selectDropdown01">
+                          <span class="text">선택</span>
+                          <span class="blind">펼침</span>
+                        </button>
+                        <div id="selectDropdown01" class="box-list-select">
+                          <ul class="list-select" role="listbox" aria-label="선택 항목 리스트">
+                            <li class="item-select" role="group" aria-label="선택 항목 리스트">
+                              <span class="form-box">
+                                0000-0000-0000 (기업운전일반자금대출)
+                              </span>
+                            </li>
+                            <li class="item-select" role="group" aria-label="선택 항목 리스트">
+                              <span class="form-box">
+                                1
+                              </span>
+                            </li>
+                            <li class="item-select" role="group" aria-label="선택 항목 리스트">
+                              <span class="form-box">
+                                1
+                              </span>
+                            </li>
+                            <li class="item-select" role="group" aria-label="선택 항목 리스트">
+                              <span class="form-box">
+                                1
+                              </span>
+                            </li>
+                            <li class="item-select" role="group" aria-label="선택 항목 리스트">
+                              <span class="form-box">
+                                1
+                              </span>
+                            </li>
+                            <li class="item-select" role="group" aria-label="선택 항목 리스트">
+                              <span class="form-box">
+                                1
+                              </span>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <span>정렬기준</span>
+                    </th>
+                    <td>
+                      <div class="flex items-center gap-6">
+                        <input type="text" class="input size-md" title="" value="1">
+                        <button type="button" class="btn type-line-secondary size-md">
+                          <span class="text">조회</span>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="btn-wrap center">
+              <button type="button" class="btn type-bg-primary size-xxl">
+                <span class="text">확인</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+    </div>
+    <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+  </div>
+  <script src="/static/js/ui/cib_ui_common.js"></script>
+</body>
+
+</html>
