@@ -537,15 +537,22 @@ function fnBoxSearchDetail() {
 	$boxesSearchDetail.forEach(function ($boxSearchDetail) {
 		const $toggleBtn = $boxSearchDetail.querySelector('.box-top-visual .btn');
 		const $hiddenPanel = $boxSearchDetail.querySelector('.box-bottom-hidden');
-		const $blindText = $toggleBtn.querySelector('.btn .blind');
+		const $blindText = $toggleBtn ? $toggleBtn.querySelector('.blind') : null;
+
 		if (!$toggleBtn || !$hiddenPanel) return;
+
 		$toggleBtn.addEventListener('click', function () {
-			const isExpanded = this.classList.contains('active');
+			const isExpanded = $boxSearchDetail.classList.contains('active');
+
 			if (isExpanded) {
 				$boxSearchDetail.classList.remove('active');
+				this.classList.remove('active');
+				this.setAttribute('aria-expanded', 'false');
 				if ($blindText) $blindText.textContent = '펼침';
 			} else {
 				$boxSearchDetail.classList.add('active');
+				this.classList.add('active');
+				this.setAttribute('aria-expanded', 'true');
 				if ($blindText) $blindText.textContent = '접힘';
 			}
 		});
