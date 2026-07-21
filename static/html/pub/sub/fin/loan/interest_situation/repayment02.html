@@ -35,14 +35,14 @@
 												class="item-steps passed" 완료
 												class="item-steps current" 현재
 											 -->
-                  <li class="item-steps current" aria-current="step">
+                  <li class="item-steps" aria-current="step">
                     <span class="blind">완료된 단계</span>
                     <i class="icon" aria-hidden="true">1</i>
                     <span class="text">계좌조회</span>
                   </li>
-                  <li class="item-steps ">
+                  <li class="item-steps current">
                     <i class="icon" aria-hidden="true">2</i>
-                    <span class="text">정보확인 및 인증</span>
+                    <span class="text">계좌선택</span>
                   </li>
                   <li class="item-steps ">
                     <i class="icon" aria-hidden="true">3</i>
@@ -74,7 +74,14 @@
               </div>
             </div>
             <div class="tbl-area">
-              <table class="table-type01 mt40">
+              <div class="tbl-head mt40">
+                <div class="right-area">
+                  <button type="button" class="btn type-bg-neutral-tint size-md">
+                    <span class="text">중도상환 수수료 계산</span>
+                  </button>
+                </div>
+              </div>
+              <table class="table-type01">
                 <caption>
                   대출기간연장신청 조회
                 </caption>
@@ -85,46 +92,88 @@
                 <tbody>
                   <tr>
                     <th scope="row">
-                      <span>계좌번호</span>
+                      <span>대출계좌번호</span>
+                    </th>
+                    <td colspan="3">
+                      <span class="typeMd">0000-0000-0000</span>
+                    </td>
+                  </tr>
+                  <th scope="row">
+                    <span>대출실행번호</span>
+                  </th>
+                  <td colspan="3">
+                    <span class="typeMd">1</span>
+                  </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <span>최초대출액</span>
                     </th>
                     <td>
-                      <div class="box-select size-md">
-                        <button type="button" class="select size-lg" role="combobox" aria-expanded="false"
-                          aria-haspopup="listbox" aria-controls="selectDropdown01">
-                          <span class="text">선택</span>
-                          <span class="blind">펼침</span>
-                        </button>
-                        <div id="selectDropdown01" class="box-list-select">
-                          <ul class="list-select" role="listbox" aria-label="선택 항목 리스트">
-                            <li class="item-select" role="group" aria-label="선택 항목 리스트">
-                              <span class="form-box">
-                                0000-0000-0000 (기업운전일반자금대출)
-                              </span>
+                      <div class="typeMd text-right">100,000,000<span class="typeMd">원</span></div>
+                    </td>
+                    <th scope="row">
+                      <span>대출잔액</span>
+                    </th>
+                    <td>
+                      <div class="typeMd text-right">100,000,000<span class="typeMd">원</span></div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <span>출금계좌번호</span>
+                    </th>
+                    <td colspan="3">
+                      <div class="withdrawal-account">
+                        <div class="box-select wSize-lg">
+                          <button type="button" class="select size-lg" role="combobox" aria-expanded="false"
+                            aria-haspopup="listbox" aria-controls="selectDropdown01">
+                            <span class="text">선택</span>
+                            <span class="blind">펼침</span>
+                          </button>
+                          <div id="selectDropdown01" class="box-list-select">
+                            <ul class="list-select" role="listbox" aria-label="선택 항목 리스트">
+                              <li class="item-select" role="group" aria-label="선택 항목 리스트">
+                                <span class="form-box">
+                                  보통예금 1010-27330000
+                                </span>
+                              </li>
+                              <li class="item-select" role="group" aria-label="선택 항목 리스트">
+                                <span class="form-box">
+                                  1
+                                </span>
+                              </li>
+                              <li class="item-select" role="group" aria-label="선택 항목 리스트">
+                                <span class="form-box">
+                                  1
+                                </span>
+                              </li>
+                              <li class="item-select" role="group" aria-label="선택 항목 리스트">
+                                <span class="form-box">
+                                  1
+                                </span>
+                              </li>
+                              <li class="item-select" role="group" aria-label="선택 항목 리스트">
+                                <span class="form-box">
+                                  1
+                                </span>
+                              </li>
+                              <li class="item-select" role="group" aria-label="선택 항목 리스트">
+                                <span class="form-box">
+                                  1
+                                </span>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                        <div class="account-balance-info">
+                          <ul>
+                            <li class="info-item">
+                              <span class="typeSm">계좌잔액<strong class="typeMdBold">131,000,000</strong>원</span>
                             </li>
-                            <li class="item-select" role="group" aria-label="선택 항목 리스트">
-                              <span class="form-box">
-                                1
-                              </span>
-                            </li>
-                            <li class="item-select" role="group" aria-label="선택 항목 리스트">
-                              <span class="form-box">
-                                1
-                              </span>
-                            </li>
-                            <li class="item-select" role="group" aria-label="선택 항목 리스트">
-                              <span class="form-box">
-                                1
-                              </span>
-                            </li>
-                            <li class="item-select" role="group" aria-label="선택 항목 리스트">
-                              <span class="form-box">
-                                1
-                              </span>
-                            </li>
-                            <li class="item-select" role="group" aria-label="선택 항목 리스트">
-                              <span class="form-box">
-                                1
-                              </span>
+                            <!-- <span class="divider" aria-hidden="true"></span> -->
+                            <li class="info-item highlight">
+                              <span class="typeSm">출금가능금액<strong class="typeMdBold">120,000,000</strong>원</span>
                             </li>
                           </ul>
                         </div>
@@ -133,19 +182,125 @@
                   </tr>
                   <tr>
                     <th scope="row">
-                      <span>정렬기준</span>
+                      <span>상환유형</span>
                     </th>
-                    <td>
-                      <div class="flex items-center gap-6">
-                        <input type="text" class="input size-md" title="" value="1">
-                        <button type="button" class="btn type-line-secondary size-md">
-                          <span class="text">조회</span>
-                        </button>
+                    <td colspan="3">
+                      <input type="text" class="input wSize-lg size-lg" placeholder="숫자 4자리" title="">
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <span>상환유형</span>
+                    </th>
+                    <td colspan="3">
+                      <div class="repayment-type">
+                        <div class="radio-group">
+                          <span class="form-box">
+                            <input type="radio" name="SampleRadio0302_01" id="SampleRadio0302_01" class="radio-btn"
+                              checked="">
+                            <label for="SampleRadio0302_01" class="form-label">일부상환</label>
+
+                            <input type="radio" name="SampleRadio0302_01" id="SampleRadio0302_02" class="radio-btn">
+                            <label for="SampleRadio0302_02" class="form-label">회차상환</label>
+
+                            <input type="radio" name="SampleRadio0302_01" id="SampleRadio0302_03" class="radio-btn">
+                            <label for="SampleRadio0302_03" class="form-label">완제</label>
+                          </span>
+                        </div>
+                        <input type="text" class="input wSize-lg size-lg" placeholder="숫자만 입력하세요" title="">
+                        <span class="typeMd">원</span>
                       </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <span>전화번호</span>
+                    </th>
+                    <td class="flex items-center gap-8">
+                      <div class="box-select phone">
+                        <button type="button" class="select" role="combobox" aria-expanded="false"
+                          aria-haspopup="listbox" aria-controls="selectDropdown01">
+                          <span class="text">선택</span>
+                          <span class="blind">펼침</span>
+                        </button>
+                        <div id="selectDropdown01" class="box-list-select">
+                          <ul class="list-select" role="listbox" aria-label="선택 항목 리스트">
+                            <li class="item-select" role="group" aria-label="선택 항목 리스트">
+                              <span class="form-box">
+                                02
+                              </span>
+                            </li>
+                            <li class="item-select" role="group" aria-label="선택 항목 리스트">
+                              <span class="form-box">
+                                032
+                              </span>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <span>-</span>
+                      <input type="text" class="input phone" title="" size="4" value="1234">
+                      <span>-</span>
+                      <input type="text" class="input phone" title="" size="4" value="5678">
+                    </td>
+                    <th scope="row">
+                      <span>이동전화번호</span>
+                    </th>
+                    <td class="flex items-center gap-8">
+                      <div class="box-select phone">
+                        <button type="button" class="select" role="combobox" aria-expanded="false"
+                          aria-haspopup="listbox" aria-controls="selectDropdown01">
+                          <span class="text">선택</span>
+                          <span class="blind">펼침</span>
+                        </button>
+                        <div id="selectDropdown01" class="box-list-select">
+                          <ul class="list-select" role="listbox" aria-label="선택 항목 리스트">
+                            <li class="item-select" role="group" aria-label="선택 항목 리스트">
+                              <span class="form-box">
+                                02
+                              </span>
+                            </li>
+                            <li class="item-select" role="group" aria-label="선택 항목 리스트">
+                              <span class="form-box">
+                                032
+                              </span>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <span>-</span>
+                      <input type="text" class="input phone" title="" size="4" value="1234">
+                      <span>-</span>
+                      <input type="text" class="input phone" title="" size="4" value="5678">
                     </td>
                   </tr>
                 </tbody>
               </table>
+            </div>
+            <div class="bg-box">
+              <div class="bottom-etc-area">
+                <span class="typeLgSemibold">고객님께서는 본 대출에 대한 대출계약철회권 행사가 가능합니다.</span>
+                <button type="button" class="btn type-line-secondary size-lg">
+                  <span class="text">대출계약철회권 행사</span>
+                </button>
+              </div>
+            </div>
+            <div class="list type-dotted">
+              <span class="typeMdMedium">‘대출계약철회권’이란?</span>
+              <ul>
+                <li class="typeMd">
+                  대출 실행일로부터 14일 이내에 중도상환수수료 없이 대출 계약을 취소하는 제도입니다.
+                  <p class="typeSm">
+                  <div class="list type-bar">
+                    <ul>
+                      <li class="typeMd">
+                        대출금 사용기간에 대한 이자 및 인지세는 고객이 납부하셔야 합니다.
+                      </li>
+                    </ul>
+                  </div>
+                  </p>
+                </li>
+              </ul>
             </div>
             <div class="btn-wrap center">
               <button type="button" class="btn type-bg-primary size-xxl">

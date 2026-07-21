@@ -518,17 +518,27 @@ $bank-list: "kb", "shinhan", "woori", "hana", "kakaobank", "suhyup", "toss";
 					+li {
 						margin-top: var(--spacingXsSm);
 					}
+					.type{
+						&-bar{
+							margin-left: 7px;
+							ul{
+								li{
+									&::before {margin-top:var(--spacingNone);}
+								}
+							}
+						}
+					}
 				}
 			}
 		}
 
 		&-bar {
+			width: 100%;
 			ul {
 				li {
 					color: var(--colorFgSecondary);
 					display: flex;
-					align-items: center;
-
+					align-items: center;					
 					&::before {
 						content: "";
 						display: inline-block;

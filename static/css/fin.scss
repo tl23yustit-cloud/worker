@@ -1,28 +1,38 @@
 .fin {
-    .tbl-area{
-        .mt40{
+    .tbl-area {
+        .mt40 {
             margin-top: var(--spacing4Xl);
         }
-      +.tbl-area{
-        margin-top: var(--spacing4Xl);
-      }  
-      .table-type01{       
-        .box-select{
-            &.size-md{width: 240px;}
+
+        +.tbl-area {
+            margin-top: var(--spacing4Xl);
         }
-        .input{
-            &.size-md{
-                 width: 240px;
+
+        .table-type01 {
+            .box-select {
+                &.size-md {
+                    width: 240px;
+                }
+            }
+
+            .input {
+                &.size-md {
+                    width: 240px;
+                }
             }
         }
-      }
+        .right-area{
+            text-align: right;
+        }
     }
+
     .typeH2 {
         margin-bottom: var(--spacingXl);
         display: flex;
         align-items: center;
         justify-content: space-between;
-        .icon{
+
+        .icon {
             font-size: 14px;
         }
     }
@@ -47,5 +57,85 @@
         display: flex;
         justify-content: center;
         margin-top: var(--spacingXl);
+    }
+
+    .repayment-type {
+        display: flex;
+        align-items: center;
+
+        .radio-group {
+            padding-right: var(--spacingXsSm);
+        }
+
+        .typeMd {
+            padding-left: var(--spacingXsSm);
+        }
+    }
+
+    .withdrawal-account {
+        display: flex;
+
+        .account-balance-info {
+            display: flex;
+            align-items: center;
+            padding-left: var(--spacingLg);
+
+            ul {
+                display: flex;
+
+                .info-item {
+                    display: flex;
+                    align-items: center;
+
+                    +.info-item {
+                        &::before {
+                            content: "";
+                            display: inline-block;
+                            width: 1px;
+                            height: 12px;
+                            background-color: var(--colorBorderSecondary);
+                            margin: 0 12px;
+                        }
+                    }
+
+                    .typeSm {
+                        color: var(--colorFgBase);
+                    }
+
+                    .typeMdBold {
+                        color: var(--colorFgBase);
+                        padding-left: var(--spacingXs);
+                    }
+
+                    &.highlight {
+                        .typeSm {
+                            strong {
+                                color: var(--colorFgPrimary);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .bottom-etc-area {
+        text-align: center;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        flex-wrap: wrap;
+        padding: var(--spacingXl) var(--spacing4Xl);
+        margin-top: var(--spacing4Xl);
+        gap: var(--spacingMd);
+        .btn {
+            width: auto;
+        }
+    }
+    .list{
+        .typeMdMedium{
+            display: block;
+            margin: var(--spacingLg) 0 var(--spacingXs) 0;
+        }
     }
 }
