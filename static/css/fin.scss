@@ -21,8 +21,94 @@
                 }
             }
         }
-        .right-area{
+
+        .right-area {
             text-align: right;
+        }
+
+        .input-box {
+            position: relative;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            max-width: 320px;
+            height: 52px;
+            background-color: #ffffff;
+            border: 1.5px solid #dbe2ef;
+            border-radius: 12px;
+            padding: 0 16px;
+            transition: border-color 0.2s ease;
+
+            &:focus-within {
+                border-color: #2b6bf3;
+            }
+
+            .btn-keypad {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                padding: 0;
+                background: none;
+                border: none;
+                cursor: pointer;
+                flex-shrink: 0;
+
+                svg {
+                    display: block;
+
+                    rect,
+                    line {
+                        stroke: #333d4b;
+                    }
+                }
+            }
+        }
+
+        .input-box {
+            position: relative;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            max-width: 320px;
+            height: 40px;
+            padding: var(--spacingNone) var(--spacingLg);
+            border: var(--borderWidthUnit1) solid var(--colorBorderSecondary);
+            border-radius: var(--radiusMd);
+
+            &:focus-within {
+                border:var(--borderWidthUnit2) solid  var(--colorFgPrimary);
+                outline-color: var(--colorFgPrimary);
+            }
+
+            .input {
+                border: none;
+                padding: var(--spacingNone);
+
+                &:focus-visible {
+                    border-color: transparent;
+                    outline-color: transparent;
+                }
+            }
+
+            .btn-keypad {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                padding: 0;
+                background: none;
+                border: none;
+                cursor: pointer;
+                flex-shrink: 0;
+
+                svg {
+                    display: block;
+
+                    rect,
+                    line {
+                        stroke: #333d4b;
+                    }
+                }
+            }
         }
     }
 
@@ -128,12 +214,14 @@
         padding: var(--spacingXl) var(--spacing4Xl);
         margin-top: var(--spacing4Xl);
         gap: var(--spacingMd);
+
         .btn {
             width: auto;
         }
     }
-    .list{
-        .typeMdMedium{
+
+    .list {
+        .typeMdMedium {
             display: block;
             margin: var(--spacingLg) 0 var(--spacingXs) 0;
         }
