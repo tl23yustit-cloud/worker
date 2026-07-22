@@ -16,6 +16,9 @@ const depthName = {
     cmn: "공통 팝업 및 화면",
     cst: "고객센터",
     fcp: "금융소비자포털",
+
+    //2depth
+    clrs:"대출상환스케쥴조회",
     guide: "가이드",
     popup: "팝업",
     common: "공통",
