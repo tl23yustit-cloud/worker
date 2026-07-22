@@ -22,6 +22,10 @@
             text-align: right;
         }
 
+        .table-header {
+            gap: var(--spacingXs);
+        }
+
         .input-box {
             position: relative;
             display: flex;
@@ -201,7 +205,8 @@
             &::before {
                 content: "";
                 display: inline-block;
-                background: url(../images/common/img_end01.svg) no-repeat center / contain;;
+                background: url(../images/common/img_end01.svg) no-repeat center / contain;
+                ;
                 width: 88px;
                 height: 84px;
             }
@@ -231,6 +236,78 @@
 
         .list {
             margin-left: var(--spacing2Xl);
+        }
+    }
+
+    .typeH4 {
+        color: var(--colorFgBase);
+        display: flex;
+        align-items: center;
+        .badge-light{
+            margin-right:var(--spacingXs);
+        }
+        .active {
+            color: var(--colorFgPrimary);
+        }
+    }
+
+    .info-tbl {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        border-radius: var(--radiusXl);
+        padding: var(--spacingXl) var(--spacingNone);
+        margin-top: var(--spacingMd);
+        border: 1px solid var(--colorBorderSecondary);
+        background: var(--colorBgBase);
+        color: var(--colorFgBase);
+
+        .info-column {
+            display: flex;
+            flex-direction: column;
+            padding: var(--spacingNone) var(--spacingXl);
+
+            &:first-child {
+                position: relative;
+                padding-right: 16px;
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    width: 1px;
+                    height: 100%;
+                    background-color: var(--colorBorderTertiary);
+                }
+            }
+
+            &:last-child {
+                padding-left: 16px;
+            }
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0;
+
+            +.info-row {
+                padding-top: var(--spacingMd);
+            }
+
+            .label {
+                font-size: 14px;
+                font-weight: 600;
+                letter-spacing: -0.3px;
+            }
+
+            .value {
+                font-size: 14px;
+                font-weight: 500;
+                margin: 0;
+                text-align: right;
+            }
         }
     }
 }
