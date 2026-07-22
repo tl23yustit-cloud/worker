@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>수협은행</title>
+  <link rel="stylesheet" href="/static/css/reset.css" />
+  <link rel="stylesheet" href="/static/css/layout.css" />
+  <link rel="stylesheet" href="/static/css/component.css" />
+  <link rel="stylesheet" href="/static/css/common.css" />
+  <link rel="stylesheet" href="/static/css/bop.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <div id="header">
+      @@include('static/html/pub/layout/skipNavigation.html')
+      @@include('static/html/pub/layout/header_sub.html')
+    </div>
+
+    <div id="container" class="container">
+      <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+      <div id="contents">
+        <div class="content">
+          @@include('static/html/pub/layout/breadcrumb.html')
+          <div class="fin">
+            <button type="button" class="btn type-bg-primary size-md btn-modal" data-target="modal-16">
+              <span class="text">원금상환_이체확인증</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+    </div>
+    <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+  </div>
+  <script src="/static/js/ui/cib_ui_common.js"></script>
+  <div id="modal-16" class="modal is-active" data-dim="true" data-backdrop-close="false" data-alert="true"
+    data-size="xs" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc">
+    <div class="modal-wrapper">
+      <div class="modal-title">
+        <h4 class="typeH4">이체확인증(원금상환)</h4>
+      </div>
+      <div class="modal-slot">
+        <div id="modal-desc">
+          <div class="tbl-area">
+              <table class="table-type01">
+                <caption>
+                  직장정보
+                </caption>
+                <colgroup>
+                  <col>
+                  <col>
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th scope="row">
+                      <span>직업구분</span>
+                    </th>
+                    <td>
+                      <div class="flex items-center gap-16">
+                        <div class="box-select wSize-md">
+                          <button type="button" class="select size-xl" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="selectDropdown01">
+                            <span class="text">급여소득자</span>
+                            <span class="blind">펼침</span>
+                          </button>
+                          <div id="selectDropdown01" class="box-list-select">
+                            <ul class="list-select" role="listbox" aria-label="선택 항목 리스트">
+                              <li class="item-select" role="group" aria-label="선택 항목 리스트">
+                                <span class="form-box">
+                                  1
+                                </span>
+                              </li>
+                              <li class="item-select" role="group" aria-label="선택 항목 리스트">
+                                <span class="form-box">
+                                  1
+                                </span>
+                              </li>
+                              <li class="item-select" role="group" aria-label="선택 항목 리스트">
+                                <span class="form-box">
+                                  1
+                                </span>
+                              </li>
+                              <li class="item-select" role="group" aria-label="선택 항목 리스트">
+                                <span class="form-box">
+                                  1
+                                </span>
+                              </li>
+                              <li class="item-select" role="group" aria-label="선택 항목 리스트">
+                                <span class="form-box">
+                                  1
+                                </span>
+                              </li>
+                              <li class="item-select" role="group" aria-label="선택 항목 리스트">
+                                <span class="form-box">
+                                  1
+                                </span>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">조회기간</th>
+                    <td class="flex flex-column gap-8">
+                      <div class="radio-group">
+                        <span class="form-box">
+                          <input type="radio" name="SampleRadio0302_01" id="SampleRadio0302_01" class="radio-btn" checked="">
+                          <label for="SampleRadio0302_01" class="form-label">이번달</label>
+
+                          <input type="radio" name="SampleRadio0302_01" id="SampleRadio0302_02" class="radio-btn">
+                          <label for="SampleRadio0302_02" class="form-label">3개월</label>
+
+                          <input type="radio" name="SampleRadio0302_01" id="SampleRadio0302_03" class="radio-btn">
+                          <label for="SampleRadio0302_03" class="form-label">6개월</label>
+                          <input type="radio" name="SampleRadio0302_01" id="SampleRadio0302_04" class="radio-btn">
+                          <label for="SampleRadio0302_04" class="form-label">1년</label>
+                          <button type="button" class="btn type-line-neutral size-sm">
+                            <span class="text">직접입력</span>
+                          </button>
+                        </span>
+                      </div>
+                      <div class="calandar-group">
+                        <input type="text" class="input wSize-md" title="" value="">
+                        ~
+                        <input type="text" class="input wSize-md" title="" value="">
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">거래구분</th>
+                    <td>
+                      <div class="form-box-wrap">
+                        <span class="form-box">
+                          <input type="radio" name="SampleRadio0302" id="SampleRadio0302" class="form-radio size-lg" checked="">
+                          <label for="SampleRadio0302" class="form-label">당일</label>
+                        </span>
+                        <span class="form-box">
+                          <input type="radio" name="SampleRadio0302" id="SampleRadio0302" class="form-radio size-lg">
+                          <label for="SampleRadio0302" class="form-label">1개월전</label>
+                        </span>
+                        <span class="form-box">
+                          <input type="radio" name="SampleRadio0302" id="SampleRadio0302" class="form-radio size-lg">
+                          <label for="SampleRadio0302" class="form-label">3개월전</label>
+                        </span>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">예금주명</th>
+                    <td><input type="text" class="input wSize-md" title="성명(영문)" value="Kim Su Hyup"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">거래구분</th>
+                    <td>
+                      <div class="form-box-wrap">
+                        <span class="form-box">
+                          <input type="radio" name="nameOfDeposit" id="name" class="form-radio size-lg" checked="">
+                          <label for="nameOfDeposit" class="form-label">최근 거래 내역이 위로</label>
+                        </span>
+                        <span class="form-box">
+                          <input type="radio" name="nameOfDeposit" id="nameOfDeposit" class="form-radio size-lg">
+                          <label for="SampleRadio0302" class="form-label">과거 거래 내역이 위로</label>
+                        </span>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+        </div>
+      </div>
+      <div class="modal-footer flex items-center justify-center gap-8">
+        <button type="button" class="btn type-line-neutral size-lg btn-close">
+          <span class="text">닫기</span>
+        </button>
+        <button type="button" class="btn type-bg-primary-tint size-lg">
+          <span class="text">Button</span>
+        </button>
+      </div>
+      <button type="button" class="ico btn-close" aria-label="모달 닫기">
+        <i class="ico-close ico-size-smMd" aria-hidden="true"></i>
+        <span class="blind">닫기</span>
+      </button>
+    </div>
+  </div>
+</body>
+
+</html>
