@@ -2271,6 +2271,34 @@
 	}
 }
 
+//키패드 인풋
+.input-box {
+	position: relative;
+	display: flex;
+	align-items: center;
+	width: 160px;
+	height: 40px;
+	padding: var(--spacingNone) var(--spacingLg);
+	border: var(--borderWidthUnit1) solid var(--colorBorderSecondary);
+	border-radius: var(--radiusMd);
+
+	&:focus-within {
+		border: var(--borderWidthUnit2) solid var(--colorFgPrimary);
+		outline-color: var(--colorFgPrimary);
+	}
+
+	.input {
+		border: none;
+		padding: var(--spacingNone);
+		width: 100%;
+
+		&:focus-visible {
+			border-color: transparent;
+			outline-color: transparent;
+		}
+	}
+}
+
 /* list - item*/
 .box-item-list {
 	display: flex;
@@ -3787,8 +3815,8 @@
 			border-top-left-radius: var(--radiusLg);
 		}
 
-		
-	th:last-child {
+
+		th:last-child {
 			border-top-right-radius: var(--radiusLg);
 		}
 
