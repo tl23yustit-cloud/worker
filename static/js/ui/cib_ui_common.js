@@ -156,19 +156,55 @@ function fnHeader() {
 			$menus.forEach(function ($menu) { $menu.classList.remove("is-active"); });
 		});
 	}
-	// 스크롤에 따른 GNB 고정 (is-fixed)
 
+	// 스크롤에 따른 GNB 고정 (is-fixed)
+	// if ($gnb) {
+	// 	let timer;
+	// 	window.addEventListener("scroll", function () {
+	// 		clearTimeout(timer);
+	// 		if (window.scrollY > 64) {
+	// 			$gnb.classList.add("is-fixed");
+	// 			$gnb.(".banner").remove("is-show");
+	// 		} else {
+	// 			$gnb.classList.remove("is-fixed");
+	// 			$gnb.(".banner").add("is-show");
+	// 		}
+	// 	});
+	// }
 	if ($gnb) {
 		let timer;
 		window.addEventListener("scroll", function () {
 			clearTimeout(timer);
-			if (window.scrollY > 64) {
+
+			// 1. body 바로 아래의 띠배너 및 header-top 요소 찾기
+			var $bannerLayer = document.querySelector(".banner-layer");
+			var $headerTop = document.querySelector(".header-top");
+
+			// 2. header-top 높이 (기본값 약 64px)
+			var topHeight = $headerTop ? $headerTop.offsetHeight : 64;
+
+			// 3. 띠배너가 존재하고 화면에 보이고 있는지 확인 후 높이 계산
+			var bannerHeight = 0;
+			if ($bannerLayer && $bannerLayer.classList.contains("is-show")) {
+				bannerHeight = $bannerLayer.offsetHeight;
+			}
+
+			// 4. 스크롤 기준점 (띠배너 높이 + header-top 높이)
+			var threshold = topHeight + bannerHeight;
+
+			// 5. 스크롤 위치 판단 조건문
+			if (window.scrollY >= threshold) {
 				$gnb.classList.add("is-fixed");
+				if ($header) $header.classList.add("is-fixed");
 			} else {
 				$gnb.classList.remove("is-fixed");
+				if ($header) $header.classList.remove("is-fixed");
 			}
 		});
 	}
+
+
+
 	//  사이드/전체 메뉴 토글 버튼 및 뎁스 분류 스타일링
 	if ($menuToggleButtons.length > 0) {
 		$menuToggleButtons.forEach(function ($button) {
