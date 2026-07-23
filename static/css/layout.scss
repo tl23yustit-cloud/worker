@@ -16,6 +16,12 @@
 	margin: var(--spacing7Xl) auto 0;
 	padding: 0 var(--sizeBaseLg);
 	width: var(--contentLayoutWidth);
+	&.main {
+		display: block;
+		margin: 0;
+		padding: 0;
+		width:auto;
+	}
 }
 
 /*header*/
@@ -43,6 +49,7 @@
 	}
 
 	.header-top {
+		max-width: 1920px;
 		margin: 0 auto;
 		padding: 0 var(--sizeBase3Xl);
 		min-width: var(--contentLayoutWidth);
@@ -203,6 +210,7 @@
 	}
 
 	.header-bottom {
+		max-width: 1920px;
 		margin: 0 auto;
 		padding: 0 var(--sizeBase3Xl);
 		// border-bottom: 1px solid var(--colorBorderSecondary);
@@ -533,6 +541,14 @@
 
 	&.main {
 		background-color: transparent;
+		&.is-fixed,
+		&:has(.header-bottom.is-fixed) {
+			background-color: var(--colorBgBase); /* 배경 흰색 전환 */
+			.logo-area .logo {
+			/* 흰색 배경에 잘 보이는 어두운 로고로 변경 */
+			background-image: url("../images/common/img_logo_x3.png"); 
+			}
+		}
 
 		.logo-area {
 			.logo {
@@ -1429,6 +1445,7 @@
 
 /* footer */
 .footer-inner {
+	max-width: 1920px;
 	margin: 0 auto;
 	padding: 0 var(--sizeBase3Xl);
 	color: var(--colorFgBase);
