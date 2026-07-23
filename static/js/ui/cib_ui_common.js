@@ -113,15 +113,18 @@ function fnHeader() {
 		}
 	}
 
-	  // 메인 스와이퍼 배너 visual
-      const visualSlider = new Swiper('.wrap-visual', {
-        initialSlide: 0,
-        loop: true,
-        autoplay: {
-          delay: 5000,
-          disableOnInteraction: false,
-        },
-      });
+	// 메인 스와이퍼 배너 visual
+		// Swiper 라이브러리가 로드되어 있고, .wrap-visual 요소가 화면에 존재하는 경우에만 실행
+		if (typeof Swiper !== 'undefined' && document.querySelector('.wrap-visual')) {
+			const visualSlider = new Swiper('.wrap-visual', {
+				initialSlide: 0,
+				loop: true,
+				autoplay: {
+					delay: 5000,
+					disableOnInteraction: false,
+				},
+			});
+		}
 
 	// 유틸 메뉴 셀렉트 버튼 토글
 	if ($selectButtons.length > 0) {
