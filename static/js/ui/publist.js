@@ -22,11 +22,12 @@ const depthName = {
     loan: "대출",
 
     //3depth
-    ip: "이자납입",
-    clha: "대출보유계좌조회",
+    ip: "이자납입",    
 
     //4depth
     rip: "상환_이자납입",
+    clha: "대출보유계좌조회",
+
     guide: "가이드",
     popup: "팝업",
     common: "공통",
