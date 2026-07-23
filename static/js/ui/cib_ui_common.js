@@ -79,26 +79,6 @@ function fnHeader() {
 	const autoSaveText = document.querySelector(".switch-wrap .typeSm");
 	const offBox = document.querySelector(".autocomplete-off");
 
-
-// 스크롤에 따른 GNB 고정 (is-fixed) 동적 계산 처리
-	if ($gnb && $header) {
-		function checkScrollFix() {
-			// .header-bottom의 원래 Y축 위치를 기점으로 계산 (배너 유무 자동 반영)
-			var headerTopHeight = $header.offsetTop + document.querySelector(".header-top").offsetHeight;
-			
-			if (window.scrollY >= headerTopHeight) {
-				$gnb.classList.add("is-fixed");
-				$header.classList.add("is-fixed");
-			} else {
-				$gnb.classList.remove("is-fixed");
-				$header.classList.remove("is-fixed");
-			}
-		}
-
-		window.addEventListener("scroll", checkScrollFix);
-		window.addEventListener("resize", checkScrollFix);
-	}
-
 	// 띠배너 닫기 이벤트 연동
 	if ($banner) {
 		var $btnBannerClose = $banner.querySelector(".banner");
@@ -160,20 +140,6 @@ function fnHeader() {
 		});
 	}
 
-	// 스크롤에 따른 GNB 고정 (is-fixed)
-	// if ($gnb) {
-	// 	let timer;
-	// 	window.addEventListener("scroll", function () {
-	// 		clearTimeout(timer);
-	// 		if (window.scrollY > 64) {
-	// 			$gnb.classList.add("is-fixed");
-	// 			$gnb.(".banner").remove("is-show");
-	// 		} else {
-	// 			$gnb.classList.remove("is-fixed");
-	// 			$gnb.(".banner").add("is-show");
-	// 		}
-	// 	});
-	// }
 	if ($gnb) {
 		let timer;
 		window.addEventListener("scroll", function () {
@@ -182,6 +148,7 @@ function fnHeader() {
 			// 1. body 바로 아래의 띠배너 및 header-top 요소 찾기
 			var $bannerLayer = document.querySelector(".banner-layer");
 			var $headerTop = document.querySelector(".header-top");
+			var $container = document.querySelector(".container") || document.querySelector("#contents");
 
 			// 2. header-top 높이 (기본값 약 64px)
 			var topHeight = $headerTop ? $headerTop.offsetHeight : 64;
@@ -199,13 +166,14 @@ function fnHeader() {
 			if (window.scrollY >= threshold) {
 				$gnb.classList.add("is-fixed");
 				if ($header) $header.classList.add("is-fixed");
+				if ($container) $container.style.paddingBottom = "64px"; //  헤더 높이값 추가(덜컥거림 방지)
 			} else {
 				$gnb.classList.remove("is-fixed");
 				if ($header) $header.classList.remove("is-fixed");
+				if ($container) $container.style.paddingBottom = ""; // 원복
 			}
 		});
 	}
-
 
 
 	//  사이드/전체 메뉴 토글 버튼 및 뎁스 분류 스타일링
