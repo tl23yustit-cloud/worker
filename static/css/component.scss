@@ -3615,6 +3615,7 @@
 		justify-content: center;
 		align-items: center;
 		background-color: var(--colorBgSelectedHover);
+		min-height: 100px;
 	}
 
 	display: none;
@@ -3639,20 +3640,24 @@
 		padding: var(--spacingLg) var(--spacingLgXl);
 		border: var(--borderWidthUnit1) solid var(--colorBorderSecondary);
 		box-shadow: 0 8px 8px -4px rgba(16, 24, 40, 0.03), 0 20px 24px -4px rgba(16, 24, 40, 0.08);
-		position: absolute;
-
+		position: relative;
+		
 		.modal-title {
 			height: 40px;
 			display: flex;
 			align-items: center;
+			flex-shrink: 0;
 		}
 
 		.modal-slot {
+			overflow-y: auto;
+			max-height: calc(90vh - 160px);
 			margin: 0 0 var(--spacingLg) 0;
 		}
 
 		.modal-footer {
 			padding-top: var(--spacingSm);
+			flex-shrink: 0;
 		}
 
 		.ico.btn-close {
