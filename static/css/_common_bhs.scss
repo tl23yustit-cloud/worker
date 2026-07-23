@@ -540,6 +540,7 @@ $bank-list: "kb", "shinhan", "woori", "hana", "kakaobank", "suhyup", "toss";
 							ul {
 								li {
 									margin-top: var(--spacingXs);
+
 									&::before {
 										margin-top: var(--spacingNone);
 									}
@@ -648,27 +649,27 @@ $bank-list: "kb", "shinhan", "woori", "hana", "kakaobank", "suhyup", "toss";
 	height: 1px;
 	overflow: hidden;
 	clip: rect(0, 0, 0, 0);
+}
 
-	.favorite-btn {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		width: 32px;
-		height: 32px;
-		cursor: pointer;
+.favorite-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 32px;
+	height: 32px;
+	cursor: pointer;
 
+}
+.favorite-check {
+	&:checked {
+		+.favorite-btn {
+			.ico-star {
+				background-image: url("../images/common/ico_star_gray.svg");
+			}
+		}
 	}
 }
 
-.favorite-check:checked+.favorite-btn {
-	.ico-star {
-		background-image: url("../images/common/ico_star_gray.svg");
-	}
-}
-
-// .favorite-btn:hover .ico-star {
-//     transform: scale(1.08);
-// }
 .account-card-list {
 	td {
 		&:first-child {
@@ -690,19 +691,25 @@ $bank-list: "kb", "shinhan", "woori", "hana", "kakaobank", "suhyup", "toss";
 				align-items: center;
 
 				.btn {
-					margin-left: var(--spacingSm);
-
 					.typeSmMedium {
 						color: var(--colorFgNeutral);
 					}
 				}
+			}
 
-				&::before {
-					content: "";
-					display: inline-block;
-					width: 1px;
-					height: 10px;
-					background-color: var(--colorBorderSecondary);
+			.bank {
+				+.edit-btn-wrap {
+					.btn {
+						margin-left: var(--spacingSm);
+					}
+
+					&::before {
+						content: "";
+						display: inline-block;
+						width: 1px;
+						height: 10px;
+						background-color: var(--colorBorderSecondary);
+					}
 				}
 			}
 		}
@@ -777,6 +784,6 @@ $bank-list: "kb", "shinhan", "woori", "hana", "kakaobank", "suhyup", "toss";
 		display: block;
 		padding: var(--spacingXl) 0 0 0;
 		text-align: center;
-		color:var(--colorFgBase);
+		color: var(--colorFgBase);
 	}
 }
