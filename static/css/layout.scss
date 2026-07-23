@@ -467,10 +467,22 @@
 			top: 0;
 			left: 50%;
 			z-index: 2002;
-			border-bottom: 1px solid var(--colorBorderSecondary);
+			// border-bottom: 1px solid var(--colorBorderSecondary);
 			width: 100%;
 			background-color: var(--colorFgLightSolid);
 			transform: translateX(-50%);
+
+			&::after {
+				content: '';
+				position: absolute;
+				bottom: 0;
+				left: 50%;
+				transform: translateX(-50%);
+				width: 100vw; /* 브라우저 화면 전체 너비 */
+				height: 1px;
+				background-color: var(--colorBorderSecondary);
+				pointer-events: none;
+			}
 
 			//헤더호버스타일
 			.gnb {
@@ -495,7 +507,13 @@
 				top: var(--sizeBase3Xl);
 			}
 		}
+
+
+
+
 	}
+
+
 
 	&.is-open {
 		+.header-dim {
@@ -550,8 +568,10 @@
 			background-image: url("../images/common/img_logo_x3.png"); 	
 			}
 		}
-		.header-bottom.is-fixed {
-        border-bottom: none; /* 메인 gnb fixed 영역의 밑줄 제거 추가 */
+		.header-bottom.is-fixed {        			
+			&::after {
+				background-color: transparent; /* 메인 gnb fixed 영역의 밑줄 제거 추가 */
+			}
     	}
 		.logo-area {
 			.logo {
