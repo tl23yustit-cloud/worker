@@ -19,9 +19,11 @@ const depthName = {
 
     //2depth
     clrs: "대출상환스케쥴조회",
+    loan: "대출",
 
     //3depth
     ip: "이자납입",
+    clha: "대출보유계좌조회",
 
     //4depth
     rip: "상환_이자납입",
@@ -33,7 +35,7 @@ const depthName = {
     sub: "서브",
     cst: "고객센터",
 
-    loan: "대출",
+   
     interest_situation: "이자상환"
 
 };
