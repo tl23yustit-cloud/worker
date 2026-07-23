@@ -18,13 +18,13 @@ const depthName = {
     fcp: "금융소비자포털",
 
     //2depth
-    clrs:"대출상환스케쥴조회",
+    clrs: "대출상환스케쥴조회",
 
     //3depth
-    ip:"이자납입",
+    ip: "이자납입",
 
     //4depth
-    rip:"상환_이자납입",
+    rip: "상환_이자납입",
     guide: "가이드",
     popup: "팝업",
     common: "공통",
@@ -32,9 +32,9 @@ const depthName = {
     main: "메인",
     sub: "서브",
     cst: "고객센터",
-   
-    loan:"대출",
-    interest_situation:"이자상환"
+
+    loan: "대출",
+    interest_situation: "이자상환"
 
 };
 async function loadList() {
@@ -126,7 +126,14 @@ function render(data) {
     let html = "";
 
     Object.keys(groups).forEach(group => {
+        groups[group].sort((a, b) => {
 
+            // depth를 문자열로 만들어 비교
+            const depthA = a.depths.join("/");
+            const depthB = b.depths.join("/");
+
+            return depthA.localeCompare(depthB, "ko");
+        });
         html += `
             <section class="pub-section">
                 <h2>${group}</h2>
@@ -158,8 +165,8 @@ function render(data) {
                 const depth = item.depths[i];
 
                 depthTd += `<td>${depth
-                        ? (depthName[depth] || depth)
-                        : "-"
+                    ? (depthName[depth] || depth)
+                    : "-"
                     }</td>`;
             }
 
