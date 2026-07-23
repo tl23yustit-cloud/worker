@@ -36,6 +36,7 @@ function fnHeader() {
 
 	var $header = document.querySelector(".header");
 	var $gnb = document.querySelector(".header-bottom");
+	var $banner = document.querySelector(".banner-layer");
 
 	var $items = document.querySelectorAll(".gnb-item");
 	var $links = document.querySelectorAll(".gnb-link");
@@ -78,6 +79,49 @@ function fnHeader() {
 	const autoSaveText = document.querySelector(".switch-wrap .typeSm");
 	const offBox = document.querySelector(".autocomplete-off");
 
+
+// 스크롤에 따른 GNB 고정 (is-fixed) 동적 계산 처리
+	if ($gnb && $header) {
+		function checkScrollFix() {
+			// .header-bottom의 원래 Y축 위치를 기점으로 계산 (배너 유무 자동 반영)
+			var headerTopHeight = $header.offsetTop + document.querySelector(".header-top").offsetHeight;
+			
+			if (window.scrollY >= headerTopHeight) {
+				$gnb.classList.add("is-fixed");
+				$header.classList.add("is-fixed");
+			} else {
+				$gnb.classList.remove("is-fixed");
+				$header.classList.remove("is-fixed");
+			}
+		}
+
+		window.addEventListener("scroll", checkScrollFix);
+		window.addEventListener("resize", checkScrollFix);
+	}
+
+	// 띠배너 닫기 이벤트 연동
+	if ($banner) {
+		var $btnBannerClose = $banner.querySelector(".banner");
+		if ($btnBannerClose) {
+			$btnBannerClose.addEventListener("click", function () {
+				$banner.classList.remove("is-show");
+				// 배너가 사라지면 스크롤 위치 재계산
+				setTimeout(function() {
+					window.dispatchEvent(new Event('scroll'));
+				}, 100);
+			});
+		}
+	}
+
+	  // 메인 스와이퍼 배너 visual
+      const visualSlider = new Swiper('.wrap-visual', {
+        initialSlide: 0,
+        loop: true,
+        autoplay: {
+          delay: 5000,
+          disableOnInteraction: false,
+        },
+      });
 
 	// 유틸 메뉴 셀렉트 버튼 토글
 	if ($selectButtons.length > 0) {
