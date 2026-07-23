@@ -73,39 +73,50 @@
     }
 
     .easy-service {
-      width: 1360px;
-      margin: 0 auto;
-      padding-top: var(--spacing4Xl);
-      padding-bottom: var(--spacing4Xl);
+          width: 1360px;
+          margin: 0 auto;
+          padding-top: var(--spacing4Xl);
+          padding-bottom: var(--spacing4Xl);
 
-      .easy-service-list {
-        display: flex;
-        justify-content: center;
-        padding-top: var(--spacing2Xl);
+          .easy-service-list {
+            display: flex;
+            justify-content: center;
+            padding-top: var(--spacing2Xl);
 
-        li {
-          +li {
-            margin-left: var(--spacingLgXl);
-          }
-
-          .ico-btn {
-            &.type-bg {
-              &.quick-inquiry {
-                &::before {
-                  content: "";
-                  background: url(../../static/images/main/ico_easy_01_x3.png);
-                  background-size: 100px;
-                  display: inline-block;
-                  width: 100px;
-                  height: 100px;
-                  margin: 6px;
-                }
+            li {
+              + li {
+                margin-left: var(--spacingLgXl);
               }
-            }
-          }
-        }
-      }
-    }
+
+              .ico-btn {
+                &.type-bg {
+                  &::before {
+                    content: "";
+                    display: inline-block;
+                    width: 100px;
+                    height: 100px;
+                    margin: 6px;
+                    background-size: 100px;
+                  }
+                  $inquiry-icons: (
+                    "quick-inquiry": "ico_easy_01_x3.png",
+                    "check-inquiry": "ico_easy_02_x3.png",
+                    "exchange-inquiry": "ico_easy_03_x3.png",
+                    "trust-inquiry": "ico_easy_04_x3.png",
+                    "lg-inquiry": "ico_easy_05_x3.png"
+                  );
+                  @each $class, $img in $inquiry-icons {
+                    &.#{$class} {
+                      &::before {
+                        background-image: url("../../static/images/main/#{$img}");
+                      }
+                    }
+                  }
+                } // end: &.type-bg
+              } // end: .ico-btn
+            } // end: li
+          } // end: .easy-service-list
+        } // end: .easy-service
 
     .recommend-service {
       padding-top: var(--spacing4Xl);
