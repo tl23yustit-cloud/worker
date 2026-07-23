@@ -19,6 +19,12 @@ const depthName = {
 
     //2depth
     clrs:"대출상환스케쥴조회",
+
+    //3depth
+    ip:"이자납입",
+
+    //4depth
+    rip:"상환_이자납입",
     guide: "가이드",
     popup: "팝업",
     common: "공통",
