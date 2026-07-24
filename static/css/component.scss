@@ -3098,7 +3098,7 @@
 			background-color: var(--colorBgBase);
 
 		.text {
-			color: var(--colorFgSecondary);
+			// color: var(--colorFgSecondary);
 			font-size: var(--contentFontSizeMd);
 			font-weight: var(--fontWeightMedium);
 			line-height: var(--contentLineHeightMd);
@@ -3244,8 +3244,8 @@
 &.type-outline {
 	padding: var(--spacingXs);
 	border-radius: var(--radiusLg);
-	background-color: var(--colorBgCustomCardStandbyby);
-
+	// background-color: var(--colorBgCustomCardStandbyby);
+	background-color: var(--colorBgSecondary);
 	.item-tab-button {
 		flex: 1;
 	}
@@ -3259,7 +3259,7 @@
 		height: var(--sizeBaseXl);
 
 		.text {
-			color: var(--colorFgSecondary);
+			// color: var(--colorFgSecondary);
 			font-size: var(--contentFontSizeXl);
 			font-weight: var(--fontWeightMedium);
 			line-height: var(--contentLineHeightXl);
@@ -4252,7 +4252,7 @@
 
 		&-xl {
 			padding: var(--spacingXl) var(--spacingXl);
-			border-radius: var(--radius2Xl);
+			border-radius: var(--radiusXl);
 		}
 
 		&-xl2xl {
@@ -4379,4 +4379,13 @@
 			}
 		}
 	}
+}
+/* 위의 list 양식이 탭메뉴에 해당할 때에는 margin-top 예외처리 */
+.list-tab-button {
+  &.size-md,
+  &.size-lg {
+    li + li {
+      margin-top: 0 !important;
+    }
+  }
 }
