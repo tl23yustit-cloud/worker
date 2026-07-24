@@ -40,72 +40,54 @@
     data-size="md" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc">
     <div class="modal-wrapper">
       <div class="modal-title">
-        <h4 class="typeH4">상환스케줄</h4>
+        <h4 class="typeH4">담보상세내역조회</h4>
       </div>
       <div class="modal-slot">
         <div id="modal-desc">
-          <div class="tbl-area">
-            <table class="table-type01">
-              <caption>
-                상환스케줄
-              </caption>
-              <colgroup>
-                <col width="160px">
-                <col width="272px">
-                <col width="160px">
-                <col width="272px">
-              </colgroup>
-              <tbody>
-                <tr>
-                  <th scope="row">
-                    <span>계좌번호</span>
-                  </th>
-                  <td>
-                    <span class="typeMd">000-0000000-00-000</span>
-                  </td>
-                  <th scope="row">
-                    <span>실행번호</span>
-                  </th>
-                  <td colspan="3">
-                    <span class="typeMd">000001</span>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <span>원금납입상태</span>
-                  </th>
-                  <td>
-                    <span class="typeMd">정상</span>
-                  </td>
-                  <th scope="row">
-                    <span>이자납입상태</span>
-                  </th>
-                  <td>
-                    <span class="typeMd">정상</span>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <span>상환방법</span>
-                  </th>
-                  <td colspan="3">
-                    <span class="typeMd">원리금균등</span>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+          <div class="tbl-head">
+            <h4 class="typeH6">
+              <span class="text">담보 요약정보</span>
+            </h4>
+            <span class="typeMd">(단위 : 원)</span>
           </div>
-          <div class="box-tab">
+          <table class="table-type01">
+            <caption>
+              담보 요약정보
+            </caption>
+            <colgroup>
+              <col width="160px">
+              <col width="272px">
+              <col width="160px">
+              <col width="272px">
+            </colgroup>
+            <tbody>
+              <tr>
+                <th scope="row">
+                  <span>총 담보건수</span>
+                </th>
+                <td>
+                  <span class="typeMd">3건</span>
+                </td>
+                <th scope="row">
+                  <span>담보평가액</span>
+                </th>
+                <td colspan="3" class="text-right">
+                  <span class="typeMd">2,500,000</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="box-tab mt-40">
             <ul class="list-tab-button type-highlight-full" role="tablist" aria-label="탭 이름">
               <li class="item-tab-button">
-                <button type="button" class="btn-tab active" title="선택됨" id="tabBtnTypeHighlightFull01" role="tab"
-                  aria-selected="true" aria-controls="tabPanelTypeHighlightFull01">
+                <button type="button" class="btn-tab" title="선택됨" id="tabBtnTypeHighlightFull01" role="tab"
+                  aria-selected="false" aria-controls="tabPanelTypeHighlightFull01">
                   <span class="text">인적담보현황<span>(1)</span></span>
                 </button>
               </li>
               <li class="item-tab-button">
-                <button type="button" class="btn-tab" id="tabBtnTypeHighlightFull02" role="tab" aria-selected="false"
-                  aria-controls="tabPanelTypeHighlightFull02">
+                <button type="button" class="btn-tab active" id="tabBtnTypeHighlightFull02" role="tab"
+                  aria-selected="true" aria-controls="tabPanelTypeHighlightFull02">
                   <span class="text">물적담보현황<span>(1)</span></span>
                 </button>
               </li>
@@ -116,47 +98,50 @@
                 </button>
               </li>
             </ul>
-            <div class="box-tab-content active" id="tabPanelTypeHighlightFull01" role="tabpanel"
+            <div class="box-tab-content" id="tabPanelTypeHighlightFull01" role="tabpanel"
               aria-labelledby="tabBtnTypeHighlightFull01" style="display: block;">
-              <div class="tbl-area">
-                <table class="table-type03">
-                  <caption>
-                    상환스케줄
-                  </caption>
-                  <colgroup>
-                    <col width="200px">
-                    <col width="200px">
-                    <col width="200px">
-                    <col width="200px">
-                    <col width="200px">
-                  </colgroup>
-                  <thead>
-                    <tr>
-                      <th>보증인명</th>
-                      <th>주민등록번호</th>
-                      <th>보증금액</th>
-                      <th>보증종류</th>
-                      <th>보증기일</th>
-                    </tr>
-                  </thead>
+              <h3 class="blind">Tab Content01</h3>
+              Tab 본문 01
+            </div>
+            <div class="box-tab-content active" id="tabPanelTypeHighlightFull02" role="tabpanel"
+              aria-labelledby="tabBtnTypeHighlightFull02" style="display: none;">
+              <table class="table-type03 mt-16">
+                <caption>
+                  물적담보현황
+                </caption>
+                <colgroup>
+                  <col width="200px">
+                  <col width="200px">
+                  <col width="200px">
+                  <col width="200px">
+                  <col width="300px">
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th>담보종류</th>
+                    <th>수량</th>
+                    <th>감정액</th>
+                    <th>소유자명</th>
+                    <th>소재지</th>
+                  </tr>
+                </thead>
 
-                  <tbody>
-                    <tr>
-                      <td><span class="typeMd">김*수</span></td>
-                      <td><span class="typeMd">123456-*******</span></td>
-                      <td class="text-right">
-                        <span class="typeMd">50,000원</span>
-                      </td>
-                      <td>
-                        <span class="typeMd">보증인</span>
-                      </td>
-                      <td>
-                        <span class="typeMd">2026-07-25</span>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
+                <tbody>
+                  <tr>
+                    <td><span class="typeMd">주택</span></td>
+                    <td><span class="typeMd">1</span></td>
+                    <td class="text-right">
+                      <span class="typeMd">2,000,000원</span>
+                    </td>
+                    <td>
+                      <span class="typeMd">김철수</span>
+                    </td>
+                    <td>
+                      <span class="typeMd">서울시 강서구 화곡동 123-4</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
               <nav class="pagination size-md" aria-label="페이지네이션">
                 <button type="button" class="btn-nav first" disabled="" aria-disabled="true" aria-label="첫 페이지">
                   <span class="blind">첫 페이지</span>
@@ -200,11 +185,6 @@
                   <span class="blind">마지막 페이지</span>
                 </button>
               </nav>
-            </div>
-            <div class="box-tab-content" id="tabPanelTypeHighlightFull02" role="tabpanel"
-              aria-labelledby="tabBtnTypeHighlightFull02" style="display: none;">
-              <h3 class="blind">Tab Content02</h3>
-              Tab 본문 02
             </div>
             <div class="box-tab-content" id="tabPanelTypeHighlightFull03" role="tabpanel"
               aria-labelledby="tabBtnTypeHighlightFull03" style="display: none;">
