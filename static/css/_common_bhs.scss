@@ -789,10 +789,11 @@ $bank-list: "kb", "shinhan", "woori", "hana", "kakaobank", "suhyup", "toss";
 	}
 
 	.tbl-area {
-		.typeH6{
+		.typeH6 {
 			margin-bottom: var(--spacingMd);
 		}
-		+ .tbl-area{
+
+		+.tbl-area {
 			margin-top: var(--spacingXl);
 		}
 	}
@@ -824,4 +825,155 @@ $bank-list: "kb", "shinhan", "woori", "hana", "kakaobank", "suhyup", "toss";
 		text-align: center;
 		color: var(--colorFgBase);
 	}
+}
+
+/* Loading bar */
+.loading-progress-bar {
+	.box-text {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: var(--spacingXs);
+	}
+
+	.title-progress,
+	.percent {
+		color: var(--colorFgSecondary);
+	}
+
+	.title-progress {
+		// @include textEllipsis;
+		text-align: left;
+	}
+
+	.percent {
+		flex: none;
+		text-align: right;
+	}
+
+	.message {
+		color: var(--colorFgTertiary);
+	}
+
+	.bg-progress-bar {
+		overflow: hidden;
+		border-radius: var(--radiusFull);
+		width: 100%;
+		background-color: var(--colorBgProgress);
+	}
+
+	.progress-gauge {
+		display: block;
+		border-radius: var(--radiusFull);
+		background-color: var(--colorBgPrimary);
+		transform-origin: left center;
+		animation: progressScale 1.2s ease-out forwards;
+	}
+
+	.ico-status {
+		display: none;
+		background-repeat: no-repeat;
+		background-position: center center;
+		background-size: 100%;
+	}
+
+	&.size {
+		&-sm {
+			.title-progress {
+				width: calc(100% - var(--numUnit9));
+			}
+
+			.bg-progress-bar {
+				margin: calc(var(--spacingXs) + var(--spacing2Xs)) 0 var(--spacingXs);
+				height: var(--sizeBase3Xs);
+
+				.progress-gauge {
+					height: var(--sizeBase3Xs);
+				}
+			}
+
+			.ico-status {
+				width: var(--sizeIconXs);
+				height: var(--sizeIconXs);
+			}
+		}
+
+		&-md {
+			.title-progress {
+				width: calc(100% - var(--sizeBaseLg));
+			}
+
+			.bg-progress-bar {
+				margin: var(--spacingSm) 0 var(--spacingXs);
+				height: var(--sizeBase2Xs);
+
+				.progress-gauge {
+					height: var(--sizeBase2Xs);
+				}
+			}
+
+			.ico-status {
+				width: var(--sizeIconSm);
+				height: var(--sizeIconSm);
+			}
+		}
+
+		&-lg {
+			.title-progress {
+				width: calc(100% - var(--sizeBaseXl));
+			}
+
+			.bg-progress-bar {
+				margin: var(--spacingMd) 0 var(--spacingXs);
+				height: var(--sizeBase2Xs);
+
+				.progress-gauge {
+					height: var(--sizeBase2Xs);
+				}
+			}
+
+			.ico-status {
+				width: var(--sizeIconSmMd);
+				height: var(--sizeIconSmMd);
+			}
+		}
+	}
+
+	&.is-success {
+		.progress-gauge {
+			background-color: var(--colorFgSuccess);
+		}
+
+		.message {
+			color: var(--colorFgSuccess);
+		}
+
+		.ico-status {
+			display: block;
+			background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M10 0.833496C4.93743 0.833496 0.833374 4.93755 0.833374 10.0002C0.833374 15.0628 4.93743 19.1668 10 19.1668C15.0627 19.1668 19.1667 15.0628 19.1667 10.0002C19.1667 4.93755 15.0627 0.833496 10 0.833496ZM14.3393 8.08942C14.6647 7.76398 14.6647 7.23634 14.3393 6.91091C14.0139 6.58547 13.4862 6.58547 13.1608 6.91091L8.75004 11.3217L6.8393 9.41091C6.51386 9.08547 5.98622 9.08547 5.66079 9.41091C5.33535 9.73634 5.33535 10.264 5.66079 10.5894L8.16079 13.0894C8.48622 13.4149 9.01386 13.4149 9.3393 13.0894L14.3393 8.08942Z' fill='%23008447'/%3E%3C/svg%3E");
+		}
+	}
+
+	&.is-fail {
+		.progress-gauge {
+			background-color: var(--colorFgError);
+		}
+
+		.message {
+			color: var(--colorFgError);
+		}
+
+		.ico-status {
+			display: block;
+			background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M10 0.833496C4.93743 0.833496 0.833374 4.93755 0.833374 10.0002C0.833374 15.0628 4.93743 19.1668 10 19.1668C15.0627 19.1668 19.1667 15.0628 19.1667 10.0002C19.1667 4.93755 15.0627 0.833496 10 0.833496ZM13.0893 6.91091C13.4147 7.23634 13.4147 7.76398 13.0893 8.08942L11.1786 10.0002L13.0893 11.9109C13.4147 12.2363 13.4147 12.764 13.0893 13.0894C12.7639 13.4149 12.2362 13.4149 11.9108 13.0894L10 11.1787L8.0893 13.0894C7.76386 13.4149 7.23622 13.4149 6.91079 13.0894C6.58535 12.764 6.58535 12.2363 6.91079 11.9109L8.82153 10.0002L6.91079 8.08942C6.58535 7.76398 6.58535 7.23634 6.91079 6.91091C7.23622 6.58547 7.76386 6.58547 8.0893 6.91091L10 8.82165L11.9108 6.91091C12.2362 6.58547 12.7639 6.58547 13.0893 6.91091Z' fill='%23D33128'/%3E%3C/svg%3E");
+		}
+	}
+}
+@keyframes progressScale {
+	from {
+        transform: scaleX(0);
+    }
+    to {
+        transform: scaleX(1);
+    }
 }
