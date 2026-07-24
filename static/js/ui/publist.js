@@ -18,7 +18,7 @@ const depthName = {
     fcp: "금융소비자포털",
 
     //2depth
-    clrs: "대출상환스케쥴조회",
+    clrs: "대출상환스케줄조회",
     loan: "대출",
 
     //3depth
