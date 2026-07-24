@@ -24,11 +24,11 @@
       <div id="contents">
         <div class="content">
           @@include('static/html/pub/layout/breadcrumb.html')
-          <div class="bop">
-            <button type="button" class="btn type-bg-primary size-md btn-modal" data-target="modal-15">
-              <span class="text">email전송</span>
+          <div class="bop">            
+            <button type="button" class="btn type-bg-primary size-md btn-modal" data-target="alert-email">
+              <span class="text">E-Mail</span>
             </button>
-            <button type="button" class="btn type-bg-primary size-md btn-modal" data-target="modal-16">
+            <button type="button" class="btn type-bg-primary size-md btn-modal" data-target="alert-01">
               <span class="text">확인</span>
             </button>
           </div>
@@ -39,39 +39,31 @@
     <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
   </div>
   <script src="/static/js/ui/cib_ui_common.js"></script>
-  <div id="modal-15" class="modal" data-dim="true" data-backdrop-close="false" data-alert="true"
-    data-size="xs" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc">
-    <div class="modal-wrapper">
-      <div id="modal-desc">
-        <div class="modal-slot">
-          <span class="desc typeMd">E-Mail을 전송하시겠습니까?</span>
-        </div>
-        <div class="modal-footer flex items-center justify-center gap-8">
-          <button type="button" class="btn type-line-neutral size-lg btn-close">
-            <span class="text">취소</span>
-          </button>
-          <button type="button" class="btn type-bg-primary size-lg">
-            <span class="text">확인</span>
-          </button>
-        </div>
+  <div id="alert-email" class="alert" data-dim="true" role="alertdialog" aria-modal="true" aria-labelledby="modal-title"
+    aria-describedby="modal-desc" data-backdrop-close="false">
+    <div class="alert-wrapper">
+      <p class="alert-desc">E-Mail을 전송하시겠습니까?</p>
+      <div class="alert-footer flex">
+        <button type="button" class="btn type-line-neutral size-lg btn-close">
+          <span class="text">취소</span>
+        </button>
+        <button type="button" class="btn type-bg-primary size-lg">
+          <span class="text">확인</span>
+        </button>
       </div>
     </div>
   </div>
-  <div id="modal-16" class="modal" data-dim="true" data-backdrop-close="false" data-alert="true"
-    data-size="xs" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc">
-    <div class="modal-wrapper">
-      <div id="modal-desc">
-        <div class="modal-slot">
-          <span class="desc typeMd">전송되었습니다.</span>
-        </div>
-        <div class="modal-footer flex items-center justify-center gap-8">
-          <button type="button" class="btn type-bg-primary size-lg">
-            <span class="text">확인</span>
-          </button>
-        </div>
+  <div id="alert-01" class="alert" data-dim="true" role="alertdialog" aria-modal="true" aria-labelledby="modal-title"
+    aria-describedby="modal-desc" data-backdrop-close="false">
+    <div class="alert-wrapper">
+      <p class="alert-desc">전송되었습니다.</p>
+      <div class="alert-footer flex">
+        <button type="button" class="btn type-bg-primary size-lg">
+          <span class="text">확인</span>
+        </button>
       </div>
     </div>
-  </div>
+  </div>  
 </body>
 
 </html>
