@@ -139,12 +139,11 @@ function render(data) {
         });
         html += `
             <section class="pub-section">
-                <h2>${group}</h2>
+                <h2> ${depthName[group] || group}</h2>
 
                 <table>
                     <thead>
                         <tr>
-                            
                             ${depthHeader}
                             <th>화면명</th>
                             <th>파일명</th>
