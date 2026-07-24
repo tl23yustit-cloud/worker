@@ -952,6 +952,16 @@ function fnBoxTooltip() {
 function fnModal() {
     let lastFocusedElement; // 열기 전 요소를 기억할 변수
 
+    // 활성 상태에 따라 body 스크롤을 제어하는 유틸 함수
+    const updateBodyScroll = () => {
+        const hasActive = document.querySelector('.modal.is-active, .alert.is-active');
+        if (hasActive) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
+    };
+
     document.addEventListener('click', (e) => {
         // 1. 모달 또는 알림창 열기 버튼 클릭 (.btn-modal 또는 .btn-alert)
         const openBtn = e.target.closest('.btn-modal, .btn-alert');
@@ -962,6 +972,7 @@ function fnModal() {
             if (targetEl) {
                 lastFocusedElement = document.activeElement; // 현재 포커스 저장
                 targetEl.classList.add('is-active');      // 클래스로 제어
+                updateBodyScroll();                       // 배경 스크롤 잠금
                 
                 // 내부의 첫 번째 포커스 가능 요소 찾기
                 const firstFocusable = targetEl.querySelector('button, [href], input, select, textarea');
@@ -975,6 +986,7 @@ function fnModal() {
             const container = closeBtn.closest('.modal, .alert'); // modal 또는 alert 닫기
             if (container) {
                 container.classList.remove('is-active');
+                updateBodyScroll(); // 남은 모달 여부에 따라 스크롤 복구
                 
                 // 포커스 복귀
                 if (lastFocusedElement) lastFocusedElement.focus();
@@ -987,17 +999,19 @@ function fnModal() {
 
             if (backdropClose) {
                 e.target.classList.remove('is-active');
+                updateBodyScroll(); // 남은 모달 여부에 따라 스크롤 복구
                 if (lastFocusedElement) lastFocusedElement.focus();
             }
         }
     });
 
-    // 4. ESC 키로 닫기 (열려있는 모달이나 알림창 모두 대응)
+    // 4. ESC 키로 닫기
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
             const activeEl = document.querySelector('.modal.is-active, .alert.is-active');
             if (activeEl) {
                 activeEl.classList.remove('is-active');
+                updateBodyScroll(); // 남은 모달 여부에 따라 스크롤 복구
                 if (lastFocusedElement) lastFocusedElement.focus();
             }
         }
