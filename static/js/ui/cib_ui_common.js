@@ -953,52 +953,51 @@ function fnModal() {
     let lastFocusedElement; // 열기 전 요소를 기억할 변수
 
     document.addEventListener('click', (e) => {
-        // 열기 버튼 클릭
-        const openBtn = e.target.closest('.btn-modal');
+        // 1. 모달 또는 알림창 열기 버튼 클릭 (.btn-modal 또는 .btn-alert)
+        const openBtn = e.target.closest('.btn-modal, .btn-alert');
         if (openBtn) {
             const targetId = openBtn.dataset.target;
-            const targetModal = document.getElementById(targetId);
+            const targetEl = document.getElementById(targetId);
             
-            if (targetModal) {
+            if (targetEl) {
                 lastFocusedElement = document.activeElement; // 현재 포커스 저장
-                targetModal.classList.add('is-active');      // 클래스로 제어
+                targetEl.classList.add('is-active');      // 클래스로 제어
                 
-                // 모달 내부의 첫 번째 포커스 가능 요소 찾기
-                const firstFocusable = targetModal.querySelector('button, [href], input, select, textarea');
+                // 내부의 첫 번째 포커스 가능 요소 찾기
+                const firstFocusable = targetEl.querySelector('button, [href], input, select, textarea');
                 if (firstFocusable) firstFocusable.focus();
             }
         }
 
-        // 닫기 버튼 클릭
+        // 2. 닫기 버튼 클릭 (.btn-close)
         const closeBtn = e.target.closest('.btn-close');
         if (closeBtn) {
-            const modal = closeBtn.closest('.modal');
-            if (modal) {
-                modal.classList.remove('is-active');
+            const container = closeBtn.closest('.modal, .alert'); // modal 또는 alert 닫기
+            if (container) {
+                container.classList.remove('is-active');
                 
                 // 포커스 복귀
                 if (lastFocusedElement) lastFocusedElement.focus();
             }
         }
 
-        // 배경 클릭 시 닫기
-        if (e.target.classList.contains('modal')) {
-    	// data-backdrop-close 속성을 확인 (기본값은 'true'로 설정)
-				const backdropClose = e.target.dataset.backdropClose !== "false"; 
+        // 3. 배경(백드롭) 클릭 시 닫기 (.modal 또는 .alert 배경)
+        if (e.target.classList.contains('modal') || e.target.classList.contains('alert')) {
+            const backdropClose = e.target.dataset.backdropClose !== "false"; 
 
-				if (backdropClose) {
-					e.target.classList.remove('is-active');
-					if (lastFocusedElement) lastFocusedElement.focus();
-				}
-			}
+            if (backdropClose) {
+                e.target.classList.remove('is-active');
+                if (lastFocusedElement) lastFocusedElement.focus();
+            }
+        }
     });
 
-    // ESC 키로 닫기 
+    // 4. ESC 키로 닫기 (열려있는 모달이나 알림창 모두 대응)
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
-            const activeModal = document.querySelector('.modal.is-active');
-            if (activeModal) {
-                activeModal.classList.remove('is-active');
+            const activeEl = document.querySelector('.modal.is-active, .alert.is-active');
+            if (activeEl) {
+                activeEl.classList.remove('is-active');
                 if (lastFocusedElement) lastFocusedElement.focus();
             }
         }
