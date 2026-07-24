@@ -4147,14 +4147,13 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		padding: var(--spacingMd) var(--spacingXl);
+		padding: var(--spacingXl);
 		gap: var(--spacingMd);
-		// sticky-bar 내부의 xl 규격 버튼은 좌우에 20px씩 여백 추가됨
 		.btn.size-xl {
-			padding: 0 var(--spacing2Xl);
+				padding: 0 var(--spacingLgXl); 
+				min-width: var(--sizeBase7Xl);
+			}
 		}
-	}
-
 	.chip-group {
 		display: flex;
 		align-items: center;
@@ -4188,16 +4187,16 @@
 			}
 		}
 	}
-
 	.btn-wrap {
 		display: flex;
 		align-items: center;
+		padding: 0;
 		gap: var(--spacingSm);
 		flex-shrink: 0;
 
 		.btn.type-line-neutral {
 			&:hover {
-				background-color: var(--colorBgNeutralDisabled);
+				background-color: var(--colorGray25);
 			}
 		}
 
