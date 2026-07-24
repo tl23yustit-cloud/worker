@@ -23,6 +23,7 @@ const depthName = {
 
     //3depth
     ip: "이자납입",    
+    rop: "원금상환",    
 
     //4depth
     rip: "상환_이자납입",
