@@ -1,0 +1,639 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>아이콘 가이드 라이브러리</title>
+    <!-- 기존 실무 CSS 링크들 (경로에 맞게 유지) -->
+    <link rel="stylesheet" href="/static/cl/guide.css" />
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    
+    <style>
+      @charset "UTF-8";
+
+      body {
+        background-color: #f9fafb;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        margin: 0;
+        padding: 40px 24px;
+        color: #111827;
+      }
+      .page-header {
+        text-align: center;
+        margin-bottom: 24px;
+      }
+      .page-header h1 {
+        font-size: 28px;
+        font-weight: 700;
+        margin-bottom: 8px;
+      }
+      .page-header p {
+        color: #6b7280;
+        font-size: 15px;
+      }
+
+      /* Filter Controls */
+      .filter-container {
+        display: flex;
+        justify-content: flex-end;
+        max-width: 1400px;
+        margin: 0 auto 20px auto;
+        gap: 8px;
+      }
+      .filter-btn {
+        background-color: #ffffff;
+        border: 1px solid #e5e7eb;
+        color: #4b5563;
+        padding: 8px 16px;
+        font-size: 13px;
+        font-weight: 500;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+      }
+      .filter-btn:hover {
+        background-color: #f3f4f6;
+        color: #111827;
+      }
+      .filter-btn.active {
+        background-color: #4f46e5;
+        border-color: #4f46e5;
+        color: #ffffff;
+        font-weight: 600;
+      }
+
+      /* 기본 아이콘 속성 */
+      .ico {
+         display: inline-block;
+         background-repeat: no-repeat;
+         background-position: center;
+         background-size: contain;
+         transition: all 0.2s ease;
+      }
+
+      /* Grid Layout */
+      .icon-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+        gap: 16px;
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      /* Icon Card */
+      .icon-item {
+        position: relative;
+        background: #ffffff;
+        border: 1px solid #e5e7eb;
+        border-radius: 12px;
+        padding: 20px 12px 16px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        cursor: pointer;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        transition: all 0.2s ease;
+        height: 135px;
+        box-sizing: border-box;
+      }
+      .icon-item:hover {
+        border-color: #6366f1;
+        box-shadow: 0 10px 20px -5px rgba(99, 102, 241, 0.15), 0 8px 10px -6px rgba(99, 102, 241, 0.1);
+        transform: translateY(-3px);
+      }
+      .icon-item.active {
+        border-color: #4f46e5;
+        box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.2);
+      }
+      .icon-item.hidden {
+        display: none !important;
+      }
+
+      .icon-wrapper {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 8px;
+        min-height: 40px;
+      }
+
+      .text-area {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      .icon-name {
+        font-size: 12px;
+        color: #4b5563;
+        font-weight: 500;
+        text-align: center;
+        word-break: break-all;
+      }
+
+      /* Style Badges */
+      .style-badges {
+        display: flex;
+        gap: 4px;
+        margin-top: 4px;
+        min-height: 19px;
+      }
+      .style-badge {
+        font-size: 9px;
+        padding: 2px 5px;
+        border-radius: 4px;
+        background-color: #f3f4f6;
+        color: #6b7280;
+        cursor: pointer;
+        border: 1px solid transparent;
+        transition: all 0.2s;
+      }
+      .style-badge.active {
+        background-color: #e0e7ff;
+        color: #4f46e5;
+        border-color: #c7d2fe;
+        font-weight: 600;
+      }
+
+      /* 우측 사이드바 패널 스타일 */
+      .sidebar-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(2px);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 998;
+      }
+      .sidebar-overlay.open {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .side-panel {
+        position: fixed;
+        top: 0;
+        right: -400px;
+        width: 380px;
+        height: 100vh;
+        background: #ffffff;
+        box-shadow: -10px 0 25px rgba(0, 0, 0, 0.1);
+        z-index: 999;
+        display: flex;
+        flex-direction: column;
+        transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        box-sizing: border-box;
+      }
+      .side-panel.open {
+        right: 0;
+      }
+
+      .panel-header {
+        padding: 24px;
+        border-bottom: 1px solid #e5e7eb;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .panel-title {
+        font-size: 18px;
+        font-weight: 700;
+        color: #111827;
+        margin: 0;
+      }
+      .panel-close {
+        background: none;
+        border: none;
+        font-size: 20px;
+        cursor: pointer;
+        color: #9ca3af;
+        padding: 4px;
+      }
+      .panel-close:hover {
+        color: #111827;
+      }
+
+      .panel-body {
+        padding: 24px;
+        overflow-y: auto;
+        flex: 1;
+      }
+
+      .preview-box {
+        background: #f9fafb;
+        border: 1px solid #e5e7eb;
+        border-radius: 12px;
+        height: 120px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 24px;
+      }
+
+      .section-label {
+        font-size: 13px;
+        font-weight: 600;
+        color: #374151;
+        margin-bottom: 12px;
+      }
+
+      .color-group {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 24px;
+      }
+      .color-btn {
+        flex: 1;
+        padding: 10px;
+        border: 1px solid #e5e7eb;
+        background: #ffffff;
+        border-radius: 8px;
+        font-size: 12px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      .color-btn.active {
+        background: #e0e7ff;
+        color: #4f46e5;
+        border-color: #c7d2fe;
+        font-weight: 600;
+      }
+
+      .size-list-panel {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .size-list-panel li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 16px;
+        background: #ffffff;
+        border: 1px solid #e5e7eb;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      .size-list-panel li:hover {
+        background: #f3f4f6;
+        border-color: #d1d5db;
+      }
+      .size-list-panel li .size-info {
+        font-size: 13px;
+        font-weight: 500;
+        color: #1f2937;
+      }
+      .size-list-panel li .size-info span {
+        color: #9ca3af;
+        font-size: 12px;
+        margin-left: 6px;
+      }
+      .size-list-panel li .copy-hint {
+        font-size: 11px;
+        color: #4f46e5;
+        font-weight: 600;
+        opacity: 0;
+        transition: opacity 0.2s;
+      }
+      .size-list-panel li:hover .copy-hint {
+        opacity: 1;
+      }
+
+      .toast-popup {
+        position: fixed;
+        bottom: 40px;
+        left: 50%;
+        transform: translateX(-50%) translateY(100px);
+        background-color: #1f2937;
+        color: #ffffff;
+        padding: 12px 24px;
+        border-radius: 30px;
+        font-size: 14px;
+        font-weight: 500;
+        opacity: 0;
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        z-index: 9999;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .toast-popup.show {
+        transform: translateX(-50%) translateY(0);
+        opacity: 1;
+      }
+      .toast-popup svg {
+        color: #34d399;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="page-header">
+      <h1>아이콘 라이브러리 가이드</h1>
+      <p>아이콘을 클릭하면 우측 패널에서 상세 설정 및 복사가 가능합니다.</p>
+    </div>
+
+    <!-- 우측 상단 필터 버튼 영역 -->
+    <div class="filter-container">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="line">Line</button>
+      <button class="filter-btn" data-filter="solid">Solid</button>
+    </div>
+
+    <!-- 아이콘들이 생성될 그리드 영역 -->
+    <div class="icon-grid" id="iconGrid"></div>
+
+    <!-- 우측 사이드바 패널 구성 -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <div class="side-panel" id="sidePanel">
+      <div class="panel-header">
+        <h3 class="panel-title" id="panelTitle">아이콘 설정</h3>
+        <button class="panel-close" id="panelClose">&times;</button>
+      </div>
+      <div class="panel-body">
+        <div class="preview-box">
+          <i class="ico ico-size-3xl" id="panelPreviewIcon"></i>
+        </div>
+
+        <div id="colorSection" style="display: none;">
+          <div class="section-label">Color</div>
+          <div class="color-group" id="colorGroup">
+            <button class="color-btn active" data-color="">Default</button>
+            <button class="color-btn" data-color="colorFgTertiary">Tertiary</button>
+          </div>
+        </div>
+
+        <div class="section-label">Size (클릭시 복사)</div>
+        <ul class="size-list-panel" id="sizeListPanel"></ul>
+      </div>
+    </div>
+
+    <!-- 완료 토스트 팝업 -->
+    <div id="toast" class="toast-popup">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="20 6 9 17 4 12"></polyline>
+      </svg>
+      태그가 복사되었습니다!
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const iconData = [
+          { name: "ico-chevron-right", styles: ["line"] },
+          { name: "ico-refresh", styles: ["line"] },
+          { name: "ico-plus", styles: ["line"] },
+          { name: "ico-info-circle", styles: ["line"] },
+          { name: "ico-chevron-down", styles: ["line"] },
+          { name: "ico-chevron-up", styles: ["line"] },
+          { name: "ico-search", styles: ["line"] },
+          { name: "ico-search-subtle", styles: ["line"] },
+          { name: "ico-filter", styles: ["line"] },
+          { name: "ico-chevron-left", styles: ["line"] },
+          { name: "ico-chevron-double-left", styles: ["line"] },
+          { name: "ico-chevron-double-right", styles: ["line"] },
+          { name: "ico-calendar", styles: ["line"] },
+          { name: "ico-close-circle", styles: ["line"] },
+          { name: "ico-close", styles: ["line"] },
+          { name: "ico-refresh-cw", styles: ["line"] },
+          { name: "ico-link-external", styles: ["line"] },
+          { name: "ico-log-in", styles: ["line"] },
+          { name: "ico-log-out", styles: ["line"] },
+          { name: "ico-menu", styles: ["line"] },
+          { name: "ico-arrow-up-right", styles: ["line"] },
+          { name: "ico-bell-ringing", styles: ["line"] },
+          { name: "ico-clock-rewind", styles: ["line"] },
+          { name: "ico-inbox", styles: ["line"] },
+          { name: "ico-grid", styles: ["line", "solid"] },
+          { name: "ico-location-marker", styles: ["line"] },
+          { name: "ico-copy", styles: ["line"] },
+          { name: "ico-printer", styles: ["line"] },
+          { name: "ico-dots-vertical", styles: ["line"] },
+          { name: "ico-alert-circle", styles: ["line"] },
+          { name: "ico-minus", styles: ["line"] },
+          { name: "ico-check", styles: ["line"] },
+          { name: "ico-home-line", styles: ["line", "solid"] },
+          { name: "ico-loading", styles: ["line"] },
+          { name: "ico-user", styles: ["line"] },
+          { name: "ico-download", styles: ["line"] },
+          { name: "ico-heart-rounded", styles: ["line"] },
+          { name: "ico-edit", styles: ["line"] },
+          { name: "ico-trash", styles: ["line"] },
+          { name: "ico-pause", styles: ["line"] },
+          { name: "ico-arrow-up", styles: ["line"] },
+          { name: "ico-sticker-square", styles: ["line", "solid"] },
+          { name: "ico-help-circle", styles: ["line"] },
+          { name: "ico-star", styles: ["solid"] },
+          { name: "ico-layout-alt", styles: ["solid"] },
+          { name: "ico-shopping-bag", styles: ["solid"] },
+          { name: "ico-box", styles: ["solid"] },
+          { name: "ico-play", styles: ["solid"] },
+          { name: "ico-facebook", styles: [], colors: ["", "colorFgTertiary"] }
+        ];
+
+        const sizeList = [
+          { size: "ico-size-xs", label: "xSmall", px: "12px" },
+          { size: "ico-size-sm", label: "Small", px: "16px" },
+          { size: "ico-size-smMd", label: "sMedium", px: "20px" },
+          { size: "ico-size-md", label: "Medium", px: "24px" },
+          { size: "ico-size-lg", label: "Large", px: "32px" },
+          { size: "ico-size-xl", label: "xLarge", px: "40px" },
+          { size: "ico-size-2xl", label: "2xLarge", px: "48px" },
+          { size: "ico-size-3xl", label: "3xLarge", px: "56px" },
+          { size: "ico-size-4xl", label: "4xLarge", px: "64px" },
+          { size: "ico-size-5xl", label: "5xLarge", px: "72px" },
+          { size: "ico-size-6xl", label: "6xLarge", px: "80px" }
+        ];
+
+        const iconGrid = document.getElementById("iconGrid");
+        const toast = document.getElementById("toast");
+        const filterBtns = document.querySelectorAll(".filter-btn");
+        const sidePanel = document.getElementById("sidePanel");
+        const sidebarOverlay = document.getElementById("sidebarOverlay");
+        const panelClose = document.getElementById("panelClose");
+        const panelTitle = document.getElementById("panelTitle");
+        const panelPreviewIcon = document.getElementById("panelPreviewIcon");
+        const colorSection = document.getElementById("colorSection");
+        const colorGroup = document.getElementById("colorGroup");
+        const sizeListPanel = document.getElementById("sizeListPanel");
+        let toastTimer = null;
+
+        let activeCard = null;
+        let selectedIconData = null;
+        let currentStyle = "";
+        let currentColor = "";
+
+        // 그리드 렌더링
+        iconData.forEach(item => {
+          const defaultStyle = item.styles.length > 0 ? item.styles[0] : "";
+          const styleClass = defaultStyle ? defaultStyle + " " : "";
+          
+          const card = document.createElement("div");
+          card.className = "icon-item";
+          card.setAttribute("data-icon", item.name);
+          card.setAttribute("data-current-style", defaultStyle);
+          card.setAttribute("data-styles", item.styles.join(","));
+
+          const badgesHTML = item.styles.length > 0 ? item.styles.map(style => `
+            <span class="style-badge ${style === defaultStyle ? 'active' : ''}" data-style="${style}">
+              ${style.toUpperCase()}
+            </span>
+          `).join('') : '';
+
+          card.innerHTML = `
+            <div class="icon-wrapper">
+              <i class="ico ${styleClass}ico-size-xl ${item.name}"></i>
+            </div>
+            <div class="text-area">
+              <span class="icon-name">${item.name}</span>
+              <div class="style-badges">${badgesHTML}</div>
+            </div>
+          `;
+
+          // 카드 클릭 시 사이드바 오픈
+          card.addEventListener("click", (e) => {
+            if (e.target.classList.contains('style-badge')) {
+              e.stopPropagation();
+              const selectedStyle = e.target.getAttribute("data-style");
+              card.setAttribute("data-current-style", selectedStyle);
+              card.querySelector(".icon-wrapper i.ico").className = `ico ${selectedStyle} ico-size-xl ${item.name}`;
+              card.querySelectorAll(".style-badge").forEach(b => b.classList.remove("active"));
+              e.target.classList.add("active");
+              return;
+            }
+
+            if (activeCard) activeCard.classList.remove("active");
+            activeCard = card;
+            card.classList.add("active");
+
+            selectedIconData = item;
+            currentStyle = card.getAttribute("data-current-style");
+            currentColor = "";
+
+            openSidebar();
+          });
+
+          iconGrid.appendChild(card);
+        });
+
+        // 사이드바 오픈 함수
+        function openSidebar() {
+          panelTitle.textContent = selectedIconData.name;
+          
+          if (selectedIconData.colors && selectedIconData.colors.length > 0) {
+            colorSection.style.display = "block";
+            colorGroup.querySelectorAll(".color-btn").forEach(btn => {
+              if (btn.getAttribute("data-color") === "") btn.classList.add("active");
+              else btn.classList.remove("active");
+            });
+          } else {
+            colorSection.style.display = "none";
+          }
+
+          updatePanelPreview("ico-size-2xl");
+          renderSizeList();
+
+          sidePanel.classList.add("open");
+          sidebarOverlay.classList.add("open");
+        }
+
+        // 사이드바 닫기 함수
+        function closeSidebar() {
+          sidePanel.classList.remove("open");
+          sidebarOverlay.classList.remove("open");
+          if (activeCard) activeCard.classList.remove("active");
+        }
+
+        panelClose.addEventListener("click", closeSidebar);
+        sidebarOverlay.addEventListener("click", closeSidebar);
+
+        // 컬러 선택 버튼 이벤트
+        colorGroup.querySelectorAll(".color-btn").forEach(btn => {
+          btn.addEventListener("click", () => {
+            colorGroup.querySelectorAll(".color-btn").forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+            currentColor = btn.getAttribute("data-color");
+            updatePanelPreview(panelPreviewIcon.className.match(/ico-size-\S+/) || "ico-size-2xl");
+          });
+        });
+
+        function updatePanelPreview(sizeClass) {
+          const styleStr = currentStyle ? currentStyle + " " : "";
+          const colorStr = currentColor ? " " + currentColor : "";
+          const resolvedSize = typeof sizeClass === 'string' ? sizeClass : (sizeClass[0] || "ico-size-2xl");
+          panelPreviewIcon.className = `ico ${styleStr}${resolvedSize} ${selectedIconData.name}${colorStr}`;
+        }
+
+        function renderSizeList() {
+          sizeListPanel.innerHTML = sizeList.map(sizeItem => `
+            <li data-size="${sizeItem.size}">
+              <div class="size-info">${sizeItem.label} <span>${sizeItem.px}</span></div>
+              <div class="copy-hint">클릭하여 복사</div>
+            </li>
+          `).join('');
+
+          sizeListPanel.querySelectorAll("li").forEach(li => {
+            const sizeClass = li.getAttribute("data-size");
+
+            li.addEventListener("mouseenter", () => {
+              updatePanelPreview(sizeClass);
+            });
+
+            li.addEventListener("click", () => {
+              const styleStr = currentStyle ? currentStyle + " " : "";
+              const colorStr = currentColor ? " " + currentColor : "";
+              const targetTag = `<i class="ico ${styleStr}${sizeClass} ${selectedIconData.name}${colorStr}"></i>`;
+
+              navigator.clipboard.writeText(targetTag).then(() => {
+                showToast();
+                closeSidebar();
+              });
+            });
+          });
+        }
+
+        filterBtns.forEach(btn => {
+          btn.addEventListener("click", () => {
+            filterBtns.forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+
+            const filterType = btn.getAttribute("data-filter");
+            document.querySelectorAll(".icon-item").forEach(item => {
+              const itemStyles = item.getAttribute("data-styles").split(",").filter(Boolean);
+              if (filterType === "all" || itemStyles.includes(filterType)) {
+                item.classList.remove("hidden");
+              } else {
+                item.classList.add("hidden");
+              }
+            });
+          });
+        });
+
+        function showToast() {
+          if (toastTimer) {
+            clearTimeout(toastTimer);
+            toast.classList.remove("show");
+          }
+          setTimeout(() => toast.classList.add("show"), 10);
+          toastTimer = setTimeout(() => {
+            toast.classList.remove("show");
+          }, 2500);
+        }
+      });
+    </script>
+  </body>
+</html>
