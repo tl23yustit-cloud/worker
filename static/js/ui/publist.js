@@ -25,10 +25,12 @@ const depthName = {
     //3depth
     ip: "이자납입",   
     rop: "원금상환",    
+    import:"수입",
 
     //4depth
     rip: "상환_이자납입",
     clha: "대출보유계좌조회",
+    oilc:"수입신용장개설",
 
     guide: "가이드",
     popup: "팝업",
