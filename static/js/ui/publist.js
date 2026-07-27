@@ -22,7 +22,7 @@ const depthName = {
     loan: "대출",
 
     //3depth
-    ip: "이자납입",    
+    ip: "이자납입",   
     rop: "원금상환",    
 
     //4depth
