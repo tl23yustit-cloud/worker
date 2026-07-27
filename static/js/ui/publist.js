@@ -33,6 +33,7 @@ const depthName = {
     clha: "대출보유계좌조회",
     oilc:"수입신용장개설",
     ctl:"한도조회",
+    ctd:"거래내역조회",
 
     guide: "가이드",
     popup: "팝업",
