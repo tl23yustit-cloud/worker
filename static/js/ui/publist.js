@@ -19,7 +19,7 @@ const depthName = {
 
     //2depth
     clrs: "대출상환스케줄조회",
-    loan: "대출",
+    lon: "대출",
     foe: "외환",
 
     //3depth
