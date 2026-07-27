@@ -21,6 +21,7 @@ const depthName = {
     clrs: "대출상환스케줄조회",
     lon: "대출",
     foe: "외환",
+    tpr:"신탁",
 
     //3depth
     ip: "이자납입",   
