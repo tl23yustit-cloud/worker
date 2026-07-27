@@ -255,6 +255,7 @@
         border-color: #16a34a;
         font-weight: 600;
       }
+
       /* 국기 (flags) 배지/태그 */
       .style-badge[data-style="flags"] {
         background-color: #fef2f2;
@@ -267,6 +268,20 @@
         border-color: #ef4444;
         font-weight: 600;
       }
+
+      /* 파일 (file) 배지/태그 */
+      .style-badge[data-style="file"] {
+        background-color: #f3f0ff;
+        color: #7f56d9;
+        border-color: #e9d7fe;
+      }
+      .style-badge[data-style="file"].active {
+        background-color: #7f56d9;
+        color: #ffffff;
+        border-color: #7f56d9;
+        font-weight: 600;
+      }
+
       .style-badge[data-style="etc"] {
         background-color: #f3f4f6;
         color: #4b5563;
@@ -278,6 +293,7 @@
         border-color: #4b5563;
         font-weight: 600;
       }
+
       /* 우측 사이드바 패널 스타일 */
       .sidebar-overlay {
         position: fixed;
@@ -379,6 +395,7 @@
         font-weight: 500;
         cursor: pointer;
         transition: all 0.2s;
+        text-transform: capitalize;
       }
       .color-btn.active {
         background: #eff6ff;
@@ -478,7 +495,8 @@
       <button class="filter-btn" data-filter="securities-circle">
         증권(원)
       </button>
-         <button class="filter-btn" data-filter="flags">국기</button>
+      <button class="filter-btn" data-filter="flags">국기</button>
+      <button class="filter-btn" data-filter="file">File</button>
       <button class="filter-btn" data-filter="etc">기타</button>
     </div>
 
@@ -501,14 +519,10 @@
           ></i>
         </div>
 
+        <!-- 옵션/컬러 선택 버튼들이 동적으로 채워질 영역 -->
         <div id="colorSection" style="display: none">
-          <div class="section-label">Color</div>
-          <div class="color-group" id="colorGroup">
-            <button class="color-btn active" data-color="">Default</button>
-            <button class="color-btn" data-color="colorFgTertiary">
-              Tertiary
-            </button>
-          </div>
+          <div class="section-label">Variant / Color</div>
+          <div class="color-group" id="colorGroup"></div>
         </div>
 
         <div class="section-label">Size (클릭시 복사)</div>
@@ -535,7 +549,21 @@
 
     <script>
       document.addEventListener("DOMContentLoaded", () => {
-        // Line / Solid 개별 아이콘으로 분리 적용한 데이터
+        // 배지 라벨 변환 객체
+        const badgeLabels = {
+          line: "Line",
+          solid: "Solid",
+          sns: "SNS",
+          bank: "Bank",
+          card: "Card",
+          etf: "ETF",
+          "securities-back": "증권",
+          "securities-circle": "증권(원)",
+          flags: "Flags",
+          file: "File",
+          etc: "ETC",
+        };
+
         const iconData = [
           /* Line 전용 아이콘 */
           { name: "ico-chevron-right", styles: ["line"] },
@@ -752,6 +780,8 @@
           { name: "ico-truefriend", styles: ["securities-circle"] },
           { name: "ico-eugene", styles: ["securities-circle"] },
           { name: "ico-foss", styles: ["securities-circle"] },
+
+          /* Flags 카테고리 */
           { name: "ico-us", styles: ["flags"] },
           { name: "ico-eu", styles: ["flags"] },
           { name: "ico-jp", styles: ["flags"] },
@@ -775,6 +805,271 @@
           { name: "ico-kw", styles: ["flags"] },
           { name: "ico-bh", styles: ["flags"] },
           { name: "ico-ae", styles: ["flags"] },
+
+          /* File 카테고리 */
+          /* File 카테고리 아이콘 목록 (CSS 순서 정렬) */
+
+          // Simple / Empty (Default, gray, solid)
+          {
+            name: "ico-empty",
+            styles: ["file"],
+            colors: ["", "gray", "solid"],
+          },
+
+          // Simple / Folder (Default 단일)
+          {
+            name: "ico-folder",
+            styles: ["file"],
+            colors: ["", "gray", "solid"],
+          },
+
+          {
+            name: "ico-image",
+            styles: ["file"],
+            colors: ["", "gray", "solid"],
+          },
+          {
+            name: "ico-video-01",
+            styles: ["file"],
+            colors: ["", "gray", "solid"],
+          },
+          {
+            name: "ico-video-02",
+            styles: ["file"],
+            colors: ["", "gray", "solid"],
+          },
+          {
+            name: "ico-audio",
+            styles: ["file"],
+            colors: ["", "gray", "solid"],
+          },
+          { name: "ico-pdf", styles: ["file"], colors: ["", "gray", "solid"] },
+          {
+            name: "ico-document",
+            styles: ["file"],
+            colors: ["", "gray", "solid"],
+          },
+          {
+            name: "ico-spreadsheet",
+            styles: ["file"],
+            colors: ["", "gray", "solid"],
+          },
+          { name: "ico-code", styles: ["file"], colors: ["", "gray", "solid"] },
+          {
+            name: "ico-extension-img",
+            styles: ["file"],
+            colors: ["", "gray", "solid"],
+          },
+          {
+            name: "ico-extension-jpg",
+            styles: ["file"],
+            colors: ["", "gray", "solid"],
+          },
+          {
+            name: "ico-extension-jpeg",
+            styles: ["file"],
+            colors: ["", "gray", "solid"],
+          },
+          {
+            name: "ico-extension-png",
+            styles: ["file"],
+            colors: ["", "gray", "solid"],
+          },
+          {
+            name: "ico-extension-webp",
+            styles: ["file"],
+            colors: ["", "gray", "solid"],
+          },
+          {
+            name: "ico-extension-tiff",
+            styles: ["file"],
+            colors: ["", "gray", "solid"],
+          },
+          {
+            name: "ico-extension-gif",
+            styles: ["file"],
+            colors: ["", "gray", "solid"],
+          },
+          {
+            name: "ico-extension-svg",
+            styles: ["file"],
+            colors: ["", "gray", "solid"],
+          },
+          {
+            name: "ico-extension-eps",
+            styles: ["file"],
+            colors: ["", "gray", "solid"],
+          },
+
+          // Document
+          {
+            name: "ico-extension-pdf",
+            styles: ["file"],
+            colors: ["", "gray", "solid"],
+          },
+          {
+            name: "ico-extension-doc",
+            styles: ["file"],
+            colors: ["", "gray", "solid"],
+          },
+          {
+            name: "ico-extension-docx",
+            styles: ["file"],
+            colors: ["", "gray", "solid"],
+          },
+          {
+            name: "ico-extension-txt",
+            styles: ["file"],
+            colors: ["", "gray", "solid"],
+          },
+          {
+            name: "ico-extension-csv",
+            styles: ["file"],
+            colors: ["", "gray", "solid"],
+          },
+          {
+            name: "ico-extension-xls",
+            styles: ["file"],
+            colors: ["", "gray", "solid"],
+          },
+          {
+            name: "ico-extension-xlsx",
+            styles: ["file"],
+            colors: ["", "gray", "solid"],
+          },
+          {
+            name: "ico-extension-ppt",
+            styles: ["file"],
+            colors: ["", "gray", "solid"],
+          },
+          {
+            name: "ico-extension-pptx",
+            styles: ["file"],
+            colors: ["", "gray", "solid"],
+          },
+          // Design
+          {
+            name: "ico-extension-fig",
+            styles: ["file"],
+            colors: ["", "gray", "solid"],
+          },
+          {
+            name: "ico-extension-ai",
+            styles: ["file"],
+            colors: ["", "gray", "solid"],
+          },
+          {
+            name: "ico-extension-psd",
+            styles: ["file"],
+            colors: ["", "gray", "solid"],
+          },
+          {
+            name: "ico-extension-indd",
+            styles: ["file"],
+            colors: ["", "gray", "solid"],
+          },
+          {
+            name: "ico-extension-aep",
+            styles: ["file"],
+            colors: ["", "gray", "solid"],
+          },
+
+          // Media
+          {
+            name: "ico-extension-mp3",
+            styles: ["file"],
+            colors: ["", "gray", "solid"],
+          },
+          {
+            name: "ico-extension-wav",
+            styles: ["file"],
+            colors: ["", "gray", "solid"],
+          },
+          {
+            name: "ico-extension-mp4",
+            styles: ["file"],
+            colors: ["", "gray", "solid"],
+          },
+          {
+            name: "ico-extension-mpeg",
+            styles: ["file"],
+            colors: ["", "gray", "solid"],
+          },
+          {
+            name: "ico-extension-avi",
+            styles: ["file"],
+            colors: ["", "gray", "solid"],
+          },
+          {
+            name: "ico-extension-mkv",
+            styles: ["file"],
+            colors: ["", "gray", "solid"],
+          },
+
+          // Development
+          {
+            name: "ico-extension-html",
+            styles: ["file"],
+            colors: ["", "gray", "solid"],
+          },
+          {
+            name: "ico-extension-css",
+            styles: ["file"],
+            colors: ["", "gray", "solid"],
+          },
+          {
+            name: "ico-extension-rss",
+            styles: ["file"],
+            colors: ["", "gray", "solid"],
+          },
+          {
+            name: "ico-extension-sql",
+            styles: ["file"],
+            colors: ["", "gray", "solid"],
+          },
+          {
+            name: "ico-extension-js",
+            styles: ["file"],
+            colors: ["", "gray", "solid"],
+          },
+          {
+            name: "ico-extension-json",
+            styles: ["file"],
+            colors: ["", "gray", "solid"],
+          },
+          {
+            name: "ico-extension-java",
+            styles: ["file"],
+            colors: ["", "gray", "solid"],
+          },
+          {
+            name: "ico-extension-xml",
+            styles: ["file"],
+            colors: ["", "gray", "solid"],
+          },
+          {
+            name: "ico-extension-exe",
+            styles: ["file"],
+            colors: ["", "gray", "solid"],
+          },
+          {
+            name: "ico-extension-dmg",
+            styles: ["file"],
+            colors: ["", "gray", "solid"],
+          },
+
+          // Archive
+          {
+            name: "ico-extension-zip",
+            styles: ["file"],
+            colors: ["", "gray", "solid"],
+          },
+          {
+            name: "ico-extension-rar",
+            styles: ["file"],
+            colors: ["", "gray", "solid"],
+          },
+          /* ETC 카테고리 */
           { name: "ico-government", styles: ["etc"] },
         ];
 
@@ -815,6 +1110,11 @@
           const defaultStyle = item.styles.length > 0 ? item.styles[0] : "";
           const styleClass = defaultStyle ? defaultStyle + " " : "";
 
+          // 그리드 카드에 초기 적용할 클래스(colors의 첫 번째 값 사용)
+          const firstColor =
+            item.colors && item.colors.length > 0 ? item.colors[0] : "";
+          const colorClass = firstColor ? " " + firstColor : "";
+
           const card = document.createElement("div");
           card.className = "icon-item";
           card.setAttribute("data-icon", item.name);
@@ -827,7 +1127,7 @@
                   .map(
                     (style) => `
             <span class="style-badge active" data-style="${style}">
-              ${style.toUpperCase()}
+              ${badgeLabels[style] || style}
             </span>
           `,
                   )
@@ -836,7 +1136,7 @@
 
           card.innerHTML = `
             <div class="icon-wrapper">
-              <i class="ico ${styleClass}ico-size-xl ${item.name}" aria-hidden="true"></i>
+              <i class="ico ${styleClass}ico-size-xl ${item.name}${colorClass}" aria-hidden="true"></i>
             </div>
             <div class="text-area">
               <span class="icon-name">${item.name}</span>
@@ -852,7 +1152,6 @@
 
             selectedIconData = item;
             currentStyle = card.getAttribute("data-current-style");
-            currentColor = "";
 
             openSidebar();
           });
@@ -866,13 +1165,40 @@
 
           if (selectedIconData.colors && selectedIconData.colors.length > 0) {
             colorSection.style.display = "block";
+
+            // 배열의 첫 번째 항목을 기본(초기) 선택값으로 자동 지정
+            currentColor = selectedIconData.colors[0];
+
+            colorGroup.innerHTML = selectedIconData.colors
+              .map((color) => {
+                const label =
+                  color === ""
+                    ? "Default"
+                    : color === "colorFgTertiary"
+                      ? "Tertiary"
+                      : color;
+                const activeClass = color === currentColor ? "active" : "";
+                return `<button class="color-btn ${activeClass}" data-color="${color}">${label}</button>`;
+              })
+              .join("");
+
+            // 생성된 컬러/변형 버튼 클릭 이벤트 바인딩
             colorGroup.querySelectorAll(".color-btn").forEach((btn) => {
-              if (btn.getAttribute("data-color") === "")
+              btn.addEventListener("click", () => {
+                colorGroup
+                  .querySelectorAll(".color-btn")
+                  .forEach((b) => b.classList.remove("active"));
                 btn.classList.add("active");
-              else btn.classList.remove("active");
+                currentColor = btn.getAttribute("data-color");
+                updatePanelPreview(
+                  panelPreviewIcon.className.match(/ico-size-\S+/) ||
+                    "ico-size-2xl",
+                );
+              });
             });
           } else {
             colorSection.style.display = "none";
+            currentColor = "";
           }
 
           updatePanelPreview("ico-size-2xl");
@@ -891,21 +1217,6 @@
 
         panelClose.addEventListener("click", closeSidebar);
         sidebarOverlay.addEventListener("click", closeSidebar);
-
-        // 컬러 선택 버튼 이벤트
-        colorGroup.querySelectorAll(".color-btn").forEach((btn) => {
-          btn.addEventListener("click", () => {
-            colorGroup
-              .querySelectorAll(".color-btn")
-              .forEach((b) => b.classList.remove("active"));
-            btn.classList.add("active");
-            currentColor = btn.getAttribute("data-color");
-            updatePanelPreview(
-              panelPreviewIcon.className.match(/ico-size-\S+/) ||
-                "ico-size-2xl",
-            );
-          });
-        });
 
         function updatePanelPreview(sizeClass) {
           const styleStr = currentStyle ? currentStyle + " " : "";
