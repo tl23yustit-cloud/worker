@@ -27,6 +27,7 @@ const depthName = {
     rop: "원금상환",    
     import:"수입",
     fx:"FX",
+    dli:"내국신용장조회",
 
     //4depth
     rip: "상환_이자납입",
