@@ -4552,3 +4552,92 @@
 		transform: scaleX(1);
 	}
 }
+
+
+/* Loading Circle */
+.loading-progress-circle {
+	--size: 24px;
+    --stroke-width: 3px;
+    /* (24px - 3px) / 2 = 10.5px */
+    --radius: calc((var(--size) - var(--stroke-width)) / 2); 
+    /* 2 * 3.14159265 * 10.5px ≈ 65.97px */
+    --circumference: calc(2 * 3.14159265 * var(--radius));
+
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	width: var(--size);
+	height: var(--size);
+
+	.progressing-area {
+		position: relative;
+		width: var(--size);
+		height: var(--size);
+		transform: rotate(-90deg);
+
+		[class$=circle] {
+			width: var(--size);
+			height: var(--size);
+			fill: none;
+			stroke-width: var(--stroke-width);
+			cx: calc(var(--size) / 2);
+			cy: calc(var(--size) / 2);
+			r: var(--radius);
+		}
+
+		.bg-circle {
+			stroke: var(--colorGray200);
+		}
+
+		.progressing-circle {
+			stroke-linecap: round;
+			stroke: var(--colorBgPrimary);
+			stroke-dasharray: var(--circumference);
+			stroke-dashoffset: calc(var(--circumference) - (var(--circumference) * var(--percent)) / 100);
+			animation: progressFadeIn 1.2s ease-out forwards;
+		}
+	}
+
+	.progressing-success,
+	.progressing-fail {
+		display: none;
+		width: var(--size);
+		height: var(--size);
+		fill: none;
+	}
+
+	&.is-success {
+
+		.progressing-area,
+		.progressing-fail {
+			display: none;
+		}
+
+		.progressing-success {
+			display: block;
+		}
+	}
+
+	&.is-fail {
+
+		.progressing-area,
+		.progressing-success {
+			display: none;
+		}
+
+		.progressing-fail {
+			display: block;
+		}
+	}
+}
+
+@keyframes progressFadeIn {
+	from {
+		stroke-dashoffset: var(--circumference);
+	}
+
+	to {
+		stroke-dashoffset: calc(var(--circumference) - (var(--circumference) * var(--percent)) / 100);
+	}
+}
