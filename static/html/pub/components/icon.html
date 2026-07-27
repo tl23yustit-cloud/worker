@@ -43,6 +43,7 @@
         max-width: 1400px;
         margin: 0 auto 20px auto;
         gap: 8px;
+        flex-wrap: wrap;
       }
       .filter-btn {
         background-color: #ffffff;
@@ -140,7 +141,7 @@
         word-break: break-all;
       }
 
-      /* Style Badges (부드러운 파스텔톤 컬러 적용) */
+      /* Style Badges */
       .style-badges {
         display: flex;
         gap: 4px;
@@ -206,7 +207,7 @@
         border-color: #8b5cf6;
         font-weight: 600;
       }
-      /* Card 배지 (수정: 차분한 로즈/마젠타 톤) */
+
       .style-badge[data-style="card"] {
         background-color: #fdf2f8;
         color: #db2777;
@@ -219,7 +220,6 @@
         font-weight: 600;
       }
 
-      /* ETF 배지 (신규 추가: 상쾌한 시안/민트 톤) */
       .style-badge[data-style="etf"] {
         background-color: #ecfeff;
         color: #0891b2;
@@ -231,6 +231,7 @@
         border-color: #0891b2;
         font-weight: 600;
       }
+
       .style-badge[data-style="securities-back"] {
         background-color: #eef2ff;
         color: #4f46e5;
@@ -240,6 +241,18 @@
         background-color: #4f46e5;
         color: #ffffff;
         border-color: #4f46e5;
+        font-weight: 600;
+      }
+
+      .style-badge[data-style="securities-circle"] {
+        background-color: #f0fdf4;
+        color: #16a34a;
+        border-color: #dcfce7;
+      }
+      .style-badge[data-style="securities-circle"].active {
+        background-color: #16a34a;
+        color: #ffffff;
+        border-color: #16a34a;
         font-weight: 600;
       }
 
@@ -430,7 +443,7 @@
       <p>아이콘을 클릭하면 우측 패널에서 상세 설정 및 복사가 가능합니다.</p>
     </div>
 
-    <!-- 우측 상단 필터 버튼 영역 (Bank 추가) -->
+    <!-- 우측 상단 필터 버튼 영역 -->
     <div class="filter-container">
       <button class="filter-btn active" data-filter="all">All</button>
       <button class="filter-btn" data-filter="line">Line</button>
@@ -440,6 +453,9 @@
       <button class="filter-btn" data-filter="card">Card</button>
       <button class="filter-btn" data-filter="etf">ETF</button>
       <button class="filter-btn" data-filter="securities-back">증권</button>
+      <button class="filter-btn" data-filter="securities-circle">
+        증권(원)
+      </button>
     </div>
 
     <!-- 아이콘들이 생성될 그리드 영역 -->
@@ -495,7 +511,9 @@
 
     <script>
       document.addEventListener("DOMContentLoaded", () => {
+        // Line / Solid 개별 아이콘으로 분리 적용한 데이터
         const iconData = [
+          /* Line 전용 아이콘 */
           { name: "ico-chevron-right", styles: ["line"] },
           { name: "ico-refresh", styles: ["line"] },
           { name: "ico-plus", styles: ["line"] },
@@ -520,7 +538,7 @@
           { name: "ico-bell-ringing", styles: ["line"] },
           { name: "ico-clock-rewind", styles: ["line"] },
           { name: "ico-inbox", styles: ["line"] },
-          { name: "ico-grid", styles: ["line", "solid"] },
+          { name: "ico-grid", styles: ["line"] },
           { name: "ico-location-marker", styles: ["line"] },
           { name: "ico-copy", styles: ["line"] },
           { name: "ico-printer", styles: ["line"] },
@@ -528,7 +546,7 @@
           { name: "ico-alert-circle", styles: ["line"] },
           { name: "ico-minus", styles: ["line"] },
           { name: "ico-check", styles: ["line"] },
-          { name: "ico-home-line", styles: ["line", "solid"] },
+          { name: "ico-home-line", styles: ["line"] },
           { name: "ico-loading", styles: ["line"] },
           { name: "ico-user", styles: ["line"] },
           { name: "ico-download", styles: ["line"] },
@@ -537,70 +555,34 @@
           { name: "ico-trash", styles: ["line"] },
           { name: "ico-pause", styles: ["line"] },
           { name: "ico-arrow-up", styles: ["line"] },
-          { name: "ico-sticker-square", styles: ["line", "solid"] },
+          { name: "ico-sticker-square", styles: ["line"] },
           { name: "ico-help-circle", styles: ["line"] },
+
+          /* Solid 전용 아이콘 */
+          { name: "ico-grid", styles: ["solid"] },
+          { name: "ico-home-line", styles: ["solid"] },
+          { name: "ico-sticker-square", styles: ["solid"] },
           { name: "ico-star", styles: ["solid"] },
           { name: "ico-layout-alt", styles: ["solid"] },
           { name: "ico-shopping-bag", styles: ["solid"] },
           { name: "ico-box", styles: ["solid"] },
           { name: "ico-play", styles: ["solid"] },
-          {
-            name: "ico-facebook",
-            styles: ["sns"],
-            colors: ["", "colorFgTertiary"],
-          },
-          {
-            name: "ico-twitter",
-            styles: ["sns"],
-            colors: ["", "colorFgTertiary"],
-          },
-          {
-            name: "ico-kakao",
-            styles: ["sns"],
-            colors: ["", "colorFgTertiary"],
-          },
-          {
-            name: "ico-link",
-            styles: ["sns"],
-            colors: ["", "colorFgTertiary"],
-          },
-          {
-            name: "ico-instagram",
-            styles: ["sns"],
-            colors: ["", "colorFgTertiary"],
-          },
-          {
-            name: "ico-youtube",
-            styles: ["sns"],
-            colors: ["", "colorFgTertiary"],
-          },
-          {
-            name: "ico-naver",
-            styles: ["sns"],
-            colors: ["", "colorFgTertiary"],
-          },
-          {
-            name: "ico-blog",
-            styles: ["sns"],
-            colors: ["", "colorFgTertiary"],
-          },
-          {
-            name: "ico-pinterest",
-            styles: ["sns"],
-            colors: ["", "colorFgTertiary"],
-          },
-          {
-            name: "ico-linkedin",
-            styles: ["sns"],
-            colors: ["", "colorFgTertiary"],
-          },
-          {
-            name: "ico-tiktok",
-            styles: ["sns"],
-            colors: ["", "colorFgTertiary"],
-          },
+
+          /* SNS 카테고리 */
+          { name: "ico-facebook", styles: ["sns"], colors: ["", "colorFgTertiary"] },
+          { name: "ico-twitter", styles: ["sns"], colors: ["", "colorFgTertiary"] },
+          { name: "ico-kakao", styles: ["sns"], colors: ["", "colorFgTertiary"] },
+          { name: "ico-link", styles: ["sns"], colors: ["", "colorFgTertiary"] },
+          { name: "ico-instagram", styles: ["sns"], colors: ["", "colorFgTertiary"] },
+          { name: "ico-youtube", styles: ["sns"], colors: ["", "colorFgTertiary"] },
+          { name: "ico-naver", styles: ["sns"], colors: ["", "colorFgTertiary"] },
+          { name: "ico-blog", styles: ["sns"], colors: ["", "colorFgTertiary"] },
+          { name: "ico-pinterest", styles: ["sns"], colors: ["", "colorFgTertiary"] },
+          { name: "ico-linkedin", styles: ["sns"], colors: ["", "colorFgTertiary"] },
+          { name: "ico-tiktok", styles: ["sns"], colors: ["", "colorFgTertiary"] },
           { name: "ico-x", styles: ["sns"], colors: ["", "colorFgTertiary"] },
-          /* Bank 카테고리 전체 추가 */
+
+          /* Bank 카테고리 */
           { name: "ico-busan-gyeongnam", styles: ["bank"] },
           { name: "ico-post-office", styles: ["bank"] },
           { name: "ico-kdb", styles: ["bank"] },
@@ -628,9 +610,10 @@
           { name: "ico-kakaobank", styles: ["bank"] },
           { name: "ico-nfcf", styles: ["bank"] },
           { name: "ico-toss-bank", styles: ["bank"] },
-          { name: "ico-daol ", styles: ["bank"] },
+          { name: "ico-daol", styles: ["bank"] },
           { name: "ico-suhyup2", styles: ["bank"] },
-          { name: "ico-visa", styles: ["card"] },
+
+          /* Card 카테고리 */
           { name: "ico-visa", styles: ["card"] },
           { name: "ico-master", styles: ["card"] },
           { name: "ico-payco", styles: ["card"] },
@@ -643,6 +626,8 @@
           { name: "ico-amex", styles: ["card"] },
           { name: "ico-discover", styles: ["card"] },
           { name: "ico-samsung", styles: ["card"] },
+
+          /* ETF 카테고리 */
           { name: "ico-kodex1-etf", styles: ["etf"] },
           { name: "ico-kodex-2-etf", styles: ["etf"] },
           { name: "ico-hanaro-etf", styles: ["etf"] },
@@ -652,6 +637,8 @@
           { name: "ico-ace-etf", styles: ["etf"] },
           { name: "ico-sol-etf", styles: ["etf"] },
           { name: "ico-tiger-etf", styles: ["etf"] },
+
+          /* Securities-back 카테고리 */
           { name: "ico-shinhan-jeju", styles: ["securities-back"] },
           { name: "ico-hana", styles: ["securities-back"] },
           { name: "ico-nonghyup", styles: ["securities-back"] },
@@ -675,6 +662,28 @@
           { name: "ico-sk", styles: ["securities-back"] },
           { name: "ico-daol", styles: ["securities-back"] },
           { name: "ico-im", styles: ["securities-back"] },
+
+          /* Securities-circle 카테고리 */
+          { name: "ico-bookook", styles: ["securities-circle"] },
+          { name: "ico-shinyoung", styles: ["securities-circle"] },
+          { name: "ico-meritz", styles: ["securities-circle"] },
+          { name: "ico-heungkuk", styles: ["securities-circle"] },
+          { name: "ico-kb", styles: ["securities-circle"] },
+          { name: "ico-bnk", styles: ["securities-circle"] },
+          { name: "ico-nonghyup", styles: ["securities-circle"] },
+          { name: "ico-mirae", styles: ["securities-circle"] },
+          { name: "ico-sk", styles: ["securities-circle"] },
+          { name: "ico-kiwoom", styles: ["securities-circle"] },
+          { name: "ico-hmsec", styles: ["securities-circle"] },
+          { name: "ico-korea-asset", styles: ["securities-circle"] },
+          { name: "ico-samsung", styles: ["securities-circle"] },
+          { name: "ico-dongbu", styles: ["securities-circle"] },
+          { name: "ico-kyobo", styles: ["securities-circle"] },
+          { name: "ico-hanwha", styles: ["securities-circle"] },
+          { name: "ico-daishin", styles: ["securities-circle"] },
+          { name: "ico-truefriend", styles: ["securities-circle"] },
+          { name: "ico-eugene", styles: ["securities-circle"] },
+          { name: "ico-foss", styles: ["securities-circle"] },
         ];
 
         const sizeList = [
@@ -725,7 +734,7 @@
               ? item.styles
                   .map(
                     (style) => `
-            <span class="style-badge ${style === defaultStyle ? "active" : ""}" data-style="${style}">
+            <span class="style-badge active" data-style="${style}">
               ${style.toUpperCase()}
             </span>
           `,
@@ -744,20 +753,7 @@
           `;
 
           // 카드 클릭 시 사이드바 오픈
-          card.addEventListener("click", (e) => {
-            if (e.target.classList.contains("style-badge")) {
-              e.stopPropagation();
-              const selectedStyle = e.target.getAttribute("data-style");
-              card.setAttribute("data-current-style", selectedStyle);
-              card.querySelector(".icon-wrapper i.ico").className =
-                `ico ${selectedStyle} ico-size-xl ${item.name}`;
-              card
-                .querySelectorAll(".style-badge")
-                .forEach((b) => b.classList.remove("active"));
-              e.target.classList.add("active");
-              return;
-            }
-
+          card.addEventListener("click", () => {
             if (activeCard) activeCard.classList.remove("active");
             activeCard = card;
             card.classList.add("active");
