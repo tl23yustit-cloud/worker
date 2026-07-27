@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>수협은행</title>
+  <link rel="stylesheet" href="/static/css/reset.css" />
+  <link rel="stylesheet" href="/static/css/layout.css" />
+  <link rel="stylesheet" href="/static/css/component.css" />
+  <link rel="stylesheet" href="/static/css/common.css" />
+  <link rel="stylesheet" href="/static/css/bop.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <div id="header">
+      @@include('static/html/pub/layout/skipNavigation.html')
+      @@include('static/html/pub/layout/header_sub.html')
+    </div>
+
+    <div id="container" class="container">
+      <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+      <div id="contents">
+        <div class="content">
+          @@include('static/html/pub/layout/breadcrumb.html')
+          <div class="bop">
+            <h2 class="typeH2">
+              수입신용장 전문조회
+            </h2>
+            <div class="line-box size-xl">
+              <span class="typeLgSemibold">이용안내</span>
+              <div class="list type-dotted">
+                <ul>
+                  <li class="typeMd">
+                    인터넷으로 신청하신 수입신용장 개설/조건변경 내역을 확인할 수 있습니다.
+                  </li>
+                  <li class="typeMd">
+                    해당 서류는 거래 중반으로는 사용할 수 없습니다.
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="tbl-area">
+              <table class="table-type01">
+                <caption>
+                  수입신용장 전문조회 목록
+                </caption>
+                <colgroup>
+                  <col />
+                  <col />
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th scope="row">
+                      <span>신용장번호</span>
+                    </th>
+                    <td colspan="3">
+                      <div class="flex items-center gap-6">
+                        <input type="text" class="input size-lg wSize-md" title="" value="1" placeholder="신용장번호를 입력하세요">
+                        <button type="button" class="btn type-line-secondary size-lg">
+                          <span class="text">개설신용장검색</span>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <span>조회기간</span>
+                    </th>
+                    <td colspan="3">
+                      <div class="flex flex-column">
+                        <div class="radio-group">
+                          <span class="form-box">
+                            <input type="radio" name="SampleRadio0302_01" id="SampleRadio0302_01" class="radio-btn"
+                              checked="">
+                            <label for="SampleRadio0302_01" class="form-label">당일</label>
+
+                            <input type="radio" name="SampleRadio0302_01" id="SampleRadio0302_02" class="radio-btn">
+                            <label for="SampleRadio0302_02" class="form-label">1주일</label>
+
+                            <input type="radio" name="SampleRadio0302_01" id="SampleRadio0302_03" class="radio-btn">
+                            <label for="SampleRadio0302_03" class="form-label">1개월</label>
+                            <input type="radio" name="SampleRadio0302_01" id="SampleRadio0302_04" class="radio-btn">
+                            <label for="SampleRadio0302_04" class="form-label">3개월</label>
+                            <input type="radio" name="SampleRadio0302_01" id="SampleRadio0302_05" class="radio-btn">
+                            <label for="SampleRadio0302_05" class="form-label">6개월</label>
+                            <input type="radio" name="SampleRadio0302_01" id="SampleRadio0302_06" class="radio-btn">
+                            <label for="SampleRadio0302_06" class="form-label">12개월</label>
+                          </span>
+                        </div>
+                        <div class="flex items-center mt-12 gap-10">
+                          <div class="input-box gap-10">
+                            <input type="text" class="input" placeholder="이쳬예약일" title="" aria-label="이쳬예약일"
+                              value="2026-01-06">
+                            <button type="button" class="btn">
+                              <i class="ico-calendar ico-size-smMd" aria-hidden="true"></i>
+                              <span class="blind">날짜 열기</span>
+                            </button>
+                          </div>
+                          ~
+                          <div class="input-box">
+                            <input type="text" class="input" placeholder="이쳬예약일" title="" aria-label="이쳬예약일"
+                              value="2026-01-06">
+                            <button type="button" class="btn">
+                              <i class="ico-calendar ico-size-smMd" aria-hidden="true"></i>
+                              <span class="blind">날짜 열기</span>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="btn-wrap center">
+                <button type="button" class="btn type-bg-neutral size-xl">
+                  <span class="text">조회</span>
+                </button>
+              </div>
+              <div class="tbl-head">
+                <div class="right-area"><span class="typeMd">조회기간 : 2020-01-02 ~ 2021-06-30</span></div>
+              </div>
+              <table class="table-type03 mt-8">
+                <caption>수입신용장 전문조회</caption>
+                <colgroup>
+                  <col width="80px">
+                  <col width="120px">
+                  <col width="120px">
+                  <col width="200px">
+                  <col width="300px">
+                  <col width="100px">
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th id="num" rowspan="2">번호</th>
+                    <th id="lc-num" rowspan="2">신용장번호</th>
+                    <th id="req-date">신청일자</th>
+                    <th id="currency">통화</th>
+                    <th id="notifying-bank">통지은행 (BIC CODE)</th>
+                    <th id="swift-num" rowspan="2">SWIFT<br>전문번호</th>
+                    <th id="print" rowspan="2">인쇄</th>
+                  </tr>
+                  <tr>
+                    <th id="exp-date">유효기일</th>
+                    <th id="amount">금액</th>
+                    <th id="beneficiary">수익자</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td id="row4" headers="num" rowspan="2"><span class="typeMd">4</span></td>
+                    <td id="lc-row1" headers="lc-num" rowspan="2"><span class="typeMd">M00000000001</span></td>
+                    <td headers="req-date"><span class="typeMd">2026-05-11</span></td>
+                    <td headers="currency"><span class="typeMd">USD</span></td>
+                    <td headers="notifying-bank"><span class="typeMd">ANKCO MUNNICIPAL</span></td>
+                    <td headers="swift-num" rowspan="2"><span class="typeMd">M0000</span></td>
+                    <td headers="print" rowspan="2">
+                      <button type="button" class="btn type-line-primary size-sm">
+                        <span class="text">내역서발급</span>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td headers="exp-date"><span class="typeMd">2026-05-11</span></td>
+                    <td headers="amount" class="text-right"><span class="typeMd">+ 100,000</span></td>
+                    <td headers="beneficiary"><span class="typeMd">ANKCO MUNNICIPAL DE LOSARIO</span></td>
+                  </tr>
+                </tbody>
+              </table>
+              <nav class="pagination size-md" aria-label="페이지네이션">
+                <button type="button" class="btn-nav first" disabled="" aria-disabled="true" aria-label="첫 페이지">
+                  <span class="blind">첫 페이지</span>
+                </button>
+                <button type="button" class="btn-nav prev" disabled="" aria-disabled="true" aria-label="이전 페이지">
+                  <span class="blind">이전 페이지</span>
+                </button>
+
+                <ol class="list-pagination">
+                  <li>
+                    <button type="button" class="btn-page active" aria-current="page" aria-label="1페이지">
+                      1
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button" class="btn-page" aria-label="2페이지">
+                      2
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button" class="btn-page" aria-label="3페이지">
+                      3
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button" class="btn-page" aria-label="4페이지">
+                      4
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button" class="btn-page" aria-label="5페이지">
+                      5
+                    </button>
+                  </li>
+                </ol>
+
+                <button type="button" class="btn-nav next" aria-label="다음 페이지">
+                  <span class="blind">다음 페이지</span>
+                </button>
+                <button type="button" class="btn-nav last" aria-label="마지막 페이지">
+                  <span class="blind">마지막 페이지</span>
+                </button>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+    </div>
+    <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+  </div>
+  <script src="/static/js/ui/cib_ui_common.js"></script>
+</body>
+
+</html>

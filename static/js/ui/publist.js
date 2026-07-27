@@ -28,6 +28,7 @@ const depthName = {
     import:"수입",
     fx:"FX",
     dli:"내국신용장조회",
+    pom:"상품성 신탁 운용방법 및 소수율 현황",
 
     //4depth
     rip: "상환_이자납입",
