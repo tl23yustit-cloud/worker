@@ -10113,97 +10113,724 @@
 
             <!-- Progress -->
             <div class="prototype-group">
-              <h2 class="prototype-group-title01" id="contentProgress">
-                Progress
-              </h2>
+              <h2 class="prototype-group-title01" id="contentProgress">Progress</h2>
               <div class="prototype-group-sub">
-                <h3 class="prototype-group-title02">Small</h3>
+                <h3 class="prototype-group-title02">Loading Circle (Determinate Progress Circle)</h3>
                 <div class="prototype-view">
-                  <div id="myProgressBar" class="loading-progress-bar size-sm">
-                    <div class="box-text">
-                      <span class="title-progress typeSmSemibold">$Progress Label$</span>
-                      <span class="percent typeSmSemibold"><span class="num">20</span>%</span>
-                    </div>
-                    <div class="bg-progress-bar" aria-hidden="true">
-                      <span class="progress-gauge" aria-hidden="true" style="width: 20%;"></span>
-                    </div>
-                    <div class="box-text">
-                      <span class="message type2XsSemibold">로딩중...</span>
-                      <i class="ico-status" aria-hidden="true"></i>
-                    </div>
+                  <div class="prototype-box-table">
+                    <table class="prototype-table">
+                      <caption>상태로 구분한 Progress Circle의 설명표</caption>
+                      <colgroup>
+                        <col>
+                        <col>
+                        <col>
+                        <col>
+                      </colgroup>
+                      <thead>
+                        <tr>
+                          <th scope="col"></th>
+                          <th scope="col">Active</th>
+                          <th scope="col">Success</th>
+                          <th scope="col">Error</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">Progress Circle</th>
+                          <td>
+                            <div class="loading-progress-circle">
+                              <!-- 진행중 -->
+                              <svg class="progressing-area" id="circleLoading">
+                                <circle class="bg-circle"></circle>
+                                <circle id="progress-circle" class="progressing-circle" style="--percent: 75;"></circle>
+                              </svg>
+                              <!-- 성공 -->
+                              <svg class="progressing-success">
+                                <path
+                                  d="M12 1.5C13.3789 1.5 14.7443 1.77159 16.0182 2.29927C17.2921 2.82694 18.4496 3.60036 19.4246 4.57538C20.3996 5.55039 21.1731 6.70791 21.7007 7.98183C22.2284 9.25574 22.5 10.6211 22.5 12C22.5 13.3789 22.2284 14.7443 21.7007 16.0182C21.1731 17.2921 20.3996 18.4496 19.4246 19.4246C18.4496 20.3996 17.2921 21.1731 16.0182 21.7007C14.7443 22.2284 13.3789 22.5 12 22.5C10.6211 22.5 9.25574 22.2284 7.98182 21.7007C6.7079 21.1731 5.55039 20.3996 4.57538 19.4246C3.60036 18.4496 2.82694 17.2921 2.29926 16.0182C1.77159 14.7443 1.5 13.3789 1.5 12C1.5 10.6211 1.77159 9.25574 2.29927 7.98182C2.82694 6.7079 3.60037 5.55039 4.57538 4.57537C5.5504 3.60036 6.70791 2.82694 7.98183 2.29926C9.25575 1.77159 10.6211 1.5 12 1.5L12 1.5Z"
+                                  stroke="#DEE1E8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                                <path
+                                  d="M12 1.5C13.3789 1.5 14.7443 1.77159 16.0182 2.29927C17.2921 2.82694 18.4496 3.60036 19.4246 4.57538C20.3996 5.55039 21.1731 6.70791 21.7007 7.98183C22.2284 9.25574 22.5 10.6211 22.5 12C22.5 13.3789 22.2284 14.7443 21.7007 16.0182C21.1731 17.2921 20.3996 18.4496 19.4246 19.4246C18.4496 20.3996 17.2921 21.1731 16.0182 21.7007C14.7443 22.2284 13.3789 22.5 12 22.5C10.6211 22.5 9.25574 22.2284 7.98182 21.7007C6.7079 21.1731 5.55039 20.3996 4.57538 19.4246C3.60036 18.4496 2.82694 17.2921 2.29926 16.0182C1.77159 14.7443 1.5 13.3789 1.5 12C1.5 10.6211 1.77159 9.25574 2.29927 7.98182C2.82694 6.7079 3.60037 5.55039 4.57538 4.57537C5.5504 3.60036 6.70791 2.82694 7.98183 2.29926C9.25575 1.77159 10.6211 1.5 12 1.5L12 1.5Z"
+                                  stroke="#008447" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M17.8047 7.52876C18.0651 7.78911 18.0651 8.21122 17.8047 8.47157L10.4714 15.8049C10.2111 16.0653 9.78894 16.0653 9.5286 15.8049L6.19526 12.4716C5.93491 12.2112 5.93491 11.7891 6.19526 11.5288C6.45561 11.2684 6.87772 11.2684 7.13807 11.5288L10 14.3907L16.8619 7.52876C17.1223 7.26841 17.5444 7.26841 17.8047 7.52876Z"
+                                  fill="#008447" />
+                              </svg>
+                              <!-- 실패 -->
+                              <svg class="progressing-fail">
+                                <path
+                                  d="M12 1.5C13.3789 1.5 14.7443 1.77159 16.0182 2.29927C17.2921 2.82694 18.4496 3.60036 19.4246 4.57538C20.3996 5.55039 21.1731 6.70791 21.7007 7.98183C22.2284 9.25574 22.5 10.6211 22.5 12C22.5 13.3789 22.2284 14.7443 21.7007 16.0182C21.1731 17.2921 20.3996 18.4496 19.4246 19.4246C18.4496 20.3996 17.2921 21.1731 16.0182 21.7007C14.7443 22.2284 13.3789 22.5 12 22.5C10.6211 22.5 9.25574 22.2284 7.98182 21.7007C6.7079 21.1731 5.55039 20.3996 4.57538 19.4246C3.60036 18.4496 2.82694 17.2921 2.29926 16.0182C1.77159 14.7443 1.5 13.3789 1.5 12C1.5 10.6211 1.77159 9.25574 2.29927 7.98182C2.82694 6.7079 3.60037 5.55039 4.57538 4.57537C5.5504 3.60036 6.70791 2.82694 7.98183 2.29926C9.25575 1.77159 10.6211 1.5 12 1.5L12 1.5Z"
+                                  stroke="#DEE1E8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                                <path
+                                  d="M12 1.5C13.3789 1.5 14.7443 1.77159 16.0182 2.29927C17.2921 2.82694 18.4496 3.60036 19.4246 4.57538C20.3996 5.55039 21.1731 6.70791 21.7007 7.98183C22.2284 9.25574 22.5 10.6211 22.5 12C22.5 13.3789 22.2284 14.7443 21.7007 16.0182C21.1731 17.2921 20.3996 18.4496 19.4246 19.4246C18.4496 20.3996 17.2921 21.1731 16.0182 21.7007C14.7443 22.2284 13.3789 22.5 12 22.5C10.6211 22.5 9.25574 22.2284 7.98182 21.7007C6.7079 21.1731 5.55039 20.3996 4.57538 19.4246C3.60036 18.4496 2.82694 17.2921 2.29926 16.0182C1.77159 14.7443 1.5 13.3789 1.5 12C1.5 10.6211 1.77159 9.25574 2.29927 7.98182C2.82694 6.7079 3.60037 5.55039 4.57538 4.57537C5.5504 3.60036 6.70791 2.82694 7.98183 2.29926C9.25575 1.77159 10.6211 1.5 12 1.5L12 1.5Z"
+                                  stroke="#D33128" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M8.19526 8.19526C8.45561 7.93491 8.87772 7.93491 9.13807 8.19526L12 11.0572L14.8619 8.19526C15.1223 7.93491 15.5444 7.93491 15.8047 8.19526C16.0651 8.45561 16.0651 8.87772 15.8047 9.13807L12.9428 12L15.8047 14.8619C16.0651 15.1223 16.0651 15.5444 15.8047 15.8047C15.5444 16.0651 15.1223 16.0651 14.8619 15.8047L12 12.9428L9.13807 15.8047C8.87772 16.0651 8.45561 16.0651 8.19526 15.8047C7.93491 15.5444 7.93491 15.1223 8.19526 14.8619L11.0572 12L8.19526 9.13807C7.93491 8.87772 7.93491 8.45561 8.19526 8.19526Z"
+                                  fill="#D33128" />
+                              </svg>
+                              <span class="blind"><span class="num">75</span>%</span>
+                            </div>
+                            <script>
+                              const circleLoader1 = '#circleLoading'
+                              // 예시 A: 단순 수치 변경 (50% 진행)
+                              setProgressStatus(circleLoader1, 50);
+
+                              // 예시 B: 100%가 circleLoader1 자동으로 성공 클래스(.is-success)가 들어갑니다.
+                              // setProgressStatus(circleLoader1, 100); 
+
+                              // 예시 C: 에러가 발생하여 강제로 실패 아이콘을 띄우고 싶을 때
+                              // setProgressStatus(circleLoader1, 45, 'fail');
+
+                              // 예시 D: 비동기 데이터 통신(Fetch 등) 처리 시 가상 흐름
+                              /*
+                              try {
+                                const data = await getProgressData();
+                                setProgressStatus(circleLoader1, data.percentage); // 비율에 맞춰 실시간 상승 (100 도달 시 완료 처리)
+                              } catch (error) {
+                                setProgressStatus(circleLoader1, 0, 'fail'); // 에러 시 바로 실패 처리
+                              }
+                              */
+
+                              /**
+                               * 로딩 프로그레스 상태 및 수치 업데이트 함수
+                               * @param {HTMLElement|string} container - '.loading-progress-circle' 요소 자체 또는 해당 선택자
+                               * @param {number} value - 설정할 퍼센트 값 (0 ~ 100)
+                               * @param {string} [status='auto'] - 강제 상태 지정 ('progress' | 'success' | 'fail' | 'auto')
+                               */
+                              function setProgressStatus(container, value, status = 'auto') {
+                                // 1. 요소 선택 및 예외 처리
+                                const el = typeof container === 'string' ? document.querySelector(container) : container;
+                                if (!el) return;
+
+                                // 2. 수치 안전장치 (0 ~ 100 제한)
+                                const safeValue = Math.min(Math.max(value, 0), 100);
+
+                                // 3. 내부 타겟 요소들 선택
+                                const progressCircle = el.querySelector('#progress-circle');
+                                const blindArea = el.querySelector('.blind'); // .blind 전체 영역 선택
+
+                                // 4. 프로그레스 원(SVG)의 CSS 변수(--percent) 업데이트
+                                if (progressCircle) {
+                                  progressCircle.style.setProperty('--percent', safeValue);
+                                }
+
+                                // 5. 상태(클래스) 처리 제어 결정
+                                let currentStatus = status;
+                                if (status === 'auto') {
+                                  currentStatus = (safeValue === 100) ? 'success' : 'progress';
+                                }
+
+                                // 6. 상태에 맞춘 클래스 업데이트 및 .blind 텍스트 변경
+                                switch (currentStatus) {
+                                  case 'success':
+                                    el.classList.remove('is-fail');
+                                    el.classList.add('is-success');
+
+                                    // 성공 시 텍스트를 "성공"으로 변경
+                                    if (blindArea) {
+                                      blindArea.innerHTML = '성공';
+                                    }
+                                    break;
+
+                                  case 'fail':
+                                    el.classList.remove('is-success');
+                                    el.classList.add('is-fail');
+
+                                    // 실패 시 텍스트를 "실패"으로 변경
+                                    if (blindArea) {
+                                      blindArea.innerHTML = '실패';
+                                    }
+                                    break;
+
+                                  case 'progress':
+                                  default:
+                                    el.classList.remove('is-success', 'is-fail');
+
+                                    // 진행 중일 때는 다시 숫자% 구조로 환원하여 업데이트
+                                    if (blindArea) {
+                                      blindArea.innerHTML = `<span class="num">${safeValue}</span>%`;
+                                    }
+                                    break;
+                                }
+                              }
+                            </script>
+                          </td>
+                          <td>
+                            <div class="loading-progress-circle is-success">
+                              <!-- 진행중 -->
+                              <svg class="progressing-area">
+                                <circle class="bg-circle"></circle>
+                                <circle id="progress-circle" class="progressing-circle" style="--percent: 75;"></circle>
+                              </svg>
+                              <!-- 성공 -->
+                              <svg class="progressing-success">
+                                <path
+                                  d="M12 1.5C13.3789 1.5 14.7443 1.77159 16.0182 2.29927C17.2921 2.82694 18.4496 3.60036 19.4246 4.57538C20.3996 5.55039 21.1731 6.70791 21.7007 7.98183C22.2284 9.25574 22.5 10.6211 22.5 12C22.5 13.3789 22.2284 14.7443 21.7007 16.0182C21.1731 17.2921 20.3996 18.4496 19.4246 19.4246C18.4496 20.3996 17.2921 21.1731 16.0182 21.7007C14.7443 22.2284 13.3789 22.5 12 22.5C10.6211 22.5 9.25574 22.2284 7.98182 21.7007C6.7079 21.1731 5.55039 20.3996 4.57538 19.4246C3.60036 18.4496 2.82694 17.2921 2.29926 16.0182C1.77159 14.7443 1.5 13.3789 1.5 12C1.5 10.6211 1.77159 9.25574 2.29927 7.98182C2.82694 6.7079 3.60037 5.55039 4.57538 4.57537C5.5504 3.60036 6.70791 2.82694 7.98183 2.29926C9.25575 1.77159 10.6211 1.5 12 1.5L12 1.5Z"
+                                  stroke="#DEE1E8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                                <path
+                                  d="M12 1.5C13.3789 1.5 14.7443 1.77159 16.0182 2.29927C17.2921 2.82694 18.4496 3.60036 19.4246 4.57538C20.3996 5.55039 21.1731 6.70791 21.7007 7.98183C22.2284 9.25574 22.5 10.6211 22.5 12C22.5 13.3789 22.2284 14.7443 21.7007 16.0182C21.1731 17.2921 20.3996 18.4496 19.4246 19.4246C18.4496 20.3996 17.2921 21.1731 16.0182 21.7007C14.7443 22.2284 13.3789 22.5 12 22.5C10.6211 22.5 9.25574 22.2284 7.98182 21.7007C6.7079 21.1731 5.55039 20.3996 4.57538 19.4246C3.60036 18.4496 2.82694 17.2921 2.29926 16.0182C1.77159 14.7443 1.5 13.3789 1.5 12C1.5 10.6211 1.77159 9.25574 2.29927 7.98182C2.82694 6.7079 3.60037 5.55039 4.57538 4.57537C5.5504 3.60036 6.70791 2.82694 7.98183 2.29926C9.25575 1.77159 10.6211 1.5 12 1.5L12 1.5Z"
+                                  stroke="#008447" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M17.8047 7.52876C18.0651 7.78911 18.0651 8.21122 17.8047 8.47157L10.4714 15.8049C10.2111 16.0653 9.78894 16.0653 9.5286 15.8049L6.19526 12.4716C5.93491 12.2112 5.93491 11.7891 6.19526 11.5288C6.45561 11.2684 6.87772 11.2684 7.13807 11.5288L10 14.3907L16.8619 7.52876C17.1223 7.26841 17.5444 7.26841 17.8047 7.52876Z"
+                                  fill="#008447" />
+                              </svg>
+                              <!-- 실패 -->
+                              <svg class="progressing-fail">
+                                <path
+                                  d="M12 1.5C13.3789 1.5 14.7443 1.77159 16.0182 2.29927C17.2921 2.82694 18.4496 3.60036 19.4246 4.57538C20.3996 5.55039 21.1731 6.70791 21.7007 7.98183C22.2284 9.25574 22.5 10.6211 22.5 12C22.5 13.3789 22.2284 14.7443 21.7007 16.0182C21.1731 17.2921 20.3996 18.4496 19.4246 19.4246C18.4496 20.3996 17.2921 21.1731 16.0182 21.7007C14.7443 22.2284 13.3789 22.5 12 22.5C10.6211 22.5 9.25574 22.2284 7.98182 21.7007C6.7079 21.1731 5.55039 20.3996 4.57538 19.4246C3.60036 18.4496 2.82694 17.2921 2.29926 16.0182C1.77159 14.7443 1.5 13.3789 1.5 12C1.5 10.6211 1.77159 9.25574 2.29927 7.98182C2.82694 6.7079 3.60037 5.55039 4.57538 4.57537C5.5504 3.60036 6.70791 2.82694 7.98183 2.29926C9.25575 1.77159 10.6211 1.5 12 1.5L12 1.5Z"
+                                  stroke="#DEE1E8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                                <path
+                                  d="M12 1.5C13.3789 1.5 14.7443 1.77159 16.0182 2.29927C17.2921 2.82694 18.4496 3.60036 19.4246 4.57538C20.3996 5.55039 21.1731 6.70791 21.7007 7.98183C22.2284 9.25574 22.5 10.6211 22.5 12C22.5 13.3789 22.2284 14.7443 21.7007 16.0182C21.1731 17.2921 20.3996 18.4496 19.4246 19.4246C18.4496 20.3996 17.2921 21.1731 16.0182 21.7007C14.7443 22.2284 13.3789 22.5 12 22.5C10.6211 22.5 9.25574 22.2284 7.98182 21.7007C6.7079 21.1731 5.55039 20.3996 4.57538 19.4246C3.60036 18.4496 2.82694 17.2921 2.29926 16.0182C1.77159 14.7443 1.5 13.3789 1.5 12C1.5 10.6211 1.77159 9.25574 2.29927 7.98182C2.82694 6.7079 3.60037 5.55039 4.57538 4.57537C5.5504 3.60036 6.70791 2.82694 7.98183 2.29926C9.25575 1.77159 10.6211 1.5 12 1.5L12 1.5Z"
+                                  stroke="#D33128" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M8.19526 8.19526C8.45561 7.93491 8.87772 7.93491 9.13807 8.19526L12 11.0572L14.8619 8.19526C15.1223 7.93491 15.5444 7.93491 15.8047 8.19526C16.0651 8.45561 16.0651 8.87772 15.8047 9.13807L12.9428 12L15.8047 14.8619C16.0651 15.1223 16.0651 15.5444 15.8047 15.8047C15.5444 16.0651 15.1223 16.0651 14.8619 15.8047L12 12.9428L9.13807 15.8047C8.87772 16.0651 8.45561 16.0651 8.19526 15.8047C7.93491 15.5444 7.93491 15.1223 8.19526 14.8619L11.0572 12L8.19526 9.13807C7.93491 8.87772 7.93491 8.45561 8.19526 8.19526Z"
+                                  fill="#D33128" />
+                              </svg>
+                              <span class="blind">성공</span>
+                            </div>
+                          </td>
+                          <td>
+                            <div class="loading-progress-circle is-fail">
+                              <!-- 진행중 -->
+                              <svg class="progressing-area">
+                                <circle class="bg-circle"></circle>
+                                <circle id="progress-circle" class="progressing-circle" style="--percent: 75;"></circle>
+                              </svg>
+                              <!-- 성공 -->
+                              <svg class="progressing-success">
+                                <path
+                                  d="M12 1.5C13.3789 1.5 14.7443 1.77159 16.0182 2.29927C17.2921 2.82694 18.4496 3.60036 19.4246 4.57538C20.3996 5.55039 21.1731 6.70791 21.7007 7.98183C22.2284 9.25574 22.5 10.6211 22.5 12C22.5 13.3789 22.2284 14.7443 21.7007 16.0182C21.1731 17.2921 20.3996 18.4496 19.4246 19.4246C18.4496 20.3996 17.2921 21.1731 16.0182 21.7007C14.7443 22.2284 13.3789 22.5 12 22.5C10.6211 22.5 9.25574 22.2284 7.98182 21.7007C6.7079 21.1731 5.55039 20.3996 4.57538 19.4246C3.60036 18.4496 2.82694 17.2921 2.29926 16.0182C1.77159 14.7443 1.5 13.3789 1.5 12C1.5 10.6211 1.77159 9.25574 2.29927 7.98182C2.82694 6.7079 3.60037 5.55039 4.57538 4.57537C5.5504 3.60036 6.70791 2.82694 7.98183 2.29926C9.25575 1.77159 10.6211 1.5 12 1.5L12 1.5Z"
+                                  stroke="#DEE1E8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                                <path
+                                  d="M12 1.5C13.3789 1.5 14.7443 1.77159 16.0182 2.29927C17.2921 2.82694 18.4496 3.60036 19.4246 4.57538C20.3996 5.55039 21.1731 6.70791 21.7007 7.98183C22.2284 9.25574 22.5 10.6211 22.5 12C22.5 13.3789 22.2284 14.7443 21.7007 16.0182C21.1731 17.2921 20.3996 18.4496 19.4246 19.4246C18.4496 20.3996 17.2921 21.1731 16.0182 21.7007C14.7443 22.2284 13.3789 22.5 12 22.5C10.6211 22.5 9.25574 22.2284 7.98182 21.7007C6.7079 21.1731 5.55039 20.3996 4.57538 19.4246C3.60036 18.4496 2.82694 17.2921 2.29926 16.0182C1.77159 14.7443 1.5 13.3789 1.5 12C1.5 10.6211 1.77159 9.25574 2.29927 7.98182C2.82694 6.7079 3.60037 5.55039 4.57538 4.57537C5.5504 3.60036 6.70791 2.82694 7.98183 2.29926C9.25575 1.77159 10.6211 1.5 12 1.5L12 1.5Z"
+                                  stroke="#008447" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M17.8047 7.52876C18.0651 7.78911 18.0651 8.21122 17.8047 8.47157L10.4714 15.8049C10.2111 16.0653 9.78894 16.0653 9.5286 15.8049L6.19526 12.4716C5.93491 12.2112 5.93491 11.7891 6.19526 11.5288C6.45561 11.2684 6.87772 11.2684 7.13807 11.5288L10 14.3907L16.8619 7.52876C17.1223 7.26841 17.5444 7.26841 17.8047 7.52876Z"
+                                  fill="#008447" />
+                              </svg>
+                              <!-- 실패 -->
+                              <svg class="progressing-fail">
+                                <path
+                                  d="M12 1.5C13.3789 1.5 14.7443 1.77159 16.0182 2.29927C17.2921 2.82694 18.4496 3.60036 19.4246 4.57538C20.3996 5.55039 21.1731 6.70791 21.7007 7.98183C22.2284 9.25574 22.5 10.6211 22.5 12C22.5 13.3789 22.2284 14.7443 21.7007 16.0182C21.1731 17.2921 20.3996 18.4496 19.4246 19.4246C18.4496 20.3996 17.2921 21.1731 16.0182 21.7007C14.7443 22.2284 13.3789 22.5 12 22.5C10.6211 22.5 9.25574 22.2284 7.98182 21.7007C6.7079 21.1731 5.55039 20.3996 4.57538 19.4246C3.60036 18.4496 2.82694 17.2921 2.29926 16.0182C1.77159 14.7443 1.5 13.3789 1.5 12C1.5 10.6211 1.77159 9.25574 2.29927 7.98182C2.82694 6.7079 3.60037 5.55039 4.57538 4.57537C5.5504 3.60036 6.70791 2.82694 7.98183 2.29926C9.25575 1.77159 10.6211 1.5 12 1.5L12 1.5Z"
+                                  stroke="#DEE1E8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                                <path
+                                  d="M12 1.5C13.3789 1.5 14.7443 1.77159 16.0182 2.29927C17.2921 2.82694 18.4496 3.60036 19.4246 4.57538C20.3996 5.55039 21.1731 6.70791 21.7007 7.98183C22.2284 9.25574 22.5 10.6211 22.5 12C22.5 13.3789 22.2284 14.7443 21.7007 16.0182C21.1731 17.2921 20.3996 18.4496 19.4246 19.4246C18.4496 20.3996 17.2921 21.1731 16.0182 21.7007C14.7443 22.2284 13.3789 22.5 12 22.5C10.6211 22.5 9.25574 22.2284 7.98182 21.7007C6.7079 21.1731 5.55039 20.3996 4.57538 19.4246C3.60036 18.4496 2.82694 17.2921 2.29926 16.0182C1.77159 14.7443 1.5 13.3789 1.5 12C1.5 10.6211 1.77159 9.25574 2.29927 7.98182C2.82694 6.7079 3.60037 5.55039 4.57538 4.57537C5.5504 3.60036 6.70791 2.82694 7.98183 2.29926C9.25575 1.77159 10.6211 1.5 12 1.5L12 1.5Z"
+                                  stroke="#D33128" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M8.19526 8.19526C8.45561 7.93491 8.87772 7.93491 9.13807 8.19526L12 11.0572L14.8619 8.19526C15.1223 7.93491 15.5444 7.93491 15.8047 8.19526C16.0651 8.45561 16.0651 8.87772 15.8047 9.13807L12.9428 12L15.8047 14.8619C16.0651 15.1223 16.0651 15.5444 15.8047 15.8047C15.5444 16.0651 15.1223 16.0651 14.8619 15.8047L12 12.9428L9.13807 15.8047C8.87772 16.0651 8.45561 16.0651 8.19526 15.8047C7.93491 15.5444 7.93491 15.1223 8.19526 14.8619L11.0572 12L8.19526 9.13807C7.93491 8.87772 7.93491 8.45561 8.19526 8.19526Z"
+                                  fill="#D33128" />
+                              </svg>
+                              <span class="blind">실패</span>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
                   </div>
                 </div>
-
-                <div class="prototype-group-sub">
-                  <h3 class="prototype-group-title02">Medium</h3>
-                  <div class="prototype-view">
-                    <div id="myProgressBar" class="loading-progress-bar size-md">
-                      <div class="box-text">
-                        <span class="title-progress typeMdSemibold">$Progress Label$</span>
-                        <span class="percent typeMdSemibold"><span class="num">50</span>%</span>
-                      </div>
-                      <div class="bg-progress-bar" aria-hidden="true">
-                        <span class="progress-gauge" aria-hidden="true" style="width: 50%;"></span>
-                      </div>
-                      <div class="box-text">
-                        <span class="message typeSm">로딩중...</span>
-                        <i class="ico-status" aria-hidden="true"></i>
-                      </div>
+                <div class="prototype-code">
+                  <div class="options">
+                    <button type="button" class="btn-copy">
+                      <span>copy</span>
+                    </button>
+                    <div class="toast-copy">
+                      <span>copied!</span>
                     </div>
                   </div>
+                  <div class="prototype-code-box">
+                    <textarea readonly>
+                        <div class="loading-progress-circle">
+                          <!-- 진행중 -->
+                          <svg class="progressing-area" id="circleLoading">
+                            <circle class="bg-circle"></circle> 
+                            <circle id="progress-circle" class="progressing-circle" style="--percent: 75;"></circle>
+                          </svg>
+                          <!-- 성공 -->
+                          <svg class="progressing-success">
+                            <path d="M12 1.5C13.3789 1.5 14.7443 1.77159 16.0182 2.29927C17.2921 2.82694 18.4496 3.60036 19.4246 4.57538C20.3996 5.55039 21.1731 6.70791 21.7007 7.98183C22.2284 9.25574 22.5 10.6211 22.5 12C22.5 13.3789 22.2284 14.7443 21.7007 16.0182C21.1731 17.2921 20.3996 18.4496 19.4246 19.4246C18.4496 20.3996 17.2921 21.1731 16.0182 21.7007C14.7443 22.2284 13.3789 22.5 12 22.5C10.6211 22.5 9.25574 22.2284 7.98182 21.7007C6.7079 21.1731 5.55039 20.3996 4.57538 19.4246C3.60036 18.4496 2.82694 17.2921 2.29926 16.0182C1.77159 14.7443 1.5 13.3789 1.5 12C1.5 10.6211 1.77159 9.25574 2.29927 7.98182C2.82694 6.7079 3.60037 5.55039 4.57538 4.57537C5.5504 3.60036 6.70791 2.82694 7.98183 2.29926C9.25575 1.77159 10.6211 1.5 12 1.5L12 1.5Z" stroke="#DEE1E8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 1.5C13.3789 1.5 14.7443 1.77159 16.0182 2.29927C17.2921 2.82694 18.4496 3.60036 19.4246 4.57538C20.3996 5.55039 21.1731 6.70791 21.7007 7.98183C22.2284 9.25574 22.5 10.6211 22.5 12C22.5 13.3789 22.2284 14.7443 21.7007 16.0182C21.1731 17.2921 20.3996 18.4496 19.4246 19.4246C18.4496 20.3996 17.2921 21.1731 16.0182 21.7007C14.7443 22.2284 13.3789 22.5 12 22.5C10.6211 22.5 9.25574 22.2284 7.98182 21.7007C6.7079 21.1731 5.55039 20.3996 4.57538 19.4246C3.60036 18.4496 2.82694 17.2921 2.29926 16.0182C1.77159 14.7443 1.5 13.3789 1.5 12C1.5 10.6211 1.77159 9.25574 2.29927 7.98182C2.82694 6.7079 3.60037 5.55039 4.57538 4.57537C5.5504 3.60036 6.70791 2.82694 7.98183 2.29926C9.25575 1.77159 10.6211 1.5 12 1.5L12 1.5Z" stroke="#008447" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M17.8047 7.52876C18.0651 7.78911 18.0651 8.21122 17.8047 8.47157L10.4714 15.8049C10.2111 16.0653 9.78894 16.0653 9.5286 15.8049L6.19526 12.4716C5.93491 12.2112 5.93491 11.7891 6.19526 11.5288C6.45561 11.2684 6.87772 11.2684 7.13807 11.5288L10 14.3907L16.8619 7.52876C17.1223 7.26841 17.5444 7.26841 17.8047 7.52876Z" fill="#008447"/>
+                          </svg>
+                          <!-- 실패 -->
+                          <svg class="progressing-fail">
+                            <path d="M12 1.5C13.3789 1.5 14.7443 1.77159 16.0182 2.29927C17.2921 2.82694 18.4496 3.60036 19.4246 4.57538C20.3996 5.55039 21.1731 6.70791 21.7007 7.98183C22.2284 9.25574 22.5 10.6211 22.5 12C22.5 13.3789 22.2284 14.7443 21.7007 16.0182C21.1731 17.2921 20.3996 18.4496 19.4246 19.4246C18.4496 20.3996 17.2921 21.1731 16.0182 21.7007C14.7443 22.2284 13.3789 22.5 12 22.5C10.6211 22.5 9.25574 22.2284 7.98182 21.7007C6.7079 21.1731 5.55039 20.3996 4.57538 19.4246C3.60036 18.4496 2.82694 17.2921 2.29926 16.0182C1.77159 14.7443 1.5 13.3789 1.5 12C1.5 10.6211 1.77159 9.25574 2.29927 7.98182C2.82694 6.7079 3.60037 5.55039 4.57538 4.57537C5.5504 3.60036 6.70791 2.82694 7.98183 2.29926C9.25575 1.77159 10.6211 1.5 12 1.5L12 1.5Z" stroke="#DEE1E8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 1.5C13.3789 1.5 14.7443 1.77159 16.0182 2.29927C17.2921 2.82694 18.4496 3.60036 19.4246 4.57538C20.3996 5.55039 21.1731 6.70791 21.7007 7.98183C22.2284 9.25574 22.5 10.6211 22.5 12C22.5 13.3789 22.2284 14.7443 21.7007 16.0182C21.1731 17.2921 20.3996 18.4496 19.4246 19.4246C18.4496 20.3996 17.2921 21.1731 16.0182 21.7007C14.7443 22.2284 13.3789 22.5 12 22.5C10.6211 22.5 9.25574 22.2284 7.98182 21.7007C6.7079 21.1731 5.55039 20.3996 4.57538 19.4246C3.60036 18.4496 2.82694 17.2921 2.29926 16.0182C1.77159 14.7443 1.5 13.3789 1.5 12C1.5 10.6211 1.77159 9.25574 2.29927 7.98182C2.82694 6.7079 3.60037 5.55039 4.57538 4.57537C5.5504 3.60036 6.70791 2.82694 7.98183 2.29926C9.25575 1.77159 10.6211 1.5 12 1.5L12 1.5Z" stroke="#D33128" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M8.19526 8.19526C8.45561 7.93491 8.87772 7.93491 9.13807 8.19526L12 11.0572L14.8619 8.19526C15.1223 7.93491 15.5444 7.93491 15.8047 8.19526C16.0651 8.45561 16.0651 8.87772 15.8047 9.13807L12.9428 12L15.8047 14.8619C16.0651 15.1223 16.0651 15.5444 15.8047 15.8047C15.5444 16.0651 15.1223 16.0651 14.8619 15.8047L12 12.9428L9.13807 15.8047C8.87772 16.0651 8.45561 16.0651 8.19526 15.8047C7.93491 15.5444 7.93491 15.1223 8.19526 14.8619L11.0572 12L8.19526 9.13807C7.93491 8.87772 7.93491 8.45561 8.19526 8.19526Z" fill="#D33128"/>
+                          </svg>
+                          <span class="blind"><span class="num">75</span>%</span>
+                        </div>
+                        <script>
+                          const circleLoader = '#circleLoading'
+                          // 예시 A: 단순 수치 변경 (50% 진행)
+                          setProgressStatus(circleLoader, 50);
 
-                  <div class="prototype-group-sub">
-                    <h3 class="prototype-group-title02">Large</h3>
-                    <div class="prototype-view">
-                      <div id="myProgressBar" class="loading-progress-bar size-lg">
-                        <div class="box-text">
-                          <span class="title-progress typeLgSemibold">$Progress Label$</span>
-                          <span class="percent typeLgSemibold"><span class="num">80</span>%</span>
-                        </div>
-                        <div class="bg-progress-bar" aria-hidden="true">
-                          <span class="progress-gauge" aria-hidden="true" style="width: 80%;"></span>
-                        </div>
-                        <div class="box-text">
-                          <span class="message typeMd">로딩중...</span>
-                          <i class="ico-status" aria-hidden="true"></i>
-                        </div>
-                      </div>
-                    </div>
+                          // 예시 B: 100%가 circleLoader 자동으로 성공 클래스(.is-success)가 들어갑니다.
+                          // setProgressStatus(circleLoader, 100); 
 
-                    <p class="prototype-code-description">
-                      class="loading-progress-bar size-" 뒤 sm / md / lg 로 사이즈 변경
-                    </p>
-                    <div class="prototype-code">
-                      <div class="options">
-                        <button type="button" class="btn-copy">
-                          <span>copy</span>
-                        </button>
-                        <div class="toast-copy">
-                          <span>copied!</span>
-                        </div>
-                      </div>
-                      <div class="prototype-code-box">
-                        <textarea readonly>
-                    <div id="myProgressBar" class="loading-progress-bar size-md">
-                      <div class="box-text">
-                        <span class="title-progress typeMdSemibold">$Progress Label$</span>
-                        <span class="percent typeMdSemibold"><span class="num">50</span>%</span>
-                      </div>
-                      <div class="bg-progress-bar" aria-hidden="true">
-                        <span class="progress-gauge" aria-hidden="true" style="width: 50%;"></span>
-                      </div>
-                      <div class="box-text">
-                        <span class="message typeSm">로딩중...</span>
-                        <i class="ico-status" aria-hidden="true"></i>
-                      </div>
+                          // 예시 C: 에러가 발생하여 강제로 실패 아이콘을 띄우고 싶을 때
+                          // setProgressStatus(circleLoader, 45, 'fail');
 
+                          // 예시 D: 비동기 데이터 통신(Fetch 등) 처리 시 가상 흐름
+                          /*
+                          try {
+                            const data = await getProgressData();
+                            setProgressStatus(circleLoader, data.percentage); // 비율에 맞춰 실시간 상승 (100 도달 시 완료 처리)
+                          } catch (error) {
+                            setProgressStatus(circleLoader, 0, 'fail'); // 에러 시 바로 실패 처리
+                          }
+                          */
+
+                          /**
+                           * 로딩 프로그레스 상태 및 수치 업데이트 함수
+                           * @param {HTMLElement|string} container - '.loading-progress-circle' 요소 자체 또는 해당 선택자
+                           * @param {number} value - 설정할 퍼센트 값 (0 ~ 100)
+                           * @param {string} [status='auto'] - 강제 상태 지정 ('progress' | 'success' | 'fail' | 'auto')
+                           */
+                          function setProgressStatus(container, value, status = 'auto') {
+                            // 1. 요소 선택 및 예외 처리
+                            const el = typeof container === 'string' ? document.querySelector(container) : container;
+                            if (!el) return;
+
+                            // 2. 수치 안전장치 (0 ~ 100 제한)
+                            const safeValue = Math.min(Math.max(value, 0), 100);
+
+                            // 3. 내부 타겟 요소들 선택
+                            const progressCircle = el.querySelector('#progress-circle');
+                            const blindArea = el.querySelector('.blind'); // .blind 전체 영역 선택
+
+                            // 4. 프로그레스 원(SVG)의 CSS 변수(--percent) 업데이트
+                            if (progressCircle) {
+                              progressCircle.style.setProperty('--percent', safeValue);
+                            }
+
+                            // 5. 상태(클래스) 처리 제어 결정
+                            let currentStatus = status;
+                            if (status === 'auto') {
+                              currentStatus = (safeValue === 100) ? 'success' : 'progress';
+                            }
+
+                            // 6. 상태에 맞춘 클래스 업데이트 및 .blind 텍스트 변경
+                            switch (currentStatus) {
+                              case 'success':
+                                el.classList.remove('is-fail');
+                                el.classList.add('is-success');
+
+                                // 성공 시 텍스트를 "성공"으로 변경
+                                if (blindArea) {
+                                  blindArea.innerHTML = '성공';
+                                }
+                                break;
+
+                              case 'fail':
+                                el.classList.remove('is-success');
+                                el.classList.add('is-fail');
+
+                                // 실패 시 텍스트를 "실패"으로 변경
+                                if (blindArea) {
+                                  blindArea.innerHTML = '실패';
+                                }
+                                break;
+
+                              case 'progress':
+                              default:
+                                el.classList.remove('is-success', 'is-fail');
+
+                                // 진행 중일 때는 다시 숫자% 구조로 환원하여 업데이트
+                                if (blindArea) {
+                                  blindArea.innerHTML = `<span class="num">${safeValue}</span>%`;
+                                }
+                                break;
+                            }
+                          }
+                        </script>											
 										</textarea>
-                      </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="prototype-group-sub">
+                <h3 class="prototype-group-title02">Loading Bar (Determinate Progress Bar)</h3>
+                <div class="prototype-view">
+                  <div class="prototype-box-table">
+                    <table class="prototype-table">
+                      <caption>상태, size로 구분한 Progress Bar의 설명표</caption>
+                      <colgroup>
+                        <col>
+                        <col>
+                        <col>
+                        <col>
+                      </colgroup>
+                      <thead>
+                        <tr>
+                          <th scope="col"></th>
+                          <th scope="col">Small</th>
+                          <th scope="col">Medium</th>
+                          <th scope="col">Large</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">Default</th>
+                          <td>
+                            <div id="myProgressBar" class="loading-progress-bar size-sm">
+                              <div class="box-text">
+                                <span class="title-progress typeSmSemibold">$Progress Label$</span>
+                                <span class="percent typeSmSemibold"><span class="num">100</span>%</span>
+                              </div>
+                              <div class="bg-progress-bar" aria-hidden="true">
+                                <span class="progress-gauge" aria-hidden="true" style="width: 100%"></span>
+                              </div>
+                              <div class="box-text">
+                                <span class="message type2XsSemibold">In progress message</span>
+                                <i class="ico-status" aria-hidden="true"></i>
+                              </div>
+                            </div>
+                            <script>
+                              setProgressBar1('#myProgressBar', {
+                                percent: 75,
+                                state: 'progress',
+                                message: '로딩중...'
+                              });
+                              /**
+                               * 프로그레스 바의 상태 및 데이터를 동적으로 제어하는 함수
+                               * @param {HTMLElement|string} target - '.loading-progress-bar' 요소 또는 선택자
+                               * @param {Object} options - 설정할 옵션 객체
+                               * @param {number} [options.percent] - 진행률 수치 (0 ~ 100)
+                               * @param {string} [options.status='auto'] - 상태 지정 ('progress' | 'success' | 'fail' | 'auto')
+                               * @param {string} [options.message] - 하단 상태 메세지 (미입력 시 기본 메세지 유지)
+                               * @param {string} [options.label] - 상단 프로그레스 라벨 (미입력 시 기본 라벨 유지)
+                               */
+                              function setProgressBar1(target, options = {}) {
+                                // 1. 타겟 요소 선택
+                                const el = typeof target === 'string' ? document.querySelector(target) : target;
+                                if (!el) return;
+
+                                // 2. 기본값 세팅 및 옵션 파싱
+                                const {
+                                  percent,
+                                  status = 'auto',
+                                  message,
+                                  label
+                                } = options;
+
+                                // 3. 내부 요소 선택
+                                const gaugeEl = el.querySelector('.progress-gauge');
+                                const numEl = el.querySelector('.percent .num');
+                                const messageEl = el.querySelector('.message');
+                                const labelEl = el.querySelector('.title-progress');
+
+                                // 4. 퍼센트/게이지 너비 업데이트 (percent 값이 전달된 경우만)
+                                let safePercent = null;
+                                if (typeof percent === 'number') {
+                                  safePercent = Math.min(Math.max(percent, 0), 100); // 0~100 범위 제한
+
+                                  if (gaugeEl) {
+                                    gaugeEl.style.width = `${safePercent}%`;
+                                  }
+                                  if (numEl) {
+                                    numEl.textContent = safePercent;
+                                  }
+                                }
+
+                                // 5. 라벨 및 메세지 텍스트 변경 (옵션이 있는 경우)
+                                if (label && labelEl) {
+                                  labelEl.textContent = label;
+                                }
+                                if (message && messageEl) {
+                                  messageEl.textContent = message;
+                                }
+
+                                // 6. 상태 클래스(is-success, is-fail) 제어
+                                let currentStatus = status;
+
+                                // 'auto' 모드일 때: percent가 100이면 자동으로 success 처리
+                                if (status === 'auto' && safePercent !== null) {
+                                  currentStatus = (safePercent === 100) ? 'success' : 'progress';
+                                }
+
+                                switch (currentStatus) {
+                                  case 'success':
+                                    el.classList.remove('is-fail');
+                                    el.classList.add('is-success');
+                                    // 별도 메세지가 지정되지 않았을 때 성공 기본 메세지 적용 (선택 사항)
+                                    if (!message && messageEl) {
+                                      messageEl.textContent = 'Complete message';
+                                    }
+                                    break;
+
+                                  case 'fail':
+                                    el.classList.remove('is-success');
+                                    el.classList.add('is-fail');
+                                    // 별도 메세지가 지정되지 않았을 때 에러 기본 메세지 적용 (선택 사항)
+                                    if (!message && messageEl) {
+                                      messageEl.textContent = 'Error message';
+                                    }
+                                    break;
+
+                                  case 'progress':
+                                  default:
+                                    el.classList.remove('is-success', 'is-fail');
+                                    if (!message && messageEl) {
+                                      messageEl.textContent = 'In progress message';
+                                    }
+                                    break;
+                                }
+                              }
+                            </script>
+                          </td>
+                          <td>
+                            <div class="loading-progress-bar size-md">
+                              <div class="box-text">
+                                <span class="title-progress typeMdSemibold">$Progress Label$</span>
+                                <span class="percent typeMdSemibold"><span class="num">100</span>%</span>
+                              </div>
+                              <div class="bg-progress-bar" aria-hidden="true">
+                                <span class="progress-gauge" aria-hidden="true" style="width: 100%"></span>
+                              </div>
+                              <div class="box-text">
+                                <span class="message typeSm">In progress message</span>
+                                <i class="ico-status" aria-hidden="true"></i>
+                              </div>
+                            </div>
+                          </td>
+                          <td>
+                            <div class="loading-progress-bar size-lg">
+                              <div class="box-text">
+                                <span class="title-progress typeLgSemibold">$Progress Label$</span>
+                                <span class="percent typeLgSemibold"><span class="num">100</span>%</span>
+                              </div>
+                              <div class="bg-progress-bar" aria-hidden="true">
+                                <span class="progress-gauge" aria-hidden="true" style="width: 100%"></span>
+                              </div>
+                              <div class="box-text">
+                                <span class="message typeMd">In progress message</span>
+                                <i class="ico-status" aria-hidden="true"></i>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Success</th>
+                          <td>
+                            <div class="loading-progress-bar is-success size-sm">
+                              <div class="box-text">
+                                <span class="title-progress typeSmSemibold">$Progress Label$</span>
+                                <span class="percent typeSmSemibold"><span class="num">100</span>%</span>
+                              </div>
+                              <div class="bg-progress-bar" aria-hidden="true">
+                                <span class="progress-gauge" aria-hidden="true" style="width: 100%"></span>
+                              </div>
+                              <div class="box-text">
+                                <span class="message type2Xs">Complete message</span>
+                                <i class="ico-status" aria-hidden="true"></i>
+                              </div>
+                            </div>
+                          </td>
+                          <td>
+                            <div class="loading-progress-bar is-success size-md">
+                              <div class="box-text">
+                                <span class="title-progress typeMdSemibold">$Progress Label$</span>
+                                <span class="percent typeMdSemibold"><span class="num">100</span>%</span>
+                              </div>
+                              <div class="bg-progress-bar" aria-hidden="true">
+                                <span class="progress-gauge" aria-hidden="true" style="width: 100%"></span>
+                              </div>
+                              <div class="box-text">
+                                <span class="message typeSm">Complete message</span>
+                                <i class="ico-status" aria-hidden="true"></i>
+                              </div>
+                            </div>
+                          </td>
+                          <td>
+                            <div class="loading-progress-bar is-success size-lg">
+                              <div class="box-text">
+                                <span class="title-progress typeLgSemibold">$Progress Label$</span>
+                                <span class="percent typeLgSemibold"><span class="num">100</span>%</span>
+                              </div>
+                              <div class="bg-progress-bar" aria-hidden="true">
+                                <span class="progress-gauge" aria-hidden="true" style="width: 100%"></span>
+                              </div>
+                              <div class="box-text">
+                                <span class="message typeMd">Complete message</span>
+                                <i class="ico-status" aria-hidden="true"></i>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Fail</th>
+                          <td>
+                            <div class="loading-progress-bar is-fail size-sm">
+                              <div class="box-text">
+                                <span class="title-progress typeSmSemibold">$Progress Label$</span>
+                                <span class="percent typeSmSemibold"><span class="num">100</span>%</span>
+                              </div>
+                              <div class="bg-progress-bar" aria-hidden="true">
+                                <span class="progress-gauge" aria-hidden="true" style="width: 100%"></span>
+                              </div>
+                              <div class="box-text">
+                                <span class="message type2Xs">Error message</span>
+                                <i class="ico-status" aria-hidden="true"></i>
+                              </div>
+                            </div>
+                          </td>
+                          <td>
+                            <div class="loading-progress-bar is-fail size-md">
+                              <div class="box-text">
+                                <span class="title-progress typeMdSemibold">$Progress Label$</span>
+                                <span class="percent typeMdSemibold"><span class="num">100</span>%</span>
+                              </div>
+                              <div class="bg-progress-bar" aria-hidden="true">
+                                <span class="progress-gauge" aria-hidden="true" style="width: 100%"></span>
+                              </div>
+                              <div class="box-text">
+                                <span class="message typeSm">Error message</span>
+                                <i class="ico-status" aria-hidden="true"></i>
+                              </div>
+                            </div>
+                          </td>
+                          <td>
+                            <div class="loading-progress-bar is-fail size-lg">
+                              <div class="box-text">
+                                <span class="title-progress typeLgSemibold">$Progress Label$</span>
+                                <span class="percent typeLgSemibold"><span class="num">100</span>%</span>
+                              </div>
+                              <div class="bg-progress-bar" aria-hidden="true">
+                                <span class="progress-gauge" aria-hidden="true" style="width: 100%"></span>
+                              </div>
+                              <div class="box-text">
+                                <span class="message typeMd">Error message</span>
+                                <i class="ico-status" aria-hidden="true"></i>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="prototype-code">
+                  <div class="options">
+                    <button type="button" class="btn-copy">
+                      <span>copy</span>
+                    </button>
+                    <div class="toast-copy">
+                      <span>copied!</span>
                     </div>
                   </div>
+                  <div class="prototype-code-box">
+                    <textarea readonly>
+                        <div id="myProgressBar" class="loading-progress-bar size-sm">
+                          <div class="box-text">
+                            <span class="title-progress typeSmSemibold">$Progress Label$</span>
+                            <span class="percent typeSmSemibold"><span class="num">100</span>%</span>
+                          </div>
+                          <div class="bg-progress-bar" aria-hidden="true">
+                            <span class="progress-gauge" aria-hidden="true" style="width: 100%"></span>
+                          </div>
+                          <div class="box-text">
+                            <span class="message type2Xs">In progress message</span>
+                            <i class="ico-status" aria-hidden="true"></i>
+                          </div>
+                        </div>
+                        <script>
+                          setProgressBar('#myProgressBar', {
+                            percent: 75,
+                            state: 'progress',
+                            message: '로딩중...'
+                          });
+                          /**
+                           * 프로그레스 바의 상태 및 데이터를 동적으로 제어하는 함수
+                           * @param {HTMLElement|string} target - '.loading-progress-bar' 요소 또는 선택자
+                           * @param {Object} options - 설정할 옵션 객체
+                           * @param {number} [options.percent] - 진행률 수치 (0 ~ 100)
+                           * @param {string} [options.status='auto'] - 상태 지정 ('progress' | 'success' | 'fail' | 'auto')
+                           * @param {string} [options.message] - 하단 상태 메세지 (미입력 시 기본 메세지 유지)
+                           * @param {string} [options.label] - 상단 프로그레스 라벨 (미입력 시 기본 라벨 유지)
+                           */
+                          function setProgressBar(target, options = {}) {
+                            // 1. 타겟 요소 선택
+                            const el = typeof target === 'string' ? document.querySelector(target) : target;
+                            if (!el) return;
 
+                            // 2. 기본값 세팅 및 옵션 파싱
+                            const {
+                              percent,
+                              status = 'auto',
+                              message,
+                              label
+                            } = options;
 
+                            // 3. 내부 요소 선택
+                            const gaugeEl = el.querySelector('.progress-gauge');
+                            const numEl = el.querySelector('.percent .num');
+                            const messageEl = el.querySelector('.message');
+                            const labelEl = el.querySelector('.title-progress');
+
+                            // 4. 퍼센트/게이지 너비 업데이트 (percent 값이 전달된 경우만)
+                            let safePercent = null;
+                            if (typeof percent === 'number') {
+                              safePercent = Math.min(Math.max(percent, 0), 100); // 0~100 범위 제한
+
+                              if (gaugeEl) {
+                                gaugeEl.style.width = `${safePercent}%`;
+                              }
+                              if (numEl) {
+                                numEl.textContent = safePercent;
+                              }
+                            }
+
+                            // 5. 라벨 및 메세지 텍스트 변경 (옵션이 있는 경우)
+                            if (label && labelEl) {
+                              labelEl.textContent = label;
+                            }
+                            if (message && messageEl) {
+                              messageEl.textContent = message;
+                            }
+
+                            // 6. 상태 클래스(is-success, is-fail) 제어
+                            let currentStatus = status;
+
+                            // 'auto' 모드일 때: percent가 100이면 자동으로 success 처리
+                            if (status === 'auto' && safePercent !== null) {
+                              currentStatus = (safePercent === 100) ? 'success' : 'progress';
+                            }
+
+                            switch (currentStatus) {
+                              case 'success':
+                                el.classList.remove('is-fail');
+                                el.classList.add('is-success');
+                                // 별도 메세지가 지정되지 않았을 때 성공 기본 메세지 적용 (선택 사항)
+                                if (!message && messageEl) {
+                                  messageEl.textContent = 'Complete message';
+                                }
+                                break;
+
+                              case 'fail':
+                                el.classList.remove('is-success');
+                                el.classList.add('is-fail');
+                                // 별도 메세지가 지정되지 않았을 때 에러 기본 메세지 적용 (선택 사항)
+                                if (!message && messageEl) {
+                                  messageEl.textContent = 'Error message';
+                                }
+                                break;
+
+                              case 'progress':
+                              default:
+                                el.classList.remove('is-success', 'is-fail');
+                                if (!message && messageEl) {
+                                  messageEl.textContent = 'In progress message';
+                                }
+                                break;
+                            }
+                          }
+                        </script>											
+										</textarea>
+                  </div>
                 </div>
+              </div>
+
+            </div>
 
                 <!-- Search -->
                 <div class="prototype-group">
@@ -10473,7 +11100,7 @@
                                   </label>
                                 </span>
                                 <span class="form-chip">
-                                  <input type="checkbox" name="" id="SAMPLE0101" title="TITLE01" />
+                                  <input type="checkbox" name="" id="SAMPLE0101" title="TITLE01" />gulp
                                   <label class="chip-toggle" for="SAMPLE0101">
                                     <span class="text">Label01</span>
                                   </label>
