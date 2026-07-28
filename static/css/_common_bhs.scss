@@ -579,6 +579,62 @@ $bank-list: "kb", "shinhan", "woori", "hana", "kakaobank", "suhyup", "toss";
 				}
 			}
 		}
+
+		&-num {
+			width: 100%;
+
+			ul {
+				list-style: none;
+				counter-reset: li-counter;
+
+				li {
+					color: var(--colorFgSecondary);
+					display: flex;
+					flex-direction: row;
+					align-items: flex-start;
+					flex-wrap: wrap;
+
+					&::before {
+						counter-increment: li-counter;
+						content: counter(li-counter) ". ";
+						display: inline-block;
+					}
+
+					+li {
+						margin-top: var(--spacingXsSm);
+					}
+				}
+			}
+		}
+
+		&-text {
+			width: 100%;
+
+			ul {
+				list-style: none;
+				counter-reset: li-counter;
+
+				li {
+					color: var(--colorFgSecondary);
+					display: flex;
+					flex-direction: row;
+					align-items: flex-start;
+					flex-wrap: wrap;
+
+					&::before {
+						counter-increment: li-counter;
+						content: "(주" counter(li-counter) ") ";
+						margin-right: 6px;
+						flex-shrink: 0;
+						display: inline-block;
+					}
+
+					+li {
+						margin-top: var(--spacingXsSm);
+					}
+				}
+			}
+		}
 	}
 
 	&.size {
@@ -599,6 +655,7 @@ $bank-list: "kb", "shinhan", "woori", "hana", "kakaobank", "suhyup", "toss";
 		}
 	}
 }
+
 
 .asset-summary {
 	display: flex;
