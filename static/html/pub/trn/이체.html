@@ -8,7 +8,19 @@
     <link rel="stylesheet" href="/static/css/layout.css" />
     <link rel="stylesheet" href="/static/css/component.css" />
     <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/swiper-bundle.min.css" />
     <link rel="stylesheet" href="/static/css/trn.css" />
+    <!-- Swiper 웹 컴포넌트 전용 CDN 스크립트 적용 -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+    <style>
+      .card-swiper-container {
+        width: 100%;
+        overflow: hidden;
+      }
+      .card-swiper-container swiper-slide {
+        width: auto;
+      }
+    </style>
   </head>
 
   <body>
@@ -31,11 +43,11 @@
                 <div class="box-steps">
                   <ol class="list-steps">
                     <!-- 
-												[dev] 상태값 class 안내
-												class="item-steps" 기본 숫자 표기
-												class="item-steps passed" 완료
-												class="item-steps current" 현재
-											 -->
+                        [dev] 상태값 class 안내
+                        class="item-steps" 기본 숫자 표기
+                        class="item-steps passed" 완료
+                        class="item-steps current" 현재
+                       -->
                     <li class="item-steps current" aria-current="step">
                       <span class="blind">정보입력</span>
                       <i class="icon" aria-hidden="true">1</i>
@@ -171,7 +183,7 @@
                         title=""
                       />
                       <button
-                        type="password"
+                        type="button"
                         class="btn type-ghost-neutral size-sm flex gap-4 items-center"
                       >
                         <i class="ico ico-heart" aria-hidden="true"></i>
@@ -189,7 +201,7 @@
                             name="SampleRadio0303"
                             id="SampleRadio0303"
                             class="form-radio size-lg"
-                            checked="SampleRadio0303"
+                            checked
                           />
                           <label for="SampleRadio0303" class="form-label"
                             >일반</label
@@ -199,10 +211,10 @@
                           <input
                             type="radio"
                             name="SampleRadio0303"
-                            id="SampleRadio0303"
+                            id="SampleRadio0304"
                             class="form-radio size-lg"
                           />
-                          <label for="SampleRadio0303" class="form-label"
+                          <label for="SampleRadio0304" class="form-label"
                             >공과금</label
                           >
                         </span>
@@ -216,23 +228,23 @@
                         <span class="form-box">
                           <input
                             type="radio"
-                            name="SampleRadio0303"
-                            id="SampleRadio0303"
+                            name="SampleRadio0305"
+                            id="SampleRadio0305"
                             class="form-radio size-lg"
-                            checked="SampleRadio0303"
+                            checked
                           />
-                          <label for="SampleRadio0303" class="form-label"
+                          <label for="SampleRadio0305" class="form-label"
                             >즉시</label
                           >
                         </span>
                         <span class="form-box">
                           <input
                             type="radio"
-                            name="SampleRadio0303"
-                            id="SampleRadio0303"
+                            name="SampleRadio0305"
+                            id="SampleRadio0306"
                             class="form-radio size-lg"
                           />
-                          <label for="SampleRadio0303" class="form-label"
+                          <label for="SampleRadio0306" class="form-label"
                             >예약</label
                           >
                         </span>
@@ -242,9 +254,9 @@
                           <input
                             type="text"
                             class="input"
-                            placeholder="이쳬예약일"
+                            placeholder="이체예약일"
                             title=""
-                            aria-label="이쳬예약일"
+                            aria-label="이체예약일"
                             value="2026-01-06"
                           />
                           <button type="button" class="btn">
@@ -267,52 +279,13 @@
                             <span class="text">06시</span>
                             <span class="blind">펼침</span>
                           </button>
-                          <div id="selectDropdown01" class="box-list-select">
+                          <div id="selectDropdown02" class="box-list-select">
                             <ul
                               class="list-select"
                               role="listbox"
                               aria-label="선택 항목 리스트"
                             >
-                              <li
-                                class="item-select"
-                                role="group"
-                                aria-label="선택 항목 리스트"
-                              >
-                                <span class="form-box"> 1 </span>
-                              </li>
-                              <li
-                                class="item-select"
-                                role="group"
-                                aria-label="선택 항목 리스트"
-                              >
-                                <span class="form-box"> 1 </span>
-                              </li>
-                              <li
-                                class="item-select"
-                                role="group"
-                                aria-label="선택 항목 리스트"
-                              >
-                                <span class="form-box"> 1 </span>
-                              </li>
-                              <li
-                                class="item-select"
-                                role="group"
-                                aria-label="선택 항목 리스트"
-                              >
-                                <span class="form-box"> 1 </span>
-                              </li>
-                              <li
-                                class="item-select"
-                                role="group"
-                                aria-label="선택 항목 리스트"
-                              >
-                                <span class="form-box"> 1 </span>
-                              </li>
-                              <li
-                                class="item-select"
-                                role="group"
-                                aria-label="선택 항목 리스트"
-                              >
+                              <li class="item-select" role="group">
                                 <span class="form-box"> 1 </span>
                               </li>
                             </ul>
@@ -348,7 +321,7 @@
                                 예약이체지정일이 휴일인 경우 등록할 수
                                 없습니다.(임시 휴일로 지정된 경우 다음 영업일에
                                 이체 됩니다.)<br />
-                                이체 지정 시간 전가지 출금계좌에 인출가 능한
+                                이체 지정 시간 전까지 출금계좌에 인출 가능한
                                 잔액이 있어야 이체 가능합니다.
                               </span>
                             </div>
@@ -370,7 +343,7 @@
                     <td class="flex flex-column gap-8">
                       <div class="flex items-center gap-10">
                         <input
-                          type="input"
+                          type="text"
                           class="input size-lg wSize-lg"
                           placeholder=""
                           title=""
@@ -447,6 +420,7 @@
                   </tr>
                 </tbody>
               </table>
+
               <h4 class="typeH4">입금정보</h4>
               <div class="box-tab info-deposit py-20 px-24">
                 <ul
@@ -500,11 +474,12 @@
                       aria-selected="false"
                       aria-controls="tabPanelTypeHighlight04"
                     >
-                      <span class="text">입금지정게좌</span>
+                      <span class="text">입금지정계좌</span>
                     </button>
                   </li>
                 </ul>
-                <!-- 텝1 -->
+
+                <!-- 탭1 -->
                 <div
                   class="box-tab-content active"
                   id="tabPanelTypeHighlight01"
@@ -522,66 +497,27 @@
                             role="combobox"
                             aria-expanded="false"
                             aria-haspopup="listbox"
-                            aria-controls="selectDropdown01"
+                            aria-controls="selectDropdown03"
                           >
                             <span class="text">선택</span>
                             <span class="blind">펼침</span>
                           </button>
-                          <div id="selectDropdown01" class="box-list-select">
+                          <div id="selectDropdown03" class="box-list-select">
                             <ul
                               class="list-select"
                               role="listbox"
                               aria-label="선택 항목 리스트"
                             >
-                              <li
-                                class="item-select"
-                                role="group"
-                                aria-label="선택 항목 리스트"
-                              >
+                              <li class="item-select" role="group">
                                 <span class="form-box">
                                   보통예금 1010-27330000
                                 </span>
-                              </li>
-                              <li
-                                class="item-select"
-                                role="group"
-                                aria-label="선택 항목 리스트"
-                              >
-                                <span class="form-box"> 1 </span>
-                              </li>
-                              <li
-                                class="item-select"
-                                role="group"
-                                aria-label="선택 항목 리스트"
-                              >
-                                <span class="form-box"> 1 </span>
-                              </li>
-                              <li
-                                class="item-select"
-                                role="group"
-                                aria-label="선택 항목 리스트"
-                              >
-                                <span class="form-box"> 1 </span>
-                              </li>
-                              <li
-                                class="item-select"
-                                role="group"
-                                aria-label="선택 항목 리스트"
-                              >
-                                <span class="form-box"> 1 </span>
-                              </li>
-                              <li
-                                class="item-select"
-                                role="group"
-                                aria-label="선택 항목 리스트"
-                              >
-                                <span class="form-box"> 1 </span>
                               </li>
                             </ul>
                           </div>
                         </div>
                         <input
-                          type="input"
+                          type="text"
                           class="input size-lg wSize-lg"
                           placeholder=""
                           title=""
@@ -590,348 +526,363 @@
                       </div>
                       <div>토글 아이콘 영역 (추후작업)</div>
                     </div>
-                    <!-- 카드영역 -->
-                    <!-- 카드타입1 -->
-                    <ul class="flex mt-12 gap-12">
-                      <!-- 1번 아이템 -->
-                      <li>
-                        <div class="card-item type-1">
-                          <div class="card-inner flex gap-8">
-                            <div class="icon" aria-hidden="true">
-                              <i
-                                class="ico bank ico-size-lg ico-hana"
-                                aria-hidden="true"
-                              ></i>
-                            </div>
-                            <div class="flex flex-column gap-4 flex-1">
-                              <div
-                                class="flex justify-between items-center gap-8"
-                              >
-                                <strong class="typeH6 truncate w-188"
-                                  >글자가 긴이름이 들어갈땐 이렇게
-                                  보여요</strong
-                                >
-                              </div>
-                              <span
-                                class="typeMd"
-                                aria-label="계좌번호 1900-0419-5187"
-                                >1900-0419-5187</span
-                              >
-                              <div class="flex items-center gap-2">
-                                <span class="typeSmMedium truncate w-160"
-                                  >부모님 용돈 부모님 용돈부모님 용돈부모님
-                                  용돈부모님 용돈 많이줘야지 부모님 용돈 부모님
-                                  용돈부모님 용돈부모님 용돈부모님 용돈
-                                  많이줘야지
-                                </span>
-                                <button type="button" class="btn-edit">
-                                  <i
-                                    class="ico line ico-size-xs ico-edit colorFgNetral"
-                                    aria-hidden="true"
-                                  ></i>
-                                  <span class="blind">수정버튼</span>
-                                </button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="card-item type-1">
-                          <div class="card-inner flex gap-8">
-                            <div class="icon" aria-hidden="true">
-                              <i
-                                class="ico bank ico-size-lg ico-nonghyup"
-                                aria-hidden="true"
-                              ></i>
-                            </div>
-                            <div class="flex flex-column gap-4 flex-1">
-                              <div
-                                class="flex justify-between items-center gap-8"
-                              >
-                                <strong class="typeH6 truncate w-188"
-                                  >김수협</strong
-                                >
-                              </div>
-                              <span
-                                class="typeMd"
-                                aria-label="계좌번호 1900-0419-5187"
-                                >1900-0419-5187</span
-                              >
-                              <div class="flex items-center gap-2">
-                                <span class="typeSmMedium">부모님 용돈</span>
-                                <button type="button" class="btn-edit">
-                                  <i
-                                    class="ico line ico-size-xs ico-edit colorFgNetral"
-                                    aria-hidden="true"
-                                  ></i>
-                                  <span class="blind">수정버튼</span>
-                                </button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </li>
 
-                      <!-- 3번 아이템 -->
-                      <li>
-                        <div class="card-item type-1">
-                          <div class="card-inner flex gap-8">
-                            <div class="icon" aria-hidden="true">
-                              <i
-                                class="ico bank ico-size-lg ico-woori"
-                                aria-hidden="true"
-                              ></i>
-                            </div>
-                            <div class="flex flex-column gap-4 flex-1">
-                              <div
-                                class="flex justify-between items-center gap-8"
-                              >
-                                <strong class="typeH6 truncate w-188"
-                                  >김수협</strong
-                                >
+                    <!-- 카드 타입 1 스와이프 슬라이드 영역 -->
+                    <div class="card-swiper-container mt-12">
+                      <swiper-container
+                        space-between="12"
+                        slides-per-view="auto"
+                      >
+                        <!-- 1번 슬라이드 아이템 -->
+                        <swiper-slide>
+                          <div class="card-item type-1">
+                            <div class="card-inner flex gap-8">
+                              <div class="icon" aria-hidden="true">
+                                <i
+                                  class="ico bank ico-size-lg ico-hana"
+                                  aria-hidden="true"
+                                ></i>
                               </div>
-                              <span
-                                class="typeMd"
-                                aria-label="계좌번호 1900-0419-5187"
-                                >1900-0419-5187</span
-                              >
-                              <div class="flex items-center gap-2">
-                                <span class="typeSmMedium">부모님 용돈</span>
-                                <button type="button" class="btn-edit">
-                                  <i
-                                    class="ico line ico-size-xs ico-edit colorFgNetral"
-                                    aria-hidden="true"
-                                  ></i>
-                                  <span class="blind">수정버튼</span>
-                                </button>
+                              <div class="flex flex-column gap-4 flex-1">
+                                <div
+                                  class="flex justify-between items-center gap-8"
+                                >
+                                  <strong class="typeH6 truncate w-188"
+                                    >글자가 긴이름이 들어갈땐 이렇게
+                                    보여요</strong
+                                  >
+                                </div>
+                                <span
+                                  class="typeMd"
+                                  aria-label="계좌번호 1900-0419-5187"
+                                  >1900-0419-5187</span
+                                >
+                                <div class="flex items-center gap-2">
+                                  <span class="typeSmMedium truncate w-160"
+                                    >부모님 용돈 부모님 용돈부모님 용돈부모님
+                                    용돈부모님 용돈 많이줘야지 부모님 용돈 부모님
+                                    용돈부모님 용돈부모님 용돈부모님 용돈
+                                    많이줘야지
+                                  </span>
+                                  <button type="button" class="btn-edit">
+                                    <i
+                                      class="ico line ico-size-xs ico-edit colorFgNetral"
+                                      aria-hidden="true"
+                                    ></i>
+                                    <span class="blind">수정버튼</span>
+                                  </button>
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                      </li>
+                        </swiper-slide>
 
-                      <!-- 4번 아이템 -->
-                      <li>
-                        <div class="card-item type-1">
-                          <div class="card-inner flex gap-8">
-                            <div class="icon" aria-hidden="true">
-                              <i
-                                class="ico bank ico-size-lg ico-woori"
-                                aria-hidden="true"
-                              ></i>
-                            </div>
-                            <div class="flex flex-column gap-4 flex-1">
-                              <div
-                                class="flex justify-between items-center gap-8"
-                              >
-                                <strong class="typeH6 truncate w-188"
-                                  >김수협</strong
-                                >
+                        <!-- 2번 슬라이드 아이템 -->
+                        <swiper-slide>
+                          <div class="card-item type-1">
+                            <div class="card-inner flex gap-8">
+                              <div class="icon" aria-hidden="true">
+                                <i
+                                  class="ico bank ico-size-lg ico-nonghyup"
+                                  aria-hidden="true"
+                                ></i>
                               </div>
-                              <span
-                                class="typeMd"
-                                aria-label="계좌번호 1900-0419-5187"
-                                >1900-0419-5187</span
-                              >
-                              <div class="flex items-center gap-2">
-                                <span class="typeSmMedium">부모님 용돈</span>
-                                <button type="button" class="btn-edit">
-                                  <i
-                                    class="ico line ico-size-xs ico-edit colorFgNetral"
-                                    aria-hidden="true"
-                                  ></i>
-                                  <span class="blind">수정버튼</span>
-                                </button>
+                              <div class="flex flex-column gap-4 flex-1">
+                                <div
+                                  class="flex justify-between items-center gap-8"
+                                >
+                                  <strong class="typeH6 truncate w-188"
+                                    >김수협</strong
+                                  >
+                                </div>
+                                <span
+                                  class="typeMd"
+                                  aria-label="계좌번호 1900-0419-5187"
+                                  >1900-0419-5187</span
+                                >
+                                <div class="flex items-center gap-2">
+                                  <span class="typeSmMedium">부모님 용돈</span>
+                                  <button type="button" class="btn-edit">
+                                    <i
+                                      class="ico line ico-size-xs ico-edit colorFgNetral"
+                                      aria-hidden="true"
+                                    ></i>
+                                    <span class="blind">수정버튼</span>
+                                  </button>
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                      </li>
-                    </ul>
-                    <!-- 카드타입2 -->
-                    <ul class="flex mt-12 gap-12">
-                      <li>
-                        <div class="card-item type-2">
-                          <div class="card-inner flex gap-8">
-                            <div class="icon" aria-hidden="true">
-                              <i
-                                class="ico bank ico-size-lg ico-hana"
-                                aria-hidden="true"
-                              ></i>
-                            </div>
-                            <div class="flex flex-column gap-4 flex-1">
-                              <div
-                                class="flex justify-between items-center gap-8"
-                              >
-                                <strong class="typeH6 truncate w-160"
-                                  >글자가 긴이름이 들어갈땐 이렇게
-                                  보여요</strong
-                                >
-                                <input
-                                  type="checkbox"
-                                  name="account"
-                                  id="account01"
-                                  class="form-checkbox"
-                                />
-                              </div>
-                              <span
-                                class="typeMd"
-                                aria-label="계좌번호 1900-0419-5187"
-                                >1900-0419-5187</span
-                              >
-                              <div class="flex items-center gap-2">
-                                <span class="typeSmMedium truncate w-160"
-                                  >부모님 용돈 부모님 용돈부모님 용돈부모님
-                                  용돈부모님 용돈 많이줘야지 부모님 용돈 부모님
-                                  용돈부모님 용돈부모님 용돈부모님 용돈
-                                  많이줘야지
-                                </span>
-                                <button type="button" class="btn-edit">
-                                  <i
-                                    class="ico line ico-size-xs ico-edit colorFgNetral"
-                                    aria-hidden="true"
-                                  ></i>
-                                  <span class="blind">수정버튼</span>
-                                </button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </li>
+                        </swiper-slide>
 
-                      <!-- 2번 아이템 -->
-                      <li>
-                        <div class="card-item type-2">
-                          <div class="card-inner flex gap-8">
-                            <div class="icon" aria-hidden="true">
-                              <i
-                                class="ico bank ico-size-lg ico-nonghyup"
-                                aria-hidden="true"
-                              ></i>
-                            </div>
-                            <div class="flex flex-column gap-4 flex-1">
-                              <div
-                                class="flex justify-between items-center gap-8"
-                              >
-                                <strong class="typeH6 truncate w-160"
-                                  >김수협</strong
-                                >
-                                <input
-                                  type="checkbox"
-                                  name="account"
-                                  id="account02"
-                                  class="form-checkbox"
-                                />
+                        <!-- 3번 슬라이드 아이템 -->
+                        <swiper-slide>
+                          <div class="card-item type-1">
+                            <div class="card-inner flex gap-8">
+                              <div class="icon" aria-hidden="true">
+                                <i
+                                  class="ico bank ico-size-lg ico-woori"
+                                  aria-hidden="true"
+                                ></i>
                               </div>
-                              <span
-                                class="typeMd"
-                                aria-label="계좌번호 1900-0419-5187"
-                                >1900-0419-5187</span
-                              >
-                              <div class="flex items-center gap-2">
-                                <span class="typeSmMedium">부모님 용돈</span>
-                                <button type="button" class="btn-edit">
-                                  <i
-                                    class="ico line ico-size-xs ico-edit colorFgNetral"
-                                    aria-hidden="true"
-                                  ></i>
-                                  <span class="blind">수정버튼</span>
-                                </button>
+                              <div class="flex flex-column gap-4 flex-1">
+                                <div
+                                  class="flex justify-between items-center gap-8"
+                                >
+                                  <strong class="typeH6 truncate w-188"
+                                    >김수협</strong
+                                  >
+                                </div>
+                                <span
+                                  class="typeMd"
+                                  aria-label="계좌번호 1900-0419-5187"
+                                  >1900-0419-5187</span
+                                >
+                                <div class="flex items-center gap-2">
+                                  <span class="typeSmMedium">부모님 용돈</span>
+                                  <button type="button" class="btn-edit">
+                                    <i
+                                      class="ico line ico-size-xs ico-edit colorFgNetral"
+                                      aria-hidden="true"
+                                    ></i>
+                                    <span class="blind">수정버튼</span>
+                                  </button>
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                      </li>
+                        </swiper-slide>
 
-                      <!-- 3번 아이템 -->
-                      <li>
-                        <div class="card-item type-2">
-                          <div class="card-inner flex gap-8">
-                            <div class="icon" aria-hidden="true">
-                              <i
-                                class="ico bank ico-size-lg ico-woori"
-                                aria-hidden="true"
-                              ></i>
-                            </div>
-                            <div class="flex flex-column gap-4 flex-1">
-                              <div
-                                class="flex justify-between items-center gap-8"
-                              >
-                                <strong class="typeH6 truncate w-160"
-                                  >김수협</strong
-                                >
-                                <input
-                                  type="checkbox"
-                                  name="account"
-                                  id="account03"
-                                  class="form-checkbox"
-                                />
+                        <!-- 4번 슬라이드 아이템 -->
+                        <swiper-slide>
+                          <div class="card-item type-1">
+                            <div class="card-inner flex gap-8">
+                              <div class="icon" aria-hidden="true">
+                                <i
+                                  class="ico bank ico-size-lg ico-woori"
+                                  aria-hidden="true"
+                                ></i>
                               </div>
-                              <span
-                                class="typeMd"
-                                aria-label="계좌번호 1900-0419-5187"
-                                >1900-0419-5187</span
-                              >
-                              <div class="flex items-center gap-2">
-                                <span class="typeSmMedium">부모님 용돈</span>
-                                <button type="button" class="btn-edit">
-                                  <i
-                                    class="ico line ico-size-xs ico-edit colorFgNetral"
-                                    aria-hidden="true"
-                                  ></i>
-                                  <span class="blind">수정버튼</span>
-                                </button>
+                              <div class="flex flex-column gap-4 flex-1">
+                                <div
+                                  class="flex justify-between items-center gap-8"
+                                >
+                                  <strong class="typeH6 truncate w-188"
+                                    >김수협</strong
+                                  >
+                                </div>
+                                <span
+                                  class="typeMd"
+                                  aria-label="계좌번호 1900-0419-5187"
+                                  >1900-0419-5187</span
+                                >
+                                <div class="flex items-center gap-2">
+                                  <span class="typeSmMedium">부모님 용돈</span>
+                                  <button type="button" class="btn-edit">
+                                    <i
+                                      class="ico line ico-size-xs ico-edit colorFgNetral"
+                                      aria-hidden="true"
+                                    ></i>
+                                    <span class="blind">수정버튼</span>
+                                  </button>
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                      </li>
+                        </swiper-slide>
+                      </swiper-container>
+                    </div>
 
-                      <!-- 4번 아이템 -->
-                      <li>
-                        <div class="card-item type-2">
-                          <div class="card-inner flex gap-8">
-                            <div class="icon" aria-hidden="true">
-                              <i
-                                class="ico bank ico-size-lg ico-woori"
-                                aria-hidden="true"
-                              ></i>
-                            </div>
-                            <div class="flex flex-column gap-4 flex-1">
-                              <div
-                                class="flex justify-between items-center gap-8"
-                              >
-                                <strong class="typeH6 truncate w-160"
-                                  >김수협</strong
-                                >
-                                <input
-                                  type="checkbox"
-                                  name="account"
-                                  id="account04"
-                                  class="form-checkbox"
-                                />
+                    <!-- 카드 타입 2 스와이프 슬라이드 영역 -->
+                    <div class="card-swiper-container mt-12">
+                      <swiper-container
+                        space-between="12"
+                        slides-per-view="auto"
+                      >
+                        <!-- 1번 슬라이드 아이템 -->
+                        <swiper-slide>
+                          <div class="card-item type-2">
+                            <div class="card-inner flex gap-8">
+                              <div class="icon" aria-hidden="true">
+                                <i
+                                  class="ico bank ico-size-lg ico-hana"
+                                  aria-hidden="true"
+                                ></i>
                               </div>
-                              <span
-                                class="typeMd"
-                                aria-label="계좌번호 1900-0419-5187"
-                                >1900-0419-5187</span
-                              >
-                              <div class="flex items-center gap-2">
-                                <span class="typeSmMedium">부모님 용돈</span>
-                                <button type="button" class="btn-edit">
-                                  <i
-                                    class="ico line ico-size-xs ico-edit colorFgNetral"
-                                    aria-hidden="true"
-                                  ></i>
-                                  <span class="blind">수정버튼</span>
-                                </button>
+                              <div class="flex flex-column gap-4 flex-1">
+                                <div
+                                  class="flex justify-between items-center gap-8"
+                                >
+                                  <strong class="typeH6 truncate w-160"
+                                    >글자가 긴이름이 들어갈땐 이렇게
+                                    보여요</strong
+                                  >
+                                  <input
+                                    type="checkbox"
+                                    name="account"
+                                    id="account01"
+                                    class="form-checkbox"
+                                  />
+                                </div>
+                                <span
+                                  class="typeMd"
+                                  aria-label="계좌번호 1900-0419-5187"
+                                  >1900-0419-5187</span
+                                >
+                                <div class="flex items-center gap-2">
+                                  <span class="typeSmMedium truncate w-160"
+                                    >부모님 용돈 부모님 용돈부모님 용돈부모님
+                                    용돈부모님 용돈 많이줘야지 부모님 용돈 부모님
+                                    용돈부모님 용돈부모님 용돈부모님 용돈
+                                    많이줘야지
+                                  </span>
+                                  <button type="button" class="btn-edit">
+                                    <i
+                                      class="ico line ico-size-xs ico-edit colorFgNetral"
+                                      aria-hidden="true"
+                                    ></i>
+                                    <span class="blind">수정버튼</span>
+                                  </button>
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                      </li>
-                    </ul>
+                        </swiper-slide>
+
+                        <!-- 2번 슬라이드 아이템 -->
+                        <swiper-slide>
+                          <div class="card-item type-2">
+                            <div class="card-inner flex gap-8">
+                              <div class="icon" aria-hidden="true">
+                                <i
+                                  class="ico bank ico-size-lg ico-nonghyup"
+                                  aria-hidden="true"
+                                ></i>
+                              </div>
+                              <div class="flex flex-column gap-4 flex-1">
+                                <div
+                                  class="flex justify-between items-center gap-8"
+                                >
+                                  <strong class="typeH6 truncate w-160"
+                                    >김수협</strong
+                                  >
+                                  <input
+                                    type="checkbox"
+                                    name="account"
+                                    id="account02"
+                                    class="form-checkbox"
+                                  />
+                                </div>
+                                <span
+                                  class="typeMd"
+                                  aria-label="계좌번호 1900-0419-5187"
+                                  >1900-0419-5187</span
+                                >
+                                <div class="flex items-center gap-2">
+                                  <span class="typeSmMedium">부모님 용돈</span>
+                                  <button type="button" class="btn-edit">
+                                    <i
+                                      class="ico line ico-size-xs ico-edit colorFgNetral"
+                                      aria-hidden="true"
+                                    ></i>
+                                    <span class="blind">수정버튼</span>
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </swiper-slide>
+
+                        <!-- 3번 슬라이드 아이템 -->
+                        <swiper-slide>
+                          <div class="card-item type-2">
+                            <div class="card-inner flex gap-8">
+                              <div class="icon" aria-hidden="true">
+                                <i
+                                  class="ico bank ico-size-lg ico-woori"
+                                  aria-hidden="true"
+                                ></i>
+                              </div>
+                              <div class="flex flex-column gap-4 flex-1">
+                                <div
+                                  class="flex justify-between items-center gap-8"
+                                >
+                                  <strong class="typeH6 truncate w-160"
+                                    >김수협</strong
+                                  >
+                                  <input
+                                    type="checkbox"
+                                    name="account"
+                                    id="account03"
+                                    class="form-checkbox"
+                                  />
+                                </div>
+                                <span
+                                  class="typeMd"
+                                  aria-label="계좌번호 1900-0419-5187"
+                                  >1900-0419-5187</span
+                                >
+                                <div class="flex items-center gap-2">
+                                  <span class="typeSmMedium">부모님 용돈</span>
+                                  <button type="button" class="btn-edit">
+                                    <i
+                                      class="ico line ico-size-xs ico-edit colorFgNetral"
+                                      aria-hidden="true"
+                                    ></i>
+                                    <span class="blind">수정버튼</span>
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </swiper-slide>
+
+                        <!-- 4번 슬라이드 아이템 -->
+                        <swiper-slide>
+                          <div class="card-item type-2">
+                            <div class="card-inner flex gap-8">
+                              <div class="icon" aria-hidden="true">
+                                <i
+                                  class="ico bank ico-size-lg ico-woori"
+                                  aria-hidden="true"
+                                ></i>
+                              </div>
+                              <div class="flex flex-column gap-4 flex-1">
+                                <div
+                                  class="flex justify-between items-center gap-8"
+                                >
+                                  <strong class="typeH6 truncate w-160"
+                                    >김수협</strong
+                                  >
+                                  <input
+                                    type="checkbox"
+                                    name="account"
+                                    id="account04"
+                                    class="form-checkbox"
+                                  />
+                                </div>
+                                <span
+                                  class="typeMd"
+                                  aria-label="계좌번호 1900-0419-5187"
+                                  >1900-0419-5187</span
+                                >
+                                <div class="flex items-center gap-2">
+                                  <span class="typeSmMedium">부모님 용돈</span>
+                                  <button type="button" class="btn-edit">
+                                    <i
+                                      class="ico line ico-size-xs ico-edit colorFgNetral"
+                                      aria-hidden="true"
+                                    ></i>
+                                    <span class="blind">수정버튼</span>
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </swiper-slide>
+                      </swiper-container>
+                    </div>
+
                   </div>
                 </div>
                 <div
@@ -965,6 +916,7 @@
                   Tab 본문 04
                 </div>
               </div>
+
               <table class="table-type01 mb-48">
                 <caption>
                   출금정보 테이블
@@ -987,60 +939,21 @@
                             role="combobox"
                             aria-expanded="false"
                             aria-haspopup="listbox"
-                            aria-controls="selectDropdown01"
+                            aria-controls="selectDropdown04"
                           >
                             <span class="text">선택</span>
                             <span class="blind">펼침</span>
                           </button>
-                          <div id="selectDropdown01" class="box-list-select">
+                          <div id="selectDropdown04" class="box-list-select">
                             <ul
                               class="list-select"
                               role="listbox"
                               aria-label="선택 항목 리스트"
                             >
-                              <li
-                                class="item-select"
-                                role="group"
-                                aria-label="선택 항목 리스트"
-                              >
+                              <li class="item-select" role="group">
                                 <span class="form-box">
                                   보통예금 1010-27330000
                                 </span>
-                              </li>
-                              <li
-                                class="item-select"
-                                role="group"
-                                aria-label="선택 항목 리스트"
-                              >
-                                <span class="form-box"> 1 </span>
-                              </li>
-                              <li
-                                class="item-select"
-                                role="group"
-                                aria-label="선택 항목 리스트"
-                              >
-                                <span class="form-box"> 1 </span>
-                              </li>
-                              <li
-                                class="item-select"
-                                role="group"
-                                aria-label="선택 항목 리스트"
-                              >
-                                <span class="form-box"> 1 </span>
-                              </li>
-                              <li
-                                class="item-select"
-                                role="group"
-                                aria-label="선택 항목 리스트"
-                              >
-                                <span class="form-box"> 1 </span>
-                              </li>
-                              <li
-                                class="item-select"
-                                role="group"
-                                aria-label="선택 항목 리스트"
-                              >
-                                <span class="form-box"> 1 </span>
                               </li>
                             </ul>
                           </div>
@@ -1057,46 +970,45 @@
                         <span class="form-box">
                           <input
                             type="radio"
-                            name="SampleRadio0303"
-                            id="SampleRadio0303"
+                            name="SampleRadio0307"
+                            id="SampleRadio0307"
                             class="form-radio size-lg"
-                            checked="SampleRadio0303"
+                            checked
                           />
-                          <label for="SampleRadio0303" class="form-label"
+                          <label for="SampleRadio0307" class="form-label"
                             >전체</label
                           >
                         </span>
                         <span class="form-box">
                           <input
                             type="radio"
-                            name="SampleRadio0303"
-                            id="SampleRadio0303"
+                            name="SampleRadio0307"
+                            id="SampleRadio0308"
                             class="form-radio size-lg"
                           />
-                          <label for="SampleRadio0303" class="form-label"
+                          <label for="SampleRadio0308" class="form-label"
                             >입금내역</label
                           >
                         </span>
                         <span class="form-box">
                           <input
                             type="radio"
-                            name="SampleRadio0303"
-                            id="SampleRadio0303"
+                            name="SampleRadio0307"
+                            id="SampleRadio0309"
                             class="form-radio size-lg"
                           />
-                          <label for="SampleRadio0303" class="form-label"
+                          <label for="SampleRadio0309" class="form-label"
                             >출금내역</label
                           >
                         </span>
-
                         <span class="form-box">
                           <input
                             type="radio"
-                            name="SampleRadio0303"
-                            id="SampleRadio0303"
+                            name="SampleRadio0307"
+                            id="SampleRadio0310"
                             class="form-radio size-lg"
                           />
-                          <label for="SampleRadio0303" class="form-label"
+                          <label for="SampleRadio0310" class="form-label"
                             >현금IC카드 결제내역</label
                           >
                         </span>
@@ -1105,68 +1017,13 @@
                   </tr>
                 </tbody>
               </table>
+
               <div class="flex items-center justify-between">
                 <h4 class="typeH4">추가정보</h4>
                 <span class="typeSm"
                   >*통장표시내용, 통장메모 등을 입력, 수정할 수 있습니다.</span
                 >
               </div>
-              <!-- 임시로 만든컨텐츠 -->
-              <!-- <div class="box-tab">
-                <ul
-                  class="list-tab-button type-chip"
-                  role="tablist"
-                  aria-label="탭 이름"
-                >
-                  <li class="item-tab-button">
-                    <button
-                      type="button"
-                      class="btn-tab active"
-                      title="선택됨"
-                      id="tabBtnTypeChip01"
-                      role="tab"
-                      aria-selected="true"
-                      aria-controls="tabPanelTypeChip01"
-                    >
-                      <span class="text">빠른 출발순</span>
-                    </button>
-                  </li>
-                  <li class="item-tab-button">
-                    <button
-                      type="button"
-                      class="btn-tab"
-                      id="tabBtnTypeChip02"
-                      role="tab"
-                      aria-selected="false"
-                      aria-controls="tabPanelTypeChip02"
-                    >
-                      <span class="text">가격 낮은순</span>
-                    </button>
-                  </li>
-                </ul>
-                <div
-                  class="box-tab-content active"
-                  id="tabPanelTypeChip01"
-                  role="tabpanel"
-                  aria-labelledby="tabBtnTypeChip01"
-                  style="display: block"
-                >
-                  <ul>
-                    <li>카드 1</li>
-                    <li class="">카드2</li>
-                  </ul>
-                </div>
-                <div
-                  class="box-tab-content"
-                  id="tabPanelTypeChip02"
-                  role="tabpanel"
-                  aria-labelledby="tabBtnTypeChip02"
-                  style="display: none"
-                >
-                  <h3 class="blind">Tab Content02</h3>
-                  Tab 본문 02
-                </div>
-              </div> -->
             </div>
           </div>
         </div>
