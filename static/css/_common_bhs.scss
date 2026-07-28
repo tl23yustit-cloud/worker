@@ -598,10 +598,11 @@ $bank-list: "kb", "shinhan", "woori", "hana", "kakaobank", "suhyup", "toss";
 						counter-increment: li-counter;
 						content: counter(li-counter) ". ";
 						display: inline-block;
+						margin-right: var(--spacingXs);
 					}
 
 					+li {
-						margin-top: var(--spacingXsSm);
+						margin-top: var(--spacingXs);
 					}
 				}
 			}
@@ -615,7 +616,7 @@ $bank-list: "kb", "shinhan", "woori", "hana", "kakaobank", "suhyup", "toss";
 				counter-reset: li-counter;
 
 				li {
-					color: var(--colorFgSecondary);
+					color: var(--colorFgBase);
 					display: flex;
 					flex-direction: row;
 					align-items: flex-start;
@@ -630,7 +631,7 @@ $bank-list: "kb", "shinhan", "woori", "hana", "kakaobank", "suhyup", "toss";
 					}
 
 					+li {
-						margin-top: var(--spacingXsSm);
+						margin-top: var(--spacingXs);
 					}
 				}
 			}
@@ -830,6 +831,67 @@ $bank-list: "kb", "shinhan", "woori", "hana", "kakaobank", "suhyup", "toss";
 	display: flex;
 	justify-content: space-between;
 	margin-bottom: var(--spacingMd);
+}
+
+//특정테이블
+.table-type02 {
+	margin-top: var(--spacingMd);
+
+	.inq-result-list {
+
+		th {
+			text-align: left;
+			padding: var(--spacingLg) var(--spacingXl);
+
+			.typeMdSemibold {
+				.ico-text {
+					.bank-suhyup {
+						&::before {
+							width: var(--sizeBaseXsSm);
+							height: var(--sizeBaseSm);
+							margin-right: var(--spacingXs);
+							margin-top: -2px;
+						}
+					}
+				}
+			}
+
+		}
+
+		td {
+			padding: var(--spacingXl) var(--spacingXl);
+			border-top: 1px solid var(--colorBorderSecondary);
+
+			.typeMd {
+				float: right;
+				overflow: hidden;
+				color: var(--colorFgSecondary);
+			}
+
+			+td {
+				border-left: 1px solid var(--colorBorderSecondary);
+			}
+
+			.result-total {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+
+				.typeMd {
+					color: var(--colorFgSecondary);
+				}
+
+				.type2XlBold {
+					color: var(--colorFgBase);
+
+					&.type-blue {
+						color: var(--colorFgPrimary);
+					}
+				}
+			}
+
+		}
+	}
 }
 
 .modal-slot {
