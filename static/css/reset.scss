@@ -836,6 +836,14 @@ hr {
 	height: 100%;
 }
 
+$widths: 100, 160, 188, 200, 250, 300;
+
+@each $width in $widths {
+	.w-#{$width} {
+		width: #{$width}px;
+	}
+}
+
 .text- {
 	&center {
 		text-align: center;
@@ -882,6 +890,11 @@ hr {
 		flex-direction: column;
 	}
 
+	&.flex-1 {
+		flex: 1;
+
+	}
+
 	@for $i from 0 through 30 {
 		$value: $i * 2;
 
@@ -890,6 +903,14 @@ hr {
 		}
 
 	}
+}
+
+// overflow
+.truncate {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	min-width: 0;
 }
 
 // 설정: 4px 단위로 40px까지 생성
