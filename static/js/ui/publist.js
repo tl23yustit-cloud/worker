@@ -22,7 +22,7 @@ const depthName = {
     lon: "대출",
     foe: "외환",
     tpr:"신탁",
-
+    act:"계좌이체",
     //3depth
     ip: "이자납입",   
     rop: "원금상환",    
@@ -30,7 +30,8 @@ const depthName = {
     fx:"FX",
     dli:"내국신용장조회",
     pom:"상품성 신탁 운용방법 및 소수율 현황",
-
+    dlyt:"지연이체등록내역조회/취소",
+    
     //4depth
     rip: "상환_이자납입",
     clha: "대출보유계좌조회",
