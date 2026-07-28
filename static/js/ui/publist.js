@@ -31,6 +31,7 @@ const depthName = {
     dli:"내국신용장조회",
     pom:"상품성 신탁 운용방법 및 소수율 현황",
     dlyt:"지연이체등록내역조회/취소",
+    ai:"계좌조회",
     
     //4depth
     rip: "상환_이자납입",
@@ -38,6 +39,8 @@ const depthName = {
     oilc:"수입신용장개설",
     ctl:"한도조회",
     ctd:"거래내역조회",
+    hai:"휴먼계좌조회",
+
 
     guide: "가이드",
     popup: "팝업",

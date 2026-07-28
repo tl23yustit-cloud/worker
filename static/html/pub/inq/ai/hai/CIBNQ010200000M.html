@@ -1,0 +1,463 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>수협은행</title>
+  <link rel="stylesheet" href="/static/css/reset.css" />
+  <link rel="stylesheet" href="/static/css/layout.css" />
+  <link rel="stylesheet" href="/static/css/component.css" />
+  <link rel="stylesheet" href="/static/css/common.css" />
+  <link rel="stylesheet" href="/static/css/bop.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <div id="header">
+      @@include('static/html/pub/layout/skipNavigation.html')
+      @@include('static/html/pub/layout/header_sub.html')
+    </div>
+
+    <div id="container" class="container">
+      <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+      <div id="contents">
+        <div class="content">
+          @@include('static/html/pub/layout/breadcrumb.html')
+          <div class="bop">
+            <button type="button" class="btn type-bg-primary size-md btn-modal" data-target="modal-16">
+              <span class="text">계좌 기본정보 조회</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+    </div>
+    <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+  </div>
+  <script src="/static/js/ui/cib_ui_common.js"></script>
+  <div id="modal-16" class="modal is-active" data-dim="true" data-backdrop-close="false" data-alert="true"
+    data-size="md" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc">
+    <div class="modal-wrapper">
+      <div class="modal-title">
+        <h4 class="typeH4">계좌 기본정보 조회</h4>
+      </div>
+      <div class="modal-slot">
+        <div id="modal-desc">
+          <div class="tbl-area">
+            <div class="typeH6">기본정보</div>
+            <table class="table-type01">
+              <caption>
+                계좌 기본정보 조회
+              </caption>
+              <colgroup>
+                <col width="160px">
+                <col width="272px">
+                <col width="160px">
+                <col width="272px">
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th scope="row">
+                    <span>계좌번호</span>
+                  </th>
+                  <td colspan="3">
+                    <span class="typeMd">000-0000000-00-000</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <span>상품명</span>
+                  </th>
+                  <td colspan="3">
+                    <span class="typeMd">기업운전일반자금대출</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <span>담보구분</span>
+                  </th>
+                  <td colspan="3">
+                    <span class="typeMd">신용(무보증)</span>
+                    <button type="button" class="btn type-line-neutral size-sm">
+                      <span class="text">조회</span>
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <span>신규일(약정실행일)</span>
+                  </th>
+                  <td>
+                    <span class="typeMd">2020-05-18</span>
+                  </td>
+                  <th scope="row">
+                    <span>만기일(약정실행일)</span>
+                  </th>
+                  <td>
+                    <span class="typeMd">2020-05-18</span>
+                  </td>
+                <tr>
+                  <th scope="row">
+                    <span>대출금리</span>
+                  </th>
+                  <td>
+                    <span class="typeMd">4.35%</span>
+                  </td>
+                  <th scope="row">
+                    <span>상환방식</span>
+                  </th>
+                  <td>
+                    <span class="typeMd">만기일시상환</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <span>대출상태</span>
+                  </th>
+                  <td colspan="3">
+                    <span class="typeMd">정상</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="tbl-area">
+            <div class="typeH6">한도/사용 현황</div>
+            <table class="table-type01">
+              <caption>
+                계좌 기본정보 조회
+              </caption>
+              <colgroup>
+                <col width="160px">
+                <col width="272px">
+                <col width="160px">
+                <col width="272px">
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th scope="row">
+                    <span>대출가능한도</span>
+                  </th>
+                  <td colspan="3" class="text-right">
+                    <span class="typeMd">500,000,000원</span>
+          </div>
+          </td>
+          </tr>
+          <tr>
+            <th scope="row">
+              <span>대출잔액</span>
+            </th>
+            <td class="text-right">
+              <span class="typeMd">50,000,000원</span>
+        </div>
+        </td>
+        <th scope="row">
+          <span>대출가능한도</span>
+        </th>
+        <td class="text-right">
+          <span class="typeMd">400,000,000원</span>
+      </div>
+      </td>
+      </tr>
+      <tr>
+        <th scope="row">
+          <span>사용률</span>
+        </th>
+        <td colspan="3">
+          <div id="myProgressBar" class="loading-progress-bar size-sm">
+            <div class="box-text">
+              <span class="title-progress typeSmSemibold">$Progress Label$</span>
+              <span class="percent typeSmSemibold"><span class="num">100</span>%</span>
+            </div>
+            <div class="bg-progress-bar" aria-hidden="true">
+              <span class="progress-gauge" aria-hidden="true" style="width: 100%"></span>
+            </div>
+            <div class="box-text">
+              <span class="message type2Xs">In progress message</span>
+              <i class="ico-status" aria-hidden="true"></i>
+            </div>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+      </table>
+    </div>
+    <div class="tbl-area">
+      <div class="typeH6">실행번호</div>
+      <table class="table-type03">
+        <caption>
+          이체확인증(원금상환) 정보
+        </caption>
+        <colgroup>
+          <col width="80px">
+          <col width="180px">
+          <col width="180px">
+          <col width="180px">
+          <col width="180px">
+          <col width="180px">
+          <col width="180px">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>선택</th>
+            <th>신규일</th>
+            <th>최초대출액</th>
+            <th>대출잔액</th>
+            <th>만기일</th>
+            <th>이자납입상태</th>
+            <th>다음이자납입일</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>
+              <span class="form-box">
+                <input type="checkbox" name="" id="SampleCheckbox0201" class="form-checkbox" checked="">
+                <label for="SampleCheckbox0201" class="form-label"></label>
+              </span>
+            </td>
+            <td class="text-right">
+              <span class="typeMd">2026-05-18</span>
+    </div>
+    </td>
+    <td class="text-right">
+      <span class="typeMd">100,000,000</span>
+  </div>
+  </td>
+  <td class="text-right">
+    <span class="typeMd">100,000,000</span></div>
+  </td>
+  <td class="text-right">
+    <span class="typeMd">2026-05-18</span></div>
+  </td>
+  <td><span class="typeMd">정상</span></td>
+  <td class="text-right">
+    <span class="typeMd">2026-05-18</span></div>
+  </td>
+  </tr>
+  </tbody>
+  </table>
+  </div>
+  <div class="tbl-area">
+    <div class="typeH6">실행번호</div>
+    <table class="table-type03">
+      <caption>
+        이체확인증(원금상환) 정보
+      </caption>
+      <colgroup>
+        <col width="80px">
+        <col width="180px">
+        <col width="180px">
+        <col width="180px">
+        <col width="180px">
+        <col width="180px">
+        <col width="180px">
+      </colgroup>
+      <thead>
+        <tr>
+          <th>선택</th>
+          <th>신규일</th>
+          <th>최초대출액</th>
+          <th>대출잔액</th>
+          <th>만기일</th>
+          <th>이자납입상태</th>
+          <th>다음이자납입일</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td colspan="7">
+            <div class="empty-page">
+              <i class="ico-info"></i>
+              <div class="typeMd">실행된 대출이 없습니다.</div>
+              <div class="typeLgSemibold">
+                대출 신규 실행 후 조회 가능합니다.
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <nav class="pagination size-md" aria-label="페이지네이션">
+    <button type="button" class="btn-nav first" disabled="" aria-disabled="true" aria-label="첫 페이지">
+      <span class="blind">첫 페이지</span>
+    </button>
+    <button type="button" class="btn-nav prev" disabled="" aria-disabled="true" aria-label="이전 페이지">
+      <span class="blind">이전 페이지</span>
+    </button>
+
+    <ol class="list-pagination">
+      <li>
+        <button type="button" class="btn-page active" aria-current="page" aria-label="1페이지">
+          1
+        </button>
+      </li>
+      <li>
+        <button type="button" class="btn-page" aria-label="2페이지">
+          2
+        </button>
+      </li>
+      <li>
+        <button type="button" class="btn-page" aria-label="3페이지">
+          3
+        </button>
+      </li>
+      <li>
+        <button type="button" class="btn-page" aria-label="4페이지">
+          4
+        </button>
+      </li>
+      <li>
+        <button type="button" class="btn-page" aria-label="5페이지">
+          5
+        </button>
+      </li>
+    </ol>
+
+    <button type="button" class="btn-nav next" aria-label="다음 페이지">
+      <span class="blind">다음 페이지</span>
+    </button>
+    <button type="button" class="btn-nav last" aria-label="마지막 페이지">
+      <span class="blind">마지막 페이지</span>
+    </button>
+  </nav>
+  <!--실행번호있을경우 노출-->
+  <div class="modal-footer flex items-center justify-center gap-6">
+    <button type="button" class="btn type-line-primary size-lg">
+      <span class="text">원금상환</span>
+      <span class="blind">원금상환</span>
+    </button>
+    <button type="button" class="btn type-line-primary size-lg">
+      <span class="text">이자납입</span>
+      <span class="blind">이자납입</span>
+    </button>
+    <button type="button" class="btn type-line-primary size-lg">
+      <span class="text">상세조회</span>
+      <span class="blind">상세조회</span>
+    </button>
+    <button type="button" class="btn type-line-primary size-lg">
+      <span class="text">상환스케줄</span>
+      <span class="blind">상환스케줄</span>
+    </button>
+  </div>
+  <!--//실행번호있을경우 노출-->
+  </div>
+  </div>
+  <div class="modal-footer flex items-center justify-center gap-8">
+    <button type="button" class="btn ico-line-rounded size-xl">
+      <i class="ico-excel-download ico-size-smMd"></i>
+      <span class="text">엑셀다운로드</span>
+      <span class="blind">엑셀다운로드</span>
+    </button>
+    <button type="button" class="btn ico-line-rounded size-xl">
+      <i class="ico-fax ico-size-smMd"></i>
+      <span class="text">인쇄</span>
+      <span class="blind">인쇄</span>
+    </button>
+  </div>
+
+  <button type="button" class="ico btn-close" aria-label="모달 닫기">
+    <i class="ico-close ico-size-smMd" aria-hidden="true"></i>
+    <span class="blind">닫기</span>
+  </button>
+  </div>
+  </div>
+</body>
+
+</html>
+<script>
+  setProgressBar1('#myProgressBar', {
+    percent: 20,
+    state: 'progress',
+    message: '로딩중...'
+  });
+  /**
+   * 프로그레스 바의 상태 및 데이터를 동적으로 제어하는 함수
+   * @param {HTMLElement|string} target - '.loading-progress-bar' 요소 또는 선택자
+   * @param {Object} options - 설정할 옵션 객체
+   * @param {number} [options.percent] - 진행률 수치 (0 ~ 100)
+   * @param {string} [options.status='auto'] - 상태 지정 ('progress' | 'success' | 'fail' | 'auto')
+   * @param {string} [options.message] - 하단 상태 메세지 (미입력 시 기본 메세지 유지)
+   * @param {string} [options.label] - 상단 프로그레스 라벨 (미입력 시 기본 라벨 유지)
+   */
+  function setProgressBar1(target, options = {}) {
+    // 1. 타겟 요소 선택
+    const el = typeof target === 'string' ? document.querySelector(target) : target;
+    if (!el) return;
+
+    // 2. 기본값 세팅 및 옵션 파싱
+    const {
+      percent,
+      status = 'auto',
+      message,
+      label
+    } = options;
+
+    // 3. 내부 요소 선택
+    const gaugeEl = el.querySelector('.progress-gauge');
+    const numEl = el.querySelector('.percent .num');
+    const messageEl = el.querySelector('.message');
+    const labelEl = el.querySelector('.title-progress');
+
+    // 4. 퍼센트/게이지 너비 업데이트 (percent 값이 전달된 경우만)
+    let safePercent = null;
+    if (typeof percent === 'number') {
+      safePercent = Math.min(Math.max(percent, 0), 100); // 0~100 범위 제한
+
+      if (gaugeEl) {
+        gaugeEl.style.width = `${safePercent}%`;
+      }
+      if (numEl) {
+        numEl.textContent = safePercent;
+      }
+    }
+
+    // 5. 라벨 및 메세지 텍스트 변경 (옵션이 있는 경우)
+    if (label && labelEl) {
+      labelEl.textContent = label;
+    }
+    if (message && messageEl) {
+      messageEl.textContent = message;
+    }
+
+    // 6. 상태 클래스(is-success, is-fail) 제어
+    let currentStatus = status;
+
+    // 'auto' 모드일 때: percent가 100이면 자동으로 success 처리
+    if (status === 'auto' && safePercent !== null) {
+      currentStatus = (safePercent === 100) ? 'success' : 'progress';
+    }
+
+    switch (currentStatus) {
+      case 'success':
+        el.classList.remove('is-fail');
+        el.classList.add('is-success');
+        // 별도 메세지가 지정되지 않았을 때 성공 기본 메세지 적용 (선택 사항)
+        if (!message && messageEl) {
+          messageEl.textContent = 'Complete message';
+        }
+        break;
+
+      case 'fail':
+        el.classList.remove('is-success');
+        el.classList.add('is-fail');
+        // 별도 메세지가 지정되지 않았을 때 에러 기본 메세지 적용 (선택 사항)
+        if (!message && messageEl) {
+          messageEl.textContent = 'Error message';
+        }
+        break;
+
+      case 'progress':
+      default:
+        el.classList.remove('is-success', 'is-fail');
+        if (!message && messageEl) {
+          messageEl.textContent = 'In progress message';
+        }
+        break;
+    }
+  }
+</script>
