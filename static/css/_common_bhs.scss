@@ -197,7 +197,6 @@
 }
 
 .btn-wrap {
-	padding: var(--spacingXsSm);
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -856,42 +855,75 @@ $bank-list: "kb", "shinhan", "woori", "hana", "kakaobank", "suhyup", "toss";
 				}
 			}
 
-		}
-
-		td {
-			padding: var(--spacingXl) var(--spacingXl);
-			border-top: 1px solid var(--colorBorderSecondary);
-
-			.typeMd {
-				float: right;
-				overflow: hidden;
-				color: var(--colorFgSecondary);
-			}
-
-			+td {
-				border-left: 1px solid var(--colorBorderSecondary);
-			}
-
-			.result-total {
+			.th-wrap {
 				display: flex;
-				align-items: center;
 				justify-content: space-between;
+				align-items: center;
 
-				.typeMd {
-					color: var(--colorFgSecondary);
-				}
+				.th-right-area {
+					position: relative;
 
-				.type2XlBold {
-					color: var(--colorFgBase);
+					.typeXs {
+						position: relative;
+						padding: 0 var(--spacingXsSm);
+						+.typeXs {
+							&::before {
+								content: "";
+								position: absolute;
+								top: 50%;
+								left: -1px;
+								width: 1px;
+								height: var(--sizeBase2Xs);
+								background: var(--colorBorderSecondary);
+								transform: translateY(-50%);
+							}
+						}
 
-					&.type-blue {
-						color: var(--colorFgPrimary);
+					strong {
+						color: var(--colorFgSecondary);
+						font-weight: 400;
+						padding-right:var(--spacingXs) ;
 					}
 				}
 			}
-
 		}
 	}
+
+	td {
+		padding: var(--spacingXl) var(--spacingXl);
+		border-top: 1px solid var(--colorBorderSecondary);
+
+		.typeMd {
+			float: right;
+			overflow: hidden;
+			color: var(--colorFgSecondary);
+		}
+
+		+td {
+			border-left: 1px solid var(--colorBorderSecondary);
+		}
+
+		.result-total {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+
+			.typeMd {
+				color: var(--colorFgSecondary);
+			}
+
+			.type2XlBold {
+				color: var(--colorFgBase);
+				margin-left: auto;
+
+				&.type-blue {
+					color: var(--colorFgPrimary);
+				}
+			}
+		}
+
+	}
+}
 }
 
 .modal-slot {
