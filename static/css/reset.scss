@@ -1,13 +1,14 @@
 @charset "UTF-8";
 @use "sass:math";
 @import url(./font/font.css);
+
 :root {
 	/* Seed variable */
 	// color - monochrome
 	--colorWhite: #ffffff;
 	--colorBlack: #000000;
 	--colorGray25: #f9fafc;
-	--colorGray50: #f2f5fa;		
+	--colorGray50: #f2f5fa;
 	--colorGray60: #F5F6F8;
 	--colorGray100: #eceef4;
 	--colorGray200: #dee1e8;
@@ -835,15 +836,24 @@ hr {
 	height: 100%;
 }
 
-.text-right {
-	text-align: right;
+.text- {
+	&center {
+		text-align: center;
+	}
+
+	&right {
+		text-align: right;
+	}
 }
+
 // flex
 .flex {
 	display: flex;
+
 	&.inline-flex {
-        display: inline-flex;
-    }
+		display: inline-flex;
+	}
+
 	&.items-center {
 		align-items: center;
 	}
@@ -855,6 +865,7 @@ hr {
 	&.justify-start {
 		justify-content: flex-start;
 	}
+
 	&.justify-center {
 		justify-content: center;
 	}
@@ -882,7 +893,7 @@ hr {
 }
 
 // 설정: 4px 단위로 40px까지 생성
-$max-px: 80; 
+$max-px: 80;
 
 // 유틸리티 클래스 생성 믹스인
 @mixin generate-spacing($prefix, $property) {
