@@ -511,7 +511,8 @@ $bank-list: "kb", "shinhan", "woori", "hana", "kakaobank", "suhyup", "toss";
 					display: flex;
 					flex-direction: row;
 					align-items: flex-start;
-					flex-wrap: wrap;
+					flex-wrap: nowrap;
+
 
 					p {
 						display: block;
@@ -625,6 +626,33 @@ $bank-list: "kb", "shinhan", "woori", "hana", "kakaobank", "suhyup", "toss";
 						counter-increment: li-counter;
 						content: "(주" counter(li-counter) ") ";
 						margin-right: 6px;
+						flex-shrink: 0;
+						display: inline-block;
+					}
+
+					+li {
+						margin-top: var(--spacingXs);
+					}
+				}
+			}
+		}
+
+		&-reference {
+			width: 100%;
+
+			ul {
+				list-style: none;
+
+				li {
+					color: var(--colorFgSecondary);
+					display: flex;
+					flex-direction: row;
+					align-items: flex-start;
+					flex-wrap: wrap;
+
+					&::before {
+						content: "※";
+						margin-right: var(--spacingXs);
 						flex-shrink: 0;
 						display: inline-block;
 					}
@@ -823,7 +851,11 @@ $bank-list: "kb", "shinhan", "woori", "hana", "kakaobank", "suhyup", "toss";
 
 //공통으로 간격가져갈 예정
 .tbl-area {
-	margin-top: var(--spacing4Xl);
+	margin-top: var(--spacingXl);
+
+	+.tbl-area {
+		margin-top: var(--spacing4Xl);
+	}
 }
 
 .tbl-head {
@@ -866,6 +898,7 @@ $bank-list: "kb", "shinhan", "woori", "hana", "kakaobank", "suhyup", "toss";
 					.typeXs {
 						position: relative;
 						padding: 0 var(--spacingXsSm);
+
 						+.typeXs {
 							&::before {
 								content: "";
@@ -879,50 +912,51 @@ $bank-list: "kb", "shinhan", "woori", "hana", "kakaobank", "suhyup", "toss";
 							}
 						}
 
-					strong {
-						color: var(--colorFgSecondary);
-						font-weight: 400;
-						padding-right:var(--spacingXs) ;
+						strong {
+							color: var(--colorFgSecondary);
+							font-weight: 400;
+							padding-right: var(--spacingXs);
+						}
 					}
 				}
 			}
 		}
-	}
 
-	td {
-		padding: var(--spacingXl) var(--spacingXl);
-		border-top: 1px solid var(--colorBorderSecondary);
-		.typeMd {
-			float: right;
-			overflow: hidden;
-			color: var(--colorFgSecondary);
-		}
-
-		+td {
-			border-left: 1px solid var(--colorBorderSecondary);
-		}
-
-		.result-total {
-			display: flex;
-			align-items: center;
-			justify-content: space-between;
+		td {
+			padding: var(--spacingXl) var(--spacingXl);
+			border-top: 1px solid var(--colorBorderSecondary);
 
 			.typeMd {
+				float: right;
+				overflow: hidden;
 				color: var(--colorFgSecondary);
 			}
 
-			.type2XlBold {
-				color: var(--colorFgBase);
-				margin-left: auto;
+			+td {
+				border-left: 1px solid var(--colorBorderSecondary);
+			}
 
-				&.type-blue {
-					color: var(--colorFgPrimary);
+			.result-total {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+
+				.typeMd {
+					color: var(--colorFgSecondary);
+				}
+
+				.type2XlBold {
+					color: var(--colorFgBase);
+					margin-left: auto;
+
+					&.type-blue {
+						color: var(--colorFgPrimary);
+					}
 				}
 			}
-		}
 
+		}
 	}
-}
 }
 
 .modal-slot {
