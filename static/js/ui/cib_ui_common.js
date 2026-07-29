@@ -16,6 +16,7 @@ window.addEventListener('load', function () {
 	fnModal(); // Modal
 	fnInitSortButtons()//정렬 버튼
 	initTableCheckbox()//allcheck
+	fnInitViewSelector()//뷰셀렉터
 });
 // skip Navigation
 function fnSkipNavigation() {
@@ -86,7 +87,7 @@ function fnHeader() {
 			$btnBannerClose.addEventListener("click", function () {
 				$banner.classList.remove("is-show");
 				// 배너가 사라지면 스크롤 위치 재계산
-				setTimeout(function() {
+				setTimeout(function () {
 					window.dispatchEvent(new Event('scroll'));
 				}, 100);
 			});
@@ -94,17 +95,17 @@ function fnHeader() {
 	}
 
 	// 메인 스와이퍼 배너 visual
-		// Swiper 라이브러리가 로드되어 있고, .wrap-visual 요소가 화면에 존재하는 경우에만 실행
-		if (typeof Swiper !== 'undefined' && document.querySelector('.wrap-visual')) {
-			const visualSlider = new Swiper('.wrap-visual', {
-				initialSlide: 0,
-				loop: true,
-				autoplay: {
-					delay: 5000,
-					disableOnInteraction: false,
-				},
-			});
-		}
+	// Swiper 라이브러리가 로드되어 있고, .wrap-visual 요소가 화면에 존재하는 경우에만 실행
+	if (typeof Swiper !== 'undefined' && document.querySelector('.wrap-visual')) {
+		const visualSlider = new Swiper('.wrap-visual', {
+			initialSlide: 0,
+			loop: true,
+			autoplay: {
+				delay: 5000,
+				disableOnInteraction: false,
+			},
+		});
+	}
 
 	// 유틸 메뉴 셀렉트 버튼 토글
 	if ($selectButtons.length > 0) {
@@ -950,151 +951,169 @@ function fnBoxTooltip() {
 }
 // 모달
 function fnModal() {
-    let lastFocusedElement; // 열기 전 요소를 기억할 변수
+	let lastFocusedElement; // 열기 전 요소를 기억할 변수
 
-    // 활성 상태에 따라 body 스크롤을 제어하는 유틸 함수
-    const updateBodyScroll = () => {
-        const hasActive = document.querySelector('.modal.is-active, .alert.is-active');
-        if (hasActive) {
-            document.body.style.overflow = 'hidden';
-        } else {
-            document.body.style.overflow = '';
-        }
-    };
+	// 활성 상태에 따라 body 스크롤을 제어하는 유틸 함수
+	const updateBodyScroll = () => {
+		const hasActive = document.querySelector('.modal.is-active, .alert.is-active');
+		if (hasActive) {
+			document.body.style.overflow = 'hidden';
+		} else {
+			document.body.style.overflow = '';
+		}
+	};
 
-    document.addEventListener('click', (e) => {
-        // 1. 모달 또는 알림창 열기 버튼 클릭 (.btn-modal 또는 .btn-alert)
-        const openBtn = e.target.closest('.btn-modal, .btn-alert');
-        if (openBtn) {
-            const targetId = openBtn.dataset.target;
-            const targetEl = document.getElementById(targetId);
-            
-            if (targetEl) {
-                lastFocusedElement = document.activeElement; // 현재 포커스 저장
-                targetEl.classList.add('is-active');      // 클래스로 제어
-                updateBodyScroll();                       // 배경 스크롤 잠금
-                
-                // 내부의 첫 번째 포커스 가능 요소 찾기
-                const firstFocusable = targetEl.querySelector('button, [href], input, select, textarea');
-                if (firstFocusable) firstFocusable.focus();
-            }
-        }
+	document.addEventListener('click', (e) => {
+		// 1. 모달 또는 알림창 열기 버튼 클릭 (.btn-modal 또는 .btn-alert)
+		const openBtn = e.target.closest('.btn-modal, .btn-alert');
+		if (openBtn) {
+			const targetId = openBtn.dataset.target;
+			const targetEl = document.getElementById(targetId);
 
-        // 2. 닫기 버튼 클릭 (.btn-close)
-        const closeBtn = e.target.closest('.btn-close');
-        if (closeBtn) {
-            const container = closeBtn.closest('.modal, .alert'); // modal 또는 alert 닫기
-            if (container) {
-                container.classList.remove('is-active');
-                updateBodyScroll(); // 남은 모달 여부에 따라 스크롤 복구
-                
-                // 포커스 복귀
-                if (lastFocusedElement) lastFocusedElement.focus();
-            }
-        }
+			if (targetEl) {
+				lastFocusedElement = document.activeElement; // 현재 포커스 저장
+				targetEl.classList.add('is-active');      // 클래스로 제어
+				updateBodyScroll();                       // 배경 스크롤 잠금
 
-        // 3. 배경(백드롭) 클릭 시 닫기 (.modal 또는 .alert 배경)
-        if (e.target.classList.contains('modal') || e.target.classList.contains('alert')) {
-            const backdropClose = e.target.dataset.backdropClose !== "false"; 
+				// 내부의 첫 번째 포커스 가능 요소 찾기
+				const firstFocusable = targetEl.querySelector('button, [href], input, select, textarea');
+				if (firstFocusable) firstFocusable.focus();
+			}
+		}
 
-            if (backdropClose) {
-                e.target.classList.remove('is-active');
-                updateBodyScroll(); // 남은 모달 여부에 따라 스크롤 복구
-                if (lastFocusedElement) lastFocusedElement.focus();
-            }
-        }
-    });
+		// 2. 닫기 버튼 클릭 (.btn-close)
+		const closeBtn = e.target.closest('.btn-close');
+		if (closeBtn) {
+			const container = closeBtn.closest('.modal, .alert'); // modal 또는 alert 닫기
+			if (container) {
+				container.classList.remove('is-active');
+				updateBodyScroll(); // 남은 모달 여부에 따라 스크롤 복구
 
-    // 4. ESC 키로 닫기
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-            const activeEl = document.querySelector('.modal.is-active, .alert.is-active');
-            if (activeEl) {
-                activeEl.classList.remove('is-active');
-                updateBodyScroll(); // 남은 모달 여부에 따라 스크롤 복구
-                if (lastFocusedElement) lastFocusedElement.focus();
-            }
-        }
-    });
+				// 포커스 복귀
+				if (lastFocusedElement) lastFocusedElement.focus();
+			}
+		}
+
+		// 3. 배경(백드롭) 클릭 시 닫기 (.modal 또는 .alert 배경)
+		if (e.target.classList.contains('modal') || e.target.classList.contains('alert')) {
+			const backdropClose = e.target.dataset.backdropClose !== "false";
+
+			if (backdropClose) {
+				e.target.classList.remove('is-active');
+				updateBodyScroll(); // 남은 모달 여부에 따라 스크롤 복구
+				if (lastFocusedElement) lastFocusedElement.focus();
+			}
+		}
+	});
+
+	// 4. ESC 키로 닫기
+	document.addEventListener('keydown', (e) => {
+		if (e.key === 'Escape') {
+			const activeEl = document.querySelector('.modal.is-active, .alert.is-active');
+			if (activeEl) {
+				activeEl.classList.remove('is-active');
+				updateBodyScroll(); // 남은 모달 여부에 따라 스크롤 복구
+				if (lastFocusedElement) lastFocusedElement.focus();
+			}
+		}
+	});
 }
 //정렬버튼
 
 function fnInitSortButtons() {
-    const wrappers = document.querySelectorAll('.sort-btn-wrapper');
+	const wrappers = document.querySelectorAll('.sort-btn-wrapper');
 
-    wrappers.forEach(wrapper => {
-        const buttons = wrapper.querySelectorAll('.btn');
+	wrappers.forEach(wrapper => {
+		const buttons = wrapper.querySelectorAll('.btn');
+
+		buttons.forEach(button => {
+			button.addEventListener('click', () => {
+				const isCurrentlyPressed = button.getAttribute('aria-pressed') === 'true';
+
+				buttons.forEach(btn => {
+					btn.setAttribute('aria-pressed', 'false');
+					btn.classList.remove('type-bg-neutral');
+					btn.classList.add('type-line-neutral');
+				});
+
+				if (!isCurrentlyPressed) {
+					button.setAttribute('aria-pressed', 'true');
+					button.classList.remove('type-line-neutral');
+					button.classList.add('type-bg-neutral');
+				}
+			});
+		});
+	});
+}
+//뷰셀렉터
+function fnInitViewSelector() {
+    const selectors = document.querySelectorAll('.view-selector');
+
+    selectors.forEach(selector => {
+        const buttons = selector.querySelectorAll('button');
 
         buttons.forEach(button => {
             button.addEventListener('click', () => {
-                const isCurrentlyPressed = button.getAttribute('aria-pressed') === 'true';
+               
+                buttons.forEach(btn => btn.classList.remove('active'));
 
-                buttons.forEach(btn => {
-                    btn.setAttribute('aria-pressed', 'false');
-                    btn.classList.remove('type-bg-neutral');
-                    btn.classList.add('type-line-neutral');
-                });
-
-                if (!isCurrentlyPressed) {
-                    button.setAttribute('aria-pressed', 'true');
-                    button.classList.remove('type-line-neutral');
-                    button.classList.add('type-bg-neutral');
-                }
+                button.classList.add('active');
             });
         });
     });
 }
+
 //allcheck
 function initTableCheckbox() {
 
-    var tables = document.querySelectorAll(".js-check-table");
+	var tables = document.querySelectorAll(".js-check-table");
 
-    tables.forEach(function (table) {
+	tables.forEach(function (table) {
 
-        var checkAlls = table.querySelectorAll(".check-all");
-        var rowChecks = table.querySelectorAll(".row-check");
-        var count = table.querySelector(".selected-count span");
+		var checkAlls = table.querySelectorAll(".check-all");
+		var rowChecks = table.querySelectorAll(".row-check");
+		var count = table.querySelector(".selected-count span");
 
-        if (!checkAlls.length || !rowChecks.length) return;
+		if (!checkAlls.length || !rowChecks.length) return;
 
-        function updateState() { 
+		function updateState() {
 
-            var checked = table.querySelectorAll(".row-check:checked").length;
+			var checked = table.querySelectorAll(".row-check:checked").length;
 
-            if (count) {
-                count.textContent = checked;
-            }
+			if (count) {
+				count.textContent = checked;
+			}
 
-            checkAlls.forEach(function (checkAll) {
-                checkAll.checked = checked === rowChecks.length;
-                checkAll.indeterminate = checked > 0 && checked < rowChecks.length;
-            });
-        }
+			checkAlls.forEach(function (checkAll) {
+				checkAll.checked = checked === rowChecks.length;
+				checkAll.indeterminate = checked > 0 && checked < rowChecks.length;
+			});
+		}
 
-        checkAlls.forEach(function (checkAll) {
+		checkAlls.forEach(function (checkAll) {
 
-            checkAll.addEventListener("change", function () {
+			checkAll.addEventListener("change", function () {
 
-                rowChecks.forEach(function (item) {
-                    item.checked = checkAll.checked;
-                });
+				rowChecks.forEach(function (item) {
+					item.checked = checkAll.checked;
+				});
 
-                updateState();
+				updateState();
 
-            });
+			});
 
-        });
+		});
 
-        rowChecks.forEach(function (item) {
+		rowChecks.forEach(function (item) {
 
-            item.addEventListener("change", function () {
-                updateState();
-            });
+			item.addEventListener("change", function () {
+				updateState();
+			});
 
-        });
+		});
 
-        updateState();
+		updateState();
 
-    });
+	});
 
 }

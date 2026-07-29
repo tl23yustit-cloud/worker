@@ -2155,9 +2155,11 @@
 		&.size-sm {
 			width: var(--sizeBaseXs);
 			height: var(--sizeBaseXs);
+
 			&:checked {
 				// 16x16 기준: 중심(8,8), 반지름 r=4 (직경 8x8)
 				background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='8' cy='8' r='4' fill='%231969FF'/%3E%3C/svg%3E");
+
 				&:disabled {
 					background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='8' cy='8' r='4' fill='%23A4C2FE'/%3E%3C/svg%3E");
 				}
@@ -2173,9 +2175,11 @@
 		&.size-lg {
 			width: var(--sizeBaseSm);
 			height: var(--sizeBaseSm);
+
 			&:checked {
 				// 24x24 기준: 중심(12,12), 반지름 r=6 (직경 12x12)
 				background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='12' cy='12' r='6' fill='%231969FF'/%3E%3C/svg%3E");
+
 				&:disabled {
 					background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='12' cy='12' r='6' fill='%23A4C2FE'/%3E%3C/svg%3E");
 				}
@@ -4435,6 +4439,31 @@
 			}
 		}
 	}
+}
+
+// 뷰셀렉터
+.view-selector {
+	display: flex;
+	padding: var(--spacingXs);
+	border-radius: var(--radiusMd);
+	border: 1px solid var(--colorBorderSecondary);
+	justify-content: center;
+	align-items: center;
+
+	button {
+		padding: 0 var(--spacingSm);
+		height: var(--sizeBaseSmMd);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border-radius: 4px;
+		background-color: #fff;
+
+		&.active {
+			border: 1px solid var(--colorBorderPrimary);
+		}
+	}
+
 }
 
 /* 위의 list 양식이 탭메뉴에 해당할 때에는 margin-top 예외처리 */
