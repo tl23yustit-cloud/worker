@@ -23,6 +23,7 @@ const depthName = {
     foe: "외환",
     tpr:"신탁",
     act:"계좌이체",
+
     //3depth
     ip: "이자납입",   
     rop: "원금상환",    
@@ -42,6 +43,12 @@ const depthName = {
     hai:"휴먼계좌조회",
     rthf:"거래내역파일요청",
 
+    //5depth
+    al:"신청목록",
+    eai:"신청정보입력",
+    ob:"신청정보입력",
+    ourb:"당행",
+    othb:"타행",
 
     guide: "가이드",
     popup: "팝업",
