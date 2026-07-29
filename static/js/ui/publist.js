@@ -40,6 +40,7 @@ const depthName = {
     ctl:"한도조회",
     ctd:"거래내역조회",
     hai:"휴먼계좌조회",
+    rthf:"거래내역파일요청",
 
 
     guide: "가이드",
