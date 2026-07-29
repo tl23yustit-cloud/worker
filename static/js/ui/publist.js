@@ -45,7 +45,7 @@ const depthName = {
 
     //5depth
     al:"신청목록",
-    eai:"신청정보입력",
+    eai:"신청목록",
     ob:"신청정보입력",
     ourb:"당행",
     othb:"타행",
