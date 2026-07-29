@@ -34,7 +34,7 @@ const depthName = {
     dlyt:"지연이체등록내역조회/취소",
     ai:"계좌조회",
     mact:"다계좌이체",
-    
+    xfr: "이체",
     //4depth
     rip: "상환_이자납입",
     clha: "대출보유계좌조회",
