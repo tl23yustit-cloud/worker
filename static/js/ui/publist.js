@@ -23,6 +23,7 @@ const depthName = {
     foe: "외환",
     tpr:"신탁",
     act:"계좌이체",
+    b2bcpfl:"B2B기업구매자금대출",
 
     //3depth
     ip: "이자납입",   
@@ -35,6 +36,8 @@ const depthName = {
     ai:"계좌조회",
     mact:"다계좌이체",
     xfr: "이체",
+    sug: "서비스이용안내",
+
     //4depth
     rip: "상환_이자납입",
     clha: "대출보유계좌조회",
