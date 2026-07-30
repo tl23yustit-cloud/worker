@@ -836,7 +836,7 @@ hr {
 	height: 100%;
 }
 
-$widths: 100, 160, 188, 200, 250, 300;
+$widths: 100, 160,170, 188, 200, 250, 300;
 
 @each $width in $widths {
 	.w-#{$width} {
@@ -918,11 +918,11 @@ $widths: 100, 160, 188, 200, 250, 300;
 }
 
 // 설정: 2px 단위로 80px까지 생성
-$max-px: 80;
+$max-px: 96;
 
 // 유틸리티 클래스 생성 믹스인
 @mixin generate-spacing($prefix, $property) {
-	@for $i from 1 through math.div($max-px, 4) {
+	@for $i from 1 through math.div($max-px, 2) {
 		$val: $i * 2;
 
 		.#{$prefix}-#{$val} {
