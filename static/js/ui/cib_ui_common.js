@@ -1052,12 +1052,26 @@ function fnInitViewSelector() {
     selectors.forEach(selector => {
         const buttons = selector.querySelectorAll('button');
 
-        buttons.forEach(button => {
-            button.addEventListener('click', () => {
-               
-                buttons.forEach(btn => btn.classList.remove('active'));
+        buttons.forEach((button, index) => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
 
+                buttons.forEach(btn => btn.classList.remove('active'));
                 button.classList.add('active');
+
+                const parentTabContent = selector.closest('.box-tab-content') || selector.closest('.content');
+                if (!parentTabContent) return;
+
+                const cardContainer = parentTabContent.querySelector('.card-swiper-container');
+                const listContainer = parentTabContent.querySelector('.list-view-container'); 
+
+                if (index === 0) {
+                    if (cardContainer) cardContainer.style.display = 'block';
+                    if (listContainer) listContainer.style.display = 'none';
+                } else if (index === 1) {
+                    if (cardContainer) cardContainer.style.display = 'none';
+                    if (listContainer) listContainer.style.display = 'block';
+                }
             });
         });
     });
@@ -1117,3 +1131,6 @@ function initTableCheckbox() {
 	});
 
 }
+
+
+
