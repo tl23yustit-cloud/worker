@@ -917,13 +917,13 @@ $widths: 100, 160, 188, 200, 250, 300;
 	min-width: 0;
 }
 
-// 설정: 4px 단위로 40px까지 생성
+// 설정: 2px 단위로 80px까지 생성
 $max-px: 80;
 
 // 유틸리티 클래스 생성 믹스인
 @mixin generate-spacing($prefix, $property) {
 	@for $i from 1 through math.div($max-px, 4) {
-		$val: $i * 4;
+		$val: $i * 2;
 
 		.#{$prefix}-#{$val} {
 			#{$property}: #{$val}px !important;
@@ -949,7 +949,7 @@ $max-px: 80;
 
 // 4. 가로/세로 축 패딩 및 마진 (px, py, mx, my)
 @for $i from 1 through math.div($max-px, 4) {
-	$val: $i * 4;
+	$val: $i * 2;
 
 	.px-#{$val} {
 		padding-left: #{$val}px !important;
