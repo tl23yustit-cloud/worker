@@ -500,8 +500,13 @@ $bank-list: "kb", "shinhan", "woori", "hana", "kakaobank", "suhyup", "toss";
 	}
 }
 
-
 //리스트타입
+.list {
+	+.list {
+		margin-top: var(--spacingXsSm);
+	}
+}
+
 [class^=list] {
 	&.type {
 		&-dotted {
@@ -512,6 +517,15 @@ $bank-list: "kb", "shinhan", "woori", "hana", "kakaobank", "suhyup", "toss";
 					flex-direction: row;
 					align-items: flex-start;
 					flex-wrap: wrap;
+
+					.label {
+						flex: 0 0 auto;
+						margin-right: 4px;
+					}
+
+					.value {
+						flex: 1;
+					}
 
 					.typeSm {
 						display: block;
@@ -544,12 +558,26 @@ $bank-list: "kb", "shinhan", "woori", "hana", "kakaobank", "suhyup", "toss";
 									margin-top: var(--spacingXs);
 									color: var(--colorFgSecondary);
 
+									+li {
+										margin-top: var(--spacingNone);
+									}
+
 									&::before {
 										margin-top: var(--spacingNone);
 									}
 								}
 							}
 						}
+					}
+				}
+			}
+
+			&.color-resolving {
+				li {
+					color: var(--colorFgError);
+
+					&::before {
+						background-color: var(--colorFgError);
 					}
 				}
 			}
