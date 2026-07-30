@@ -24,7 +24,8 @@ const depthName = {
     tpr:"신탁",
     act:"계좌이체",
     b2bcpfl:"B2B기업구매자금대출",
-
+    or:"해외송금",
+    
     //3depth
     ip: "이자납입",   
     rop: "원금상환",    
@@ -65,7 +66,6 @@ const depthName = {
 
     //6depth(실제55depth)
     dimt:"국내외화이체",
-    or:"해외송금",
 
     guide: "가이드",
     popup: "팝업",
