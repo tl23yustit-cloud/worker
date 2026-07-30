@@ -61,6 +61,11 @@ const depthName = {
     ob:"신청정보입력",
     ourb:"당행",
     othb:"타행",
+    mfura:"자주쓰는송금계좌관리",
+
+    //6depth(실제55depth)
+    dimt:"국내외화이체",
+    or:"해외송금",
 
     guide: "가이드",
     popup: "팝업",
