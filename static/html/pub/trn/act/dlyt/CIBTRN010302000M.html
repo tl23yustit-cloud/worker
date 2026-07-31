@@ -2,112 +2,106 @@
 <!-- 이체 > 계좌이체 > 지연이체 등록내역조회/취소 > 등록취소 -->
 <!doctype html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>수협은행</title>
-    <link rel="stylesheet" href="/static/css/reset.css" />
-    <link rel="stylesheet" href="/static/css/layout.css" />
-    <link rel="stylesheet" href="/static/css/component.css" />
-    <link rel="stylesheet" href="/static/css/common.css" />
-    <link rel="stylesheet" href="/static/css/trn.css" />
-  </head>
 
-  <body>
-    <div class="wrapper">
-      <div id="header">
-        @@include('static/html/pub/layout/skipNavigation.html')
-        @@include('static/html/pub/layout/header_sub.html')
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>수협은행</title>
+  <link rel="stylesheet" href="/static/css/reset.css" />
+  <link rel="stylesheet" href="/static/css/layout.css" />
+  <link rel="stylesheet" href="/static/css/component.css" />
+  <link rel="stylesheet" href="/static/css/common.css" />
+  <link rel="stylesheet" href="/static/css/trn.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <div id="header">
+      @@include('static/html/pub/layout/skipNavigation.html')
+      @@include('static/html/pub/layout/header_sub.html')
+    </div>
+
+    <div id="container" class="container">
+      <div id="leftArea">
+        @@include('static/html/pub/layout/leftArea.html')
       </div>
+      <div id="contents">
+        <div class="content">
+          @@include('static/html/pub/layout/breadcrumb.html')
+          <div class="trn">
+            <h2 class="typeH2">이체</h2>
+            <h4 class="typeH4">출금정보</h4>
+            <table class="table-type01">
+              <caption>
+                지연이체 등록내역조회/취소
+              </caption>
+              <colgroup>
+                <col />
+                <col />
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th scope="row">
+                    <span>출금계좌번호</span>
+                  </th>
+                  <td>
+                    <span class="typeMd">1000-0000-0000</span>
+                  </td>
+                  <th scope="row">
+                    <span>이체금액</span>
+                  </th>
+                  <td class="text-right">
+                    <span class="typeMd">1,000,000,000원</span>
+                  </td>
+                </tr>
 
-      <div id="container" class="container">
-        <div id="leftArea">
-          @@include('static/html/pub/layout/leftArea.html')
-        </div>
-        <div id="contents">
-          <div class="content">
-            @@include('static/html/pub/layout/breadcrumb.html')
-            <div class="trn">
-              <h2 class="typeH2">이체</h2>
-              <h4 class="typeH4">출금정보</h4>
-              <table class="table-type01">
-                <caption>
-                  지연이체 등록내역조회/취소
-                </caption>
-                <colgroup>
-                  <col />
-                  <col />
-                </colgroup>
-                <tbody>
-                  <tr>
-                    <th scope="row">
-                      <span>출금계좌번호</span>
-                    </th>
-                    <td>
-                      <span class="typeMd">1000-0000-0000</span>
-                    </td>
-                    <th scope="row">
-                      <span>이체금액</span>
-                    </th>
-                    <td class="text-right">
-                      <span class="typeMd">1,000,000,000원</span>
-                    </td>
-                  </tr>
+                <tr>
+                  <th scope="row">
+                    <span>예약등록일</span>
+                  </th>
+                  <td>
+                    <span class="typeMd">2026-07-23</span>
+                  </td>
+                  <th scope="row">
+                    <span>거래번호</span>
+                  </th>
+                  <td class="text-right">
+                    <span class="typeMd">1231231</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <span>계좌비밀번호</span>
+                  </th>
+                  <td colspan="3" class="flex items-center gap-6">
+                    <input type="password" class="input size-lg wSize-lg" placeholder="Password" title="" />
+                    <button type="button" class="btn type-line-secondary size-xl">
+                      <span class="text">마우스입력</span>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
 
-                  <tr>
-                    <th scope="row">
-                      <span>예약등록일</span>
-                    </th>
-                    <td>
-                      <span class="typeMd">2026-07-23</span>
-                    </td>
-                    <th scope="row">
-                      <span>거래번호</span>
-                    </th>
-                    <td class="text-right">
-                      <span class="typeMd">1231231</span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">
-                      <span>계좌비밀번호</span>
-                    </th>
-                    <td colspan="3" class="flex items-center gap-6">
-                      <input
-                        type="password"
-                        class="input size-lg wSize-lg"
-                        placeholder="Password"
-                        title=""
-                      />
-                      <button
-                        type="password"
-                        class="btn type-ghost-neutral size-sm"
-                      >
-                        <span class="text">마우스 입력</span>
-                      </button>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-
-              <div class="text-center" style="border: 1px solid #d2d2d2">
-                OTP 공통영역
-              </div>
-              <div class="flex justify-center items-center gap-10 mt-24 mb-10">
-                <button type="button" class="btn type-bg-neutral-tint size-xl">
-                  <span class="text">취소</span>
-                </button>
-                <button type="button" class="btn type-bg-primary size-xl">
-                  <span class="text">확인</span>
-                </button>
-              </div>
+            <div class="text-center" style="border: 1px solid #d2d2d2">
+              OTP 공통영역
+            </div>
+            <div class="flex justify-center items-center gap-10 mt-24 mb-10">
+              <button type="button" class="btn type-bg-neutral-tint size-xl">
+                <span class="text">취소</span>
+              </button>
+              <button type="button" class="btn type-bg-primary size-xl">
+                <span class="text">확인</span>
+              </button>
             </div>
           </div>
         </div>
-        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
       </div>
-      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+      <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
     </div>
-    <script src="/static/js/ui/cib_ui_common.js"></script>
-  </body>
+    <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+  </div>
+  <script src="/static/js/ui/cib_ui_common.js"></script>
+</body>
+
 </html>
