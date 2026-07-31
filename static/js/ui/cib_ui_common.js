@@ -1116,35 +1116,52 @@ function fnInitSortButtons() {
 }
 //뷰셀렉터
 function fnInitViewSelector() {
-	const selectors = document.querySelectorAll('.view-selector');
+    const selectors = document.querySelectorAll('.view-selector');
 
-	selectors.forEach(selector => {
-		const buttons = selector.querySelectorAll('button');
+    selectors.forEach(selector => {
+        const buttons = selector.querySelectorAll('button');
 
-		buttons.forEach((button, index) => {
-			button.addEventListener('click', (e) => {
-				e.preventDefault();
+        buttons.forEach((button, index) => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
 
-				buttons.forEach(btn => btn.classList.remove('active'));
-				button.classList.add('active');
+                // 1. 모든 버튼과 아이콘 상태 초기화 (active 제거 및 netral 복원)
+                buttons.forEach(btn => {
+                    btn.classList.remove('active');
+                    const icon = btn.querySelector('i');
+                    if (icon) {
+                        icon.classList.remove('color-fg-primary');
+                        icon.classList.add('color-fg-netral');
+                    }
+                });
 
-				const parentTabContent = selector.closest('.box-tab-content') || selector.closest('.content');
-				if (!parentTabContent) return;
+                // 2. 현재 클릭된 버튼 활성화 (active 추가 및 primary 적용)
+                button.classList.add('active');
+                const currentIcon = button.querySelector('i');
+                if (currentIcon) {
+                    currentIcon.classList.remove('color-fg-netral');
+                    currentIcon.classList.add('color-fg-primary');
+                }
 
-				const cardContainer = parentTabContent.querySelector('.card-swiper-container');
-				const listContainer = parentTabContent.querySelector('.list-view-container');
+                // 3. 카드 및 리스트 영역 토글 처리
+                const parentTabContent = selector.closest('.box-tab-content') || selector.closest('.content');
+                if (!parentTabContent) return;
 
-				if (index === 0) {
-					if (cardContainer) cardContainer.style.display = 'block';
-					if (listContainer) listContainer.style.display = 'none';
-				} else if (index === 1) {
-					if (cardContainer) cardContainer.style.display = 'none';
-					if (listContainer) listContainer.style.display = 'block';
-				}
-			});
-		});
-	});
+                const cardContainer = parentTabContent.querySelector('.card-swiper-container');
+                const listContainer = parentTabContent.querySelector('.list-view-container');
+
+                if (index === 0) {
+                    if (cardContainer) cardContainer.style.display = 'block';
+                    if (listContainer) listContainer.style.display = 'none';
+                } else if (index === 1) {
+                    if (cardContainer) cardContainer.style.display = 'none';
+                    if (listContainer) listContainer.style.display = 'block';
+                }
+            });
+        });
+    });
 }
+
 
 //allcheck
 function initTableCheckbox() {

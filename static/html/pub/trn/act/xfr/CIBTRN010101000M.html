@@ -10,15 +10,6 @@
     <link rel="stylesheet" href="/static/css/common.css" />
     <link rel="stylesheet" href="/static/css/swiper-bundle.min.css" />
     <link rel="stylesheet" href="/static/css/trn.css" />
-    <style>
-      .card-swiper-container {
-        width: 100%;
-        overflow: hidden;
-      }
-      .card-swiper-container .swiper-slide {
-        width: auto;
-      }
-    </style>
   </head>
 
   <body>
@@ -41,12 +32,6 @@
                   이체
                   <div class="box-steps">
                     <ol class="list-steps">
-                      <!-- 
-                        [dev] 상태값 class 안내
-                        class="item-steps" 기본 숫자 표기
-                        class="item-steps passed" 완료
-                        class="item-steps current" 현재
-                       -->
                       <li class="item-steps current" aria-current="step">
                         <span class="blind">정보입력</span>
                         <i class="icon" aria-hidden="true">1</i>
@@ -68,7 +53,7 @@
                   </div>
                 </h2>
                 <h4 class="typeH4">출금정보</h4>
-                <div class="withdrawal-section">
+                <div class="withdrawal-section mt-12">
                   <div class="card-top-content">
                     <div class="flex gap-16">
                       <div class="flex justify-center items-center">
@@ -399,172 +384,198 @@
 
                         <!-- 카드형 뷰 (기본 노출) -->
                         <div
-                          class="swiper-container card-swiper-container mt-12"
+                          class="swiper-container card-swiper-container mt-12 pos-relative"
                           style="display: block"
                         >
                           <div class="swiper-wrapper">
+                            <!-- 첫 번째 카드 (미선택 상태로 초기화) -->
                             <div class="swiper-slide">
-                              <button class="card-item type-2">
-                                <div class="card-inner flex gap-8 items-center">
+                              <button
+                                type="button"
+                                class="account-card-container"
+                                aria-pressed="false"
+                              >
+                                <div>
                                   <i
-                                    class="ico bank ico-size-lg ico-hana"
+                                    class="ico bank ico-size-md ico-suhyup2 bg-type"
                                     aria-hidden="true"
                                   ></i>
-
-                                  <div class="flex flex-column gap-4 flex-1">
-                                    <div
-                                      class="flex justify-between items-center gap-8"
-                                    >
-                                      <strong class="typeH6 truncate w-170"
-                                        >글자가 긴이름이 들어갈땐 이렇게
-                                        보여요</strong
-                                      >
-                                    </div>
+                                </div>
+                                <div class="w-250">
+                                  <h5 class="typeH5 truncate">김수협 1</h5>
+                                  <div class="flex gap-4 typeMd mt-4">
+                                    <dt>보통예금</dt>
+                                    <dd>1900-0419-5187</dd>
+                                  </div>
+                                  <div class="typeSm truncate mt-16">
                                     <span
-                                      class="typeMd text-left"
-                                      aria-label="계좌번호 1900-0419-5187"
-                                      >1900-0419-5187</span
+                                      >메모내용 나오는 곳입니다. 메모내용 나오는
+                                      곳입니다.</span
                                     >
-
-                                    <span
-                                      class="typeSmMedium truncate w-170 text-left"
-                                      >부모님 용돈 부모님 용돈부모님 용돈부모님
-                                      용돈부모님 용돈 많이줘야지 부모님 용돈
-                                      부모님 용돈부모님 용돈부모님 용돈부모님
-                                      용돈 많이줘야지
-                                    </span>
                                   </div>
                                 </div>
                               </button>
                             </div>
+
+                            <!-- 두 번째 카드 -->
                             <div class="swiper-slide">
-                              <button class="card-item type-2">
-                                <div class="card-inner flex gap-8 items-center">
+                              <button
+                                type="button"
+                                class="account-card-container"
+                                aria-pressed="false"
+                              >
+                                <div>
                                   <i
-                                    class="ico bank ico-size-lg ico-shinhan-jeju"
+                                    class="ico bank ico-size-md ico-suhyup2 bg-type"
                                     aria-hidden="true"
                                   ></i>
-
-                                  <div class="flex flex-column gap-4 flex-1">
-                                    <div
-                                      class="flex justify-between items-center gap-8"
-                                    >
-                                      <strong class="typeH6 truncate w-170"
-                                        >글자가 긴이름이 들어갈땐 이렇게
-                                        보여요</strong
-                                      >
-                                    </div>
-                                    <span
-                                      class="typeMd text-left"
-                                      aria-label="계좌번호 1900-0419-5187"
-                                      >1900-0419-5187</span
-                                    >
-
-                                    <span
-                                      class="typeSmMedium truncate w-170 text-left"
-                                      >부모님 용돈 부모님 용돈부모님 용돈부모님
-                                      용돈부모님 용돈 많이줘야지 부모님 용돈
-                                      부모님 용돈부모님 용돈부모님 용돈부모님
-                                      용돈 많이줘야지
-                                    </span>
+                                </div>
+                                <div class="w-250">
+                                  <h5 class="typeH5 truncate">김수협 2</h5>
+                                  <div class="flex gap-4 typeMd mt-4">
+                                    <dt>보통예금</dt>
+                                    <dd>1900-0419-5187</dd>
+                                  </div>
+                                  <div class="typeSm truncate mt-16">
+                                    <span>메모내용 나오는 곳입니다.</span>
                                   </div>
                                 </div>
                               </button>
                             </div>
+
+                            <!-- 세 번째 카드 -->
                             <div class="swiper-slide">
-                              <button class="card-item type-2">
-                                <div class="card-inner flex gap-8 items-center">
+                              <button
+                                type="button"
+                                class="account-card-container"
+                                aria-pressed="false"
+                              >
+                                <div>
                                   <i
-                                    class="ico bank ico-size-lg ico-woori"
+                                    class="ico bank ico-size-md ico-suhyup2 bg-type"
                                     aria-hidden="true"
                                   ></i>
-
-                                  <div class="flex flex-column gap-4 flex-1">
-                                    <div
-                                      class="flex justify-between items-center gap-8"
-                                    >
-                                      <strong class="typeH6 truncate w-170"
-                                        >글자가 긴이름이 들어갈땐 이렇게
-                                        보여요</strong
-                                      >
-                                    </div>
-                                    <span
-                                      class="typeMd text-left"
-                                      aria-label="계좌번호 1900-0419-5187"
-                                      >1900-0419-5187</span
-                                    >
-
-                                    <span
-                                      class="typeSmMedium truncate w-170 text-left"
-                                      >부모님 용돈
-                                    </span>
+                                </div>
+                                <div class="w-250">
+                                  <h5 class="typeH5 truncate">김수협 3</h5>
+                                  <div class="flex gap-4 typeMd mt-4">
+                                    <dt>보통예금</dt>
+                                    <dd>1900-0419-5187</dd>
+                                  </div>
+                                  <div class="typeSm truncate mt-16">
+                                    <span>메모내용 나오는 곳입니다.</span>
                                   </div>
                                 </div>
                               </button>
                             </div>
+
+                            <!-- 네 번째 카드 -->
                             <div class="swiper-slide">
-                              <button class="card-item type-2">
-                                <div class="card-inner flex gap-8 items-center">
+                              <button
+                                type="button"
+                                class="account-card-container"
+                                aria-pressed="false"
+                              >
+                                <div>
                                   <i
-                                    class="ico bank ico-size-lg ico-nonghyup"
+                                    class="ico bank ico-size-md ico-suhyup2 bg-type"
                                     aria-hidden="true"
                                   ></i>
-                                  <div class="flex flex-column gap-4 flex-1">
-                                    <div
-                                      class="flex justify-between items-center gap-8"
-                                    >
-                                      <strong class="typeH6 truncate w-170"
-                                        >글자가 긴이름이 들어갈땐 이렇게
-                                        보여요</strong
-                                      >
-                                    </div>
-                                    <span
-                                      class="typeMd text-left"
-                                      aria-label="계좌번호 1900-0419-5187"
-                                      >1900-0419-5187</span
-                                    >
-
-                                    <span
-                                      class="typeSmMedium truncate w-170 text-left"
-                                      >서브계좌
-                                    </span>
+                                </div>
+                                <div class="w-250">
+                                  <h5 class="typeH5 truncate">김수협 4</h5>
+                                  <div class="flex gap-4 typeMd mt-4">
+                                    <dt>보통예금</dt>
+                                    <dd>1900-0419-5187</dd>
+                                  </div>
+                                  <div class="typeSm truncate mt-16">
+                                    <span>메모내용 나오는 곳입니다.</span>
                                   </div>
                                 </div>
                               </button>
                             </div>
+
+                            <!-- 다섯 번째 카드 -->
                             <div class="swiper-slide">
-                              <button class="card-item type-2">
-                                <div class="card-inner flex gap-8 items-center">
+                              <button
+                                type="button"
+                                class="account-card-container"
+                                aria-pressed="false"
+                              >
+                                <div>
                                   <i
-                                    class="ico bank ico-size-lg ico-nonghyup"
+                                    class="ico bank ico-size-md ico-suhyup2 bg-type"
                                     aria-hidden="true"
                                   ></i>
-                                  <div class="flex flex-column gap-4 flex-1">
-                                    <div
-                                      class="flex justify-between items-center gap-8"
-                                    >
-                                      <strong class="typeH6 truncate w-170"
-                                        >글자가 긴이름이 들어갈땐 이렇게
-                                        보여요</strong
-                                      >
-                                    </div>
-                                    <span
-                                      class="typeMd text-left"
-                                      aria-label="계좌번호 1900-0419-5187"
-                                      >1900-0419-5187</span
-                                    >
+                                </div>
+                                <div class="w-250">
+                                  <h5 class="typeH5 truncate">김수협 5</h5>
+                                  <div class="flex gap-4 typeMd mt-4">
+                                    <dt>보통예금</dt>
+                                    <dd>1900-0419-5187</dd>
+                                  </div>
+                                  <div class="typeSm truncate mt-16">
+                                    <span>메모내용 나오는 곳입니다.</span>
+                                  </div>
+                                </div>
+                              </button>
+                            </div>
 
-                                    <span
-                                      class="typeSmMedium truncate w-170 text-left"
-                                      >서브계좌
-                                    </span>
+                            <!-- 여섯 번째 카드 -->
+                            <div class="swiper-slide">
+                              <button
+                                type="button"
+                                class="account-card-container"
+                                aria-pressed="false"
+                              >
+                                <div>
+                                  <i
+                                    class="ico bank ico-size-md ico-suhyup2 bg-type"
+                                    aria-hidden="true"
+                                  ></i>
+                                </div>
+                                <div class="w-250">
+                                  <h5 class="typeH5 truncate">김수협 6</h5>
+                                  <div class="flex gap-4 typeMd mt-4">
+                                    <dt>보통예금</dt>
+                                    <dd>1900-0419-5187</dd>
+                                  </div>
+                                  <div class="typeSm truncate mt-16">
+                                    <span>메모내용 나오는 곳입니다.</span>
                                   </div>
                                 </div>
                               </button>
                             </div>
                           </div>
-                        </div>
 
+                          <nav
+                            class="slide-nav"
+                            aria-label="최근 계좌 슬라이드 내비게이션"
+                          >
+                            <div class="nav-wrapper">
+                              <button
+                                type="button"
+                                class="btn-slide-prev"
+                                aria-label="이전 슬라이드"
+                              >
+                                <i
+                                  class="ico line ico-size-sm ico-chevron-left"
+                                  aria-hidden="true"
+                                ></i>
+                              </button>
+                              <button
+                                type="button"
+                                class="btn-slide-next"
+                                aria-label="다음 슬라이드"
+                              >
+                                <i
+                                  class="ico line ico-size-sm ico-chevron-right"
+                                  aria-hidden="true"
+                                ></i>
+                              </button>
+                            </div>
+                          </nav>
+                        </div>
                         <!-- 목록형 뷰 (기본 숨김) -->
                         <div
                           class="list-view-container mt-12"
@@ -572,663 +583,6 @@
                         >
                           <ul class="list-type-accounts">
                             <li>최근 사용한계좌 리스트</li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      class="box-tab-content"
-                      id="tabPanelTypeHighlight02"
-                      role="tabpanel"
-                      aria-labelledby="tabBtnTypeHighlight02"
-                      style="display: none"
-                    >
-                      <h3 class="blind">자주사용하는 리스트 tab</h3>
-                      <div>
-                        <div class="flex items-center justify-between gap-6">
-                          <div>
-                            <input
-                              type="text"
-                              class="input size-lg wSize-lg"
-                              placeholder="예금주명, 계좌번호 또는 메모 검색"
-                              title=""
-                              value=""
-                            />
-                            <button
-                              type="button"
-                              class="btn type-bg-primary size-lg"
-                            >
-                              <span class="text">검색</span>
-                            </button>
-                          </div>
-                          <ul class="view-selector">
-                            <li>
-                              <button class="active">
-                                <i
-                                  class="ico line ico-size-sm ico-grid color-fg-netral"
-                                  aria-hidden="true"
-                                ></i>
-                                <span class="blind">카드 목록</span>
-                              </button>
-                            </li>
-                            <li>
-                              <button>
-                                <i
-                                  class="ico line ico-size-sm ico-menu color-fg-netral"
-                                  aria-hidden="true"
-                                ></i>
-                                <span class="blind">리스트 목록</span>
-                              </button>
-                            </li>
-                          </ul>
-                        </div>
-
-                        <!-- 카드형 뷰 (기본 노출) -->
-                        <div
-                          class="swiper-container card-swiper-container mt-12"
-                          style="display: block"
-                        >
-                          <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                              <button class="card-item type-2">
-                                <div class="card-inner flex gap-8 items-center">
-                                  <i
-                                    class="ico bank ico-size-lg ico-hana"
-                                    aria-hidden="true"
-                                  ></i>
-
-                                  <div class="flex flex-column gap-4 flex-1">
-                                    <div
-                                      class="flex justify-between items-center gap-8"
-                                    >
-                                      <strong class="typeH6 truncate w-170"
-                                        >글자가 긴이름이 들어갈땐 이렇게
-                                        보여요</strong
-                                      >
-                                    </div>
-                                    <span
-                                      class="typeMd text-left"
-                                      aria-label="계좌번호 1900-0419-5187"
-                                      >1900-0419-5187</span
-                                    >
-
-                                    <span
-                                      class="typeSmMedium truncate w-170 text-left"
-                                      >부모님 용돈 부모님 용돈부모님 용돈부모님
-                                      용돈부모님 용돈 많이줘야지 부모님 용돈
-                                      부모님 용돈부모님 용돈부모님 용돈부모님
-                                      용돈 많이줘야지
-                                    </span>
-                                  </div>
-                                </div>
-                              </button>
-                            </div>
-                            <div class="swiper-slide">
-                              <button class="card-item type-2">
-                                <div class="card-inner flex gap-8 items-center">
-                                  <i
-                                    class="ico bank ico-size-lg ico-shinhan-jeju"
-                                    aria-hidden="true"
-                                  ></i>
-
-                                  <div class="flex flex-column gap-4 flex-1">
-                                    <div
-                                      class="flex justify-between items-center gap-8"
-                                    >
-                                      <strong class="typeH6 truncate w-170"
-                                        >글자가 긴이름이 들어갈땐 이렇게
-                                        보여요</strong
-                                      >
-                                    </div>
-                                    <span
-                                      class="typeMd text-left"
-                                      aria-label="계좌번호 1900-0419-5187"
-                                      >1900-0419-5187</span
-                                    >
-
-                                    <span
-                                      class="typeSmMedium truncate w-170 text-left"
-                                      >부모님 용돈 부모님 용돈부모님 용돈부모님
-                                      용돈부모님 용돈 많이줘야지 부모님 용돈
-                                      부모님 용돈부모님 용돈부모님 용돈부모님
-                                      용돈 많이줘야지
-                                    </span>
-                                  </div>
-                                </div>
-                              </button>
-                            </div>
-                            <div class="swiper-slide">
-                              <button class="card-item type-2">
-                                <div class="card-inner flex gap-8 items-center">
-                                  <i
-                                    class="ico bank ico-size-lg ico-woori"
-                                    aria-hidden="true"
-                                  ></i>
-
-                                  <div class="flex flex-column gap-4 flex-1">
-                                    <div
-                                      class="flex justify-between items-center gap-8"
-                                    >
-                                      <strong class="typeH6 truncate w-170"
-                                        >글자가 긴이름이 들어갈땐 이렇게
-                                        보여요</strong
-                                      >
-                                    </div>
-                                    <span
-                                      class="typeMd text-left"
-                                      aria-label="계좌번호 1900-0419-5187"
-                                      >1900-0419-5187</span
-                                    >
-
-                                    <span
-                                      class="typeSmMedium truncate w-170 text-left"
-                                      >부모님 용돈
-                                    </span>
-                                  </div>
-                                </div>
-                              </button>
-                            </div>
-                            <div class="swiper-slide">
-                              <button class="card-item type-2">
-                                <div class="card-inner flex gap-8 items-center">
-                                  <i
-                                    class="ico bank ico-size-lg ico-nonghyup"
-                                    aria-hidden="true"
-                                  ></i>
-                                  <div class="flex flex-column gap-4 flex-1">
-                                    <div
-                                      class="flex justify-between items-center gap-8"
-                                    >
-                                      <strong class="typeH6 truncate w-170"
-                                        >글자가 긴이름이 들어갈땐 이렇게
-                                        보여요</strong
-                                      >
-                                    </div>
-                                    <span
-                                      class="typeMd text-left"
-                                      aria-label="계좌번호 1900-0419-5187"
-                                      >1900-0419-5187</span
-                                    >
-
-                                    <span
-                                      class="typeSmMedium truncate w-170 text-left"
-                                      >서브계좌
-                                    </span>
-                                  </div>
-                                </div>
-                              </button>
-                            </div>
-                            <div class="swiper-slide">
-                              <button class="card-item type-2">
-                                <div class="card-inner flex gap-8 items-center">
-                                  <i
-                                    class="ico bank ico-size-lg ico-nonghyup"
-                                    aria-hidden="true"
-                                  ></i>
-                                  <div class="flex flex-column gap-4 flex-1">
-                                    <div
-                                      class="flex justify-between items-center gap-8"
-                                    >
-                                      <strong class="typeH6 truncate w-170"
-                                        >글자가 긴이름이 들어갈땐 이렇게
-                                        보여요</strong
-                                      >
-                                    </div>
-                                    <span
-                                      class="typeMd text-left"
-                                      aria-label="계좌번호 1900-0419-5187"
-                                      >1900-0419-5187</span
-                                    >
-
-                                    <span
-                                      class="typeSmMedium truncate w-170 text-left"
-                                      >서브계좌
-                                    </span>
-                                  </div>
-                                </div>
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-
-                        <!-- 목록형 뷰 (기본 숨김) -->
-                        <div
-                          class="list-view-container mt-12"
-                          style="display: none"
-                        >
-                          <ul class="list-type-accounts">
-                            <li>자주 사용하는계좌 리스트</li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      class="box-tab-content"
-                      id="tabPanelTypeHighlight03"
-                      role="tabpanel"
-                      aria-labelledby="tabBtnTypeHighlight03"
-                      style="display: none"
-                    >
-                      <h3 class="blind">내 계좌 리스트 tab</h3>
-                      <div>
-                        <div class="flex items-center justify-between gap-6">
-                          <div>
-                            <input
-                              type="text"
-                              class="input size-lg wSize-lg"
-                              placeholder="예금주명, 계좌번호 또는 메모 검색"
-                              title=""
-                              value=""
-                            />
-                            <button
-                              type="button"
-                              class="btn type-bg-primary size-lg"
-                            >
-                              <span class="text">검색</span>
-                            </button>
-                          </div>
-                          <ul class="view-selector">
-                            <li>
-                              <button class="active">
-                                <i
-                                  class="ico line ico-size-sm ico-grid color-fg-netral"
-                                  aria-hidden="true"
-                                ></i>
-                                <span class="blind">카드 목록</span>
-                              </button>
-                            </li>
-                            <li>
-                              <button>
-                                <i
-                                  class="ico line ico-size-sm ico-menu color-fg-netral"
-                                  aria-hidden="true"
-                                ></i>
-                                <span class="blind">리스트 목록</span>
-                              </button>
-                            </li>
-                          </ul>
-                        </div>
-
-                        <!-- 카드형 뷰 (기본 노출) -->
-                        <div
-                          class="swiper-container card-swiper-container mt-12"
-                          style="display: block"
-                        >
-                          <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                              <button class="card-item type-2">
-                                <div class="card-inner flex gap-8 items-center">
-                                  <i
-                                    class="ico bank ico-size-lg ico-hana"
-                                    aria-hidden="true"
-                                  ></i>
-
-                                  <div class="flex flex-column gap-4 flex-1">
-                                    <div
-                                      class="flex justify-between items-center gap-8"
-                                    >
-                                      <strong class="typeH6 truncate w-170"
-                                        >글자가 긴이름이 들어갈땐 이렇게
-                                        보여요</strong
-                                      >
-                                    </div>
-                                    <span
-                                      class="typeMd text-left"
-                                      aria-label="계좌번호 1900-0419-5187"
-                                      >1900-0419-5187</span
-                                    >
-                                  </div>
-                                </div>
-                              </button>
-                            </div>
-                            <div class="swiper-slide">
-                              <button class="card-item type-2">
-                                <div class="card-inner flex gap-8 items-center">
-                                  <i
-                                    class="ico bank ico-size-lg ico-shinhan-jeju"
-                                    aria-hidden="true"
-                                  ></i>
-
-                                  <div class="flex flex-column gap-4 flex-1">
-                                    <div
-                                      class="flex justify-between items-center gap-8"
-                                    >
-                                      <strong class="typeH6 truncate w-170"
-                                        >글자가 긴이름이 들어갈땐 이렇게
-                                        보여요</strong
-                                      >
-                                    </div>
-                                    <span
-                                      class="typeMd text-left"
-                                      aria-label="계좌번호 1900-0419-5187"
-                                      >1900-0419-5187</span
-                                    >
-                                  </div>
-                                </div>
-                              </button>
-                            </div>
-                            <div class="swiper-slide">
-                              <button class="card-item type-2">
-                                <div class="card-inner flex gap-8 items-center">
-                                  <i
-                                    class="ico bank ico-size-lg ico-woori"
-                                    aria-hidden="true"
-                                  ></i>
-
-                                  <div class="flex flex-column gap-4 flex-1">
-                                    <div
-                                      class="flex justify-between items-center gap-8"
-                                    >
-                                      <strong class="typeH6 truncate w-170"
-                                        >글자가 긴이름이 들어갈땐 이렇게
-                                        보여요</strong
-                                      >
-                                    </div>
-                                    <span
-                                      class="typeMd text-left"
-                                      aria-label="계좌번호 1900-0419-5187"
-                                      >1900-0419-5187</span
-                                    >
-                                  </div>
-                                </div>
-                              </button>
-                            </div>
-                            <div class="swiper-slide">
-                              <button class="card-item type-2">
-                                <div class="card-inner flex gap-8 items-center">
-                                  <i
-                                    class="ico bank ico-size-lg ico-nonghyup"
-                                    aria-hidden="true"
-                                  ></i>
-                                  <div class="flex flex-column gap-4 flex-1">
-                                    <div
-                                      class="flex justify-between items-center gap-8"
-                                    >
-                                      <strong class="typeH6 truncate w-170"
-                                        >글자가 긴이름이 들어갈땐 이렇게
-                                        보여요</strong
-                                      >
-                                    </div>
-                                    <span
-                                      class="typeMd text-left"
-                                      aria-label="계좌번호 1900-0419-5187"
-                                      >1900-0419-5187</span
-                                    >
-
-                                    <span
-                                      class="typeSmMedium truncate w-170 text-left"
-                                      >서브계좌
-                                    </span>
-                                  </div>
-                                </div>
-                              </button>
-                            </div>
-                            <div class="swiper-slide">
-                              <button class="card-item type-2">
-                                <div class="card-inner flex gap-8 items-center">
-                                  <i
-                                    class="ico bank ico-size-lg ico-nonghyup"
-                                    aria-hidden="true"
-                                  ></i>
-                                  <div class="flex flex-column gap-4 flex-1">
-                                    <div
-                                      class="flex justify-between items-center gap-8"
-                                    >
-                                      <strong class="typeH6 truncate w-170"
-                                        >글자가 긴이름이 들어갈땐 이렇게
-                                        보여요</strong
-                                      >
-                                    </div>
-                                    <span
-                                      class="typeMd text-left"
-                                      aria-label="계좌번호 1900-0419-5187"
-                                      >1900-0419-5187</span
-                                    >
-
-                                    <span
-                                      class="typeSmMedium truncate w-170 text-left"
-                                      >서브계좌
-                                    </span>
-                                  </div>
-                                </div>
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-
-                        <!-- 목록형 뷰 (기본 숨김) -->
-                        <div
-                          class="list-view-container mt-12"
-                          style="display: none"
-                        >
-                          <ul class="list-type-accounts">
-                            <li>내 계좌 리스트</li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      class="box-tab-content"
-                      id="tabPanelTypeHighlight04"
-                      role="tabpanel"
-                      aria-labelledby="tabBtnTypeHighlight04"
-                      style="display: none"
-                    >
-                      <h3 class="blind">입금지정계좌 tab</h3>
-                      <div>
-                        <div class="flex items-center justify-between gap-6">
-                          <div>
-                            <input
-                              type="text"
-                              class="input size-lg wSize-lg"
-                              placeholder="예금주명, 계좌번호 또는 메모 검색"
-                              title=""
-                              value=""
-                            />
-                            <button
-                              type="button"
-                              class="btn type-bg-primary size-lg"
-                            >
-                              <span class="text">검색</span>
-                            </button>
-                          </div>
-                          <ul class="view-selector">
-                            <li>
-                              <button class="active">
-                                <i
-                                  class="ico line ico-size-sm ico-grid color-fg-netral"
-                                  aria-hidden="true"
-                                ></i>
-                                <span class="blind">카드 목록</span>
-                              </button>
-                            </li>
-                            <li>
-                              <button>
-                                <i
-                                  class="ico line ico-size-sm ico-menu color-fg-netral"
-                                  aria-hidden="true"
-                                ></i>
-                                <span class="blind">리스트 목록</span>
-                              </button>
-                            </li>
-                          </ul>
-                        </div>
-
-                        <!-- 카드형 뷰 (기본 노출) -->
-                        <div
-                          class="swiper-container card-swiper-container mt-12"
-                          style="display: block"
-                        >
-                          <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                              <button class="card-item type-2">
-                                <div class="card-inner flex gap-8 items-center">
-                                  <i
-                                    class="ico bank ico-size-lg ico-hana"
-                                    aria-hidden="true"
-                                  ></i>
-
-                                  <div class="flex flex-column gap-4 flex-1">
-                                    <div
-                                      class="flex justify-between items-center gap-8"
-                                    >
-                                      <strong class="typeH6 truncate w-170"
-                                        >글자가 긴이름이 들어갈땐 이렇게
-                                        보여요</strong
-                                      >
-                                    </div>
-                                    <span
-                                      class="typeMd text-left"
-                                      aria-label="계좌번호 1900-0419-5187"
-                                      >1900-0419-5187</span
-                                    >
-
-                                    <span
-                                      class="typeSmMedium truncate w-170 text-left"
-                                      >부모님 용돈 부모님 용돈부모님 용돈부모님
-                                      용돈부모님 용돈 많이줘야지 부모님 용돈
-                                      부모님 용돈부모님 용돈부모님 용돈부모님
-                                      용돈 많이줘야지
-                                    </span>
-                                  </div>
-                                </div>
-                              </button>
-                            </div>
-                            <div class="swiper-slide">
-                              <button class="card-item type-2">
-                                <div class="card-inner flex gap-8 items-center">
-                                  <i
-                                    class="ico bank ico-size-lg ico-shinhan-jeju"
-                                    aria-hidden="true"
-                                  ></i>
-
-                                  <div class="flex flex-column gap-4 flex-1">
-                                    <div
-                                      class="flex justify-between items-center gap-8"
-                                    >
-                                      <strong class="typeH6 truncate w-170"
-                                        >글자가 긴이름이 들어갈땐 이렇게
-                                        보여요</strong
-                                      >
-                                    </div>
-                                    <span
-                                      class="typeMd text-left"
-                                      aria-label="계좌번호 1900-0419-5187"
-                                      >1900-0419-5187</span
-                                    >
-
-                                    <span
-                                      class="typeSmMedium truncate w-170 text-left"
-                                      >부모님 용돈 부모님 용돈부모님 용돈부모님
-                                      용돈부모님 용돈 많이줘야지 부모님 용돈
-                                      부모님 용돈부모님 용돈부모님 용돈부모님
-                                      용돈 많이줘야지
-                                    </span>
-                                  </div>
-                                </div>
-                              </button>
-                            </div>
-                            <div class="swiper-slide">
-                              <button class="card-item type-2">
-                                <div class="card-inner flex gap-8 items-center">
-                                  <i
-                                    class="ico bank ico-size-lg ico-woori"
-                                    aria-hidden="true"
-                                  ></i>
-
-                                  <div class="flex flex-column gap-4 flex-1">
-                                    <div
-                                      class="flex justify-between items-center gap-8"
-                                    >
-                                      <strong class="typeH6 truncate w-170"
-                                        >글자가 긴이름이 들어갈땐 이렇게
-                                        보여요</strong
-                                      >
-                                    </div>
-                                    <span
-                                      class="typeMd text-left"
-                                      aria-label="계좌번호 1900-0419-5187"
-                                      >1900-0419-5187</span
-                                    >
-
-                                    <span
-                                      class="typeSmMedium truncate w-170 text-left"
-                                      >부모님 용돈
-                                    </span>
-                                  </div>
-                                </div>
-                              </button>
-                            </div>
-                            <div class="swiper-slide">
-                              <button class="card-item type-2">
-                                <div class="card-inner flex gap-8 items-center">
-                                  <i
-                                    class="ico bank ico-size-lg ico-nonghyup"
-                                    aria-hidden="true"
-                                  ></i>
-                                  <div class="flex flex-column gap-4 flex-1">
-                                    <div
-                                      class="flex justify-between items-center gap-8"
-                                    >
-                                      <strong class="typeH6 truncate w-170"
-                                        >글자가 긴이름이 들어갈땐 이렇게
-                                        보여요</strong
-                                      >
-                                    </div>
-                                    <span
-                                      class="typeMd text-left"
-                                      aria-label="계좌번호 1900-0419-5187"
-                                      >1900-0419-5187</span
-                                    >
-
-                                    <span
-                                      class="typeSmMedium truncate w-170 text-left"
-                                      >서브계좌
-                                    </span>
-                                  </div>
-                                </div>
-                              </button>
-                            </div>
-                            <div class="swiper-slide">
-                              <button class="card-item type-2">
-                                <div class="card-inner flex gap-8 items-center">
-                                  <i
-                                    class="ico bank ico-size-lg ico-nonghyup"
-                                    aria-hidden="true"
-                                  ></i>
-                                  <div class="flex flex-column gap-4 flex-1">
-                                    <div
-                                      class="flex justify-between items-center gap-8"
-                                    >
-                                      <strong class="typeH6 truncate w-170"
-                                        >글자가 긴이름이 들어갈땐 이렇게
-                                        보여요</strong
-                                      >
-                                    </div>
-                                    <span
-                                      class="typeMd text-left"
-                                      aria-label="계좌번호 1900-0419-5187"
-                                      >1900-0419-5187</span
-                                    >
-
-                                    <span
-                                      class="typeSmMedium truncate w-170 text-left"
-                                      >서브계좌
-                                    </span>
-                                  </div>
-                                </div>
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-
-                        <!-- 목록형 뷰 (기본 숨김) -->
-                        <div
-                          class="list-view-container mt-12"
-                          style="display: none"
-                        >
-                          <ul class="list-type-accounts">
-                            <li>입금 지정게좌</li>
                           </ul>
                         </div>
                       </div>
@@ -1346,96 +700,10 @@
                         <input
                           type="text"
                           class="input size-lg wSize-md"
-                          placeholder="계좌번호"
+                          placeholder="CMS번호를 입력해주세요"
                           title=""
                           value=""
                         />
-                      </td>
-                    </tr>
-                    <tr>
-                      <th>이체금액</th>
-                      <td class="flex flex-column gap-8">
-                        <div class="flex items-center gap-10">
-                          <input
-                            type="text"
-                            class="input size-lg wSize-md"
-                            placeholder=""
-                            title=""
-                            value="10,000,000원"
-                          />
-                          <input
-                            type="text"
-                            class="input size-lg wSize-md"
-                            placeholder="입력된금액이 한글로 표시됩니다."
-                            readonly
-                            title=""
-                            value=""
-                          />
-                          <button
-                            type="button"
-                            class="btn type-line-secondary size-lg flex gap-4 items-center"
-                          >
-                            <span class="text">재입력</span>
-                          </button>
-                        </div>
-                        <ul class="flex gap-4">
-                          <li>
-                            <button
-                              type="button"
-                              class="btn type-bg-neutral-tint size-sm flex items-center gap-4"
-                            >
-                              <i
-                                class="ico line ico-size-sm ico-plus colorFgNetral"
-                                aria-hidden="true"
-                              ></i>
-                              <span class="text">1000만</span>
-                            </button>
-                          </li>
-                          <li>
-                            <button
-                              type="button"
-                              class="btn type-bg-neutral-tint size-sm flex items-center gap-4"
-                            >
-                              <i
-                                class="ico line ico-size-sm ico-plus colorFgNetral"
-                                aria-hidden="true"
-                              ></i>
-                              <span class="text">500만</span>
-                            </button>
-                          </li>
-                          <li>
-                            <button
-                              type="button"
-                              class="btn type-bg-neutral-tint size-sm flex items-center gap-4"
-                            >
-                              <i
-                                class="ico line ico-size-sm ico-plus colorFgNetral"
-                                aria-hidden="true"
-                              ></i>
-                              <span class="text">100만</span>
-                            </button>
-                          </li>
-                          <li>
-                            <button
-                              type="button"
-                              class="btn type-bg-neutral-tint size-sm flex items-center gap-4"
-                            >
-                              <i
-                                class="ico line ico-size-sm ico-plus colorFgNetral"
-                                aria-hidden="true"
-                              ></i>
-                              <span class="text">전액</span>
-                            </button>
-                          </li>
-                          <li>
-                            <button
-                              type="button"
-                              class="btn type-bg-neutral-tint size-sm"
-                            >
-                              <span class="text">계산기</span>
-                            </button>
-                          </li>
-                        </ul>
                       </td>
                     </tr>
                   </tbody>
@@ -1469,7 +737,7 @@
                         <input
                           type="text"
                           class="input size-lg wSize-md"
-                          placeholder=""
+                          placeholder="입력해주세요"
                           title=""
                           value=""
                         />
@@ -1484,7 +752,7 @@
                         <input
                           type="text"
                           class="input size-lg wSize-md"
-                          placeholder=""
+                          placeholder="입력해주세요"
                           title=""
                           value=""
                         />
@@ -1501,7 +769,7 @@
                         <input
                           type="text"
                           class="input size-lg wSize-md"
-                          placeholder=""
+                          placeholder="입력해주세요"
                           title=""
                           value=""
                         />
@@ -1526,15 +794,102 @@
       </div>
       <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
     </div>
+
     <script src="/static/js/ui/cib_ui_common.js"></script>
     <script src="/static/js/ui/swiper.min.js"></script>
+
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        var cardSwiper = new Swiper(".card-swiper-container", {
-          slidesPerView: "auto", // 슬라이드 너비를 콘텐츠에 맞춤 (CSS width: auto와 연동)
-          spaceBetween: 12, // 슬라이드 간 간격 12px
-          observer: true, // DOM 변화가 있을 때 (탭 변경 시) 스와이퍼 갱신
-          observeParents: true, // 부모 요소 변화 시 갱신
+        var swiperContainers = document.querySelectorAll(
+          ".card-swiper-container",
+        );
+
+        swiperContainers.forEach(function (container) {
+          var prevBtn = container.querySelector(".btn-slide-prev");
+          var nextBtn = container.querySelector(".btn-slide-next");
+
+          var cardSwiper = new Swiper(container, {
+            slidesPerView: "auto",
+            slidesPerGroup: 3,
+            spaceBetween: 12,
+            observer: true,
+            observeParents: true,
+            allowTouchMove: true,
+            speed: 300,
+            watchOverflow: false,
+            preventClicks: true,
+            preventClicksPropagation: true,
+
+            navigation: {
+              nextEl: nextBtn,
+              prevEl: prevBtn,
+            },
+
+            on: {
+              init: function () {
+                updateDisabledAttribute(this, prevBtn, nextBtn);
+              },
+              slideChange: function () {
+                updateDisabledAttribute(this, prevBtn, nextBtn);
+              },
+            },
+          });
+
+          // 카드 버튼 단일 선택 로직
+          var cardButtons = container.querySelectorAll(
+            ".account-card-container",
+          );
+          cardButtons.forEach(function (btn) {
+            btn.addEventListener("click", function () {
+              // 1. 모든 버튼 초기화
+              cardButtons.forEach(function (otherBtn) {
+                otherBtn.classList.remove("selected");
+                otherBtn.setAttribute("aria-pressed", "false");
+              });
+
+              // 2. 현재 클릭된 버튼 활성화
+              this.classList.add("selected");
+              this.setAttribute("aria-pressed", "true");
+            });
+          });
+
+          // disabled 속성 및 아이콘 색상 클래스 업데이트 함수
+          function updateDisabledAttribute(swiperInstance, prev, next) {
+            if (!prev || !next) return;
+
+            var prevIcon = prev.querySelector("i");
+            var nextIcon = next.querySelector("i");
+
+            if (swiperInstance.isBeginning) {
+              prev.setAttribute("disabled", "true");
+              if (
+                prevIcon &&
+                !prevIcon.classList.contains("color-fg-disabled")
+              ) {
+                prevIcon.classList.add("color-fg-disabled");
+              }
+            } else {
+              prev.removeAttribute("disabled");
+              if (prevIcon) {
+                prevIcon.classList.remove("color-fg-disabled");
+              }
+            }
+
+            if (swiperInstance.isEnd) {
+              next.setAttribute("disabled", "true");
+              if (
+                nextIcon &&
+                !nextIcon.classList.contains("color-fg-disabled")
+              ) {
+                nextIcon.classList.add("color-fg-disabled");
+              }
+            } else {
+              next.removeAttribute("disabled");
+              if (nextIcon) {
+                nextIcon.classList.remove("color-fg-disabled");
+              }
+            }
+          }
         });
       });
     </script>

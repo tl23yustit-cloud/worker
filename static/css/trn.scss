@@ -296,7 +296,6 @@
         border-radius: var(--radiusXl);
         border: 1px solid var(--colorBorderBase);
 
-
         .card-top-content {
             display: flex;
             justify-content: space-between;
@@ -304,21 +303,19 @@
             padding-right: var(--spacing2Xl);
         }
 
-
         .balance-group {
             display: flex;
         }
 
         .balance-info {
-            background-color: var(--colorBgHover);
-            padding-left: var(--spacing2Xl);
-            padding-right: var(--spacing2Xl);
-            height: var(--sizeBase2Xl);
             display: flex;
             justify-content: end;
-            gap: var(--spacing3Xl);
             align-items: center;
-
+            gap: var(--spacing3Xl);
+            height: var(--sizeBase2Xl);
+            padding-left: var(--spacing2Xl);
+            padding-right: var(--spacing2Xl);
+            background-color: var(--colorBgHover);
         }
 
         .total-balance,
@@ -328,5 +325,71 @@
             gap: 4px;
         }
     }
+
+    .card-swiper-container {
+        width: 100%;
+        overflow: hidden;
+
+        .swiper-wrapper {
+            display: flex;
+        }
+
+        .swiper-slide {
+            width: auto;
+            flex-shrink: 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: var(--spacingXl);
+
+            .nav-wrapper {
+                display: flex;
+                align-items: center;
+                padding: 6px;
+                border: 1px solid var(--colorBorderTertiary);
+                border-radius: 24px;
+                overflow: hidden;
+
+                button {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background: transparent;
+                    border: none;
+
+                    &:disabled {
+                        cursor: not-allowed;
+                        pointer-events: none;
+                    }
+                }
+            }
+        }
+    }
+
+    /* 카드형 버튼 컴포넌트 */
+    .account-card-container {
+        display: flex;
+        width: 320px;
+        height: 130px;
+        padding: var(--spacingXl) var(--spacingLg) var(--spacingXl) var(--spacingXl);
+        gap: 8px;
+        background-color: var(--colorBgHover);
+        border: 1px solid transparent;
+        border-radius: 12px;
+        box-sizing: border-box;
+        text-align: left;
+        cursor: pointer;
+        -webkit-appearance: none;
+        appearance: none;
+
+        &.selected {
+            background-color: var(--colorBgBase);
+            border: 1px solid var(--colorBorderPrimary);
+        }
+    }
+
 
 }
