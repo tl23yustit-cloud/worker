@@ -523,21 +523,16 @@ $securities: (
 @mixin financial-icon($folder, $name, $shape, $codes) {
   @each $code in $codes {
     .#{$name}-#{$code}.#{$shape} {
-      &::before {
-        content: "";
-        display: inline-block;
-        width: var(--sizeBaseXs);
-        height: var(--sizeBaseXs);
-        margin-right: var(--spacingSm);
-        vertical-align: middle;
-        background-image: url("../images/common/#{$folder}/ico_#{$name}_#{$shape}_#{$code}.svg");
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: contain;
-      }
+      display: inline-block;
+      background-image: url("../images/common/#{$folder}/ico_#{$name}_#{$shape}_#{$code}.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
     }
   }
 }
+
+
 @include financial-icon("banks", "bank", "circle", $banks);
 @include financial-icon("banks", "bank", "square", $banks);
 
