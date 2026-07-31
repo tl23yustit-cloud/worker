@@ -289,7 +289,7 @@
                         type="button"
                         class="btn-tab active"
                         title="선택됨"
-                        id="tabPanelTypeHighlight01"
+                        id="tabBtnTypeHighlight01"
                         role="tab"
                         aria-selected="true"
                         aria-controls="tabPanelTypeHighlight01"
@@ -335,8 +335,9 @@
                     </li>
                   </ul>
 
-                  <!-- 탭1 -->
+                  <!-- 탭 콘텐츠 전체 래퍼 -->
                   <div class="box-card-wrapper mt-12">
+                    <!-- [탭1] 최근 -->
                     <div
                       class="box-tab-content active"
                       id="tabPanelTypeHighlight01"
@@ -364,7 +365,7 @@
                             <li>
                               <button class="active">
                                 <i
-                                  class="ico line ico-size-sm ico-grid color-fg-netral"
+                                  class="ico solid ico-size-sm ico-grid color-fg-primary"
                                   aria-hidden="true"
                                 ></i>
                                 <span class="blind">카드 목록</span>
@@ -382,13 +383,12 @@
                           </ul>
                         </div>
 
-                        <!-- 카드형 뷰 (기본 노출) -->
+                        <!-- 카드형 뷰 -->
                         <div
                           class="swiper-container card-swiper-container mt-12 pos-relative"
                           style="display: block"
                         >
                           <div class="swiper-wrapper">
-                            <!-- 첫 번째 카드 (미선택 상태로 초기화) -->
                             <div class="swiper-slide">
                               <button
                                 type="button"
@@ -408,16 +408,11 @@
                                     <dd>1900-0419-5187</dd>
                                   </div>
                                   <div class="typeSm truncate mt-16">
-                                    <span
-                                      >메모내용 나오는 곳입니다. 메모내용 나오는
-                                      곳입니다.</span
-                                    >
+                                    <span>메모내용 나오는 곳입니다.</span>
                                   </div>
                                 </div>
                               </button>
                             </div>
-
-                            <!-- 두 번째 카드 -->
                             <div class="swiper-slide">
                               <button
                                 type="button"
@@ -442,8 +437,6 @@
                                 </div>
                               </button>
                             </div>
-
-                            <!-- 세 번째 카드 -->
                             <div class="swiper-slide">
                               <button
                                 type="button"
@@ -468,8 +461,6 @@
                                 </div>
                               </button>
                             </div>
-
-                            <!-- 네 번째 카드 -->
                             <div class="swiper-slide">
                               <button
                                 type="button"
@@ -494,8 +485,6 @@
                                 </div>
                               </button>
                             </div>
-
-                            <!-- 다섯 번째 카드 -->
                             <div class="swiper-slide">
                               <button
                                 type="button"
@@ -520,8 +509,6 @@
                                 </div>
                               </button>
                             </div>
-
-                            <!-- 여섯 번째 카드 -->
                             <div class="swiper-slide">
                               <button
                                 type="button"
@@ -547,7 +534,6 @@
                               </button>
                             </div>
                           </div>
-
                           <nav
                             class="slide-nav"
                             aria-label="최근 계좌 슬라이드 내비게이션"
@@ -576,7 +562,7 @@
                             </div>
                           </nav>
                         </div>
-                        <!-- 목록형 뷰 (기본 숨김) -->
+                        <!-- 목록형 뷰 -->
                         <div
                           class="list-view-container mt-12"
                           style="display: none"
@@ -587,8 +573,696 @@
                         </div>
                       </div>
                     </div>
+
+                    <!-- [탭2] 자주 -->
+                    <div
+                      class="box-tab-content"
+                      id="tabPanelTypeHighlight02"
+                      role="tabpanel"
+                      aria-labelledby="tabBtnTypeHighlight02"
+                      style="display: none"
+                    >
+                      <h3 class="blind">자주 쓰는 계좌</h3>
+                      <div>
+                        <div class="flex items-center justify-between gap-6">
+                          <div class="box-input-search">
+                            <input
+                              type="search"
+                              class="input"
+                              placeholder="예금주명을 입력하세요"
+                              title=""
+                            />
+                            <div class="group-button">
+                              <button type="button" class="btn-search">
+                                <span class="blind">검색</span>
+                              </button>
+                            </div>
+                          </div>
+                          <ul class="view-selector">
+                            <li>
+                              <button class="active">
+                                <i
+                                  class="ico solid ico-size-sm ico-grid color-fg-primary"
+                                  aria-hidden="true"
+                                ></i>
+                                <span class="blind">카드 목록</span>
+                              </button>
+                            </li>
+                            <li>
+                              <button>
+                                <i
+                                  class="ico line ico-size-sm ico-menu color-fg-netral"
+                                  aria-hidden="true"
+                                ></i>
+                                <span class="blind">리스트 목록</span>
+                              </button>
+                            </li>
+                          </ul>
+                        </div>
+
+                        <div
+                          class="swiper-container card-swiper-container mt-12 pos-relative"
+                          style="display: block"
+                        >
+                          <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                              <button
+                                type="button"
+                                class="account-card-container"
+                                aria-pressed="false"
+                              >
+                                <div>
+                                  <i
+                                    class="ico bank ico-size-md ico-suhyup2 bg-type"
+                                    aria-hidden="true"
+                                  ></i>
+                                </div>
+                                <div class="w-250">
+                                  <h5 class="typeH5 truncate">김수협 1</h5>
+                                  <div class="flex gap-4 typeMd mt-4">
+                                    <dt>보통예금</dt>
+                                    <dd>1900-0419-5187</dd>
+                                  </div>
+                                  <div class="typeSm truncate mt-16">
+                                    <span>메모내용 나오는 곳입니다.</span>
+                                  </div>
+                                </div>
+                              </button>
+                            </div>
+                            <div class="swiper-slide">
+                              <button
+                                type="button"
+                                class="account-card-container"
+                                aria-pressed="false"
+                              >
+                                <div>
+                                  <i
+                                    class="ico bank ico-size-md ico-suhyup2 bg-type"
+                                    aria-hidden="true"
+                                  ></i>
+                                </div>
+                                <div class="w-250">
+                                  <h5 class="typeH5 truncate">김수협 2</h5>
+                                  <div class="flex gap-4 typeMd mt-4">
+                                    <dt>보통예금</dt>
+                                    <dd>1900-0419-5187</dd>
+                                  </div>
+                                  <div class="typeSm truncate mt-16">
+                                    <span>메모내용 나오는 곳입니다.</span>
+                                  </div>
+                                </div>
+                              </button>
+                            </div>
+                            <div class="swiper-slide">
+                              <button
+                                type="button"
+                                class="account-card-container"
+                                aria-pressed="false"
+                              >
+                                <div>
+                                  <i
+                                    class="ico bank ico-size-md ico-suhyup2 bg-type"
+                                    aria-hidden="true"
+                                  ></i>
+                                </div>
+                                <div class="w-250">
+                                  <h5 class="typeH5 truncate">김수협 3</h5>
+                                  <div class="flex gap-4 typeMd mt-4">
+                                    <dt>보통예금</dt>
+                                    <dd>1900-0419-5187</dd>
+                                  </div>
+                                  <div class="typeSm truncate mt-16">
+                                    <span>메모내용 나오는 곳입니다.</span>
+                                  </div>
+                                </div>
+                              </button>
+                            </div>
+                            <div class="swiper-slide">
+                              <button
+                                type="button"
+                                class="account-card-container"
+                                aria-pressed="false"
+                              >
+                                <div>
+                                  <i
+                                    class="ico bank ico-size-md ico-suhyup2 bg-type"
+                                    aria-hidden="true"
+                                  ></i>
+                                </div>
+                                <div class="w-250">
+                                  <h5 class="typeH5 truncate">김수협 4</h5>
+                                  <div class="flex gap-4 typeMd mt-4">
+                                    <dt>보통예금</dt>
+                                    <dd>1900-0419-5187</dd>
+                                  </div>
+                                  <div class="typeSm truncate mt-16">
+                                    <span>메모내용 나오는 곳입니다.</span>
+                                  </div>
+                                </div>
+                              </button>
+                            </div>
+                            <div class="swiper-slide">
+                              <button
+                                type="button"
+                                class="account-card-container"
+                                aria-pressed="false"
+                              >
+                                <div>
+                                  <i
+                                    class="ico bank ico-size-md ico-suhyup2 bg-type"
+                                    aria-hidden="true"
+                                  ></i>
+                                </div>
+                                <div class="w-250">
+                                  <h5 class="typeH5 truncate">김수협 5</h5>
+                                  <div class="flex gap-4 typeMd mt-4">
+                                    <dt>보통예금</dt>
+                                    <dd>1900-0419-5187</dd>
+                                  </div>
+                                  <div class="typeSm truncate mt-16">
+                                    <span>메모내용 나오는 곳입니다.</span>
+                                  </div>
+                                </div>
+                              </button>
+                            </div>
+                            <div class="swiper-slide">
+                              <button
+                                type="button"
+                                class="account-card-container"
+                                aria-pressed="false"
+                              >
+                                <div>
+                                  <i
+                                    class="ico bank ico-size-md ico-suhyup2 bg-type"
+                                    aria-hidden="true"
+                                  ></i>
+                                </div>
+                                <div class="w-250">
+                                  <h5 class="typeH5 truncate">김수협 6</h5>
+                                  <div class="flex gap-4 typeMd mt-4">
+                                    <dt>보통예금</dt>
+                                    <dd>1900-0419-5187</dd>
+                                  </div>
+                                  <div class="typeSm truncate mt-16">
+                                    <span>메모내용 나오는 곳입니다.</span>
+                                  </div>
+                                </div>
+                              </button>
+                            </div>
+                          </div>
+                          <nav
+                            class="slide-nav"
+                            aria-label="자주 쓰는 계좌 슬라이드 내비게이션"
+                          >
+                            <div class="nav-wrapper">
+                              <button
+                                type="button"
+                                class="btn-slide-prev"
+                                aria-label="이전 슬라이드"
+                              >
+                                <i
+                                  class="ico line ico-size-sm ico-chevron-left"
+                                  aria-hidden="true"
+                                ></i>
+                              </button>
+                              <button
+                                type="button"
+                                class="btn-slide-next"
+                                aria-label="다음 슬라이드"
+                              >
+                                <i
+                                  class="ico line ico-size-sm ico-chevron-right"
+                                  aria-hidden="true"
+                                ></i>
+                              </button>
+                            </div>
+                          </nav>
+                        </div>
+                        <div
+                          class="list-view-container mt-12"
+                          style="display: none"
+                        >
+                          <ul class="list-type-accounts">
+                            <li>자주 쓰는 계좌 리스트</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- [탭3] 내계좌 -->
+                    <div
+                      class="box-tab-content"
+                      id="tabPanelTypeHighlight03"
+                      role="tabpanel"
+                      aria-labelledby="tabBtnTypeHighlight03"
+                      style="display: none"
+                    >
+                      <h3 class="blind">내 계좌</h3>
+                      <div>
+                        <div class="flex items-center justify-between gap-6">
+                          <div class="box-input-search">
+                            <input
+                              type="search"
+                              class="input"
+                              placeholder="예금주명을 입력하세요"
+                              title=""
+                            />
+                            <div class="group-button">
+                              <button type="button" class="btn-search">
+                                <span class="blind">검색</span>
+                              </button>
+                            </div>
+                          </div>
+                          <ul class="view-selector">
+                            <li>
+                              <button class="active">
+                                <i
+                                  class="ico solid ico-size-sm ico-grid color-fg-primary"
+                                  aria-hidden="true"
+                                ></i>
+                                <span class="blind">카드 목록</span>
+                              </button>
+                            </li>
+                            <li>
+                              <button>
+                                <i
+                                  class="ico line ico-size-sm ico-menu color-fg-netral"
+                                  aria-hidden="true"
+                                ></i>
+                                <span class="blind">리스트 목록</span>
+                              </button>
+                            </li>
+                          </ul>
+                        </div>
+
+                        <div
+                          class="swiper-container card-swiper-container mt-12 pos-relative"
+                          style="display: block"
+                        >
+                          <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                              <button
+                                type="button"
+                                class="account-card-container"
+                                aria-pressed="false"
+                              >
+                                <div>
+                                  <i
+                                    class="ico bank ico-size-md ico-suhyup2 bg-type"
+                                    aria-hidden="true"
+                                  ></i>
+                                </div>
+                                <div class="w-250">
+                                  <h5 class="typeH5 truncate">김수협 1</h5>
+                                  <div class="flex gap-4 typeMd mt-4">
+                                    <dt>보통예금</dt>
+                                    <dd>1900-0419-5187</dd>
+                                  </div>
+                                </div>
+                              </button>
+                            </div>
+                            <div class="swiper-slide">
+                              <button
+                                type="button"
+                                class="account-card-container"
+                                aria-pressed="false"
+                              >
+                                <div>
+                                  <i
+                                    class="ico bank ico-size-md ico-suhyup2 bg-type"
+                                    aria-hidden="true"
+                                  ></i>
+                                </div>
+                                <div class="w-250">
+                                  <h5 class="typeH5 truncate">김수협 2</h5>
+                                  <div class="flex gap-4 typeMd mt-4">
+                                    <dt>보통예금</dt>
+                                    <dd>1900-0419-5187</dd>
+                                  </div>
+                                </div>
+                              </button>
+                            </div>
+                            <div class="swiper-slide">
+                              <button
+                                type="button"
+                                class="account-card-container"
+                                aria-pressed="false"
+                              >
+                                <div>
+                                  <i
+                                    class="ico bank ico-size-md ico-suhyup2 bg-type"
+                                    aria-hidden="true"
+                                  ></i>
+                                </div>
+                                <div class="w-250">
+                                  <h5 class="typeH5 truncate">김수협 3</h5>
+                                  <div class="flex gap-4 typeMd mt-4">
+                                    <dt>보통예금</dt>
+                                    <dd>1900-0419-5187</dd>
+                                  </div>
+                                </div>
+                              </button>
+                            </div>
+                            <div class="swiper-slide">
+                              <button
+                                type="button"
+                                class="account-card-container"
+                                aria-pressed="false"
+                              >
+                                <div>
+                                  <i
+                                    class="ico bank ico-size-md ico-suhyup2 bg-type"
+                                    aria-hidden="true"
+                                  ></i>
+                                </div>
+                                <div class="w-250">
+                                  <h5 class="typeH5 truncate">김수협 4</h5>
+                                  <div class="flex gap-4 typeMd mt-4">
+                                    <dt>보통예금</dt>
+                                    <dd>1900-0419-5187</dd>
+                                  </div>
+                                </div>
+                              </button>
+                            </div>
+                            <div class="swiper-slide">
+                              <button
+                                type="button"
+                                class="account-card-container"
+                                aria-pressed="false"
+                              >
+                                <div>
+                                  <i
+                                    class="ico bank ico-size-md ico-suhyup2 bg-type"
+                                    aria-hidden="true"
+                                  ></i>
+                                </div>
+                                <div class="w-250">
+                                  <h5 class="typeH5 truncate">김수협 5</h5>
+                                  <div class="flex gap-4 typeMd mt-4">
+                                    <dt>보통예금</dt>
+                                    <dd>1900-0419-5187</dd>
+                                  </div>
+                                </div>
+                              </button>
+                            </div>
+                            <div class="swiper-slide">
+                              <button
+                                type="button"
+                                class="account-card-container"
+                                aria-pressed="false"
+                              >
+                                <div>
+                                  <i
+                                    class="ico bank ico-size-md ico-suhyup2 bg-type"
+                                    aria-hidden="true"
+                                  ></i>
+                                </div>
+                                <div class="w-250">
+                                  <h5 class="typeH5 truncate">김수협 6</h5>
+                                  <div class="flex gap-4 typeMd mt-4">
+                                    <dt>보통예금</dt>
+                                    <dd>1900-0419-5187</dd>
+                                  </div>
+                                </div>
+                              </button>
+                            </div>
+                          </div>
+                          <nav
+                            class="slide-nav"
+                            aria-label="내 계좌 슬라이드 내비게이션"
+                          >
+                            <div class="nav-wrapper">
+                              <button
+                                type="button"
+                                class="btn-slide-prev"
+                                aria-label="이전 슬라이드"
+                              >
+                                <i
+                                  class="ico line ico-size-sm ico-chevron-left"
+                                  aria-hidden="true"
+                                ></i>
+                              </button>
+                              <button
+                                type="button"
+                                class="btn-slide-next"
+                                aria-label="다음 슬라이드"
+                              >
+                                <i
+                                  class="ico line ico-size-sm ico-chevron-right"
+                                  aria-hidden="true"
+                                ></i>
+                              </button>
+                            </div>
+                          </nav>
+                        </div>
+                        <div
+                          class="list-view-container mt-12"
+                          style="display: none"
+                        >
+                          <ul class="list-type-accounts">
+                            <li>내 계좌 리스트</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- [탭4] 입금지정계좌 -->
+                    <div
+                      class="box-tab-content"
+                      id="tabPanelTypeHighlight04"
+                      role="tabpanel"
+                      aria-labelledby="tabBtnTypeHighlight04"
+                      style="display: none"
+                    >
+                      <h3 class="blind">입금지정계좌</h3>
+                      <div>
+                        <div class="flex items-center justify-between gap-6">
+                          <div class="box-input-search">
+                            <input
+                              type="search"
+                              class="input"
+                              placeholder="예금주명을 입력하세요"
+                              title=""
+                            />
+                            <div class="group-button">
+                              <button type="button" class="btn-search">
+                                <span class="blind">검색</span>
+                              </button>
+                            </div>
+                          </div>
+                          <ul class="view-selector">
+                            <li>
+                              <button class="active">
+                                <i
+                                  class="ico solid ico-size-sm ico-grid color-fg-primary"
+                                  aria-hidden="true"
+                                ></i>
+                                <span class="blind">카드 목록</span>
+                              </button>
+                            </li>
+                            <li>
+                              <button>
+                                <i
+                                  class="ico line ico-size-sm ico-menu color-fg-netral"
+                                  aria-hidden="true"
+                                ></i>
+                                <span class="blind">리스트 목록</span>
+                              </button>
+                            </li>
+                          </ul>
+                        </div>
+
+                        <div
+                          class="swiper-container card-swiper-container mt-12 pos-relative"
+                          style="display: block"
+                        >
+                          <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                              <button
+                                type="button"
+                                class="account-card-container"
+                                aria-pressed="false"
+                              >
+                                <div>
+                                  <i
+                                    class="ico bank ico-size-md ico-suhyup2 bg-type"
+                                    aria-hidden="true"
+                                  ></i>
+                                </div>
+                                <div class="w-250">
+                                  <h5 class="typeH5 truncate">김수협 1</h5>
+                                  <div class="flex gap-4 typeMd mt-4">
+                                    <dt>보통예금</dt>
+                                    <dd>1900-0419-5187</dd>
+                                  </div>
+                                  <div class="typeSm truncate mt-16">
+                                    <span>메모내용 나오는 곳입니다.</span>
+                                  </div>
+                                </div>
+                              </button>
+                            </div>
+                            <div class="swiper-slide">
+                              <button
+                                type="button"
+                                class="account-card-container"
+                                aria-pressed="false"
+                              >
+                                <div>
+                                  <i
+                                    class="ico bank ico-size-md ico-suhyup2 bg-type"
+                                    aria-hidden="true"
+                                  ></i>
+                                </div>
+                                <div class="w-250">
+                                  <h5 class="typeH5 truncate">김수협 2</h5>
+                                  <div class="flex gap-4 typeMd mt-4">
+                                    <dt>보통예금</dt>
+                                    <dd>1900-0419-5187</dd>
+                                  </div>
+                                  <div class="typeSm truncate mt-16">
+                                    <span>메모내용 나오는 곳입니다.</span>
+                                  </div>
+                                </div>
+                              </button>
+                            </div>
+                            <div class="swiper-slide">
+                              <button
+                                type="button"
+                                class="account-card-container"
+                                aria-pressed="false"
+                              >
+                                <div>
+                                  <i
+                                    class="ico bank ico-size-md ico-suhyup2 bg-type"
+                                    aria-hidden="true"
+                                  ></i>
+                                </div>
+                                <div class="w-250">
+                                  <h5 class="typeH5 truncate">김수협 3</h5>
+                                  <div class="flex gap-4 typeMd mt-4">
+                                    <dt>보통예금</dt>
+                                    <dd>1900-0419-5187</dd>
+                                  </div>
+                                  <div class="typeSm truncate mt-16">
+                                    <span>메모내용 나오는 곳입니다.</span>
+                                  </div>
+                                </div>
+                              </button>
+                            </div>
+                            <div class="swiper-slide">
+                              <button
+                                type="button"
+                                class="account-card-container"
+                                aria-pressed="false"
+                              >
+                                <div>
+                                  <i
+                                    class="ico bank ico-size-md ico-suhyup2 bg-type"
+                                    aria-hidden="true"
+                                  ></i>
+                                </div>
+                                <div class="w-250">
+                                  <h5 class="typeH5 truncate">김수협 4</h5>
+                                  <div class="flex gap-4 typeMd mt-4">
+                                    <dt>보통예금</dt>
+                                    <dd>1900-0419-5187</dd>
+                                  </div>
+                                  <div class="typeSm truncate mt-16">
+                                    <span>메모내용 나오는 곳입니다.</span>
+                                  </div>
+                                </div>
+                              </button>
+                            </div>
+                            <div class="swiper-slide">
+                              <button
+                                type="button"
+                                class="account-card-container"
+                                aria-pressed="false"
+                              >
+                                <div>
+                                  <i
+                                    class="ico bank ico-size-md ico-suhyup2 bg-type"
+                                    aria-hidden="true"
+                                  ></i>
+                                </div>
+                                <div class="w-250">
+                                  <h5 class="typeH5 truncate">김수협 5</h5>
+                                  <div class="flex gap-4 typeMd mt-4">
+                                    <dt>보통예금</dt>
+                                    <dd>1900-0419-5187</dd>
+                                  </div>
+                                  <div class="typeSm truncate mt-16">
+                                    <span>메모내용 나오는 곳입니다.</span>
+                                  </div>
+                                </div>
+                              </button>
+                            </div>
+                            <div class="swiper-slide">
+                              <button
+                                type="button"
+                                class="account-card-container"
+                                aria-pressed="false"
+                              >
+                                <div>
+                                  <i
+                                    class="ico bank ico-size-md ico-suhyup2 bg-type"
+                                    aria-hidden="true"
+                                  ></i>
+                                </div>
+                                <div class="w-250">
+                                  <h5 class="typeH5 truncate">김수협 6</h5>
+                                  <div class="flex gap-4 typeMd mt-4">
+                                    <dt>보통예금</dt>
+                                    <dd>1900-0419-5187</dd>
+                                  </div>
+                                  <div class="typeSm truncate mt-16">
+                                    <span>메모내용 나오는 곳입니다.</span>
+                                  </div>
+                                </div>
+                              </button>
+                            </div>
+                          </div>
+                          <nav
+                            class="slide-nav"
+                            aria-label="입금지정계좌 슬라이드 내비게이션"
+                          >
+                            <div class="nav-wrapper">
+                              <button
+                                type="button"
+                                class="btn-slide-prev"
+                                aria-label="이전 슬라이드"
+                              >
+                                <i
+                                  class="ico line ico-size-sm ico-chevron-left"
+                                  aria-hidden="true"
+                                ></i>
+                              </button>
+                              <button
+                                type="button"
+                                class="btn-slide-next"
+                                aria-label="다음 슬라이드"
+                              >
+                                <i
+                                  class="ico line ico-size-sm ico-chevron-right"
+                                  aria-hidden="true"
+                                ></i>
+                              </button>
+                            </div>
+                          </nav>
+                        </div>
+                        <div
+                          class="list-view-container mt-12"
+                          style="display: none"
+                        >
+                          <ul class="list-type-accounts">
+                            <li>입금지정계좌 리스트</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
+
                 <table class="table-type01 mb-48">
                   <caption>
                     입금정보 테이블
@@ -709,6 +1383,7 @@
                   </tbody>
                 </table>
               </div>
+
               <div class="mt-48">
                 <div class="flex items-center justify-between">
                   <h4 class="typeH4">추가정보</h4>
