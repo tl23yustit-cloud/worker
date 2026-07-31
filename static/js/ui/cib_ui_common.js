@@ -1022,13 +1022,24 @@ function fnBoxTooltip() {
 function fnModal() {
 	let lastFocusedElement; // 열기 전 요소를 기억할 변수
 
-	// 활성 상태에 따라 body 스크롤을 제어하는 유틸 함수
+	// 스크롤바 너비를 동적으로 계산하는 함수
+	const getScrollbarWidth = () => {
+		return window.innerWidth - document.documentElement.clientWidth;
+	};
+
+	// 활성 상태에 따라 body 스크롤 제어 및 들썩임 방지
 	const updateBodyScroll = () => {
 		const hasActive = document.querySelector('.modal.is-active, .alert.is-active');
 		if (hasActive) {
-			document.body.style.overflow = 'hidden';
+			const scrollbarWidth = getScrollbarWidth();
+			// 스크롤바가 실제로 존재하는 경우에만 padding-right 부여
+			if (scrollbarWidth > 0) {
+				document.documentElement.style.setProperty('--scrollbar-width', `${scrollbarWidth}px`);
+			}
+			document.body.classList.add('is-scroll-locked');
 		} else {
-			document.body.style.overflow = '';
+			document.body.classList.remove('is-scroll-locked');
+			document.documentElement.style.removeProperty('--scrollbar-width');
 		}
 	};
 
@@ -1042,7 +1053,7 @@ function fnModal() {
 			if (targetEl) {
 				lastFocusedElement = document.activeElement; // 현재 포커스 저장
 				targetEl.classList.add('is-active');      // 클래스로 제어
-				updateBodyScroll();                       // 배경 스크롤 잠금
+				updateBodyScroll();                       // 배경 스크롤 잠금 및 패딩 적용
 
 				// 내부의 첫 번째 포커스 가능 요소 찾기
 				const firstFocusable = targetEl.querySelector('button, [href], input, select, textarea');
@@ -1116,50 +1127,50 @@ function fnInitSortButtons() {
 }
 //뷰셀렉터
 function fnInitViewSelector() {
-    const selectors = document.querySelectorAll('.view-selector');
+	const selectors = document.querySelectorAll('.view-selector');
 
-    selectors.forEach(selector => {
-        const buttons = selector.querySelectorAll('button');
+	selectors.forEach(selector => {
+		const buttons = selector.querySelectorAll('button');
 
-        buttons.forEach((button, index) => {
-            button.addEventListener('click', (e) => {
-                e.preventDefault();
+		buttons.forEach((button, index) => {
+			button.addEventListener('click', (e) => {
+				e.preventDefault();
 
-                // 1. 모든 버튼과 아이콘 상태 초기화 (active 제거 및 netral 복원)
-                buttons.forEach(btn => {
-                    btn.classList.remove('active');
-                    const icon = btn.querySelector('i');
-                    if (icon) {
-                        icon.classList.remove('color-fg-primary');
-                        icon.classList.add('color-fg-netral');
-                    }
-                });
+				// 1. 모든 버튼과 아이콘 상태 초기화 (active 제거 및 netral 복원)
+				buttons.forEach(btn => {
+					btn.classList.remove('active');
+					const icon = btn.querySelector('i');
+					if (icon) {
+						icon.classList.remove('color-fg-primary');
+						icon.classList.add('color-fg-netral');
+					}
+				});
 
-                // 2. 현재 클릭된 버튼 활성화 (active 추가 및 primary 적용)
-                button.classList.add('active');
-                const currentIcon = button.querySelector('i');
-                if (currentIcon) {
-                    currentIcon.classList.remove('color-fg-netral');
-                    currentIcon.classList.add('color-fg-primary');
-                }
+				// 2. 현재 클릭된 버튼 활성화 (active 추가 및 primary 적용)
+				button.classList.add('active');
+				const currentIcon = button.querySelector('i');
+				if (currentIcon) {
+					currentIcon.classList.remove('color-fg-netral');
+					currentIcon.classList.add('color-fg-primary');
+				}
 
-                // 3. 카드 및 리스트 영역 토글 처리
-                const parentTabContent = selector.closest('.box-tab-content') || selector.closest('.content');
-                if (!parentTabContent) return;
+				// 3. 카드 및 리스트 영역 토글 처리
+				const parentTabContent = selector.closest('.box-tab-content') || selector.closest('.content');
+				if (!parentTabContent) return;
 
-                const cardContainer = parentTabContent.querySelector('.card-swiper-container');
-                const listContainer = parentTabContent.querySelector('.list-view-container');
+				const cardContainer = parentTabContent.querySelector('.card-swiper-container');
+				const listContainer = parentTabContent.querySelector('.list-view-container');
 
-                if (index === 0) {
-                    if (cardContainer) cardContainer.style.display = 'block';
-                    if (listContainer) listContainer.style.display = 'none';
-                } else if (index === 1) {
-                    if (cardContainer) cardContainer.style.display = 'none';
-                    if (listContainer) listContainer.style.display = 'block';
-                }
-            });
-        });
-    });
+				if (index === 0) {
+					if (cardContainer) cardContainer.style.display = 'block';
+					if (listContainer) listContainer.style.display = 'none';
+				} else if (index === 1) {
+					if (cardContainer) cardContainer.style.display = 'none';
+					if (listContainer) listContainer.style.display = 'block';
+				}
+			});
+		});
+	});
 }
 
 
