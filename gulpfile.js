@@ -76,10 +76,14 @@ function generatePubList(done) {
 
 // 1. HTML 조립
 function html() {
-    return gulp.src(['static/html/pub/**/*.html', 'index.html', '!static/html/pub/**/layout/*.html'], { base: '.' })
+    return gulp.src(['static/html/pub/**/*.html', 'index.html', '!static/html/pub/**/layout/*.html'], { 
+            base: '.',
+            encoding: 'utf8' 
+        })
         .pipe(fileinclude({
             prefix: '@@',
-            basepath: '@root'
+            basepath: '@root',
+            encoding: 'utf8'
         }))
         .pipe(gulp.dest('dist'))
         .pipe(browserSync.stream());
