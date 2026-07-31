@@ -52,8 +52,10 @@
                     </ol>
                   </div>
                 </h2>
-                <h4 class="typeH4">출금정보</h4>
-                <div class="withdrawal-section mt-12">
+                <div class="tbl-head">
+                  <h4 class="typeH4">출금정보</h4>
+                </div>
+                <div class="withdrawal-section">
                   <div class="card-top-content">
                     <div class="flex gap-16">
                       <div class="flex justify-center items-center">
@@ -246,11 +248,11 @@
                                 <span class="typeH7">예약이체일 안내</span>
                               </div>
                               <div class="content-tooltip whitespace-normal">
-                                <span class="text"
-                                  >예약이체 등록 다음날~최대 6개월 전까지 신청
+                                <span class="text">
+                                  예약이체 등록 다음날~최대 6개월 전까지 신청
                                   가능합니다.<br />
                                   예약이체지정일이 휴일인 경우 등록할 수
-                                  없습니다.(임시 휴일로 지정된 경우 다음
+                                  없습니다. (임시 휴일로 지정된 경우 다음
                                   영업일에 이체 됩니다.)<br />
                                   이체 지정 시간 전까지 출금계좌에 인출 가능한
                                   잔액이 있어야 이체 가능합니다.
@@ -275,9 +277,8 @@
                   </tbody>
                 </table>
               </div>
-              <div class="mt-48">
+              <div class="tbl-area">
                 <h4 class="typeH4">입금정보</h4>
-                <div></div>
                 <div class="box-tab mt-12">
                   <ul
                     class="list-tab-button type-chip size-lg"
@@ -878,6 +879,9 @@
                                     <dt>보통예금</dt>
                                     <dd>1900-0419-5187</dd>
                                   </div>
+                                  <div class="typeSm truncate mt-16">
+                                    <span>메모내용 나오는 곳입니다.</span>
+                                  </div>
                                 </div>
                               </button>
                             </div>
@@ -898,6 +902,9 @@
                                   <div class="flex gap-4 typeMd mt-4">
                                     <dt>보통예금</dt>
                                     <dd>1900-0419-5187</dd>
+                                  </div>
+                                  <div class="typeSm truncate mt-16">
+                                    <span>메모내용 나오는 곳입니다.</span>
                                   </div>
                                 </div>
                               </button>
@@ -920,6 +927,9 @@
                                     <dt>보통예금</dt>
                                     <dd>1900-0419-5187</dd>
                                   </div>
+                                  <div class="typeSm truncate mt-16">
+                                    <span>메모내용 나오는 곳입니다.</span>
+                                  </div>
                                 </div>
                               </button>
                             </div>
@@ -940,6 +950,9 @@
                                   <div class="flex gap-4 typeMd mt-4">
                                     <dt>보통예금</dt>
                                     <dd>1900-0419-5187</dd>
+                                  </div>
+                                  <div class="typeSm truncate mt-16">
+                                    <span>메모내용 나오는 곳입니다.</span>
                                   </div>
                                 </div>
                               </button>
@@ -962,6 +975,9 @@
                                     <dt>보통예금</dt>
                                     <dd>1900-0419-5187</dd>
                                   </div>
+                                  <div class="typeSm truncate mt-16">
+                                    <span>메모내용 나오는 곳입니다.</span>
+                                  </div>
                                 </div>
                               </button>
                             </div>
@@ -982,6 +998,9 @@
                                   <div class="flex gap-4 typeMd mt-4">
                                     <dt>보통예금</dt>
                                     <dd>1900-0419-5187</dd>
+                                  </div>
+                                  <div class="typeSm truncate mt-16">
+                                    <span>메모내용 나오는 곳입니다.</span>
                                   </div>
                                 </div>
                               </button>
@@ -1384,13 +1403,15 @@
                 </table>
               </div>
 
-              <div class="mt-48">
-                <div class="flex items-center justify-between">
+              <div class="tbl-area">
+                <div class="tbl-head">
                   <h4 class="typeH4">추가정보</h4>
-                  <span class="typeSm"
-                    >*통장표시내용, 통장메모 등을 입력, 수정할 수
-                    있습니다.</span
-                  >
+                  <div class="right-area">
+                    <span class="typeSm"
+                      >*통장표시내용, 통장메모 등을 입력, 수정할 수
+                      있습니다.</span
+                    >
+                  </div>
                 </div>
                 <table class="table-type01">
                   <caption>
@@ -1454,7 +1475,7 @@
                 </table>
               </div>
 
-              <div class="flex justify-center items-center gap-10 mt-24 mb-10">
+              <div class="btn-wrap center pt-32">
                 <button type="button" class="btn type-line-neutral size-xl">
                   <span class="text">이체추가</span>
                 </button>
@@ -1475,11 +1496,14 @@
 
     <script>
       document.addEventListener("DOMContentLoaded", function () {
+        // 1. Swiper 인스턴스 저장 객체
+        var swiperInstances = {};
+
         var swiperContainers = document.querySelectorAll(
           ".card-swiper-container",
         );
 
-        swiperContainers.forEach(function (container) {
+        swiperContainers.forEach(function (container, index) {
           var prevBtn = container.querySelector(".btn-slide-prev");
           var nextBtn = container.querySelector(".btn-slide-next");
 
@@ -1510,19 +1534,19 @@
             },
           });
 
+          // 각 컨테이너의 고유 인덱스 또는 ID로 Swiper 저장
+          swiperInstances[index] = cardSwiper;
+
           // 카드 버튼 단일 선택 로직
           var cardButtons = container.querySelectorAll(
             ".account-card-container",
           );
           cardButtons.forEach(function (btn) {
             btn.addEventListener("click", function () {
-              // 1. 모든 버튼 초기화
               cardButtons.forEach(function (otherBtn) {
                 otherBtn.classList.remove("selected");
                 otherBtn.setAttribute("aria-pressed", "false");
               });
-
-              // 2. 현재 클릭된 버튼 활성화
               this.classList.add("selected");
               this.setAttribute("aria-pressed", "true");
             });
@@ -1565,6 +1589,51 @@
               }
             }
           }
+        });
+
+        // 2. 탭 전환 및 슬라이드 1페이지 리셋 로직
+        var tabButtons = document.querySelectorAll(".list-tab-button .btn-tab");
+        var tabContents = document.querySelectorAll(
+          ".box-card-wrapper .box-tab-content",
+        );
+
+        tabButtons.forEach(function (btn, index) {
+          btn.addEventListener("click", function () {
+            // 모든 탭 버튼 비활성화 및 선택 해제
+            tabButtons.forEach(function (b) {
+              b.classList.remove("active");
+              b.setAttribute("aria-selected", "false");
+              b.removeAttribute("title");
+            });
+
+            // 현재 클릭한 탭 활성화
+            this.classList.add("active");
+            this.setAttribute("aria-selected", "true");
+            this.setAttribute("title", "선택됨");
+
+            // 모든 탭 콘텐츠 숨기기
+            tabContents.forEach(function (content) {
+              content.classList.remove("active");
+              content.style.display = "none";
+            });
+
+            // 대응하는 탭 콘텐츠 보이기
+            var targetId = this.getAttribute("aria-controls");
+            var targetContent = document.getElementById(targetId);
+            if (targetContent) {
+              targetContent.classList.add("active");
+              targetContent.style.display = "block";
+
+              // 해당 탭 내의 Swiper가 존재하면 첫 번째 페이지로 이동 (위치 리셋 및 크기 재계산)
+              var currentSwiperContainer = targetContent.querySelector(
+                ".card-swiper-container",
+              );
+              if (currentSwiperContainer && currentSwiperContainer.swiper) {
+                currentSwiperContainer.swiper.update();
+                currentSwiperContainer.swiper.slideTo(0, 0);
+              }
+            }
+          });
         });
       });
     </script>
