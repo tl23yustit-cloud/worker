@@ -185,8 +185,6 @@ function render(data) {
                             <th>상태</th>
                             <th>수정일</th>
                             <th>보기</th>
-                            <th>작업자</th>
-                            <th>비고</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -226,10 +224,6 @@ function render(data) {
                     </td>
                     <td>${item.modified}</td>
                     <td><a href="./${item.link}" target="_blank">보기</a></td>
-                     <td>${worker}</td>
-                    <td class="note">
-                        ${note}
-                    </td>
                 </tr>
             `;
         });
