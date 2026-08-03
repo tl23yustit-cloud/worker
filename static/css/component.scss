@@ -133,6 +133,11 @@
 	color: var(--colorAccentRed) !important;
 }
 
+.text-color-fg-base {
+	color: var(--colorFgBase);
+}
+
+
 /* 기본 아이콘 */
 [class^=ico] {
 	display: inline-block;
@@ -1493,8 +1498,8 @@
 			height: var(--sizeBaseSmMd);
 			padding: 0 var(--spacingMd);
 			border: 1px solid var(--colorBorderSecondary);
-			;
-			border-radius: var(--radiusMd);
+			// border-radius: var(--radiusMd);
+			border-radius: var(--radiusSm, 6px);
 			background: #fff;
 			color: var(--colorFgSecondary);
 			font-size: 14px;
@@ -1509,9 +1514,12 @@
 
 		&:checked {
 			+label {
-				background: var(--colorBgSelected);
-				border-color: var(--colorBgSelected);
+				// background: var(--colorBgSelected);
+				// border-color: var(--colorBgSelected);
 				color: var(--colorFgPrimary);
+				border-radius: var(--radiusSm, 6px);
+				border: var(--borderWidthMd, 1px) solid var(--Context-Border-colorBorderPrimary, #0F62FD);
+				background: var(--Context-Background-colorBgBase, #FFF);
 			}
 		}
 
@@ -1546,10 +1554,12 @@
 			display: inline-flex;
 			align-items: center;
 			justify-content: center;
-			height: var(--sizeBaseLg);
+			// height: var(--sizeBaseLg);
+			height: var(--sizeBaseMd);
 			padding: 0 var(--spacingMd);
 			border: 1px solid var(--colorBorderSecondary);
-			border-radius: var(--radiusMd);
+			// border-radius: var(--radiusMd);
+			border-radius: var(--radiusSm, 6px);
 			background: var(--colorBgBase);
 			color: var(--colorFgSecondary);
 			font-size: 14px;
@@ -1564,9 +1574,13 @@
 
 		&:checked {
 			+label {
-				background: var(--colorBgSelected);
-				border-color: var(--colorBgSelected);
+				// background: var(--colorBgSelected);
+				// border-color: var(--colorBgSelected);
 				color: var(--colorFgPrimary);
+
+				border-radius: var(--radiusSm, 6px);
+				border: var(--borderWidthMd, 1px) solid var(--Context-Border-colorBorderPrimary, #0F62FD);
+				background: var(--Context-Background-colorBgBase, #FFF);
 			}
 		}
 
@@ -3415,6 +3429,7 @@
 				&.active {
 					border-color: var(--colorFgPrimary);
 					background-color: var(--colorBgBase);
+					border-radius: var(--radiusMd);
 
 					.text {
 						color: var(--colorFgPrimary);
@@ -3492,6 +3507,11 @@
 		font-weight: var(--fontWeightSemibold);
 		line-height: var(--contentLineHeightMd);
 		white-space: nowrap;
+
+		.text {
+			font-size: var(--contentFontSizeXs);
+			font-weight: var(--fontWeightRegular);
+		}
 
 		&.whitespace-normal {
 			white-space: normal;
