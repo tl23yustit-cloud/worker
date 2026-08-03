@@ -383,24 +383,53 @@
 	}
 
 	/* 카드형 버튼 컴포넌트 */
-	.account-card-container {
-		display: flex;
-		width: 320px;
-		height: 130px;
-		padding: var(--spacingXl) var(--spacingLg) var(--spacingXl) var(--spacingXl);
-		gap: 8px;
-		background-color: var(--colorBgHover);
-		border: 1px solid transparent;
-		border-radius: 12px;
-		box-sizing: border-box;
-		text-align: left;
-		cursor: pointer;
-		-webkit-appearance: none;
-		appearance: none;
+	.account-swiper-section {
+		position: relative;
+		margin-top: 12px;
+		display: block;
 
-		&.selected {
-			background-color: var(--colorBgBase);
-			border: 1px solid var(--colorBorderPrimary);
+		.account-card-container {
+			display: flex;
+			width: 320px;
+			height: 130px;
+			padding: var(--spacingXl) var(--spacingLg) var(--spacingXl) var(--spacingXl);
+			gap: 8px;
+			background-color: var(--colorBgHover);
+			border: 1px solid transparent;
+			border-radius: 12px;
+			box-sizing: border-box;
+			text-align: left;
+			cursor: pointer;
+			-webkit-appearance: none;
+			appearance: none;
+
+			&.selected {
+				background-color: var(--colorBgBase);
+				border: 1px solid var(--colorBorderPrimary);
+			}
+
+			.account-info-wrap {
+				width: 250px;
+
+				.typeH5 {
+					overflow: hidden;
+					text-overflow: ellipsis;
+					white-space: nowrap;
+				}
+			}
+
+			.account-number-group {
+				display: flex;
+				gap: 4px;
+				margin-top: 4px;
+			}
+
+			.account-memo {
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+				margin-top: 16px;
+			}
 		}
 	}
 
