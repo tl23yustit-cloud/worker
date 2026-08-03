@@ -42,13 +42,13 @@ function generatePubList(done) {
 
         const fileName = path.basename(file);
         const title = path.basename(file, ".html");
-        
+
         const depths = path
             .dirname(file)
             .replace(/^static[\\/]html[\\/]/, "")
             .split(/[\\/]/)
             .slice(1);
-            
+
         const statusKey = depths.concat(fileName).join("/");
 
         return {
@@ -76,14 +76,15 @@ function generatePubList(done) {
 
 // 1. HTML 조립
 function html() {
-    return gulp.src(['static/html/pub/**/*.html', 'index.html', '!static/html/pub/**/layout/*.html'], { 
-            base: '.',
-            encoding: 'utf8' 
-        })
+    return gulp.src(['static/html/pub/**/*.html', 'index.html', '!static/html/pub/**/layout/*.html'], {
+        base: '.',
+        encoding: 'utf8'
+    })
         .pipe(fileinclude({
             prefix: '@@',
             basepath: '@root',
-            encoding: 'utf8'
+            encoding: 'utf8',
+            indent: false
         }))
         .pipe(gulp.dest('dist'))
         .pipe(browserSync.stream());
