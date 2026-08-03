@@ -21,47 +21,47 @@ const depthName = {
     clrs: "대출상환스케줄조회",
     lon: "대출",
     foe: "외환",
-    tpr:"신탁",
-    act:"계좌이체",
-    b2bcpfl:"B2B기업구매자금대출",
-    or:"해외송금",
-    fce:"외화환전",
+    tpr: "신탁",
+    act: "계좌이체",
+    b2bcpfl: "B2B기업구매자금대출",
+    or: "해외송금",
+    fce: "외화환전",
 
     //3depth
-    ip: "이자납입",   
-    rop: "원금상환",    
-    import:"수입",
-    fx:"FX",
-    dli:"내국신용장조회",
-    pom:"상품성 신탁 운용방법 및 소수율 현황",
-    dlyt:"지연이체등록내역조회/취소",
-    ai:"계좌조회",
-    mact:"다계좌이체",
+    ip: "이자납입",
+    rop: "원금상환",
+    import: "수입",
+    fx: "FX",
+    dli: "내국신용장조회",
+    pom: "상품성 신탁 운용방법 및 소수율 현황",
+    dlyt: "지연이체등록내역조회/취소",
+    ai: "계좌조회",
+    mact: "다계좌이체",
     xfr: "이체",
     sug: "서비스이용안내",
     pc: "구매기업",
-    
+
     //4depth
     rip: "상환_이자납입",
     pd: "매입명세",
     clha: "대출보유계좌조회",
-    oilc:"수입신용장개설",
-    ctl:"한도조회",
-    ctd:"거래내역조회",
-    hai:"휴먼계좌조회",
-    rthf:"거래내역파일요청",
-    iscd:"매매계약내역조회",
+    oilc: "수입신용장개설",
+    ctl: "한도조회",
+    ctd: "거래내역조회",
+    hai: "휴먼계좌조회",
+    rthf: "거래내역파일요청",
+    iscd: "매매계약내역조회",
 
     //5depth
-    al:"신청목록",
-    eai:"신청목록",
-    ob:"신청정보입력",
-    ourb:"당행",
-    othb:"타행",
-    mfura:"자주쓰는송금계좌관리",
+    al: "신청목록",
+    eai: "신청목록",
+    ob: "신청정보입력",
+    ourb: "당행",
+    othb: "타행",
+    mfura: "자주쓰는송금계좌관리",
 
     //6depth(실제55depth)
-    dimt:"국내외화이체",
+    dimt: "국내외화이체",
 
     guide: "가이드",
     popup: "팝업",
@@ -71,7 +71,7 @@ const depthName = {
     sub: "서브",
     cst: "고객센터",
 
-   
+
     interest_situation: "이자상환"
 
 };
@@ -185,6 +185,8 @@ function render(data) {
                             <th>상태</th>
                             <th>수정일</th>
                             <th>보기</th>
+                            <th>작업자</th>
+                            <th>비고</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -193,6 +195,8 @@ function render(data) {
         groups[group].forEach(item => {
 
             const status = item.status || "대기";
+            const worker = item.status || "대기";
+            const note = item.note || "대기";
 
             // Depth td 생성
             let depthTd = "";
@@ -222,6 +226,10 @@ function render(data) {
                     </td>
                     <td>${item.modified}</td>
                     <td><a href="./${item.link}" target="_blank">보기</a></td>
+                     <td>${worker}</td>
+                    <td class="note">
+                        ${note}
+                    </td>
                 </tr>
             `;
         });
