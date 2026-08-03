@@ -86,8 +86,7 @@ function html() {
             encoding: 'utf8',
             indent: false
         }))
-        .pipe(gulp.dest('dist'))
-        .pipe(browserSync.stream());
+        .pipe(gulp.dest('dist'));
 }
 
 // 2. SCSS 컴파일 (static/css 및 static/cl 경로 수정)
@@ -126,8 +125,7 @@ function copyAssets() {
         encoding: false,
         sourcemaps: false
     })
-        .pipe(gulp.dest('dist'))
-        .pipe(browserSync.stream());
+        .pipe(gulp.dest('dist'));
 }
 
 // 브라우저 실시간 동기화 서버 (Browsersync)
