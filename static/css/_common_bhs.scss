@@ -219,9 +219,11 @@
 	&.sm-mid {
 		margin-top: var(--spacingXl);
 	}
+
 	&.lg-mid {
 		margin-top: var(--spacing2Xl);
 	}
+
 	&.lg-bot {
 		margin-top: var(--spacing4Xl);
 	}
@@ -805,6 +807,12 @@ table {
 				gap: 10px;
 			}
 		}
+		.ico-bank-wrap{
+			display: flex;
+			gap: var(--spacingSm);
+			align-items: center;
+			justify-content: center;
+		}
 	}
 }
 
@@ -1131,4 +1139,135 @@ table {
 	to {
 		transform: scaleX(1);
 	}
+}
+
+//캘린더
+.calendar-wrap {
+  position: relative;
+  display: inline-block;
+
+  .calendar-layer {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    width: 360px;
+    padding: 24px;
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 20px;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+    z-index: 1000;
+
+    &[hidden] {
+      display: none;
+    }
+  }
+
+  .calendar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+
+    button {
+      border: 0;
+      background: none;
+      cursor: pointer;
+    }
+
+    .calendar-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      button {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        font-size: 20px;
+        font-weight: 700;
+        color: #111827;
+      }
+    }
+
+    .btn-prev,
+    .btn-next {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      transition: background .2s;
+
+      &:hover {
+        background: #f3f4f6;
+      }
+    }
+  }
+
+  .calendar-week {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    margin-bottom: 12px;
+
+    span {
+      text-align: center;
+      font-size: 13px;
+      font-weight: 600;
+      color: #6b7280;
+      line-height: 40px;
+    }
+  }
+
+  .calendar-body {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+    margin-bottom: 24px;
+
+    button {
+      width: 40px;
+      height: 40px;
+      margin: 0 auto;
+      border: 0;
+      border-radius: 50%;
+      background: transparent;
+      font-size: 15px;
+      color: #111827;
+      cursor: pointer;
+      transition: .2s;
+
+      &:hover {
+        background: #f3f4f6;
+      }
+
+      &.is-today {
+        border: 1px solid #2563eb;
+      }
+
+      &.is-selected {
+        background: #2563eb;
+        color: #fff;
+        font-weight: 700;
+      }
+
+      &.is-disabled {
+        color: #c4c4c4;
+        cursor: default;
+
+        &:hover {
+          background: transparent;
+        }
+      }
+    }
+  }
+
+  .calendar-footer {
+    display: flex;
+    gap: 12px;
+
+    .btn {
+      flex: 1;
+      height: 48px;
+      border-radius: 12px;
+    }
+  }
 }
