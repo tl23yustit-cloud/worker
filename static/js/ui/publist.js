@@ -185,6 +185,8 @@ function render(data) {
                             <th>상태</th>
                             <th>수정일</th>
                             <th>보기</th>
+                            <th>작업자</th>
+                            <th>비고</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -193,8 +195,8 @@ function render(data) {
         groups[group].forEach(item => {
 
             const status = item.status || "대기";
-            const worker = item.status || "대기";
-            const note = item.note || "대기";
+const worker = item.worker || "-";
+const note = item.note || "-";
 
             // Depth td 생성
             let depthTd = "";
@@ -224,6 +226,10 @@ function render(data) {
                     </td>
                     <td>${item.modified}</td>
                     <td><a href="./${item.link}" target="_blank">보기</a></td>
+                    <td>${worker}</td>
+                     <td class="note">
+                        ${note}
+                     </td>
                 </tr>
             `;
         });
