@@ -84,7 +84,7 @@ function html() {
         .pipe(fileinclude({
             prefix: '@@',
             basepath: '@root',
-            indent: false
+            indent: true
         }))
         .on('error', function(err) {
             console.error('❌ [HTML INCLUDE ERROR]:', err.toString());
