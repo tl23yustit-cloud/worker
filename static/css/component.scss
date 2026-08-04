@@ -4756,6 +4756,32 @@ body.is-scroll-locked {
 				}
 			}
 		}
+		&-star {
+			width: 100%;
+
+			ul {
+				list-style: none;
+
+				li {
+					color: var(--colorFgSecondary);
+					display: flex;
+					flex-direction: row;
+					align-items: flex-start;
+					flex-wrap: wrap;
+
+					&::before {
+						content: "*";
+						margin-right: var(--spacingXs);
+						flex-shrink: 0;
+						display: inline-block;
+					}
+
+					+li {
+						margin-top: var(--spacingXs);
+					}
+				}
+			}
+		}
 	}
 
 	&.size {
