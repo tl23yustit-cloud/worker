@@ -8,7 +8,7 @@ const autoprefixer = require('autoprefixer');
 const fileinclude = require('gulp-file-include');
 const fg = require("fast-glob");
 
-// 💡 [초기화] Node.js 내장 fs 모듈로 dist 폴더 완전 삭제 (del 라이브러리 충돌 방지)
+// 💡 [초기화] Node.js 내장 fs 모듈로 dist 폴더 완전 삭제 (del 라이브러리 충돌 방지) 
 function clean(cb) {
     if (fs.existsSync('dist')) {
         fs.rmSync('dist', { recursive: true, force: true });
