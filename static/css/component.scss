@@ -964,6 +964,7 @@
 			padding: 0 var(--spacingLg);
 			min-width: calc(var(--sizeBase5Xl) - var(--sizeBase4Xs));
 			min-height: var(--sizeBaseLg);
+			border-radius: var(--radiusMd);
 
 			.text {
 				// font-size: var(--contentFontSizeLg);
@@ -977,6 +978,7 @@
 			padding: 0 var(--spacingXl);
 			min-width: calc(var(--sizeBase6Xl) - var(--sizeBase3Xs));
 			min-height: var(--sizeBaseXl);
+			border-radius: var(--radiusMd);
 
 			.text {
 				font-size: var(--contentFontSizeLg);
@@ -989,6 +991,7 @@
 			// min-width: calc(var(--sizeBase7Xl) - var(--sizeBase3Xs));
 			min-width: var(--sizeBase7Xl);
 			min-height: var(--sizeBase2Xl);
+			border-radius: var(--radiusMd);
 
 			.text {
 				font-size: var(--contentFontSizeLg);
@@ -2834,6 +2837,21 @@
 		width: 100%;
 		text-align: left;
 		cursor: pointer;
+		// 셀렉트 박스 클릭시 테두리 추가
+		outline: none;
+		border: 1px solid var(--colorBorderBase, #d0d4dd);
+
+		&:hover {
+			border-color: var(--colorBorderHover);
+		}
+
+		// 셀렉트 박스 클릭시 테두리 추가
+		&:focus,
+		&:active,
+		&[aria-expanded="true"] {
+			outline: none;
+			border-color: var(--colorFgPrimary, #0F62FD) !important;
+		}
 
 		&.active {
 			// outline-color: var(--colorBorderPrimary);
@@ -4244,6 +4262,7 @@ body.is-scroll-locked {
 			border-left: 1px solid var(--colorBorderTableBase);
 			border-radius: 0;
 		}
+
 		&:has(.required) {
 			padding: var(--spacingLg);
 
@@ -4252,6 +4271,7 @@ body.is-scroll-locked {
 				color: var(--colorFgError);
 			}
 		}
+
 		&:first-child {
 			border-radius: var(--radiusLg) 0 0 0;
 		}
@@ -4265,10 +4285,12 @@ body.is-scroll-locked {
 		border-radius: 0 0 0 var(--radiusLg) !important;
 		border-top: 1px solid var(--colorBorderTableBase);
 	}
-	.allnoradius{
+
+	.allnoradius {
 		border-radius: 0 0 0 0 !important;
 		border-top: 1px solid var(--colorBorderTableBase);
 	}
+
 	td {
 		padding: 14px var(--spacingMd);
 		border-top: 1px solid var(--colorBorderTableBase);
@@ -4736,6 +4758,7 @@ body.is-scroll-locked {
 				}
 			}
 		}
+
 		&-star {
 			width: 100%;
 
