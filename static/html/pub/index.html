@@ -270,7 +270,7 @@ const depthName = {
 };
 async function loadList() {
 
-    const res = await fetch("./list.json");
+    const res = await fetch("./static/html/pub/list.json");;
 
     const data = await res.json();
 
@@ -418,7 +418,7 @@ const note = item.note || "-";
                         </span>
                     </td>
                     <td>${item.modified}</td>
-                    <td><a href="./${item.link}" target="_blank">보기</a></td>
+                    <td><a href="/static/html/pub/${item.link}" target="_blank">보기</a></td>
                     <td>${worker}</td>
                      <td class="note">
                         ${note}

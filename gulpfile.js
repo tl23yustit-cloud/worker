@@ -75,10 +75,9 @@ function generatePubList(done) {
 function html() {
     return gulp.src([
             'static/html/pub/**/*.html', 
-            'static/html/pub/**/*.html', // 하위 전체 포함
             '!static/html/pub/**/layout/*.html'
         ], {
-            base: '.',
+            base: 'static/html/pub',
             allowEmpty: true
         })
         .pipe(fileinclude({
@@ -91,7 +90,7 @@ function html() {
             process.exitCode = 1;
             this.emit('end');
         })
-        .pipe(gulp.dest('dist'));
+        .pipe(gulp.dest('dist/static/html/pub')); // 💡 결과물이 dist/static/html/pub 하위로 들어감
 }
 
 // 2. SCSS 컴파일 (개발용)
@@ -144,8 +143,8 @@ function watchFiles() {
     
     browserSync.init({
         server: {
-            baseDir: './dist/static/html/pub',
-            index: 'index.html'
+            baseDir: './dist',
+            index: 'static/html/pub/index.html'
         },
         port: 3000
     });
