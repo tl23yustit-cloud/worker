@@ -1,174 +1,134 @@
 <!doctype html>
 <html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/bop.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>수협은행</title>
-  <link rel="stylesheet" href="/static/css/reset.css" />
-  <link rel="stylesheet" href="/static/css/layout.css" />
-  <link rel="stylesheet" href="/static/css/component.css" />
-  <link rel="stylesheet" href="/static/css/common.css" />
-  <link rel="stylesheet" href="/static/css/bop.css" />
-</head>
+  <body>
+    <div class="wrapper">
+      <div id="header">
+        @@include('static/html/pub/layout/skipNavigation.html')
+        @@include('static/html/pub/layout/header_sub.html')
+      </div>
 
-<body>
-  <div class="wrapper">
-    <div id="header">
-      @@include('static/html/pub/layout/skipNavigation.html')
-      @@include('static/html/pub/layout/header_sub.html')
-    </div>
-
-    <div id="container" class="container">
-      <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
-      <div id="contents">
-        <div class="content">
-          @@include('static/html/pub/layout/breadcrumb.html')
-          <div class="bop">
-            <button type="button" class="btn type-bg-primary size-md btn-modal" data-target="modal-16">
-              <span class="text">중도상환 수수료 계산</span>
-            </button>
+      <div id="container" class="container">
+        <div id="leftArea">
+          @@include('static/html/pub/layout/leftArea.html')
+        </div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="bop">
+              <button
+                type="button"
+                class="btn type-bg-primary size-md btn-modal"
+                data-target="modal-01"
+              >
+                <span class="text">모달 버튼</span>
+              </button>
+            </div>
           </div>
         </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
       </div>
-      <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
     </div>
-    <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
-  </div>
-  <script src="/static/js/ui/cib_ui_common.js"></script>
-  <div id="modal-16" class="modal is-active" data-dim="true" data-backdrop-close="false" data-alert="true"
-    data-size="md" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc">
-    <div class="modal-wrapper">
-      <div class="modal-title">
-        <h4 class="typeH4">중도상환 수수료 계산</h4>
-      </div>
-      <div class="modal-slot">
-        <div id="modal-desc">
-          <table class="table-type01">
-            <caption>
-              중도상환 수수료 계산
-            </caption>
-            <colgroup>
-              <col width="160px">
-              <col width="272px">
-              <col width="160px">
-              <col width="272px">
-            </colgroup>
-            <tbody>
-              <tr>
-                <th scope="row">
-                  <span class="typeMdSemibold">대출금액</span>
-                </th>
-                <td class="text-right">
-                  <span class="typeMd">500,000,000<span class="typeMd">원</span></span>
-                </td>
-                <th scope="row">
-                  <span class="typeMdSemibold">실행번호</span>
-                </th>
-                <td>
-                  <span class="typeMd">1</span>
-                </td>
-              </tr>
-              <tr>
-                <th scope="row">
-                  <span class="typeMdSemibold">대출잔액</span>
-                </th>
-                <td class="text-right">
-                  <span class="typeMd">500,000,000<span class="typeMd">원</span></span>
-                </td>
-                <th scope="row">
-                  <span class="typeMdSemibold">상환방법</span>
-                </th>
-                <td>
-                  <span class="typeMd">원리금균등</span>
-                </td>
-              </tr>
-              <tr>
-                <th scope="row">
-                  <span class="typeMdSemibold">수수료율</span>
-                </th>
-                <td>
-                  <span class="typeMd">14%</span>
-                </td>
-                <th scope="row">
-                  <span class="typeMdSemibold">대출기간</span>
-                </th>
-                <td>
-                  <span class="typeMd">60개월</span>
-                </td>
-              </tr>
-              <tr>
-                <th scope="row">
-                  <span class="typeMdSemibold">잔존기간</span>
-                </th>
-                <td>
-                  <span class="typeMd">48개월</span>
-                </td>
-                <th scope="row">
-                  <span class="typeMdSemibold">대출기간</span>
-                </th>
-                <td>
-                  <span class="typeMd">12개월</span>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          <table class="table-type01">
-            <caption>
-              중도상환 수수료 계산
-            </caption>
-            <colgroup>
-              <col width="160px">
-              <col width="272px">
-              <col width="160px">
-              <col width="272px">
-            </colgroup>
-            <tbody>
-              <tr>
-                <th scope="row">
-                  <span class="required">대출금액</span>
-                </th>
-                <td>
-                  <div class="repayment-type">
-                    <input type="text" class="input wSize-md size-lg" placeholder="숫자만 입력하세요" title="">
-                    <span class="typeMd">원</span>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+    <div
+      id="modal-01"
+      class="modal is-active"
+      data-dim="true"
+      data-backdrop-close="false"
+      data-alert="true"
+      data-size="sm"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modal-title"
+      aria-describedby="modal-desc"
+    >
+      <div class="modal-wrapper">
+        <div class="modal-title">
+          <h4 class="typeH4">계좌선택</h4>
         </div>
-        <div class="btn-wrap mt-24 mb-24">
-          <button type="button" class="btn type-bg-neutral size-lg">
-            <span class="text">계산하기</span>
-            <span class="blind">계산하기</span>
-          </button>
-        </div>
-        <div class="typeH6 pb-12">중도상환 수수료 계산결과</div>
-        <div class="bg-box size-xxl">
-          <div class="bottom-etc-area">
-            <span class="typeLgSemibold">중도상환 수수료는 <span class="active">2,600,000</span>원 입니다.</span>
+        <div class="modal-slot">
+          <div class="box-tab mt-24">
+            <ul
+              class="list-tab-button type-chip size-md"
+              role="tablist"
+              aria-label="탭 이름"
+            >
+              <li class="item-tab-button">
+                <button
+                  type="button"
+                  class="btn-tab active"
+                  id="tabBtnTypeHighlightFull01"
+                  role="tab"
+                  aria-selected="false"
+                  aria-controls="tabPanelTypeHighlightFull01"
+                >
+                  <span class="text">수협은행</span>
+                </button>
+              </li>
+              <li class="item-tab-button">
+                <button
+                  type="button"
+                  class="btn-tab"
+                  id="tabBtnTypeHighlightFull02"
+                  role="tab"
+                  aria-selected="false"
+                  aria-controls="tabPanelTypeHighlightFull02"
+                >
+                  <span class="text">다른금융</span></span>
+                </button>
+              </li>
+             
+            </ul>
+            <div
+              class="box-tab-content"
+              id="tabPanelTypeHighlightFull01"
+              role="tabpanel"
+              aria-labelledby="tabBtnTypeHighlightFull01"
+              style="display: block"
+            >
+              <h3 class="blind">Tab Content01</h3>
+              Tab 본문 01ㅂ
+            </div>
+            <div
+              class="box-tab-content"
+              id="tabPanelTypeHighlightFull02"
+              role="tabpanel"
+              aria-labelledby="tabBtnTypeHighlightFull02"
+              style="display: none"
+            >
+              <h3 class="blind">Tab Content02</h3>
+              Tab 본문 02
+            </div>
+            <div
+              class="box-tab-content active"
+              id="tabPanelTypeHighlightFull03"
+              role="tabpanel"
+              aria-labelledby="tabBtnTypeHighlightFull03"
+              style="display: none"
+            >
+              <h3 class="blind">Tab Content03</h3>
+              ddd
+            </div>
+
           </div>
         </div>
-        <div class="list type-dotted mt-12">
-          <ul>
-            <li class="typeMd">
-              수수료 계산 방식 : 중도상환원금×수수료율×(잔존일수÷대출기간)
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="modal-footer flex items-center justify-center gap-8">
-        <button type="button" class="btn type-bg-primary size-xl">
-          <span class="text">확인</span>
-          <span class="blind">확인</span>
+
+        <button type="button" class="ico btn-close" aria-label="모달 닫기">
+          <i class="ico-close ico-size-smMd" aria-hidden="true"></i>
+          <span class="blind">닫기</span>
         </button>
       </div>
-      <button type="button" class="ico btn-close" aria-label="모달 닫기">
-        <i class="ico-close ico-size-smMd" aria-hidden="true"></i>
-        <span class="blind">닫기</span>
-      </button>
     </div>
-  </div>
-</body>
+  </body>
 </html>
