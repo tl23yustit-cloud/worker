@@ -1550,7 +1550,7 @@
                     <tr>
                       <th scope="row">
                         받는분<br />
-                          통장표시내용
+                        통장표시내용
                       </th>
                       <td>
                         <input
@@ -1587,7 +1587,6 @@
 
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        // 1. Swiper 인스턴스 저장 객체
         var swiperInstances = {};
 
         var swiperContainers = document.querySelectorAll(
@@ -1625,10 +1624,8 @@
             },
           });
 
-          // 각 컨테이너의 고유 인덱스 또는 ID로 Swiper 저장
           swiperInstances[index] = cardSwiper;
 
-          // 카드 버튼 단일 선택 로직
           var cardButtons = container.querySelectorAll(
             ".account-card-container",
           );
@@ -1643,7 +1640,6 @@
             });
           });
 
-          // disabled 속성 및 아이콘 색상 클래스 업데이트 함수
           function updateDisabledAttribute(swiperInstance, prev, next) {
             if (!prev || !next) return;
 
@@ -1682,7 +1678,6 @@
           }
         });
 
-        // 2. 탭 전환 및 슬라이드 1페이지 리셋 로직
         var tabButtons = document.querySelectorAll(".list-tab-button .btn-tab");
         var tabContents = document.querySelectorAll(
           ".box-card-wrapper .box-tab-content",
@@ -1715,7 +1710,6 @@
               targetContent.classList.add("active");
               targetContent.style.display = "block";
 
-              // 해당 탭 내의 Swiper가 존재하면 첫 번째 페이지로 이동 (위치 리셋 및 크기 재계산)
               var currentSwiperContainer = targetContent.querySelector(
                 ".card-swiper-container",
               );
