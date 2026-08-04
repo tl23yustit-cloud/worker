@@ -132,6 +132,7 @@ function copyAssets() {
     ], {
         base: '.',
         allowEmpty: true,
+        encoding: false,
         sourcemaps: false
     })
         .pipe(gulp.dest('dist'));
