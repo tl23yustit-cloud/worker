@@ -4265,7 +4265,14 @@ body.is-scroll-locked {
 			border-left: 1px solid var(--colorBorderTableBase);
 			border-radius: 0;
 		}
+		&:has(.required) {
+			padding: var(--spacingLg);
 
+			&::before {
+				content: "*";
+				color: var(--colorFgError);
+			}
+		}
 		&:first-child {
 			border-radius: var(--radiusLg) 0 0 0;
 		}
