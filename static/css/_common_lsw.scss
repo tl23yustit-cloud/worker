@@ -1610,7 +1610,32 @@
 
 }
 
+.result {
+    .total-summary-box {
+        margin-bottom: var(--spacing4Xl);
+    }
 
+    ul {
+        display: flex;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    li {
+        display: flex;
+        align-items: center;
+
+        &+li::before {
+            content: "";
+            display: inline-block;
+            width: 1px;
+            height: 16px; // 구분선 높이 조절
+            background-color: #d1d5db; // 구분선 색상 조절
+            margin: 0 10px; // 양옆 여백 조절
+        }
+    }
+}
 
 .result-banner {
     display: flex;
@@ -1621,6 +1646,7 @@
     background-color: var(--colorBgSecondary);
     border-radius: var(--radiusXl);
     gap: var(--spacingLg);
+    margin-bottom: var(--spacing4Xl);
 
     .inner-img {
         &::before {
@@ -1643,6 +1669,8 @@
         h4 {}
 
         span {}
+
+
     }
 
 
