@@ -1610,7 +1610,53 @@
 
 }
 
-.result {
+
+.total-summary-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacingLg) var(--spacingLgXl);
+    background-color: var(--colorBgHover);
+    border-radius: var(--radiusLg);
+    border: 1px solid var(--colorBorderSecondary);
+
+    strong {
+        font-weight: var(--fontWeightSemibold);
+    }
+
+    .total {
+        font-size: var(--contentFontSizeLg);
+        line-height: var(--contentLineHeightLg);
+        font-weight: var(--fontWeightSemibold);
+
+
+    }
+
+    dl {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+
+        dt {
+            font-size: var(--contentFontSizeLg);
+            line-height: var(--contentLineHeightLg);
+            font-weight: var(--fontWeightSemibold);
+        }
+
+        dd {
+            font-size: var(--headingFontSizeH4);
+            font-weight: var(--fontWeightBold);
+            line-height: var(--headingLineHeightH4);
+
+            span {
+                color: var(--colorFgPrimary)
+            }
+
+        }
+    }
+}
+
+.result-box {
     .total-summary-box {
         margin-bottom: var(--spacing4Xl);
     }
@@ -1630,9 +1676,9 @@
             content: "";
             display: inline-block;
             width: 1px;
-            height: 16px; // 구분선 높이 조절
-            background-color: #d1d5db; // 구분선 색상 조절
-            margin: 0 10px; // 양옆 여백 조절
+            height: 16px;
+            background-color: var(--colorBorderSecondary);
+            margin: 0 20px;
         }
     }
 }
