@@ -386,9 +386,16 @@
 		margin-top: 12px;
 		display: block;
 
+		/* 슬라이드 아이템 너비를 유동적으로 설정 */
+		.swiper-slide {
+			width: calc((100% - 24px) / 3) !important;
+			/* 12px 간격 2개 = 24px */
+		}
+
 		.account-card-container {
 			display: flex;
-			width: 320px;
+			width: 100% !important;
+			/* 부모(.swiper-slide)의 유동 너비를 가득 채움 */
 			height: 130px;
 			padding: var(--spacingXl) var(--spacingLg) var(--spacingXl) var(--spacingXl);
 			gap: 8px;
@@ -407,7 +414,10 @@
 			}
 
 			.account-info-wrap {
-				width: 250px;
+				flex: 1;
+				/* 고정 width 대신 flex를 주어 유동적으로 남은 영역 채우기 */
+				min-width: 0;
+				/* 텍스트 생략(ellipsis)이 정상 작동하도록 설정 */
 
 				.typeH5 {
 					overflow: hidden;
@@ -427,7 +437,7 @@
 				text-overflow: ellipsis;
 				white-space: nowrap;
 				margin-top: 16px;
-				color:var(--colorFgSecondary);
+				color: var(--colorFgSecondary);
 			}
 		}
 	}
