@@ -43,13 +43,21 @@ function generatePubList(done) {
             .split(/[\\/]/)
             .slice(1);
 
+
+
         const statusKey = depths.concat(fileName).join("/");
+
+        const statusInfo = statusMap[statusKey] || {};
 
         return {
             depths,
             title,
             file: fileName,
-            status: statusMap[statusKey] || "대기",
+
+            status: statusInfo.status || "대기",
+            worker: statusInfo.worker || "-",
+            note: statusInfo.note || "-",
+
             link: file.replace(/\\/g, "/"),
             modified: stat.mtime.toLocaleString("ko-KR")
         };
