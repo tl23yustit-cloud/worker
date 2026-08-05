@@ -58,7 +58,9 @@ function generatePubList(done) {
             worker: statusInfo.worker || "-",
             note: statusInfo.note || "-",
 
-            link: file.replace(/\\/g, "/"),
+            link: path
+                .relative("static/html/pub", file)
+                .replace(/\\/g, "/"),
             modified: stat.mtime.toLocaleString("ko-KR")
         };
     });
