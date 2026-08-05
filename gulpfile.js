@@ -63,15 +63,17 @@ function generatePubList(done) {
         };
     });
 
-    if (!fs.existsSync("dist")) {
-        fs.mkdirSync("dist");
+
+    const outputDir = "dist/static/html/pub";
+
+    if (!fs.existsSync(outputDir)) {
+        fs.mkdirSync(outputDir, { recursive: true });
     }
 
     fs.writeFileSync(
-        "dist/list.json",
+        path.join(outputDir, "list.json"),
         JSON.stringify(list, null, 2)
     );
-
     done();
 }
 
@@ -86,7 +88,7 @@ function html() {
             basepath: '@root',
             indent: true
         }))
-        .on('error', function(err) {
+        .on('error', function (err) {
             console.error('❌ [HTML INCLUDE ERROR]:', err.toString());
             process.exitCode = 1;
             this.emit('end');
@@ -141,16 +143,16 @@ function copyAssets() {
 // 브라우저 실시간 동기화 서버 (Browsersync는 dev 명령어 실행 시에만 동적 로드)
 function watchFiles() {
     const browserSync = require('browser-sync').create();
-    
+
     browserSync.init({
         server: {
             baseDir: './dist',
-            index: 'index.html'
+            index: 'static/html/pub/index.html'
         },
         port: 3000
     });
 
-    gulp.watch(['static/html/**/*.html', 'index.html', 'status.json'], gulp.series(generatePubList, html, (done) => { browserSync.reload(); done(); }));
+    gulp.watch(['static/html/**/*.html', 'status.json'], gulp.series(generatePubList, html, (done) => { browserSync.reload(); done(); }));
     gulp.watch(['static/css/**/*.scss', 'static/cl/**/*.scss'], gulp.series(styles, (done) => { browserSync.reload(); done(); }));
     gulp.watch(['static/js/**/*', 'static/images/**/*', 'static/css/**/font/**/*', 'static/cl/**/*', '!static/cl/**/*.scss'], gulp.series(copyAssets, (done) => { browserSync.reload(); done(); }));
 }
