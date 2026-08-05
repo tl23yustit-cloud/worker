@@ -8,7 +8,7 @@ const autoprefixer = require('autoprefixer');
 const fileinclude = require('gulp-file-include');
 const fg = require("fast-glob");
 
-// 💡 [초기화] Node.js 내장 fs 모듈로 dist 폴더 완전 삭제 (del 라이브러리 충돌 방지) 
+// 💡 [초기화] Node.js 내장 fs 모듈로 dist 폴더 완전 삭제 
 function clean(cb) {
     if (fs.existsSync('dist')) {
         fs.rmSync('dist', { recursive: true, force: true });
@@ -43,28 +43,22 @@ function generatePubList(done) {
             .split(/[\\/]/)
             .slice(1);
 
-
-
         const statusKey = depths.concat(fileName).join("/");
-
         const statusInfo = statusMap[statusKey] || {};
 
         return {
             depths,
             title,
             file: fileName,
-
             status: statusInfo.status || "대기",
             worker: statusInfo.worker || "-",
             note: statusInfo.note || "-",
-
             link: path
                 .relative("static/html/pub", file)
                 .replace(/\\/g, "/"),
             modified: stat.mtime.toLocaleString("ko-KR")
         };
     });
-
 
     const outputDir = "dist/static/html/pub";
 
@@ -92,8 +86,7 @@ function html() {
         }))
         .on('error', function (err) {
             console.error('❌ [HTML INCLUDE ERROR]:', err.toString());
-            process.exitCode = 1;
-            this.emit('end');
+            this.emit('error', err);
         })
         .pipe(gulp.dest('dist'));
 }
@@ -118,8 +111,7 @@ function stylesBuild() {
         .pipe(sass({ outputStyle: 'compressed' }))
         .on('error', function (err) {
             console.error('❌ [SASS BUILD ERROR]:\n', err.messageFormatted || err.message);
-            process.exitCode = 1;
-            this.emit('end');
+            this.emit('error', err);
         })
         .pipe(postcss([autoprefixer()]))
         .pipe(gulp.dest('dist'));
@@ -142,7 +134,7 @@ function copyAssets() {
         .pipe(gulp.dest('dist'));
 }
 
-// 브라우저 실시간 동기화 서버 (Browsersync는 dev 명령어 실행 시에만 동적 로드)
+// 브라우저 실시간 동기화 서버
 function watchFiles() {
     const browserSync = require('browser-sync').create();
 
