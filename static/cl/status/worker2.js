@@ -4,7 +4,7 @@ module.exports = {
     "trn/act/xfr/CIBTRN010102000M.html": { "status": "수정완료", "worker": "이상우", "note": "[(8/5)이체금액 추가, 버튼 타입변경]" },
     "trn/act/xfr/CIBTRN010105000M.html": { "status": "수정완료", "worker": "이상우", "note": "[(8/5)버튼 타입변경]" },
     "trn/act/xfr/CIBTRN010107000P.html": { "status": "진행중", "worker": "이상우", "note": "" },
-    
+     
     // 이체 > 계좌이체 > 지연이체등록내역조회/취소
     "trn/act/dlyt/CIBTRN010301000M.html": { "status": "진행중", "worker": "이상우", "note": "" },
     "trn/act/dlyt/CIBTRN010302000M.html": { "status": "진행중", "worker": "이상우", "note": "" },
