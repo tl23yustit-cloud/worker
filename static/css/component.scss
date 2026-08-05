@@ -5156,7 +5156,6 @@ body.is-scroll-locked {
 	}
 }
 
-
 // Swiper Slide
 .swiper {
 	overflow-x: hidden;
@@ -5182,8 +5181,8 @@ body.is-scroll-locked {
 			}
 		}
 	}
-
-
+	
+	
 	[class^=swiper-btn] {
 		position: absolute;
 		border: var(--borderWidthMd) solid var(--colorBorderBase);
@@ -5198,7 +5197,7 @@ body.is-scroll-locked {
 			transform: translate(-50%, -50%);
 		}
 	}
-
+	
 	.swiper-pagination,
 	.swiper-btn-pause,
 	.swiper-btn-play,
@@ -5207,19 +5206,35 @@ body.is-scroll-locked {
 		display: none;
 	}
 
+	.swiper-pagination-dash {
+		display: inline-block;
+		width: var(--sizeBaseLg);
+		height: var(--sizeBase4Xs);
+		background-color: var(--colorBgDisabled);
+		&.is-active {
+			width: var(--sizeBaseXl);
+			background-color: var(--colorBgBaseInvert);
+		}
+	}
+	
 	&.type-controls {
-
 		.swiper-button-prev,
 		.swiper-button-next {
 			display: block;
-		}
+		}	
 	}
 
 	&.type-play {
-
 		.swiper-btn-pause,
 		.swiper-btn-play {
 			display: block;
 		}
+	}
+
+	&.type-pager {
+		.swiper-pagination {
+			display: block;
+		}
+
 	}
 }
