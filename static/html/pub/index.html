@@ -270,33 +270,25 @@ const depthName = {
 
 };
 async function loadList() {
+    try {
+        // 루트(/) 기준 절대 경로로 명시
+        const res = await fetch("/static/html/pub/list.json");
 
-    const res = await fetch("./list.json");
+        console.log("status :", res.status);
+        console.log("url :", res.url);
 
-    const data = await res.json();
+        // HTTP 응답이 정상(200~299)이 아닌 경우 예외 처리 (404 대처)
+        if (!res.ok) {
+            throw new Error(`파일을 불러오지 못했습니다. (Status: ${res.status})`);
+        }
 
-    render(data);
+        const data = await res.json();
+        render(data);
 
-    const input = document.querySelector("#search");
-
-    input.addEventListener("input", () => {
-
-        const keyword = input.value.toLowerCase();
-
-        const filtered = data.filter(item => {
-
-            return (
-                item.folder.toLowerCase().includes(keyword) ||
-                item.title.toLowerCase().includes(keyword) ||
-                item.file.toLowerCase().includes(keyword)
-            );
-
-        });
-
-        render(filtered);
-
-    });
-
+    } catch(e) {
+        console.error("loadList 에러:", e);
+        document.querySelector("#list").innerHTML = `<p style="color:red; font-weight:bold;">데이터를 불러오는 데 실패했습니다: ${e.message}</p>`;
+    }
 }
 function getStatusClass(status) {
 
