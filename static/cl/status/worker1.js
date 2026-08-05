@@ -67,6 +67,7 @@ module.exports = {
     // 뱅킹업무(bop) 루트 기타 화면
     "bop/원금상환_이체확인증.html": { "status": "수정중", "worker": "변혜선", "note": "" },
     "bop/중도상환수수료계산.html": { "status": "수정중", "worker": "변혜선", "note": "" },
+    "bop/card/cm/ccpr/CIBCRD020300000M.html": { "status": "작업중", "worker": "변혜선", "note": "" },
     "bop/clrs/대출상환스케줄조회.html": { "status": "수정중", "worker": "변혜선", "note": "" },
     
     // 금융상품(fin) > 대출 및 공통 폼

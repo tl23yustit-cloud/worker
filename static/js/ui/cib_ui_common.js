@@ -1251,41 +1251,26 @@ function fnSwiperHtmlControl() {
     swiperContainers.forEach(function (container) {
         var dataset = container.dataset;
 
-        // ----------------------------------------------------
         // 1. dataset 파싱 및 Default 기본값 지정
-        // ----------------------------------------------------
-        // [Autoplay] 지정되지 않거나 'true'가 아니면 false
         var isAutoplay = dataset.autoplay === 'true';
-        // [Delay] 지정되지 않은 경우 기본 3000ms
         var autoDelay = parseInt(dataset.delay, 10) || 3000;
-        // [Loop] 지정되지 않거나 'true'가 아니면 false
         var isLoop = dataset.loop === 'true';
-        // [Speed] 지정되지 않은 경우 기본 300ms
         var speed = parseInt(dataset.speed, 10) || 300;
 
-        // [SlidesPerView] 'auto' 대응 / 지정되지 않은 경우 기본 1
         var rawPerView = dataset.slidesPerView;
         var slidesPerView = rawPerView === 'auto' ? 'auto' : (parseInt(rawPerView, 10) || 1);
-        
-        // [SlidesPerGroup] 지정되지 않은 경우 기본 1
         var slidesPerGroup = parseInt(dataset.slidesPerGroup, 10) || 1;
 
-        // [Navigation] 'false'로 지정한 경우를 제외하고는 기본 true
         var useNavigation = dataset.useNavigation !== 'false';
 
-        // [Pagination] 지정되지 않은 경우 기본 'bullets'
+        // HTML의 data-pagination-type 속성을 dataset.paginationType으로 파싱
         var paginationType = dataset.paginationType || 'bullets';
-        // [CustomBullet] 지정되지 않거나 'true'가 아니면 false
         var isCustomBullet = dataset.customBullet === 'true';
 
-        // [Play / Pause Buttons] 지정되지 않은 경우 기본 selector 지정
         var playBtnSelector = dataset.btnPlay || '.swiper-btn-play';
         var pauseBtnSelector = dataset.btnPause || '.swiper-btn-pause';
 
-
-        // ----------------------------------------------------
-        // 2. Swiper 기본 옵션 구성 (v4.5.0 규격)
-        // ----------------------------------------------------
+        // 2. Swiper 기본 옵션 구성
         var swiperOptions = {
             speed: speed,
             loop: isLoop,
@@ -1297,10 +1282,7 @@ function fnSwiperHtmlControl() {
             } : false
         };
 
-
-        // ----------------------------------------------------
         // 3. 컨트롤 요소 존재 여부 및 옵션 동적 동기화
-        // ----------------------------------------------------
         var $pagination = container.querySelector('.swiper-pagination');
         var $prevBtn = container.querySelector('.swiper-button-prev');
         var $nextBtn = container.querySelector('.swiper-button-next');
@@ -1310,21 +1292,35 @@ function fnSwiperHtmlControl() {
         if ($pagination) {
             var paginationConfig = {
                 el: $pagination,
-                type: paginationType,
                 clickable: true
             };
 
-            // custom 타입일 경우 커스텀 HTML 구조 반환
-            if (paginationType === 'custom') {
+            // [수정] 'dash' 타입: bullets 방식을 활용해 renderBullet 처리 (클릭 지원 + is-active 커스텀)
+            if (paginationType === 'dash') {
+                paginationConfig.type = 'bullets';
+                paginationConfig.bulletClass = 'swiper-pagination-dash';
+                paginationConfig.bulletActiveClass = 'is-active';
+                paginationConfig.renderBullet = function (index, className) {
+                    return '<span class="' + className + '"></span>';
+                };
+            } 
+            // 'custom' 타입
+            else if (paginationType === 'custom') {
+                paginationConfig.type = 'custom';
                 paginationConfig.renderCustom = function (swiper, current, total) {
                     return '<span class="current">' + current + '</span> <span class="divider">/</span> <span class="total">' + total + '</span>';
                 };
-            }
-            // bullets 방식에 data-custom-bullet="true" 인 경우
+            } 
+            // 'bullets' 타입 + 커스텀 불릿 (숫자 불릿 등)
             else if (paginationType === 'bullets' && isCustomBullet) {
+                paginationConfig.type = 'bullets';
                 paginationConfig.renderBullet = function (index, className) {
                     return '<span class="' + className + '">' + (index + 1) + '</span>';
                 };
+            } 
+            // 기타 기본 타입 (fraction, progressbar, 기본 bullets)
+            else {
+                paginationConfig.type = paginationType;
             }
 
             swiperOptions.pagination = paginationConfig;
@@ -1346,20 +1342,13 @@ function fnSwiperHtmlControl() {
             };
         }
 
-
-        // ----------------------------------------------------
         // 4. Swiper 인스턴스 생성
-        // ----------------------------------------------------
         var swiper = new Swiper(container, swiperOptions);
 
-
-        // ----------------------------------------------------
-        // 5. 재생 / 정지 버튼 동적 바인딩 및 예외 처리
-        // ----------------------------------------------------
+        // 5. 재생 / 정지 버튼 동적 바인딩
         var $playBtn = container.querySelector(playBtnSelector);
         var $pauseBtn = container.querySelector(pauseBtnSelector);
 
-        // 정지 버튼 이벤트
         if ($pauseBtn) {
             $pauseBtn.addEventListener('click', function () {
                 if (swiper.autoplay) {
@@ -1372,7 +1361,6 @@ function fnSwiperHtmlControl() {
             });
         }
 
-        // 재생 버튼 이벤트
         if ($playBtn) {
             $playBtn.addEventListener('click', function () {
                 if (swiper.autoplay) {
