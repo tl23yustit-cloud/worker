@@ -48,6 +48,7 @@ module.exports = {
     "bop/lon/inq/clrs/계좌상세다건조회.html": { "status": "수정중", "worker": "변혜선", "note": "" },
     "bop/원금상환_이체확인증.html": { "status": "수정중", "worker": "변혜선", "note": "" },
     "bop/중도상환수수료계산.html": { "status": "수정중", "worker": "변혜선", "note": "" },
+    "bop/card/cm/ccpr/CIBCRD020300000M.html": { "status": "작업중", "worker": "변혜선", "note": "" },
     "bop/clrs/대출상환스케줄조회.html": { "status": "수정중", "worker": "변혜선", "note": "" },
     "fin/lon/대출01.html": { "status": "수정중", "worker": "변혜선", "note": "" },
     "fin/lon/loan02.html": { "status": "수정중", "worker": "변혜선", "note": "" },

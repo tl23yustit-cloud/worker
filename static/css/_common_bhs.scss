@@ -404,12 +404,26 @@
 }
 
 .bg-box {
+	&.size {
+		&-5xl3xl {
+			padding: var(--spacing5Xl) var(--spacing3Xl);
+			border-radius: var(--radius2Xl);
+
+			.box-tit-area {
+				.typeXlSemibold {
+					margin-top: var(--spacingMd);
+				}
+			}
+		}
+	}
+
 	&.type {
 		&-light-blue {
 			background: var(--colorBgSecondary);
 			border-radius: var(--radiusXl) var(--spacingLgXl);
 		}
 	}
+
 }
 
 //banner-btn
@@ -780,13 +794,17 @@ $securities: (
 }
 
 //공통으로 간격가져갈 예정
-.table-type01{
-	.typeMd{white-space: wrap;}
+.table-type01 {
+	.typeMd {
+		white-space: wrap;
+	}
 }
+
 table {
-	th{
+	th {
 		font-size: var(--contentFontSizeTable);
 	}
+
 	td {
 		.tbl-column {
 			display: flex;
@@ -833,7 +851,7 @@ table {
 
 .btn-wrap {
 	&.sm-mid {
-		+ .tbl-area{
+		+.tbl-area {
 			margin-top: var(--spacing5Xl);
 		}
 	}
@@ -843,7 +861,14 @@ table {
 .tbl-head {
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
 	margin-bottom: var(--spacingMd);
+
+	.left-area {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
 
 	.right-area {
 		margin-left: auto;
@@ -1153,5 +1178,31 @@ table {
 
 	to {
 		transform: scaleX(1);
+	}
+}
+
+//리스트lg
+.list-lg-wrap {
+	p.typeLg {
+		color: var(--colorFgBase);
+		margin-top: var(--spacingMd);
+	}
+
+	li.typeLg {
+		color: var(--colorFgBase) !important;
+		margin-top: var(--spacingXs);
+
+		.type-bar {
+			margin-top: 7px;
+		}
+
+		+li.typeLg {
+			margin-top: var(--spacingXs);
+		}
+	}
+
+
+	+.list-lg-wrap {
+		margin-top: var(--spacing2Xl);
 	}
 }
