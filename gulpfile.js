@@ -16,14 +16,21 @@ function clean(cb) {
     cb();
 }
 
-// 퍼블리스트용 JSON 생성
+// 퍼블리스트용 JSON 자동 생성 (static/html/pub/status/ 연동)
 function generatePubList(done) {
     let statusMap = {};
 
-    if (fs.existsSync("status.json")) {
-        statusMap = JSON.parse(
-            fs.readFileSync("status.json", "utf8")
-        );
+    // 💡 status.js 파일 경로 설정
+    const statusJsPath = path.resolve('./static/html/pub/status/status.js');
+    
+    if (fs.existsSync(statusJsPath)) {
+        // 하위 worker 파일들까지 require 캐시 초기화 (수정 즉시 반영)
+        Object.keys(require.cache).forEach(key => {
+            if (key.includes(path.resolve('./static/html/pub/status'))) {
+                delete require.cache[key];
+            }
+        });
+        statusMap = require(statusJsPath);
     }
 
     const files = fg.sync([
@@ -66,6 +73,7 @@ function generatePubList(done) {
         fs.mkdirSync(outputDir, { recursive: true });
     }
 
+    // dist/static/html/pub/list.json 파일 자동 생성
     fs.writeFileSync(
         path.join(outputDir, "list.json"),
         JSON.stringify(list, null, 2)
@@ -146,7 +154,8 @@ function watchFiles() {
         port: 3000
     });
 
-    gulp.watch(['static/html/**/*.html', 'status.json'], gulp.series(generatePubList, html, (done) => { browserSync.reload(); done(); }));
+    // 💡 HTML 파일 변경 또는 status 폴더 내 JS 파일 변경 시 list.json 재생성 및 리로드
+    gulp.watch(['static/html/**/*.html', 'static/html/pub/status/**/*.js'], gulp.series(generatePubList, html, (done) => { browserSync.reload(); done(); }));
     gulp.watch(['static/css/**/*.scss', 'static/cl/**/*.scss'], gulp.series(styles, (done) => { browserSync.reload(); done(); }));
     gulp.watch(['static/js/**/*', 'static/images/**/*', 'static/css/**/font/**/*', 'static/cl/**/*', '!static/cl/**/*.scss'], gulp.series(copyAssets, (done) => { browserSync.reload(); done(); }));
 }

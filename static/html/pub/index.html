@@ -28,7 +28,7 @@
       th,
       td {
         border: 1px solid #ddd;
-        padding:  4px 8px;
+        padding: 4px 8px;
         text-align: left;
         font-size: 14px;
       }
@@ -45,11 +45,11 @@
         color: #2563eb;
         text-decoration: none;
       }
-      a:hover{
+      a:hover {
         text-decoration: underline;
       }
-      a:focus{
-       color:red
+      a:focus {
+        color: red;
       }
 
       .search {
@@ -57,10 +57,13 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-       
       }
-      .search .status-wrap span{padding: 0 4px; }
-      .search .status-wrap span::before{margin: 0 4px; }
+      .search .status-wrap span {
+        padding: 0 4px;
+      }
+      .search .status-wrap span::before {
+        margin: 0 4px;
+      }
       input {
         width: 300px;
         padding: 10px;
@@ -68,7 +71,9 @@
       .pub-section {
         margin-bottom: 8px;
       }
-      h2{font-size: 15px;}
+      h2 {
+        font-size: 15px;
+      }
       .status.wait {
         color: #101828;
       }
@@ -178,197 +183,186 @@
     <div class="search">
       <input type="text" id="search" placeholder="검색..." />
       <div class="status-wrap">
-      <span class="status wait">대기</span>
-      <span class="status complete">완료</span>
-      <span class="status progress">진행중</span>
-      <span class="status modify">수정중</span>
-      <span class="status modify-complete">수정완료</span>
-      <span class="status urgent">긴급</span>
-      <span class="status delete">삭제</span>
+        <span class="status wait">대기</span>
+        <span class="status complete">완료</span>
+        <span class="status progress">진행중</span>
+        <span class="status modify">수정중</span>
+        <span class="status modify-complete">수정완료</span>
+        <span class="status urgent">긴급</span>
+        <span class="status delete">삭제</span>
       </div>
     </div>
 
     <div id="list"></div>
 
-<script>
-const depthName = {
-    inq: "조회",
-    trn: "이체",
-    card: "카드",
-    fin: "금융상품",
-    fns: "금융서비스",
-    b2b: "B2B전자결제",
-    bmg: "뱅킹관리",
-    aug: "인증센터",
-    fpd: "공시실",
-    cbu: "기업뱅킹 이용가이드",
-    bop: "뱅킹업무",
-    sil: "간편조회",
-    mnd: "메인",
-    bni: "은행소개",
-    cmn: "공통 팝업 및 화면",
-    cst: "고객센터",
-    fcp: "금융소비자포털",
+    <script>
+      const depthName = {
+        inq: "조회",
+        trn: "이체",
+        card: "카드",
+        fin: "금융상품",
+        fns: "금융서비스",
+        b2b: "B2B전자결제",
+        bmg: "뱅킹관리",
+        aug: "인증센터",
+        fpd: "공시실",
+        cbu: "기업뱅킹 이용가이드",
+        bop: "뱅킹업무",
+        sil: "간편조회",
+        mnd: "메인",
+        bni: "은행소개",
+        cmn: "공통 팝업 및 화면",
+        cst: "고객센터",
+        fcp: "금융소비자포털",
 
-    //2depth
-    clrs: "대출상환스케줄조회",
-    lon: "대출",
-    foe: "외환",
-    tpr: "신탁",
-    act: "계좌이체",
-    b2bcpfl: "B2B기업구매자금대출",
-    or: "해외송금",
-    fce: "외화환전",
+        //2depth
+        clrs: "대출상환스케줄조회",
+        lon: "대출",
+        foe: "외환",
+        tpr: "신탁",
+        act: "계좌이체",
+        b2bcpfl: "B2B기업구매자금대출",
+        or: "해외송금",
+        fce: "외화환전",
 
-    //3depth
-    ip: "이자납입",
-    rop: "원금상환",
-    import: "수입",
-    fx: "FX",
-    dli: "내국신용장조회",
-    pom: "상품성 신탁 운용방법 및 소수율 현황",
-    dlyt: "지연이체등록내역조회/취소",
-    ai: "계좌조회",
-    mact: "다계좌이체",
-    xfr: "이체",
-    sug: "서비스이용안내",
-    pc: "구매기업",
+        //3depth
+        ip: "이자납입",
+        rop: "원금상환",
+        import: "수입",
+        fx: "FX",
+        dli: "내국신용장조회",
+        pom: "상품성 신탁 운용방법 및 소수율 현황",
+        cdpst: "연금저축신탁 비교공시",
+        dlyt: "지연이체등록내역조회/취소",
+        ai: "계좌조회",
+        mact: "다계좌이체",
+        xfr: "이체",
+        sug: "서비스이용안내",
+        pc: "구매기업",
 
-    //4depth
-    rip: "상환_이자납입",
-    pd: "매입명세",
-    clha: "대출보유계좌조회",
-    oilc: "수입신용장개설",
-    ctl: "한도조회",
-    ctd: "거래내역조회",
-    hai: "휴먼계좌조회",
-    rthf: "거래내역파일요청",
-    iscd: "매매계약내역조회",
+        //4depth
+        rip: "상환_이자납입",
+        pd: "매입명세",
+        clha: "대출보유계좌조회",
+        oilc: "수입신용장개설",
+        ctl: "한도조회",
+        ctd: "거래내역조회",
+        hai: "휴먼계좌조회",
+        rthf: "거래내역파일요청",
+        iscd: "매매계약내역조회",
 
-    //5depth
-    al: "신청목록",
-    eai: "신청목록",
-    ob: "신청정보입력",
-    ourb: "당행",
-    othb: "타행",
-    mfura: "자주쓰는송금계좌관리",
+        //5depth
+        al: "신청목록",
+        eai: "신청목록",
+        ob: "신청정보입력",
+        ourb: "당행",
+        othb: "타행",
+        mfura: "자주쓰는송금계좌관리",
 
-    //6depth(실제55depth)
-    dimt: "국내외화이체",
+        //6depth
+        dimt: "국내외화이체",
 
-    guide: "가이드",
-    popup: "팝업",
-    common: "공통",
-    components: "컴포넌트",
-    main: "메인",
-    sub: "서브",
-    cst: "고객센터",
+        guide: "가이드",
+        popup: "팝업",
+        common: "공통",
+        components: "컴포넌트",
+        main: "메인",
+        sub: "서브",
+        cst: "고객센터",
 
+        interest_situation: "이자상환",
+      };
 
-    interest_situation: "이자상환"
+      async function loadList() {
+        try {
+          const res = await fetch("/static/html/pub/list.json");
+          if (!res.ok) throw new Error("list.json을 불러오지 못했습니다.");
 
-};
-async function loadList() {
+          const data = await res.json();
+          render(data);
 
-    const res = await fetch("./list.json");
+          const input = document.querySelector("#search");
+          input.addEventListener("input", () => {
+            const keyword = input.value.toLowerCase().trim();
 
-    const data = await res.json();
+            const filtered = data.filter((item) => {
+              const title = (item.title || "").toLowerCase();
+              const file = (item.file || "").toLowerCase();
+              const worker = (item.worker || "").toLowerCase();
+              const note = (item.note || "").toLowerCase();
+              const depthsStr = (item.depths || []).join("/").toLowerCase();
 
-    render(data);
+              return (
+                title.includes(keyword) ||
+                file.includes(keyword) ||
+                worker.includes(keyword) ||
+                note.includes(keyword) ||
+                depthsStr.includes(keyword)
+              );
+            });
 
-    const input = document.querySelector("#search");
+            render(filtered);
+          });
+        } catch (error) {
+          console.error("❌ 현황판 데이터 로드 실패:", error);
+        }
+      }
 
-    input.addEventListener("input", () => {
-
-        const keyword = input.value.toLowerCase();
-
-        const filtered = data.filter(item => {
-
-            return (
-                item.folder.toLowerCase().includes(keyword) ||
-                item.title.toLowerCase().includes(keyword) ||
-                item.file.toLowerCase().includes(keyword)
-            );
-
-        });
-
-        render(filtered);
-
-    });
-
-}
-function getStatusClass(status) {
-
-    switch (status) {
-
-        case "완료":
+      function getStatusClass(status) {
+        switch (status) {
+          case "완료":
             return "complete";
-
-        case "진행중":
+          case "진행중":
             return "progress";
-
-        case "수정중":
+          case "수정중":
             return "modify";
-
-        case "수정완료":
+          case "수정완료":
             return "modify-complete";
-
-        case "긴급":
+          case "긴급":
             return "urgent";
-
-        case "삭제":
+          case "삭제":
             return "delete";
-
-        default:
+          default:
             return "wait";
+        }
+      }
 
-    }
-
-}
-function render(data) {
-
-    const container = document.querySelector("#list");
-
-    // 최대 Depth 계산
-    const maxDepth = Math.max(
-        ...data.map(item => item.depths.length)
-    );
-
-    // Depth 헤더 생성
-    let depthHeader = "";
-
-    for (let i = 0; i < maxDepth; i++) {
-        depthHeader += `<th>${i + 1}Depth</th>`;
-    }
-
-    // 그룹핑
-    const groups = {};
-
-    data.forEach(item => {
-        const key = item.depths[0] || "기타";
-
-        if (!groups[key]) {
-            groups[key] = [];
+      function render(data) {
+        const container = document.querySelector("#list");
+        if (!data.length) {
+          container.innerHTML =
+            "<p style='padding:20px;'>표시할 데이터가 없습니다.</p>";
+          return;
         }
 
-        groups[key].push(item);
-    });
+        const maxDepth = Math.max(...data.map((item) => item.depths.length));
 
-    let html = "";
+        let depthHeader = "";
+        for (let i = 0; i < maxDepth; i++) {
+          depthHeader += `<th>${i + 1}Depth</th>`;
+        }
 
-    Object.keys(groups).forEach(group => {
-        groups[group].sort((a, b) => {
+        const groups = {};
+        data.forEach((item) => {
+          const key = item.depths[0] || "기타";
+          if (!groups[key]) {
+            groups[key] = [];
+          }
+          groups[key].push(item);
+        });
 
-            // depth를 문자열로 만들어 비교
+        let html = "";
+
+        Object.keys(groups).forEach((group) => {
+          groups[group].sort((a, b) => {
             const depthA = a.depths.join("/");
             const depthB = b.depths.join("/");
-
             return depthA.localeCompare(depthB, "ko");
-        });
-        html += `
-            <section class="pub-section">
-                <h2> ${depthName[group] || group}</h2>
+          });
 
+          html += `
+            <section class="pub-section">
+                <h2>${depthName[group] || group}</h2>
                 <table>
                     <thead>
                         <tr>
@@ -385,27 +379,19 @@ function render(data) {
                     <tbody>
         `;
 
-        groups[group].forEach(item => {
-
+          groups[group].forEach((item) => {
             const status = item.status || "대기";
-const worker = item.worker || "-";
-const note = item.note || "-";
+            const worker = item.worker || "-";
+            const note = item.note || "-";
 
-            // Depth td 생성
             let depthTd = "";
-
             for (let i = 0; i < maxDepth; i++) {
-
-                const depth = item.depths[i];
-
-                depthTd += `<td>${depth
-                    ? (depthName[depth] || depth)
-                    : "-"
-                    }</td>`;
+              const depth = item.depths[i];
+              depthTd += `<td>${depth ? depthName[depth] || depth : "-"}</td>`;
             }
 
             html += `
-                <tr>     
+                <tr>    
                     ${depthTd}
                     <td>${item.title}</td>
                     <td>${item.file}</td>
@@ -415,25 +401,24 @@ const note = item.note || "-";
                         </span>
                     </td>
                     <td>${item.modified}</td>
-                    <td><a href="./${item.link}" target="_blank">보기</a></td>
+                   <td><a href="/static/html/pub/${item.link}" target="_blank">보기</a></td>
                     <td>${worker}</td>
-                     <td class="note">
-                        ${note}
-                     </td>
+                    <td class="note">${note}</td>
                 </tr>
             `;
-        });
+          });
 
-        html += `
+          html += `
                     </tbody>
                 </table>
             </section>
         `;
-    });
+        });
 
-    container.innerHTML = html;
-}
-loadList();
-</script>
+        container.innerHTML = html;
+      }
+
+      loadList();
+    </script>
   </body>
 </html>
