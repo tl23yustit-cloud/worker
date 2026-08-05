@@ -14,10 +14,12 @@ window.addEventListener('load', function () {
 	fnTab(0); // Tab
 	fnBoxTooltip(); // Tooltip
 	fnModal(); // Modal
-	fnInitSortButtons()//정렬 버튼
-	initTableCheckbox()//allcheck
-	fnInitViewSelector()//뷰셀렉터
+	fnInitSortButtons() //정렬 버튼
+	initTableCheckbox() //allcheck
+	fnInitViewSelector() //뷰셀렉터
+	fnSwiperHtmlControl() // 슬라이드 옵션 html 컨트롤
 });
+
 // skip Navigation
 function fnSkipNavigation() {
 	const $btnsSkipNav = document.querySelectorAll(".skip-nav .btn-skip-nav");
@@ -32,6 +34,7 @@ function fnSkipNavigation() {
 		});
 	});
 }
+
 // header
 function fnHeader() {
 
@@ -458,6 +461,7 @@ function fnLNB() {
 		}
 	});
 }
+
 // Accordion
 function fnBoxAccordion() {
 	var CONFIG = {
@@ -510,6 +514,7 @@ function fnBoxAccordion() {
 		}
 	});
 }
+
 // Anchor
 function fnBtnAnchor() {
 	const $BtnsAnchor = document.querySelectorAll('.btn-anchor');
@@ -525,6 +530,7 @@ function fnBtnAnchor() {
 		});
 	});
 }
+
 // select 태그 class 추가
 function fnSelectColorChange() {
 	const $selects = document.querySelectorAll('.select');
@@ -538,6 +544,7 @@ function fnSelectColorChange() {
 		});
 	});
 }
+
 // 기본 검색
 function fnInputClear() {
 	var classSearchContainer = "box-input-search";
@@ -582,6 +589,7 @@ function fnInputClear() {
 		toggleDeleteButton();
 	});
 }
+
 // 상세검색
 function fnBoxSearchDetail() {
 	const $boxesSearchDetail = document.querySelectorAll('.box-search-detail');
@@ -644,6 +652,7 @@ function fnBoxSearchDetail() {
 // 		closeAllSelects();
 // 	});
 // }
+
 // 기본 드롭다운
 function fnBoxSelect() {
 	const $boxeSelect = document.querySelectorAll('.box-select');
@@ -712,7 +721,6 @@ function fnBoxSelect() {
 	});
 }
 
-
 function closeAllSelects() {
 	const $activeTriggers = document.querySelectorAll('.box-select .select.active');
 	const $openComponents = document.querySelectorAll('.box-select.is-open');
@@ -725,6 +733,7 @@ function closeAllSelects() {
 	});
 	$openComponents.forEach(function ($comp) { $comp.classList.remove('is-open'); });
 }
+
 //멀티 드롭다운
 function fnBoxMultiSelect() {
 	const $boxesMultiSelect = document.querySelectorAll('.box-multi-select');
@@ -795,6 +804,7 @@ function fnBoxMultiSelect() {
 		closeAllMultiSelects();
 	});
 }
+
 function closeAllMultiSelects() {
 	const $activeTriggers = document.querySelectorAll('.box-multi-select .select.active');
 	const $openComponents = document.querySelectorAll('.box-multi-select.is-open');
@@ -807,6 +817,7 @@ function closeAllMultiSelects() {
 	});
 	$openComponents.forEach(function ($comp) { $comp.classList.remove('is-open'); });
 }
+
 function updateAllCheckboxState($allCheck, $items) {
 	const totalCount = $items.length;
 	let checkedCount = 0;
@@ -829,6 +840,7 @@ function updateAllCheckboxState($allCheck, $items) {
 		$allCheck.classList.add('is-indeterminate');
 	}
 }
+
 // Textarea
 function fnTextareaCounter() {
 	const $formTextAreas = document.querySelectorAll('.form-text-area');
@@ -850,6 +862,7 @@ function fnTextareaCounter() {
 		$totalSpan.textContent = numTotal;
 	});
 }
+
 // Tab
 function fnTab(initialActiveIndex) {
 	var classTabWrapper = "box-tab";
@@ -949,6 +962,7 @@ function fnTab(initialActiveIndex) {
 		}
 	});
 }
+
 // Tooltip
 function fnBoxTooltip() {
 	var classTooltipContainer = "box-tooltip";
@@ -1018,6 +1032,7 @@ function fnBoxTooltip() {
 		});
 	}
 }
+
 // 모달
 function fnModal() {
 	let lastFocusedElement; // 열기 전 요소를 기억할 변수
@@ -1098,8 +1113,8 @@ function fnModal() {
 		}
 	});
 }
-//정렬버튼
 
+//정렬버튼
 function fnInitSortButtons() {
 	const wrappers = document.querySelectorAll('.sort-btn-wrapper');
 
@@ -1125,6 +1140,7 @@ function fnInitSortButtons() {
 		});
 	});
 }
+
 //뷰셀렉터
 function fnInitViewSelector() {
 	const selectors = document.querySelectorAll('.view-selector');
@@ -1172,7 +1188,6 @@ function fnInitViewSelector() {
 		});
 	});
 }
-
 
 //allcheck
 function initTableCheckbox() {
@@ -1229,5 +1244,133 @@ function initTableCheckbox() {
 
 }
 
+// 슬라이드 옵션 html 컨트롤
+function fnSwiperHtmlControl() {
+    var swiperContainers = document.querySelectorAll('.swiper');
 
+    swiperContainers.forEach(function (container) {
+        var dataset = container.dataset;
 
+        // 1. dataset 파싱 및 Default 기본값 지정
+        var isAutoplay = dataset.autoplay === 'true';
+        var autoDelay = parseInt(dataset.delay, 10) || 3000;
+        var isLoop = dataset.loop === 'true';
+        var speed = parseInt(dataset.speed, 10) || 300;
+
+        var rawPerView = dataset.slidesPerView;
+        var slidesPerView = rawPerView === 'auto' ? 'auto' : (parseInt(rawPerView, 10) || 1);
+        var slidesPerGroup = parseInt(dataset.slidesPerGroup, 10) || 1;
+
+        var useNavigation = dataset.useNavigation !== 'false';
+
+        // HTML의 data-pagination-type 속성을 dataset.paginationType으로 파싱
+        var paginationType = dataset.paginationType || 'bullets';
+        var isCustomBullet = dataset.customBullet === 'true';
+
+        var playBtnSelector = dataset.btnPlay || '.swiper-btn-play';
+        var pauseBtnSelector = dataset.btnPause || '.swiper-btn-pause';
+
+        // 2. Swiper 기본 옵션 구성
+        var swiperOptions = {
+            speed: speed,
+            loop: isLoop,
+            slidesPerView: slidesPerView,
+            slidesPerGroup: slidesPerGroup,
+            autoplay: isAutoplay ? {
+                delay: autoDelay,
+                disableOnInteraction: false
+            } : false
+        };
+
+        // 3. 컨트롤 요소 존재 여부 및 옵션 동적 동기화
+        var $pagination = container.querySelector('.swiper-pagination');
+        var $prevBtn = container.querySelector('.swiper-button-prev');
+        var $nextBtn = container.querySelector('.swiper-button-next');
+        var $scrollbar = container.querySelector('.swiper-scrollbar');
+
+        // Pagination 설정
+        if ($pagination) {
+            var paginationConfig = {
+                el: $pagination,
+                clickable: true
+            };
+
+            // [수정] 'dash' 타입: bullets 방식을 활용해 renderBullet 처리 (클릭 지원 + is-active 커스텀)
+            if (paginationType === 'dash') {
+                paginationConfig.type = 'bullets';
+                paginationConfig.bulletClass = 'swiper-pagination-dash';
+                paginationConfig.bulletActiveClass = 'is-active';
+                paginationConfig.renderBullet = function (index, className) {
+                    return '<span class="' + className + '"></span>';
+                };
+            } 
+            // 'custom' 타입
+            else if (paginationType === 'custom') {
+                paginationConfig.type = 'custom';
+                paginationConfig.renderCustom = function (swiper, current, total) {
+                    return '<span class="current">' + current + '</span> <span class="divider">/</span> <span class="total">' + total + '</span>';
+                };
+            } 
+            // 'bullets' 타입 + 커스텀 불릿 (숫자 불릿 등)
+            else if (paginationType === 'bullets' && isCustomBullet) {
+                paginationConfig.type = 'bullets';
+                paginationConfig.renderBullet = function (index, className) {
+                    return '<span class="' + className + '">' + (index + 1) + '</span>';
+                };
+            } 
+            // 기타 기본 타입 (fraction, progressbar, 기본 bullets)
+            else {
+                paginationConfig.type = paginationType;
+            }
+
+            swiperOptions.pagination = paginationConfig;
+        }
+
+        // Navigation 설정
+        if (useNavigation && $prevBtn && $nextBtn) {
+            swiperOptions.navigation = {
+                nextEl: $nextBtn,
+                prevEl: $prevBtn
+            };
+        }
+
+        // Scrollbar 설정
+        if ($scrollbar) {
+            swiperOptions.scrollbar = {
+                el: $scrollbar,
+                draggable: true
+            };
+        }
+
+        // 4. Swiper 인스턴스 생성
+        var swiper = new Swiper(container, swiperOptions);
+
+        // 5. 재생 / 정지 버튼 동적 바인딩
+        var $playBtn = container.querySelector(playBtnSelector);
+        var $pauseBtn = container.querySelector(pauseBtnSelector);
+
+        if ($pauseBtn) {
+            $pauseBtn.addEventListener('click', function () {
+                if (swiper.autoplay) {
+                    swiper.autoplay.stop();
+                }
+                if ($playBtn) {
+                    $pauseBtn.style.display = 'none';
+                    $playBtn.style.display = 'inline-block';
+                }
+            });
+        }
+
+        if ($playBtn) {
+            $playBtn.addEventListener('click', function () {
+                if (swiper.autoplay) {
+                    swiper.autoplay.start();
+                }
+                if ($pauseBtn) {
+                    $playBtn.style.display = 'none';
+                    $pauseBtn.style.display = 'inline-block';
+                }
+            });
+        }
+    });
+}
