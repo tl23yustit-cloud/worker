@@ -5136,9 +5136,68 @@ body.is-scroll-locked {
 	}
 }
 
+
 // Swiper Slide
 .swiper {
-	overflow: hidden;
+	overflow-x: hidden;
 	position: relative;
 
+	[class^=swiper-button] {
+		border: var(--borderWidthMd) solid var(--colorBorderBase);
+		border-radius: var(--radiusFull);
+		width: var(--sizeIconXl);
+		height: var(--sizeIconXl);
+		background-image: none;
+
+		.ico {
+			position: absolute;
+			top: 50%;
+			left: 50&;
+			transform: translate(-50%, -50%);
+		}
+
+		&.vertical {
+			.ico {
+				transform: translate(-50%, -50%) rotate(90deg);
+			}
+		}
+	}
+	
+	
+	[class^=swiper-btn] {
+		position: absolute;
+		border: var(--borderWidthMd) solid var(--colorBorderBase);
+		border-radius: var(--radiusFull);
+		width: var(--sizeIconXl);
+		height: var(--sizeIconXl);
+
+		.ico {
+			position: absolute;
+			top: 50%;
+			left: 50&;
+			transform: translate(-50%, -50%);
+		}
+	}
+	
+	.swiper-pagination,
+	.swiper-btn-pause,
+	.swiper-btn-play,
+	.swiper-button-prev,
+	.swiper-button-next {
+		display: none;
+	}
+	
+	&.type-controls {
+		.swiper-button-prev,
+		.swiper-button-next {
+			display: block;
+		}	
+	}
+
+	&.type-play {
+		.swiper-btn-pause,
+		.swiper-btn-play {
+			display: block;
+		}
+	}
 }
