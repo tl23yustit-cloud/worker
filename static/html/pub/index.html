@@ -221,7 +221,6 @@ const depthName = {
     fce: "외화환전",
 
     //3depth
-    cdpst:"연금저축신탁 비교공시",
     ip: "이자납입",
     rop: "원금상환",
     import: "수입",
@@ -271,7 +270,7 @@ const depthName = {
 };
 async function loadList() {
 
-    const res = await fetch("./static/html/pub/list.json");
+    const res = await fetch("./list.json");
 
     const data = await res.json();
 
@@ -419,7 +418,7 @@ const note = item.note || "-";
                         </span>
                     </td>
                     <td>${item.modified}</td>
-                    <td><a href="/static/html/pub/${item.link}" target="_blank">보기</a></td>
+                    <td><a href="./${item.link}" target="_blank">보기</a></td>
                     <td>${worker}</td>
                      <td class="note">
                         ${note}

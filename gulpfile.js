@@ -19,10 +19,11 @@ function clean(cb) {
 // 퍼블리스트용 JSON 생성
 function generatePubList(done) {
     let statusMap = {};
+    const statusJsonPath = "static/html/pub/status.json";
 
-    if (fs.existsSync("status.json")) {
+    if (fs.existsSync(statusJsonPath)) {
         statusMap = JSON.parse(
-            fs.readFileSync("status.json", "utf8")
+            fs.readFileSync(statusJsonPath, "utf8")
         );
     }
 
@@ -39,41 +40,31 @@ function generatePubList(done) {
 
         const depths = path
             .dirname(file)
-            .replace(/^static[\\/]html[\\/]/, "")
+            .replace(/^static[\\/]html[\\/]pub[\\/]?/, "")
             .split(/[\\/]/)
-            .slice(1);
-
-
+            .filter(Boolean);
 
         const statusKey = depths.concat(fileName).join("/");
-
         const statusInfo = statusMap[statusKey] || {};
 
         return {
             depths,
             title,
             file: fileName,
-
             status: statusInfo.status || "대기",
             worker: statusInfo.worker || "-",
             note: statusInfo.note || "-",
-
-            link: path.relative(
-                "static/html/pub",
-                file
-            ).replace(/\\/g, "/"),
+            link: file.replace(/^static[\\/]html[\\/]pub[\\/]/, "").replace(/\\/g, "/"),
             modified: stat.mtime.toLocaleString("ko-KR")
         };
     });
 
-    const outputDir = "dist/static/html/pub";
-
-    if (!fs.existsSync(outputDir)) {
-        fs.mkdirSync(outputDir, { recursive: true });
+    if (!fs.existsSync("dist/static/html/pub")) {
+        fs.mkdirSync("dist/static/html/pub", { recursive: true });
     }
 
     fs.writeFileSync(
-        path.join(outputDir, "list.json"),
+        "dist/static/html/pub/list.json",
         JSON.stringify(list, null, 2)
     );
 
@@ -82,16 +73,20 @@ function generatePubList(done) {
 
 // 1. HTML 조립
 function html() {
-    return gulp.src(['static/html/pub/**/*.html', '!static/html/pub/**/layout/*.html'], {
-        base: '.',
-        allowEmpty: true
-    })
+    return gulp.src([
+            'static/html/pub/**/*.html', 
+            'static/html/pub/**/*.html', // 하위 전체 포함
+            '!static/html/pub/**/layout/*.html'
+        ], {
+            base: '.',
+            allowEmpty: true
+        })
         .pipe(fileinclude({
             prefix: '@@',
             basepath: '@root',
-            indent: true
+            indent: false
         }))
-        .on('error', function (err) {
+        .on('error', function(err) {
             console.error('❌ [HTML INCLUDE ERROR]:', err.toString());
             process.exitCode = 1;
             this.emit('end');
@@ -146,16 +141,16 @@ function copyAssets() {
 // 브라우저 실시간 동기화 서버 (Browsersync는 dev 명령어 실행 시에만 동적 로드)
 function watchFiles() {
     const browserSync = require('browser-sync').create();
-
+    
     browserSync.init({
         server: {
-            baseDir: './dist',
-            index: 'static/html/pub/index.html'
+            baseDir: './dist/static/html/pub',
+            index: 'index.html'
         },
         port: 3000
     });
 
-    gulp.watch(['static/html/**/*.html', 'status.json'], gulp.series(generatePubList, html, (done) => { browserSync.reload(); done(); }));
+    gulp.watch(['static/html/**/*.html', 'static/html/pub/status.json'], gulp.series(generatePubList, html, (done) => { browserSync.reload(); done(); }));
     gulp.watch(['static/css/**/*.scss', 'static/cl/**/*.scss'], gulp.series(styles, (done) => { browserSync.reload(); done(); }));
     gulp.watch(['static/js/**/*', 'static/images/**/*', 'static/css/**/font/**/*', 'static/cl/**/*', '!static/cl/**/*.scss'], gulp.series(copyAssets, (done) => { browserSync.reload(); done(); }));
 }
