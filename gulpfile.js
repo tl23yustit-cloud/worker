@@ -8,7 +8,7 @@ const autoprefixer = require('autoprefixer');
 const fileinclude = require('gulp-file-include');
 const fg = require("fast-glob");
 
-// 💡 [초기화] Node.js 내장 fs 모듈로 dist 폴더 완전 삭제 
+// [초기화] Node.js 내장 fs 모듈로 dist 폴더 완전 삭제 
 function clean(cb) {
     if (fs.existsSync('dist')) {
         fs.rmSync('dist', { recursive: true, force: true });
@@ -16,17 +16,17 @@ function clean(cb) {
     cb();
 }
 
-// 퍼블리스트용 JSON 자동 생성 (static/html/pub/status/ 연동)
+// 퍼블리스트용 JSON 자동 생성 (static/cl/status/ 연동)
 function generatePubList(done) {
     let statusMap = {};
 
-    // 💡 status.js 파일 경로 설정
-    const statusJsPath = path.resolve('./static/html/pub/status/status.js');
+    // 💡 status.js 파일 경로를 static/cl/status/로 변경 반영
+    const statusJsPath = path.resolve('./static/cl/status/status.js');
     
     if (fs.existsSync(statusJsPath)) {
         // 하위 worker 파일들까지 require 캐시 초기화 (수정 즉시 반영)
         Object.keys(require.cache).forEach(key => {
-            if (key.includes(path.resolve('./static/html/pub/status'))) {
+            if (key.includes(path.resolve('./static/cl/status'))) {
                 delete require.cache[key];
             }
         });
@@ -154,8 +154,8 @@ function watchFiles() {
         port: 3000
     });
 
-    // 💡 HTML 파일 변경 또는 status 폴더 내 JS 파일 변경 시 list.json 재생성 및 리로드
-    gulp.watch(['static/html/**/*.html', 'static/html/pub/status/**/*.js'], gulp.series(generatePubList, html, (done) => { browserSync.reload(); done(); }));
+    // 💡 HTML 변경 또는 cl 폴더 내 status JS 파일 변경 시 list.json 재생성 및 리로드
+    gulp.watch(['static/html/**/*.html', 'static/cl/status/**/*.js'], gulp.series(generatePubList, html, (done) => { browserSync.reload(); done(); }));
     gulp.watch(['static/css/**/*.scss', 'static/cl/**/*.scss'], gulp.series(styles, (done) => { browserSync.reload(); done(); }));
     gulp.watch(['static/js/**/*', 'static/images/**/*', 'static/css/**/font/**/*', 'static/cl/**/*', '!static/cl/**/*.scss'], gulp.series(copyAssets, (done) => { browserSync.reload(); done(); }));
 }
