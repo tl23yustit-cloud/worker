@@ -13,9 +13,9 @@ module.exports = {
     // "trn/act/dlyt/CIBTRN010303000M.html": { "status": "대기", "worker": "이상우", "note": "" },
 
     // 이체 > 계좌이체 > 다계좌이체
-    "trn/act/mact/CIBTRN010401000M.html": { "status": "완료", "worker": "이상우", "note": "" },
-    "trn/act/mact/CIBTRN010402000M.html": { "status": "완료", "worker": "이상우", "note": "" },
-    "trn/act/mact/CIBTRN010403000M.html": { "status": "완료", "worker": "이상우", "note": "" },
+    "trn/act/mact/CIBTRN010401000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
+    "trn/act/mact/CIBTRN010402000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
+    "trn/act/mact/CIBTRN010403000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
 
     // 카드 > 일별 환율
     "card/daily-exchange-rate.html": { "status": "수정중", "worker": "이상우", "note": "" },
