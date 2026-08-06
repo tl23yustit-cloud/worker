@@ -1,11 +1,11 @@
 module.exports = {
     // 이체 > 계좌이체 > 이체
-    "trn/act/xfr/CIBTRN010101000M.html": { "status": "수정완료", "worker": "이상우", "note": "[(8/5)이체금액 추가, 버튼 타입변경]" },
-    "trn/act/xfr/CIBTRN010102000M.html": { "status": "수정완료", "worker": "이상우", "note": "[(8/5)이체금액 추가, 버튼 타입변경]" },
-    "trn/act/xfr/CIBTRN010105000M.html": { "status": "수정완료", "worker": "이상우", "note": "[(8/5)버튼 타입변경]" },
-    "trn/act/xfr/CIBTRN010107000P.html": { "status": "완료", "worker": "이상우", "note": "" },
-    "trn/act/xfr/CIBTRN010108000P.html": { "status": "완료", "worker": "이상우", "note": "(8/6) 증권사 로고(SVG)는 전달받는 대로 업데이트 예정입니다. (현재 공란은 정상)" },
-    "trn/act/xfr/CIBTRN010110000P.html": { "status": "완료", "worker": "이상우", "note": "" },
+    "trn/act/xfr/CIBTRN010101000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
+    "trn/act/xfr/CIBTRN010102000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
+    "trn/act/xfr/CIBTRN010105000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
+    "trn/act/xfr/CIBTRN010107000P.html": { "status": "검수중", "worker": "이상우", "note": "" },
+    "trn/act/xfr/CIBTRN010108000P.html": { "status": "검수중", "worker": "이상우", "note": "" },
+    "trn/act/xfr/CIBTRN010110000P.html": { "status": "검수중", "worker": "이상우", "note": "" },
   
     // 이체 > 계좌이체 > 지연이체등록내역조회/취소
     // "trn/act/dlyt/CIBTRN010301000M.html": { "status": "대기", "worker": "이상우", "note": "" },
