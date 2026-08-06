@@ -91,7 +91,6 @@ module.exports = {
     "fin/tpr/pom/CIBFIN_TPR030600000.html": { "status": "완료", "worker": "변혜선", "note": "" },
     "fin/tpr/pom/CIBFIN_TPR030100000.html": { "status": "완료", "worker": "변혜선", "note": "" },
     "fin/tpr/cdpst/CIBFIN_TPR050100000.html": { "status": "완료", "worker": "변혜선", "note": "" },
-    "fin/tpr/cdpst/CIBFIN_TPR050200000.html": { "status": "검수중", "worker": "변혜선", "note": "" },
     
     // 조회(inq) > 계좌조회 / 거래내역 / 휴면계좌조회
     "inq/alert.html": { "status": "완료", "worker": "변혜선", "note": "" },
