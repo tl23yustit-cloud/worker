@@ -4,7 +4,7 @@ module.exports = {
     "bop/alert.html": { "status": "완료", "worker": "변혜선", "note": "" },
     
     // 뱅킹업무(bop) > 대출 거래내역 조회
-    "bop/lon/inq/ctd/CIBLON010201000M.html": { "status": "완료", "worker": "변혜선", "note": "" },
+    "bop/lon/inq/ctd/CIBLON010201000M.html": { "status": "완료", "worker": "변혜선", "note": "주석확인" },
     
     // 뱅킹업무(bop) > 상환 관련 화면들
     "bop/repayment.html": { "status": "수정중", "worker": "변혜선", "note": "" },
@@ -53,7 +53,7 @@ module.exports = {
     "bop/foe/or/mfura/dimt/CIBFOE040401000T.html": { "status": "완료", "worker": "변혜선", "note": "" },
     "bop/foe/or/mfura/or/CIBFOE040402000T.html": { "status": "완료", "worker": "변혜선", "note": "" },
     "bop/foe/or/mor/CIBFOE040104005p.html": { "status": "검수중", "worker": "변혜선", "note": "" },
-    "bop/foe/fce/fce/CIBFOE050102000M.html": { "status": "완료", "worker": "변혜선", "note": "" },
+    "bop/foe/fce/fce/CIBFOE050102000M.html": { "status": "완료", "worker": "변혜선", "note": "주석확인" },
     "bop/foe/or/mfura/dimt/regist/CIBFOE04040101M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
     "bop/foe/or/mfura/or/regist/CIBFOE04040201M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
     
@@ -89,19 +89,19 @@ module.exports = {
     "fin/tpr/pom/CIBFIN_TPR030400000.html": { "status": "완료", "worker": "변혜선", "note": "" },
     "fin/tpr/pom/CIBFIN_TPR030500000.html": { "status": "완료", "worker": "변혜선", "note": "" },
     "fin/tpr/pom/CIBFIN_TPR030600000.html": { "status": "완료", "worker": "변혜선", "note": "" },
-    "fin/tpr/pom/CIBFIN_TPR030100000.html": { "status": "완료", "worker": "변혜선", "note": "" },
+    "fin/tpr/pom/CIBFIN_TPR030100000.html": { "status": "완료", "worker": "변혜선", "note": "주석확인" },
     "fin/tpr/cdpst/CIBFIN_TPR050100000.html": { "status": "완료", "worker": "변혜선", "note": "" },
     
     // 조회(inq) > 계좌조회 / 거래내역 / 휴면계좌조회
     "inq/alert.html": { "status": "완료", "worker": "변혜선", "note": "" },
-    "inq/ctd/ctd/ourb/CIBNQ020101000M.html": { "status": "완료", "worker": "변혜선", "note": "" },
-    "inq/ctd/ctd/othb/CIBNQ020102000M.html": { "status": "완료", "worker": "변혜선", "note": "" },
+    "inq/ctd/ctd/ourb/CIBNQ020101000M.html": { "status": "완료", "worker": "변혜선", "note": "주석확인" },
+    "inq/ctd/ctd/othb/CIBNQ020102000M.html": { "status": "완료", "worker": "변혜선", "note": "주석확인" },
     "inq/ctd/rthf/eai/CIBNQ020201000M.html": { "status": "완료", "worker": "변혜선", "note": "" },
-    "inq/ctd/rthf/ob/CIBNQ020202000M.html": { "status": "완료", "worker": "변혜선", "note": "" },
+    "inq/ctd/rthf/ob/CIBNQ020202000M.html": { "status": "완료", "worker": "변혜선", "note": "주석확인" },
     "inq/ai/hai/CIBNQ010200000M.html": { "status": "완료", "worker": "변혜선", "note": "" },
     
     // B2B전자결제(b2b) > 구매자금대출(b2bcpfl)
-    "b2b/b2bcpfl/pc/iscd/CIBB2B010201002M.html": { "status": "완료", "worker": "변혜선", "note": "" },
+    "b2b/b2bcpfl/pc/iscd/CIBB2B010201002M.html": { "status": "완료", "worker": "변혜선", "note": "주석확인" },
     "b2b/b2bcpfl/sug/CIBB2B010100000M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
     
     // 이체(trn) 및 메인(mnd)
