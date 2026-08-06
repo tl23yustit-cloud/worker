@@ -39,6 +39,9 @@ module.exports = {
     "bop/lon/rop/원금상환_이체확인증.html": { "status": "수정중", "worker": "변혜선", "note": "" },
     "bop/lon/rop/E-Mail정보입력.html": { "status": "수정중", "worker": "변혜선", "note": "" },
     "bop/lon/rop/Fax정보입력.html": { "status": "수정중", "worker": "변혜선", "note": "" },
+
+    //뱅킹업무(bop) > 카드(card) > 
+    "bop/card/cm/ccpr/CIBCRD020300000M.html": { "status": "완료", "worker": "변혜선", "note": "" },
     
     // 뱅킹업무(bop) > 외환(foe) > 수입(import) / FX(fx)
     "bop/foe/import/oilc/수입신용장전문조회_목록.html": { "status": "수정중", "worker": "변혜선", "note": "" },
@@ -67,7 +70,6 @@ module.exports = {
     // 뱅킹업무(bop) 루트 기타 화면
     "bop/원금상환_이체확인증.html": { "status": "수정중", "worker": "변혜선", "note": "" },
     "bop/중도상환수수료계산.html": { "status": "수정중", "worker": "변혜선", "note": "" },
-    "bop/card/cm/ccpr/CIBCRD020300000M.html": { "status": "작업중", "worker": "변혜선", "note": "" },
     "bop/clrs/대출상환스케줄조회.html": { "status": "수정중", "worker": "변혜선", "note": "" },
     
     // 금융상품(fin) > 대출 및 공통 폼
@@ -96,7 +98,7 @@ module.exports = {
     
     // B2B전자결제(b2b) > 구매자금대출(b2bcpfl)
     "b2b/b2bcpfl/pc/iscd/CIBB2B010201002M.html": { "status": "완료", "worker": "변혜선", "note": "" },
-    "b2b/b2bcpfl/sug/CIBB2B010100000M.html": { "status": "진행중", "worker": "변혜선", "note": "" },
+    "b2b/b2bcpfl/sug/CIBB2B010100000M.html": { "status": "완료", "worker": "변혜선", "note": "" },
     
     // 이체(trn) 및 메인(mnd)
     "trn/이체.html": { "status": "진행중", "worker": "변혜선", "note": "" },
