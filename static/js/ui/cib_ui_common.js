@@ -3,7 +3,6 @@ window.addEventListener('load', function () {
 	fnLNB(); // LNB
 	fnHeader(); // header
 	fnBoxAccordion(); // Accordion
-	fnCheckboxAccordion(); // 체크박스형 아코디언
 	fnBtnAnchor(); // Anchor
 	fnSelectColorChange(); // select 태그 class 추가
 	fnInputClear(); // 기본 검색
@@ -1378,29 +1377,3 @@ function fnSwiperHtmlControl() {
 
 
 
-//체크박스형  아코디언
-function fnCheckboxAccordion() {
-	var CONFIG = {
-		WRAPPER: "box-accordion",
-		CHECKBOX: "form-checkbox", // 체크박스 클래스명
-		ACTIVE_CLASS: "is-open"  // 활성화 클래스명
-	};
-
-	// 체크박스 상태 변경(change) 이벤트 감지
-	document.addEventListener("change", function (event) {
-		var $checkbox = event.target.closest("." + CONFIG.CHECKBOX);
-		if (!$checkbox) return;
-
-		var $container = $checkbox.closest("." + CONFIG.WRAPPER);
-		if (!$container) return;
-
-		// 체크 여부에 따른 상태 처리
-		if ($checkbox.checked) {
-			$container.classList.add(CONFIG.ACTIVE_CLASS);
-			$checkbox.setAttribute("aria-expanded", "true");
-		} else {
-			$container.classList.remove(CONFIG.ACTIVE_CLASS);
-			$checkbox.setAttribute("aria-expanded", "false");
-		}
-	});
-}

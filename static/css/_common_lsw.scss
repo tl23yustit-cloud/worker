@@ -1850,45 +1850,38 @@
 .account-accordion {
     margin-bottom: var(--spacingSm);
 
-    &:last-child {
+    .account-accordion:last-child {
         margin-bottom: 0;
-    }
-
-    .form-box {
-        width: 100%;
-        display: flex;
-        gap: 12px;
-    }
-
-    label {
-        width: 100%;
-
-        dl {
-            width: 100%;
-
-            dd {
-                display: flex;
-                justify-content: space-between;
-
-            }
-        }
     }
 
     &.is-open {
         .content-accordion {
             border-top: 1px solid var(--colorBorderSecondary);
+            padding-top: var(--spacingLgXl);
             display: flex;
             flex-direction: column;
             gap: var(--spacingSm);
-            padding-top: var(--spacingLgXl);
-
-            .input-group {
-                label {
-                    display: inline-block;
-                    width: 120px;
-                }
-            }
         }
     }
 
+    .form-box {
+        width: 100%;
+    }
+
+    .account-info {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 var(--spacingMd);
+    }
+
+    .input-group {
+        label {
+            display: inline-block;
+            width: 120px;
+        }
+
+
+    }
 }

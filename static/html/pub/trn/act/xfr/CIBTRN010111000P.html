@@ -42,7 +42,7 @@
       <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
     </div>
     <script src="/static/js/ui/cib_ui_common.js"></script>
-    
+
     <!-- 모달 팝업 영역 -->
     <div
       id="modal-01"
@@ -61,7 +61,7 @@
           <h4 class="typeH4">채우기</h4>
         </div>
         <div class="modal-slot" id="modal-desc">
-          <!-- 아코디언 1 -->
+          <!-- 상단 고정 계좌 정보 -->
           <div class="account-info-box">
             <div class="account-top-content">
               <div class="account-logo">
@@ -103,39 +103,50 @@
             </dl>
           </div>
 
-          <!-- 아코디언 1 (체크박스 및 입력폼) -->
-          <div class="box-accordion line account-accordion is-open">
+          <!-- 아코디언 1 -->
+          <div class="box-accordion account-accordion line">
             <div class="box-item-list">
-              <span class="form-box">
-                <input
-                  type="checkbox"
-                  name=""
-                  id="SampleCheckbox0301"
-                  class="form-checkbox size-md"
-                  aria-controls="accordionContent01"
-                  aria-expanded="true"
-                  checked
-                />
-                <label for="SampleCheckbox0301" class="form-label">
-                  <dl>
-                    <dt class="typeLgSemibold">헤이(Hey)정기예금</dt>
-                    <dd class="typeMdMedium color-fg-secondary">
-                      <div>
-                        <span>Sh수협은행</span><span>0450-1182-3345</span>
+              <div class="box-title">
+                <span class="form-box">
+                  <input
+                    type="checkbox"
+                    name=""
+                    id="SampleCheckbox0301"
+                    class="form-checkbox size-md"
+                    aria-controls="accordionContent01"
+                    aria-expanded="true"
+                    checked
+                  />
+                  <div class="account-info">
+                    <div>
+                      <div class="typeLgSemibold">헤이(Hey)정기예금</div>
+                      <div class="typeMdMedium color-fg-secondary">
+                        <div class="flex">
+                          <span>Sh수협은행</span><span>0450-1182-3345</span>
+                        </div>
                       </div>
-                      <div>
-                        <span class="typeLgBold color-fg-primary"
-                          >85,119,800,000,000원</span
-                        >
-                      </div>
-                    </dd>
-                  </dl>
-                </label>
-              </span>
+                    </div>
+                    <span class="typeLgBold color-fg-primary"
+                      >85,119,800,000,000원</span
+                    >
+                  </div>
+                </span>
+              </div>
+              <button
+                type="button"
+                class="btn-accordion"
+                aria-expanded="true"
+                aria-controls="accordionContent01"
+              >
+                <i class="ico-arrow" aria-hidden="true"></i>
+                <span class="blind">상세내용 닫기</span>
+              </button>
             </div>
             <div id="accordionContent01" class="content-accordion">
               <div class="input-group">
-                <label for="input-amount-01" class="typeSmMedium">이체할 금액</label>
+                <label for="input-amount-01" class="typeSmMedium"
+                  >이체할 금액</label
+                >
                 <input
                   type="text"
                   id="input-amount-01"
@@ -145,7 +156,9 @@
                 />
               </div>
               <div class="input-group">
-                <label for="input-my-memo-01" class="typeSmMedium">내 통장 표시</label>
+                <label for="input-my-memo-01" class="typeSmMedium"
+                  >내 통장 표시</label
+                >
                 <input
                   type="text"
                   id="input-my-memo-01"
@@ -155,7 +168,9 @@
                 />
               </div>
               <div class="input-group">
-                <label for="input-target-memo-01" class="typeSmMedium">받는분통장표시</label>
+                <label for="input-target-memo-01" class="typeSmMedium"
+                  >받는분통장표시</label
+                >
                 <input
                   type="text"
                   id="input-target-memo-01"
@@ -168,37 +183,48 @@
           </div>
 
           <!-- 아코디언 2 -->
-          <div class="box-accordion line account-accordion">
+          <div class="box-accordion account-accordion line">
             <div class="box-item-list">
-              <span class="form-box">
-                <input
-                  type="checkbox"
-                  name=""
-                  id="SampleCheckbox0302"
-                  class="form-checkbox size-md"
-                  aria-controls="accordionContent02"
-                  aria-expanded="false"
-                />
-                <label for="SampleCheckbox0302" class="form-label">
-                  <dl>
-                    <dt class="typeLgSemibold">헤이(Hey)정기예금</dt>
-                    <dd class="typeMdMedium color-fg-secondary">
-                      <div>
-                        <span>Sh수협은행</span><span>0450-1182-3345</span>
+              <div class="box-title">
+                <span class="form-box">
+                  <input
+                    type="checkbox"
+                    name=""
+                    id="SampleCheckbox0302"
+                    class="form-checkbox size-md"
+                    aria-controls="accordionContent02"
+                    aria-expanded="false"
+                  />
+                  <div class="account-info">
+                    <div>
+                      <div class="typeLgSemibold">Sh보고싶다!주거래자유예금</div>
+                      <div class="typeMdMedium color-fg-secondary">
+                        <div class="flex">
+                          <span>Sh수협은행</span><span>0450-2233-4455</span>
+                        </div>
                       </div>
-                      <div>
-                        <span class="typeLgBold color-fg-primary"
-                          >85,119,800,000,000원</span
-                        >
-                      </div>
-                    </dd>
-                  </dl>
-                </label>
-              </span>
+                    </div>
+                    <span class="typeLgBold color-fg-primary"
+                      >10,000,000원</span
+                    >
+                  </div>
+                </span>
+              </div>
+              <button
+                type="button"
+                class="btn-accordion"
+                aria-expanded="false"
+                aria-controls="accordionContent02"
+              >
+                <i class="ico-arrow" aria-hidden="true"></i>
+                <span class="blind">상세내용 열기</span>
+              </button>
             </div>
             <div id="accordionContent02" class="content-accordion">
               <div class="input-group">
-                <label for="input-amount-02" class="typeSmMedium">이체할 금액</label>
+                <label for="input-amount-02" class="typeSmMedium"
+                  >이체할 금액</label
+                >
                 <input
                   type="text"
                   id="input-amount-02"
@@ -208,7 +234,9 @@
                 />
               </div>
               <div class="input-group">
-                <label for="input-my-memo-02" class="typeSmMedium">내 통장 표시</label>
+                <label for="input-my-memo-02" class="typeSmMedium"
+                  >내 통장 표시</label
+                >
                 <input
                   type="text"
                   id="input-my-memo-02"
@@ -218,7 +246,9 @@
                 />
               </div>
               <div class="input-group">
-                <label for="input-target-memo-02" class="typeSmMedium">받는분통장표시</label>
+                <label for="input-target-memo-02" class="typeSmMedium"
+                  >받는분통장표시</label
+                >
                 <input
                   type="text"
                   id="input-target-memo-02"
@@ -231,37 +261,48 @@
           </div>
 
           <!-- 아코디언 3 -->
-          <div class="box-accordion line account-accordion">
+          <div class="box-accordion account-accordion line">
             <div class="box-item-list">
-              <span class="form-box">
-                <input
-                  type="checkbox"
-                  name=""
-                  id="SampleCheckbox0303"
-                  class="form-checkbox size-md"
-                  aria-controls="accordionContent03"
-                  aria-expanded="false"
-                />
-                <label for="SampleCheckbox0303" class="form-label">
-                  <dl>
-                    <dt class="typeLgSemibold">스마트적금</dt>
-                    <dd class="typeMdMedium color-fg-secondary">
-                      <div>
-                        <span>KB국민은행</span><span>0040-1234-5678</span>
+              <div class="box-title">
+                <span class="form-box">
+                  <input
+                    type="checkbox"
+                    name=""
+                    id="SampleCheckbox0303"
+                    class="form-checkbox size-md"
+                    aria-controls="accordionContent03"
+                    aria-expanded="false"
+                  />
+                  <div class="account-info">
+                    <div>
+                      <div class="typeLgSemibold">Sh해양플러스자유적금</div>
+                      <div class="typeMdMedium color-fg-secondary">
+                        <div class="flex">
+                          <span>Sh수협은행</span><span>0450-9988-7766</span>
+                        </div>
                       </div>
-                      <div>
-                        <span class="typeLgBold color-fg-primary"
-                          >42,500,000,000원</span
-                        >
-                      </div>
-                    </dd>
-                  </dl>
-                </label>
-              </span>
+                    </div>
+                    <span class="typeLgBold color-fg-primary"
+                      >5,000,000원</span
+                    >
+                  </div>
+                </span>
+              </div>
+              <button
+                type="button"
+                class="btn-accordion"
+                aria-expanded="false"
+                aria-controls="accordionContent03"
+              >
+                <i class="ico-arrow" aria-hidden="true"></i>
+                <span class="blind">상세내용 열기</span>
+              </button>
             </div>
             <div id="accordionContent03" class="content-accordion">
               <div class="input-group">
-                <label for="input-amount-03" class="typeSmMedium">이체할 금액</label>
+                <label for="input-amount-03" class="typeSmMedium"
+                  >이체할 금액</label
+                >
                 <input
                   type="text"
                   id="input-amount-03"
@@ -271,7 +312,9 @@
                 />
               </div>
               <div class="input-group">
-                <label for="input-my-memo-03" class="typeSmMedium">내 통장 표시</label>
+                <label for="input-my-memo-03" class="typeSmMedium"
+                  >내 통장 표시</label
+                >
                 <input
                   type="text"
                   id="input-my-memo-03"
@@ -281,7 +324,9 @@
                 />
               </div>
               <div class="input-group">
-                <label for="input-target-memo-03" class="typeSmMedium">받는분통장표시</label>
+                <label for="input-target-memo-03" class="typeSmMedium"
+                  >받는분통장표시</label
+                >
                 <input
                   type="text"
                   id="input-target-memo-03"
@@ -293,7 +338,7 @@
             </div>
           </div>
         </div>
-        
+
         <div class="modal-footer flex items-center justify-center gap-8">
           <button type="button" class="btn type-bg-primary size-lg">
             <span class="text">즉시 채우기</span>
