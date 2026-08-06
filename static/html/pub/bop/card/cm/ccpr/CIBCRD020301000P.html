@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>수협은행</title>
+	<link rel="stylesheet" href="/static/css/reset.css" />
+	<link rel="stylesheet" href="/static/css/layout.css" />
+	<link rel="stylesheet" href="/static/css/component.css" />
+	<link rel="stylesheet" href="/static/css/common.css" />
+	<link rel="stylesheet" href="/static/css/bop.css" />
+</head>
+
+<body>
+	<div class="wrapper">
+		<div id="header">
+			@@include('static/html/pub/layout/skipNavigation.html')
+			@@include('static/html/pub/layout/header_sub.html')
+		</div>
+
+		<div id="container" class="container">
+			<div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+			<div id="contents">
+				<div class="content">
+					@@include('static/html/pub/layout/breadcrumb.html')
+					<div class="bop">
+						<button type="button" class="btn type-bg-primary size-md btn-modal"
+							data-target="CIBCRD020301000P">
+							<span class="text">비밀번호 일괄입력</span>
+						</button>
+					</div>
+				</div>
+			</div>
+			<div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+		</div>
+		<div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+	</div>
+	<script src="/static/js/ui/cib_ui_common.js"></script>
+	<div id="CIBCRD020301000P" class="modal is-active" data-dim="true" data-backdrop-close="false" data-alert="true"
+		data-size="md" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc">
+		<div class="modal-wrapper">
+			<div class="modal-title">
+				<h4 class="typeH4">비밀번호 일괄입력</h4>
+			</div>
+			<div class="modal-slot">
+				<div id="modal-desc">
+					<div class="tbl-head">
+						<h4 class="typeH6">
+							<span class="text">카드정보 입력</span>
+						</h4>
+					</div>
+					<table class="table-type01">
+						<caption>
+							카드 비밀번호와 카드 비밀번호 확인으로 구성된 카드정보 입력표
+						</caption>
+						<colgroup>
+							<col width="160px">
+							<col>
+						</colgroup>
+						<tbody>
+							<tr>
+								<th scope="row">
+									<label class="required" for="password01">카드 비밀번호</label>
+								</th>
+								<td>
+									<div class="input-box wSize-full">
+										<input type="password" id="password01" class="input" placeholder="4자리입력">
+										<button type="button" class="btn">
+											<i class="ico-keypad ico-size-smMd"></i>
+											<span class="blind">보안 키패드 열기</span>
+										</button>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">
+									<label class="required" for="password02">카드 비밀번호 확인</label>
+								</th>
+								<td>
+									<div class="input-box wSize-full">
+										<input type="password" id="password02" class="input" placeholder="4자리입력">
+										<button type="button" class="btn">
+											<i class="ico-keypad ico-size-smMd"></i>
+											<span class="blind">보안 키패드 열기</span>
+										</button>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<div class="btn-wrap center sm-mid">
+						<button type="button" class="btn type-line-primary size-xl">
+							<span class="text">닫기</span>
+						</button>
+						<button type="button" class="btn type-bg-primary size-xl">
+							<span class="text">일괄입력</span>
+						</button>
+					</div>
+					<div class="line-box size-xl mt-48">
+						<span class="typeLgSemibold">이용안내</span>
+						<div class="list type-dotted">
+							<ul>
+								<li class="typeMd">
+									선택하신 카드의 비밀번호를 일괄 입력 합니다.
+								</li>
+								<li class="typeMd">
+									등록 후 목록에서 개별 수정도 가능 합니다.
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<button type="button" class="ico btn-close" aria-label="모달 닫기">
+				<i class="ico-close ico-size-smMd" aria-hidden="true"></i>
+				<span class="blind">닫기</span>
+			</button>
+		</div>
+	</div>
+</body>
+
+</html>
