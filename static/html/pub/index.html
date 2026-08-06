@@ -96,6 +96,17 @@
         height: 10px;
         background-color: #039855;
       }
+       .status.examination {
+        color: purple;
+      }
+      .status.examination::before {
+        content: "";
+        display: inline-block;
+        border-radius: 100px;
+        width: 10px;
+        height: 10px;
+        background-color: purple;
+      }
       .status.complete {
         color: #0f62fd;
       }
@@ -186,6 +197,7 @@
         <span class="status wait">대기</span>
         <span class="status complete">완료</span>
         <span class="status progress">진행중</span>
+        <span class="status examination">검수중</span>
         <span class="status modify">수정중</span>
         <span class="status modify-complete">수정완료</span>
         <span class="status urgent">긴급</span>
@@ -316,6 +328,8 @@
             return "complete";
           case "진행중":
             return "progress";
+          case "검수중":
+            return "examination";
           case "수정중":
             return "modify";
           case "수정완료":
