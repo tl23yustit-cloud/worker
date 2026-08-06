@@ -4236,6 +4236,15 @@ body.is-scroll-locked {
 			background-color: var(--colorBgSecondary);
 			padding: var(--spacingMd);
 			word-break: keep-all;
+			
+			&:has(.required) {
+				padding: var(--spacingLg);
+
+				&::before {
+					content: "*";
+					color: var(--colorFgError);
+				}
+			}
 		}
 
 		td {
