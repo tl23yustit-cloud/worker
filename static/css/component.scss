@@ -1403,8 +1403,6 @@
 			display: inline-flex;
 			align-items: center;
 			justify-content: center;
-			width: 100%;
-			height: 100%;
 			background-repeat: no-repeat;
 			background-position: center center;
 			background-size: 100%;
@@ -2930,6 +2928,22 @@ input[type=password] {
 					cursor: pointer;
 				}
 			}
+
+			.btn-item-select {
+				margin: calc(var(--spacingSm) * -1) calc(var(--spacingXs) * -1);
+				padding: var(--spacingSm) var(--spacingXs);
+				border-radius: var(--radiusSm);
+				width: 100%;
+				text-align: left;
+
+				&:hover {
+					background-color: var(--colorBgHover);
+				}
+
+				&:active {
+					background-color: var(--colorBgAccent);
+				}
+			}
 		}
 	}
 
@@ -3720,29 +3734,25 @@ input[type=password] {
 	}
 }
 
-.btn,
-.input,
-.box-select {
-	&.wSize {
-		&-sm {
-			width: 90px !important;
-		}
+.wSize {
+	&-sm {
+		width: 90px !important;
+	}
 
-		&-smMd {
-			width: 160px !important;
-		}
+	&-smMd {
+		width: 160px !important;
+	}
 
-		&-md {
-			width: 240px !important;
-		}
+	&-md {
+		width: 240px !important;
+	}
 
-		&-lg {
-			width: 360px !important;
-		}
+	&-lg {
+		width: 360px !important;
+	}
 
-		&-full {
-			width: 100% !important;
-		}
+	&-full {
+		width: 100% !important;
 	}
 }
 
@@ -4227,10 +4237,9 @@ body.is-scroll-locked {
 		}
 
 		td {
-			padding: var(--spacingXl) var(--spacingNone);
+			padding: var(--spacingXl) var(--spacingLg);
 
 			.form-box {
-				padding: var(--spacingMd);
 				gap: 0;
 			}
 
