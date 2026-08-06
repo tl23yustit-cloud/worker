@@ -41,7 +41,7 @@ module.exports = {
     "bop/lon/rop/Fax정보입력.html": { "status": "수정중", "worker": "변혜선", "note": "" },
 
     //뱅킹업무(bop) > 카드(card) > 
-    "bop/card/cm/ccpr/CIBCRD020300000M.html": { "status": "완료", "worker": "변혜선", "note": "" },
+    "bop/card/cm/ccpr/CIBCRD020300000M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
     
     // 뱅킹업무(bop) > 외환(foe) > 수입(import) / FX(fx)
     "bop/foe/import/oilc/수입신용장전문조회_목록.html": { "status": "수정중", "worker": "변혜선", "note": "" },
