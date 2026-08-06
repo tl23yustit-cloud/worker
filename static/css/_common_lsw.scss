@@ -1694,7 +1694,6 @@
     background-color: var(--colorBgSecondary);
     border-radius: var(--radiusXl);
     gap: var(--spacingLg);
-    margin-bottom: var(--spacing4Xl);
 
     .inner-img {
         &::before {
@@ -1721,7 +1720,9 @@
 
     }
 
-
+    &+.total-summary-box {
+        margin-top: var(--spacing4Xl);
+    }
 }
 
 .securities-list,
@@ -1811,4 +1812,34 @@
         padding-top: var(--spacing2Xl);
         padding-bottom: var(--spacing3Xl);
     }
+}
+
+
+
+/* 기본 박스 스타일 */
+.box-accordion {
+    border: 1px solid #ddd;
+    border-radius: 16px;
+    padding: 16px;
+    margin-bottom: 12px;
+    background: #fff;
+    transition: border-color 0.2s;
+}
+
+/* 체크되어 활성화(is-active) 되었을 때 파란 테두리 */
+.box-accordion.is-active {
+    border-color: #2977ff;
+}
+
+/* 콘텐츠 기본 숨김 */
+.box-accordion .content-accordion {
+    display: none;
+    margin-top: 16px;
+    border-top: 1px solid #eee;
+    padding-top: 16px;
+}
+
+/* 활성화되었을 때 콘텐츠 표시 */
+.box-accordion.is-active .content-accordion {
+    display: block;
 }
