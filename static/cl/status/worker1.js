@@ -57,14 +57,16 @@ module.exports = {
     // 뱅킹업무(bop) > 대출보유계좌조회(clha) / 계좌상세조회(clrs)
     "bop/lon/inq/clha/정상계좌조회.html": { "status": "수정중", "worker": "변혜선", "note": "" },
     "bop/lon/inq/clha/해지계좌조회.html": { "status": "수정중", "worker": "변혜선", "note": "" },
-    "bop/lon/inq/clha/계좌상세조회.html": { "status": "수정중", "worker": "변혜선", "note": "" },
+    "bop/lon/inq/clha/ad/CIBLON010103000p.html": { "status": "검수중", "worker": "변혜선", "note": "" },
     "bop/lon/inq/clha/대출상세조회.html": { "status": "수정중", "worker": "변혜선", "note": "" },
     "bop/lon/inq/clha/대출상세조회01.html": { "status": "수정중", "worker": "변혜선", "note": "" },
     "bop/lon/inq/clha/상환스케줄.html": { "status": "수정중", "worker": "변혜선", "note": "" },
-    "bop/lon/inq/clha/담보상세내역조회_인적.html": { "status": "수정중", "worker": "변혜선", "note": "" },
+    "bop/lon/inq/clha/CIBLON010106000p.html": { "status": "검수중", "worker": "변혜선", "note": "" },
     "bop/lon/inq/clha/담보상세내역조회_물적.html": { "status": "수정중", "worker": "변혜선", "note": "" },
     "bop/lon/inq/clha/담보상세내역조회_질권.html": { "status": "수정중", "worker": "변혜선", "note": "" },
+    "bop/lon/inq/ctd/CIBLON010202000p.html": { "status": "검수중", "worker": "변혜선", "note": "" },
     "bop/lon/inq/clrs/계좌상세단일조회.html": { "status": "수정중", "worker": "변혜선", "note": "" },
+    "bop/lon/inq/clrs/계좌상세다건조회.html": { "status": "수정중", "worker": "변혜선", "note": "" },
     "bop/lon/inq/clrs/계좌상세다건조회.html": { "status": "수정중", "worker": "변혜선", "note": "" },
     
     // 뱅킹업무(bop) 루트 기타 화면
@@ -86,7 +88,7 @@ module.exports = {
     "fin/tpr/pom/CIBFIN_TPR030600000.html": { "status": "완료", "worker": "변혜선", "note": "" },
     "fin/tpr/pom/CIBFIN_TPR030100000.html": { "status": "완료", "worker": "변혜선", "note": "" },
     "fin/tpr/cdpst/CIBFIN_TPR050100000.html": { "status": "완료", "worker": "변혜선", "note": "" },
-    "fin/tpr/cdpst/CIBFIN_TPR050200000.html": { "status": "진행중", "worker": "변혜선", "note": "" },
+    "fin/tpr/cdpst/CIBFIN_TPR050200000.html": { "status": "검수중", "worker": "변혜선", "note": "" },
     
     // 조회(inq) > 계좌조회 / 거래내역 / 휴면계좌조회
     "inq/alert.html": { "status": "완료", "worker": "변혜선", "note": "" },
