@@ -8,9 +8,9 @@ module.exports = {
     "trn/act/xfr/CIBTRN010110000P.html": { "status": "완료", "worker": "이상우", "note": "" },
   
     // 이체 > 계좌이체 > 지연이체등록내역조회/취소
-    "trn/act/dlyt/CIBTRN010301000M.html": { "status": "대기", "worker": "이상우", "note": "" },
-    "trn/act/dlyt/CIBTRN010302000M.html": { "status": "대기", "worker": "이상우", "note": "" },
-    "trn/act/dlyt/CIBTRN010303000M.html": { "status": "대기", "worker": "이상우", "note": "" },
+    // "trn/act/dlyt/CIBTRN010301000M.html": { "status": "대기", "worker": "이상우", "note": "" },
+    // "trn/act/dlyt/CIBTRN010302000M.html": { "status": "대기", "worker": "이상우", "note": "" },
+    // "trn/act/dlyt/CIBTRN010303000M.html": { "status": "대기", "worker": "이상우", "note": "" },
 
     // 이체 > 계좌이체 > 다계좌이체
     "trn/act/mact/CIBTRN010401000M.html": { "status": "완료", "worker": "이상우", "note": "" },
