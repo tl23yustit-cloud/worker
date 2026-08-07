@@ -92,6 +92,8 @@ module.exports = {
 
     // 금융상품_수협은행(fin_MFI) >
     "fin_mfi/mff/trr/CIBFIN_MFI090000000M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
+    "fin_mfi/mff/faq/general/CIBFIN_MFI100100000M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
+    "fin_mfi/mff/faq/ff/CIBFIN_MFI100200000M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
     
     // 조회(inq) > 계좌조회 / 거래내역 / 휴면계좌조회
     "inq/alert.html": { "status": "완료", "worker": "변혜선", "note": "" },
