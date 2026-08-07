@@ -28,32 +28,53 @@
 						<h2 class="typeH2">
 							해외원화결제 차단서비스
 						</h2>
-                        <div class="box-inquiry">
-                            <div class="wrap-board-grid">
-                                <div class="tbl-head">
-                                    <h4 class="typeH4">카드목록</h4>
-                                </div>
-                                <!-- [dev] 그리드 -->
-                                <div class="board-grid">
-                                    <!-- [dev] 그리드 컨텐츠 영역 : 작업 시 삭제-->
-                                    <i style="display:block;border:var(--borderWidthMd) solid var(--colorBorderBase);border-radius:var(--radiusMd);padding:var(--spacing2Xl);">임시 그리드 영역</i>
-                                    <!-- //[dev] 그리드 컨텐츠 영역 : 작업 시 삭제 -->
-                                </div>
-                                <!-- //[dev] 그리드 -->
-                            </div>
-    
-                            <div class="btn-wrap center sm-mid">
-                                <!-- [dev] 결제차단 상태 선택 시만 노출 -->
-                                <button type="button" class="btn type-bg-primary size-xxl">
-                                    <span class="text">차단 해제</span>
-                                </button>
-                                <!-- [dev] 결제가능 상태 선택 시만 노출 -->
-                                <button type="button" class="btn type-bg-primary size-xxl">
-                                    <span class="text">차단 등록</span>
-                                </button>
-                            </div>
-                        </div>
-                        
+						<!-- [dev] 전송처리중 카드 안내박스 - 등록 상태에서 해제 시도 후 전송 처리 상태일 시 -->
+						<div class="box-lined-icon-text">
+							<div class="wrap-ico">
+								<i class="ico laon ico-laon-warning" aria-hidden="true"></i>
+							</div>
+							<div class="message">
+								<b class="type2XlSemibold">
+									고객님 죄송합니다.
+								</b>
+								<span class="typeLg">
+									BC제휴카드 실시간사고 전송처리중입니다. 잠시후 다시 이용해 주시기 바랍니다. <br>
+									응답코드: BECOM04263
+								</span>
+								<span class="typeLg">
+									더 궁금하신 사항이 있으시면 아래 고객지원센터로 연락바랍니다<br>
+									TEL: 1588-1515, 1644-1515(서비스코드 03번)
+								</span>
+							</div>
+							<button type="button" class="btn type-ico-ghost size-lg btn-close">
+                              <i class="ico line ico-size-smMd ico-close" aria-hidden="true"></i>
+                              <span class="blind">닫기</span>
+                            </button>
+						</div>
+
+						<div class="wrap-board-grid">
+							<div class="tbl-head">
+								<h4 class="typeH4">카드목록</h4>
+							</div>
+							<!-- [dev] 그리드 -->
+							<div class="board-grid">
+								<!-- [dev] 그리드 컨텐츠 영역 : 작업 시 삭제-->
+								<i style="display:block;border:var(--borderWidthMd) solid var(--colorBorderBase);border-radius:var(--radiusMd);padding:var(--spacing2Xl);">임시 그리드 영역</i>
+								<!-- //[dev] 그리드 컨텐츠 영역 : 작업 시 삭제 -->
+							</div>
+							<!-- //[dev] 그리드 -->
+						</div>
+
+						<div class="btn-wrap center sm-mid">
+							<!-- [dev] 결제차단 상태 선택 시만 노출 -->
+							<button type="button" class="btn type-bg-primary size-xxl">
+								<span class="text">차단 해제</span>
+							</button>
+							<!-- [dev] 결제가능 상태 선택 시만 노출 -->
+							<button type="button" class="btn type-bg-primary size-xxl">
+								<span class="text">차단 등록</span>
+							</button>
+						</div>
 						
 						<div class="line-box size-xl">
 							<span class="typeLgSemibold">이용안내</span>
@@ -63,7 +84,7 @@
 										해외원화결제(DCC) 차단서비스 신청시 해외(해외인터넷 쇼핑몰 포함)에서 원화결제가 불가합니다.
 									</li>
 									<li class="typeMd">
-                                        해외에서 원화결제시에는 해외 카드사에서 추가수수료(3~8%)를 가산할 수 있어 현지통화 거래가 유리합니다.
+										해외에서 원화결제시에는 해외 카드사에서 추가수수료(3~8%)를 가산할 수 있어 현지통화 거래가 유리합니다.
 									</li>
 								</ul>
 							</div>
@@ -76,9 +97,20 @@
 		<div id="footer">@@include('static/html/pub/layout/footer.html')</div>
 	</div>
 	<script src="/static/js/ui/cib_ui_common.js"></script>
+
+	<!-- [dev] 임시 스크립트 -->
+	<script>
+		const $btnsCloseBox = document.querySelectorAll('.box-lined-icon-text .btn-close')
+		$btnsCloseBox.forEach(function($btnCloseBox){
+			$btnCloseBox.addEventListener('click', function(){
+				const $targetBox = this.closest('.box-lined-icon-text');
+				
+				if ($targetBox) {
+					$targetBox.style.display = 'none';
+				}
+			});
+		})
+	</script>
 </body>
 
 </html>
-<script>
-
-</script>
