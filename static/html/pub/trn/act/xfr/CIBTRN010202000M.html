@@ -1,0 +1,124 @@
+<!-- CIBTRN010202000M.html -->
+<!-- 이체 > 계좌이체 > 예약이체 등록내역조회/취소 -->
+<!-- 등록 취소를 위한 계좌비밀번호 입력 및 OTP인증 화면 -->
+<!-- otp 영역 디자인 미지정 -->
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/trn.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">
+        @@include('static/html/pub/layout/skipNavigation.html')
+        @@include('static/html/pub/layout/header_sub.html')
+      </div>
+
+      <div id="container" class="container">
+        <div id="leftArea">
+          @@include('static/html/pub/layout/leftArea.html')
+        </div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="trn">
+              <h2 class="typeH2">예약이체 등록내역조회/취소</h2>
+              <div class="tbl-area">
+                <table class="table-type01">
+                  <caption>
+                    예약이체 상세 정보(출금계좌번호, 이체금액, 예약등록일,
+                    예약일시, 예약번호, 계좌비밀번호) 확인 및 입력 표
+                  </caption>
+                  <colgroup>
+                    <col width="160px" />
+                    <col width="272px" />
+                    <col width="160px" />
+                    <col width="272px" />
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="row">
+                        <span>출금계좌번호</span>
+                      </th>
+                      <td>
+                        <span class="typeMd">1000-0000-0000</span>
+                      </td>
+                      <th scope="row">
+                        <span>이체금액</span>
+                      </th>
+                      <td class="text-right">
+                        <span class="typeMd">1,000,000,000원</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span>예약등록일</span>
+                      </th>
+                      <td>
+                        <span class="typeMd">2026-07-23</span>
+                      </td>
+                      <th scope="row">
+                        <span>예약일시</span>
+                      </th>
+                      <td>
+                        <span class="typeMd">2026-07-23 12:00</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span>예약번호</span>
+                      </th>
+                      <td colspan="3">
+                        <span class="typeMd">1231</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <label for="계좌비밀번호입력">계좌비밀번호</label>
+                      </th>
+                      <td colspan="3" class="flex items-center gap-6">
+                        <input
+                          type="password"
+                          id="계좌비밀번호입력"
+                          class="input size-lg wSize-smMd"
+                          placeholder="비밀번호를 입력하세요"
+                          title="계좌비밀번호"
+                        />
+                        <button
+                          type="button"
+                          class="btn type-line-secondary size-lg"
+                        >
+                          <span class="text">마우스입력</span>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="text-center">otp 공통 영역</div>
+              <div class="btn-wrap center sm-mid">
+                <button type="button" class="btn type-line-neutral size-xl">
+                  <span class="text">초기화</span>
+                </button>
+                <button type="button" class="btn type-bg-primary size-xl">
+                  <span class="text">확인</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
+</html>
