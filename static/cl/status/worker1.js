@@ -99,7 +99,8 @@ module.exports = {
     "inq/ai/hai/CIBNQ010200000M.html": { "status": "완료", "worker": "변혜선", "note": "" },
     
     // B2B전자결제(b2b) > 구매자금대출(b2bcpfl)
-    "b2b/b2bcpfl/pc/iscd/CIBB2B010201002M.html": { "status": "완료", "worker": "변혜선", "note": "주석확인" },
+    "b2b/b2bcpfl/pc/iscd/CIBB2B010201001M.html": { "status": "검수중", "worker": "변혜선", "note": "주석확인" },
+    "b2b/b2bcpfl/pc/iscd/CIBB2B010201002M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
     "b2b/b2bcpfl/sug/CIBB2B010100000M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
     
     // 이체(trn) 및 메인(mnd)
