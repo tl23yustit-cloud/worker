@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <title>수협 기업 인터넷뱅킹 퍼블리싱 리스트</title>
-    <link rel="stylesheet" href="/static/cl/favicon.ico">
+    <link rel="stylesheet" href="/static/cl/favicon.ico" />
     <style>
       * {
         margin: 0;
@@ -79,22 +79,95 @@
       h2 {
         font-size: 15px;
       }
-      .status.wait { color: #101828; }
-      .status.wait::before { content: ""; display: inline-block; border-radius: 100px; width: 10px; height: 10px; background-color: #101828; }
-      .status.progress { color: #039855; }
-      .status.progress::before { content: ""; display: inline-block; border-radius: 100px; width: 10px; height: 10px; background-color: #039855; }
-       .status.examination { color: purple; }
-      .status.examination::before { content: ""; display: inline-block; border-radius: 100px; width: 10px; height: 10px; background-color: purple; }
-      .status.complete { color: #0f62fd; }
-      .status.complete::before { content: ""; display: inline-block; border-radius: 100px; width: 10px; height: 10px; background-color: #0f62fd; }
-      .status.modify { color: #f77316; }
-      .status.modify::before { content: ""; display: inline-block; border-radius: 100px; width: 10px; height: 10px; background-color: #f77316; }
-      .status.modify-complete { color: #b54708; }
-      .status.modify-complete::before { content: ""; display: inline-block; border-radius: 100px; width: 10px; height: 10px; background-color: #b54708; }
-      .status.urgent { color: red; }
-      .status.urgent::before { content: ""; display: inline-block; border-radius: 100px; width: 10px; height: 10px; background-color: red; }
-      .status.delete { color: #a7afbe; }
-      .status.delete::before { content: ""; display: inline-block; border-radius: 100px; width: 10px; height: 10px; background-color: #a7afbe; }
+      .status::before { margin-right: 4px; }
+      .status.wait {
+        color: #101828;
+      }
+      .status.wait::before {
+        content: "";
+        display: inline-block;
+        border-radius: 100px;
+        width: 10px;
+        height: 10px;
+        background-color: #101828;
+      }
+      .status.progress {
+        color: #039855;
+      }
+      .status.progress::before {
+        content: "";
+        display: inline-block;
+        border-radius: 100px;
+        width: 10px;
+        height: 10px;
+        background-color: #039855;
+      }
+      .status.examination {
+        color: purple;
+      }
+      .status.examination::before {
+        content: "";
+        display: inline-block;
+        border-radius: 100px;
+        width: 10px;
+        height: 10px;
+        background-color: purple;
+      }
+      .status.complete {
+        color: #0f62fd;
+      }
+      .status.complete::before {
+        content: "";
+        display: inline-block;
+        border-radius: 100px;
+        width: 10px;
+        height: 10px;
+        background-color: #0f62fd;
+      }
+      .status.modify {
+        color: #f77316;
+      }
+      .status.modify::before {
+        content: "";
+        display: inline-block;
+        border-radius: 100px;
+        width: 10px;
+        height: 10px;
+        background-color: #f77316;
+      }
+      .status.modify-complete {
+        color: #b54708;
+      }
+      .status.modify-complete::before {
+        content: "";
+        display: inline-block;
+        border-radius: 100px;
+        width: 10px;
+        height: 10px;
+        background-color: #b54708;
+      }
+      .status.urgent {
+        color: red;
+      }
+      .status.urgent::before {
+        content: "";
+        display: inline-block;
+        border-radius: 100px;
+        width: 10px;
+        height: 10px;
+        background-color: red;
+      }
+      .status.delete {
+        color: #a7afbe;
+      }
+      .status.delete::before {
+        content: "";
+        display: inline-block;
+        border-radius: 100px;
+        width: 10px;
+        height: 10px;
+        background-color: #a7afbe;
+      }
 
       .pub-title {
         margin-bottom: 16px;
@@ -124,11 +197,11 @@
         display: none;
         position: fixed;
         z-index: 9999;
-        width: 600px;  /* 미리보기 창 가로 크기 */
+        width: 600px; /* 미리보기 창 가로 크기 */
         height: 400px; /* 미리보기 창 세로 크기 */
         border: 1px solid #ddd;
         border-radius: 8px;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
         background: #fff;
         pointer-events: none; /* 마우스 간섭 방지 */
         overflow: hidden;
@@ -136,10 +209,10 @@
 
       #preview-iframe {
         /* 페이지가 잘리지 않도록 PC 해상도(1920)로 렌더링 */
-        width: 1920px; 
-        height: 1280px; 
+        width: 1920px;
+        height: 1280px;
         /* 1920px를 600px 안에 쏙 들어가게 축소 (600 / 1920 = 0.3125) */
-        transform: scale(0.3125); 
+        transform: scale(0.3125);
         transform-origin: top left;
         border: none;
       }
@@ -199,12 +272,12 @@
         act: "계좌이체",
         b2bcpfl: "B2B기업구매자금대출",
         or: "해외송금",
-        fce: "외화환전",        
-        cm:"카드관리",
-        mff:"해양수산금융",
+        fce: "외화환전",
+        cm: "카드관리",
+        mff: "해양수산금융",
 
         //3depth
-        ccpr:"기업카드비밀번호등록",
+        ccpr: "기업카드비밀번호등록",
         ip: "이자납입",
         rop: "원금상환",
         import: "수입",
@@ -218,7 +291,7 @@
         xfr: "이체",
         sug: "서비스이용안내",
         pc: "구매기업",
-        trr:"서식자료실",
+        trr: "서식자료실",
 
         //4depth
         rip: "상환_이자납입",
@@ -230,8 +303,8 @@
         hai: "휴먼계좌조회",
         rthf: "거래내역파일요청",
         iscd: "매매계약내역조회",
-        faq:"FAQ",
-        ctd_a_r:"추심인수대상내역(인수/거절)",
+        faq: "FAQ",
+        ctd_a_r: "추심인수대상내역(인수/거절)",
 
         //5depth
         al: "신청목록",
@@ -239,14 +312,14 @@
         ob: "신청정보입력",
         ourb: "당행",
         othb: "타행",
-        mfura: "자주쓰는송금계좌관리",        
+        mfura: "자주쓰는송금계좌관리",
         ad: "계좌상세",
         ld: "대출상세",
         rs: "대출상세",
-        mor:"최근송금내역",
-        general:"총론",
-        ff:"영어자금",
-        
+        mor: "최근송금내역",
+        general: "총론",
+        ff: "영어자금",
+
         //6depth
         dimt: "국내외화이체",
         guide: "가이드",
@@ -255,10 +328,10 @@
         components: "컴포넌트",
         main: "메인",
         sub: "서브",
-        cst: "고객센터", 
+        cst: "고객센터",
 
-        //7depth   
-        regist:"등록",
+        //7depth
+        regist: "등록",
 
         interest_situation: "이자상환",
       };
@@ -300,21 +373,30 @@
 
       function getStatusClass(status) {
         switch (status) {
-          case "완료": return "complete";
-          case "진행중": return "progress";
-          case "검수중": return "examination";
-          case "수정중": return "modify";
-          case "수정완료": return "modify-complete";
-          case "긴급": return "urgent";
-          case "삭제": return "delete";
-          default: return "wait";
+          case "완료":
+            return "complete";
+          case "진행중":
+            return "progress";
+          case "검수중":
+            return "examination";
+          case "수정중":
+            return "modify";
+          case "수정완료":
+            return "modify-complete";
+          case "긴급":
+            return "urgent";
+          case "삭제":
+            return "delete";
+          default:
+            return "wait";
         }
       }
 
       function render(data) {
         const container = document.querySelector("#list");
         if (!data.length) {
-          container.innerHTML = "<p style='padding:20px;'>표시할 데이터가 없습니다.</p>";
+          container.innerHTML =
+            "<p style='padding:20px;'>표시할 데이터가 없습니다.</p>";
           return;
         }
 
@@ -404,8 +486,8 @@
       // ==============================================================
       // 🔥 미리보기 이벤트 처리
       // ==============================================================
-      const previewPopup = document.getElementById('preview-popup');
-      const iframe = document.getElementById('preview-iframe');
+      const previewPopup = document.getElementById("preview-popup");
+      const iframe = document.getElementById("preview-iframe");
       const listContainer = document.querySelector("#list");
 
       // 1. 링크 위에 마우스가 올라갔을 때 팝업 띄우기
@@ -422,7 +504,7 @@
         if (e.target.classList.contains("preview-link")) {
           const popupWidth = 600;
           const popupHeight = 400;
-          
+
           let left = e.clientX + 20;
           let top = e.clientY + 20;
 
@@ -447,7 +529,6 @@
           iframe.src = "";
         }
       });
-
     </script>
   </body>
 </html>
