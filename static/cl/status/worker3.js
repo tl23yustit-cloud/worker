@@ -5,5 +5,8 @@ module.exports = {
     "bmg/CIBUMG19020000M.html": { "status": "검수중", "worker": "손창우", "note": "" },
     "bmg/CIBUMG19030000M.html": { "status": "검수중", "worker": "손창우", "note": "" },
     "bop/card/cm/ccpr/CIBCRD020301000P.html": { "status": "검수중", "worker": "손창우", "note": "" },
-    "bop/card/cm/ccpr/CIBCRD020302000M.html": { "status": "검수중", "worker": "손창우", "note": "" }
+    "bop/card/cm/ccpr/CIBCRD020302000M.html": { "status": "검수중", "worker": "손창우", "note": "" },
+    "bop/card/cm/CIBCRD020801000M.html": { "status": "진행중", "worker": "손창우", "note": "" },
+    "bop/card/cm/CIBCRD020802000M.html": { "status": "검수중", "worker": "손창우", "note": "" },
+    "bop/card/cm/CIBCRD020803000M.html": { "status": "검수중", "worker": "손창우", "note": "" }
 };

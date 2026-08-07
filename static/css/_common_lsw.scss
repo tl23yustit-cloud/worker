@@ -1669,12 +1669,32 @@
         border-radius: var(--radiusXl);
         background-color: var(--colorBgSecondary);
         
-        .inner-img::before {
-            content: "";
-            display: inline-block;
-            width: 101px;
-            height: 84px;
-            background: url("../images/common/img_end01.svg") no-repeat center / contain;
+        .inner-img {
+            &::before {
+                content: "";
+                display: inline-block;
+                width: 102px;
+                height: 88px;
+                background: url("../images/common/img_laon_success_102.png") no-repeat center / contain;
+            }
+
+            &.type-warning {
+                &::before {
+                    background-image: url("../images/common/img_laon_warning_102.png")
+                }
+            }
+
+            &.type-search {
+                &::before {
+                    background-image: url("../images/common/img_laon_search_102.png")
+                }
+            }
+
+            &.type-search2 {
+                &::before {
+                    background-image: url("../images/common/img_laon_search02_102.png")
+                }
+            }
         }
 
         .result-message {
