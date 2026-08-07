@@ -89,6 +89,7 @@ module.exports = {
     "fin/tpr/pom/CIBFIN_TPR030600000.html": { "status": "완료", "worker": "변혜선", "note": "" },
     "fin/tpr/pom/CIBFIN_TPR030100000.html": { "status": "완료", "worker": "변혜선", "note": "주석확인" },
     "fin/tpr/cdpst/CIBFIN_TPR050100000.html": { "status": "완료", "worker": "변혜선", "note": "" },
+    "fin/tpr/smt/CIBFIN_TPR020000000M.html": { "status": "진행중", "worker": "변혜선", "note": "" },
 
     // 금융상품_수협은행(fin_MFI) >
     "fin_mfi/mff/trr/CIBFIN_MFI090000000M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
