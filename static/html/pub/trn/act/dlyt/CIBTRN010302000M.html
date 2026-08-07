@@ -2,106 +2,131 @@
 <!-- 이체 > 계좌이체 > 지연이체 등록내역조회/취소 > 등록취소 -->
 <!doctype html>
 <html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/trn.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>수협은행</title>
-  <link rel="stylesheet" href="/static/css/reset.css" />
-  <link rel="stylesheet" href="/static/css/layout.css" />
-  <link rel="stylesheet" href="/static/css/component.css" />
-  <link rel="stylesheet" href="/static/css/common.css" />
-  <link rel="stylesheet" href="/static/css/trn.css" />
-</head>
-
-<body>
-  <div class="wrapper">
-    <div id="header">
-      @@include('static/html/pub/layout/skipNavigation.html')
-      @@include('static/html/pub/layout/header_sub.html')
-    </div>
-
-    <div id="container" class="container">
-      <div id="leftArea">
-        @@include('static/html/pub/layout/leftArea.html')
+  <body>
+    <div class="wrapper">
+      <div id="header">
+        @@include('static/html/pub/layout/skipNavigation.html')
+        @@include('static/html/pub/layout/header_sub.html')
       </div>
-      <div id="contents">
-        <div class="content">
-          @@include('static/html/pub/layout/breadcrumb.html')
-          <div class="trn">
-            <h2 class="typeH2">이체</h2>
-            <h4 class="typeH4">출금정보</h4>
-            <table class="table-type01">
-              <caption>
-                지연이체 등록내역조회/취소
-              </caption>
-              <colgroup>
-                <col />
-                <col />
-              </colgroup>
-              <tbody>
-                <tr>
-                  <th scope="row">
-                    <span>출금계좌번호</span>
-                  </th>
-                  <td>
-                    <span class="typeMd">1000-0000-0000</span>
-                  </td>
-                  <th scope="row">
-                    <span>이체금액</span>
-                  </th>
-                  <td class="text-right">
-                    <span class="typeMd">1,000,000,000원</span>
-                  </td>
-                </tr>
 
-                <tr>
-                  <th scope="row">
-                    <span>예약등록일</span>
-                  </th>
-                  <td>
-                    <span class="typeMd">2026-07-23</span>
-                  </td>
-                  <th scope="row">
-                    <span>거래번호</span>
-                  </th>
-                  <td class="text-right">
-                    <span class="typeMd">1231231</span>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <span>계좌비밀번호</span>
-                  </th>
-                  <td colspan="3" class="flex items-center gap-6">
-                    <input type="password" class="input size-lg wSize-smMd" placeholder="Password" title="" />
-                    <button type="button" class="btn type-line-secondary size-lg">
-                      <span class="text">마우스입력</span>
-                    </button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+      <div id="container" class="container">
+        <div id="leftArea">
+          @@include('static/html/pub/layout/leftArea.html')
+        </div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="trn">
+              <h2 class="typeH2">지연이체 등록내역조회/취소</h2>
+              <div class="tbl-area">
+                <table class="table-type01">
+                  <caption>
+                    출금계좌 및 이체 상세 정보 확인 표 - 출금계좌번호, 이체금액,
+                    예약등록일, 거래번호, 계좌비밀번호 입력 정보 제공
+                  </caption>
+                  <colgroup>
+                    <col />
+                    <col />
+                    <col />
+                    <col />
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="row" id="th-withdrawal-account">
+                        <span>출금계좌번호</span>
+                      </th>
+                      <td>
+                        <span
+                          class="typeMd"
+                          aria-labelledby="th-withdrawal-account"
+                          >1000-0000-0000</span
+                        >
+                      </td>
+                      <th scope="row" id="th-transfer-amount">
+                        <span>이체금액</span>
+                      </th>
+                      <td class="text-right">
+                        <span
+                          class="typeMd"
+                          aria-labelledby="th-transfer-amount"
+                          >1,000,000,000원</span
+                        >
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row" id="th-reservation-date">
+                        <span>예약등록일</span>
+                      </th>
+                      <td>
+                        <span
+                          class="typeMd"
+                          aria-labelledby="th-reservation-date"
+                          >2026-07-23</span
+                        >
+                      </td>
+                      <th scope="row" id="th-transaction-no">
+                        <span>거래번호</span>
+                      </th>
+                      <td>
+                        <span class="typeMd" aria-labelledby="th-transaction-no"
+                          >1231231</span
+                        >
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <label for="account-password">계좌비밀번호</label>
+                      </th>
+                      <td colspan="3" class="flex items-center gap-6">
+                        <input
+                          type="password"
+                          id="account-password"
+                          class="input size-lg wSize-smMd"
+                          placeholder="Password"
+                          title="계좌비밀번호 입력"
+                          aria-label="계좌비밀번호 입력"
+                        />
+                        <button
+                          type="button"
+                          class="btn type-line-secondary size-lg"
+                        >
+                          <span class="text">마우스입력</span>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
 
-            <div class="text-center" style="border: 1px solid #d2d2d2">
-              OTP 공통영역
-            </div>
-            <div class="flex justify-center items-center gap-10 mt-24 mb-10">
-              <button type="button" class="btn type-bg-neutral-tint size-xl">
-                <span class="text">취소</span>
-              </button>
-              <button type="button" class="btn type-bg-primary size-xl">
-                <span class="text">확인</span>
-              </button>
+              <div class="text-center" style="border: 1px solid #d2d2d2">
+                OTP 공통영역
+              </div>
+              <div class="btn-wrap center sm-mid">
+                <button type="button" class="btn type-line-neutral size-xl">
+                  <span class="text">취소</span>
+                </button>
+                <button type="button" class="btn type-bg-primary size-xl">
+                  <span class="text">확인</span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
       </div>
-      <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
     </div>
-    <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
-  </div>
-  <script src="/static/js/ui/cib_ui_common.js"></script>
-</body>
-
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
 </html>
