@@ -29,5 +29,5 @@ module.exports = {
     "components/icon.html": { "status": "작업중", "worker": "이상우", "note": "" },
 
     // 조회 > 수표/어음조회 
-    "inq/cnb/check/CIBINQ030101000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
+    "inq/cnb/CIBINQ030101000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
 };
