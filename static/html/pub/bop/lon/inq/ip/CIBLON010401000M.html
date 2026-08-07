@@ -31,8 +31,7 @@
 												<div class="tbl-area">
 														<table class="table-type01">
 																<caption>
-																		기안자ID(기안자명), 최종결재/승인/반려자ID(최종결재/승인/반려자명), 거래종류, 결재(승인)상태, 긴급결재여부, 조회기간(기안일 기준),
-																		조회기간(최종결재/승인/반려일 기준)으로 구분된 조회 테이블
+																	계좌번호, 대출실행번호, 조회구분, 지정일자로 구성된 이자조회 테이블
 																</caption>
 																<colgroup>
 																		<col>
@@ -44,44 +43,103 @@
 																						<span>계좌번호</span>
 																				</th>
 																				<td>
-																						<div class="box-select wSize-lg">
-																								<button type="button" class="select size-lg" role="combobox"
-																										aria-expanded="false" aria-haspopup="listbox"
-																										aria-controls="selectDropdown01">
-																										<span class="text">선택하세요</span>
-																										<span class="blind">펼침</span>
+																						<div class="flex flex-column gap-8">
+																							<div class="box-select wSize-lg">
+																									<button type="button" class="select size-lg" role="combobox"
+																											aria-expanded="false" aria-haspopup="listbox"
+																											aria-controls="selectDropdown01">
+																											<span class="text">선택하세요</span>
+																											<span class="blind">펼침</span>
+																									</button>
+																									<div id="selectDropdown01" class="box-list-select">
+																											<ul class="list-select" role="listbox" aria-label="선택 항목 리스트">
+																													<li class="item-select" role="group">
+																															<button type="button" class="btn-item-select">
+																																	0000-0000-0000 (기업운전일반자금대출)
+																															</button>
+																													</li>
+																													<li class="item-select" role="group">
+																															<button type="button" class="btn-item-select">
+																																	직접입력
+																															</button>
+																													</li>
+																											</ul>
+																									</div>
+																							</div>
+																							<div class="form-box">
+																								<input type="text" class="input size-lg wSize-md" placeholder="숫자만 입력해주세요." title="계좌번호 직접입력" />
+																								<button type="button" class="btn type-line-secondary size-lg">
+																									<span class="text">마우스입력</span>
 																								</button>
-																								<div id="selectDropdown01" class="box-list-select">
-																										<ul class="list-select" role="listbox" aria-label="선택 항목 리스트">
-																												<li class="item-select" role="group">
-																														<button type="button" class="btn-item-select">
-																																0000-0000-0000 (기업운전일반자금대출)
-																														</button>
-																												</li>
-																												<li class="item-select" role="group">
-																														<button type="button" class="btn-item-select">
-																																직접입력
-																														</button>
-																												</li>
-																										</ul>
-																								</div>
+																							</div>
 																						</div>
 																				</td>
 																		</tr>
 																		<tr>
 																				<th scope="row">
-																						<span>계좌번호</span>
+																						<label for="TEXTFILED01">대출실행번호</label>
 																				</th>
 																				<td>
-
+																					<div class="flex items-center gap-6">
+																						<input type="text" id="TEXTFILED01" class="input size-lg wSize-md" title="" value="1">
+																						<button type="button" class="btn type-line-secondary size-lg">
+																							<span class="text">조회</span>
+																						</button>
+																						<span class="color-fg-primary typeLg">최대 한도 20,000,0000원 (이천만원)</span>
+																					</div>
 																				</td>
 																		</tr>
 																		<tr>
 																				<th scope="row">
-																						<span>계좌번호</span>
+																						<span>조회구분</span>
 																				</th>
 																				<td>
-
+																					<div class="box-select wSize-lg">
+																							<button type="button" class="select size-lg" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="selectDropdown02">
+																									<span class="text">선택하세요</span>
+																									<span class="blind">펼침</span>
+																							</button>
+																							<div id="selectDropdown02" class="box-list-select">
+																									<ul class="list-select" role="listbox" aria-label="선택 항목 리스트">
+																											<li class="item-select" role="group">
+																													<button type="button" class="btn-item-select">
+																															이자납입일 전일까지
+																													</button>
+																											</li>
+																											<li class="item-select" role="group">
+																													<button type="button" class="btn-item-select">
+																															차기이자납입일 전일까지
+																													</button>
+																											</li>
+																											<li class="item-select" role="group">
+																													<button type="button" class="btn-item-select">
+																															전일까지
+																													</button>
+																											</li>
+																											<li class="item-select" role="group">
+																													<button type="button" class="btn-item-select">
+																															지정일까지
+																													</button>
+																											</li>
+																										</ul>
+																							</div>
+																					</div>
+																				</td>
+																		</tr>
+																		<tr>
+																				<th scope="row">
+																						<label for="DATEPICKER">지정일자</label>
+																				</th>
+																				<td>
+																					<div class="calandar-wrap">
+																						<div class="input-box">
+																							<input type="text" id="DATEPICKER" class="input" placeholder="지정일자" title="" aria-label="지정일자" value="2026-01-06">
+																							<button type="button" class="btn">
+																								<i class="ico-calendar ico-size-smMd" aria-hidden="true"></i>
+																								<span class="blind">날짜 열기</span>
+																							</button>
+																						</div>
+																					</div>
 																				</td>
 																		</tr>
 																</tbody>
@@ -93,7 +151,7 @@
 														</button>
 												</div>
 												<div class="box-hidden-area">
-
+													
 												</div>
 										</div>
 								</div>
