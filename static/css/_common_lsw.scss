@@ -1866,6 +1866,18 @@
 
     .form-box {
         width: 100%;
+
+        .won {
+            font-size: var(--contentFontSizeLg);
+            font-weight: var(--fontWeightSemibold);
+            line-height: var(--contentLineHeightLg);
+        }
+
+        input[type="checkbox"]:checked+.account-info {
+            .won{
+                color: var(--colorFgPrimary);
+            }
+        }
     }
 
     .account-info {
@@ -1883,5 +1895,42 @@
         }
 
 
+    }
+}
+
+
+.account-info-box {
+    .box-select {
+        .select {
+            width: 220px;
+            padding: 0;
+            border: none;
+            background-color: transparent;
+        }
+
+        .box-list-select {
+            top: 30px;
+
+            .list-select {
+                margin-top: 0;
+
+                .btn-item-select {
+                    font-size: var(--contentFontSizeMd);
+                    font-weight: var(--fontWeightRegular);
+                    line-height: var(--contentLineHeightMd);
+
+                    &:hover {
+                        background-color: transparent;
+                        text-decoration: underline;
+                    }
+
+                    &:active {
+                        color: var(--colorFgPrimary);
+                        background-color: transparent;
+                        text-decoration-color: var(--colorFgPrimary);
+                    }
+                }
+            }
+        }
     }
 }
