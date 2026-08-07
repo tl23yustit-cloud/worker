@@ -91,7 +91,7 @@ module.exports = {
     "fin/tpr/cdpst/CIBFIN_TPR050100000.html": { "status": "완료", "worker": "변혜선", "note": "" },
 
     // 금융상품_수협은행(fin_MFI) >
-    "fin_mfi/tpr/cdpst/CIBFIN_TPR050100000.html": { "status": "완료", "worker": "변혜선", "note": "" },
+    "fin_mfi/mff/cdpst/CIBFIN_TPR050100000.html": { "status": "완료", "worker": "변혜선", "note": "" },
     
     // 조회(inq) > 계좌조회 / 거래내역 / 휴면계좌조회
     "inq/alert.html": { "status": "완료", "worker": "변혜선", "note": "" },
