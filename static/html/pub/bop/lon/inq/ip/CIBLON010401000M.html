@@ -66,6 +66,7 @@
 																											</ul>
 																									</div>
 																							</div>
+																							<!-- [dev] 직접 선택인 경우 노출 -->
 																							<div class="form-box">
 																								<input type="text" class="input size-lg wSize-md" placeholder="숫자만 입력해주세요." title="계좌번호 직접입력" />
 																								<button type="button" class="btn type-line-secondary size-lg">
@@ -85,6 +86,7 @@
 																						<button type="button" class="btn type-line-secondary size-lg">
 																							<span class="text">조회</span>
 																						</button>
+																						<!-- [dev] 조회 결과 -->
 																						<span class="color-fg-primary typeLg">최대 한도 20,000,0000원 (이천만원)</span>
 																					</div>
 																				</td>
@@ -95,7 +97,7 @@
 																				</th>
 																				<td>
 																					<div class="box-select wSize-lg">
-																							<button type="button" class="select size-lg" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="selectDropdown02">
+																							<button type="button" class="select size-lg" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="selectDropdown02" title="조회구분 선택">
 																									<span class="text">선택하세요</span>
 																									<span class="blind">펼침</span>
 																							</button>
@@ -133,7 +135,7 @@
 																				<td>
 																					<div class="calandar-wrap">
 																						<div class="input-box">
-																							<input type="text" id="DATEPICKER" class="input" placeholder="지정일자" title="" aria-label="지정일자" value="2026-01-06">
+																							<input type="text" id="DATEPICKER" class="input" placeholder="지정일자" title="지정일자 선택" value="2026-01-06">
 																							<button type="button" class="btn">
 																								<i class="ico-calendar ico-size-smMd" aria-hidden="true"></i>
 																								<span class="blind">날짜 열기</span>
@@ -151,7 +153,224 @@
 														</button>
 												</div>
 												<div class="box-hidden-area">
-													
+													<div class="tbl-area">
+														<div class="typeH6">기본정보</div>
+														<table class="table-type01">
+															<caption>
+																고객명, 대출계좌번호, 상품명, 약정이자, 연체이자, 이자계산시작일, 미납수수료, 연체시작일, 납입할총이자, 납입 후 다음이자납입일로 구성된 기본정보 테이블
+															</caption>
+															<colgroup>
+																<col width="160px">
+																<col>
+																<col width="160px">
+																<col>
+															</colgroup>
+															<tbody>
+																<tr>
+																	<th scope="row">
+																		<span>고객명</span>
+																	</th>
+																	<td>
+																		<span class="typeMd">홍길동</span>
+																	</td>
+																	<th scope="row">
+																		<span>대출계좌번호</span>
+																	</th>
+																	<td>
+																		<span class="typeMd">000-0000000-00-000</span>
+																	</td>
+																</tr>
+																<tr>
+																	<th scope="row">
+																		<span>상품명</span>
+																	</th>
+																	<td>
+																		<span class="typeMd">기업운전일반자금대출</span>
+																	</td>
+																	<th scope="row">
+																		<span>약정이자</span>
+																	</th>
+																	<td class="text-right">
+																		<span class="typeMd">500,000,000원</span>
+																	</td>
+																</tr>
+																<tr>
+																	<th scope="row">
+																		<span>연체이자</span>
+																	</th>
+																	<td class="text-right">
+																		<span class="typeMd">0원</span>
+																	</td>
+																	<th scope="row">
+																		<span>이자계산시작일</span>
+																	</th>
+																	<td>
+																		<span class="typeMd">2026-06-10</span>
+																	</td>
+																</tr>
+																<tr>
+																	<th scope="row">
+																		<span>미납수수료</span>
+																	</th>
+																	<td class="text-right">
+																		<span class="typeMd">0원</span>
+																	</td>
+																	<th scope="row">
+																		<span>연체시작일</span>
+																	</th>
+																	<td>
+																		<span class="typeMd">2026-06-10</span>
+																	</td>
+																</tr>
+																<tr>
+																	<th scope="row">
+																		<span>납일할총이자</span>
+																	</th>
+																	<td class="text-right">
+																		<span class="typeMd">5,000,000원</span>
+																	</td>
+																	<th scope="row">
+																		<span>납입 후 다음이자납입일</span>
+																	</th>
+																	<td>
+																		<span class="typeMd">2026-06-10</span>
+																	</td>
+																</tr>
+															</tbody>
+														</table>
+													</div>
+
+													<div class="tbl-area">
+														<div class="typeH6">상세정보</div>
+														<table class="table-type01">
+															<caption>
+																대출총한도, 계좌상태, 대출잔액, 대출일자, 대출사용가능한도, 대출상환기일, 최종이자납입일, 대출이율, 이자종료일, 연체이율, 대출금자동이체계좌, 선납일수, 자동이체일, 관련계좌번호, 연체구분으로 구성된 상세정보 테이블
+															</caption>
+															<colgroup>
+																<col width="160px">
+																<col>
+																<col width="160px">
+																<col>
+															</colgroup>
+															<tbody>
+																<tr>
+																	<th scope="row">
+																		<span>대출총한도</span>
+																	</th>
+																	<td>
+																		<span class="typeMd">5,000,000원</span>
+																	</td>
+																	<th scope="row">
+																		<span>계좌상태</span>
+																	</th>
+																	<td>
+																		<span class="typeMd">정상</span>
+																	</td>
+																</tr>
+																<tr>
+																	<th scope="row">
+																		<span>대출잔액</span>
+																	</th>
+																	<td>
+																		<span class="typeMd">4,000,000원</span>
+																	</td>
+																	<th scope="row">
+																		<span>대출일자</span>
+																	</th>
+																	<td>
+																		<span class="typeMd">2026-06-10</span>
+																	</td>
+																</tr>
+																<tr>
+																	<th scope="row">
+																		<span>대출사용가능한도</span>
+																	</th>
+																	<td>
+																		<span class="typeMd">0원</span>
+																	</td>
+																	<th scope="row">
+																		<span>대출상환기일</span>
+																	</th>
+																	<td>
+																		<span class="typeMd">2026-06-10</span>
+																	</td>
+																</tr>
+																<tr>
+																	<th scope="row">
+																		<span>최종이자납입일</span>
+																	</th>
+																	<td>
+																		<span class="typeMd">2026-06-10</span>
+																	</td>
+																	<th scope="row">
+																		<span>대출이율</span>
+																	</th>
+																	<td>
+																		<span class="typeMd">2.07%</span>
+																	</td>
+																</tr>
+																<tr>
+																	<th scope="row">
+																		<span>이자종료일</span>
+																	</th>
+																	<td>
+																		<span class="typeMd">2026-06-10</span>
+																	</td>
+																	<th scope="row">
+																		<span>연체이율</span>
+																	</th>
+																	<td>
+																		<span class="typeMd">0.00%</span>
+																	</td>
+																</tr>
+																<tr>
+																	<th scope="row">
+																		<span>대출금자동이체계좌</span>
+																	</th>
+																	<td>
+																		<span class="typeMd">0000-0000-0000</span>
+																	</td>
+																	<th scope="row">
+																		<span>선납일수</span>
+																	</th>
+																	<td>
+																		<span class="typeMd">0</span>
+																	</td>
+																</tr>
+																<tr>
+																	<th scope="row">
+																		<span>자동이체일</span>
+																	</th>
+																	<td>
+																		<span class="typeMd">매월 10일</span>
+																	</td>
+																	<th scope="row">
+																		<span>관련계좌번호</span>
+																	</th>
+																	<td>
+																		<span class="typeMd"></span>
+																	</td>
+																</tr>
+																<tr>
+																	<th scope="row">
+																		<span>연체구분</span>
+																	</th>
+																	<td colspan="3">
+																		<span class="typeMd"></span>
+																	</td>
+																</tr>
+															</tbody>
+														</table>
+													</div>
+
+													<div class="btn-wrap center lg-mid">
+														<button type="button" class="btn type-line-neutral size-xl">
+															<span class="text">E-MAIL</span>
+														</button>
+														<button type="button" class="btn type-line-neutral size-xl">
+															<span class="text">FAX</span>
+														</button>
+													</div>
 												</div>
 										</div>
 								</div>
