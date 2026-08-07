@@ -1,43 +1,535 @@
-<!-- CIBTRN010201000M.html.html -->
+<!-- CIBTRN010201000M.html -->
 <!-- 이체 > 계좌이체 > 예약이체 등록내역조회/취소 -->
 <!doctype html>
 <html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/trn.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>수협은행</title>
-  <link rel="stylesheet" href="/static/css/reset.css" />
-  <link rel="stylesheet" href="/static/css/layout.css" />
-  <link rel="stylesheet" href="/static/css/component.css" />
-  <link rel="stylesheet" href="/static/css/common.css" />
-  <link rel="stylesheet" href="/static/css/trn.css" />
-</head>
-
-<body>
-  <div class="wrapper">
-    <div id="header">
-      @@include('static/html/pub/layout/skipNavigation.html')
-      @@include('static/html/pub/layout/header_sub.html')
-    </div>
-
-    <div id="container" class="container">
-      <div id="leftArea">
-        @@include('static/html/pub/layout/leftArea.html')
+  <body>
+    <div class="wrapper">
+      <div id="header">
+        @@include('static/html/pub/layout/skipNavigation.html')
+        @@include('static/html/pub/layout/header_sub.html')
       </div>
-      <div id="contents">
-        <div class="content">
-          @@include('static/html/pub/layout/breadcrumb.html')
-          <div class="trn">
-           dd
+
+      <div id="container" class="container">
+        <div id="leftArea">
+          @@include('static/html/pub/layout/leftArea.html')
+        </div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="trn">
+              <div class="tbl-area">
+                <div class="tbl-head">
+                  <div class="right-area">
+                    <span class="typeSm color-fg-secondary">
+                      *통장표시내용, 통장메모 등을 입력, 수정할 수 있습니다.
+                    </span>
+                  </div>
+                </div>
+                <table class="table-type01">
+                  <caption>
+                    예약이체 등록내역 조회를 위한 계좌번호, 조회기준, 정렬방식,
+                    조회기간 선택 표
+                  </caption>
+                  <colgroup>
+                    <col style="width: 20%" />
+                    <col style="width: 80%" />
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="row">
+                        <span>계좌번호</span>
+                      </th>
+                      <td colspan="3">
+                        <div class="box-select wSize-lg">
+                          <button
+                            type="button"
+                            class="select size-lg"
+                            role="combobox"
+                            aria-expanded="false"
+                            aria-haspopup="listbox"
+                            aria-controls="selectDropdown01"
+                          >
+                            <span class="text"
+                              >0000-0000-0000 (기업운전일반자금대출)</span
+                            >
+                            <span class="blind">펼침</span>
+                          </button>
+                          <div id="selectDropdown01" class="box-list-select">
+                            <ul
+                              class="list-select"
+                              role="listbox"
+                              aria-label="선택 항목 리스트"
+                            >
+                              <li
+                                class="item-select"
+                                role="group"
+                                aria-label="선택 항목 리스트"
+                              >
+                                <span class="form-box">
+                                  0000-0000-0000 (기업운전일반자금대출)
+                                </span>
+                              </li>
+                              <li
+                                class="item-select"
+                                role="group"
+                                aria-label="선택 항목 리스트"
+                              >
+                                <span class="form-box">1</span>
+                              </li>
+                              <li
+                                class="item-select"
+                                role="group"
+                                aria-label="선택 항목 리스트"
+                              >
+                                <span class="form-box">1</span>
+                              </li>
+                              <li
+                                class="item-select"
+                                role="group"
+                                aria-label="선택 항목 리스트"
+                              >
+                                <span class="form-box">1</span>
+                              </li>
+                              <li
+                                class="item-select"
+                                role="group"
+                                aria-label="선택 항목 리스트"
+                              >
+                                <span class="form-box">1</span>
+                              </li>
+                              <li
+                                class="item-select"
+                                role="group"
+                                aria-label="선택 항목 리스트"
+                              >
+                                <span class="form-box">1</span>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">조회기준</th>
+                      <td>
+                        <div class="form-box-wrap">
+                          <span class="form-box">
+                            <input
+                              type="radio"
+                              name="searchCriteria"
+                              id="searchCriteria01"
+                              class="form-radio size-md"
+                              checked
+                            />
+                            <label for="searchCriteria01" class="form-label"
+                              >이체일</label
+                            >
+                          </span>
+                          <span class="form-box">
+                            <input
+                              type="radio"
+                              name="searchCriteria"
+                              id="searchCriteria02"
+                              class="form-radio size-md"
+                            />
+                            <label for="searchCriteria02" class="form-label"
+                              >등록일</label
+                            >
+                          </span>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">정렬방식</th>
+                      <td>
+                        <div class="form-box-wrap">
+                          <span class="form-box">
+                            <input
+                              type="radio"
+                              name="sortOrder"
+                              id="sortOrder01"
+                              class="form-radio size-md"
+                              checked
+                            />
+                            <label for="sortOrder01" class="form-label"
+                              >최근 거래 내역이 위로</label
+                            >
+                          </span>
+                          <span class="form-box">
+                            <input
+                              type="radio"
+                              name="sortOrder"
+                              id="sortOrder02"
+                              class="form-radio size-md"
+                            />
+                            <label for="sortOrder02" class="form-label"
+                              >과거 거래 내역이 위로</label
+                            >
+                          </span>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">조회기간</th>
+                      <td>
+                        <div class="tbl-column">
+                          <div class="radio-group">
+                            <span class="form-box">
+                              <input
+                                type="radio"
+                                name="searchPeriod"
+                                id="searchPeriod01"
+                                class="radio-btn"
+                                checked
+                              />
+                              <label for="searchPeriod01" class="form-label"
+                                >당일</label
+                              >
+                            </span>
+                            <span class="form-box">
+                              <input
+                                type="radio"
+                                name="searchPeriod"
+                                id="searchPeriod02"
+                                class="radio-btn"
+                              />
+                              <label for="searchPeriod02" class="form-label"
+                                >전일</label
+                              >
+                            </span>
+                            <span class="form-box">
+                              <input
+                                type="radio"
+                                name="searchPeriod"
+                                id="searchPeriod03"
+                                class="radio-btn"
+                              />
+                              <label for="searchPeriod03" class="form-label"
+                                >3일전</label
+                              >
+                            </span>
+                            <span class="form-box">
+                              <input
+                                type="radio"
+                                name="searchPeriod"
+                                id="searchPeriod04"
+                                class="radio-btn"
+                              />
+                              <label for="searchPeriod04" class="form-label"
+                                >1주일전</label
+                              >
+                            </span>
+                            <span class="form-box">
+                              <input
+                                type="radio"
+                                name="searchPeriod"
+                                id="searchPeriod05"
+                                class="radio-btn"
+                              />
+                              <label for="searchPeriod05" class="form-label"
+                                >1달전</label
+                              >
+                            </span>
+                            <span class="form-box">
+                              <input
+                                type="radio"
+                                name="searchPeriod"
+                                id="searchPeriod06"
+                                class="radio-btn"
+                              />
+                              <label for="searchPeriod06" class="form-label"
+                                >3달전</label
+                              >
+                            </span>
+                            <span class="form-box">
+                              <input
+                                type="radio"
+                                name="searchPeriod"
+                                id="searchPeriod07"
+                                class="radio-btn"
+                              />
+                              <label for="searchPeriod07" class="form-label"
+                                >6달전</label
+                              >
+                            </span>
+                            <span class="form-box">
+                              <input
+                                type="radio"
+                                name="searchPeriod"
+                                id="searchPeriod08"
+                                class="radio-btn"
+                              />
+                              <label for="searchPeriod08" class="form-label"
+                                >1년전</label
+                              >
+                            </span>
+                          </div>
+                          <div class="calendar-wrap">
+                            <div class="input-box">
+                              <input
+                                type="text"
+                                class="input"
+                                placeholder="이체예약일"
+                                aria-label="이체예약일 시작일"
+                                value="2026-01-06"
+                              />
+                              <button type="button" class="btn">
+                                <i
+                                  class="ico-calendar ico-size-smMd"
+                                  aria-hidden="true"
+                                ></i>
+                                <span class="blind">날짜 열기</span>
+                              </button>
+                            </div>
+                            ~
+                            <div class="input-box">
+                              <input
+                                type="text"
+                                class="input"
+                                placeholder="이체예약일"
+                                aria-label="이체예약일 종료일"
+                                value="2026-01-06"
+                              />
+                              <button type="button" class="btn">
+                                <i
+                                  class="ico-calendar ico-size-smMd"
+                                  aria-hidden="true"
+                                ></i>
+                                <span class="blind">날짜 열기</span>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="btn-wrap center sm-mid">
+                <button type="button" class="btn type-bg-neutral size-xl">
+                  <span class="text">조회</span>
+                </button>
+              </div>
+              <div class="tbl-area">
+                <div class="tbl-head">
+                  <h4 class="typeH4">이체 정보</h4>
+                </div>
+                <table class="table-type03">
+                  <caption>
+                    예약이체 등록내역 조회 결과 목록 (예약일, 이체지정일시,
+                    입금정보, 받는분/보내는분통장표시내용, 이체금액, 수수료,
+                    처리구분/결과, 예약번호/취소 정보 제공)
+                  </caption>
+                  <colgroup>
+                    <col style="width: 11%" />
+                    <col style="width: 14%" />
+                    <col style="width: 16%" />
+                    <col style="width: 15%" />
+                    <col style="width: 11%" />
+                    <col style="width: 9%" />
+                    <col style="width: 13%" />
+                    <col style="width: 11%" />
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th scope="col">예약일</th>
+                      <th scope="col">이체지정일시</th>
+                      <th scope="col">입금정보</th>
+                      <th scope="col">받는분/보내는분통장표시내용</th>
+                      <th scope="col">이체금액</th>
+                      <th scope="col">수수료</th>
+                      <th scope="col">처리구분/결과</th>
+                      <th scope="col">예약번호/취소</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>2026-07-01</td>
+                      <td>2026-07-02 12:00</td>
+                      <td>00은행 1000-0000-000(김수협)</td>
+                      <td>약속거래/물품대금</td>
+                      <td>1,000,000,000</td>
+                      <td>1,000,000</td>
+                      <td>예약신청/정상</td>
+                      <td>10000</td>
+                    </tr>
+                    <tr>
+                      <td>2026-07-01</td>
+                      <td>2026-07-02 12:00</td>
+                      <td>00은행 1000-0000-000(김수협)</td>
+                      <td>-/-</td>
+                      <td>1,000,000,000</td>
+                      <td>1,000,000</td>
+                      <td>
+                        <div class="box-tooltip tail-top-start">
+                          <button
+                            type="button"
+                            class="btn type-line-primary size-sm"
+                            aria-describedby="tooltipBoxTop0101"
+                          >
+                            <span class="text">미처리</span>
+                          </button>
+                          <div
+                            id="tooltipBoxTop0101"
+                            class="layer-tooltip"
+                            role="tooltip"
+                            aria-hidden="true"
+                          >
+                            <div class="content-tooltip">
+                              <span class="text"
+                                >처리오류 메세지 에러메시지가 노출됩니다.</span
+                              >
+                            </div>
+                            <button type="button" class="btn-close">
+                              <i
+                                class="ico-close ico-size-sm"
+                                aria-hidden="true"
+                              ></i>
+                              <span class="blind">툴팁 닫기</span>
+                            </button>
+                            <i class="ico-tail-tooltip" aria-hidden="true"></i>
+                          </div>
+                        </div>
+                      </td>
+                      <td>10000</td>
+                    </tr>
+                    <tr>
+                      <td>2026-07-01</td>
+                      <td>2026-07-02 12:00</td>
+                      <td>00은행 1000-0000-000(김수협)</td>
+                      <td>-/-</td>
+                      <td>1,000,000,000</td>
+                      <td>1,000,000</td>
+                      <td>예약신청/정상</td>
+                      <td>
+                        <button
+                          type="button"
+                          class="btn type-line-neutral size-sm"
+                        >
+                          <span class="text">취소</span>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <nav class="pagination size-md" aria-label="페이지네이션">
+                  <button
+                    type="button"
+                    class="btn-nav first"
+                    disabled=""
+                    aria-disabled="true"
+                    aria-label="첫 페이지"
+                  >
+                    <span class="blind">첫 페이지</span>
+                  </button>
+                  <button
+                    type="button"
+                    class="btn-nav prev"
+                    disabled=""
+                    aria-disabled="true"
+                    aria-label="이전 페이지"
+                  >
+                    <span class="blind">이전 페이지</span>
+                  </button>
+
+                  <ol class="list-pagination">
+                    <li>
+                      <button
+                        type="button"
+                        class="btn-page active"
+                        aria-current="page"
+                        aria-label="1페이지"
+                      >
+                        1
+                      </button>
+                    </li>
+                    <li>
+                      <button
+                        type="button"
+                        class="btn-page"
+                        aria-label="2페이지"
+                      >
+                        2
+                      </button>
+                    </li>
+                    <li>
+                      <button
+                        type="button"
+                        class="btn-page"
+                        aria-label="3페이지"
+                      >
+                        3
+                      </button>
+                    </li>
+                    <li>
+                      <button
+                        type="button"
+                        class="btn-page"
+                        aria-label="4페이지"
+                      >
+                        4
+                      </button>
+                    </li>
+                    <li>
+                      <button
+                        type="button"
+                        class="btn-page"
+                        aria-label="5페이지"
+                      >
+                        5
+                      </button>
+                    </li>
+                  </ol>
+
+                  <button
+                    type="button"
+                    class="btn-nav next"
+                    aria-label="다음 페이지"
+                  >
+                    <span class="blind">다음 페이지</span>
+                  </button>
+                  <button
+                    type="button"
+                    class="btn-nav last"
+                    aria-label="마지막 페이지"
+                  >
+                    <span class="blind">마지막 페이지</span>
+                  </button>
+                </nav>
+                <div class="line-box size-xl mt-48">
+                  <span class="typeLgSemibold">이용안내</span>
+                  <div class="list type-dotted">
+                    <ul>
+                      <li class="typeMd">
+                        예약이체 등록내역 조회시 지정일자는 이체일을 기준으로
+                        조회됩니다.
+                      </li>
+                      <li class="typeMd">
+                        예약이체를 취소하고자 하는 경우 이체지정일 전일까지
+                        가능하며, 당일에는 취소가 불가능합니다.
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
       </div>
-      <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
     </div>
-    <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
-  </div>
-  <script src="/static/js/ui/cib_ui_common.js"></script>
-</body>
-
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
 </html>
