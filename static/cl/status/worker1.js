@@ -91,7 +91,7 @@ module.exports = {
     "fin/tpr/cdpst/CIBFIN_TPR050100000.html": { "status": "완료", "worker": "변혜선", "note": "" },
 
     // 금융상품_수협은행(fin_MFI) >
-    "fin_mfi/mff/trr/CIBFIN_MFI090000000M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
+    "fin_mfi/mff/trr/CIBFIN_MFI090000000M.html": { "status": "진행중", "worker": "변혜선", "note": "" },
     "fin_mfi/mff/faq/general/CIBFIN_MFI100100000M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
     "fin_mfi/mff/faq/ff/CIBFIN_MFI100200000M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
     
@@ -105,7 +105,8 @@ module.exports = {
     
     // B2B전자결제(b2b) > 구매자금대출(b2bcpfl)
     "b2b/b2bcpfl/pc/iscd/CIBB2B010201001M.html": { "status": "검수중", "worker": "변혜선", "note": "주석확인" },
-    "b2b/b2bcpfl/pc/iscd/CIBB2B010201002M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
+    "b2b/b2bcpfl/pc/iscd/CIBB2B010201002M.html": { "status": "검수중", "worker": "변혜선", "note": "" },    
+    "b2b/b2bcpfl/pc/ctd_a_r/CIBNQ020202000M.html": { "status": "진행중", "worker": "변혜선", "note": "" },
     "b2b/b2bcpfl/sug/CIBB2B010100000M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
     
     // 이체(trn) 및 메인(mnd)
