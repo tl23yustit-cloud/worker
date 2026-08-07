@@ -178,79 +178,97 @@
                       <th scope="row">조회기간</th>
                       <td>
                         <div class="tbl-column">
-                          <div class="radio-group">
+                          <div
+                            class="radio-group"
+                            role="radiogroup"
+                            aria-label="조회기간 선택"
+                          >
                             <span class="form-box">
                               <input
                                 type="radio"
-                                name="SampleRadio0302_01"
-                                id="SampleRadio0302_01"
+                                name="searchPeriod"
+                                id="searchPeriod01"
                                 class="radio-btn"
-                                checked=""
+                                checked
                               />
-                              <label for="SampleRadio0302_01" class="form-label"
+                              <label for="searchPeriod01" class="form-label"
                                 >당일</label
                               >
+                            </span>
+                            <span class="form-box">
                               <input
                                 type="radio"
-                                name="SampleRadio0302_01"
-                                id="SampleRadio0302_02"
+                                name="searchPeriod"
+                                id="searchPeriod02"
                                 class="radio-btn"
                               />
-                              <label for="SampleRadio0302_02" class="form-label"
+                              <label for="searchPeriod02" class="form-label"
                                 >전일</label
                               >
+                            </span>
+                            <span class="form-box">
                               <input
                                 type="radio"
-                                name="SampleRadio0302_01"
-                                id="SampleRadio0302_03"
+                                name="searchPeriod"
+                                id="searchPeriod03"
                                 class="radio-btn"
                               />
-                              <label for="SampleRadio0302_03" class="form-label"
+                              <label for="searchPeriod03" class="form-label"
                                 >3일전</label
                               >
+                            </span>
+                            <span class="form-box">
                               <input
                                 type="radio"
-                                name="SampleRadio0302_01"
-                                id="SampleRadio0302_04"
+                                name="searchPeriod"
+                                id="searchPeriod04"
                                 class="radio-btn"
                               />
-                              <label for="SampleRadio0302_04" class="form-label"
+                              <label for="searchPeriod04" class="form-label"
                                 >1주일전</label
                               >
+                            </span>
+                            <span class="form-box">
                               <input
                                 type="radio"
-                                name="SampleRadio0302_01"
-                                id="SampleRadio0302_05"
+                                name="searchPeriod"
+                                id="searchPeriod05"
                                 class="radio-btn"
                               />
-                              <label for="SampleRadio0302_05" class="form-label"
+                              <label for="searchPeriod05" class="form-label"
                                 >1달전</label
                               >
+                            </span>
+                            <span class="form-box">
                               <input
                                 type="radio"
-                                name="SampleRadio0302_01"
-                                id="SampleRadio0302_06"
+                                name="searchPeriod"
+                                id="searchPeriod06"
                                 class="radio-btn"
                               />
-                              <label for="SampleRadio0302_06" class="form-label"
+                              <label for="searchPeriod06" class="form-label"
                                 >3달전</label
                               >
+                            </span>
+                            <span class="form-box">
                               <input
                                 type="radio"
-                                name="SampleRadio0302_01"
-                                id="SampleRadio0302_07"
+                                name="searchPeriod"
+                                id="searchPeriod07"
                                 class="radio-btn"
                               />
-                              <label for="SampleRadio0302_07" class="form-label"
+                              <label for="searchPeriod07" class="form-label"
                                 >6달전</label
                               >
+                            </span>
+                            <span class="form-box">
                               <input
                                 type="radio"
-                                name="SampleRadio0302_01"
-                                id="SampleRadio0302_08"
+                                name="searchPeriod"
+                                id="searchPeriod08"
                                 class="radio-btn"
                               />
-                              <label for="SampleRadio0302_08" class="form-label"
+                              <label for="searchPeriod08" class="form-label"
                                 >1년전</label
                               >
                             </span>
@@ -260,9 +278,9 @@
                               <input
                                 type="text"
                                 class="input"
-                                placeholder="이쳬예약일"
-                                title=""
-                                aria-label="이쳬예약일"
+                                placeholder="이체예약일 시작일"
+                                title="이체예약일 시작일"
+                                aria-label="이체예약일 시작일"
                                 value="2026-01-06"
                               />
                               <button type="button" class="btn">
@@ -278,9 +296,9 @@
                               <input
                                 type="text"
                                 class="input"
-                                placeholder="이쳬예약일"
-                                title=""
-                                aria-label="이쳬예약일"
+                                placeholder="이체예약일 종료일"
+                                title="이체예약일 종료일"
+                                aria-label="이체예약일 종료일"
                                 value="2026-01-06"
                               />
                               <button type="button" class="btn">
@@ -341,8 +359,8 @@
                       <td>2026-07-02 12:00</td>
                       <td>00은행 1000-0000-000(김수협)</td>
                       <td>약속거래/물품대금</td>
-                      <td>1,000,000,000</td>
-                      <td>1,000,000</td>
+                      <td class="text-right">1,000,000,000</td>
+                      <td class="text-right">1,000,000</td>
                       <td>예약신청/정상</td>
                       <td>10000</td>
                     </tr>
@@ -350,9 +368,15 @@
                       <td>2026-07-01</td>
                       <td>2026-07-02 12:00</td>
                       <td>00은행 1000-0000-000(김수협)</td>
-                      <td>-/-</td>
-                      <td>1,000,000,000</td>
-                      <td>1,000,000</td>
+                      <td>
+                        <span aria-hidden="true">-</span>/<span
+                          aria-hidden="true"
+                          >-</span
+                        >
+                        <span class="blind">통장표시내용 없음</span>
+                      </td>
+                      <td class="text-right">1,000,000,000</td>
+                      <td class="text-right">1,000,000</td>
                       <td>
                         <div class="box-tooltip tail-top-start">
                           <button
@@ -390,9 +414,15 @@
                       <td>2026-07-01</td>
                       <td>2026-07-02 12:00</td>
                       <td>00은행 1000-0000-000(김수협)</td>
-                      <td>-/-</td>
-                      <td>1,000,000,000</td>
-                      <td>1,000,000</td>
+                      <td>
+                        <span aria-hidden="true">-</span>/<span
+                          aria-hidden="true"
+                          >-</span
+                        >
+                        <span class="blind">통장표시내용 없음</span>
+                      </td>
+                      <td class="text-right">1,000,000,000</td>
+                      <td class="text-right">1,000,000</td>
                       <td>예약신청/정상</td>
                       <td>
                         <button
@@ -405,11 +435,12 @@
                     </tr>
                   </tbody>
                 </table>
+
                 <nav class="pagination size-md" aria-label="페이지네이션">
                   <button
                     type="button"
                     class="btn-nav first"
-                    disabled=""
+                    disabled
                     aria-disabled="true"
                     aria-label="첫 페이지"
                   >
@@ -418,7 +449,7 @@
                   <button
                     type="button"
                     class="btn-nav prev"
-                    disabled=""
+                    disabled
                     aria-disabled="true"
                     aria-label="이전 페이지"
                   >
@@ -489,6 +520,7 @@
                     <span class="blind">마지막 페이지</span>
                   </button>
                 </nav>
+
                 <div class="line-box size-xl mt-48">
                   <span class="typeLgSemibold">이용안내</span>
                   <div class="list type-dotted">
