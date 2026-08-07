@@ -26,7 +26,7 @@ const depthName = {
     b2bcpfl: "B2B기업구매자금대출",
     or: "해외송금",
     fce: "외화환전",
-
+    cnb:"수표/어음조회",
     //3depth
     ip: "이자납입",
     rop: "원금상환",
