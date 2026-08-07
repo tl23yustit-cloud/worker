@@ -65,8 +65,6 @@ module.exports = {
     "bop/lon/inq/clha/ld/CIBLON010104000p_01.html": { "status": "검수중", "worker": "변혜선", "note": "" },
     "bop/lon/inq/clha/rs/CIBLON010105000p.html": { "status": "수정중", "worker": "변혜선", "note": "" },
     "bop/lon/inq/clha/CIBLON010106000p.html": { "status": "검수중", "worker": "변혜선", "note": "" },
-    "bop/lon/inq/clha/담보상세내역조회_물적.html": { "status": "수정중", "worker": "변혜선", "note": "" },
-    "bop/lon/inq/clha/담보상세내역조회_질권.html": { "status": "수정중", "worker": "변혜선", "note": "" },
     "bop/lon/inq/ctd/CIBLON010202000p.html": { "status": "검수중", "worker": "변혜선", "note": "" },
     "bop/lon/inq/clrs/계좌상세단일조회.html": { "status": "수정중", "worker": "변혜선", "note": "" },
     "bop/lon/inq/clrs/계좌상세다건조회.html": { "status": "수정중", "worker": "변혜선", "note": "" },
