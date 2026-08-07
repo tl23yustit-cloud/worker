@@ -1,0 +1,93 @@
+<!-- CIBINQ030102000M.html -->
+<!-- 조회 > 조회 > 수표/어음조회 > 조회결과 및 사고신고 정보 확인 -->
+<!-- 디자인 미확정 -->
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/trn.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">
+        @@include('static/html/pub/layout/skipNavigation.html')
+        @@include('static/html/pub/layout/header_sub.html')
+      </div>
+
+      <div id="container" class="container">
+        <div id="leftArea">
+          @@include('static/html/pub/layout/leftArea.html')
+        </div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="bop">
+              <h2 class="typeH2">자기앞수표조회(타행포함)</h2>
+              <div class="tbl-area">
+                <h4 class="typeH4">
+                  <span class="text">조회결과</span>
+                </h4>
+                <table class="table-type01">
+                  <caption>
+                    수표시작번호, 수표매수, 발행일자, 발행점, 수표권종코드, 금액
+                    정보 제공 테이블
+                  </caption>
+                  <colgroup>
+                    <col />
+                    <col />
+                    <col />
+                    <col />
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="row">수표시작번호</th>
+                      <td>
+                        <span class="typeMd">1000-0000-0000</span>
+                      </td>
+                      <th scope="row">수표매수</th>
+                      <td class="text-right">
+                        <span class="typeMd">1 매</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">발행일자</th>
+                      <td>
+                        <span class="typeMd">2026-07-23</span>
+                      </td>
+                      <th scope="row">발행점</th>
+                      <td>
+                        <span class="typeMd">잠실역점</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">수표권종코드</th>
+                      <td>
+                        <span class="typeMd">00000100000</span>
+                      </td>
+                      <th scope="row">금액</th>
+                      <td class="text-right">
+                        <span class="typeMd">1,000,000 원</span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+             
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
+</html>
