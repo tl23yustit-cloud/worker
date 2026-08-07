@@ -79,94 +79,22 @@
       h2 {
         font-size: 15px;
       }
-      .status.wait {
-        color: #101828;
-      }
-      .status.wait::before {
-        content: "";
-        display: inline-block;
-        border-radius: 100px;
-        width: 10px;
-        height: 10px;
-        background-color: #101828;
-      }
-      .status.progress {
-        color: #039855;
-      }
-      .status.progress::before {
-        content: "";
-        display: inline-block;
-        border-radius: 100px;
-        width: 10px;
-        height: 10px;
-        background-color: #039855;
-      }
-       .status.examination {
-        color: purple;
-      }
-      .status.examination::before {
-        content: "";
-        display: inline-block;
-        border-radius: 100px;
-        width: 10px;
-        height: 10px;
-        background-color: purple;
-      }
-      .status.complete {
-        color: #0f62fd;
-      }
-      .status.complete::before {
-        content: "";
-        display: inline-block;
-        border-radius: 100px;
-        width: 10px;
-        height: 10px;
-        background-color: #0f62fd;
-      }
-      .status.modify {
-        color: #f77316;
-      }
-      .status.modify::before {
-        content: "";
-        display: inline-block;
-        border-radius: 100px;
-        width: 10px;
-        height: 10px;
-        background-color: #f77316;
-      }
-      .status.modify-complete {
-        color: #b54708;
-      }
-      .status.modify-complete::before {
-        content: "";
-        display: inline-block;
-        border-radius: 100px;
-        width: 10px;
-        height: 10px;
-        background-color: #b54708;
-      }
-      .status.urgent {
-        color: red;
-      }
-      .status.urgent::before {
-        content: "";
-        display: inline-block;
-        border-radius: 100px;
-        width: 10px;
-        height: 10px;
-        background-color: red;
-      }
-      .status.delete {
-        color: #a7afbe;
-      }
-      .status.delete::before {
-        content: "";
-        display: inline-block;
-        border-radius: 100px;
-        width: 10px;
-        height: 10px;
-        background-color: #a7afbe;
-      }
+      .status.wait { color: #101828; }
+      .status.wait::before { content: ""; display: inline-block; border-radius: 100px; width: 10px; height: 10px; background-color: #101828; }
+      .status.progress { color: #039855; }
+      .status.progress::before { content: ""; display: inline-block; border-radius: 100px; width: 10px; height: 10px; background-color: #039855; }
+       .status.examination { color: purple; }
+      .status.examination::before { content: ""; display: inline-block; border-radius: 100px; width: 10px; height: 10px; background-color: purple; }
+      .status.complete { color: #0f62fd; }
+      .status.complete::before { content: ""; display: inline-block; border-radius: 100px; width: 10px; height: 10px; background-color: #0f62fd; }
+      .status.modify { color: #f77316; }
+      .status.modify::before { content: ""; display: inline-block; border-radius: 100px; width: 10px; height: 10px; background-color: #f77316; }
+      .status.modify-complete { color: #b54708; }
+      .status.modify-complete::before { content: ""; display: inline-block; border-radius: 100px; width: 10px; height: 10px; background-color: #b54708; }
+      .status.urgent { color: red; }
+      .status.urgent::before { content: ""; display: inline-block; border-radius: 100px; width: 10px; height: 10px; background-color: red; }
+      .status.delete { color: #a7afbe; }
+      .status.delete::before { content: ""; display: inline-block; border-radius: 100px; width: 10px; height: 10px; background-color: #a7afbe; }
 
       .pub-title {
         margin-bottom: 16px;
@@ -190,6 +118,31 @@
       .pub-table th {
         background: #f8f8f8;
       }
+
+      /* 🔥 미리보기 팝업 스타일 */
+      #preview-popup {
+        display: none;
+        position: fixed;
+        z-index: 9999;
+        width: 600px;  /* 미리보기 창 가로 크기 */
+        height: 400px; /* 미리보기 창 세로 크기 */
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        background: #fff;
+        pointer-events: none; /* 마우스 간섭 방지 */
+        overflow: hidden;
+      }
+
+      #preview-iframe {
+        /* 페이지가 잘리지 않도록 PC 해상도(1920)로 렌더링 */
+        width: 1920px; 
+        height: 1280px; 
+        /* 1920px를 600px 안에 쏙 들어가게 축소 (600 / 1920 = 0.3125) */
+        transform: scale(0.3125); 
+        transform-origin: top left;
+        border: none;
+      }
     </style>
   </head>
 
@@ -211,6 +164,11 @@
     </div>
 
     <div id="list"></div>
+
+    <!-- 🔥 미리보기용 팝업 엘리먼트 -->
+    <div id="preview-popup">
+      <iframe id="preview-iframe" src=""></iframe>
+    </div>
 
     <script>
       const depthName = {
@@ -342,30 +300,21 @@
 
       function getStatusClass(status) {
         switch (status) {
-          case "완료":
-            return "complete";
-          case "진행중":
-            return "progress";
-          case "검수중":
-            return "examination";
-          case "수정중":
-            return "modify";
-          case "수정완료":
-            return "modify-complete";
-          case "긴급":
-            return "urgent";
-          case "삭제":
-            return "delete";
-          default:
-            return "wait";
+          case "완료": return "complete";
+          case "진행중": return "progress";
+          case "검수중": return "examination";
+          case "수정중": return "modify";
+          case "수정완료": return "modify-complete";
+          case "긴급": return "urgent";
+          case "삭제": return "delete";
+          default: return "wait";
         }
       }
 
       function render(data) {
         const container = document.querySelector("#list");
         if (!data.length) {
-          container.innerHTML =
-            "<p style='padding:20px;'>표시할 데이터가 없습니다.</p>";
+          container.innerHTML = "<p style='padding:20px;'>표시할 데이터가 없습니다.</p>";
           return;
         }
 
@@ -411,7 +360,7 @@
                         </tr>
                     </thead>
                     <tbody>
-        `;
+          `;
 
           groups[group].forEach((item) => {
             const status = item.status || "대기";
@@ -430,12 +379,10 @@
                     <td>${item.title}</td>
                     <td>${item.file}</td>
                     <td>
-                        <span class="status ${getStatusClass(status)}">
-                            ${status}
-                        </span>
+                        <span class="status ${getStatusClass(status)}">${status}</span>
                     </td>
                     <td>${item.modified}</td>
-                   <td><a href="/static/html/pub/${item.link}" target="_blank">보기</a></td>
+                    <td><a href="/static/html/pub/${item.link}" target="_blank" class="preview-link">보기</a></td>
                     <td>${worker}</td>
                     <td class="note">${note}</td>
                 </tr>
@@ -446,13 +393,61 @@
                     </tbody>
                 </table>
             </section>
-        `;
+          `;
         });
 
         container.innerHTML = html;
       }
 
       loadList();
+
+      // ==============================================================
+      // 🔥 미리보기 이벤트 처리
+      // ==============================================================
+      const previewPopup = document.getElementById('preview-popup');
+      const iframe = document.getElementById('preview-iframe');
+      const listContainer = document.querySelector("#list");
+
+      // 1. 링크 위에 마우스가 올라갔을 때 팝업 띄우기
+      listContainer.addEventListener("mouseover", (e) => {
+        if (e.target.classList.contains("preview-link")) {
+          const targetUrl = e.target.getAttribute("href");
+          iframe.src = targetUrl;
+          previewPopup.style.display = "block";
+        }
+      });
+
+      // 2. 마우스를 따라다니도록 위치 실시간 계산
+      listContainer.addEventListener("mousemove", (e) => {
+        if (e.target.classList.contains("preview-link")) {
+          const popupWidth = 600;
+          const popupHeight = 400;
+          
+          let left = e.clientX + 20;
+          let top = e.clientY + 20;
+
+          // 팝업이 화면 우측을 넘어가는 경우 좌측으로 표시
+          if (left + popupWidth > window.innerWidth) {
+            left = e.clientX - popupWidth - 20;
+          }
+          // 팝업이 화면 하단을 넘어가는 경우 위쪽으로 표시
+          if (top + popupHeight > window.innerHeight) {
+            top = e.clientY - popupHeight - 20;
+          }
+
+          previewPopup.style.left = left + "px";
+          previewPopup.style.top = top + "px";
+        }
+      });
+
+      // 3. 링크에서 마우스가 벗어나면 팝업 숨기기 및 초기화
+      listContainer.addEventListener("mouseout", (e) => {
+        if (e.target.classList.contains("preview-link")) {
+          previewPopup.style.display = "none";
+          iframe.src = "";
+        }
+      });
+
     </script>
   </body>
 </html>
