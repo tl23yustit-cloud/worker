@@ -77,6 +77,27 @@
         transition: all 0.2s ease;
       }
 
+      /* 라온 아이콘 CSS 추가 */
+      .ico {
+        &.ico-laon {
+          &-success {
+            background-image: url("../images/common/img_laon_success_102.png");
+          }
+
+          &-search {
+            background-image: url("../images/common/img_laon_search_102.png");
+          }
+
+          &-search-type2 {
+            background-image: url("../images/common/img_laon_search02_102.png");
+          }
+
+          &-warning {
+            background-image: url("../images/common/img_laon_warning_102.png");
+          }
+        }
+      }
+
       /* Grid Layout */
       .icon-grid {
         display: grid;
@@ -158,6 +179,19 @@
         border: 1px solid transparent;
         transition: all 0.2s;
         font-weight: 500;
+      }
+
+      /* 라온 배지 커스텀 스타일 추가 */
+      .style-badge[data-style="laon"] {
+        background-color: #fdf4ff;
+        color: #c084fc;
+        border-color: #fae8ff;
+      }
+      .style-badge[data-style="laon"].active {
+        background-color: #c084fc;
+        color: #ffffff;
+        border-color: #c084fc;
+        font-weight: 600;
       }
 
       .style-badge[data-style="line"] {
@@ -256,7 +290,6 @@
         font-weight: 600;
       }
 
-      /* 국기 (flags) 배지/태그 */
       .style-badge[data-style="flags"] {
         background-color: #fef2f2;
         color: #ef4444;
@@ -269,7 +302,6 @@
         font-weight: 600;
       }
 
-      /* 파일 (file) 배지/태그 */
       .style-badge[data-style="file"] {
         background-color: #f3f0ff;
         color: #7f56d9;
@@ -485,6 +517,7 @@
     <!-- 우측 상단 필터 버튼 영역 -->
     <div class="filter-container">
       <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="laon">라온</button>
       <button class="filter-btn" data-filter="line">Line</button>
       <button class="filter-btn" data-filter="solid">Solid</button>
       <button class="filter-btn" data-filter="sns">SNS</button>
@@ -492,9 +525,7 @@
       <button class="filter-btn" data-filter="card">Card</button>
       <button class="filter-btn" data-filter="etf">ETF</button>
       <button class="filter-btn" data-filter="securities-back">증권</button>
-      <button class="filter-btn" data-filter="securities-circle">
-        증권(원)
-      </button>
+      <button class="filter-btn" data-filter="securities-circle">증권(원)</button>
       <button class="filter-btn" data-filter="flags">국기</button>
       <button class="filter-btn" data-filter="file">File</button>
       <button class="filter-btn" data-filter="etc">기타</button>
@@ -551,6 +582,7 @@
       document.addEventListener("DOMContentLoaded", () => {
         // 배지 라벨 변환 객체
         const badgeLabels = {
+          laon: "라온",
           line: "Line",
           solid: "Solid",
           sns: "SNS",
@@ -565,6 +597,12 @@
         };
 
         const iconData = [
+          /* 라온 아이콘 카테고리 추가 */
+          { name: "ico-laon-success", styles: ["laon"] },
+          { name: "ico-laon-search", styles: ["laon"] },
+          { name: "ico-laon-search-type2", styles: ["laon"] },
+          { name: "ico-laon-warning", styles: ["laon"] },
+
           /* Line 전용 아이콘 */
           {
             name: "ico-chevron-right",
@@ -1163,7 +1201,6 @@
           const defaultStyle = item.styles.length > 0 ? item.styles[0] : "";
           const styleClass = defaultStyle ? defaultStyle + " " : "";
 
-          // 그리드 카드에 초기 적용할 클래스(colors의 첫 번째 값 사용)
           const firstColor =
             item.colors && item.colors.length > 0 ? item.colors[0] : "";
           const colorClass = firstColor ? " " + firstColor : "";
@@ -1197,7 +1234,6 @@
             </div>
           `;
 
-          // 카드 클릭 시 사이드바 오픈
           card.addEventListener("click", () => {
             if (activeCard) activeCard.classList.remove("active");
             activeCard = card;
@@ -1212,14 +1248,11 @@
           iconGrid.appendChild(card);
         });
 
-        // 사이드바 오픈 함수
         function openSidebar() {
           panelTitle.textContent = selectedIconData.name;
 
           if (selectedIconData.colors && selectedIconData.colors.length > 0) {
             colorSection.style.display = "block";
-
-            // 배열의 첫 번째 항목을 기본(초기) 선택값으로 자동 지정
             currentColor = selectedIconData.colors[0];
 
             colorGroup.innerHTML = selectedIconData.colors
@@ -1235,7 +1268,6 @@
               })
               .join("");
 
-            // 생성된 컬러/변형 버튼 클릭 이벤트 바인딩
             colorGroup.querySelectorAll(".color-btn").forEach((btn) => {
               btn.addEventListener("click", () => {
                 colorGroup
@@ -1261,7 +1293,6 @@
           sidebarOverlay.classList.add("open");
         }
 
-        // 사이드바 닫기 함수
         function closeSidebar() {
           sidePanel.classList.remove("open");
           sidebarOverlay.classList.remove("open");
