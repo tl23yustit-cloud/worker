@@ -30,4 +30,7 @@ module.exports = {
 
     // 조회 > 수표/어음조회 
     "inq/cnb/CIBINQ030101000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
+    "inq/cnb/CIBINQ030102000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
+    "inq/cnb/CIBINQ030201000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
+    "inq/cnb/CIBINQ030202000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
 };

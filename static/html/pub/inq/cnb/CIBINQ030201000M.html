@@ -1,0 +1,172 @@
+<!-- CIBINQ030201000M.html.html -->
+<!-- 조회 > 조회 > 수표/어음조회 > 가계수표조회 -->
+<!-- 디자인 미확정 -->
+<!-- 가계수표 샘플 이미지 필요 -->
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/trn.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">
+        @@include('static/html/pub/layout/skipNavigation.html')
+        @@include('static/html/pub/layout/header_sub.html')
+      </div>
+
+      <div id="container" class="container">
+        <div id="leftArea">
+          @@include('static/html/pub/layout/leftArea.html')
+        </div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="bop">
+              <h2 class="typeH2">가게수표조회</h2>
+              <div class="text-center">가계수표 이미지 영역</div>
+              <table class="table-type01">
+                <caption>
+                  수표 발행 정보 입력 표 - 수표권종, 수표매수, 수표시작번호,
+                  발행점, 발행일자 선택 및 입력
+                </caption>
+                <colgroup>
+                  <col />
+                  <col />
+                  <col />
+                  <col />
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th scope="row">수표매수</th>
+                    <td colspan="3">
+                      <div class="box-select wSize-md">
+                        <button
+                          type="button"
+                          class="select size-lg"
+                          role="combobox"
+                          aria-expanded="false"
+                          aria-haspopup="listbox"
+                          aria-controls="selectDropdown02"
+                          id="btnSelectCount"
+                          title="수표매수 선택"
+                        >
+                          <span class="text">선택해주세요</span>
+                          <span class="blind">펼침</span>
+                        </button>
+                        <div id="selectDropdown02" class="box-list-select">
+                          <ul
+                            class="list-select"
+                            role="listbox"
+                            aria-label="수표매수 선택 항목 리스트"
+                          >
+                            <li
+                              class="item-select"
+                              role="option"
+                              aria-selected="false"
+                            >
+                              <span class="form-box">0000-0000-0000</span>
+                            </li>
+                            <li
+                              class="item-select"
+                              role="option"
+                              aria-selected="false"
+                            >
+                              <span class="form-box">1</span>
+                            </li>
+                            <li
+                              class="item-select"
+                              role="option"
+                              aria-selected="false"
+                            >
+                              <span class="form-box">1</span>
+                            </li>
+                            <li
+                              class="item-select"
+                              role="option"
+                              aria-selected="false"
+                            >
+                              <span class="form-box">1</span>
+                            </li>
+                            <li
+                              class="item-select"
+                              role="option"
+                              aria-selected="false"
+                            >
+                              <span class="form-box">1</span>
+                            </li>
+                            <li
+                              class="item-select"
+                              role="option"
+                              aria-selected="false"
+                            >
+                              <span class="form-box">1</span>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <label for="checkNumber01">수표번호①</label>
+                    </th>
+                    <td colspan="3">
+                      <input
+                        type="text"
+                        id="checkNumber01"
+                        class="input wSize-md size-lg"
+                        value=""
+                        placeholder="입력해주세요"
+                        title="수표번호 입력"
+                      />
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">계좌번호②</th>
+                    <td colspan="3">
+                      <input
+                        type="text"
+                        id="checkNumber01"
+                        class="input wSize-md size-lg"
+                        value=""
+                        placeholder="입력해주세요"
+                        title="계좌번호 입력"
+                      />
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="btn-wrap center sm-mid">
+                <button type="button" class="btn type-bg-neutral size-xl">
+                  <span class="text">조회</span>
+                </button>
+              </div>
+              <div class="line-box size-xl mt-48">
+                <span class="typeLgSemibold">이용안내</span>
+                <div class="list type-dotted">
+                  <ul>
+                    <li class="typeMd">
+                      가계수표에 대한 사고신고 유무만을 알렫그리며, 수표의 위조,
+                      변조 및 법적절차에 대한 실효여부등은 확인 할수 없습니다.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
+</html>
