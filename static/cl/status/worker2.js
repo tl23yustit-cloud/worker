@@ -33,4 +33,5 @@ module.exports = {
     "inq/cnb/CIBINQ030102000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
     "inq/cnb/CIBINQ030201000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
     "inq/cnb/CIBINQ030202000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
+    "inq/cnb/CIBINQ030301000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
 };
