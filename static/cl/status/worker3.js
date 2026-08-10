@@ -10,5 +10,5 @@ module.exports = {
     "bop/card/cm/CIBCRD020802000M.html": { "status": "검수중", "worker": "손창우", "note": "" },
     "bop/card/cm/CIBCRD020803000M.html": { "status": "검수중", "worker": "손창우", "note": "" },
     "bop/lon/inq/ip/CIBLON010401000M.html": { "status": "검수중", "worker": "손창우", "note": "" },
-    "bop/foe/or/orhistory/CIBFOE040300000M.html": { "status": "진행중", "worker": "손창우,변혜선", "note": "" }
+    "bop/foe/or/orhistory/CIBFOE040300000M.html": { "status": "검수중", "worker": "손창우,변혜선", "note": "" }
 };
