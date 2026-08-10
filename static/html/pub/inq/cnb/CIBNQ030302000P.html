@@ -1,0 +1,291 @@
+<!-- CIBTRN010110000P.html -->
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/inq.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">
+        @@include('static/html/pub/layout/skipNavigation.html')
+        @@include('static/html/pub/layout/header_sub.html')
+      </div>
+
+      <div id="container" class="container">
+        <div id="leftArea">
+          @@include('static/html/pub/layout/leftArea.html')
+        </div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="inq">
+              <button
+                type="button"
+                class="btn type-bg-primary size-md btn-modal"
+                data-target="modal-01"
+              >
+                <span class="text">모달 버튼</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+
+    <!-- 모달 팝업 영역 -->
+    <div
+      id="modal-01"
+      class="modal is-active"
+      data-dim="true"
+      data-backdrop-close="false"
+      data-alert="true"
+      data-size="md"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modal-title"
+      aria-describedby="modal-desc"
+    >
+      <div class="modal-wrapper">
+        <div class="modal-title" id="modal-title">
+          <h4 class="typeH4">보관어움 계좌조회</h4>
+        </div>
+        <div class="modal-slot" id="modal-desc">
+          <div class="tbl-area">
+            <table class="table-type01">
+              <caption>
+                보관어음 계좌번호, 조회구분, 조회기간 조회정보 입력 테이블
+              </caption>
+              <colgroup>
+                <col style="width: 30%" />
+                <col style="width: 70%" />
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th scope="row">
+                    <label for="checkNumber01">보관어음 계좌번호</label>
+                  </th>
+                  <td>
+                    <span id="checkNumber01">1000-2000-3000</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">조회구분</th>
+                  <td>
+                    <div class="form-box-wrap">
+                      <span class="form-box">
+                        <input
+                          type="radio"
+                          name="nameOfDeposit"
+                          id="depositSearch01"
+                          class="form-radio size-md"
+                          checked
+                        />
+                        <label for="depositSearch01" class="form-label"
+                          >수탁내역조회</label
+                        >
+                      </span>
+                      <span class="form-box">
+                        <input
+                          type="radio"
+                          name="nameOfDeposit"
+                          id="depositSearch02"
+                          class="form-radio size-md"
+                        />
+                        <label for="depositSearch02" class="form-label"
+                          >만기도래명세조회</label
+                        >
+                      </span>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row"><label for="startDate">조회기간</label></th>
+                  <td>
+                    <div class="calendar-wrap">
+                      <div class="input-box">
+                        <input
+                          type="text"
+                          id="startDate"
+                          class="input"
+                          placeholder="조회시작일"
+                          title="조회시작일"
+                          aria-label="조회시작일"
+                          value="2026-01-06"
+                        />
+                        <button type="button" class="btn">
+                          <i
+                            class="ico-calendar ico-size-smMd"
+                            aria-hidden="true"
+                          ></i>
+                          <span class="blind">조회시작일 달력 열기</span>
+                        </button>
+                      </div>
+                      ~
+                      <div class="input-box">
+                        <input
+                          type="text"
+                          id="endDate"
+                          class="input"
+                          placeholder="조회종료일"
+                          title="조회종료일"
+                          aria-label="조회종료일"
+                          value="2026-01-06"
+                        />
+                        <button type="button" class="btn">
+                          <i
+                            class="ico-calendar ico-size-smMd"
+                            aria-hidden="true"
+                          ></i>
+                          <span class="blind">조회종료일 달력 열기</span>
+                        </button>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="btn-wrap center sm-mid">
+            <button type="button" class="btn type-bg-neutral size-xl">
+              <span class="text">조회</span>
+            </button>
+          </div>
+        </div>
+        <div class="tbl-area">
+          <table class="table-type03">
+            <caption>
+              거래일자, 어움번호, 이용금액, 지급은행, 어움발행인명, 지급일자,
+              지급점명 정보 제공 테이블
+            </caption>
+            <colgroup>
+              <col />
+              <col />
+              <col />
+              <col />
+              <col />
+              <col />
+              <col />
+            </colgroup>
+            <thead>
+              <tr>
+                <th>거래일자</th>
+                <th>어움번호</th>
+                <th>이용금액</th>
+                <th>지급은행</th>
+                <th>어움발행인명</th>
+                <th>지급일자</th>
+                <th>지급점명</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td>2026-07-12</td>
+                <td>12312422</td>
+                <td>10,000,000,000</td>
+                <td>0</td>
+                <td>김수협</td>
+                <td>2026-07-10</td>
+                <td>잠실역점</td>
+              </tr>
+              <tr>
+                <td>2026-07-12</td>
+                <td>12312422</td>
+                <td>10,000,000,000</td>
+                <td>0</td>
+                <td>김수협</td>
+                <td>2026-07-10</td>
+                <td>잠실역점</td>
+              </tr>
+              <tr>
+                <td colspan="7">
+                  <div class="empty-page">
+                    <i class="ico-info" aria-hidden="true"></i>
+                    <div class="typeMd">조회하신 거래내역이 없습니다.</div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <nav class="pagination size-md" aria-label="페이지네이션">
+          <button
+            type="button"
+            class="btn-nav first"
+            disabled=""
+            aria-disabled="true"
+            aria-label="첫 페이지"
+          >
+            <span class="blind">첫 페이지</span>
+          </button>
+          <button
+            type="button"
+            class="btn-nav prev"
+            disabled=""
+            aria-disabled="true"
+            aria-label="이전 페이지"
+          >
+            <span class="blind">이전 페이지</span>
+          </button>
+
+          <ol class="list-pagination">
+            <li>
+              <button
+                type="button"
+                class="btn-page active"
+                aria-current="page"
+                aria-label="1페이지"
+              >
+                1
+              </button>
+            </li>
+            <li>
+              <button type="button" class="btn-page" aria-label="2페이지">
+                2
+              </button>
+            </li>
+            <li>
+              <button type="button" class="btn-page" aria-label="3페이지">
+                3
+              </button>
+            </li>
+            <li>
+              <button type="button" class="btn-page" aria-label="4페이지">
+                4
+              </button>
+            </li>
+            <li>
+              <button type="button" class="btn-page" aria-label="5페이지">
+                5
+              </button>
+            </li>
+          </ol>
+
+          <button type="button" class="btn-nav next" aria-label="다음 페이지">
+            <span class="blind">다음 페이지</span>
+          </button>
+          <button type="button" class="btn-nav last" aria-label="마지막 페이지">
+            <span class="blind">마지막 페이지</span>
+          </button>
+        </nav>
+        <button type="button" class="ico btn-close" aria-label="모달 닫기">
+          <i class="ico-close ico-size-smMd" aria-hidden="true"></i>
+          <span class="blind">닫기</span>
+        </button>
+      </div>
+    </div>
+  </body>
+</html>
