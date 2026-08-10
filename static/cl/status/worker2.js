@@ -1,6 +1,10 @@
 module.exports = {
+    //뱅킹관리 > 사용자관리
+    "bmg/CIBUMG080100000M.html": { "status": "검수중", "worker": "이상우", "note": "그리드영역 보완필요" },
+
+
     // 이체 > 계좌이체 > 이체
-    "trn/act/xfr/CIBTRN010101000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
+    "trn/act/xfr/CIBTRN010101000M.html": { "status": "검수중", "worker": "이상우", "note": "08/10 잔여한도 추가" },
     "trn/act/xfr/CIBTRN010102000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
     "trn/act/xfr/CIBTRN010105000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
     "trn/act/xfr/CIBTRN010107000P.html": { "status": "검수중", "worker": "이상우", "note": "" },
