@@ -45,11 +45,13 @@
             margin-bottom: var(--spacing2Xl)
         }
     }
-    .checkbox-wrap{
+
+    .checkbox-wrap {
         display: flex;
         flex-direction: column;
-        gap:var(--spacingLg);
+        gap: var(--spacingLg);
     }
+
     .form-group {
         border-radius: 16px;
         border: 1px solid var(--colorBorderSecondary);
@@ -88,7 +90,164 @@
         }
 
     }
+}
 
+.approval-grid {
+  /* Layout */
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr;
+  gap: var(--spacingMd);
+  align-items: center;
 
+  /* 3개 단위 줄바꿈 시 마지막 화살표 숨김 처리 */
+  li.arrow:nth-child(6n) {
+    display: none;
+  }
 
+  li.card {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: 306px;
+
+    background-color: var(--colorBgAccent);
+
+    /* Modifier: 기안자 카드 */
+    &.drafter {
+      background-color: var(--colorBgHover);
+
+      .step {
+        background-color: var(--colorBgNeutral);
+      }
+    }
+
+    /* 뱃지(필수결재자, OTP 등) 영역 */
+    .legend {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      display: flex;
+      gap: 4px;
+
+      .badge {
+        width: 8px;
+        height: 8px;
+        border-radius: 2px;
+
+        &.purple {
+          background-color: var(--colorAccentFuchsia);
+        }
+
+        &.blue {
+          background-color: var(--colorAccentBlue);
+        }
+      }
+    }
+
+    /* 결재 단계 표시(우측 상단) */
+    .step {
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 6px 20px;
+      border-radius: 8px;
+
+      color: #fff;
+      font-size: var(--fontSizeMd);
+      font-weight: var(--fontWeightSemibold);
+      line-height: var(--lineHeightMd);
+      background-color: var(--colorBgBaseInvert);
+    }
+
+    /* 프로필 영역 */
+    .profile {
+      display: flex;
+      flex-grow: 1;
+      align-items: center;
+      justify-content: center;
+
+      .profile-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        .profile-img {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 64px;
+          height: 64px;
+          border-radius: var(--radiusFull);
+          overflow: hidden;
+
+          img {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+          }
+        }
+
+        .profile-name {
+          margin-top: 8px;
+          font-size: var(--fontSizeXl);
+          font-weight: var(--fontWeightSemibold);
+          line-height: var(--lineHeightXl);
+        }
+
+        .profile-id {
+          margin-bottom: 8px;
+          color: var(--colorFgSecondary);
+          font-size: var(--fontSizeSm);
+          font-weight: var(--fontWeightRegular);
+          line-height: var(--lineHeightSm);
+        }
+
+        .profile-nav {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          padding: 6px;
+          border-radius: 24px;
+          background-color: var(--colorBgBase);
+
+          .pagination-info {
+            font-size: var(--contentFontSizeXs);
+            font-weight: var(--fontWeightMedium);
+            line-height: var(--contentLineHeightXs);
+
+            .total {
+              opacity: 0.5;
+            }
+          }
+        }
+      }
+    }
+
+    /* 금액 정보 영역 (하단) */
+    .money-info {
+      padding: 0 12px 12px 12px;
+
+      dl {
+        display: flex;
+        justify-content: space-between;
+        gap: 8px;
+        padding: 8px;
+        background-color: var(--colorBgBase);
+        
+        font-size: var(--fontSizeMd);
+        line-height: var(--contentLineHeightMd);
+
+        dt {
+          color: var(--colorFgTertiary);
+          font-weight: var(--fontWeightRegular);
+        }
+
+        dd {
+          color: var(--colorFgTertiary);
+          font-weight: var(--fontWeightSemibold);
+        }
+      }
+    }
+  }
 }
