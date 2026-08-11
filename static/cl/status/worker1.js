@@ -58,7 +58,10 @@ module.exports = {
     "bop/foe/or/mfura/or/regist/CIBFOE04040201M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
     "bop/foe/or/orhistory/di/CIBFOE040301000M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
     "bop/foe/or/orhistory/di/crcic/CIBFOE040301001M.html": { "status": "진행중", "worker": "변혜선", "note": "" },
-    "bop/foe/or/orhistory/di/crrcic/CIBFOE040301000M.html": { "status": "진행중", "worker": "변혜선", "note": "" },
+    "bop/foe/or/orhistory/di/crrcic/CIBFOE040301002M.html": { "status": "진행중", "worker": "변혜선", "note": "" },
+    "bop/foe/dli/od/CIBFOE090200000M.html": { "status": "진행중", "worker": "변혜선", "note": "" },
+    "bop/foe/or/orhistory/di/sfcr/CIBFOE040301003p.html": { "status": "진행중", "worker": "변혜선", "note": "" },
+    "bop/foe/or/orhistory/di/ri/CIBFOE040301004p.html": { "status": "진행중", "worker": "변혜선", "note": "" },
     
     // 뱅킹업무(bop) > 대출보유계좌조회(clha) / 계좌상세조회(clrs)
     "bop/lon/inq/clha/정상계좌조회.html": { "status": "수정중", "worker": "변혜선", "note": "" },

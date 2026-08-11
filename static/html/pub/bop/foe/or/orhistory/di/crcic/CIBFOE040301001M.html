@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>수협은행</title>
+  <link rel="stylesheet" href="/static/css/reset.css" />
+  <link rel="stylesheet" href="/static/css/layout.css" />
+  <link rel="stylesheet" href="/static/css/component.css" />
+  <link rel="stylesheet" href="/static/css/common.css" />
+  <!--//20260807 css경로변경-->
+  <link rel="stylesheet" href="/static/css/bop.css" />
+  <!--20260807 css경로변경//-->
+</head>
+
+<body>
+  <div class="wrapper">
+    <div id="header">
+      @@include('static/html/pub/layout/skipNavigation.html')
+      @@include('static/html/pub/layout/header_sub.html')
+    </div>
+
+    <div id="container" class="container">
+      <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+      <div id="contents">
+        <div class="content">
+          @@include('static/html/pub/layout/breadcrumb.html')
+          <div class="bop">
+            <h2 class="typeH2">
+              해외송금취소
+            </h2>
+            <div class="tbl-area">
+              <h4 class="typeH4">
+                <span class="text">송금정보확인</span>
+              </h4>
+              <table class="table-type01">
+                <caption>
+                  송금정보확인
+                </caption>
+                <colgroup>
+                  <col width="200px">
+                  <col>
+                  <col width="200px">
+                  <col>
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th scope="row">송금등록번호</th>
+                    <td>
+                      <span class="typeMd">CS0000000000000000</span>
+                    </td>
+                    <th scope="row">송금등록일</th>
+                    <td>
+                      <span class="typeMd">2026-07-20</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">통화</th>
+                    <td>
+                      <span class="typeMd">USD-미국(달러)</span>
+                    </td>
+                    <th scope="row">송금액</th>
+                    <td class="text-right">
+                      <span class="typeMd">1,000,00</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <table class="table-type01">
+                <caption>
+                  송금정보확인
+                </caption>
+                <colgroup>
+                  <col width="200px">
+                  <col>
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th scope="row">송금인성명</th>
+                    <td>
+                      <span class="typeMd">WHO GIFLDO</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">수취인성명</th>
+                    <td>
+                      <span class="typeMd">BANKCO MUNNICIPAL DE ROSARIO</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">수취인계좌번호</th>
+                    <td>
+                      <span class="typeMd">0000000</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">수취은행명</th>
+                    <td>
+                      <span class="typeMd">BANKCO MUNNICIPAL DE ROSARIO</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="tbl-area">
+              <h4 class="typeH4">
+                <span class="text">출금계좌정보</span>
+              </h4>
+              <table class="table-type01">
+                <caption>
+                  출금계좌정보
+                </caption>
+                <colgroup>
+                  <col width="200px">
+                  <col>
+                  <col width="200px">
+                  <col>
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th scope="row">외화출금계좌번호</th>
+                    <td>
+                      <span class="typeMd">0000-0000-0000</span>
+                    </td>
+                    <th scope="row">외화출금금액</th>
+                    <td class="text-right">
+                      <span class="typeMd">1.00</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">원화출금계좌번호</th>
+                    <td>
+                      <span class="typeMd">0000-0000-0000</span>
+                    </td>
+                    <th scope="row">원화출금금액</th>
+                    <td class="text-right">
+                      <span class="typeMd">1,000원</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <table class="table-type01">
+                <caption>
+                  출금계좌정보
+                </caption>
+                <colgroup>
+                  <col width="200px">
+                  <col>
+                  <col width="200px">
+                  <col>
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th scope="row">이체비밀번호</th>
+                    <td colspan="3">
+                      <div class="input-box">
+                        <input type="password" class="input" placeholder="숫자로 입력" title="이체비밀번호" aria-label="숫자 4자리">
+                        <button type="button" class="btn">
+                          <i class="ico-keypad ico-size-smMd"></i>
+                          <span class="blind">보안 키패드 열기</span>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <table class="table-type01">
+              <caption>
+                OTP
+              </caption>
+              <colgroup>
+                <col>
+                <col>
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th scope="row" rowspan="2" class="noradius">
+                    <label for="OTP">OTP</span>
+                  </th>
+                  <td>
+                    <div class="otp-text-wrap">
+                      <input type="password" id="OTP" class="input wSize-smMd size-lg" placeholder="숫자 6자리" title=""
+                        aria-label="숫자 6자리">
+                      <div class="typeMd">OTP 만료 기한이 <span>14</span>일 남았습니다. <span>(2026-04-30)</span></div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="otp-noti">
+                      <div class="list type-dotted">
+                        <ul>
+                          <li class="typeMd">
+                            OTP에 생성된 숫자 6자리를 입력하세요
+                          </li>
+                          <li class="typeMd">
+                            OTP는 1분마다 새로운 비밀번호가 생성됩니다
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="btn-wrap center lg-bot">
+              <button type="button" class="btn type-line-neutral size-xxl">
+                <span class="text">취소</span>
+              </button>
+              <button type="button" class="btn type-bg-primary size-xxl">
+                <span class="text">송금취소</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+</body>
+
+</html>
+<script>
+
+</script>
