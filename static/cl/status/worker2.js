@@ -3,7 +3,7 @@ module.exports = {
     "bmg/CIBUMG080100000M.html": { "status": "검수중", "worker": "이상우", "note": "그리드영역 보완필요" },
     "bmg/CIBUMG080200000M.html": { "status": "검수중", "worker": "이상우", "note": "디자인 확정아님" },
     "bmg/CIBUMG080300000M.html": { "status": "검수중", "worker": "이상우", "note": "디자인 확정아님" },
-    "bmg/CIBUMG13010000M.html": { "status": "검수중", "worker": "이상우", "note": "디자인 확정아님" },
+    "bmg/CIBUMG130100000M.html": { "status": "검수중", "worker": "이상우", "note": "디자인 확정아님" },
 
 
     // 이체 > 계좌이체 > 이체
