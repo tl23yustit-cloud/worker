@@ -19,9 +19,9 @@ module.exports = {
     "bop/lon/ip/이자납입_이자납입이체완료.html": { "status": "수정중", "worker": "변혜선", "note": "" },
     "bop/lon/ip/이자납입_이자납입확인.html": { "status": "수정중", "worker": "변혜선", "note": "" },
     "bop/lon/ip/이자납입_이체확인증.html": { "status": "수정중", "worker": "변혜선", "note": "" },
-    "bop/lon/ip/E-Mail정보입력.html": { "status": "수정중", "worker": "변혜선", "note": "" },
-    "bop/lon/ip/Fax정보입력.html": { "status": "수정중", "worker": "변혜선", "note": "" },
-    "bop/lon/ip/실행번호선택.html": { "status": "수정중", "worker": "변혜선", "note": "" },
+    "bop/lon/ip/CIBLON020108000p.html": { "status": "진행중", "worker": "변혜선", "note": "" },
+    "bop/lon/ip/CIBLON020109000p.html": { "status": "진행중", "worker": "변혜선", "note": "" },
+    "bop/lon/ip/CIBLON020102000p.html": { "status": "진행중", "worker": "변혜선", "note": "" },
     
     // 뱅킹업무(bop) > 대출 > 이자납입 > 대출상환스케줄조회(clrs)
     "bop/lon/ip/clrs/대출상환스케줄조회.html": { "status": "수정중", "worker": "변혜선", "note": "" },
