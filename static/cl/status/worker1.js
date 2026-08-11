@@ -110,8 +110,8 @@ module.exports = {
     "fin_mfi/npi/faq/ff/CIBFIN_MFI100200000M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
     "fin_mfi/npi/tsp/CIBFIN_TPR040100000T.html": { "status": "검수중", "worker": "변혜선", "note": "" },
     "fin_mfi/npi/tsp/CIBFIN_TPR040101000T.html": { "status": "검수중", "worker": "변혜선", "note": "" },
-    "fin_mfi/npi/tdr/CIBFIN_TPR100200000M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
-    "fin_mfi/npi/rip/CIBFIN_TPR100300000M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
+    "fin_mfi/npi/tdr/CIBFIN_TPR040200000T.html": { "status": "검수중", "worker": "변혜선", "note": "" },
+    "fin_mfi/npi/rip/CIBFIN_TPR040300000T.html": { "status": "검수중", "worker": "변혜선", "note": "" },
     
     // 조회(inq) > 계좌조회 / 거래내역 / 휴면계좌조회
     "inq/alert.html": { "status": "완료", "worker": "변혜선", "note": "" },
@@ -125,10 +125,12 @@ module.exports = {
     "b2b/b2bcpfl/pc/iscd/CIBB2B010201001M.html": { "status": "검수중", "worker": "변혜선", "note": "주석확인" },
     "b2b/b2bcpfl/pc/iscd/CIBB2B010201002M.html": { "status": "검수중", "worker": "변혜선", "note": "" },    
     "b2b/b2bcpfl/pc/ctd_a_r/siar/CIBB2B010202001M.html": { "status": "검수중", "worker": "변혜선", "note": "주석확인" },
-    "b2b/b2bcpfl/pc/ctd_a_r/iv/CIBB2B010202003M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
+    "b2b/b2bcpfl/pc/ctd_a_r/iv/CIBB2B010202003M.html": { "status": "검수중", "worker": "변혜선", "note": "" },    
+    "b2b/b2bcpfl/pc/ctd_a_r/ei/CIBB2B010202002M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
+    "b2b/b2bcpfl/pc/ppf/ei/CIBB2B010203003M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
+    
     "b2b/b2bcpfl/pc/ctd_a_r/verificate/CIBB2B010202004M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
     "b2b/b2bcpfl/pc/ppf/siar/CIBB2B010203001M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
-    "b2b/b2bcpfl/pc/ppf/ei/CIBB2B010203003M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
     "b2b/b2bcpfl/pc/ppf/iv/CIBB2B010203002M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
     "b2b/b2bcpfl/pc/ppf/verificate/CIBB2B010203004M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
     "b2b/b2bcpfl/sug/CIBB2B010100000M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
