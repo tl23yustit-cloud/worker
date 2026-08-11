@@ -52,9 +52,9 @@ module.exports = {
     // 뱅킹업무(bop) > 외환(foe) > 해외송금(or) / 외화환전(fce)
     "bop/foe/or/mfura/dimt/CIBFOE040401000T.html": { "status": "완료", "worker": "변혜선", "note": "" },
     "bop/foe/or/mfura/or/CIBFOE040402000T.html": { "status": "완료", "worker": "변혜선", "note": "" },
-    "bop/foe/or/dor/CIBFOE040104004P.html": { "status": "진행중", "worker": "변혜선", "note": "" },
-    "bop/foe/or/eri/ns/CIBFOE040104002P.html": { "status": "진행중", "worker": "변혜선", "note": "" },
-    "bop/foe/or/eri/swiftcode/CIBFOE040104003P.html": { "status": "진행중", "worker": "변혜선", "note": "" },
+    "bop/foe/or/dor/mfur/CIBFOE040104004P.html": { "status": "진행중", "worker": "변혜선", "note": "" },
+    "bop/foe/or/dor/eri/ns/CIBFOE040104002P.html": { "status": "진행중", "worker": "변혜선", "note": "" },
+    "bop/foe/or/eri/dor/swiftcode/CIBFOE040104003P.html": { "status": "진행중", "worker": "변혜선", "note": "" },
     "bop/foe/fce/fce/CIBFOE050102000M.html": { "status": "완료", "worker": "변혜선", "note": "주석확인" },
     "bop/foe/or/mfura/dimt/regist/CIBFOE04040101M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
     "bop/foe/or/mfura/or/regist/CIBFOE04040201M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
