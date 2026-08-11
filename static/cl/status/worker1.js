@@ -54,7 +54,7 @@ module.exports = {
     "bop/foe/or/mfura/or/CIBFOE040402000T.html": { "status": "완료", "worker": "변혜선", "note": "" },
     "bop/foe/or/dor/eri/mfur/CIBFOE040104004P.html": { "status": "진행중", "worker": "변혜선", "note": "" },
     "bop/foe/or/dor/eri/ns/CIBFOE040104002P.html": { "status": "진행중", "worker": "변혜선", "note": "" },
-    "bop/foe/or/eri/dor/swiftcode/CIBFOE040104003P.html": { "status": "진행중", "worker": "변혜선", "note": "" },
+    "bop/foe/or/dor/eri/swiftcode/CIBFOE040104003P.html": { "status": "진행중", "worker": "변혜선", "note": "" },
     "bop/foe/fce/fce/CIBFOE050102000M.html": { "status": "완료", "worker": "변혜선", "note": "주석확인" },
     "bop/foe/or/mfura/dimt/regist/CIBFOE04040101M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
     "bop/foe/or/mfura/or/regist/CIBFOE04040201M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
@@ -66,7 +66,7 @@ module.exports = {
     "bop/foe/dli/od/detail/CIBFOE090201000M.html": { "status": "진행중", "worker": "변혜선", "note": "" },
     "bop/foe/or/orhistory/di/sfcr/CIBFOE040301003p.html": { "status": "진행중", "worker": "변혜선", "note": "" },
     "bop/foe/or/orhistory/di/ri/CIBFOE040301004p.html": { "status": "진행중", "worker": "변혜선", "note": "" },
-    "bop/foe/or/mor/CIBFOE040104005p.html": { "status": "진행중", "worker": "변혜선", "note": "기억이 안남" },
+    "bop/foe/or/mor/CIBFOE040104005p.html": { "status": "대기", "worker": "변혜선", "note": "기억이 안남" },
   
     
     // 뱅킹업무(bop) > 대출보유계좌조회(clha) / 계좌상세조회(clrs)
