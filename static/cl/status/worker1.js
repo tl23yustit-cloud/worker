@@ -64,9 +64,9 @@ module.exports = {
     "bop/foe/or/orhistory/di/crrcic/CIBFOE040301002M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
     "bop/foe/dli/od/CIBFOE090200000M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
     "bop/foe/dli/od/detail/CIBFOE090201000M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
-    "bop/foe/dli/ped/CIBFOE090300000M.html": { "status": "진행중", "worker": "변혜선", "note": "" },
-    "bop/foe/dli/ai/CIBFOE090400000M.html": { "status": "진행중", "worker": "변혜선", "note": "" },
-    "bop/foe/dli/ai/CIBFOE090401000M.html": { "status": "진행중", "worker": "변혜선", "note": "" },
+    "bop/foe/dli/ped/CIBFOE090300000M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
+    "bop/foe/dli/ai/CIBFOE090400000M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
+    "bop/foe/dli/ai/CIBFOE090401000M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
     "bop/foe/or/orhistory/di/sfcr/CIBFOE040301003p.html": { "status": "검수중", "worker": "변혜선", "note": "" },
     "bop/foe/or/orhistory/di/ri/CIBFOE040301004p.html": { "status": "검수중", "worker": "변혜선", "note": "" },
     "bop/foe/or/mor/CIBFOE040104005p.html": { "status": "검수중", "worker": "변혜선", "note": "주석확인" },
@@ -127,9 +127,9 @@ module.exports = {
     // B2B전자결제(b2b) > 구매자금대출(b2bcpfl)
     "b2b/b2bcpfl/pc/iscd/CIBB2B010201001M.html": { "status": "검수중", "worker": "변혜선", "note": "주석확인" },
     "b2b/b2bcpfl/pc/iscd/CIBB2B010201002M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
-    "b2b/b2bcpfl/pc/pltd/CIBB2B010204001M.html": { "status": "진행중", "worker": "변혜선", "note": "" },
-    "b2b/b2bcpfl/pc/pltd/CIBB2B040200000P.html": { "status": "진행중", "worker": "변혜선", "note": "" },
-    "b2b/b2bcpfl/pc/pltd/CIBB2B040200002P.html": { "status": "진행중", "worker": "변혜선", "note": "" },
+    "b2b/b2bcpfl/pc/pltd/CIBB2B010204001M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
+    "b2b/b2bcpfl/pc/pltd/CIBB2B040200000P.html": { "status": "검수중", "worker": "변혜선", "note": "" },
+    "b2b/b2bcpfl/pc/pltd/CIBB2B040200002P.html": { "status": "검수중", "worker": "변혜선", "note": "" },
 
     "b2b/b2bcpfl/pc/ctd_a_r/siar/CIBB2B010202001M.html": { "status": "검수중", "worker": "변혜선", "note": "주석확인" },
     "b2b/b2bcpfl/pc/ctd_a_r/iv/CIBB2B010202003M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
@@ -143,15 +143,15 @@ module.exports = {
     "b2b/b2bcpfl/sug/CIBB2B010100000M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
 
     //예금/신탁
-    "dts/alert.html": { "status": "진행중", "worker": "변혜선", "note": "" },
-    "dts/deposit/cei/CIBDTS020101000M.html": { "status": "진행중", "worker": "변혜선", "note": "" },
-    "dts/deposit/cei/CIBDTS020102000M.html": { "status": "진행중", "worker": "변혜선", "note": "" },
-    "dts/deposit/cei/CIBDTS020103000M.html": { "status": "진행중", "worker": "변혜선", "note": "" },
-    "dts/deposit/cei/CIBDTS020104000M.html": { "status": "진행중", "worker": "변혜선", "note": "" },
-    "dts/deposit/piri/CIBCRD060100000M.html": { "status": "진행중", "worker": "변혜선", "note": "" },
+    "dts/alert.html": { "status": "검수중", "worker": "변혜선", "note": "" },
+    "dts/deposit/cei/CIBDTS020101000M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
+    "dts/deposit/cei/CIBDTS020102000M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
+    "dts/deposit/cei/CIBDTS020103000M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
+    "dts/deposit/cei/CIBDTS020104000M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
+    "dts/deposit/piri/CIBDTS020300000M.html": { "status": "진행중", "worker": "변혜선", "note": "" },
 
     //뱅킹관리/카드/회원결제관리
-    "bmg/card/mpim/CIBCRD060100000M.html": { "status": "진행중", "worker": "변혜선", "note": "임시 그리드 화면" },
+    "bmg/card/mpim/CIBCRD060100000M.html": { "status": "검수중", "worker": "변혜선", "note": "임시 그리드 화면" },
 
     // 이체(trn) 및 메인(mnd)
     "trn/이체.html": { "status": "대기", "worker": "변혜선", "note": "" },
