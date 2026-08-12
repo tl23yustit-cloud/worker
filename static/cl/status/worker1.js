@@ -148,6 +148,7 @@ module.exports = {
     "dts/deposit/cei/CIBDTS020102000M.html": { "status": "진행중", "worker": "변혜선", "note": "" },
     "dts/deposit/cei/CIBDTS020103000M.html": { "status": "진행중", "worker": "변혜선", "note": "" },
     "dts/deposit/cei/CIBDTS020104000M.html": { "status": "진행중", "worker": "변혜선", "note": "" },
+    "dts/deposit/piri/CIBDTS020104000M.html": { "status": "진행중", "worker": "변혜선", "note": "" },
     
     // 이체(trn) 및 메인(mnd)
     "trn/이체.html": { "status": "대기", "worker": "변혜선", "note": "" },
