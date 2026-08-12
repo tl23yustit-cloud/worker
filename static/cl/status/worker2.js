@@ -24,9 +24,9 @@ module.exports = {
 
     "trn/act/xfr/CIBTRN010601000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
 //   누락본
-    "trn/act/xfr/CIBTRN010103000M.html": { "status": "검수중", "worker": "이상우", "note": "8/12 이체 누락본 추가" },
-    "trn/act/xfr/CIBTRN010104000M.html": { "status": "검수중", "worker": "이상우", "note": "8/12 이체 누락본 추가" },
-    "trn/act/xfr/CIBTRN010602000M.html": { "status": "검수중", "worker": "이상우", "note": "8/12 이체 누락본 추가" },
+    "trn/act/xfr/CIBTRN010103000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
+    "trn/act/xfr/CIBTRN010104000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
+    "trn/act/xfr/CIBTRN010602000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
 
     
 
