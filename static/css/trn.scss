@@ -349,5 +349,104 @@
 		}
 	}
 
+	.acc-card {
+		border: 1px solid var(--colorBorderSecondary);
+		border-radius: var(--radiusLg);
+		overflow: hidden;
 
+		.acc-card-header {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: var(--spacingLg) var(--spacingXl);
+			background-color: var(--colorBgSecondary);
+
+			.left-area {
+				display: flex;
+				align-items: center;
+				gap: 6px;
+
+				.acc-info {
+					display: flex;
+					gap: 4px;
+				}
+			}
+
+			.right-area {
+				display: flex;
+				align-items: center;
+				gap: 16px;
+
+				.btn-group {
+					display: flex;
+					gap: 4px;
+				}
+			}
+
+			.date-info {
+				display: flex;
+				gap: 16px;
+
+				.date-item {
+					display: flex;
+					align-items: center;
+					gap: 4px;
+					font-size: var(--contentFontSizeXs);
+					font-weight: var(--fontWeightRegular);
+					line-height: var(--contentLineHeightXs);
+
+					dt {
+						color: var(--colorFgSecondary);
+					}
+
+					&:nth-child(2) {
+						&::before {
+							content: '';
+							display: inline-block;
+							width: 1px;
+							height: 20px;
+							background-color: #d6dfed;
+							margin-right: 16px;
+						}
+					}
+				}
+			}
+		}
+
+
+
+
+	}
+
+	.acc-card {
+		margin-bottom: var(--spacing4Xl);
+		.acc-card-body {
+			display: flex;
+
+			.summary-box {
+				width: 50%;
+				padding: var(--spacingXl);
+				display: flex;
+				flex-direction: column;
+				gap: 8px;
+
+				&:first-child {
+					border-right: 1px solid var(--colorBorderSecondary)
+				}
+
+				.summary-top {
+					display: flex;
+					align-items: center;
+					gap: 4px;
+				}
+
+				.summary-bottom {
+					display: flex;
+					justify-content: flex-end; // 표준 속성명 사용 (end -> flex-end)
+					align-items: center;
+					gap: 8px;
+				}
+			}
+		}
+	}
 }
