@@ -10,9 +10,9 @@ module.exports = {
 
 
     // 이체 > 계좌이체 > 이체
-    "trn/act/xfr/CIBTRN010101000M.html": { "status": "검수중", "worker": "이상우", "note": "08/10 잔여한도 추가 <br/>진행사항 4-3 번경" },
+    "trn/act/xfr/CIBTRN010101000M.html": { "status": "검수중", "worker": "이상우", "note": "08/10 잔여한도 추가 <br/>진행사항 4->3 변경" },
     "trn/act/xfr/CIBTRN010102000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
-    "trn/act/xfr/CIBTRN010105000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
+    "trn/act/xfr/CIBTRN010105000M.html": { "status": "검수중", "worker": "이상우", "note": "진행사항 4->3 변경" },
     "trn/act/xfr/CIBTRN010107000P.html": { "status": "검수중", "worker": "이상우", "note": "" },
     "trn/act/xfr/CIBTRN010108000P.html": { "status": "검수중", "worker": "이상우", "note": "" },
     "trn/act/xfr/CIBTRN010110000P.html": { "status": "검수중", "worker": "이상우", "note": "" },
@@ -23,9 +23,9 @@ module.exports = {
     "trn/act/xfr/CIBTRN010203000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
 
     "trn/act/xfr/CIBTRN010601000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
-    "trn/act/xfr/CIBTRN010103000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
-
-    "trn/act/xfr/CIBTRN010104000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
+//   누락본
+    "trn/act/xfr/CIBTRN010103000M.html": { "status": "검수중", "worker": "이상우", "note": "8/12 이체 누락본 추가" },
+    "trn/act/xfr/CIBTRN010104000M.html": { "status": "검수중", "worker": "이상우", "note": "8/12 이체 누락본 추가" },
 
 
 
