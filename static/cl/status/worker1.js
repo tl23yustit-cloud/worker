@@ -141,6 +141,13 @@ module.exports = {
     "b2b/b2bcpfl/pc/ppf/iv/CIBB2B010203002M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
     "b2b/b2bcpfl/pc/ppf/verificate/CIBB2B010203004M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
     "b2b/b2bcpfl/sug/CIBB2B010100000M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
+
+    //예금/신탁
+    "dts/alert.html": { "status": "진행중", "worker": "변혜선", "note": "" },
+    "dts/deposit/cei/CIBDTS020101000M.html": { "status": "진행중", "worker": "변혜선", "note": "" },
+    "dts/deposit/cei/CIBDTS020102000M.html": { "status": "진행중", "worker": "변혜선", "note": "" },
+    "dts/deposit/cei/CIBDTS020103000M.html": { "status": "진행중", "worker": "변혜선", "note": "" },
+    "dts/deposit/cei/CIBDTS020104000M.html": { "status": "진행중", "worker": "변혜선", "note": "" },
     
     // 이체(trn) 및 메인(mnd)
     "trn/이체.html": { "status": "대기", "worker": "변혜선", "note": "" },
