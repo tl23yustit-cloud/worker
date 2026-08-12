@@ -8,6 +8,9 @@ module.exports = {
     "bmg/CIBUMG130400000M.html": { "status": "검수중", "worker": "이상우", "note": "디자인 확정아님" },
     "bmg/CIBUMG130500000M.html": { "status": "검수중", "worker": "이상우", "note": "디자인 확정아님" },
 
+    "bmg/CIBUMG130300000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
+
+
 
     // 이체 > 계좌이체 > 이체
     "trn/act/xfr/CIBTRN010101000M.html": { "status": "검수중", "worker": "이상우", "note": "08/10 잔여한도 추가 <br/>진행사항 4->3 변경" },
@@ -23,12 +26,12 @@ module.exports = {
     "trn/act/xfr/CIBTRN010203000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
 
     "trn/act/xfr/CIBTRN010601000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
-//   누락본
+    //   누락본
     "trn/act/xfr/CIBTRN010103000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
     "trn/act/xfr/CIBTRN010104000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
     "trn/act/xfr/CIBTRN010602000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
 
-    
+
 
     // 이체 > 계좌이체 > 지연이체등록내역조회/취소
     "trn/act/dlyt/CIBTRN010301000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
