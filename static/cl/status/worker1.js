@@ -109,7 +109,7 @@ module.exports = {
     "fin_mfi/mff/faq/ff/CIBFIN_MFI100200000M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
     "fin_mfi/npi/faq/ff/CIBFIN_MFI100200000M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
     "fin_mfi/npi/tsp/CIBFIN_TPR040100000T.html": { "status": "검수중", "worker": "변혜선", "note": "" },
-    "fin_mfi/npi/tsp/CIBFIN_TPR040101000T.html": { "status": "검수중", "worker": "변혜선", "note": "" },
+    "fin_mfi/npi/tsp/CIBFIN_TPR040101000P.html": { "status": "검수중", "worker": "변혜선", "note": "" },
     "fin_mfi/npi/tdr/CIBFIN_TPR040200000T.html": { "status": "검수중", "worker": "변혜선", "note": "" },
     "fin_mfi/npi/rip/CIBFIN_TPR040300000T.html": { "status": "검수중", "worker": "변혜선", "note": "" },
     
@@ -124,6 +124,7 @@ module.exports = {
     // B2B전자결제(b2b) > 구매자금대출(b2bcpfl)
     "b2b/b2bcpfl/pc/iscd/CIBB2B010201001M.html": { "status": "검수중", "worker": "변혜선", "note": "주석확인" },
     "b2b/b2bcpfl/pc/iscd/CIBB2B010201002M.html": { "status": "검수중", "worker": "변혜선", "note": "" },    
+    
     "b2b/b2bcpfl/pc/ctd_a_r/siar/CIBB2B010202001M.html": { "status": "검수중", "worker": "변혜선", "note": "주석확인" },
     "b2b/b2bcpfl/pc/ctd_a_r/iv/CIBB2B010202003M.html": { "status": "검수중", "worker": "변혜선", "note": "" },    
     "b2b/b2bcpfl/pc/ctd_a_r/ei/CIBB2B010202002M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
