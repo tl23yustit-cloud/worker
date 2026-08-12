@@ -26,8 +26,9 @@ module.exports = {
 //   누락본
     "trn/act/xfr/CIBTRN010103000M.html": { "status": "검수중", "worker": "이상우", "note": "8/12 이체 누락본 추가" },
     "trn/act/xfr/CIBTRN010104000M.html": { "status": "검수중", "worker": "이상우", "note": "8/12 이체 누락본 추가" },
+    "trn/act/xfr/CIBTRN010602000M.html": { "status": "검수중", "worker": "이상우", "note": "8/12 이체 누락본 추가" },
 
-
+    
 
     // 이체 > 계좌이체 > 지연이체등록내역조회/취소
     "trn/act/dlyt/CIBTRN010301000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
