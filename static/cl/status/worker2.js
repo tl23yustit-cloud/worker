@@ -5,8 +5,8 @@ module.exports = {
     "bmg/CIBUMG080300000M.html": { "status": "검수중", "worker": "이상우", "note": "디자인 확정아님" },
     "bmg/CIBUMG130100000M.html": { "status": "검수중", "worker": "이상우", "note": "디자인 확정아님" },
     "bmg/CIBUMG130200000M.html": { "status": "검수중", "worker": "이상우", "note": "디자인 확정아님" },
-    "bmg/CIBUMG130300000M.html": { "status": "검수중", "worker": "이상우", "note": "디자인 확정아님" },
-
+    "bmg/CIBUMG130400000M.html": { "status": "검수중", "worker": "이상우", "note": "디자인 확정아님" },
+    
 
     // 이체 > 계좌이체 > 이체
     "trn/act/xfr/CIBTRN010101000M.html": { "status": "검수중", "worker": "이상우", "note": "08/10 잔여한도 추가" },
