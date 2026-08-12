@@ -23,6 +23,7 @@ module.exports = {
     "trn/act/xfr/CIBTRN010203000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
 
     "trn/act/xfr/CIBTRN010601000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
+    "trn/act/xfr/CIBTRN010602000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
 
 
     // 이체 > 계좌이체 > 지연이체등록내역조회/취소
