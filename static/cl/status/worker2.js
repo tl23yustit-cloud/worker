@@ -9,6 +9,7 @@ module.exports = {
     "bmg/CIBUMG130500000M.html": { "status": "검수중", "worker": "이상우", "note": "디자인 확정아님" },
 
     "bmg/CIBUMG130300000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
+    "bmg/CIBUMG200100000P.html": { "status": "검수중", "worker": "이상우", "note": "" },
 
 
 
