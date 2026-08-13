@@ -157,6 +157,8 @@ module.exports = {
     "dts/deposit/cei/CIBDTS020104000M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
     "dts/deposit/piri/CIBDTS020300000M.html": { "status": "진행중", "worker": "변혜선", "note": "" },
 
+    "dts/03/06/CIBDTS030600000.html": { "status": "진행중", "worker": "변혜선", "note": "" },
+
     //뱅킹관리/카드/회원결제관리
     "bmg/card/mpim/CIBCRD060100000M.html": { "status": "검수중", "worker": "변혜선", "note": "임시 그리드 화면" },
 
