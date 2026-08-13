@@ -1,0 +1,506 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="/static/css/trn.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">
+        @@include('static/html/pub/layout/skipNavigation.html')
+        @@include('static/html/pub/layout/header_sub.html')
+      </div>
+
+      <div id="container" class="container">
+        <div id="leftArea">
+          @@include('static/html/pub/layout/leftArea.html')
+        </div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="trn">
+              <h2 class="typeH2">
+                MMT출금이체
+                <div class="box-steps">
+                  <ol class="list-steps">
+                    <li class="item-steps current" aria-current="step">
+                      <span class="blind">정보입력</span>
+                      <i class="icon" aria-hidden="true">1</i>
+                      <span class="text">정보입력</span>
+                    </li>
+                    <li class="item-steps">
+                      <i class="icon" aria-hidden="true">2</i>
+                      <span class="text">2</span>
+                    </li>
+                    <li class="item-steps">
+                      <i class="icon" aria-hidden="true">3</i>
+                      <span class="text">3</span>
+                    </li>
+                  </ol>
+                </div>
+              </h2>
+              <div class="tbl-head">
+                <h4 class="typeH4">출금정보</h4>
+              </div>
+              <div class="withdrawal-section">
+                <div class="card-top-content">
+                  <div class="flex gap-16">
+                    <div class="flex justify-center items-center">
+                      <i
+                        class="bank-007 circle ico-size-2xl"
+                        aria-hidden="true"
+                      ></i>
+                    </div>
+                    <div class="flex flex-column">
+                      <span class="type2XlMedium">Sh평생주거래우대통장</span>
+                      <div class="flex items-center gap-8">
+                        <span class="typeLgMedium">1010-12454-123</span>
+                        <button class="flex justify-center items-center">
+                          <i
+                            class="ico line ico-size-smMd ico-chevron-down"
+                            aria-hidden="true"
+                          ></i>
+                          <span class="blind">계좌변경버튼</span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="flex flex-column gap-8">
+                    <dl class="balance-group flex gap-8 justify-end">
+                      <dt class="type3XlSemibold">잔액</dt>
+                      <dd class="type3XlSemibold flex gap-4">
+                        <span>2,125,612,100</span>
+                        <span class="unit">원</span>
+                      </dd>
+                    </dl>
+                    <dl class="balance-group flex gap-12 justify-end">
+                      <dt class="typeLgMedium">출금가능금액</dt>
+                      <dd class="typeLgMedium flex gap-4">
+                        <span class="color-primary">51,000,000</span
+                        ><span class="unit">원</span>
+                      </dd>
+                    </dl>
+                  </div>
+                </div>
+              </div>
+              <div class="tbl-area">
+                <table class="table-type01">
+                  <caption>
+                    계좌비밀번호, 출금구분 입력 테이블
+                  </caption>
+                  <colgroup>
+                    <col />
+                    <col />
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="row">
+                        <span>계좌비밀번호</span>
+                      </th>
+                      <td colspan="3" class="tbl-column">
+                        <input
+                          type="password"
+                          class="input size-lg wSize-smMd"
+                          placeholder="숫자4자리"
+                          title=""
+                        />
+                        <button
+                          type="button"
+                          class="btn type-line-secondary size-lg"
+                        >
+                          <span class="text">마우스입력</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span>출금구분</span>
+                      </th>
+                      <td colspan="3" class="tbl-column">
+                        <div class="form-box-wrap">
+                          <div class="tbl-column">
+                            <div class="form-box-wrap">
+                              <span class="form-box">
+                                <input
+                                  type="radio"
+                                  name="SampleRadio0302"
+                                  id="SampleRadio0302"
+                                  class="form-radio size-md"
+                                  checked=""
+                                />
+                                <label for="SampleRadio0302" class="form-label"
+                                  >원리금</label
+                                >
+                              </span>
+                              <span class="form-box">
+                                <input
+                                  type="radio"
+                                  name="SampleRadio0302"
+                                  id="SampleRadio0302"
+                                  class="form-radio size-md"
+                                />
+                                <label for="SampleRadio0302" class="form-label"
+                                  >원금</label
+                                >
+                              </span>
+                              <span class="form-box">
+                                <input
+                                  type="radio"
+                                  name="SampleRadio0302"
+                                  id="SampleRadio0302"
+                                  class="form-radio size-md"
+                                />
+                                <label for="SampleRadio0302" class="form-label"
+                                  >이자</label
+                                >
+                              </span>
+                            </div>
+                            <div class="tbl-flex">
+                              <span>
+                                (원리금 및 이자출금은 1일 1회만
+                                가능(원금출금제외)</span
+                              >
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="tbl-area">
+                <h4 class="typeH4">입금정보</h4>
+                <table class="table-type01">
+                  <caption>
+                    입금계좌 입력, 이체금액 입력 항목으로 구성된 표
+                  </caption>
+                  <colgroup>
+                    <col />
+                    <col />
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="row">입금계좌</th>
+                      <td>
+                        <div class="tbl-column">
+                          <div class="tbl-flex">
+                            <div class="box-select wSize-md">
+                              <button
+                                type="button"
+                                class="select size-lg"
+                                role="combobox"
+                                aria-expanded="false"
+                                aria-haspopup="listbox"
+                                aria-controls="selectDropdown01"
+                              >
+                                <span class="text"
+                                  >1010-27330000(보통예금)</span
+                                >
+                                <span class="blind">펼침</span>
+                              </button>
+                              <div
+                                id="selectDropdown01"
+                                class="box-list-select"
+                              >
+                                <ul
+                                  class="list-select"
+                                  role="listbox"
+                                  aria-label="선택 항목 리스트"
+                                >
+                                  <li
+                                    class="item-select"
+                                    role="group"
+                                    aria-label="선택 항목 리스트"
+                                  >
+                                    <button>
+                                      <span class="form-box">
+                                        보통예금 1010-27330000
+                                      </span>
+                                    </button>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <th>이체금액</th>
+                      <td>
+                        <div class="tbl-column">
+                          <div class="tbl-flex">
+                            <input
+                              type="text"
+                              class="input size-lg wSize-md"
+                              placeholder="이체금액을 입력하세요"
+                              title=""
+                              value="10,000,000원"
+                            />
+                            <input
+                              type="text"
+                              class="input size-lg wSize-md"
+                              placeholder="입력된 금액이 한글로 표기됩니다."
+                              title=""
+                              readonly=""
+                            />
+                            <button
+                              type="button"
+                              class="btn type-line-secondary size-lg flex gap-4 items-center"
+                            >
+                              <span class="text">재입력</span>
+                            </button>
+                          </div>
+
+                          <ul class="button-group">
+                            <li>
+                              <button
+                                type="button"
+                                class="btn type-bg-neutral-tint size-sm flex items-center gap-4"
+                              >
+                                <i
+                                  class="ico line ico-size-sm ico-plus colorFgNetral"
+                                  aria-hidden="true"
+                                ></i>
+                                <span class="text">1000만</span>
+                              </button>
+                            </li>
+                            <li>
+                              <button
+                                type="button"
+                                class="btn type-bg-neutral-tint size-sm flex items-center gap-4"
+                              >
+                                <i
+                                  class="ico line ico-size-sm ico-plus colorFgNetral"
+                                  aria-hidden="true"
+                                ></i>
+                                <span class="text">500만</span>
+                              </button>
+                            </li>
+                            <li>
+                              <button
+                                type="button"
+                                class="btn type-bg-neutral-tint size-sm flex items-center gap-4"
+                              >
+                                <i
+                                  class="ico line ico-size-sm ico-plus colorFgNetral"
+                                  aria-hidden="true"
+                                ></i>
+                                <span class="text">100만</span>
+                              </button>
+                            </li>
+                            <li>
+                              <button
+                                type="button"
+                                class="btn type-bg-neutral-tint size-sm flex items-center gap-4"
+                              >
+                                <i
+                                  class="ico line ico-size-sm ico-plus colorFgNetral"
+                                  aria-hidden="true"
+                                ></i>
+                                <span class="text">전액</span>
+                              </button>
+                            </li>
+                            <li>
+                              <button
+                                type="button"
+                                class="btn type-bg-neutral-tint size-sm"
+                              >
+                                <span class="text">계산기</span>
+                              </button>
+                            </li>
+                          </ul>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="btn-wrap center lg-bot">
+                <button type="button" class="btn type-bg-primary size-xxl">
+                  <span class="text">다음</span>
+                </button>
+              </div>
+              <div class="line-box size-xl mt-48">
+                <span class="typeLgSemibold">이용안내</span>
+                <div class="list type-dotted">
+                  <ul>
+                    <li class="typeMd">
+                      이체 후에는 취소가 불가능하오니 입력내용을 신중히 확인하여
+                      이체실행하여 주시기 바랍니다.
+                    </li>
+                    <li class="typeMd">
+                      거래시간은 오전 09:00부터 오후 17:00 까지 이체가능합니다.
+                      (토요일, 일요일, 공휴일은 이체 불가)
+                    </li>
+                    <li class="typeMd">
+                      원리금, 원금, 이자출금 거래가 가능하며 원리금, 이자출금시
+                      전체 잔액에 대한 이자가 출금됩니다.
+                    </li>
+                    <li class="typeMd">
+                      타행이체는 불가능하며 당행 연결계좌로 이체만 가능합니다.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+    <script src="/static/js/ui/swiper.min.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var swiperInstances = {};
+
+        var swiperContainers = document.querySelectorAll(
+          ".card-swiper-container",
+        );
+
+        swiperContainers.forEach(function (container, index) {
+          var prevBtn = container.querySelector(".btn-slide-prev");
+          var nextBtn = container.querySelector(".btn-slide-next");
+
+          var cardSwiper = new Swiper(container, {
+            slidesPerView: "auto",
+            slidesPerGroup: 3,
+            spaceBetween: 12,
+            observer: true,
+            observeParents: true,
+            allowTouchMove: true,
+            speed: 300,
+            watchOverflow: false,
+            preventClicks: true,
+            preventClicksPropagation: true,
+
+            navigation: {
+              nextEl: nextBtn,
+              prevEl: prevBtn,
+            },
+
+            on: {
+              init: function () {
+                updateDisabledAttribute(this, prevBtn, nextBtn);
+              },
+              slideChange: function () {
+                updateDisabledAttribute(this, prevBtn, nextBtn);
+              },
+            },
+          });
+
+          swiperInstances[index] = cardSwiper;
+
+          var cardButtons = container.querySelectorAll(
+            ".account-card-container",
+          );
+          cardButtons.forEach(function (btn) {
+            btn.addEventListener("click", function () {
+              cardButtons.forEach(function (otherBtn) {
+                otherBtn.classList.remove("selected");
+                otherBtn.setAttribute("aria-pressed", "false");
+              });
+              this.classList.add("selected");
+              this.setAttribute("aria-pressed", "true");
+            });
+          });
+
+          function updateDisabledAttribute(swiperInstance, prev, next) {
+            if (!prev || !next) return;
+
+            var prevIcon = prev.querySelector("i");
+            var nextIcon = next.querySelector("i");
+
+            if (swiperInstance.isBeginning) {
+              prev.setAttribute("disabled", "true");
+              if (
+                prevIcon &&
+                !prevIcon.classList.contains("color-fg-disabled")
+              ) {
+                prevIcon.classList.add("color-fg-disabled");
+              }
+            } else {
+              prev.removeAttribute("disabled");
+              if (prevIcon) {
+                prevIcon.classList.remove("color-fg-disabled");
+              }
+            }
+
+            if (swiperInstance.isEnd) {
+              next.setAttribute("disabled", "true");
+              if (
+                nextIcon &&
+                !nextIcon.classList.contains("color-fg-disabled")
+              ) {
+                nextIcon.classList.add("color-fg-disabled");
+              }
+            } else {
+              next.removeAttribute("disabled");
+              if (nextIcon) {
+                nextIcon.classList.remove("color-fg-disabled");
+              }
+            }
+          }
+        });
+
+        var tabButtons = document.querySelectorAll(".list-tab-button .btn-tab");
+        var tabContents = document.querySelectorAll(
+          ".box-card-wrapper .box-tab-content",
+        );
+
+        tabButtons.forEach(function (btn, index) {
+          btn.addEventListener("click", function () {
+            // 모든 탭 버튼 비활성화 및 선택 해제
+            tabButtons.forEach(function (b) {
+              b.classList.remove("active");
+              b.setAttribute("aria-selected", "false");
+              b.removeAttribute("title");
+            });
+
+            // 현재 클릭한 탭 활성화
+            this.classList.add("active");
+            this.setAttribute("aria-selected", "true");
+            this.setAttribute("title", "선택됨");
+
+            // 모든 탭 콘텐츠 숨기기
+            tabContents.forEach(function (content) {
+              content.classList.remove("active");
+              content.style.display = "none";
+            });
+
+            // 대응하는 탭 콘텐츠 보이기
+            var targetId = this.getAttribute("aria-controls");
+            var targetContent = document.getElementById(targetId);
+            if (targetContent) {
+              targetContent.classList.add("active");
+              targetContent.style.display = "block";
+
+              var currentSwiperContainer = targetContent.querySelector(
+                ".card-swiper-container",
+              );
+              if (currentSwiperContainer && currentSwiperContainer.swiper) {
+                currentSwiperContainer.swiper.update();
+                currentSwiperContainer.swiper.slideTo(0, 0);
+              }
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
