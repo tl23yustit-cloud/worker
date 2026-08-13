@@ -42,6 +42,9 @@ module.exports = {
 
     //뱅킹업무(bop) > 카드(card) > 
     "bop/card/cm/ccpr/CIBCRD020300000M.html": { "status": "완료", "worker": "변혜선", "note": "" },
+    "bop/card/mpim/smsas/smsasa/CIBCRD060601000T.html": { "status": "진행중", "worker": "변혜선", "note": "임시 그리드 화면" },
+    "bop/card/mpim/smsas/smsasa/CIBCRD060602000M.html": { "status": "진행중", "worker": "변혜선", "note": "임시 그리드 화면, 미확정테이블화면" },
+    "bop/card/mpim/smsas/smsasad/CIBCRD060603000T.html": { "status": "진행중", "worker": "변혜선", "note": "임시 그리드 화면" },
 
     // 뱅킹업무(bop) > 외환(foe) > 수입(import) / FX(fx)
     "bop/foe/import/oilc/수입신용장전문조회_목록.html": { "status": "수정중", "worker": "변혜선", "note": "" },
@@ -156,7 +159,6 @@ module.exports = {
 
     //뱅킹관리/카드/회원결제관리
     "bmg/card/mpim/CIBCRD060100000M.html": { "status": "검수중", "worker": "변혜선", "note": "임시 그리드 화면" },
-    "bmg/card/mpim/smsas/SMS알림서비스.html": { "status": "진행중", "worker": "변혜선", "note": "임시 그리드 화면" },
 
     // 이체(trn) 및 메인(mnd)
     "trn/이체.html": { "status": "대기", "worker": "변혜선", "note": "" },
