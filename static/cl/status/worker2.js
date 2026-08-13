@@ -40,7 +40,7 @@ module.exports = {
     "trn/act/dlyt/CIBTRN010303000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
 
     // 이체 > 계좌이체 > 다계좌이체
-    "trn/act/mact/CIBTRN010401000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
+    "trn/act/mact/CIBTRN010401000M.html": { "status": "검수중", "worker": "이상우", "note": "08/12 컨텐츠 추가 (잔여한도)" },
     "trn/act/mact/CIBTRN010402000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
     "trn/act/mact/CIBTRN010403000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
 
