@@ -84,6 +84,10 @@ module.exports = {
     "bop/lon/inq/clrs/계좌상세단일조회.html": { "status": "수정중", "worker": "변혜선", "note": "" },
     "bop/lon/inq/clrs/계좌상세다건조회.html": { "status": "수정중", "worker": "변혜선", "note": "" },
     "bop/lon/inq/clrs/계좌상세다건조회.html": { "status": "수정중", "worker": "변혜선", "note": "" },
+    "bop/lon/inq/eri_02/CIBLON010501000M.html": { "status": "진행중", "worker": "변혜선", "note": "" },
+    "bop/lon/inq/eri_02/CIBLON020110000p.html": { "status": "진행중", "worker": "변혜선", "note": "" },
+    "bop/lon/inq/eri_02/CIBLON020109000p.html": { "status": "진행중", "worker": "변혜선", "note": "" },
+    "bop/lon/inq/scat/CIBLON010301000M.html": { "status": "진행중", "worker": "변혜선", "note": "" },
 
     // 뱅킹업무(bop) 루트 기타 화면
     "bop/원금상환_이체확인증.html": { "status": "수정중", "worker": "변혜선", "note": "" },
@@ -152,6 +156,7 @@ module.exports = {
 
     //뱅킹관리/카드/회원결제관리
     "bmg/card/mpim/CIBCRD060100000M.html": { "status": "검수중", "worker": "변혜선", "note": "임시 그리드 화면" },
+    "bmg/card/mpim/smsas/SMS알림서비스.html": { "status": "진행중", "worker": "변혜선", "note": "임시 그리드 화면" },
 
     // 이체(trn) 및 메인(mnd)
     "trn/이체.html": { "status": "대기", "worker": "변혜선", "note": "" },
