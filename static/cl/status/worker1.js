@@ -114,9 +114,14 @@ module.exports = {
     "bop/dts/03/06/CIBDTS030600000M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
     "bop/dts/03/07/01/CIBDTS030701000M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
     "bop/dts/03/07/02/CIBDTS030702000M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
+    "bop/dts/03/07/03/CIBDTS030703000P.html": { "status": "진행중", "worker": "변혜선", "note": "" },
     "bop/dts/03/07/04/CIBDTS030704000M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
     "bop/dts/03/07/05/CIBDTS030705000M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
-    "bop/dts/02/02/01/CIBDTS020201000M.html": { "status": "진행중", "worker": "변혜선", "note": "" },
+    "bop/dts/03/07/06/CIBDTS030706000M.html": { "status": "진행중", "worker": "변혜선", "note": "" },
+    "bop/dts/03/07/07/CIBDTS030707000M.html": { "status": "진행중", "worker": "변혜선", "note": "" },
+    "bop/dts/02/02/01/CIBDTS020202000M.html": { "status": "진행중", "worker": "변혜선", "note": "" },
+    "bop/dts/02/02/02/CIBDTS020202000M.html": { "status": "진행중", "worker": "변혜선", "note": "" },
+    "bop/dts/02/02/03/CIBDTS020203000P.html": { "status": "진행중", "worker": "변혜선", "note": "" },
     "bop/dts/02/02/03/CIBDTS020203000P.html": { "status": "진행중", "worker": "변혜선", "note": "" },
 
     // 뱅킹업무(bop) 루트 기타 화면

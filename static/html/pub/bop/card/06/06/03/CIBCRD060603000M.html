@@ -1,0 +1,168 @@
+<!-- CIBUMG080100000M -->
+<!-- 뱅킹관리 > 사용자관리 -->
+<!-- 그리드 영역 보완필요 -->
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>뱅킹업무 &gt; 카드 &gt; 카드_회원결제정보관리 | 수협은행</title>
+  <link rel="stylesheet" href="/static/css/reset.css" />
+  <link rel="stylesheet" href="/static/css/layout.css" />
+  <link rel="stylesheet" href="/static/css/component.css" />
+  <link rel="stylesheet" href="/static/css/common.css" />
+  <link rel="stylesheet" href="/static/css/bop.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <div id="header">
+      @@include('static/html/pub/layout/skipNavigation.html')
+      @@include('static/html/pub/layout/header_sub.html')
+    </div>
+
+    <div id="container" class="container">
+      <div id="leftArea">
+        @@include('static/html/pub/layout/leftArea.html')
+      </div>
+      <div id="contents">
+        <div class="content">
+          @@include('static/html/pub/layout/breadcrumb.html')
+          <div class="bop">
+            <h2 class="typeH2">SMS알림서비스 해지</h2>
+            <div class="tbl-area">
+              <div class="tbl-area">
+                <table class="table-type01">
+                  <caption>
+                    SMS알림서비스 해지 테이블
+                  </caption>
+                  <colgroup>
+                    <col width="180px">
+                    <col width="180px">
+                    <col class="auto">
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th colspan="2">카드번호</th>
+                      <td><span class="typeMd">4567-****-****-1241 (카드상품명)</span></td>
+                    </tr>
+                    <tr>
+                      <th colspan="2">PUSH알림수신</th>
+                      <td>
+                        <span class="typeMd">미신청</span>
+                         <div class="list type-star">
+                          <ul>
+                            <li class="typeMd">
+                              Sh딩동 PUSH 신청 고객은 앱을 통해 PUSH 해제 후 SMS신청 가능합니다.</li>
+                          </ul>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th rowspan="2">서비스신청</th>
+                      <th class="allnoradius">기본</th>
+                      <td><span class="typeMd">010-****-5678</span></td>
+                    </tr>
+                    <tr>
+                      <th class="allnoradius">서비스신청</th>
+                      <td><span class="typeMd">010-****-1234</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="tbl-area">
+              <div class="tbl-area">
+                <table class="table-type01">
+                  <caption>
+                    SMS알림서비스 해지 테이블
+                  </caption>
+                  <colgroup>
+                    <col width="180px">
+                    <col class="auto">
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="row"><span class="required">카드비밀번호</span></th>
+                      <td>
+                        <div class="input-box">
+                          <input type="password" class="input" placeholder="숫자 4자리" title="" aria-label="숫자 4자리">
+                          <button type="button" class="btn">
+                            <i class="ico-keypad ico-size-smMd"></i>
+                            <span class="blind">보안 키패드 열기</span>
+                          </button>
+                        </div>
+                        <div class="list type-reference mt-6">
+                          <ul>
+                            <li class="typeMd">
+                              Sh딩동 PUSH 신청 고객은 앱을 통해 PUSH 해제 후 SMS신청 가능합니다.</li>
+                          </ul>
+                        </div>
+                      </td>
+                    </tr>                    
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="tbl-area">
+              <div class="tbl-head">
+                <div class="left-area">
+                  <h6 class="typeH6">OTP 비밀번호 입력</h6>
+                </div>
+              </div>
+              <table class="table-type01">
+                <caption>
+                  OTP
+                </caption>
+                <colgroup>
+                  <col>
+                  <col>
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th scope="row" rowspan="2" class="noradius">
+                      <label for="OTP">OTP
+                      </label>
+                    </th>
+                    <td>
+                      <div class="otp-text-wrap">
+                        <input type="password" id="OTP" class="input wSize-smMd size-lg" placeholder="숫자 6자리" title=""
+                          aria-label="숫자 6자리">
+                        <div class="typeMd">OTP 만료 기한이 <span>14</span>일 남았습니다.
+                          <span>(2026-04-30)</span>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="otp-noti">
+                        <div class="list type-dotted">
+                          <ul>
+                            <li class="typeMd">
+                              OTP에 생성된 숫자 6자리를 입력하세요
+                            </li>
+                            <li class="typeMd">
+                              OTP는 1분마다 새로운 비밀번호가 생성됩니다
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+    </div>
+    <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+  </div>
+  <script src="/static/js/ui/cib_ui_common.js"></script>
+</body>
+
+</html>
+<script></script>
