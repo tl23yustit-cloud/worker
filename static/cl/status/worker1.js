@@ -119,7 +119,7 @@ module.exports = {
     "bop/dts/03/07/05/CIBDTS030705000M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
     "bop/dts/03/07/06/CIBDTS030706000M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
     "bop/dts/03/07/07/CIBDTS030707000M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
-    "bop/dts/02/02/01/CIBDTS020202000M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
+    "bop/dts/02/02/01/CIBDTS020201000M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
     "bop/dts/02/02/02/CIBDTS020202000M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
     "bop/dts/02/02/03/CIBDTS020203000P.html": { "status": "검수중", "worker": "변혜선", "note": "" },
     "bop/dts/02/02/03/CIBDTS020203000P.html": { "status": "검수중", "worker": "변혜선", "note": "" },
