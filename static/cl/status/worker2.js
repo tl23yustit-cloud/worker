@@ -57,6 +57,14 @@ module.exports = {
     "inq/cnb/CIBINQ030202000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
     "inq/cnb/CIBINQ030301000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
     "inq/cnb/CIBNQ030302000P.html": { "status": "검수중", "worker": "이상우", "note": "" },
+    //이체 > MMT 출금이체
+    "trn/05/01/01/CIBTRN050101000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
+    "trn/05/01/02/CIBTRN050102000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
+    "trn/05/01/03/CIBTRN050103000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
+    //이체 > MMT 입금
+    "trn/05/02/01/CIBTRN050201000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
+    "trn/05/02/02/CIBTRN050202000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
+    "trn/05/02/03/CIBTRN050203000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
 
 };
 
