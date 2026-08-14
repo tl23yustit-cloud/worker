@@ -65,6 +65,9 @@ module.exports = {
     "trn/05/02/01/CIBTRN050201000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
     "trn/05/02/02/CIBTRN050202000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
     "trn/05/02/03/CIBTRN050203000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
+    // 금융상품 > 해양수신금융 > 해양수산금융소식
+    "fin_mfi/11/CIBFIN_MF110000000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
+    "fin_mfi/11/CIBFIN_MF110100000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
 
 };
 
