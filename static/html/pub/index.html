@@ -192,7 +192,24 @@
         background: #f8f8f8;
       }
 
-     
+      /* 💡 dev 모드 이슈 행 스타일 */
+      tr.dev-issue {
+        background-color: #fff5f5 !important;
+      }
+      tr.dev-issue:hover {
+        background-color: #ffe3e3 !important;
+      }
+      .issue-badge {
+        display: inline-block;
+        padding: 2px 6px;
+        margin-right: 4px;
+        font-size: 11px;
+        font-weight: 600;
+        color: #dc2626;
+        background: #fee2e2;
+        border-radius: 4px;
+      }
+
       #preview-popup {
         display: none;
         position: fixed;
@@ -241,135 +258,6 @@
     </div>
 
     <script>
-      const depthName = {
-        inq: "조회",
-        trn: "이체",
-        card: "카드",
-        fin: "금융상품",
-        fin_mfi: "금융상품(수협은행)",
-        fns: "금융서비스",
-        b2b: "B2B전자결제",
-        bmg: "뱅킹관리",
-        aug: "인증센터",
-        fpd: "공시실",
-        cbu: "기업뱅킹 이용가이드",
-        bop: "뱅킹업무",
-        sil: "간편조회",
-        mnd: "메인",
-        bni: "은행소개",
-        cmn: "공통 팝업 및 화면",
-        cst: "고객센터",
-        fcp: "금융소비자포털",
-        dts: "예금/신탁",
-
-        //2depth
-        deposit: "예금",
-        clrs: "대출상환스케줄조회",
-        lon: "대출",
-        foe: "외환",
-        tpr: "신탁",
-        act: "계좌이체",
-        b2bcpfl: "B2B기업구매자금대출",
-        or: "해외송금",
-        fce: "외화환전",
-        cm: "카드관리",
-        mff: "해양수산금융",
-        cnb:"수표/어음조회",
-        //3depth
-        cei: "해지예상조회",
-        piri: "우대금리예상조회",
-        npi: "기준가_수익조회",
-        dor:"무증빙해외송금",
-        ccpr: "기업카드비밀번호등록",
-        ip: "이자납입",
-        rop: "원금상환",
-        import: "수입",
-        fx: "FX",
-        dli: "내국신용장조회",
-        pom: "상품성 신탁 운용방법 및 소수율 현황",
-        cdpst: "연금저축신탁 비교공시",
-        dlyt: "지연이체등록내역조회/취소",
-        ai: "계좌조회",
-        mact: "다계좌이체",
-        xfr: "이체",
-        sug: "서비스이용안내",
-        pc: "구매기업",
-        trr: "서식자료실",
-        smt: "특정금전신탁",
-        mpim: "회원_결제정보관리",
-        eri_02: "상환예상조회",
-        scat: "종합통장거래내역",
-        smsas: "SMS알림서비스",
-
-        //4depth
-        smsasa: "SMS알림서비스신청",
-        smsasi: "SMS알림서비스조회",        
-        smsasad: "SMS알림서비스신청내역",
-        smsasadi: "SMS알림서비스신청내역조회",
-        ped:"결제대상내역",
-        pltd:"구매자금대출내역",
-        tsp: "신탁기준가격",
-        tdr: "신탁배당률",
-        rip: "기간별수익률",
-        eri:"송금정보입력",
-        od:"개설내역",
-        rip: "상환_이자납입",
-        pd: "매입명세",
-        clha: "대출보유계좌조회",
-        oilc: "수입신용장개설",
-        ctl: "한도조회",
-        ctd: "거래내역조회",
-        hai: "휴먼계좌조회",
-        rthf: "거래내역파일요청",
-        iscd: "매매계약내역조회",
-        faq: "FAQ",
-        ctd_a_r: "추심인수대상내역(인수/거절)",
-        ppf: "구매자금대금결제",
-
-        //5depth
-        
-        ns:"국가검색",
-        al: "신청목록",
-        eai: "신청목록",
-        ob: "신청정보입력",
-        ourb: "당행",
-        othb: "타행",
-        
-        mfur: "자주쓰는송금계좌",
-        mfura: "자주쓰는송금계좌관리",
-        ad: "계좌상세",
-        ld: "대출상세",
-        rs: "대출상세",
-        mor: "최근송금내역",
-        general: "총론",
-        ff: "영어자금",
-        orhistory: "해외송금내역조회",
-        siar:"조회입력 및 결과",
-        ei:"정보입력",
-        iv:"정보확인",
-        verificate:"확인",
-
-        //6depth
-        di: "상세조회",
-        detail: "상세",
-        dimt: "국내외화이체",
-        guide: "가이드",
-        popup: "팝업",
-        common: "공통",
-        components: "컴포넌트",
-        main: "메인",
-        sub: "서브",
-        cst: "고객센터",
-
-        //7depth
-        regist: "등록",
-        crcic:"기업송금송금취소_정보확인",
-        crrcic:"기업송금송금취소_정보완료",
-        sfcr:"[팝업]외화송금내역서",
-        ri:"[팝업]외화송금계산서",
-        interest_situation: "이자상환",
-      };
-
       async function loadList() {
         try {
           const res = await fetch("/static/html/pub/list.json");
@@ -384,6 +272,7 @@
 
             const filtered = data.filter((item) => {
               const title = (item.title || "").toLowerCase();
+              const fileId = (item.fileId || "").toLowerCase();
               const file = (item.file || "").toLowerCase();
               const worker = (item.worker || "").toLowerCase();
               const note = (item.note || "").toLowerCase();
@@ -391,6 +280,7 @@
 
               return (
                 title.includes(keyword) ||
+                fileId.includes(keyword) ||
                 file.includes(keyword) ||
                 worker.includes(keyword) ||
                 note.includes(keyword) ||
@@ -429,12 +319,11 @@
       function render(data) {
         const container = document.querySelector("#list");
         if (!data.length) {
-          container.innerHTML =
-            "<p style='padding:20px;'>표시할 데이터가 없습니다.</p>";
+          container.innerHTML = "<p style='padding:20px;'>표시할 데이터가 없습니다.</p>";
           return;
         }
 
-        const maxDepth = Math.max(...data.map((item) => item.depths.length));
+        const maxDepth = Math.max(...data.map((item) => (item.depths ? item.depths.length : 0)));
 
         let depthHeader = "";
         for (let i = 0; i < maxDepth; i++) {
@@ -443,31 +332,41 @@
 
         const groups = {};
         data.forEach((item) => {
-          const key = item.depths[0] || "기타";
+          const key = (item.depths && item.depths[0]) ? item.depths[0] : "분류 미지정";
           if (!groups[key]) {
             groups[key] = [];
           }
           groups[key].push(item);
         });
 
+        const sortedKeys = Object.keys(groups).sort((a, b) => {
+          if (a === "분류 미지정") return -1;
+          if (b === "분류 미지정") return 1;
+          return a.localeCompare(b, "ko");
+        });
+
+        // 💡 URL 파라미터 감지 (?dev)
+        const urlParams = new URLSearchParams(window.location.search);
+        const isDevMode = urlParams.has('dev');
+
         let html = "";
 
-        Object.keys(groups).forEach((group) => {
+        sortedKeys.forEach((group) => {
           groups[group].sort((a, b) => {
-            const depthA = a.depths.join("/");
-            const depthB = b.depths.join("/");
+            const depthA = (a.depths || []).join("/");
+            const depthB = (b.depths || []).join("/");
             return depthA.localeCompare(depthB, "ko");
           });
 
           html += `
             <section class="pub-section">
-                <h2>${depthName[group] || group}</h2>
+                <h2>${group}</h2>
                 <table>
                     <thead>
                         <tr>
                             ${depthHeader}
                             <th>화면명</th>
-                            <th>파일명</th>
+                            <th>화면ID</th>
                             <th>상태</th>
                             <th>수정일</th>
                             <th>보기</th>
@@ -481,19 +380,29 @@
           groups[group].forEach((item) => {
             const status = item.status || "대기";
             const worker = item.worker || "-";
-            const note = item.note || "-";
+            let note = item.note || "-";
+            const displayFileId = item.fileId || (item.file ? item.file.replace('.html', '') : '-');
+            const displayTitle = item.title || item.fileId || "제목 없음";
+
+            // 💡 dev 모드일 때 매칭 오류 행 강조 및 비고란 뱃지 처리
+            let trClass = "";
+            if (isDevMode && item.hasIssues) {
+                trClass = "dev-issue";
+                const issueTexts = (item.issueReasons || []).map(reason => `<span class="issue-badge">${reason}</span>`).join('');
+                note = issueTexts + (note !== "-" ? ` ${note}` : "");
+            }
 
             let depthTd = "";
             for (let i = 0; i < maxDepth; i++) {
-              const depth = item.depths[i];
-              depthTd += `<td>${depth ? depthName[depth] || depth : "-"}</td>`;
+              const depth = item.depths ? item.depths[i] : null;
+              depthTd += `<td>${depth || "-"}</td>`;
             }
 
             html += `
-                <tr>    
+                <tr class="${trClass}">    
                     ${depthTd}
-                    <td>${item.title}</td>
-                    <td>${item.file}</td>
+                    <td>${displayTitle}</td>
+                    <td>${displayFileId}</td>
                     <td>
                         <span class="status ${getStatusClass(status)}">${status}</span>
                     </td>
@@ -524,7 +433,6 @@
       const iframe = document.getElementById("preview-iframe");
       const listContainer = document.querySelector("#list");
 
-      // 1. 링크 위에 마우스가 올라갔을 때 팝업 띄우기
       listContainer.addEventListener("mouseover", (e) => {
         if (e.target.classList.contains("preview-link")) {
           const targetUrl = e.target.getAttribute("href");
@@ -533,7 +441,6 @@
         }
       });
 
-      // 2. 마우스를 따라다니도록 위치 실시간 계산
       listContainer.addEventListener("mousemove", (e) => {
         if (e.target.classList.contains("preview-link")) {
           const popupWidth = 600;
@@ -542,11 +449,9 @@
           let left = e.clientX + 20;
           let top = e.clientY + 20;
 
-          // 팝업이 화면 우측을 넘어가는 경우 좌측으로 표시
           if (left + popupWidth > window.innerWidth) {
             left = e.clientX - popupWidth - 20;
           }
-          // 팝업이 화면 하단을 넘어가는 경우 위쪽으로 표시
           if (top + popupHeight > window.innerHeight) {
             top = e.clientY - popupHeight - 20;
           }
@@ -556,7 +461,6 @@
         }
       });
 
-      // 3. 링크에서 마우스가 벗어나면 팝업 숨기기 및 초기화
       listContainer.addEventListener("mouseout", (e) => {
         if (e.target.classList.contains("preview-link")) {
           previewPopup.style.display = "none";

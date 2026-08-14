@@ -20,11 +20,9 @@ function clean(cb) {
 function generatePubList(done) {
     let statusMap = {};
 
-    // 💡 status.js 파일 경로를 static/cl/status/로 변경 반영
     const statusJsPath = path.resolve('./static/cl/status/status.js');
-    
+
     if (fs.existsSync(statusJsPath)) {
-        // 하위 worker 파일들까지 require 캐시 초기화 (수정 즉시 반영)
         Object.keys(require.cache).forEach(key => {
             if (key.includes(path.resolve('./static/cl/status'))) {
                 delete require.cache[key];
@@ -42,28 +40,52 @@ function generatePubList(done) {
         const stat = fs.statSync(file);
 
         const fileName = path.basename(file);
-        const title = path.basename(file, ".html");
+        const fileId = path.basename(file, ".html");
 
-        const depths = path
+        const statusKey = path
+            .relative("static/html/pub", file)
+            .replace(/\\/g, "/");
+
+        const hasMapping = Object.prototype.hasOwnProperty.call(statusMap, statusKey);
+        const statusInfo = statusMap[statusKey] || {};
+
+        const defaultDepths = path
             .dirname(file)
             .replace(/^static[\\/]html[\\/]/, "")
             .split(/[\\/]/)
             .slice(1);
 
-        const statusKey = depths.concat(fileName).join("/");
-        const statusInfo = statusMap[statusKey] || {};
+        const depths = (statusInfo.depths && statusInfo.depths.length > 0)
+            ? statusInfo.depths
+            : defaultDepths;
+
+        const title = statusInfo.title || fileId;
+
+        // 💡 누락 사유(Validation) 진단 로직 추가
+        const issues = [];
+        if (!hasMapping) {
+            issues.push("status.js 미등록");
+        } else {
+            if (!statusInfo.depths || statusInfo.depths.length === 0) {
+                issues.push("뎁스(depths) 누락");
+            }
+            if (!statusInfo.title) {
+                issues.push("화면명(title) 누락");
+            }
+        }
 
         return {
             depths,
             title,
+            fileId,
             file: fileName,
             status: statusInfo.status || "대기",
             worker: statusInfo.worker || "-",
             note: statusInfo.note || "-",
-            link: path
-                .relative("static/html/pub", file)
-                .replace(/\\/g, "/"),
-            modified: stat.mtime.toLocaleString("ko-KR")
+            link: statusKey,
+            modified: stat.mtime.toLocaleString("ko-KR"),
+            hasIssues: issues.length > 0,
+            issueReasons: issues 
         };
     });
 
@@ -73,7 +95,6 @@ function generatePubList(done) {
         fs.mkdirSync(outputDir, { recursive: true });
     }
 
-    // dist/static/html/pub/list.json 파일 자동 생성
     fs.writeFileSync(
         path.join(outputDir, "list.json"),
         JSON.stringify(list, null, 2)
@@ -154,7 +175,6 @@ function watchFiles() {
         port: 3000
     });
 
-    // 💡 HTML 변경 또는 cl 폴더 내 status JS 파일 변경 시 list.json 재생성 및 리로드
     gulp.watch(['static/html/**/*.html', 'static/cl/status/**/*.js'], gulp.series(generatePubList, html, (done) => { browserSync.reload(); done(); }));
     gulp.watch(['static/css/**/*.scss', 'static/cl/**/*.scss'], gulp.series(styles, (done) => { browserSync.reload(); done(); }));
     gulp.watch(['static/js/**/*', 'static/images/**/*', 'static/css/**/font/**/*', 'static/cl/**/*', '!static/cl/**/*.scss'], gulp.series(copyAssets, (done) => { browserSync.reload(); done(); }));

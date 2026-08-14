@@ -71,8 +71,16 @@ module.exports = {
 
 
     // 금융상품 > 부동산신탁공매물건정보  
-    "fin_tpr/06/CIBFIN_TPR060000000.html": { "status": "검수중", "worker": "이상우", "note": "" },
-    "fin_tpr/06/CIBFIN_TPR060100000.html": { "status": "검수중", "worker": "이상우", "note": "" },
+    "fin_tpr/06/CIBFIN_TPR060000000.html": {
+        "depths": ["금융상품", "부동산신탁공매물건정보"],
+        "title": "부동산신탁공매물건정보 리스트", "status": "검수중", "worker": "이상우", "note": ""
+    },
+    "fin_tpr/06/CIBFIN_TPR060100000.html": {
+        "depths": ["금융상품", "부동산신탁공매물건정보"],
+        "title": "부동산신탁공매물건정보 디테일", "status": "검수중", "worker": "이상우", "note": ""
+    },
 
+
+    //
 };
 
