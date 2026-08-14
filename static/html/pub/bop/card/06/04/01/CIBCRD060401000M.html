@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>뱅킹업무 &gt; 카드 &gt; 카드_회원결제정보관리 &gt; 결제일변경(조회) | 수협은행</title>
+	<link rel="stylesheet" href="/static/css/reset.css" />
+	<link rel="stylesheet" href="/static/css/layout.css" />
+	<link rel="stylesheet" href="/static/css/component.css" />
+	<link rel="stylesheet" href="/static/css/common.css" />
+	<link rel="stylesheet" href="/static/css/bop.css" />
+</head>
+
+<body>
+	<div class="wrapper">
+		<div id="header">
+			@@include('static/html/pub/layout/skipNavigation.html')
+			@@include('static/html/pub/layout/header_sub.html')
+		</div>
+
+		<div id="container" class="container">
+			<div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+			<div id="contents">
+				<div class="content">
+					@@include('static/html/pub/layout/breadcrumb.html')
+					<div class="bop">
+						<h2 class="typeH2">
+							결제일변경
+						</h2>
+						<div class="tbl-area">
+							<div class="wrap-board-grid">
+								<!-- [dev] 그리드 -->
+								<div class="board-grid">
+									<!-- [dev] 그리드 컨텐츠 영역 : 작업 시 삭제-->
+									<i style="
+                        display: block;
+                        border: var(--borderWidthMd) solid
+                          var(--colorBorderBase);
+                        border-radius: var(--radiusMd);
+                        padding: var(--spacing2Xl);
+                      ">임시 그리드 영역</i>
+									<!-- //[dev] 그리드 컨텐츠 영역 : 작업 시 삭제 -->
+								</div>
+								<!-- //[dev] 그리드 -->
+							</div>
+						</div>
+						<div class="tbl-area">
+							<table class="table-type01">
+								<caption>
+									상환예상조회 테이블
+								</caption>
+								<colgroup>
+									<col width="180px">
+									<col class="auto">
+								</colgroup>
+								<tbody>
+									<tr>
+										<th>변경전결제일</th>
+										<td><span class="typeMd">17일</span></td>
+									</tr>
+									<tr>
+										<th scope="row"><span class="required">유효기간</span></th>
+										<td>
+											<div class="tbl-column">
+												<div class="calendar-wrap">
+													<div class="input-box">
+														<input type="text" class="input" placeholder="상환예정일자"
+															aria-label="상환예정일자" value="2026-01-06">
+														<button type="button" class="btn">
+															<i class="ico-calendar ico-size-smMd"
+																aria-hidden="true"></i>
+															<span class="blind">상환예정일자 달력 열기</span>
+														</button>
+													</div>
+												</div>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<th scope="row"><span class="required">카드비밀번호</span></th>
+										<td>
+											<div class="input-box">
+												<input type="password" class="input" placeholder="숫자 4자리" title=""
+													aria-label="숫자 4자리">
+												<button type="button" class="btn">
+													<i class="ico-keypad ico-size-smMd"></i>
+													<span class="blind">보안 키패드 열기</span>
+												</button>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<th scope="row"><span class="required">변경후결제일</span></th>
+										<td colspan="3">
+											<div class="tbl-flex">
+												<div class="tbl-column">
+													<div class="box-select wSize-smMd">
+														<button type="button" class="select size-lg" role="combobox"
+															aria-expanded="false" aria-haspopup="listbox"
+															aria-controls="selectDropdown01" title="계좌번호">
+															<span class="text">선택하세요</span>
+															<span class="blind">펼침</span>
+														</button>
+														<div id="selectDropdown01" class="box-list-select">
+															<ul class="list-select" role="listbox"
+																aria-label="선택 항목 리스트">
+																<li class="item-select" role="group">
+																	<button type="button" class="btn-item-select">
+																		0000-0000-0000 (기업운전일반자금대출)
+																	</button>
+																</li>
+																<li class="item-select" role="group">
+																	<button type="button" class="btn-item-select">
+																		직접입력
+																	</button>
+																</li>
+															</ul>
+														</div>
+													</div>
+												</div>
+												<div class="list type-reference">
+													<ul>
+														<li class="typeMd">
+															1~25일 선택(7,8,9,16,17,18일 제외)
+														</li>
+													</ul>
+												</div>
+												<button type="button" class="btn type-line-secondary size-lg">
+													<span class="text">결제일별 이용기간 안내</span>
+												</button>
+											</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="tbl-area">
+							<div class="tbl-head">
+								<div class="left-area">
+									<h6 class="typeH6">OTP 비밀번호 입력</h6>
+								</div>
+							</div>
+							<table class="table-type01">
+								<caption>
+									OTP
+								</caption>
+								<colgroup>
+									<col>
+									<col>
+								</colgroup>
+								<tbody>
+									<tr>
+										<th scope="row" rowspan="2" class="noradius">
+											<label for="OTP">OTP
+											</label>
+										</th>
+										<td>
+											<div class="otp-text-wrap">
+												<input type="password" id="OTP" class="input wSize-smMd size-lg"
+													placeholder="숫자 6자리" title="" aria-label="숫자 6자리">
+												<div class="typeMd">OTP 만료 기한이 <span>14</span>일 남았습니다.
+													<span>(2026-04-30)</span>
+												</div>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<div class="otp-noti">
+												<div class="list type-dotted">
+													<ul>
+														<li class="typeMd">
+															OTP에 생성된 숫자 6자리를 입력하세요
+														</li>
+														<li class="typeMd">
+															OTP는 1분마다 새로운 비밀번호가 생성됩니다
+														</li>
+													</ul>
+												</div>
+											</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="btn-wrap center">
+							<button type="button" class="btn type-bg-primary size-xxl">
+								<span class="text">결제일 변경</span>
+							</button>
+						</div>
+						<div class="line-box size-xl mt-48">
+							<span class="typeLgSemibold">이용안내</span>
+							<div class="list type-dotted">
+								<ul>
+									<li class="typeMd">
+										대상카드: 기업 신용카드
+									</li>
+									<li class="typeMd">
+										결제일: 1일 ~ 25일 선택 (7, 8, 9, 16, 17, 18일 제외)
+									</li>
+									<li class="typeMd">
+										재변경 제한: 결제일 변경 후 60일 경과후에 재변경 가능합니다.
+									</li>
+									<li class="typeMd">
+										유의사항: 결제일 변경 시 결제일별 카드이용기간에 따라 한달에 두번, 변경전/후 결제일에 각각 청구될 수 있으니 유의하시기 바랍니다.
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+		</div>
+		<div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+	</div>
+	<script src="/static/js/ui/cib_ui_common.js"></script>
+</body>
+
+</html>
+<script>
+
+</script>
