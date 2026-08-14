@@ -69,5 +69,10 @@ module.exports = {
     "fin_mfi/11/CIBFIN_MF110000000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
     "fin_mfi/11/CIBFIN_MF110100000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
 
+
+    // 금융상품 > 부동산신탁공매물건정보  
+    "fin_tpr/06/CIBFIN_TPR060000000.html": { "status": "검수중", "worker": "이상우", "note": "" },
+    "fin_tpr/06/CIBFIN_TPR060100000.html": { "status": "검수중", "worker": "이상우", "note": "" },
+
 };
 
