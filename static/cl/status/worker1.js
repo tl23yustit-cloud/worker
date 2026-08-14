@@ -160,8 +160,8 @@ module.exports = {
     "dts/03/06/CIBDTS030600000M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
     "dts/03/07/01/CIBDTS030701000M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
     "dts/03/07/02/CIBDTS030702000M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
-    "dts/03/07/03/CIBDTS030701000M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
-    "dts/03/07/04/CIBDTS030705000M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
+    "dts/03/07/04/CIBDTS030704000M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
+    "dts/03/07/05/CIBDTS030705000M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
 
     //뱅킹관리/카드/회원결제관리
     "bmg/card/mpim/CIBCRD060100000M.html": { "status": "검수중", "worker": "변혜선", "note": "임시 그리드 화면" },
