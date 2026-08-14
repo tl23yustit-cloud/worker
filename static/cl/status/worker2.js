@@ -1,86 +1,85 @@
 module.exports = {
-    //뱅킹관리 > 사용자관리
-    "bmg/CIBUMG080100000M.html": { "status": "검수중", "worker": "이상우", "note": "그리드영역 보완필요" },
-    "bmg/CIBUMG080200000M.html": { "status": "검수중", "worker": "이상우", "note": "디자인 확정아님" },
-    "bmg/CIBUMG080300000M.html": { "status": "검수중", "worker": "이상우", "note": "디자인 확정아님" },
-    "bmg/CIBUMG130100000M.html": { "status": "검수중", "worker": "이상우", "note": "디자인 확정아님" },
-    "bmg/CIBUMG130200000M.html": { "status": "검수중", "worker": "이상우", "note": "디자인 확정아님" },
-    "bmg/CIBUMG130400000M.html": { "status": "검수중", "worker": "이상우", "note": "디자인 확정아님" },
-    "bmg/CIBUMG130500000M.html": { "status": "검수중", "worker": "이상우", "note": "디자인 확정아님" },
+    // 뱅킹관리 > 사용자관리
+    "bmg/CIBUMG080100000M.html": { status: "검수중", worker: "이상우", note: "그리드영역 보완필요" },
+    "bmg/CIBUMG080200000M.html": { status: "검수중", worker: "이상우", note: "디자인 확정아님" },
+    "bmg/CIBUMG080300000M.html": { status: "검수중", worker: "이상우", note: "디자인 확정아님" },
+    "bmg/CIBUMG130100000M.html": { status: "검수중", worker: "이상우", note: "디자인 확정아님" },
+    "bmg/CIBUMG130200000M.html": { status: "검수중", worker: "이상우", note: "디자인 확정아님" },
+    "bmg/CIBUMG130400000M.html": { status: "검수중", worker: "이상우", note: "디자인 확정아님" },
+    "bmg/CIBUMG130500000M.html": { status: "검수중", worker: "이상우", note: "디자인 확정아님" },
 
-    "bmg/CIBUMG130300000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
-    "bmg/CIBUMG200100000P.html": { "status": "검수중", "worker": "이상우", "note": "" },
-
-
+    "bmg/CIBUMG130300000M.html": { status: "검수중", worker: "이상우", note: "" },
+    "bmg/CIBUMG200100000P.html": { status: "검수중", worker: "이상우", note: "" },
 
     // 이체 > 계좌이체 > 이체
-    "trn/act/xfr/CIBTRN010101000M.html": { "status": "검수중", "worker": "이상우", "note": "08/10 잔여한도 추가 <br/>진행사항 4->3 변경" },
-    "trn/act/xfr/CIBTRN010102000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
-    "trn/act/xfr/CIBTRN010105000M.html": { "status": "검수중", "worker": "이상우", "note": "진행사항 4->3 변경" },
-    "trn/act/xfr/CIBTRN010107000P.html": { "status": "검수중", "worker": "이상우", "note": "" },
-    "trn/act/xfr/CIBTRN010108000P.html": { "status": "검수중", "worker": "이상우", "note": "" },
-    "trn/act/xfr/CIBTRN010110000P.html": { "status": "검수중", "worker": "이상우", "note": "" },
-    "trn/act/xfr/CIBTRN010111000P.html": { "status": "검수중", "worker": "이상우", "note": "" },
-    "trn/act/xfr/CIBTRN010112000P.html": { "status": "검수중", "worker": "이상우", "note": "" },
-    "trn/act/xfr/CIBTRN010201000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
-    "trn/act/xfr/CIBTRN010202000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
-    "trn/act/xfr/CIBTRN010203000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
-    "trn/act/xfr/CIBTRN060101000M.html": { "status": "검수중", "worker": "이상우", "note": "08/13 화면ID 변경" },
-    "trn/act/xfr/CIBTRN060202000M.html": { "status": "검수중", "worker": "이상우", "note": "08/13 화면ID 변경" },
-    //   누락본
-    "trn/act/xfr/CIBTRN010103000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
-    "trn/act/xfr/CIBTRN010104000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
-
-
-
+    "trn/act/xfr/CIBTRN010101000M.html": { status: "검수중", worker: "이상우", note: "08/10 잔여한도 추가 <br/>진행사항 4->3 변경" },
+    "trn/act/xfr/CIBTRN010102000M.html": { status: "검수중", worker: "이상우", note: "" },
+    "trn/act/xfr/CIBTRN010105000M.html": { status: "검수중", worker: "이상우", note: "진행사항 4->3 변경" },
+    "trn/act/xfr/CIBTRN010107000P.html": { status: "검수중", worker: "이상우", note: "" },
+    "trn/act/xfr/CIBTRN010108000P.html": { status: "검수중", worker: "이상우", note: "" },
+    "trn/act/xfr/CIBTRN010110000P.html": { status: "검수중", worker: "이상우", note: "" },
+    "trn/act/xfr/CIBTRN010111000P.html": { status: "검수중", worker: "이상우", note: "" },
+    "trn/act/xfr/CIBTRN010112000P.html": { status: "검수중", worker: "이상우", note: "" },
+    "trn/act/xfr/CIBTRN010201000M.html": { status: "검수중", worker: "이상우", note: "" },
+    "trn/act/xfr/CIBTRN010202000M.html": { status: "검수중", worker: "이상우", note: "" },
+    "trn/act/xfr/CIBTRN010203000M.html": { status: "검수중", worker: "이상우", note: "" },
+    "trn/act/xfr/CIBTRN060101000M.html": { status: "검수중", worker: "이상우", note: "08/13 화면ID 변경" },
+    "trn/act/xfr/CIBTRN060202000M.html": { status: "검수중", worker: "이상우", note: "08/13 화면ID 변경" },
+    // 누락본
+    "trn/act/xfr/CIBTRN010103000M.html": { status: "검수중", worker: "이상우", note: "" },
+    "trn/act/xfr/CIBTRN010104000M.html": { status: "검수중", worker: "이상우", note: "" },
 
     // 이체 > 계좌이체 > 지연이체등록내역조회/취소
-    "trn/act/dlyt/CIBTRN010301000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
-    "trn/act/dlyt/CIBTRN010302000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
-    "trn/act/dlyt/CIBTRN010303000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
+    "trn/act/dlyt/CIBTRN010301000M.html": { status: "검수중", worker: "이상우", note: "" },
+    "trn/act/dlyt/CIBTRN010302000M.html": { status: "검수중", worker: "이상우", note: "" },
+    "trn/act/dlyt/CIBTRN010303000M.html": { status: "검수중", worker: "이상우", note: "" },
 
     // 이체 > 계좌이체 > 다계좌이체
-    "trn/act/mact/CIBTRN010401000M.html": { "status": "검수중", "worker": "이상우", "note": "08/12 컨텐츠 추가 (잔여한도)" },
-    "trn/act/mact/CIBTRN010402000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
-    "trn/act/mact/CIBTRN010403000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
+    "trn/act/mact/CIBTRN010401000M.html": { status: "검수중", worker: "이상우", note: "08/12 컨텐츠 추가 (잔여한도)" },
+    "trn/act/mact/CIBTRN010402000M.html": { status: "검수중", worker: "이상우", note: "" },
+    "trn/act/mact/CIBTRN010403000M.html": { status: "검수중", worker: "이상우", note: "" },
 
     // 카드 > 일별 환율
-    "card/daily-exchange-rate.html": { "status": "수정중", "worker": "이상우", "note": "" },
+    "card/daily-exchange-rate.html": { status: "수정중", worker: "이상우", note: "" },
 
     // 컴포넌트 > 아이콘
-    "components/icon.html": { "status": "작업중", "worker": "이상우", "note": "" },
+    "components/icon.html": { status: "작업중", worker: "이상우", note: "" },
 
     // 조회 > 수표/어음조회  
-    "inq/cnb/CIBINQ030101000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
-    "inq/cnb/CIBINQ030102000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
-    "inq/cnb/CIBINQ030201000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
-    "inq/cnb/CIBINQ030202000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
-    "inq/cnb/CIBINQ030301000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
-    "inq/cnb/CIBNQ030302000P.html": { "status": "검수중", "worker": "이상우", "note": "" },
-    //이체 > MMT 출금이체
-    "trn/05/01/01/CIBTRN050101000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
-    "trn/05/01/02/CIBTRN050102000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
-    "trn/05/01/03/CIBTRN050103000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
-    //이체 > MMT 입금
-    "trn/05/02/01/CIBTRN050201000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
-    "trn/05/02/02/CIBTRN050202000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
-    "trn/05/02/03/CIBTRN050203000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
-    // 금융상품 > 해양수신금융 > 해양수산금융소식
-    "fin_mfi/11/CIBFIN_MF110000000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
-    "fin_mfi/11/CIBFIN_MF110100000M.html": { "status": "검수중", "worker": "이상우", "note": "" },
+    "inq/cnb/CIBINQ030101000M.html": { status: "검수중", worker: "이상우", note: "" },
+    "inq/cnb/CIBINQ030102000M.html": { status: "검수중", worker: "이상우", note: "" },
+    "inq/cnb/CIBINQ030201000M.html": { status: "검수중", worker: "이상우", note: "" },
+    "inq/cnb/CIBINQ030202000M.html": { status: "검수중", worker: "이상우", note: "" },
+    "inq/cnb/CIBINQ030301000M.html": { status: "검수중", worker: "이상우", note: "" },
+    "inq/cnb/CIBNQ030302000P.html": { status: "검수중", worker: "이상우", note: "" },
 
+    // 이체 > MMT 출금이체
+    "trn/05/01/01/CIBTRN050101000M.html": { status: "검수중", worker: "이상우", note: "" },
+    "trn/05/01/02/CIBTRN050102000M.html": { status: "검수중", worker: "이상우", note: "" },
+    "trn/05/01/03/CIBTRN050103000M.html": { status: "검수중", worker: "이상우", note: "" },
+
+    // 이체 > MMT 입금
+    "trn/05/02/01/CIBTRN050201000M.html": { status: "검수중", worker: "이상우", note: "" },
+    "trn/05/02/02/CIBTRN050202000M.html": { status: "검수중", worker: "이상우", note: "" },
+    "trn/05/02/03/CIBTRN050203000M.html": { status: "검수중", worker: "이상우", note: "" },
+
+    // 금융상품 > 해양수신금융 > 해양수산금융소식
+    "fin_mfi/11/CIBFIN_MF110000000M.html": { status: "검수중", worker: "이상우", note: "" },
+    "fin_mfi/11/CIBFIN_MF110100000M.html": { status: "검수중", worker: "이상우", note: "" },
 
     // 금융상품 > 부동산신탁공매물건정보  
     "fin_tpr/06/CIBFIN_TPR060000000.html": {
-        "depths": ["금융상품", "부동산신탁공매물건정보"],
-        "title": "부동산신탁공매물건정보 리스트", "status": "검수중", "worker": "이상우", "note": ""
+        depths: ["금융상품", "부동산신탁공매물건정보"],
+        title: "부동산신탁공매물건정보 리스트",
+        status: "검수중",
+        worker: "이상우",
+        note: ""
     },
     "fin_tpr/06/CIBFIN_TPR060100000.html": {
-        "depths": ["금융상품", "부동산신탁공매물건정보"],
-        "title": "부동산신탁공매물건정보 디테일", "status": "검수중", "worker": "이상우", "note": ""
+        depths: ["금융상품", "부동산신탁공매물건정보"],
+        title: "부동산신탁공매물건정보 디테일",
+        status: "검수중",
+        worker: "이상우",
+        note: ""
     },
-
-
-    //
 };
-
