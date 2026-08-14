@@ -180,6 +180,10 @@ module.exports = {
     "b2b/b2bcpfl/pc/ppf/iv/CIBB2B010203002M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
     "b2b/b2bcpfl/pc/ppf/verificate/CIBB2B010203004M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
     "b2b/b2bcpfl/sug/CIBB2B010100000M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
+    
+    "b2b/01/02/06/CIBB2B010206001M.html": { "status": "진행중", "worker": "변혜선", "note": "" },
+    "b2b/01/02/07/CIBB2B010207001M.html": { "status": "진행중", "worker": "변혜선", "note": "" },
+    "b2b/01/02/08/CIBB2B010208001M.html": { "status": "진행중", "worker": "변혜선", "note": "" },
 
 
   
