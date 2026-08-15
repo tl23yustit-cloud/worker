@@ -54,30 +54,59 @@ module.exports = {
     "inq/cnb/CIBNQ030302000P.html": { status: "검수중", worker: "이상우", note: "" },
 
     // 이체 > MMT 출금이체
-    "trn/05/01/01/CIBTRN050101000M.html": { status: "검수중", worker: "이상우", note: "" },
-    "trn/05/01/02/CIBTRN050102000M.html": { status: "검수중", worker: "이상우", note: "" },
-    "trn/05/01/03/CIBTRN050103000M.html": { status: "검수중", worker: "이상우", note: "" },
+    "trn/05/01/01/CIBTRN050101000M.html": {
+        status: "검수중", worker: "이상우", note: "", depths: ["이체", "MMT", "MMT출금이체", "정보입력"],
+        title: "",
+    },
+    "trn/05/01/02/CIBTRN050102000M.html": {
+        status: "검수중", worker: "이상우", note: "", depths: ["이체", "MMT", "MMT출금이체", "정보확인"],
+        title: "",
+    },
+    "trn/05/01/03/CIBTRN050103000M.html": {
+        status: "검수중", worker: "이상우", note: "", depths: ["이체", "MMT", "MMT출금이체", "완료"],
+        title: "",
+    },
 
     // 이체 > MMT 입금
-    "trn/05/02/01/CIBTRN050201000M.html": { status: "검수중", worker: "이상우", note: "" },
-    "trn/05/02/02/CIBTRN050202000M.html": { status: "검수중", worker: "이상우", note: "" },
-    "trn/05/02/03/CIBTRN050203000M.html": { status: "검수중", worker: "이상우", note: "" },
+    "trn/05/02/01/CIBTRN050201000M.html": {
+        status: "검수중", worker: "이상우", note: "", depths: ["이체", "MMT", "MMT입금", "정보입력"],
+        title: "",
+    },
+    "trn/05/02/02/CIBTRN050202000M.html": {
+        status: "검수중", worker: "이상우", note: "", depths: ["이체", "MMT", "MMT입금", "정보확인"],
+        title: "",
+    },
+    "trn/05/02/03/CIBTRN050203000M.html": {
+        status: "검수중", worker: "이상우", note: "", depths: ["이체", "MMT", "MMT입금", "완료"],
+        title: "",
+    },
 
     // 금융상품 > 해양수신금융 > 해양수산금융소식
-    "fin_mfi/11/CIBFIN_MF110000000M.html": { status: "검수중", worker: "이상우", note: "" },
-    "fin_mfi/11/CIBFIN_MF110100000M.html": { status: "검수중", worker: "이상우", note: "" },
-
-    // 금융상품 > 부동산신탁공매물건정보  
-    "fin_tpr/06/CIBFIN_TPR060000000.html": {
-        depths: ["금융상품", "부동산신탁공매물건정보"],
-        title: "부동산신탁공매물건정보 리스트",
+    "fin_mfi/11/CIBFIN_MF110000000M.html": {
+        depths: ["해양수산금융", "해양수산금융소식"],
+        title: "해양수산금융소식",
         status: "검수중",
         worker: "이상우",
         note: ""
     },
-    "fin_tpr/06/CIBFIN_TPR060100000.html": {
-        depths: ["금융상품", "부동산신탁공매물건정보"],
-        title: "부동산신탁공매물건정보 디테일",
+    "fin_mfi/11/CIBFIN_MFI110100000M.html": {
+        depths: ["해양수산금융", "해양수산금융소식", "상세"],
+        title: "해양수산금융소식_상세",
+        status: "검수중",
+        worker: "이상우",
+        note: ""
+    },
+    // 금융상품 > 부동산신탁공매물건정보  
+    "fin_tpr/06/CIBFIN_TPR060000000M.html": {
+        depths: ["신탁", "부동산신탁공매물건정보"],
+        title: "부동산신탁공매물건정보",
+        status: "검수중",
+        worker: "이상우",
+        note: ""
+    },
+    "fin_tpr/06/CIBFIN_TPR060100000M.html": {
+        depths: ["신탁", "부동산신탁공매물건정보", "상세"],
+        title: "부동산신탁공매물건정보_상세",
         status: "검수중",
         worker: "이상우",
         note: ""
@@ -105,12 +134,43 @@ module.exports = {
         worker: "이상우",
         note: ""
     },
-    
+
     "foe/04/01/04/01/CIBFOE040104001P.html": {
-        depths: ["외환", "해외송금", "무증빙해외송금", "Step3.송금정보입력","[팝업]송금안내"],
+        depths: ["외환", "해외송금", "무증빙해외송금", "Step3.송금정보입력", "[팝업]송금안내"],
         title: "[팝업]송금안내",
         status: "대기",
         worker: "이상우",
         note: ""
     },
+    "foe/04/01/05/CIBFOE040105000M.html": {
+        depths: ["외환", "해외송금", "무증빙해외송금", "Step4.송금정보입력"],
+        title: "무증빙해외송금_Step4.송금정보확인",
+        status: "대기",
+        worker: "이상우",
+        note: ""
+    },
+    "foe/04/01/06/CIBFOE040106000M.html": {
+        depths: ["외환", "해외송금", "무증빙해외송금", "Step5.송금완료"],
+        title: "무증빙해외송금_Step5.송금완료",
+        status: "대기",
+        worker: "이상우",
+        note: ""
+    },
+
+    "foe/10/CIBFOE100100000M.html": {
+        depths: ["외환", "외환수표조회"],
+        title: "외화수표조회_목록",
+        status: "대기",
+        worker: "이상우",
+        note: ""
+    },
+    "foe/11/CIBFOE110100000M.html": {
+        depths: ["외환", "외환여신한도조회"],
+        title: "외화여신한도조회",
+        status: "대기",
+        worker: "이상우",
+        note: ""
+    },
+
+
 };
