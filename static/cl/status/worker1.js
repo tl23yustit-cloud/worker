@@ -38,6 +38,30 @@ module.exports = {
     "bop/lon/rop/원금상환_원금상환완료.html": { "status": "수정중", "worker": "변혜선", "note": "" },
     "bop/lon/rop/원금상환_이체확인증.html": { "status": "수정중", "worker": "변혜선", "note": "" },
     "bop/lon/rop/E-Mail정보입력.html": { "status": "수정중", "worker": "변혜선", "note": "" },
+    "bop/lon/inq/우대금리실적조회/CIBLON010601000M.html": {
+        title: "우대금리 실적조회_조회",
+        status: "진행중",
+        worker: "변혜선",
+        note: ""
+    },
+    "bop/lon/inq/우대금리실적조회/CIBLON010602000M.html": {
+        title: "우대금리 실적조회_조회결과",
+        status: "진행중",
+        worker: "변혜선",
+        note: ""
+    },
+    "bop/lon/inq/우대금리실적조회/CIBLON010603000p.html": {
+        title: "평균 잔액 조회하기",
+        status: "진행중",
+        worker: "변혜선",
+        note: ""
+    },
+    "bop/lon/inq/우대금리실적조회/CIBLON010604000p.html": {
+        title: "부수거래 실적 안내",
+        status: "진행중",
+        worker: "변혜선",
+        note: ""
+    },
     "bop/lon/rop/Fax정보입력.html": { "status": "수정중", "worker": "변혜선", "note": "" },
 
     //뱅킹업무(bop) > 카드(card) > 

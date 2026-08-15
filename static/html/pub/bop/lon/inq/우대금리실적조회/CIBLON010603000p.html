@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/bop.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">
+        @@include('static/html/pub/layout/skipNavigation.html')
+        @@include('static/html/pub/layout/header_sub.html')
+      </div>
+
+      <div id="container" class="container">
+        <div id="leftArea">
+          @@include('static/html/pub/layout/leftArea.html')
+        </div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="bop">
+              <button
+                type="button"
+                class="btn type-bg-primary size-md btn-modal"
+                data-target="modal-16"
+              >
+                <span class="text">평균 잔액 조회하기</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+    <div
+      id="modal-16"
+      class="modal is-active"
+      data-dim="true"
+      data-backdrop-close="false"
+      data-alert="true"
+      data-size="md"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modal-title"
+      aria-describedby="modal-desc"
+    >
+      <div class="modal-wrapper">
+        <div class="modal-title">
+          <h4 class="typeH4">평균 잔액 조회하기</h4>
+        </div>
+        <div class="modal-slot">
+          <div id="modal-desc">
+            <div class="tbl-area">
+              <table class="table-type01">
+                <caption>
+                  평균 잔액 조회 테이블
+                </caption>
+                <colgroup>
+                  <col width="160px" />
+                  <col />
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th scope="row">어제까지 평균 잔액</th>
+                    <td class="text-right">
+                      <span class="typeMd">100,000,000 원</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">이번 달 남은 일자</th>
+                    <td><span class="typeMd">0 일</span></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">현재 내 구간</th>
+                    <td><span class="typeMd">3 구간(0.50%)</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="tbl-area">
+              <div class="tbl-head">
+                <div class="left-area">
+                  <h4 class="typeH4">
+                    <span class="text"
+                      >추가혜택을 위해 필요한 일 평균 잔액도 알아보세요.</span
+                    >
+                  </h4>
+                </div>
+              </div>
+              <div class="wScroll">
+                <table class="table-type03">
+                  <caption>
+                    SWIFT CODE 조회 테이블
+                  </caption>
+                  <colgroup>
+                    <col />
+                    <col />
+                    <col />
+                    <col />
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th>구간</th>
+                      <th>목표 평균 잔액</th>
+                      <th>우대이율</th>
+                      <th>일 평균 유지/필요 잔액</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><span class="typeMd">1</span></td>
+                      <td class="text-right">
+                        <span class="typeMd">46,000 원</span>
+                      </td>
+                      <td><span class="typeMd">0.23 %</span></td>
+                      <td><span class="typeMd">충족</span></td>
+                    </tr>
+                    <tr>
+                      <td><span class="typeMd">2</span></td>
+                      <td class="text-right">
+                        <span class="typeMd">46,000 원</span>
+                      </td>
+                      <td><span class="typeMd">0.23 %</span></td>
+                      <td><span class="typeMd">충족</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="list type-dotted mt-6">
+                <ul>
+                  <li class="typeMd">
+                    이번 달 말일까지 평균잔액을 충족/유지하셔야 구간별 우대금리 혜택이 적용됩니다.
+
+                  </li>
+                  <li class="typeMd">
+                    조회시점 현재일 포함 말일까지의 필요 금액입니다.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button type="button" class="ico btn-close" aria-label="모달 닫기">
+          <i class="ico-close ico-size-smMd" aria-hidden="true"></i>
+          <span class="blind">닫기</span>
+        </button>
+      </div>
+    </div>
+  </body>
+</html>
