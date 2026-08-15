@@ -82,4 +82,35 @@ module.exports = {
         worker: "이상우",
         note: ""
     },
+
+    // 외환 
+    "foe/04/01/02/CIBFOE040102000M.html": {
+        depths: ["외환", "해외송금", "무증빙해외송금", "Step1.영문고객정보"],
+        title: "무증빙해외송금_Step1.영문고객정보",
+        status: "대기",
+        worker: "이상우",
+        note: ""
+    },
+    "foe/04/01/03/001/CIBFOE040103001P.html": {
+        depths: ["외환", "해외송금", "무증빙해외송금", "Step2.약관동의", "[팝업]외화거래이용약관"],
+        title: "[팝업]외화거래이용약관",
+        status: "대기",
+        worker: "이상우",
+        note: ""
+    },
+    "foe/04/01/04/CIBFOE040104000M.html": {
+        depths: ["외환", "해외송금", "무증빙해외송금", "Step3.송금정보입력"],
+        title: "무증빙해외송금_Step3.송금정보입력",
+        status: "대기",
+        worker: "이상우",
+        note: ""
+    },
+    
+    "foe/04/01/04/01/CIBFOE040104001P.html": {
+        depths: ["외환", "해외송금", "무증빙해외송금", "Step3.송금정보입력","[팝업]송금안내"],
+        title: "[팝업]송금안내",
+        status: "대기",
+        worker: "이상우",
+        note: ""
+    },
 };
