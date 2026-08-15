@@ -46,6 +46,34 @@ module.exports = {
     "bop/card/mpim/smsas/smsasa/CIBCRD060602000M.html": { "status": "검수중", "worker": "변혜선", "note": "임시 그리드 화면, 미확정테이블화면" },
     "bop/card/mpim/smsas/smsasad/CIBCRD060603000T.html": { "status": "검수중", "worker": "변혜선", "note": "임시 그리드 화면" },
     "bop/card/02/04/CIBCRD02040000M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
+    "bop/card/02/01/01/CIBCRD020100000T.html": {
+        depths: ["뱅킹업무", "카드", "카드관리","보유카드조회"],
+        title: "보유카드조회(당행Tab)",
+        status: "진행중",
+        worker: "변혜선",
+        note: "임시 그리드 화면"
+    },
+    "bop/card/02/01/01/CIBCRD020102000P.html": {
+        depths: ["뱅킹업무", "카드", "카드관리","이용한도조회"],
+        title: "카드 상세보기 팝업",
+        status: "진행중",
+        worker: "변혜선",
+        note: "임시 그리드 화면"
+    },
+    "bop/card/02/01/01/CIBCRD020100000T.html": {
+        depths: ["뱅킹업무", "카드", "카드관리","보유카드조회"],
+        title: "보유카드조회(당행Tab)",
+        status: "진행중",
+        worker: "변혜선",
+        note: "임시 그리드 화면"
+    },
+    "bop/card/03/01/CIBCRD030100000M.html": {
+        depths: ["뱅킹업무", "카드", "카드관리","이용한도조회"],
+        title: "이용한도조회",
+        status: "진행중",
+        worker: "변혜선",
+        note: "임시 그리드 화면"
+    },
     "bop/card/06/04/01/CIBCRD060401000M.html": { "status": "검수중", "worker": "변혜선", "note": "임시 그리드 화면" },
     "bop/card/06/04/02/CIBCRD060402000M.html": { "status": "검수중", "worker": "변혜선", "note": "임시 그리드 화면" },
     "bop/card/06/05/01/CIBCRD060501000M.html": { "status": "검수중", "worker": "변혜선", "note": "임시 그리드 화면" },
@@ -56,8 +84,13 @@ module.exports = {
     "bop/card/06/06/03/CIBCRD060603000M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
     "bop/card/06/06/04/CIBCRD060604000M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
     "bop/card/06/06/05/CIBCRD060605000M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
-    "bop/card/06/06/06/CIBCRD060606000M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
-   
+    "bop/card/06/06/06/CIBCRD060606000M.html": {
+        depths: ["뱅킹업무", "카드", "카드_회원결제정보관리","SMS알림서비스변경(완료) "],
+        title: "이용한도조회",
+        status: "검수중",
+        worker: "변혜선",
+        note: ""
+    },
     // 뱅킹업무(bop) > 외환(foe) > 수입(import) / FX(fx)
     "bop/foe/import/oilc/수입신용장전문조회_목록.html": { "status": "수정중", "worker": "변혜선", "note": "" },
     "bop/foe/import/oilc/L_G_발급신청_조회.html": { "status": "수정중", "worker": "변혜선", "note": "" },
@@ -181,10 +214,93 @@ module.exports = {
     "b2b/b2bcpfl/pc/ppf/verificate/CIBB2B010203004M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
     "b2b/b2bcpfl/sug/CIBB2B010100000M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
     
-    "b2b/01/02/06/CIBB2B010206001M.html": { "status": "진행중", "worker": "변혜선", "note": "" },
-    "b2b/01/02/07/CIBB2B010207001M.html": { "status": "진행중", "worker": "변혜선", "note": "" },
-    "b2b/01/02/08/CIBB2B010208001M.html": { "status": "진행중", "worker": "변혜선", "note": "" },
-
+    "b2b/01/02/06/CIBB2B010206001M.html":  {
+        depths: ["B2B전자결제", "B2B기업구매자금대출", "구매기업","SMS알림서비스변경(완료)", "조회입력 및 결과"],
+        title: "거래수수료징수내역-조건입력",
+        status: "진행중",
+        worker: "변혜선",
+        note: ""
+    },
+    "b2b/01/02/07/CIBB2B010207001M.html":  {
+        depths: ["B2B전자결제", "B2B기업구매자금대출", "구매기업","거래수수료징수내역", "조회입력 및 결과"],
+        title: "거래수수료집계내역-조건입력",
+        status: "진행중",
+        worker: "변혜선",
+        note: ""
+    },
+    "b2b/01/02/08/001/CIBB2B010208001M.html": {
+        depths: ["B2B전자결제", "B2B기업구매자금대출", "구매기업","통지서비스신청/해지", "조건입력"],
+        title: "통지서비스 신청/해지",
+        status: "진행중",
+        worker: "변혜선",
+        note: ""
+    },
+    "b2b/01/02/08/002/CIBB2B010208002M.html": {
+        depths: ["B2B전자결제", "B2B기업구매자금대출", "구매기업","통지서비스신청/해지", "정보입력"],
+        title: "통지서비스 신청/해지",
+        status: "진행중",
+        worker: "변혜선",
+        note: ""
+    },
+    "b2b/01/02/08/003/CIBB2B010208003M.html": {
+        depths: ["B2B전자결제", "B2B기업구매자금대출", "구매기업","통지서비스신청/해지", "정보확인"],
+        title: "통지서비스 신청/해지",
+        status: "진행중",
+        worker: "변혜선",
+        note: ""
+    },
+    "b2b/01/02/08/004/CIBB2B010208004M.html": {
+        depths: ["B2B전자결제", "B2B기업구매자금대출", "구매기업","통지서비스신청/해지", "신청내역 확인"],
+        title: "통지서비스 신청/해지",
+        status: "진행중",
+        worker: "변혜선",
+        note: ""
+    },
+    "b2b/01/02/08/005/CIBB2B010208005M.html": {
+        depths: ["B2B전자결제", "B2B기업구매자금대출", "구매기업","통지서비스신청/해지", "정보변경 입력"],
+        title: "통지서비스 신청/해지",
+        status: "진행중",
+        worker: "변혜선",
+        note: ""
+    },
+    "b2b/01/02/08/006/CIBB2B010208006M.html": {
+        depths: ["B2B전자결제", "B2B기업구매자금대출", "구매기업","통지서비스신청/해지", "변경내역 확인"],
+        title: "통지서비스 신청/해지",
+        status: "진행중",
+        worker: "변혜선",
+        note: ""
+    },
+    "b2b/01/02/08/007/CIBB2B010208007M.html": {
+        depths: ["B2B전자결제", "B2B기업구매자금대출", "구매기업","통지서비스신청/해지", "변경내역 확인"],
+        title: "통지서비스 신청/해지",
+        status: "진행중",
+        worker: "변혜선",
+        note: ""
+    },
+    "b2b/01/02/08/008/CIBB2B010208008M.html": {
+        depths: ["B2B전자결제", "B2B기업구매자금대출", "구매기업","통지서비스신청/해지", "정보확인 및 해지"],
+        title: "통지서비스 신청/해지",
+        status: "진행중",
+        worker: "변혜선",
+        note: ""
+    },
+    "b2b/01/02/08/009/CIBB2B010208009M.html": {
+        depths: ["B2B전자결제", "B2B기업구매자금대출", "구매기업","통지서비스신청/해지", "변경내역 확인"],
+        title: "통지서비스 신청/해지",
+        status: "진행중",
+        worker: "변혜선",
+        note: ""
+    },
+    // "b2b/01/02/07/CIBB2B010207001M.html": { "status": "진행중", "worker": "변혜선", "note": "" },
+    // "b2b/01/02/08/001/CIBB2B010208001M.html": { "status": "진행중", "worker": "변혜선", "note": "" },
+    // "b2b/01/02/08/002/CIBB2B010208002M.html": { "status": "진행중", "worker": "변혜선", "note": "" },
+    // "b2b/01/02/08/003/CIBB2B010208003M.html": { "status": "진행중", "worker": "변혜선", "note": "" },
+    // "b2b/01/02/08/004/CIBB2B010208004M.html": { "status": "진행중", "worker": "변혜선", "note": "" },
+    // "b2b/01/02/08/005/CIBB2B010208005M.html": { "status": "진행중", "worker": "변혜선", "note": "" },
+    // "b2b/01/02/08/006/CIBB2B010208006M.html": { "status": "진행중", "worker": "변혜선", "note": "" },
+    // "b2b/01/02/08/007/CIBB2B010208007M.html": { "status": "진행중", "worker": "변혜선", "note": "" },
+    // "b2b/01/02/08/008/CIBB2B010208008M.html": { "status": "진행중", "worker": "변혜선", "note": "" },
+    // "b2b/01/02/08/009/CIBB2B010208009M.html": { "status": "진행중", "worker": "변혜선", "note": "" },
 
   
     //뱅킹관리/카드/회원결제관리
