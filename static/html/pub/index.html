@@ -5,238 +5,49 @@
     <title>수협 기업 인터넷뱅킹 퍼블리싱 리스트</title>
     <link rel="stylesheet" href="/static/cl/favicon.ico" />
     <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body { font-family: Pretendard, sans-serif; padding: 10px; }
+      h1 { margin-bottom: 20px; }
+      table { width: 100%; border-collapse: collapse; }
+      th, td { border: 1px solid #ddd; padding: 4px 8px; text-align: left; font-size: 14px; }
+      th { background: #f5f5f5; }
+      td.note { width: 250px; word-break: keep-all; }
+      tbody tr:hover { background: #fafafa; }
+      a { color: #2563eb; text-decoration: none; }
+      a:hover { text-decoration: underline; }
 
-      body {
-        font-family: Pretendard, sans-serif;
-        padding: 10px;
-      }
+      .search { margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; }
+      input { width: 300px; padding: 10px; }
+      .pub-section { margin-bottom: 24px; }
+      h2 { font-size: 16px; margin-bottom: 8px; color: #333; }
 
-      h1 {
-        margin-bottom: 20px;
-      }
+      .status::before { content: ""; display: inline-block; border-radius: 100px; width: 10px; height: 10px; margin-right: 4px; }
+      .status.wait { color: #101828; } .status.wait::before { background-color: #101828; }
+      .status.complete { color: #0f62fd; } .status.complete::before { background-color: #0f62fd; }
+      .status.progress { color: #039855; } .status.progress::before { background-color: #039855; }
+      .status.examination { color: purple; } .status.examination::before { background-color: purple; }
+      .status.modify { color: #f77316; } .status.modify::before { background-color: #f77316; }
+      .status.modify-complete { color: #b54708; } .status.modify-complete::before { background-color: #b54708; }
+      .status.urgent { color: red; } .status.urgent::before { background-color: red; }
+      .status.delete { color: #a7afbe; } .status.delete::before { background-color: #a7afbe; }
 
-      table {
-        width: 100%;
-        border-collapse: collapse;
-      }
+      /* 💡 ?dev 모드 전용 하이라이트 스타일 */
+      tr.dev-issue { background-color: #fff5f5 !important; }
+      tr.dev-issue:hover { background-color: #ffe3e3 !important; }
+      
+      /* 💡 뱃지 상태별 색상 구분 */
+      .issue-badge { display: inline-block; padding: 2px 6px; margin-right: 4px; margin-bottom: 2px; font-size: 11px; font-weight: 600; border-radius: 4px; border: 1px solid; }
+      .issue-badge.error { color: #dc2626; background: #fee2e2; border-color: #fecaca; } /* 빨간색 (누락, 미등록) */
+      .issue-badge.success { color: #059669; background: #d1fae5; border-color: #a7f3d0; } /* 초록색 (완벽적용) */
 
-      th,
-      td {
-        border: 1px solid #ddd;
-        padding: 4px 8px;
-        text-align: left;
-        font-size: 14px;
-      }
-
-      th {
-        background: #f5f5f5;
-      }
-
-      td.note {
-        width: 200px;
-        word-break: keep-all;
-      }
-
-      tbody tr:hover {
-        background: #fafafa;
-      }
-
-      a {
-        color: #2563eb;
-        text-decoration: none;
-      }
-      a:hover {
-        text-decoration: underline;
-      }
-      a:focus {
-        color: red;
-      }
-
-      .search {
-        margin-bottom: 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-      .search .status-wrap span {
-        padding: 0 4px;
-      }
-      .search .status-wrap span::before {
-        margin: 0 4px;
-      }
-      input {
-        width: 300px;
-        padding: 10px;
-      }
-      .pub-section {
-        margin-bottom: 8px;
-      }
-      h2 {
-        font-size: 15px;
-      }
-      .status::before { margin-right: 4px; }
-      .status.wait {
-        color: #101828;
-      }
-      .status.wait::before {
-        content: "";
-        display: inline-block;
-        border-radius: 100px;
-        width: 10px;
-        height: 10px;
-        background-color: #101828;
-      }
-      .status.progress {
-        color: #039855;
-      }
-      .status.progress::before {
-        content: "";
-        display: inline-block;
-        border-radius: 100px;
-        width: 10px;
-        height: 10px;
-        background-color: #039855;
-      }
-      .status.examination {
-        color: purple;
-      }
-      .status.examination::before {
-        content: "";
-        display: inline-block;
-        border-radius: 100px;
-        width: 10px;
-        height: 10px;
-        background-color: purple;
-      }
-      .status.complete {
-        color: #0f62fd;
-      }
-      .status.complete::before {
-        content: "";
-        display: inline-block;
-        border-radius: 100px;
-        width: 10px;
-        height: 10px;
-        background-color: #0f62fd;
-      }
-      .status.modify {
-        color: #f77316;
-      }
-      .status.modify::before {
-        content: "";
-        display: inline-block;
-        border-radius: 100px;
-        width: 10px;
-        height: 10px;
-        background-color: #f77316;
-      }
-      .status.modify-complete {
-        color: #b54708;
-      }
-      .status.modify-complete::before {
-        content: "";
-        display: inline-block;
-        border-radius: 100px;
-        width: 10px;
-        height: 10px;
-        background-color: #b54708;
-      }
-      .status.urgent {
-        color: red;
-      }
-      .status.urgent::before {
-        content: "";
-        display: inline-block;
-        border-radius: 100px;
-        width: 10px;
-        height: 10px;
-        background-color: red;
-      }
-      .status.delete {
-        color: #a7afbe;
-      }
-      .status.delete::before {
-        content: "";
-        display: inline-block;
-        border-radius: 100px;
-        width: 10px;
-        height: 10px;
-        background-color: #a7afbe;
-      }
-
-      .pub-title {
-        margin-bottom: 16px;
-        padding-left: 12px;
-        border-left: 4px solid #2563eb;
-        font-size: 24px;
-        font-weight: 700;
-      }
-
-      .pub-table {
-        width: 100%;
-        border-collapse: collapse;
-      }
-
-      .pub-table th,
-      .pub-table td {
-        padding: 12px;
-        border: 1px solid #ddd;
-      }
-
-      .pub-table th {
-        background: #f8f8f8;
-      }
-
-      /* 💡 dev 모드 이슈 행 스타일 */
-      tr.dev-issue {
-        background-color: #fff5f5 !important;
-      }
-      tr.dev-issue:hover {
-        background-color: #ffe3e3 !important;
-      }
-      .issue-badge {
-        display: inline-block;
-        padding: 2px 6px;
-        margin-right: 4px;
-        font-size: 11px;
-        font-weight: 600;
-        color: #dc2626;
-        background: #fee2e2;
-        border-radius: 4px;
-      }
-
-      #preview-popup {
-        display: none;
-        position: fixed;
-        z-index: 9999;
-        width: 600px; 
-        height: 400px; 
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-        background: #fff;
-        pointer-events: none;
-        overflow: hidden;
-      }
-
-      #preview-iframe {
-        width: 1920px;
-        height: 1280px;
-        transform: scale(0.3125);
-        transform-origin: top left;
-        border: none;
-      }
+      /* 팝업 */
+      #preview-popup { display: none; position: fixed; z-index: 9999; width: 600px; height: 400px; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); background: #fff; pointer-events: none; overflow: hidden; }
+      #preview-iframe { width: 1920px; height: 1280px; transform: scale(0.3125); transform-origin: top left; border: none; }
     </style>
   </head>
 
   <body>
     <h1>수협 기업 인터넷뱅킹 퍼블리싱 리스트</h1>
-
     <div class="search">
       <input type="text" id="search" placeholder="검색..." />
       <div class="status-wrap">
@@ -244,229 +55,117 @@
         <span class="status complete">완료</span>
         <span class="status progress">진행중</span>
         <span class="status examination">검수중</span>
-        <span class="status modify">수정중</span>
-        <span class="status modify-complete">수정완료</span>
-        <span class="status urgent">긴급</span>
-        <span class="status delete">삭제</span>
       </div>
     </div>
-
     <div id="list"></div>
-
-    <div id="preview-popup">
-      <iframe id="preview-iframe" src=""></iframe>
-    </div>
+    <div id="preview-popup"><iframe id="preview-iframe" src=""></iframe></div>
 
     <script>
       async function loadList() {
         try {
           const res = await fetch("/static/html/pub/list.json");
           if (!res.ok) throw new Error("list.json을 불러오지 못했습니다.");
-
           const data = await res.json();
           render(data);
 
-          const input = document.querySelector("#search");
-          input.addEventListener("input", () => {
-            const keyword = input.value.toLowerCase().trim();
-
+          document.querySelector("#search").addEventListener("input", (e) => {
+            const keyword = e.target.value.toLowerCase().trim();
             const filtered = data.filter((item) => {
-              const title = (item.title || "").toLowerCase();
-              const fileId = (item.fileId || "").toLowerCase();
-              const file = (item.file || "").toLowerCase();
-              const worker = (item.worker || "").toLowerCase();
-              const note = (item.note || "").toLowerCase();
-              const depthsStr = (item.depths || []).join("/").toLowerCase();
-
-              return (
-                title.includes(keyword) ||
-                fileId.includes(keyword) ||
-                file.includes(keyword) ||
-                worker.includes(keyword) ||
-                note.includes(keyword) ||
-                depthsStr.includes(keyword)
-              );
+              return [item.title, item.fileId, item.file, item.worker, item.note, (item.depths || []).join("/")]
+                .some(val => (val || "").toLowerCase().includes(keyword));
             });
-
             render(filtered);
           });
-        } catch (error) {
-          console.error("❌ 현황판 데이터 로드 실패:", error);
-        }
+        } catch (error) { console.error("❌ 데이터 로드 실패:", error); }
       }
 
       function getStatusClass(status) {
-        switch (status) {
-          case "완료":
-            return "complete";
-          case "진행중":
-            return "progress";
-          case "검수중":
-            return "examination";
-          case "수정중":
-            return "modify";
-          case "수정완료":
-            return "modify-complete";
-          case "긴급":
-            return "urgent";
-          case "삭제":
-            return "delete";
-          default:
-            return "wait";
-        }
+        const map = { "완료": "complete", "진행중": "progress", "검수중": "examination", "수정중": "modify", "수정완료": "modify-complete", "긴급": "urgent", "삭제": "delete" };
+        return map[status] || "wait";
       }
 
       function render(data) {
         const container = document.querySelector("#list");
-        if (!data.length) {
-          container.innerHTML = "<p style='padding:20px;'>표시할 데이터가 없습니다.</p>";
-          return;
-        }
+        if (!data.length) { container.innerHTML = "<p style='padding:20px;'>표시할 데이터가 없습니다.</p>"; return; }
 
-        const maxDepth = Math.max(...data.map((item) => (item.depths ? item.depths.length : 0)));
-
-        let depthHeader = "";
-        for (let i = 0; i < maxDepth; i++) {
-          depthHeader += `<th>${i + 1}Depth</th>`;
-        }
+        const maxDepth = Math.max(...data.map(item => (item.depths ? item.depths.length : 0)));
+        const isDevMode = new URLSearchParams(window.location.search).has('dev'); 
 
         const groups = {};
-        data.forEach((item) => {
+        data.forEach(item => {
           const key = (item.depths && item.depths[0]) ? item.depths[0] : "분류 미지정";
-          if (!groups[key]) {
-            groups[key] = [];
-          }
+          if (!groups[key]) groups[key] = [];
           groups[key].push(item);
         });
 
-        const sortedKeys = Object.keys(groups).sort((a, b) => {
-          if (a === "분류 미지정") return -1;
-          if (b === "분류 미지정") return 1;
-          return a.localeCompare(b, "ko");
-        });
-
-        // 💡 URL 파라미터 감지 (?dev)
-        const urlParams = new URLSearchParams(window.location.search);
-        const isDevMode = urlParams.has('dev');
-
         let html = "";
-
-        sortedKeys.forEach((group) => {
-          groups[group].sort((a, b) => {
-            const depthA = (a.depths || []).join("/");
-            const depthB = (b.depths || []).join("/");
-            return depthA.localeCompare(depthB, "ko");
-          });
-
-          html += `
-            <section class="pub-section">
-                <h2>${group}</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            ${depthHeader}
-                            <th>화면명</th>
-                            <th>화면ID</th>
-                            <th>상태</th>
-                            <th>수정일</th>
-                            <th>보기</th>
-                            <th>작업자</th>
-                            <th>비고</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-          `;
+        Object.keys(groups).sort().forEach((group) => {
+          html += `<section class="pub-section"><h2>${group}</h2><table><thead><tr>`;
+          for(let i=0; i<maxDepth; i++) html += `<th>${i+1}Depth</th>`;
+          html += `<th>화면명</th><th>화면ID</th><th>상태</th><th>수정일</th><th>보기</th><th>작업자</th><th>비고</th></tr></thead><tbody>`;
 
           groups[group].forEach((item) => {
-            const status = item.status || "대기";
-            const worker = item.worker || "-";
-            let note = item.note || "-";
-            const displayFileId = item.fileId || (item.file ? item.file.replace('.html', '') : '-');
-            const displayTitle = item.title || item.fileId || "제목 없음";
-
-            // 💡 dev 모드일 때 매칭 오류 행 강조 및 비고란 뱃지 처리
             let trClass = "";
-            if (isDevMode && item.hasIssues) {
-                trClass = "dev-issue";
-                const issueTexts = (item.issueReasons || []).map(reason => `<span class="issue-badge">${reason}</span>`).join('');
-                note = issueTexts + (note !== "-" ? ` ${note}` : "");
+            let noteDisplay = item.note || "-";
+
+            // 💡 dev 모드일 때 이슈 뱃지 렌더링 로직 개선
+            if (isDevMode && item.issueReasons && item.issueReasons.length > 0) {
+                let hasRealIssue = false; 
+
+                const badges = item.issueReasons.map(r => {
+                    if (r.includes("ok")) {
+                        return `<span class="issue-badge success">${r}</span>`;
+                    } 
+                    // 그 외(누락, 미등록 등)는 빨간색 뱃지
+                    else {
+                        hasRealIssue = true;
+                        return `<span class="issue-badge error">${r}</span>`;
+                    }
+                }).join('');
+
+                // 진짜 에러가 있을 때만 행 배경을 빨갛게 만듦
+                if (hasRealIssue) {
+                    trClass = "dev-issue";
+                }
+
+                noteDisplay = `${badges}<br/>${noteDisplay !== "-" ? noteDisplay : ""}`;
             }
 
             let depthTd = "";
-            for (let i = 0; i < maxDepth; i++) {
-              const depth = item.depths ? item.depths[i] : null;
-              depthTd += `<td>${depth || "-"}</td>`;
-            }
+            for (let i = 0; i < maxDepth; i++) depthTd += `<td>${item.depths ? (item.depths[i] || "-") : "-"}</td>`;
 
             html += `
-                <tr class="${trClass}">    
-                    ${depthTd}
-                    <td>${displayTitle}</td>
-                    <td>${displayFileId}</td>
-                    <td>
-                        <span class="status ${getStatusClass(status)}">${status}</span>
-                    </td>
-                    <td>${item.modified}</td>
-                    <td><a href="/static/html/pub/${item.link}" target="_blank" class="preview-link">보기</a></td>
-                    <td>${worker}</td>
-                    <td class="note">${note}</td>
-                </tr>
-            `;
+              <tr class="${trClass}">
+                ${depthTd}
+                <td>${item.title}</td>
+                <td>${item.fileId}</td>
+                <td><span class="status ${getStatusClass(item.status)}">${item.status}</span></td>
+                <td>${item.modified}</td>
+                <td><a href="/static/html/pub/${item.link}" target="_blank" class="preview-link">보기</a></td>
+                <td>${item.worker}</td>
+                <td class="note">${noteDisplay}</td>
+              </tr>`;
           });
-
-          html += `
-                    </tbody>
-                </table>
-            </section>
-          `;
+          html += `</tbody></table></section>`;
         });
-
         container.innerHTML = html;
       }
 
+      // 호버 팝업 기능
+      const popup = document.getElementById("preview-popup"), iframe = document.getElementById("preview-iframe");
+      document.querySelector("#list").addEventListener("mouseover", (e) => {
+        if (e.target.classList.contains("preview-link")) { iframe.src = e.target.getAttribute("href"); popup.style.display = "block"; }
+      });
+      document.querySelector("#list").addEventListener("mousemove", (e) => {
+        if (e.target.classList.contains("preview-link")) {
+          popup.style.left = (e.clientX + 20) + "px"; popup.style.top = (e.clientY + 20) + "px";
+        }
+      });
+      document.querySelector("#list").addEventListener("mouseout", (e) => {
+        if (e.target.classList.contains("preview-link")) { popup.style.display = "none"; iframe.src = ""; }
+      });
+
       loadList();
-
-      // ==============================================================
-      // 🔥 미리보기 이벤트 처리
-      // ==============================================================
-      const previewPopup = document.getElementById("preview-popup");
-      const iframe = document.getElementById("preview-iframe");
-      const listContainer = document.querySelector("#list");
-
-      listContainer.addEventListener("mouseover", (e) => {
-        if (e.target.classList.contains("preview-link")) {
-          const targetUrl = e.target.getAttribute("href");
-          iframe.src = targetUrl;
-          previewPopup.style.display = "block";
-        }
-      });
-
-      listContainer.addEventListener("mousemove", (e) => {
-        if (e.target.classList.contains("preview-link")) {
-          const popupWidth = 600;
-          const popupHeight = 400;
-
-          let left = e.clientX + 20;
-          let top = e.clientY + 20;
-
-          if (left + popupWidth > window.innerWidth) {
-            left = e.clientX - popupWidth - 20;
-          }
-          if (top + popupHeight > window.innerHeight) {
-            top = e.clientY - popupHeight - 20;
-          }
-
-          previewPopup.style.left = left + "px";
-          previewPopup.style.top = top + "px";
-        }
-      });
-
-      listContainer.addEventListener("mouseout", (e) => {
-        if (e.target.classList.contains("preview-link")) {
-          previewPopup.style.display = "none";
-          iframe.src = "";
-        }
-      });
     </script>
   </body>
 </html>

@@ -158,14 +158,14 @@ module.exports = {
     },
 
     "foe/10/CIBFOE100100000M.html": {
-        depths: ["외환", "외환수표조회"],
+        // depths: ["외환", "외환수표조회"],
         title: "외화수표조회_목록",
         status: "대기",
         worker: "이상우",
         note: ""
     },
     "foe/11/CIBFOE110100000M.html": {
-        depths: ["외환", "외환여신한도조회"],
+        // depths: ["외환", "외환여신한도조회"],
         title: "외화여신한도조회",
         status: "대기",
         worker: "이상우",

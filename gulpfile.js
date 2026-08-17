@@ -8,7 +8,7 @@ const autoprefixer = require('autoprefixer');
 const fileinclude = require('gulp-file-include');
 const fg = require("fast-glob");
 
-// [초기화] Node.js 내장 fs 모듈로 dist 폴더 완전 삭제 
+// [초기화]
 function clean(cb) {
     if (fs.existsSync('dist')) {
         fs.rmSync('dist', { recursive: true, force: true });
@@ -16,10 +16,44 @@ function clean(cb) {
     cb();
 }
 
-// 퍼블리스트용 JSON 자동 생성 (static/cl/status/ 연동)
+// 💡 [개선] 폴더 구조 탐색 시 .md가 없는 폴더를 추적하여 함께 반환
+function getDepthsFromMD(htmlFilePath) {
+    const baseDir = "static/html/pub";
+    const relativeDir = path.dirname(path.relative(baseDir, htmlFilePath)); 
+    
+    if (relativeDir === "." || relativeDir === "") return { depths: [], missing: [] };
+
+    const parts = relativeDir.split(path.sep);
+    let depths = [];
+    let missing = []; // 누락된 폴더명 추적 배열
+    let currentPath = baseDir;
+
+    for (const part of parts) {
+        currentPath = path.join(currentPath, part);
+        
+        const mdPath1 = path.join(currentPath, '.md');
+        const mdPath2 = path.join(currentPath, '_name.md');
+        
+        let depthName = part; 
+        
+        if (fs.existsSync(mdPath1)) {
+            depthName = fs.readFileSync(mdPath1, 'utf8').trim();
+        } else if (fs.existsSync(mdPath2)) {
+            depthName = fs.readFileSync(mdPath2, 'utf8').trim();
+        } else {
+            // 💡 .md 파일이 둘 다 없으면 missing 배열에 폴더명 추가
+            missing.push(part);
+        }
+        
+        depths.push(depthName);
+    }
+    
+    return { depths, missing }; // 뎁스 배열과 누락 폴더 배열을 같이 리턴
+}
+
+// 퍼블리스트용 JSON 자동 생성
 function generatePubList(done) {
     let statusMap = {};
-
     const statusJsPath = path.resolve('./static/cl/status/status.js');
 
     if (fs.existsSync(statusJsPath)) {
@@ -38,46 +72,45 @@ function generatePubList(done) {
 
     const list = files.map(file => {
         const stat = fs.statSync(file);
-
         const fileName = path.basename(file);
         const fileId = path.basename(file, ".html");
-
-        const statusKey = path
-            .relative("static/html/pub", file)
-            .replace(/\\/g, "/");
-
-        const hasMapping = Object.prototype.hasOwnProperty.call(statusMap, statusKey);
+        const statusKey = path.relative("static/html/pub", file).replace(/\\/g, "/");
+        
         const statusInfo = statusMap[statusKey] || {};
 
-        const defaultDepths = path
-            .dirname(file)
-            .replace(/^static[\\/]html[\\/]/, "")
-            .split(/[\\/]/)
-            .slice(1);
+        let issues = [];
+        let depths = statusInfo.depths;
+        let isMdGenerated = false;
+        let missingMdDirs = [];
 
-        const depths = (statusInfo.depths && statusInfo.depths.length > 0)
-            ? statusInfo.depths
-            : defaultDepths;
+        // 1. 기존 status.js에 depths가 없으면 .md에서 추출
+        if (!depths || depths.length === 0) {
+            const mdResult = getDepthsFromMD(file);
+            depths = mdResult.depths;
+            missingMdDirs = mdResult.missing;
+            isMdGenerated = true;
+        }
 
-        const title = statusInfo.title || fileId;
-
-        // 💡 누락 사유(Validation) 진단 로직 추가
-        const issues = [];
-        if (!hasMapping) {
+        // 2. 이슈 검출 (?dev 모드에서 보여줄 데이터)
+        if (!statusMap[statusKey]) {
             issues.push("status.js 미등록");
-        } else {
-            if (!statusInfo.depths || statusInfo.depths.length === 0) {
-                issues.push("뎁스(depths) 누락");
-            }
-            if (!statusInfo.title) {
-                issues.push("화면명(title) 누락");
+        } 
+        
+        // 💡 .md 기반으로 뎁스를 생성했을 때의 피드백 처리
+        if (isMdGenerated) {
+            if (missingMdDirs.length > 0) {
+                // 누락된 폴더가 있으면 해당 폴더 이름을 뱃지로 띄워줌
+                issues.push(`.md 누락: ${missingMdDirs.join('/')}`);
+            } else {
+                // 모두 잘 작성되어 있다면 정상 적용되었다는 뱃지
+                issues.push("MD 뎁스 완벽적용");
             }
         }
 
         return {
-            depths,
-            title,
-            fileId,
+            depths: depths,
+            title: statusInfo.title || fileId,
+            fileId: fileId,
             file: fileName,
             status: statusInfo.status || "대기",
             worker: statusInfo.worker || "-",
@@ -90,111 +123,52 @@ function generatePubList(done) {
     });
 
     const outputDir = "dist/static/html/pub";
-
-    if (!fs.existsSync(outputDir)) {
-        fs.mkdirSync(outputDir, { recursive: true });
-    }
-
-    fs.writeFileSync(
-        path.join(outputDir, "list.json"),
-        JSON.stringify(list, null, 2)
-    );
+    if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir, { recursive: true });
+    
+    fs.writeFileSync(path.join(outputDir, "list.json"), JSON.stringify(list, null, 2));
     done();
 }
 
-// 1. HTML 조립
 function html() {
-    return gulp.src(['static/html/pub/**/*.html', 'index.html', '!static/html/pub/**/layout/*.html'], {
-        base: '.',
-        allowEmpty: true
-    })
-        .pipe(fileinclude({
-            prefix: '@@',
-            basepath: '@root',
-            indent: true
-        }))
-        .on('error', function (err) {
-            console.error('❌ [HTML INCLUDE ERROR]:', err.toString());
-            this.emit('error', err);
-        })
+    return gulp.src(['static/html/pub/**/*.html', 'index.html', '!static/html/pub/**/layout/*.html'], { base: '.', allowEmpty: true })
+        .pipe(fileinclude({ prefix: '@@', basepath: '@root', indent: true }))
+        .on('error', function (err) { console.error('❌ [HTML ERROR]:', err.toString()); this.emit('error', err); })
         .pipe(gulp.dest('dist'));
 }
 
-// 2. SCSS 컴파일 (개발용)
 function styles() {
     return gulp.src(['static/css/**/*.scss', 'static/cl/**/*.scss'], { base: '.', allowEmpty: true })
         .pipe(sourcemaps.init())
         .pipe(sass({ outputStyle: 'expanded' }))
-        .on('error', function (err) {
-            console.error('❌ Sass 컴파일 에러 발생:\n', err.messageFormatted || err.message);
-            this.emit('end');
-        })
+        .on('error', function (err) { console.error('❌ Sass 에러:\n', err.messageFormatted); this.emit('end'); })
         .pipe(postcss([autoprefixer()]))
         .pipe(sourcemaps.write())
         .pipe(gulp.dest('dist'));
 }
 
-// 2-1. SCSS 컴파일 (배포용)
 function stylesBuild() {
     return gulp.src(['static/css/**/*.scss', 'static/cl/**/*.scss'], { base: '.', allowEmpty: true })
         .pipe(sass({ outputStyle: 'compressed' }))
-        .on('error', function (err) {
-            console.error('❌ [SASS BUILD ERROR]:\n', err.messageFormatted || err.message);
-            this.emit('error', err);
-        })
         .pipe(postcss([autoprefixer()]))
         .pipe(gulp.dest('dist'));
 }
 
-// 3. 자산 파일 복사
 function copyAssets() {
-    return gulp.src([
-        'static/js/**/*',
-        'static/images/**/*',
-        'static/css/**/font/**/*',
-        'static/cl/**/*',
-        '!static/cl/**/*.scss'
-    ], {
-        base: '.',
-        allowEmpty: true,
-        encoding: false,
-        sourcemaps: false
-    })
+    return gulp.src(['static/js/**/*', 'static/images/**/*', 'static/css/**/font/**/*', 'static/cl/**/*', '!static/cl/**/*.scss'], { base: '.', allowEmpty: true, encoding: false })
         .pipe(gulp.dest('dist'));
 }
 
-// 브라우저 실시간 동기화 서버
 function watchFiles() {
     const browserSync = require('browser-sync').create();
+    browserSync.init({ server: { baseDir: './dist', index: 'static/html/pub/index.html' }, port: 3000 });
 
-    browserSync.init({
-        server: {
-            baseDir: './dist',
-            index: 'static/html/pub/index.html'
-        },
-        port: 3000
-    });
-
-    gulp.watch(['static/html/**/*.html', 'static/cl/status/**/*.js'], gulp.series(generatePubList, html, (done) => { browserSync.reload(); done(); }));
+    gulp.watch(['static/html/**/*.html', 'static/cl/status/**/*.js', 'static/html/**/*.md'], gulp.series(generatePubList, html, (done) => { browserSync.reload(); done(); }));
     gulp.watch(['static/css/**/*.scss', 'static/cl/**/*.scss'], gulp.series(styles, (done) => { browserSync.reload(); done(); }));
     gulp.watch(['static/js/**/*', 'static/images/**/*', 'static/css/**/font/**/*', 'static/cl/**/*', '!static/cl/**/*.scss'], gulp.series(copyAssets, (done) => { browserSync.reload(); done(); }));
 }
 
-// 실행 순서 정의
-const dev = gulp.series(
-    clean,
-    generatePubList,
-    gulp.parallel(html, styles, copyAssets),
-    watchFiles
-);
-
-const build = gulp.series(
-    clean,
-    generatePubList,
-    html,
-    stylesBuild,
-    copyAssets
-);
+const dev = gulp.series(clean, generatePubList, gulp.parallel(html, styles, copyAssets), watchFiles);
+const build = gulp.series(clean, generatePubList, html, stylesBuild, copyAssets);
 
 exports.default = dev;
 exports.build = build;
