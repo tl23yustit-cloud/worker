@@ -82,7 +82,7 @@ module.exports = {
     },
 
     // 금융상품 > 해양수신금융 > 해양수산금융소식
-    "fin_mfi/11/CIBFIN_MF110000000M.html": {
+    "fin_mfi/11/CIBFIN_MFI110000000M.html": {
         depths: ["해양수산금융", "해양수산금융소식"],
         title: "해양수산금융소식",
         status: "검수중",
