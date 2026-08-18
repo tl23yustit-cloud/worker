@@ -65,50 +65,56 @@ module.exports = {
     "bop/lon/rop/Fax정보입력.html": { "status": "수정중", "worker": "변혜선", "note": "" },
 
     //뱅킹업무(bop) > 카드(card) > 
-    "bop/card/cm/ccpr/CIBCRD020300000M.html": { "status": "완료", "worker": "변혜선", "note": "" },
-    "bop/card/mpim/smsas/smsasa/CIBCRD060601000T.html": { "status": "검수중", "worker": "변혜선", "note": "임시 그리드 화면" },
-    "bop/card/mpim/smsas/smsasa/CIBCRD060602000M.html": { "status": "검수중", "worker": "변혜선", "note": "임시 그리드 화면, 미확정테이블화면" },
-    "bop/card/mpim/smsas/smsasad/CIBCRD060603000T.html": { "status": "검수중", "worker": "변혜선", "note": "임시 그리드 화면" },
-    "bop/card/02/04/CIBCRD02040000M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
-    "bop/card/02/01/01/CIBCRD020100000T.html": {
+    "bop/crd/cm/ccpr/CIBCRD020300000M.html": { "status": "완료", "worker": "변혜선", "note": "" },
+    "bop/crd/mpim/smsas/smsasa/CIBCRD060601000T.html": { "status": "검수중", "worker": "변혜선", "note": "임시 그리드 화면" },
+    "bop/crd/mpim/smsas/smsasa/CIBCRD060602000M.html": { "status": "검수중", "worker": "변혜선", "note": "임시 그리드 화면, 미확정테이블화면" },
+    "bop/crd/mpim/smsas/smsasad/CIBCRD060603000T.html": { "status": "검수중", "worker": "변혜선", "note": "임시 그리드 화면" },
+    "bop/crd/02/04/CIBCRD02040000M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
+    "bop/crd/02/01/01/CIBCRD020100000T.html": {
         depths: ["뱅킹업무", "카드", "카드관리", "보유카드조회"],
         title: "보유카드조회(당행Tab)",
         status: "검수중",
         worker: "변혜선",
         note: "임시 그리드 화면"
     },
-    "bop/card/02/01/01/CIBCRD020102000P.html": {
+    "bop/crd/02/01/01/CIBCRD020102000P.html": {
         depths: ["뱅킹업무", "카드", "카드관리", "이용한도조회"],
         title: "카드 상세보기 팝업",
         status: "검수중",
         worker: "변혜선",
         note: "임시 그리드 화면"
     },
-    "bop/card/02/01/01/CIBCRD020100000T.html": {
+    "bop/crd/02/01/01/CIBCRD020100000T.html": {
         depths: ["뱅킹업무", "카드", "카드관리", "보유카드조회"],
         title: "보유카드조회(당행Tab)",
         status: "검수중",
         worker: "변혜선",
         note: "임시 그리드 화면"
     },
-    "bop/card/03/01/CIBCRD030100000M.html": {
+    "bop/crd/03/01/CIBCRD030100000M.html": {
         depths: ["뱅킹업무", "카드", "카드관리", "이용한도조회"],
         title: "이용한도조회",
         status: "검수중",
         worker: "변혜선",
         note: "임시 그리드 화면"
     },
-    "bop/card/06/04/01/CIBCRD060401000M.html": { "status": "검수중", "worker": "변혜선", "note": "임시 그리드 화면" },
-    "bop/card/06/04/02/CIBCRD060402000M.html": { "status": "검수중", "worker": "변혜선", "note": "임시 그리드 화면" },
-    "bop/card/06/05/01/CIBCRD060501000M.html": { "status": "검수중", "worker": "변혜선", "note": "임시 그리드 화면" },
-    "bop/card/06/05/02/CIBCRD060502000M.html": { "status": "검수중", "worker": "변혜선", "note": "임시 그리드 화면" },
-    "bop/card/06/06/CIBCRD060600000M.html": { "status": "검수중", "worker": "변혜선", "note": "임시 그리드 화면" },
-    "bop/card/06/06/01/CIBCRD060601000M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
-    "bop/card/06/06/02/CIBCRD060602000M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
-    "bop/card/06/06/03/CIBCRD060603000M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
-    "bop/card/06/06/04/CIBCRD060604000M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
-    "bop/card/06/06/05/CIBCRD060605000M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
-    "bop/card/06/06/06/CIBCRD060606000M.html": {
+    "bop/crd/04/01/CIBCRD040101000T.html": {
+        title: "사업장 이용내역조회(실시간 승인내역(Tab)",
+        status: "진행중",
+        worker: "변혜선",
+        note: ""
+    },
+    "bop/crd/06/04/01/CIBCRD060401000M.html": { "status": "검수중", "worker": "변혜선", "note": "임시 그리드 화면" },
+    "bop/crd/06/04/02/CIBCRD060402000M.html": { "status": "검수중", "worker": "변혜선", "note": "임시 그리드 화면" },
+    "bop/crd/06/05/01/CIBCRD060501000M.html": { "status": "검수중", "worker": "변혜선", "note": "임시 그리드 화면" },
+    "bop/crd/06/05/02/CIBCRD060502000M.html": { "status": "검수중", "worker": "변혜선", "note": "임시 그리드 화면" },
+    "bop/crd/06/06/CIBCRD060600000M.html": { "status": "검수중", "worker": "변혜선", "note": "임시 그리드 화면" },
+    "bop/crd/06/06/01/CIBCRD060601000M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
+    "bop/crd/06/06/02/CIBCRD060602000M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
+    "bop/crd/06/06/03/CIBCRD060603000M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
+    "bop/crd/06/06/04/CIBCRD060604000M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
+    "bop/crd/06/06/05/CIBCRD060605000M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
+    "bop/crd/06/06/06/CIBCRD060606000M.html": {
         depths: ["뱅킹업무", "카드", "카드_회원결제정보관리", "SMS알림서비스변경(완료) "],
         title: "이용한도조회",
         status: "검수중",
@@ -119,7 +125,7 @@ module.exports = {
     "bop/foe/import/oilc/수입신용장전문조회_목록.html": { "status": "수정중", "worker": "변혜선", "note": "" },
     "bop/foe/import/oilc/L_G_발급신청_조회.html": { "status": "수정중", "worker": "변혜선", "note": "" },
     "bop/foe/fx/ctl/한도조회.html": { "status": "수정중", "worker": "변혜선", "note": "" },
-    "bop/foe/dli/pd/CIBFOE090100000M.html": { "status": "완료", "worker": "변혜선", "note": "" },
+    "bop/foe/dli/pd/CIBFOE090100000M.html": { "status": "완료", "worker": "변혜선", "note": "주석확인" },
 
     // 뱅킹업무(bop) > 외환(foe) > 해외송금(or) / 외화환전(fce)
     "bop/foe/or/mfura/dimt/CIBFOE040401000T.html": { "status": "완료", "worker": "변혜선", "note": "주석확인" },
@@ -128,8 +134,8 @@ module.exports = {
     "bop/foe/or/dor/eri/ns/CIBFOE040104002P.html": { "status": "검수중", "worker": "변혜선", "note": "" },
     "bop/foe/or/dor/eri/swiftcode/CIBFOE040104003P.html": { "status": "검수중", "worker": "변혜선", "note": "" },
     "bop/foe/fce/fce/CIBFOE050102000M.html": { "status": "완료", "worker": "변혜선", "note": "주석확인" },
-    "bop/foe/or/mfura/dimt/regist/CIBFOE04040101M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
-    "bop/foe/or/mfura/or/regist/CIBFOE04040201M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
+    "bop/foe/or/mfura/dimt/regist/CIBFOE04040101M.html": { "status": "검수중", "worker": "변혜선", "note": "주석확인" },
+    "bop/foe/or/mfura/or/regist/CIBFOE04040201M.html": { "status": "검수중", "worker": "변혜선", "note": "주석확인" },
     "bop/foe/or/dor/CIBFOE040301004p.html": { "status": "검수중", "worker": "변혜선", "note": "" },
     "bop/foe/or/orhistory/di/CIBFOE040301000M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
     "bop/foe/or/orhistory/di/crcic/CIBFOE040301001M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
