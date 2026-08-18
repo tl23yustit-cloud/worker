@@ -5079,17 +5079,21 @@ body.is-scroll-locked {
 }
 
 /* Progress Loading bar */
-.loading-progress-bar {
-	.box-text {
-		display: flex;
+.loading-progress-bar {display: flex;
 		align-items: center;
 		justify-content: space-between;
+	.box-text {
+		
 		gap: var(--spacingXs);
 	}
 
-	.title-progress,
+	// .title-progress {
+	// 	color: var(--colorFgPrimary);
+	// 	margin-left: var(--spacingXsSm);
+	// }
 	.percent {
-		color: var(--colorFgSecondary);
+		color: var(--colorFgPrimary);
+		margin-left: var(--spacingXsSm);
 	}
 
 	.title-progress {
@@ -5229,6 +5233,92 @@ body.is-scroll-locked {
 	to {
 		transform: scaleX(1);
 	}
+}
+/* 게이지 부드러운 이동 애니메이션 */
+.loading-progress-bar .progress-gauge {
+  transition: width 0.4s ease-in-out, background-color 0.3s ease;
+}
+
+/* 퍼센트 구간별 색상 클래스 */
+.loading-progress-bar.is-blue .progress-gauge {
+  background-color: #007bff; /* 파란색 */
+}
+
+.loading-progress-bar.is-yellow .progress-gauge {
+  background-color: #ffc107; /* 노란색 */
+}
+
+.loading-progress-bar.is-red .progress-gauge {
+  background-color: #dc3545; /* 빨간색 */
+}
+.loading-progress-bar {
+  .bg-progress-bar {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .progress-gauge {
+    display: block;
+    width: 0;
+    height: 100%;
+    transition:
+      width 0.6s ease,
+      background-color 0.3s ease;
+  }
+
+  // ----------------------------------------
+  // 0 ~ 30% : 파랑
+  // ----------------------------------------
+  &.is-blue {
+    .progress-gauge {
+      background-color: #2878f0;
+    }
+  }
+
+  // ----------------------------------------
+  // 31 ~ 70% : 노랑
+  // ----------------------------------------
+  &.is-yellow {
+    .progress-gauge {
+      background-color: #f5c400;
+    }
+  }
+
+  // ----------------------------------------
+  // 71 ~ 100% : 빨강
+  // ----------------------------------------
+  &.is-red {
+    .progress-gauge {
+      background-color: #ef4b4b;
+    }
+  }
+}
+.loading-progress-bar {
+  .bg-progress-bar {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .progress-gauge {
+    display: block;
+    flex: 0 0 auto;
+    width: 0;
+    height: 100%;
+    transition: width 1s ease;
+  }
+
+  .progress-blue {
+    background-color: #2878f0;
+  }
+
+  .progress-yellow {
+    background-color: #f5c400;
+  }
+
+  .progress-red {
+    background-color: #ef4b4b;
+  }
 }
 
 /* Loading Circle */

@@ -10905,259 +10905,304 @@
                           <th scope="row">Default</th>
                           <td>
                             <div id="myProgressBar" class="loading-progress-bar size-sm">
-                              <div class="box-text">
-                                <span class="title-progress typeSmSemibold">$Progress Label$</span>
-                                <span class="percent typeSmSemibold"><span class="num">100</span>%</span>
-                              </div>
                               <div class="bg-progress-bar" aria-hidden="true">
-                                <span class="progress-gauge" aria-hidden="true" style="width: 100%"></span>
+                                <span class="progress-gauge" aria-hidden="true">
+                                </span>
                               </div>
                               <div class="box-text">
-                                <span class="message type2XsSemibold">In progress message</span>
-                                <i class="ico-status" aria-hidden="true"></i>
+                                <span class="percent typeMd">
+                                  <span class="num typeSmSemibold">70</span>%
+                                </span>
                               </div>
+
                             </div>
+
                             <script>
                               setProgressBar1("#myProgressBar", {
-                                percent: 75,
-                                state: "progress",
-                                message: "로딩중...",
+                                percent: 30
                               });
-                              /**
-                               * 프로그레스 바의 상태 및 데이터를 동적으로 제어하는 함수
-                               * @param {HTMLElement|string} target - '.loading-progress-bar' 요소 또는 선택자
-                               * @param {Object} options - 설정할 옵션 객체
-                               * @param {number} [options.percent] - 진행률 수치 (0 ~ 100)
-                               * @param {string} [options.status='auto'] - 상태 지정 ('progress' | 'success' | 'fail' | 'auto')
-                               * @param {string} [options.message] - 하단 상태 메세지 (미입력 시 기본 메세지 유지)
-                               * @param {string} [options.label] - 상단 프로그레스 라벨 (미입력 시 기본 라벨 유지)
-                               */
+
+                              // setTimeout(() => {
+                              //   setProgressBar1("#myProgressBar", {
+                              //     percent: 50
+                              //   });
+                              // }, 1000);
+
+                              // setTimeout(() => {
+                              //   setProgressBar1("#myProgressBar", {
+                              //     percent: 80
+                              //   });
+                              // }, 2000);
+
+                              // setTimeout(() => {
+                              //   setProgressBar1("#myProgressBar", {
+                              //     percent: 100
+                              //   });
+                              // }, 3000);
                               function setProgressBar1(target, options = {}) {
-                                // 1. 타겟 요소 선택
                                 const el =
                                   typeof target === "string"
                                     ? document.querySelector(target)
                                     : target;
+
                                 if (!el) return;
 
-                                // 2. 기본값 세팅 및 옵션 파싱
                                 const {
-                                  percent,
+                                  percent = 0,
                                   status = "auto",
                                   message,
                                   label,
+                                  duration = 600,
                                 } = options;
 
-                                // 3. 내부 요소 선택
-                                const gaugeEl =
-                                  el.querySelector(".progress-gauge");
-                                const numEl =
-                                  el.querySelector(".percent .num");
-                                const messageEl =
-                                  el.querySelector(".message");
-                                const labelEl =
-                                  el.querySelector(".title-progress");
+                                const gaugeEl = el.querySelector(".progress-gauge");
+                                const numEl = el.querySelector(".percent .num");
+                                const messageEl = el.querySelector(".message");
+                                const labelEl = el.querySelector(".title-progress");
 
-                                // 4. 퍼센트/게이지 너비 업데이트 (percent 값이 전달된 경우만)
-                                let safePercent = null;
-                                if (typeof percent === "number") {
-                                  safePercent = Math.min(
-                                    Math.max(percent, 0),
-                                    100,
-                                  ); // 0~100 범위 제한
+                                if (!gaugeEl) return;
 
-                                  if (gaugeEl) {
-                                    gaugeEl.style.width = `${safePercent}%`;
-                                  }
-                                  if (numEl) {
-                                    numEl.textContent = safePercent;
-                                  }
+                                // ----------------------------------------
+                                // 최종 퍼센트
+                                // ----------------------------------------
+                                const targetPercent = Math.min(
+                                  Math.max(Number(percent) || 0, 0),
+                                  100
+                                );
+
+                                // ----------------------------------------
+                                // 기존 애니메이션 취소
+                                // ----------------------------------------
+                                if (el._progressAnimationFrame) {
+                                  cancelAnimationFrame(el._progressAnimationFrame);
                                 }
 
-                                // 5. 라벨 및 메세지 텍스트 변경 (옵션이 있는 경우)
+                                // ----------------------------------------
+                                // 라벨
+                                // ----------------------------------------
                                 if (label && labelEl) {
                                   labelEl.textContent = label;
                                 }
+
+                                // ----------------------------------------
+                                // 메시지
+                                // ----------------------------------------
                                 if (message && messageEl) {
                                   messageEl.textContent = message;
                                 }
 
-                                // 6. 상태 클래스(is-success, is-fail) 제어
+                                // ----------------------------------------
+                                // 색상
+                                // ----------------------------------------
+                                function setColor(type) {
+                                  if (type === "blue") {
+                                    gaugeEl.style.setProperty(
+                                      "background-color",
+                                      "#0F62FD",
+                                      "important"
+                                    );
+                                  }
+
+                                  if (type === "yellow") {
+                                    gaugeEl.style.setProperty(
+                                      "background-color",
+                                      "#FAC515",
+                                      "important"
+                                    );
+                                  }
+
+                                  if (type === "red") {
+                                    gaugeEl.style.setProperty(
+                                      "background-color",
+                                      "#D33128",
+                                      "important"
+                                    );
+                                  }
+                                }
+
+                                // ----------------------------------------
+                                // 숫자 표시
+                                // ----------------------------------------
+                                function setNumber(value) {
+                                  if (numEl) {
+                                    numEl.textContent = Math.round(value);
+                                  }
+                                }
+
+                                // ----------------------------------------
+                                // 하나의 구간을 애니메이션
+                                // ----------------------------------------
+                                function animateSection(
+                                  from,
+                                  to,
+                                  color
+                                ) {
+                                  return new Promise((resolve) => {
+                                    if (from === to) {
+                                      setColor(color);
+                                      setNumber(to);
+                                      gaugeEl.style.width = `${to}%`;
+                                      resolve();
+                                      return;
+                                    }
+
+                                    setColor(color);
+
+                                    const startTime = performance.now();
+
+                                    function animate(currentTime) {
+                                      const elapsed =
+                                        currentTime - startTime;
+
+                                      const progress = Math.min(
+                                        elapsed / duration,
+                                        1
+                                      );
+
+                                      // ease-out
+                                      const eased =
+                                        1 - Math.pow(1 - progress, 3);
+
+                                      const current =
+                                        from + (to - from) * eased;
+
+                                      gaugeEl.style.width =
+                                        `${current}%`;
+
+                                      setNumber(current);
+
+                                      if (progress < 1) {
+                                        el._progressAnimationFrame =
+                                          requestAnimationFrame(animate);
+                                      } else {
+                                        gaugeEl.style.width =
+                                          `${to}%`;
+
+                                        setNumber(to);
+
+                                        resolve();
+                                      }
+                                    }
+
+                                    el._progressAnimationFrame =
+                                      requestAnimationFrame(animate);
+                                  });
+                                }
+
+                                // ----------------------------------------
+                                // 전체 구간 실행
+                                // ----------------------------------------
+                                async function runProgress() {
+                                  // 초기화
+                                  gaugeEl.style.width = "0%";
+                                  setNumber(0);
+
+                                  // ----------------------------------------
+                                  // 0 ~ 30 : 파랑
+                                  // ----------------------------------------
+                                  if (targetPercent > 0) {
+                                    const blueEnd =
+                                      Math.min(targetPercent, 30);
+
+                                    await animateSection(
+                                      0,
+                                      blueEnd,
+                                      "blue"
+                                    );
+                                  }
+
+                                  // ----------------------------------------
+                                  // 31 ~ 70 : 노랑
+                                  // 실제 게이지는 30 → 70
+                                  // ----------------------------------------
+                                  if (targetPercent > 30) {
+                                    const yellowEnd =
+                                      Math.min(targetPercent, 70);
+
+                                    await animateSection(
+                                      30,
+                                      yellowEnd,
+                                      "yellow"
+                                    );
+                                  }
+
+                                  // ----------------------------------------
+                                  // 71 ~ 100 : 빨강
+                                  // 실제 게이지는 70 → 100
+                                  // ----------------------------------------
+                                  if (targetPercent > 70) {
+                                    await animateSection(
+                                      70,
+                                      targetPercent,
+                                      "red"
+                                    );
+                                  }
+                                }
+
+                                // ----------------------------------------
+                                // 상태 처리
+                                // ----------------------------------------
                                 let currentStatus = status;
 
-                                // 'auto' 모드일 때: percent가 100이면 자동으로 success 처리
-                                if (
-                                  status === "auto" &&
-                                  safePercent !== null
-                                ) {
+                                if (status === "auto") {
                                   currentStatus =
-                                    safePercent === 100
+                                    targetPercent === 100
                                       ? "success"
                                       : "progress";
                                 }
 
-                                switch (currentStatus) {
-                                  case "success":
-                                    el.classList.remove("is-fail");
-                                    el.classList.add("is-success");
-                                    // 별도 메세지가 지정되지 않았을 때 성공 기본 메세지 적용 (선택 사항)
-                                    if (!message && messageEl) {
-                                      messageEl.textContent =
-                                        "Complete message";
-                                    }
-                                    break;
+                                el.classList.remove(
+                                  "is-success",
+                                  "is-fail"
+                                );
 
-                                  case "fail":
-                                    el.classList.remove("is-success");
-                                    el.classList.add("is-fail");
-                                    // 별도 메세지가 지정되지 않았을 때 에러 기본 메세지 적용 (선택 사항)
-                                    if (!message && messageEl) {
-                                      messageEl.textContent = "Error message";
-                                    }
-                                    break;
+                                if (currentStatus === "success") {
+                                  el.classList.add("is-success");
 
-                                  case "progress":
-                                  default:
-                                    el.classList.remove(
-                                      "is-success",
-                                      "is-fail",
-                                    );
-                                    if (!message && messageEl) {
-                                      messageEl.textContent =
-                                        "In progress message";
-                                    }
-                                    break;
+                                  if (!message && messageEl) {
+                                    messageEl.textContent =
+                                      "Complete message";
+                                  }
+                                } else if (currentStatus === "fail") {
+                                  el.classList.add("is-fail");
+
+                                  if (!message && messageEl) {
+                                    messageEl.textContent =
+                                      "Error message";
+                                  }
+                                } else {
+                                  if (!message && messageEl) {
+                                    messageEl.textContent =
+                                      "In progress message";
+                                  }
                                 }
+
+                                // 실행
+                                runProgress();
                               }
                             </script>
                           </td>
                           <td>
-                            <div class="loading-progress-bar size-md">
-                              <div class="box-text">
-                                <span class="title-progress typeMdSemibold">$Progress Label$</span>
-                                <span class="percent typeMdSemibold"><span class="num">100</span>%</span>
-                              </div>
+                            <div id="myProgressBar" class="loading-progress-bar size-md">
                               <div class="bg-progress-bar" aria-hidden="true">
-                                <span class="progress-gauge" aria-hidden="true" style="width: 100%"></span>
+                                <span class="progress-gauge" aria-hidden="true" style="width: 70%"></span>
                               </div>
                               <div class="box-text">
-                                <span class="message typeSm">In progress message</span>
-                                <i class="ico-status" aria-hidden="true"></i>
+                                <span class="percent typeMd"><span class="num typeSmSemibold">70</span>%</span>
                               </div>
                             </div>
                           </td>
                           <td>
                             <div class="loading-progress-bar size-lg">
-                              <div class="box-text">
-                                <span class="title-progress typeLgSemibold">$Progress Label$</span>
-                                <span class="percent typeLgSemibold"><span class="num">100</span>%</span>
-                              </div>
                               <div class="bg-progress-bar" aria-hidden="true">
                                 <span class="progress-gauge" aria-hidden="true" style="width: 100%"></span>
                               </div>
                               <div class="box-text">
-                                <span class="message typeMd">In progress message</span>
-                                <i class="ico-status" aria-hidden="true"></i>
+                                <span class="percent typeMd"><span class="num typeSmSemibold">100</span>%</span>
                               </div>
                             </div>
                           </td>
-                        </tr>
-                        <tr>
-                          <th scope="row">Success</th>
-                          <td>
-                            <div class="loading-progress-bar is-success size-sm">
-                              <div class="box-text">
-                                <span class="title-progress typeSmSemibold">$Progress Label$</span>
-                                <span class="percent typeSmSemibold"><span class="num">100</span>%</span>
-                              </div>
-                              <div class="bg-progress-bar" aria-hidden="true">
-                                <span class="progress-gauge" aria-hidden="true" style="width: 100%"></span>
-                              </div>
-                              <div class="box-text">
-                                <span class="message type2Xs">Complete message</span>
-                                <i class="ico-status" aria-hidden="true"></i>
-                              </div>
-                            </div>
-                          </td>
-                          <td>
-                            <div class="loading-progress-bar is-success size-md">
-                              <div class="box-text">
-                                <span class="title-progress typeMdSemibold">$Progress Label$</span>
-                                <span class="percent typeMdSemibold"><span class="num">100</span>%</span>
-                              </div>
-                              <div class="bg-progress-bar" aria-hidden="true">
-                                <span class="progress-gauge" aria-hidden="true" style="width: 100%"></span>
-                              </div>
-                              <div class="box-text">
-                                <span class="message typeSm">Complete message</span>
-                                <i class="ico-status" aria-hidden="true"></i>
-                              </div>
-                            </div>
-                          </td>
-                          <td>
-                            <div class="loading-progress-bar is-success size-lg">
-                              <div class="box-text">
-                                <span class="title-progress typeLgSemibold">$Progress Label$</span>
-                                <span class="percent typeLgSemibold"><span class="num">100</span>%</span>
-                              </div>
-                              <div class="bg-progress-bar" aria-hidden="true">
-                                <span class="progress-gauge" aria-hidden="true" style="width: 100%"></span>
-                              </div>
-                              <div class="box-text">
-                                <span class="message typeMd">Complete message</span>
-                                <i class="ico-status" aria-hidden="true"></i>
-                              </div>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <th scope="row">Fail</th>
-                          <td>
-                            <div class="loading-progress-bar is-fail size-sm">
-                              <div class="box-text">
-                                <span class="title-progress typeSmSemibold">$Progress Label$</span>
-                                <span class="percent typeSmSemibold"><span class="num">100</span>%</span>
-                              </div>
-                              <div class="bg-progress-bar" aria-hidden="true">
-                                <span class="progress-gauge" aria-hidden="true" style="width: 100%"></span>
-                              </div>
-                              <div class="box-text">
-                                <span class="message type2Xs">Error message</span>
-                                <i class="ico-status" aria-hidden="true"></i>
-                              </div>
-                            </div>
-                          </td>
-                          <td>
-                            <div class="loading-progress-bar is-fail size-md">
-                              <div class="box-text">
-                                <span class="title-progress typeMdSemibold">$Progress Label$</span>
-                                <span class="percent typeMdSemibold"><span class="num">100</span>%</span>
-                              </div>
-                              <div class="bg-progress-bar" aria-hidden="true">
-                                <span class="progress-gauge" aria-hidden="true" style="width: 100%"></span>
-                              </div>
-                              <div class="box-text">
-                                <span class="message typeSm">Error message</span>
-                                <i class="ico-status" aria-hidden="true"></i>
-                              </div>
-                            </div>
-                          </td>
-                          <td>
-                            <div class="loading-progress-bar is-fail size-lg">
-                              <div class="box-text">
-                                <span class="title-progress typeLgSemibold">$Progress Label$</span>
-                                <span class="percent typeLgSemibold"><span class="num">100</span>%</span>
-                              </div>
-                              <div class="bg-progress-bar" aria-hidden="true">
-                                <span class="progress-gauge" aria-hidden="true" style="width: 100%"></span>
-                              </div>
-                              <div class="box-text">
-                                <span class="message typeMd">Error message</span>
-                                <i class="ico-status" aria-hidden="true"></i>
-                              </div>
-                            </div>
-                          </td>
-                        </tr>
+                        </tr>                        
                       </tbody>
                     </table>
                   </div>
