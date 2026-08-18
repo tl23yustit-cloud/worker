@@ -151,18 +151,46 @@
         container.innerHTML = html;
       }
 
-      // 호버 팝업 기능
-      const popup = document.getElementById("preview-popup"), iframe = document.getElementById("preview-iframe");
+      // 💡 화면 잘림을 방지하는 호버 팝업 기능
+      const popup = document.getElementById("preview-popup");
+      const iframe = document.getElementById("preview-iframe");
+      
       document.querySelector("#list").addEventListener("mouseover", (e) => {
-        if (e.target.classList.contains("preview-link")) { iframe.src = e.target.getAttribute("href"); popup.style.display = "block"; }
-      });
-      document.querySelector("#list").addEventListener("mousemove", (e) => {
-        if (e.target.classList.contains("preview-link")) {
-          popup.style.left = (e.clientX + 20) + "px"; popup.style.top = (e.clientY + 20) + "px";
+        if (e.target.classList.contains("preview-link")) { 
+          iframe.src = e.target.getAttribute("href"); 
+          popup.style.display = "block"; 
         }
       });
+      
+      document.querySelector("#list").addEventListener("mousemove", (e) => {
+        if (e.target.classList.contains("preview-link")) {
+          const popupWidth = 600; // 팝업 가로 크기
+          const popupHeight = 400; // 팝업 세로 크기
+          const offset = 20; // 마우스 커서와의 간격
+      
+          let left = e.clientX + offset;
+          let top = e.clientY + offset;
+      
+          // 1. 오른쪽 화면을 벗어날 경우 마우스 왼쪽으로 이동
+          if (left + popupWidth > window.innerWidth) {
+            left = e.clientX - popupWidth - offset;
+          }
+      
+          // 2. 아래쪽 화면을 벗어날 경우 잘리지 않게 위로 올림
+          if (top + popupHeight > window.innerHeight) {
+            top = window.innerHeight - popupHeight - offset; 
+          }
+      
+          popup.style.left = left + "px";
+          popup.style.top = top + "px";
+        }
+      });
+      
       document.querySelector("#list").addEventListener("mouseout", (e) => {
-        if (e.target.classList.contains("preview-link")) { popup.style.display = "none"; iframe.src = ""; }
+        if (e.target.classList.contains("preview-link")) { 
+          popup.style.display = "none"; 
+          iframe.src = ""; 
+        }
       });
 
       loadList();
