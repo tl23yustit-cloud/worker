@@ -116,21 +116,21 @@ module.exports = {
     "foe/04/01/02/CIBFOE040102000M.html": {
         depths: ["외환", "해외송금", "무증빙해외송금", "Step1.영문고객정보"],
         title: "무증빙해외송금_Step1.영문고객정보",
-        status: "대기",
+        status: "검수중",
         worker: "이상우",
         note: ""
     },
     "foe/04/01/03/001/CIBFOE040103001P.html": {
         depths: ["외환", "해외송금", "무증빙해외송금", "Step2.약관동의", "[팝업]외화거래이용약관"],
         title: "[팝업]외화거래이용약관",
-        status: "대기",
+        status: "검수중",
         worker: "이상우",
         note: ""
     },
     "foe/04/01/04/CIBFOE040104000M.html": {
         depths: ["외환", "해외송금", "무증빙해외송금", "Step3.송금정보입력"],
         title: "무증빙해외송금_Step3.송금정보입력",
-        status: "대기",
+        status: "검수중",
         worker: "이상우",
         note: ""
     },
@@ -138,36 +138,71 @@ module.exports = {
     "foe/04/01/04/01/CIBFOE040104001P.html": {
         depths: ["외환", "해외송금", "무증빙해외송금", "Step3.송금정보입력", "[팝업]송금안내"],
         title: "[팝업]송금안내",
-        status: "대기",
+        status: "검수중",
         worker: "이상우",
         note: ""
     },
     "foe/04/01/05/CIBFOE040105000M.html": {
         depths: ["외환", "해외송금", "무증빙해외송금", "Step4.송금정보입력"],
         title: "무증빙해외송금_Step4.송금정보확인",
-        status: "대기",
+        status: "검수중",
         worker: "이상우",
         note: ""
     },
     "foe/04/01/06/CIBFOE040106000M.html": {
         depths: ["외환", "해외송금", "무증빙해외송금", "Step5.송금완료"],
         title: "무증빙해외송금_Step5.송금완료",
-        status: "대기",
+        status: "검수중",
         worker: "이상우",
         note: ""
     },
 
     "foe/10/CIBFOE100100000M.html": {
-        // depths: ["외환", "외환수표조회"],
+        depths: ["외환", "외환수표조회"],
         title: "외화수표조회_목록",
-        status: "대기",
+        status: "검수중",
         worker: "이상우",
         note: ""
     },
     "foe/11/CIBFOE110100000M.html": {
-        // depths: ["외환", "외환여신한도조회"],
+        depths: ["외환", "외환여신한도조회"],
         title: "외화여신한도조회",
-        status: "대기",
+        status: "검수중",
+        worker: "이상우",
+        note: ""
+    },
+    "crd/02/04/CIBCRD020400000M.html": {
+        depths: ["카드", "카드기본정보조회"],
+        title: "카드기본정보조회",
+        status: "검수중",
+        worker: "이상우",
+        note: ""
+    },
+    "van/05/01/CIBVAN050101000M.html": {
+        depths: ["금융서비스", "계좌통합관리서비스(어카운트인포)", "조회신청/조회", "서비스안내"],
+        title: "서비스안내",
+        status: "검수중",
+        worker: "이상우",
+        note: ""
+    },
+    "van/05/01CIBVAN050103000M.html": {
+        depths: ["금융서비스", "계좌통합관리서비스(어카운트인포)", "조회신청/조회", "은행/제2금융권/증권사탭"],
+        title: "은행/제2금융권/증권사탭",
+        status: "검수중",
+        worker: "이상우",
+        note: ""
+    },
+    "van/05/02/CIBVAN050204000M.html": {
+        depths: ["금융서비스", "계좌통합관리서비스(어카운트인포)", "조회해지", "이용안내 및 해지실행"],
+        title: "이용안내 및 해지실행",
+        status: "검수중",
+        worker: "이상우",
+        note: ""
+    },
+    "van/05/02/CIBVAN050205000M.html": {
+        depths: ["금융서비스", "계좌통합관리서비스(어카운트인포)", "조회해지", "해지완료"],
+        title: "해지완료",
+        status: "검수중",
         worker: "이상우",
         note: ""
     },
