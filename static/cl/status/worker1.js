@@ -129,7 +129,7 @@ module.exports = {
 
     // 뱅킹업무(bop) > 외환(foe) > 해외송금(or) / 외화환전(fce)
     "bop/foe/or/mfura/dimt/CIBFOE040401000T.html": { "status": "완료", "worker": "변혜선", "note": "주석확인" },
-    "bop/foe/or/mfura/or/CIBFOE040402000T.html": { "status": "완료", "worker": "변혜선", "note": "" },
+    "bop/foe/or/mfura/or/CIBFOE040402000T.html": { "status": "완료", "worker": "변혜선", "note": "주석확인" },
     "bop/foe/or/dor/eri/mfur/CIBFOE040104004P.html": { "status": "검수중", "worker": "변혜선", "note": "" },
     "bop/foe/or/dor/eri/ns/CIBFOE040104002P.html": { "status": "검수중", "worker": "변혜선", "note": "" },
     "bop/foe/or/dor/eri/swiftcode/CIBFOE040104003P.html": { "status": "검수중", "worker": "변혜선", "note": "" },
@@ -141,7 +141,7 @@ module.exports = {
     "bop/foe/or/orhistory/di/crcic/CIBFOE040301001M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
     "bop/foe/or/orhistory/di/crrcic/CIBFOE040301002M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
     "bop/foe/dli/od/CIBFOE090200000M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
-    "bop/foe/dli/od/detail/CIBFOE090201000M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
+    "bop/foe/dli/od/detail/CIBFOE090201000M.html": { "status": "검수중", "worker": "변혜선", "note": "주석확인" },
     "bop/foe/dli/ped/CIBFOE090300000M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
     "bop/foe/dli/ai/CIBFOE090400000M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
     "bop/foe/dli/ai/CIBFOE090401000M.html": { "status": "검수중", "worker": "변혜선", "note": "" },
