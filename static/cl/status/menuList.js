@@ -129,29 +129,28 @@ module.exports = {
     //뱅킹관리/카드/회원결제관리
     "bmg/crd/mpim/CIBCRD060100000M.html": { title: "", status: "검수중", worker: "변혜선", note: "임시 그리드 화면" },
     // 뱅킹관리 > 사용자관리
-    "bmg/CIBUMG080100000M.html": { title: "", status: "검수중", worker: "이상우", note: "그리드영역 보완필요" },
-    "bmg/CIBUMG080200000M.html": { title: "", status: "검수중", worker: "이상우", note: "디자인 확정아님, 주석확인" },
-    "bmg/CIBUMG080300000M.html": { title: "", status: "검수중", worker: "이상우", note: "디자인 확정아님" },
-    "bmg/CIBUMG130100000M.html": { title: "", status: "검수중", worker: "이상우", note: "디자인 확정아님" },
-    "bmg/CIBUMG130200000M.html": { title: "", status: "검수중", worker: "이상우", note: "디자인 확정아님" },
+    "umg/08/01/CIBUMG080100000M.html": { title: "목록", status: "검수중", worker: "이상우", note: "그리드영역 보완필요" },
+    "umg/08/02/CIBUMG080200000M.html": { title: "메뉴권한 변경", status: "검수중", worker: "이상우", note: "디자인 확정아님, 주석확인" },
+    "umg/08/03/CIBUMG080300000M.html": { title: "메뉴권한 변경완료", status: "검수중", worker: "이상우", note: "디자인 확정아님" },
+    "umg/13/01/CIBUMG130100000M.html": { title: "목록", status: "검수중", worker: "이상우", note: "디자인 확정아님" },
+    "umg/13/02/CIBUMG130200000M.html": { title: "부재등록", status: "검수중", worker: "이상우", note: "디자인 확정아님" },
+    "umg/13/03/CIBUMG130300000M.html": { title: "부재등록완료", status: "검수중", worker: "이상우", note: "주석확인" },
+    "umg/13/04/CIBUMG130400000M.html": { title: "부재해제", status: "검수중", worker: "이상우", note: "디자인 확정아님" },
+    "umg/13/05/CIBUMG130500000M.html": { title: "부재해제완료", status: "검수중", worker: "이상우", note: "디자인 확정아님" },
+    "umg/19/01/CIBUMG19010000M.html": { title: "목록", status: "완료", worker: "손창우", note: "임시 그리드 화면" },
+    "umg/19/02/CIBUMG19020000M.html": { title: "상세", status: "완료", worker: "손창우", note: "주석확인" },
+    "umg/19/03/CIBUMG19030000M.html": { title: "삭제완료", status: "완료", worker: "손창우", note: "" },
 
-    "bmg/CIBUMG130300000M.html": { title: "", status: "검수중", worker: "이상우", note: "주석확인" },
-    "bmg/CIBUMG130400000M.html": { title: "", status: "검수중", worker: "이상우", note: "디자인 확정아님" },
-    "bmg/CIBUMG130500000M.html": { title: "", status: "검수중", worker: "이상우", note: "디자인 확정아님" },
-    "bmg/CIBUMG18010000M.html": { title: "", status: "완료", worker: "손창우", note: "임시 그리드 화면" },
-    "bmg/CIBUMG19010000M.html": { title: "", status: "완료", worker: "손창우", note: "임시 그리드 화면" },
-    "bmg/CIBUMG19020000M.html": { title: "", status: "완료", worker: "손창우", note: "주석확인" },
-    "bmg/CIBUMG19030000M.html": { title: "", status: "완료", worker: "손창우", note: "" },
+    "umg/18/01/CIBUMG18010000M.html": { title: "목록", status: "완료", worker: "손창우", note: "임시 그리드 화면" },
+    // 뱅킹관리 > 사용자관리
     "bmg/CIBUMG200100000P.html": { title: "", status: "검수중", worker: "이상우", note: "" },
 
     // 뱅킹업무(bop) 루트 기타 화면
     "bop/원금상환_이체확인증.html": { title: "", status: "수정중", worker: "변혜선", note: "" },
     "bop/중도상환수수료계산.html": { title: "", status: "수정중", worker: "변혜선", note: "" },
     "bop/alert.html": { title: "", status: "완료", worker: "변혜선", note: "" },
-    "bop/crd/cm/ccpr/CIBCRD020301000P.html": { title: "", status: "완료", worker: "손창우", note: "" },
-
     
-    "bop/crd/cm/ccpr/CIBCRD020302000M.html": { title: "", status: "완료", worker: "손창우", note: "" },
+    
     "bop/crd/cm/CIBCRD020801000M.html": { title: "", status: "완료", worker: "손창우", note: "" },
     "bop/crd/cm/CIBCRD020802000M.html": { title: "", status: "완료", worker: "손창우", note: "" },
     "bop/crd/cm/CIBCRD020803000M.html": { title: "", status: "완료", worker: "손창우", note: "" },
@@ -205,7 +204,9 @@ module.exports = {
     "bop/crd/06/06/CIBCRD060600000M.html": { title: "", status: "검수중", worker: "변혜선", note: "임시 그리드 화면" },
 
     //뱅킹업무(bop) > 카드(crd) > 
-    "bop/crd/cm/ccpr/CIBCRD020300000M.html": { title: "", status: "완료", worker: "변혜선", note: "" },
+    "crd/02/03/CIBCRD020300000M.html": { title: "기업카드비밀번호 등록", status: "완료", worker: "변혜선", note: "" },
+    "crd/02/03/01/CIBCRD020301000P.html": { title: "비밀번호 일괄입력 팝업", status: "완료", worker: "손창우", note: "" },
+    "crd/02/03/02/CIBCRD020302000M.html": { title: "기업카드비밀번호 등록 완료", status: "완료", worker: "손창우", note: "" },
     "bop/crd/mpim/smsas/smsasa/CIBCRD060601000T.html": { title: "", status: "검수중", worker: "변혜선", note: "임시 그리드 화면" },
     "bop/crd/mpim/smsas/smsasa/CIBCRD060602000M.html": { title: "", status: "검수중", worker: "변혜선", note: "임시 그리드 화면, 미확정테이블화면" },
     "bop/crd/mpim/smsas/smsasad/CIBCRD060603000T.html": { title: "", status: "검수중", worker: "변혜선", note: "임시 그리드 화면" },
@@ -380,8 +381,13 @@ module.exports = {
     "fin/lon/loan02.html": { title: "", status: "수정중", worker: "변혜선", note: "" },
     "fin/lon/loan03.html": { title: "", status: "수정중", worker: "변혜선", note: "" },
     "fin/prdListFormV.html": { title: "", status: "수정중", worker: "윤재선", note: "" },
-    "fin/tpr/cdpst/CIBFIN_TPR050100000.html": { title: "", status: "완료", worker: "변혜선", note: "" },
-    "fin/tpr/pom/CIBFIN_TPR030100000.html": { title: "", status: "완료", worker: "변혜선", note: "주석확인" },
+    "fin_tpr/02/CIBFIN_TPR020000000M.html": { title: "특정금전신탁", status: "검수중", worker: "변혜선", note: "" },
+    "fin_tpr/03/CIBFIN_TPR030100000.html": { title: "상품성 신탁 운용방법 및 보수율 현황_기준년월2026년 3월", status: "완료", worker: "변혜선", note: "주석확인" },
+    "fin_tpr/04/01/CIBFIN_TPR040100000T.html": { title: "기준가/수익률조회_신탁기준가격", status: "검수중", worker: "변혜선", note: "" },
+    "fin_tpr/04/01/01/CIBFIN_TPR040101000P.html": { title: "기준가/수익률조회_신탁기준가격_[팝업]기준가변동추이표", status: "검수중", worker: "변혜선", note: "" },
+    "fin_tpr/04/02/CIBFIN_TPR040200000T.html": { title: "기준가/수익률조회_신탁배당률", status: "검수중", worker: "변혜선", note: "" },
+    "fin_tpr/04/03/CIBFIN_TPR040300000T.html": { title: "기준가/수익률조회_기간별수익률", status: "검수중", worker: "변혜선", note: "" },
+    "fin_tpr/05/01/CIBFIN_TPR050100000.html": { title: "연금저축신탁 비교공시_가입시 유의사항", status: "완료", worker: "변혜선", note: "" },
 
     // 금융상품(fin) > 신탁(tpr) > 신탁 운용방법 및 비교공시(pom / cdpst)
     "fin/tpr/pom/CIBFIN_TPR030200000.html": { title: "", status: "완료", worker: "변혜선", note: "" },
@@ -389,7 +395,6 @@ module.exports = {
     "fin/tpr/pom/CIBFIN_TPR030400000.html": { title: "", status: "완료", worker: "변혜선", note: "" },
     "fin/tpr/pom/CIBFIN_TPR030500000.html": { title: "", status: "완료", worker: "변혜선", note: "" },
     "fin/tpr/pom/CIBFIN_TPR030600000.html": { title: "", status: "완료", worker: "변혜선", note: "" },
-    "fin/tpr/smt/CIBFIN_TPR020000000M.html": { title: "", status: "검수중", worker: "변혜선", note: "" },
 
     // 금융상품 > 해양수신금융 > 해양수산금융소식
     "fin_mfi/11/CIBFIN_MFI110000000M.html": {
@@ -398,7 +403,7 @@ module.exports = {
         worker: "이상우",
         note: ""
     },
-    "fin_mfi/11/CIBFIN_MFI110100000M.html": {
+    "fin_mfi/11/01/CIBFIN_MFI110100000M.html": {
         title: "해양수산금융소식_상세",
         status: "검수중",
         worker: "이상우",
@@ -410,10 +415,6 @@ module.exports = {
     // 금융상품_수협은행(fin_MFI) >
     "fin_mfi/mff/trr/CIBFIN_MFI090000000M.html": { title: "", status: "검수중", worker: "변혜선", note: "" },
     "fin_mfi/npi/faq/ff/CIBFIN_MFI100200000M.html": { title: "", status: "검수중", worker: "변혜선", note: "" },
-    "fin_mfi/npi/rip/CIBFIN_TPR040300000T.html": { title: "", status: "검수중", worker: "변혜선", note: "" },
-    "fin_mfi/npi/tdr/CIBFIN_TPR040200000T.html": { title: "", status: "검수중", worker: "변혜선", note: "" },
-    "fin_mfi/npi/tsp/CIBFIN_TPR040100000T.html": { title: "", status: "검수중", worker: "변혜선", note: "" },
-    "fin_mfi/npi/tsp/CIBFIN_TPR040101000P.html": { title: "", status: "검수중", worker: "변혜선", note: "" },
     // 금융상품 > 부동산신탁공매물건정보  
     "fin_tpr/06/CIBFIN_TPR060000000M.html": {
         title: "부동산신탁공매물건정보",
@@ -421,7 +422,7 @@ module.exports = {
         worker: "이상우",
         note: ""
     },
-    "fin_tpr/06/CIBFIN_TPR060100000M.html": {
+    "fin_tpr/06/01/CIBFIN_TPR060100000M.html": {
         title: "부동산신탁공매물건정보_상세",
         status: "검수중",
         worker: "이상우",
@@ -485,12 +486,12 @@ module.exports = {
     "inq/alert.html": { title: "", status: "완료", worker: "변혜선", note: "" },
 
     // 조회 > 수표/어음조회  
-    "inq/cnb/CIBINQ030101000M.html": { title: "", status: "검수중", worker: "이상우", note: "" },
-    "inq/cnb/CIBINQ030102000M.html": { title: "", status: "검수중", worker: "이상우", note: "" },
-    "inq/cnb/CIBINQ030201000M.html": { title: "", status: "검수중", worker: "이상우", note: "" },
-    "inq/cnb/CIBINQ030202000M.html": { title: "", status: "검수중", worker: "이상우", note: "" },
-    "inq/cnb/CIBINQ030301000M.html": { title: "", status: "검수중", worker: "이상우", note: "" },
-    "inq/cnb/CIBNQ030302000P.html": { title: "", status: "검수중", worker: "이상우", note: "" },
+    "inq/03/01/01/CIBINQ030101000M.html": { title: "조회정보 입력(임시)", status: "검수중", worker: "이상우", note: "" },
+    "inq/03/01/02/CIBINQ030102000M.html": { title: "조회결과(임시)", status: "검수중", worker: "이상우", note: "" },
+    "inq/03/02/01/CIBINQ030201000M.html": { title: "조회정보 입력(임시)", status: "검수중", worker: "이상우", note: "" },
+    "inq/03/02/02/CIBINQ030202000M.html": { title: "조회결과(임시)", status: "검수중", worker: "이상우", note: "" },
+    "inq/03/03/01/CIBINQ030301000M.html": { title: "조회결과(임시)", status: "검수중", worker: "이상우", note: "" },
+    "inq/03/03/02/CIBNQ030302000P.html": { title: "[팝업]상세(임시)", status: "검수중", worker: "이상우", note: "" },
     "inq/ctd/ctd/othb/CIBNQ020102000M.html": { title: "", status: "완료", worker: "변혜선", note: "주석확인" },
     "inq/ctd/ctd/ourb/CIBNQ020101000M.html": { title: "", status: "완료", worker: "변혜선", note: "주석확인" },
     "inq/ctd/rthf/eai/CIBNQ020201000M.html": { title: "", status: "완료", worker: "변혜선", note: "" },
@@ -532,14 +533,14 @@ module.exports = {
     "trn/이체.html": { title: "", status: "대기", worker: "변혜선", note: "" },
 
     // 이체 > 계좌이체 > 지연이체등록내역조회/취소
-    "trn/act/dlyt/CIBTRN010301000M.html": { title: "", status: "검수중", worker: "이상우", note: "" },
-    "trn/act/dlyt/CIBTRN010302000M.html": { title: "", status: "검수중", worker: "이상우", note: "" },
-    "trn/act/dlyt/CIBTRN010303000M.html": { title: "", status: "검수중", worker: "이상우", note: "" },
+    "trn/01/03/01/CIBTRN010301000M.html": { title: "조회정보 입력 및 결과(임시)", status: "검수중", worker: "이상우", note: "" },
+    "trn/01/03/02/CIBTRN010302000M.html": { title: "등록취소(임시)", status: "검수중", worker: "이상우", note: "" },
+    "trn/01/03/03/CIBTRN010303000M.html": { title: "취소결과(임시)", status: "검수중", worker: "이상우", note: "" },
 
     // 이체 > 계좌이체 > 다계좌이체
-    "trn/act/mact/CIBTRN010401000M.html": { title: "", status: "검수중", worker: "이상우", note: "08/12 컨텐츠 추가 (잔여한도)" },
-    "trn/act/mact/CIBTRN010402000M.html": { title: "", status: "검수중", worker: "이상우", note: "" },
-    "trn/act/mact/CIBTRN010403000M.html": { title: "", status: "검수중", worker: "이상우", note: "" },
+    "trn/01/04/01/CIBTRN010401000M.html": { title: "정보입력(임시)", status: "검수중", worker: "이상우", note: "08/12 컨텐츠 추가 (잔여한도)" },
+    "trn/01/04/02/CIBTRN010402000M.html": { title: "정보확인(임시)", status: "검수중", worker: "이상우", note: "" },
+    "trn/01/04/03/CIBTRN010403000M.html": { title: "완료(임시)", status: "검수중", worker: "이상우", note: "" },
 
     // 이체 > 계좌이체 > 이체
     "trn/act/xfr/CIBTRN010101000M.html": { title: "", status: "검수중", worker: "이상우", note: "08/10 잔여한도 추가 <br/>진행사항 4->3 변경" },
@@ -553,11 +554,11 @@ module.exports = {
     "trn/act/xfr/CIBTRN010110000P.html": { title: "", status: "검수중", worker: "이상우", note: "" },
     "trn/act/xfr/CIBTRN010111000P.html": { title: "", status: "검수중", worker: "이상우", note: "" },
     "trn/act/xfr/CIBTRN010112000P.html": { title: "", status: "검수중", worker: "이상우", note: "" },
-    "trn/act/xfr/CIBTRN010201000M.html": { title: "", status: "검수중", worker: "이상우", note: "" },
-    "trn/act/xfr/CIBTRN010202000M.html": { title: "", status: "검수중", worker: "이상우", note: "" },
-    "trn/act/xfr/CIBTRN010203000M.html": { title: "", status: "검수중", worker: "이상우", note: "" },
-    "trn/act/xfr/CIBTRN060101000M.html": { title: "", status: "검수중", worker: "이상우", note: "08/13 화면ID 변경" },
-    "trn/act/xfr/CIBTRN060202000M.html": { title: "", status: "검수중", worker: "이상우", note: "08/13 화면ID 변경" },
+    "trn/01/02/01/CIBTRN010201000M.html": { title: "조회정보 입력 및 결과(임시)", status: "검수중", worker: "이상우", note: "" },
+    "trn/01/02/02/CIBTRN010202000M.html": { title: "등록취소(임시)", status: "검수중", worker: "이상우", note: "" },
+    "trn/01/02/03/CIBTRN010203000M.html": { title: "취소결과(임시)", status: "검수중", worker: "이상우", note: "" },
+    "trn/01/01/01/CIBTRN060101000M.html": { title: "수협은행(임시)", status: "검수중", worker: "이상우", note: "08/13 화면ID 변경" },
+    "trn/01/01/02/CIBTRN060202000M.html": { title: "다른은행(임시)", status: "검수중", worker: "이상우", note: "08/13 화면ID 변경" },
     "trn/trn-detail.html": { title: "", status: "수정중", worker: "변혜선", note: "" },
     "trn/trn-detail02.html": { title: "", status: "수정중", worker: "변혜선", note: "" },
     "van/05/01/CIBVAN050101000M.html": {
