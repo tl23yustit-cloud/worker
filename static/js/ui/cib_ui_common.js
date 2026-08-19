@@ -466,7 +466,7 @@ function fnLNB() {
 function fnBoxAccordion() {
 	var CONFIG = {
 		WRAPPER: "box-accordion",
-		TRIGGER: "btn-accordion",
+		TRIGGER: "box-item-list",
 		OPEN_CLASS: "is-open",
 		BLIND_CLASS: "blind",
 		TEXT_OPEN: "상세내용 열기",
@@ -1374,6 +1374,8 @@ function fnSwiperHtmlControl() {
 		}
 	});
 }
-
+document.querySelectorAll('table td .typeMd').forEach((el) => {
+	el.innerHTML = el.innerHTML.replace(/원/g, ' 원');
+});
 
 
