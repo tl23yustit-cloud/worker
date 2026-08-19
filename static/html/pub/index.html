@@ -229,7 +229,7 @@
               hasIssues ? invalid.push(item) : valid.push(item);
             });
             views.renderWarning(invalid, keyword);
-            views.renderDevAccordion(valid, keyword, true);
+            views.renderDevAccordion(filtered, keyword, true);
           } else {
             views.renderDevAccordion(filtered, keyword, false);
             document.getElementById('warning-section').style.display = 'none';
@@ -270,7 +270,9 @@
             const groupKeys = [...new Set(data.map(item => item.displayDepths[0]))];
             const savedOrder = JSON.parse(localStorage.getItem(STORE_ORDER));
             const toggleState = JSON.parse(localStorage.getItem(STORE_TOGGLE)) || {};
-            const orderedGroups = (savedOrder || groupKeys).filter(g => groupKeys.includes(g));
+            const orderedGroups = savedOrder
+              ? [...savedOrder.filter(g => groupKeys.includes(g)), ...groupKeys.filter(g => !savedOrder.includes(g))]
+              : groupKeys;
 
             let html = "";
             orderedGroups.forEach((groupName, idx) => {
