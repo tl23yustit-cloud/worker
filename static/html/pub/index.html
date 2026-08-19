@@ -243,7 +243,7 @@
               groups[group].forEach(item => {
                 let depthTd = "";
                 for (let i = 0; i < maxDepth; i++) depthTd += `<td>${utils.highlight(item.displayDepths[i] || "-", keyword)}</td>`;
-                html += `<tr>${depthTd}<td><b>${utils.highlight(item.title, keyword)}</b></td><td>${utils.highlight(item.fileId || item.file, keyword)}</td><td class="col-status"><span class="status ${utils.getStatusClass(item.status)}">${item.status || "대기"}</span></td><td class="col-date">${item.modified ? item.modified.substring(0,10) : "-"}</td><td class="col-preview"><a href="/static/html/pub/${item.link}" target="_blank" class="preview-link">열기</a></td><td class="col-worker">${utils.highlight(item.worker, keyword)}</td><td class="note">${utils.highlight(item.note, keyword)}</td></tr>`;
+                html += `<tr>${depthTd}<td><b>${utils.highlight(item.title, keyword)}</b></td><td>${utils.highlight(item.fileId || item.file, keyword)}</td><td class="col-status"><span class="status ${utils.getStatusClass(item.status)}">${item.status || "대기"}</span></td><td class="col-date">${item.modified ? item.modified.substring(0,10) : "-"}</td><td class="col-preview"><a href="/static/html/pub/${item.link}" target="_blank" rel="noopener noreferrer" class="preview-link">열기</a></td><td class="col-worker">${utils.highlight(item.worker, keyword)}</td><td class="note">${utils.highlight(item.note, keyword)}</td></tr>`;
               });
               html += `</tbody></table></div></section>`;
             });
@@ -289,7 +289,7 @@
                       if (hasRealIssue) trClass = "dev-issue";
                       noteHtml = `<div style="margin-bottom:4px;">${badges}</div>${noteHtml !== "-" ? noteHtml : ""}`;
                     }
-                    return `<tr class="${trClass}"><td class="depth-path">${paths}</td><td><b>${utils.highlight(item.title, keyword)}</b></td><td>${utils.highlight(item.fileId || item.file, keyword)}</td><td class="col-status"><span class="status ${utils.getStatusClass(item.status)}">${item.status || '대기'}</span></td><td class="col-date">${(item.modified || "").substring(0,10)}</td><td class="col-preview"><a href="/static/html/pub/${item.link}" target="_blank" class="preview-link">열기</a></td><td class="col-worker">${utils.highlight(item.worker, keyword)}</td><td class="note">${utils.highlight(noteHtml, keyword)}</td></tr>`;
+                    return `<tr class="${trClass}"><td class="depth-path">${paths}</td><td><b>${utils.highlight(item.title, keyword)}</b></td><td>${utils.highlight(item.fileId || item.file, keyword)}</td><td class="col-status"><span class="status ${utils.getStatusClass(item.status)}">${item.status || '대기'}</span></td><td class="col-date">${(item.modified || "").substring(0,10)}</td><td class="col-preview"><a href="/static/html/pub/${item.link}" target="_blank" rel="noopener noreferrer" class="preview-link">열기</a></td><td class="col-worker">${utils.highlight(item.worker, keyword)}</td><td class="note">${utils.highlight(noteHtml, keyword)}</td></tr>`;
                   }).join('')}
                   </tbody></table></div></div>
                 </section>`;
@@ -314,7 +314,7 @@
                 <td style="color:#64748b; font-size:12px;">${utils.highlight(rawPath, keyword)}</td>
                 <td><b>${utils.highlight(item.file, keyword)}</b></td>
                 <td class="col-status"><span class="status ${utils.getStatusClass(item.status)}">${item.status || '대기'}</span></td>
-                <td class="col-preview"><a href="/static/html/pub/${item.link}" target="_blank" class="preview-link">열기</a></td>
+                <td class="col-preview"><a href="/static/html/pub/${item.link}" target="_blank" rel="noopener noreferrer" class="preview-link">열기</a></td>
                 <td class="col-worker">${utils.highlight(item.worker, keyword)}</td>
                 <td class="note">${utils.highlight(item.note, keyword)}</td>
               </tr>`;
