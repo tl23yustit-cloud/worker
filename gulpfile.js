@@ -79,17 +79,15 @@ function generatePubList(done) {
         const statusInfo = statusMap[statusKey] || {};
 
         let issues = [];
-        let depths = statusInfo.depths;
+        let depths;
         let isMdGenerated = false;
         let missingMdDirs = [];
 
-        // 1. 기존 status.js에 depths가 없으면 .md에서 추출
-        if (!depths || depths.length === 0) {
-            const mdResult = getDepthsFromMD(file);
-            depths = mdResult.depths;
-            missingMdDirs = mdResult.missing;
-            isMdGenerated = true;
-        }
+        // 1. 뎁스는 항상 폴더의 .md를 기준으로 생성하고, 없으면 폴더명을 사용
+        const mdResult = getDepthsFromMD(file);
+        depths = mdResult.depths;
+        missingMdDirs = mdResult.missing;
+        isMdGenerated = true;
 
         // 2. 이슈 검출 (?dev 모드에서 보여줄 데이터)
         if (!statusMap[statusKey]) {

@@ -5,12 +5,10 @@
     <title>수협 기업 인터넷뱅킹 퍼블리싱 리스트</title>
     <link rel="stylesheet" href="/static/cl/favicon.ico" />
     <style>
-      /* ==================== 🎨 Global Reset & Typography ==================== */
       * { margin: 0; padding: 0; box-sizing: border-box; }
       body { font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, sans-serif; padding: 24px 32px; background-color: #f8fafc; color: #0f172a; }
       h1 { margin-bottom: 24px; font-size: 26px; font-weight: 800; color: #0f172a; display: flex; align-items: center; gap: 10px; }
       
-      /* ==================== 🎛️ Toolbar ==================== */
       .toolbar { display: flex; justify-content: space-between; align-items: center; background: #ffffff; padding: 16px 24px; border-radius: 12px; border: 1px solid #e2e8f0; margin-bottom: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
       .toolbar-left { display: flex; gap: 12px; align-items: center; width: 100%; max-width: 400px; position: relative; }
       input[type="text"] { width: 100%; padding: 10px 14px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 14px; outline: none; transition: all 0.2s; }
@@ -20,7 +18,6 @@
       .action-btn { padding: 9px 16px; border-radius: 8px; font-weight: 600; cursor: pointer; border: none; font-size: 13px; transition: background 0.2s; display: flex; align-items: center; gap: 6px; }
       .btn-reset { background: #fef2f2; color: #dc2626; border: 1px solid #fecaca; } .btn-reset:hover { background: #fee2e2; }
 
-      /* ==================== 🏷️ Status Badges ==================== */
       .status-wrap { display: flex; gap: 12px; align-items: center; font-size: 13px; font-weight: 600; padding-left: 16px; border-left: 1px solid #e2e8f0; }
       .status { display: inline-flex; align-items: center; justify-content: center; font-weight: 600; font-size: 13px; }
       .status::before { content: ""; display: inline-block; border-radius: 100%; width: 8px; height: 8px; margin-right: 6px; }
@@ -29,8 +26,9 @@
       .status.examination { color: #7c3aed; } .status.examination::before { background-color: #8b5cf6; }
       .status.complete { color: #2563eb; } .status.complete::before { background-color: #3b82f6; }
       .status.modify { color: #ea580c; } .status.modify::before { background-color: #f97316; }
+      .status-count { color: #0f172a; margin-left: 3px; }
+      .status-total { color: #0f172a; padding-right: 12px; border-right: 1px solid #e2e8f0; }
 
-      /* ==================== 🚨 Warning Section (?dev) ==================== */
       #warning-section { display: none; margin-bottom: 24px; }
       .warning-container { background: #fef2f2; border: 1px solid #fca5a5; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(220, 38, 38, 0.05); }
       .warning-header { background: #fee2e2; color: #991b1b; padding: 14px 24px; font-weight: 700; font-size: 14px; display: flex; justify-content: space-between;}
@@ -40,7 +38,6 @@
       .badge-orange { background: #f97316; color: #fff; border: 1px solid #ea580c; }
       .badge-yellow { background: #facc15; color: #854d0e; border: 1px solid #eab308; }
 
-      /* ==================== 📋 Table Design ==================== */
       table { width: 100%; border-collapse: collapse; background: #fff; text-align: left; }
       th, td { border: 1px solid #e2e8f0; padding: 12px 16px; font-size: 13.5px; }
       th { background: #f8fafc; color: #475569; font-weight: 600; white-space: nowrap; }
@@ -50,13 +47,11 @@
       a.preview-link { color: #2563eb; text-decoration: none; font-weight: 600; display: inline-block; padding: 4px 8px; background: #eff6ff; border-radius: 6px; transition: background 0.2s; white-space: nowrap; }
       a.preview-link:hover { background: #dbeafe; }
 
-      /* 💡 컬럼 너비 및 정렬 고정 클래스 */
       .col-status { width: 90px; min-width: 90px; text-align: center !important; }
       .col-date { width: 100px; min-width: 100px; text-align: center !important; }
       .col-preview { width: 80px; min-width: 80px; text-align: center !important; }
       .col-worker { width: 90px; min-width: 90px; text-align: center !important; }
 
-      /* ==================== 🪗 Accordion & List Sections ==================== */
       .pub-section-normal { margin-bottom: 24px; }
       .pub-section-normal h2 { font-size: 18px; margin-bottom: 12px; color: #0f172a; font-weight: 700;}
 
@@ -79,7 +74,6 @@
       tr.dev-issue { background-color: #fef2f2 !important; }
       tr.dev-issue:hover { background-color: #fee2e2 !important; }
 
-      /* ==================== 🛠️ Utils (Toast & Popup) ==================== */
       #toast { visibility: hidden; background: #1e293b; color: #fff; text-align: center; border-radius: 8px; padding: 14px 24px; position: fixed; bottom: 30px; right: 30px; z-index: 10000; font-size: 14px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); font-weight: 600; }
       #toast.show { visibility: visible; animation: fadein 0.3s, fadeout 0.4s 2.5s forwards; }
       @keyframes fadein { from { bottom: 0; opacity: 0; } to { bottom: 30px; opacity: 1; } }
@@ -98,24 +92,24 @@
         <input type="text" id="search" placeholder="화면명, 파일명, 작업자 검색..." autocomplete="off" />
       </div>
       <div class="toolbar-right">
-        <div id="dev-toolbar-btns" style="display: none;">
-          <button class="action-btn btn-reset" onclick="app.resetAll()">🔄 초기화</button>
+        <div id="dev-toolbar-btns">
+          <button class="action-btn btn-reset" onclick="app.resetAll()">초기화</button>
         </div>
         <div class="status-wrap">
-          <span class="status wait">대기</span>
-          <span class="status complete">완료</span>
-          <span class="status progress">진행중</span>
-          <span class="status examination">검수중</span>
-          <span class="status modify">수정중</span>
+          <span class="status-total">전체 <strong id="total-count">0</strong>건</span>
+          <span class="status wait">대기 <strong class="status-count" data-status-count="대기">0</strong></span>
+          <span class="status complete">완료 <strong class="status-count" data-status-count="완료">0</strong></span>
+          <span class="status progress">진행중 <strong class="status-count" data-status-count="진행중">0</strong></span>
+          <span class="status examination">검수중 <strong class="status-count" data-status-count="검수중">0</strong></span>
+          <span class="status modify">수정중 <strong class="status-count" data-status-count="수정중">0</strong></span>
         </div>
       </div>
     </div>
 
-    <!-- 🚨 확인 필요 데이터 (Warning Section) -->
     <div id="warning-section">
       <div class="warning-container">
         <div class="warning-header">
-          <span>🚨 확인 필요 데이터 (메타데이터 누락 / .md 누락 / 화면명 누락)</span>
+          <span>확인 필요 데이터 (메타데이터 누락 / .md 누락 / 화면명 누락)</span>
           <span id="warning-count" style="font-weight: 500;">0건</span>
         </div>
         <table>
@@ -140,75 +134,90 @@
     <div id="preview-popup"><iframe id="preview-iframe" src=""></iframe></div>
 
     <script>
-      /**
-       * =================================================================
-       * 📦 모듈화 기반 퍼블리싱 현황판 스크립트 
-       * =================================================================
-       */
       const app = (function() {
-        // --- 1. 상수 및 상태 데이터 ---
+        // 폴더명과 화면에 표시할 뎁스명이 다를 때 사용하는 매핑이다.
         const depthNameMap = {
         };
+        // 그룹 순서와 접힘 상태를 저장하는 로컬스토리지 키다.
         const STORE_ORDER = 'suhyup_group_order';
         const STORE_TOGGLE = 'suhyup_group_toggle';
         
         let rawData = [];
         let isDevMode = false;
 
-        // --- 2. 유틸리티 함수 ---
         const utils = {
+          // 검색어가 포함된 텍스트를 강조 표시한다.
           highlight: (text, keyword) => {
             if (!keyword || !text) return text || "-";
             const escaped = keyword.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
             const regex = new RegExp(`(${escaped})`, 'gi');
             return String(text).replace(regex, '<mark style="background-color: #fef08a; color: #111827; padding: 0 2px; border-radius: 2px; font-weight: bold;">$1</mark>');
           },
+          // 상태값에 대응하는 스타일 클래스를 반환한다.
           getStatusClass: (status) => {
             const map = { "완료": "complete", "진행중": "progress", "검수중": "examination", "수정중": "modify", "수정완료": "modify" };
             return map[status] || "wait";
           },
+          // 개발 모드 경고 사유를 배지 HTML로 변환한다.
           getBadge: (reason) => {
             if (reason.includes("ok") || reason.includes("완벽")) return "";
-            if (reason.includes("status.js 미등록")) return `<span class="issue-badge badge-red">🚨 ${reason}</span>`;
-            if (reason.includes(".md 누락")) return `<span class="issue-badge badge-orange">⚠️ ${reason}</span>`;
-            if (reason.includes("화면명 누락")) return `<span class="issue-badge badge-yellow">📝 ${reason}</span>`;
-            return `<span class="issue-badge badge-red">🚨 ${reason}</span>`;
+            if (reason.includes("status.js 미등록")) return `<span class="issue-badge badge-red">${reason}</span>`;
+            if (reason.includes(".md 누락")) return `<span class="issue-badge badge-orange">${reason}</span>`;
+            if (reason.includes("화면명 누락")) return `<span class="issue-badge badge-yellow">${reason}</span>`;
+            return `<span class="issue-badge badge-red">${reason}</span>`;
           },
+          // 화면 하단에 작업 결과를 잠시 알린다.
           toast: (msg) => {
             const el = document.getElementById("toast");
             el.innerText = msg;
             el.className = "show";
             setTimeout(() => { el.className = ""; }, 3000);
+          },
+          // 전체 항목과 상태별 건수를 상단 범례에 표시한다.
+          renderSummary: (data) => {
+            const counts = {};
+            data.forEach(item => {
+              const status = item.status || "대기";
+              counts[status] = (counts[status] || 0) + 1;
+            });
+            document.getElementById("total-count").textContent = data.length;
+            ["대기", "완료", "진행중", "검수중"].forEach(status => {
+              document.querySelector(`[data-status-count="${status}"]`).textContent = counts[status] || 0;
+            });
+            const modifyCount = (counts["수정중"] || 0) + (counts["수정완료"] || 0);
+            document.querySelector('[data-status-count="수정중"]').textContent = modifyCount;
           }
         };
 
-        // --- 3. 데이터 가공 및 분기 ---
+        // 원본 데이터를 뎁스, 검색어, 모드에 맞게 가공한 뒤 화면을 갱신한다.
         const renderData = () => {
           const keyword = document.getElementById("search").value.toLowerCase().trim();
 
-          // 1차: 물리 경로 vs md 경로 맵핑
+          // MD 뎁스를 우선 사용하고 미연결 항목은 폴더명으로 표시한다.
           const processed = rawData.map(item => {
             const pathParts = (item.link || "").split('/');
             pathParts.pop(); 
             const rawFolders = pathParts;
             
-            let resolvedDepths = [];
-            if (!isDevMode) resolvedDepths = rawFolders.map(f => depthNameMap[f] || f);
-            else resolvedDepths = (item.depths && item.depths.length > 0) ? item.depths : rawFolders;
+            const isStatusRegistered = !(item.issueReasons || []).includes("status.js 미등록");
+            let resolvedDepths = (isDevMode || isStatusRegistered) && item.depths && item.depths.length > 0
+              ? item.depths
+              : rawFolders;
             if (resolvedDepths.length === 0) resolvedDepths = ["분류 미지정"];
 
             return { ...item, displayDepths: resolvedDepths, rawFolders };
           });
 
-          // 2차: 검색어 필터링
+          // 제목, 파일, 작업자, 비고, 뎁스 기준으로 목록을 검색한다.
           const filtered = processed.filter(item => {
             const fields = [item.title, item.file, item.worker, item.note, item.displayDepths.join("/")].join(" ").toLowerCase();
             return fields.includes(keyword);
           });
 
-          if (!isDevMode) {
-            views.renderNormal(filtered, keyword);
-          } else {
+          utils.renderSummary(rawData);
+
+          // 개발 모드에서는 정상 목록과 경고 목록을 분리한다.
+          if (isDevMode) {
             const valid = [], invalid = [];
             filtered.forEach(item => {
               const hasNoTitle = !item.title || item.title.trim() === "";
@@ -220,12 +229,15 @@
               hasIssues ? invalid.push(item) : valid.push(item);
             });
             views.renderWarning(invalid, keyword);
-            views.renderDevAccordion(valid, keyword);
+            views.renderDevAccordion(valid, keyword, true);
+          } else {
+            views.renderDevAccordion(filtered, keyword, false);
+            document.getElementById('warning-section').style.display = 'none';
           }
         };
 
-        // --- 4. 화면 뷰 렌더링 모음 ---
         const views = {
+          // 일반 표 형태의 목록을 렌더링한다.
           renderNormal: (data, keyword) => {
             const container = document.getElementById("list");
             if (!data.length) return container.innerHTML = "<p style='padding:20px; background:#fff; border-radius:12px; border:1px solid #e2e8f0;'>데이터가 없습니다.</p>";
@@ -250,7 +262,8 @@
             container.innerHTML = html;
           },
 
-          renderDevAccordion: (data, keyword) => {
+          // 뎁스별 아코디언 목록과 그룹 순서 조작 버튼을 렌더링한다.
+          renderDevAccordion: (data, keyword, showIssues) => {
             const container = document.getElementById("list");
             if (!data.length) return container.innerHTML = "<p style='padding:20px; background:#fff; border-radius:12px; border:1px solid #e2e8f0;'>표시할 데이터가 없습니다.</p>";
 
@@ -267,7 +280,7 @@
               html += `
                 <section class="pub-section-dev ${isCollapsed}" data-group-key="${groupName}">
                   <div class="pub-header" onclick="app.toggleSection(this, '${groupName}')">
-                    <div>📁 <span>${utils.highlight(groupName, keyword)}</span><span class="count-badge">${groupData.length}</span></div>
+                    <div><span>${utils.highlight(groupName, keyword)}</span><span class="count-badge">${groupData.length}</span></div>
                     <div class="header-right" onclick="event.stopPropagation()">
                       <button class="order-btn" onclick="app.moveGroup('${groupName}', -1)" ${idx === 0 ? 'disabled' : ''}>▲</button>
                       <button class="order-btn" onclick="app.moveGroup('${groupName}', 1)" ${idx === orderedGroups.length - 1 ? 'disabled' : ''}>▼</button>
@@ -280,7 +293,7 @@
                     const paths = item.displayDepths.map((d, i, arr) => i === arr.length - 1 ? `<strong>${utils.highlight(d, keyword)}</strong>` : utils.highlight(d, keyword)).join('<span class="arrow">▶</span>');
                     let noteHtml = item.note || "-";
                     let trClass = "";
-                    if (item.issueReasons && item.issueReasons.length > 0) {
+                    if (showIssues && item.issueReasons && item.issueReasons.length > 0) {
                       let hasRealIssue = false;
                       const badges = item.issueReasons.map(r => {
                         if (!r.includes("ok") && !r.includes("완벽")) hasRealIssue = true;
@@ -297,6 +310,7 @@
             container.innerHTML = html;
           },
 
+          // 개발 모드에서 메타데이터 누락 항목을 별도 표로 렌더링한다.
           renderWarning: (invalidData, keyword) => {
             const section = document.getElementById('warning-section');
             const tbody = document.getElementById('warning-body');
@@ -308,7 +322,6 @@
             tbody.innerHTML = invalidData.map(item => {
               const reasons = (item.issueReasons || []).map(r => utils.getBadge(r)).join('');
               const rawPath = item.rawFolders && item.rawFolders.length > 0 ? item.rawFolders.join('/') : "-";
-              // 💡 경고 테이블에도 "보기" 버튼 및 고정 너비 클래스 추가 완료
               return `<tr>
                 <td>${reasons}</td>
                 <td style="color:#64748b; font-size:12px;">${utils.highlight(rawPath, keyword)}</td>
@@ -322,16 +335,14 @@
           }
         };
 
-        // --- 5. 이벤트 등록 및 기능 구현 ---
+        // 검색, 단축키, 미리보기 팝업 이벤트를 등록한다.
         const bindEvents = () => {
-          // 디바운스 검색 (0.25초 딜레이)
           let debounceTimer;
           document.getElementById("search").addEventListener("input", () => {
             clearTimeout(debounceTimer);
             debounceTimer = setTimeout(renderData, 250);
           });
 
-          // 단축키 (Ctrl+F 또는 / 누르면 검색창 포커스)
           window.addEventListener('keydown', (e) => {
             if (e.target.tagName !== 'INPUT' && (e.key === '/' || (e.ctrlKey && e.key.toLowerCase() === 'f'))) {
               e.preventDefault();
@@ -339,7 +350,6 @@
             }
           });
 
-          // 팝업 이벤트
           const popup = document.getElementById("preview-popup"), iframe = document.getElementById("preview-iframe");
           const list = document.body;
           
@@ -359,11 +369,10 @@
           });
         };
 
-        // --- 6. 외부 노출 메서드 (Public API) ---
         return {
+          // 목록 데이터를 불러오고 애플리케이션을 시작한다.
           init: async () => {
             isDevMode = new URLSearchParams(window.location.search).has('dev');
-            if(isDevMode) document.getElementById('dev-toolbar-btns').style.display = 'block';
             
             try {
               const res = await fetch("/static/html/pub/list.json");
@@ -372,12 +381,14 @@
               bindEvents();
             } catch (err) { console.error("데이터 로드 실패:", err); }
           },
+          // 그룹의 접힘 상태를 변경하고 저장한다.
           toggleSection: (element, key) => {
             element.closest('.pub-section-dev').classList.toggle('collapsed');
             const state = {};
             document.querySelectorAll('.pub-section-dev').forEach(sec => state[sec.dataset.groupKey] = sec.classList.contains('collapsed'));
             localStorage.setItem(STORE_TOGGLE, JSON.stringify(state));
           },
+          // 그룹 순서를 변경하고 변경 결과를 저장한다.
           moveGroup: (groupKey, direction) => {
             const container = document.getElementById("list");
             const sections = Array.from(container.children);
@@ -410,6 +421,7 @@
             localStorage.setItem(STORE_ORDER, JSON.stringify(order));
             utils.toast("순서가 자동 저장되었습니다.");
           },
+          // 저장된 그룹 순서와 접힘 상태를 초기화한다.
           resetAll: () => {
             if(confirm("모든 설정(순서 및 아코디언 상태)을 초기화하시겠습니까?")) {
               localStorage.removeItem(STORE_ORDER);
@@ -420,7 +432,6 @@
         };
       })();
 
-      // App 초기화 실행
       app.init();
     </script>
   </body>
