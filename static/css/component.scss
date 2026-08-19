@@ -230,7 +230,7 @@
 	padding: var(--spacingLgXl);
 	background-color: var(--colorBgBase);
 
-	.box-item-list {		
+	.box-item-list {
 		.box-title {
 			width: calc(100% - var(--sizeIconMd));
 			cursor: pointer;
@@ -4808,7 +4808,7 @@ body.is-scroll-locked {
 						display: block;
 						margin-top: var(--spacingXsSm);
 						margin-left: var(--spacingXsSm);
-						color: var(--colorFgTertiary)
+						color: var(--colorFgTertiary);
 					}
 
 					&::before {
@@ -4849,6 +4849,10 @@ body.is-scroll-locked {
 						}
 					}
 				}
+
+				.color-fg-base {
+					color: var(--colorFgBase);
+				}
 			}
 
 			&.color-resolving {
@@ -4872,6 +4876,7 @@ body.is-scroll-locked {
 					// align-items: center;
 					position: relative;
 					padding-left: var(--spacingSm);
+
 					&::before {
 						content: "";
 						width: var(--sizeBase4Xs);
@@ -4882,7 +4887,7 @@ body.is-scroll-locked {
 						flex: 0 0 auto;
 						position: absolute;
 						left: 0px;
-						top:10px;
+						top: 10px;
 					}
 
 					+li {
@@ -4907,6 +4912,7 @@ body.is-scroll-locked {
 					flex-wrap: wrap;
 					position: relative;
 					padding-left: var(--spacingSm);
+
 					&::before {
 						counter-increment: li-counter;
 						content: counter(li-counter) ". ";
@@ -4938,6 +4944,7 @@ body.is-scroll-locked {
 					// flex-wrap: wrap;
 					position: relative;
 					padding-left: var(--spacingSm);
+
 					&::before {
 						counter-increment: li-counter;
 						content: "(주" counter(li-counter) ") ";
@@ -4969,6 +4976,7 @@ body.is-scroll-locked {
 					flex-wrap: wrap;
 					position: relative;
 					padding-left: var(--spacingSm);
+
 					&::before {
 						content: "※";
 						margin-right: var(--spacingXs);
@@ -4999,6 +5007,7 @@ body.is-scroll-locked {
 					flex-wrap: wrap;
 					position: relative;
 					padding-left: var(--spacingSm);
+
 					&::before {
 						content: "*";
 						margin-right: var(--spacingXs);
@@ -5081,11 +5090,13 @@ body.is-scroll-locked {
 }
 
 /* Progress Loading bar */
-.loading-progress-bar {display: flex;
-		align-items: center;
-		justify-content: space-between;
+.loading-progress-bar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
 	.box-text {
-		
+
 		gap: var(--spacingXs);
 	}
 
@@ -5236,91 +5247,97 @@ body.is-scroll-locked {
 		transform: scaleX(1);
 	}
 }
+
 /* 게이지 부드러운 이동 애니메이션 */
 .loading-progress-bar .progress-gauge {
-  transition: width 0.4s ease-in-out, background-color 0.3s ease;
+	transition: width 0.4s ease-in-out, background-color 0.3s ease;
 }
 
 /* 퍼센트 구간별 색상 클래스 */
 .loading-progress-bar.is-blue .progress-gauge {
-  background-color: #007bff; /* 파란색 */
+	background-color: #007bff;
+	/* 파란색 */
 }
 
 .loading-progress-bar.is-yellow .progress-gauge {
-  background-color: #ffc107; /* 노란색 */
+	background-color: #ffc107;
+	/* 노란색 */
 }
 
 .loading-progress-bar.is-red .progress-gauge {
-  background-color: #dc3545; /* 빨간색 */
+	background-color: #dc3545;
+	/* 빨간색 */
 }
+
 .loading-progress-bar {
-  .bg-progress-bar {
-    position: relative;
-    overflow: hidden;
-  }
+	.bg-progress-bar {
+		position: relative;
+		overflow: hidden;
+	}
 
-  .progress-gauge {
-    display: block;
-    width: 0;
-    height: 100%;
-    transition:
-      width 0.6s ease,
-      background-color 0.3s ease;
-  }
+	.progress-gauge {
+		display: block;
+		width: 0;
+		height: 100%;
+		transition:
+			width 0.6s ease,
+			background-color 0.3s ease;
+	}
 
-  // ----------------------------------------
-  // 0 ~ 30% : 파랑
-  // ----------------------------------------
-  &.is-blue {
-    .progress-gauge {
-      background-color: #2878f0;
-    }
-  }
+	// ----------------------------------------
+	// 0 ~ 30% : 파랑
+	// ----------------------------------------
+	&.is-blue {
+		.progress-gauge {
+			background-color: #2878f0;
+		}
+	}
 
-  // ----------------------------------------
-  // 31 ~ 70% : 노랑
-  // ----------------------------------------
-  &.is-yellow {
-    .progress-gauge {
-      background-color: #f5c400;
-    }
-  }
+	// ----------------------------------------
+	// 31 ~ 70% : 노랑
+	// ----------------------------------------
+	&.is-yellow {
+		.progress-gauge {
+			background-color: #f5c400;
+		}
+	}
 
-  // ----------------------------------------
-  // 71 ~ 100% : 빨강
-  // ----------------------------------------
-  &.is-red {
-    .progress-gauge {
-      background-color: #ef4b4b;
-    }
-  }
+	// ----------------------------------------
+	// 71 ~ 100% : 빨강
+	// ----------------------------------------
+	&.is-red {
+		.progress-gauge {
+			background-color: #ef4b4b;
+		}
+	}
 }
+
 .loading-progress-bar {
-  .bg-progress-bar {
-    display: flex;
-    width: 100%;
-    overflow: hidden;
-  }
+	.bg-progress-bar {
+		display: flex;
+		width: 100%;
+		overflow: hidden;
+	}
 
-  .progress-gauge {
-    display: block;
-    flex: 0 0 auto;
-    width: 0;
-    height: 100%;
-    transition: width 1s ease;
-  }
+	.progress-gauge {
+		display: block;
+		flex: 0 0 auto;
+		width: 0;
+		height: 100%;
+		transition: width 1s ease;
+	}
 
-  .progress-blue {
-    background-color: #2878f0;
-  }
+	.progress-blue {
+		background-color: #2878f0;
+	}
 
-  .progress-yellow {
-    background-color: #f5c400;
-  }
+	.progress-yellow {
+		background-color: #f5c400;
+	}
 
-  .progress-red {
-    background-color: #ef4b4b;
-  }
+	.progress-red {
+		background-color: #ef4b4b;
+	}
 }
 
 /* Loading Circle */
