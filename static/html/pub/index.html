@@ -5,195 +5,424 @@
     <title>수협 기업 인터넷뱅킹 퍼블리싱 리스트</title>
     <link rel="stylesheet" href="/static/cl/favicon.ico" />
     <style>
+      /* ==================== 🎨 Global Reset & Typography ==================== */
       * { margin: 0; padding: 0; box-sizing: border-box; }
-      body { font-family: Pretendard, sans-serif; padding: 10px; }
-      h1 { margin-bottom: 20px; }
-      table { width: 100%; border-collapse: collapse; }
-      th, td { border: 1px solid #ddd; padding: 4px 8px; text-align: left; font-size: 14px; }
-      th { background: #f5f5f5; }
-      td.note { width: 250px; word-break: keep-all; }
-      tbody tr:hover { background: #fafafa; }
-      a { color: #2563eb; text-decoration: none; }
-      a:hover { text-decoration: underline; }
-
-      .search { margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; }
-      input { width: 300px; padding: 10px; }
-      .pub-section { margin-bottom: 24px; }
-      h2 { font-size: 16px; margin-bottom: 8px; color: #333; }
-
-      .status::before { content: ""; display: inline-block; border-radius: 100px; width: 10px; height: 10px; margin-right: 4px; }
-      .status.wait { color: #101828; } .status.wait::before { background-color: #101828; }
-      .status.complete { color: #0f62fd; } .status.complete::before { background-color: #0f62fd; }
-      .status.progress { color: #039855; } .status.progress::before { background-color: #039855; }
-      .status.examination { color: purple; } .status.examination::before { background-color: purple; }
-      .status.modify { color: #f77316; } .status.modify::before { background-color: #f77316; }
-      .status.modify-complete { color: #b54708; } .status.modify-complete::before { background-color: #b54708; }
-      .status.urgent { color: red; } .status.urgent::before { background-color: red; }
-      .status.delete { color: #a7afbe; } .status.delete::before { background-color: #a7afbe; }
-
-      /* 💡 ?dev 모드 전용 하이라이트 스타일 */
-      tr.dev-issue { background-color: #fff5f5 !important; }
-      tr.dev-issue:hover { background-color: #ffe3e3 !important; }
+      body { font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, sans-serif; padding: 24px 32px; background-color: #f8fafc; color: #0f172a; }
+      h1 { margin-bottom: 24px; font-size: 26px; font-weight: 800; color: #0f172a; display: flex; align-items: center; gap: 10px; }
       
-      /* 💡 뱃지 상태별 색상 구분 */
-      .issue-badge { display: inline-block; padding: 2px 6px; margin-right: 4px; margin-bottom: 2px; font-size: 11px; font-weight: 600; border-radius: 4px; border: 1px solid; }
-      .issue-badge.error { color: #dc2626; background: #fee2e2; border-color: #fecaca; } /* 빨간색 (누락, 미등록) */
-      .issue-badge.success { color: #059669; background: #d1fae5; border-color: #a7f3d0; } /* 초록색 (완벽적용) */
+      /* ==================== 🎛️ Toolbar ==================== */
+      .toolbar { display: flex; justify-content: space-between; align-items: center; background: #ffffff; padding: 16px 24px; border-radius: 12px; border: 1px solid #e2e8f0; margin-bottom: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+      .toolbar-left { display: flex; gap: 12px; align-items: center; width: 100%; max-width: 400px; position: relative; }
+      input[type="text"] { width: 100%; padding: 10px 14px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 14px; outline: none; transition: all 0.2s; }
+      input[type="text"]:focus { border-color: #3b82f6; box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1); }
+      .toolbar-right { display: flex; gap: 16px; align-items: center; }
 
-      /* 팝업 */
-      #preview-popup { display: none; position: fixed; z-index: 9999; width: 600px; height: 400px; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); background: #fff; pointer-events: none; overflow: hidden; }
-      #preview-iframe { width: 1920px; height: 1280px; transform: scale(0.3125); transform-origin: top left; border: none; }
+      .action-btn { padding: 9px 16px; border-radius: 8px; font-weight: 600; cursor: pointer; border: none; font-size: 13px; transition: background 0.2s; display: flex; align-items: center; gap: 6px; }
+      .btn-reset { background: #fef2f2; color: #dc2626; border: 1px solid #fecaca; } .btn-reset:hover { background: #fee2e2; }
+
+      /* ==================== 🏷️ Status Badges ==================== */
+      .status-wrap { display: flex; gap: 12px; align-items: center; font-size: 13px; font-weight: 600; padding-left: 16px; border-left: 1px solid #e2e8f0; }
+      .status { display: inline-flex; align-items: center; justify-content: center; font-weight: 600; font-size: 13px; }
+      .status::before { content: ""; display: inline-block; border-radius: 100%; width: 8px; height: 8px; margin-right: 6px; }
+      .status.wait { color: #64748b; } .status.wait::before { background-color: #94a3b8; }
+      .status.progress { color: #059669; } .status.progress::before { background-color: #10b981; }
+      .status.examination { color: #7c3aed; } .status.examination::before { background-color: #8b5cf6; }
+      .status.complete { color: #2563eb; } .status.complete::before { background-color: #3b82f6; }
+      .status.modify { color: #ea580c; } .status.modify::before { background-color: #f97316; }
+
+      /* ==================== 🚨 Warning Section (?dev) ==================== */
+      #warning-section { display: none; margin-bottom: 24px; }
+      .warning-container { background: #fef2f2; border: 1px solid #fca5a5; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(220, 38, 38, 0.05); }
+      .warning-header { background: #fee2e2; color: #991b1b; padding: 14px 24px; font-weight: 700; font-size: 14px; display: flex; justify-content: space-between;}
+      
+      .issue-badge { display: inline-block; padding: 3px 8px; border-radius: 6px; font-size: 11.5px; font-weight: 700; margin-right: 4px; margin-bottom: 4px; box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
+      .badge-red { background: #ef4444; color: #fff; border: 1px solid #dc2626; }
+      .badge-orange { background: #f97316; color: #fff; border: 1px solid #ea580c; }
+      .badge-yellow { background: #facc15; color: #854d0e; border: 1px solid #eab308; }
+
+      /* ==================== 📋 Table Design ==================== */
+      table { width: 100%; border-collapse: collapse; background: #fff; text-align: left; }
+      th, td { border: 1px solid #e2e8f0; padding: 12px 16px; font-size: 13.5px; }
+      th { background: #f8fafc; color: #475569; font-weight: 600; white-space: nowrap; }
+      td.note { width: 220px; word-break: keep-all; line-height: 1.5; color: #475569;}
+      tbody tr { transition: background-color 0.15s; }
+      tbody tr:hover { background-color: #f1f5f9; }
+      a.preview-link { color: #2563eb; text-decoration: none; font-weight: 600; display: inline-block; padding: 4px 8px; background: #eff6ff; border-radius: 6px; transition: background 0.2s; white-space: nowrap; }
+      a.preview-link:hover { background: #dbeafe; }
+
+      /* 💡 컬럼 너비 및 정렬 고정 클래스 */
+      .col-status { width: 90px; min-width: 90px; text-align: center !important; }
+      .col-date { width: 100px; min-width: 100px; text-align: center !important; }
+      .col-preview { width: 80px; min-width: 80px; text-align: center !important; }
+      .col-worker { width: 90px; min-width: 90px; text-align: center !important; }
+
+      /* ==================== 🪗 Accordion & List Sections ==================== */
+      .pub-section-normal { margin-bottom: 24px; }
+      .pub-section-normal h2 { font-size: 18px; margin-bottom: 12px; color: #0f172a; font-weight: 700;}
+
+      .pub-section-dev { background: #fff; border-radius: 12px; border: 1px solid #e2e8f0; margin-bottom: 16px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.02); will-change: transform; }
+      .pub-header { background: #1e293b; padding: 16px 24px; font-weight: 700; font-size: 16px; color: #ffffff; display: flex; justify-content: space-between; align-items: center; cursor: pointer; user-select: none; transition: background 0.2s;}
+      .pub-header:hover { background: #0f172a; }
+      .header-right { display: flex; align-items: center; gap: 8px; }
+      .count-badge { background: rgba(255,255,255,0.15); color: #fff; font-size: 13px; padding: 2px 10px; border-radius: 20px; margin-left: 10px; font-weight: 500; }
+      
+      .order-btn { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #fff; width: 32px; height: 32px; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 12px; transition: background 0.2s; }
+      .order-btn:hover:not(:disabled) { background: rgba(255,255,255,0.25); }
+      .order-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+
+      .pub-body { max-height: 5000px; overflow: hidden; transition: max-height 0.35s ease, opacity 0.25s ease; opacity: 1; }
+      .pub-section-dev.collapsed .pub-body { max-height: 0; opacity: 0; }
+      
+      .depth-path { color: #64748b; font-size: 13px; line-height: 1.5; }
+      .depth-path .arrow { font-size: 10px; color: #cbd5e1; margin: 0 6px; vertical-align: middle; }
+      .depth-path strong { color: #0f172a; font-weight: 700; }
+      tr.dev-issue { background-color: #fef2f2 !important; }
+      tr.dev-issue:hover { background-color: #fee2e2 !important; }
+
+      /* ==================== 🛠️ Utils (Toast & Popup) ==================== */
+      #toast { visibility: hidden; background: #1e293b; color: #fff; text-align: center; border-radius: 8px; padding: 14px 24px; position: fixed; bottom: 30px; right: 30px; z-index: 10000; font-size: 14px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); font-weight: 600; }
+      #toast.show { visibility: visible; animation: fadein 0.3s, fadeout 0.4s 2.5s forwards; }
+      @keyframes fadein { from { bottom: 0; opacity: 0; } to { bottom: 30px; opacity: 1; } }
+      @keyframes fadeout { from { bottom: 30px; opacity: 1; } to { bottom: 0; opacity: 0; visibility: hidden; } }
+
+      #preview-popup { display: none; position: fixed; z-index: 9999; width: 640px; height: 420px; border: 1px solid #cbd5e1; border-radius: 12px; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); background: #fff; pointer-events: none; overflow: hidden; }
+      #preview-iframe { width: 1920px; height: 1280px; transform: scale(0.3333); transform-origin: top left; border: none; }
     </style>
   </head>
 
   <body>
-    <h1>수협 기업 인터넷뱅킹 퍼블리싱 리스트</h1>
-    <div class="search">
-      <input type="text" id="search" placeholder="검색..." />
-      <div class="status-wrap">
-        <span class="status wait">대기</span>
-        <span class="status complete">완료</span>
-        <span class="status progress">진행중</span>
-        <span class="status examination">검수중</span>
+    <h1>수협 기업 인터넷뱅킹 퍼블리싱 현황</h1>
+
+    <div class="toolbar">
+      <div class="toolbar-left">
+        <input type="text" id="search" placeholder="화면명, 파일명, 작업자 검색..." autocomplete="off" />
+      </div>
+      <div class="toolbar-right">
+        <div id="dev-toolbar-btns" style="display: none;">
+          <button class="action-btn btn-reset" onclick="app.resetAll()">🔄 순서/접힘 초기화</button>
+        </div>
+        <div class="status-wrap">
+          <span class="status wait">대기</span>
+          <span class="status complete">완료</span>
+          <span class="status progress">진행중</span>
+          <span class="status examination">검수중</span>
+          <span class="status modify">수정중</span>
+        </div>
       </div>
     </div>
+
+    <!-- 🚨 확인 필요 데이터 (Warning Section) -->
+    <div id="warning-section">
+      <div class="warning-container">
+        <div class="warning-header">
+          <span>🚨 확인 필요 데이터 (메타데이터 누락 / .md 누락 / 화면명 누락)</span>
+          <span id="warning-count" style="font-weight: 500;">0건</span>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th width="15%">이슈 내용</th>
+              <th width="20%">경로(폴더)</th>
+              <th>파일명 (ID)</th>
+              <th class="col-status">상태</th>
+              <th class="col-preview">보기</th>
+              <th class="col-worker">작업자</th>
+              <th width="20%">비고</th>
+            </tr>
+          </thead>
+          <tbody id="warning-body"></tbody>
+        </table>
+      </div>
+    </div>
+
     <div id="list"></div>
+    <div id="toast"></div>
     <div id="preview-popup"><iframe id="preview-iframe" src=""></iframe></div>
 
     <script>
-      async function loadList() {
-        try {
-          const res = await fetch("/static/html/pub/list.json");
-          if (!res.ok) throw new Error("list.json을 불러오지 못했습니다.");
-          const data = await res.json();
-          render(data);
+      /**
+       * =================================================================
+       * 📦 모듈화 기반 퍼블리싱 현황판 스크립트 (Pro Mode)
+       * =================================================================
+       */
+      const app = (function() {
+        // --- 1. 상수 및 상태 데이터 ---
+        const depthNameMap = {
+          inq: "조회", trn: "이체", card: "카드", fin: "금융상품", fin_mfi: "금융상품(수협은행)", fns: "금융서비스", b2b: "B2B전자결제", bmg: "뱅킹관리", aug: "인증센터", fpd: "공시실", cbu: "기업뱅킹 이용가이드", bop: "뱅킹업무", sil: "간편조회", mnd: "메인", bni: "은행소개", cmn: "공통 팝업 및 화면", cst: "고객센터", fcp: "금융소비자포털", dts: "예금/신탁", deposit: "예금", clrs: "대출상환스케줄조회", lon: "대출", foe: "외환", tpr: "신탁", act: "계좌이체", b2bcpfl: "B2B기업구매자금대출", or: "해외송금", fce: "외화환전", cm: "카드관리", mff: "해양수산금융", cnb: "수표/어음조회", cei: "해지예상조회", piri: "우대금리예상조회", npi: "기준가_수익조회", dor: "무증빙해외송금", ccpr: "기업카드비밀번호등록", ip: "이자납입", rop: "원금상환", import: "수입", fx: "FX", dli: "내국신용장조회", pom: "상품성 신탁 운용방법 및 소수율 현황", cdpst: "연금저축신탁 비교공시", dlyt: "지연이체등록내역조회/취소", ai: "계좌조회", mact: "다계좌이체", xfr: "이체", sug: "서비스이용안내", pc: "구매기업", trr: "서식자료실", smt: "특정금전신탁", mpim: "회원_결제정보관리", eri_02: "상환예상조회", scat: "종합통장거래내역", smsas: "SMS알림서비스", smsasa: "SMS알림서비스신청", smsasi: "SMS알림서비스조회", smsasad: "SMS알림서비스신청내역", smsasadi: "SMS알림서비스신청내역조회", ped: "결제대상내역", pltd: "구매자금대출내역", tsp: "신탁기준가격", tdr: "신탁배당률", rip: "기간별수익률", eri: "송금정보입력", od: "개설내역", pd: "매입명세", clha: "대출보유계좌조회", oilc: "수입신용장개설", ctl: "한도조회", ctd: "거래내역조회", hai: "휴먼계좌조회", rthf: "거래내역파일요청", iscd: "매매계약내역조회", faq: "FAQ", ctd_a_r: "추심인수대상내역(인수/거절)", ppf: "구매자금대금결제", ns: "국가검색", al: "신청목록", ob: "신청정보입력", ourb: "당행", othb: "타행", mfur: "자주쓰는송금계좌", mfura: "자주쓰는송금계좌관리", ad: "계좌상세", ld: "대출상세", rs: "대출상세", mor: "최근송금내역", general: "총론", ff: "영어자금", orhistory: "해외송금내역조회", siar: "조회입력 및 결과", ei: "정보입력", iv: "정보확인", verificate: "확인", di: "상세조회", detail: "상세", dimt: "국내외화이체", guide: "가이드", popup: "팝업", common: "공통", components: "컴포넌트", main: "메인", sub: "서브", regist: "등록", crcic: "기업송금송금취소_정보확인", crrcic: "기업송금송금취소_정보완료", sfcr: "[팝업]외화송금내역서", ri: "[팝업]외화송금계산서", interest_situation: "이자상환"
+        };
+        const STORE_ORDER = 'suhyup_group_order';
+        const STORE_TOGGLE = 'suhyup_group_toggle';
+        
+        let rawData = [];
+        let isDevMode = false;
 
-          document.querySelector("#search").addEventListener("input", (e) => {
-            const keyword = e.target.value.toLowerCase().trim();
-            const filtered = data.filter((item) => {
-              return [item.title, item.fileId, item.file, item.worker, item.note, (item.depths || []).join("/")]
-                .some(val => (val || "").toLowerCase().includes(keyword));
+        // --- 2. 유틸리티 함수 ---
+        const utils = {
+          highlight: (text, keyword) => {
+            if (!keyword || !text) return text || "-";
+            const escaped = keyword.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+            const regex = new RegExp(`(${escaped})`, 'gi');
+            return String(text).replace(regex, '<mark style="background-color: #fef08a; color: #111827; padding: 0 2px; border-radius: 2px; font-weight: bold;">$1</mark>');
+          },
+          getStatusClass: (status) => {
+            const map = { "완료": "complete", "진행중": "progress", "검수중": "examination", "수정중": "modify", "수정완료": "modify" };
+            return map[status] || "wait";
+          },
+          getBadge: (reason) => {
+            if (reason.includes("ok") || reason.includes("완벽")) return "";
+            if (reason.includes("status.js 미등록")) return `<span class="issue-badge badge-red">🚨 ${reason}</span>`;
+            if (reason.includes(".md 누락")) return `<span class="issue-badge badge-orange">⚠️ ${reason}</span>`;
+            if (reason.includes("화면명 누락")) return `<span class="issue-badge badge-yellow">📝 ${reason}</span>`;
+            return `<span class="issue-badge badge-red">🚨 ${reason}</span>`;
+          },
+          toast: (msg) => {
+            const el = document.getElementById("toast");
+            el.innerText = msg;
+            el.className = "show";
+            setTimeout(() => { el.className = ""; }, 3000);
+          }
+        };
+
+        // --- 3. 데이터 가공 및 분기 ---
+        const renderData = () => {
+          const keyword = document.getElementById("search").value.toLowerCase().trim();
+
+          // 1차: 물리 경로 vs md 경로 맵핑
+          const processed = rawData.map(item => {
+            const pathParts = (item.link || "").split('/');
+            pathParts.pop(); 
+            const rawFolders = pathParts;
+            
+            let resolvedDepths = [];
+            if (!isDevMode) resolvedDepths = rawFolders.map(f => depthNameMap[f] || f);
+            else resolvedDepths = (item.depths && item.depths.length > 0) ? item.depths : rawFolders;
+            if (resolvedDepths.length === 0) resolvedDepths = ["분류 미지정"];
+
+            return { ...item, displayDepths: resolvedDepths, rawFolders };
+          });
+
+          // 2차: 검색어 필터링
+          const filtered = processed.filter(item => {
+            const fields = [item.title, item.file, item.worker, item.note, item.displayDepths.join("/")].join(" ").toLowerCase();
+            return fields.includes(keyword);
+          });
+
+          if (!isDevMode) {
+            views.renderNormal(filtered, keyword);
+          } else {
+            const valid = [], invalid = [];
+            filtered.forEach(item => {
+              const hasNoTitle = !item.title || item.title.trim() === "";
+              if (hasNoTitle) {
+                item.issueReasons = item.issueReasons || [];
+                if (!item.issueReasons.includes("화면명 누락")) item.issueReasons.push("화면명 누락");
+              }
+              const hasIssues = item.issueReasons && item.issueReasons.some(r => !r.includes("ok") && !r.includes("완벽"));
+              hasIssues ? invalid.push(item) : valid.push(item);
             });
-            render(filtered);
-          });
-        } catch (error) { console.error("❌ 데이터 로드 실패:", error); }
-      }
+            views.renderWarning(invalid, keyword);
+            views.renderDevAccordion(valid, keyword);
+          }
+        };
 
-      function getStatusClass(status) {
-        const map = { "완료": "complete", "진행중": "progress", "검수중": "examination", "수정중": "modify", "수정완료": "modify-complete", "긴급": "urgent", "삭제": "delete" };
-        return map[status] || "wait";
-      }
+        // --- 4. 화면 뷰 렌더링 모음 ---
+        const views = {
+          renderNormal: (data, keyword) => {
+            const container = document.getElementById("list");
+            if (!data.length) return container.innerHTML = "<p style='padding:20px; background:#fff; border-radius:12px; border:1px solid #e2e8f0;'>데이터가 없습니다.</p>";
 
-      function render(data) {
-        const container = document.querySelector("#list");
-        if (!data.length) { container.innerHTML = "<p style='padding:20px;'>표시할 데이터가 없습니다.</p>"; return; }
+            const maxDepth = Math.max(...data.map(i => i.displayDepths.length));
+            const groups = {};
+            data.forEach(i => { const key = i.displayDepths[0]; if (!groups[key]) groups[key] = []; groups[key].push(i); });
 
-        const maxDepth = Math.max(...data.map(item => (item.depths ? item.depths.length : 0)));
-        const isDevMode = new URLSearchParams(window.location.search).has('dev'); 
+            let html = "";
+            Object.keys(groups).sort().forEach(group => {
+              html += `<section class="pub-section-normal"><h2>${utils.highlight(group, keyword)}</h2><div style="border: 1px solid #e2e8f0; border-radius: 8px; overflow:hidden;"><table><thead><tr>`;
+              for(let i=0; i<maxDepth; i++) html += `<th>${i+1}Depth</th>`;
+              html += `<th>화면명</th><th>화면ID</th><th class="col-status">상태</th><th class="col-date">수정일</th><th class="col-preview">보기</th><th class="col-worker">작업자</th><th>비고</th></tr></thead><tbody>`;
 
-        const groups = {};
-        data.forEach(item => {
-          const key = (item.depths && item.depths[0]) ? item.depths[0] : "분류 미지정";
-          if (!groups[key]) groups[key] = [];
-          groups[key].push(item);
-        });
+              groups[group].forEach(item => {
+                let depthTd = "";
+                for (let i = 0; i < maxDepth; i++) depthTd += `<td>${utils.highlight(item.displayDepths[i] || "-", keyword)}</td>`;
+                html += `<tr>${depthTd}<td><b>${utils.highlight(item.title, keyword)}</b></td><td>${utils.highlight(item.fileId || item.file, keyword)}</td><td class="col-status"><span class="status ${utils.getStatusClass(item.status)}">${item.status || "대기"}</span></td><td class="col-date">${item.modified ? item.modified.substring(0,10) : "-"}</td><td class="col-preview"><a href="/static/html/pub/${item.link}" target="_blank" class="preview-link">열기</a></td><td class="col-worker">${utils.highlight(item.worker, keyword)}</td><td class="note">${utils.highlight(item.note, keyword)}</td></tr>`;
+              });
+              html += `</tbody></table></div></section>`;
+            });
+            container.innerHTML = html;
+          },
 
-        let html = "";
-        Object.keys(groups).sort().forEach((group) => {
-          html += `<section class="pub-section"><h2>${group}</h2><table><thead><tr>`;
-          for(let i=0; i<maxDepth; i++) html += `<th>${i+1}Depth</th>`;
-          html += `<th>화면명</th><th>화면ID</th><th>상태</th><th>수정일</th><th>보기</th><th>작업자</th><th>비고</th></tr></thead><tbody>`;
+          renderDevAccordion: (data, keyword) => {
+            const container = document.getElementById("list");
+            if (!data.length) return container.innerHTML = "<p style='padding:20px; background:#fff; border-radius:12px; border:1px solid #e2e8f0;'>표시할 데이터가 없습니다.</p>";
 
-          groups[group].forEach((item) => {
-            let trClass = "";
-            let noteDisplay = item.note || "-";
+            const groupKeys = [...new Set(data.map(item => item.displayDepths[0]))];
+            const savedOrder = JSON.parse(localStorage.getItem(STORE_ORDER));
+            const toggleState = JSON.parse(localStorage.getItem(STORE_TOGGLE)) || {};
+            const orderedGroups = (savedOrder || groupKeys).filter(g => groupKeys.includes(g));
 
-            // 💡 dev 모드일 때 이슈 뱃지 렌더링 로직 개선
-            if (isDevMode && item.issueReasons && item.issueReasons.length > 0) {
-                let hasRealIssue = false; 
-
-                const badges = item.issueReasons.map(r => {
-                    if (r.includes("ok")) {
-                        return `<span class="issue-badge success">${r}</span>`;
-                    } 
-                    // 그 외(누락, 미등록 등)는 빨간색 뱃지
-                    else {
-                        hasRealIssue = true;
-                        return `<span class="issue-badge error">${r}</span>`;
+            let html = "";
+            orderedGroups.forEach((groupName, idx) => {
+              const groupData = data.filter(i => i.displayDepths[0] === groupName);
+              const isCollapsed = toggleState[groupName] === true ? "collapsed" : "";
+              
+              html += `
+                <section class="pub-section-dev ${isCollapsed}" data-group-key="${groupName}">
+                  <div class="pub-header" onclick="app.toggleSection(this, '${groupName}')">
+                    <div>📁 <span>${utils.highlight(groupName, keyword)}</span><span class="count-badge">${groupData.length}</span></div>
+                    <div class="header-right" onclick="event.stopPropagation()">
+                      <button class="order-btn" onclick="app.moveGroup('${groupName}', -1)" ${idx === 0 ? 'disabled' : ''}>▲</button>
+                      <button class="order-btn" onclick="app.moveGroup('${groupName}', 1)" ${idx === orderedGroups.length - 1 ? 'disabled' : ''}>▼</button>
+                    </div>
+                  </div>
+                  <div class="pub-body"><div class="table-container"><table><thead><tr>
+                    <th width="30%">분류 경로 (Depth)</th><th>화면명</th><th>화면 ID</th><th class="col-status">상태</th><th class="col-date">수정일</th><th class="col-preview">보기</th><th class="col-worker">작업자</th><th width="15%">비고</th>
+                  </tr></thead><tbody>
+                  ${groupData.map(item => {
+                    const paths = item.displayDepths.map((d, i, arr) => i === arr.length - 1 ? `<strong>${utils.highlight(d, keyword)}</strong>` : utils.highlight(d, keyword)).join('<span class="arrow">▶</span>');
+                    let noteHtml = item.note || "-";
+                    let trClass = "";
+                    if (item.issueReasons && item.issueReasons.length > 0) {
+                      let hasRealIssue = false;
+                      const badges = item.issueReasons.map(r => {
+                        if (!r.includes("ok") && !r.includes("완벽")) hasRealIssue = true;
+                        return utils.getBadge(r);
+                      }).join('');
+                      if (hasRealIssue) trClass = "dev-issue";
+                      noteHtml = `<div style="margin-bottom:4px;">${badges}</div>${noteHtml !== "-" ? noteHtml : ""}`;
                     }
-                }).join('');
+                    return `<tr class="${trClass}"><td class="depth-path">${paths}</td><td><b>${utils.highlight(item.title, keyword)}</b></td><td>${utils.highlight(item.fileId || item.file, keyword)}</td><td class="col-status"><span class="status ${utils.getStatusClass(item.status)}">${item.status || '대기'}</span></td><td class="col-date">${(item.modified || "").substring(0,10)}</td><td class="col-preview"><a href="/static/html/pub/${item.link}" target="_blank" class="preview-link">열기</a></td><td class="col-worker">${utils.highlight(item.worker, keyword)}</td><td class="note">${utils.highlight(noteHtml, keyword)}</td></tr>`;
+                  }).join('')}
+                  </tbody></table></div></div>
+                </section>`;
+            });
+            container.innerHTML = html;
+          },
 
-                // 진짜 에러가 있을 때만 행 배경을 빨갛게 만듦
-                if (hasRealIssue) {
-                    trClass = "dev-issue";
-                }
+          renderWarning: (invalidData, keyword) => {
+            const section = document.getElementById('warning-section');
+            const tbody = document.getElementById('warning-body');
+            document.getElementById('warning-count').innerText = invalidData.length + "건";
+            
+            if (invalidData.length === 0) return section.style.display = 'none';
 
-                noteDisplay = `${badges}<br/>${noteDisplay !== "-" ? noteDisplay : ""}`;
-            }
-
-            let depthTd = "";
-            for (let i = 0; i < maxDepth; i++) depthTd += `<td>${item.depths ? (item.depths[i] || "-") : "-"}</td>`;
-
-            html += `
-              <tr class="${trClass}">
-                ${depthTd}
-                <td>${item.title}</td>
-                <td>${item.fileId}</td>
-                <td><span class="status ${getStatusClass(item.status)}">${item.status}</span></td>
-                <td>${item.modified}</td>
-                <td><a href="/static/html/pub/${item.link}" target="_blank" class="preview-link">보기</a></td>
-                <td>${item.worker}</td>
-                <td class="note">${noteDisplay}</td>
+            section.style.display = 'block';
+            tbody.innerHTML = invalidData.map(item => {
+              const reasons = (item.issueReasons || []).map(r => utils.getBadge(r)).join('');
+              const rawPath = item.rawFolders && item.rawFolders.length > 0 ? item.rawFolders.join('/') : "-";
+              // 💡 경고 테이블에도 "보기" 버튼 및 고정 너비 클래스 추가 완료
+              return `<tr>
+                <td>${reasons}</td>
+                <td style="color:#64748b; font-size:12px;">${utils.highlight(rawPath, keyword)}</td>
+                <td><b>${utils.highlight(item.file, keyword)}</b></td>
+                <td class="col-status"><span class="status ${utils.getStatusClass(item.status)}">${item.status || '대기'}</span></td>
+                <td class="col-preview"><a href="/static/html/pub/${item.link}" target="_blank" class="preview-link">열기</a></td>
+                <td class="col-worker">${utils.highlight(item.worker, keyword)}</td>
+                <td class="note">${utils.highlight(item.note, keyword)}</td>
               </tr>`;
+            }).join('');
+          }
+        };
+
+        // --- 5. 이벤트 등록 및 기능 구현 ---
+        const bindEvents = () => {
+          // 디바운스 검색 (0.25초 딜레이)
+          let debounceTimer;
+          document.getElementById("search").addEventListener("input", () => {
+            clearTimeout(debounceTimer);
+            debounceTimer = setTimeout(renderData, 250);
           });
-          html += `</tbody></table></section>`;
-        });
-        container.innerHTML = html;
-      }
 
-      // 💡 화면 잘림을 방지하는 호버 팝업 기능
-      const popup = document.getElementById("preview-popup");
-      const iframe = document.getElementById("preview-iframe");
-      
-      document.querySelector("#list").addEventListener("mouseover", (e) => {
-        if (e.target.classList.contains("preview-link")) { 
-          iframe.src = e.target.getAttribute("href"); 
-          popup.style.display = "block"; 
-        }
-      });
-      
-      document.querySelector("#list").addEventListener("mousemove", (e) => {
-        if (e.target.classList.contains("preview-link")) {
-          const popupWidth = 600; // 팝업 가로 크기
-          const popupHeight = 400; // 팝업 세로 크기
-          const offset = 20; // 마우스 커서와의 간격
-      
-          let left = e.clientX + offset;
-          let top = e.clientY + offset;
-      
-          // 1. 오른쪽 화면을 벗어날 경우 마우스 왼쪽으로 이동
-          if (left + popupWidth > window.innerWidth) {
-            left = e.clientX - popupWidth - offset;
-          }
-      
-          // 2. 아래쪽 화면을 벗어날 경우 잘리지 않게 위로 올림
-          if (top + popupHeight > window.innerHeight) {
-            top = window.innerHeight - popupHeight - offset; 
-          }
-      
-          popup.style.left = left + "px";
-          popup.style.top = top + "px";
-        }
-      });
-      
-      document.querySelector("#list").addEventListener("mouseout", (e) => {
-        if (e.target.classList.contains("preview-link")) { 
-          popup.style.display = "none"; 
-          iframe.src = ""; 
-        }
-      });
+          // 단축키 (Ctrl+F 또는 / 누르면 검색창 포커스)
+          window.addEventListener('keydown', (e) => {
+            if (e.target.tagName !== 'INPUT' && (e.key === '/' || (e.ctrlKey && e.key.toLowerCase() === 'f'))) {
+              e.preventDefault();
+              document.getElementById("search").focus();
+            }
+          });
 
-      loadList();
+          // 팝업 이벤트
+          const popup = document.getElementById("preview-popup"), iframe = document.getElementById("preview-iframe");
+          const list = document.getElementById("list");
+          
+          list.addEventListener("mouseover", (e) => {
+            if (e.target.classList.contains("preview-link")) { iframe.src = e.target.getAttribute("href"); popup.style.display = "block"; }
+          });
+          list.addEventListener("mousemove", (e) => {
+            if (e.target.classList.contains("preview-link")) {
+              let left = e.clientX + 20, top = e.clientY + 20;
+              if (left + 640 > window.innerWidth) left = e.clientX - 640 - 20;
+              if (top + 420 > window.innerHeight) top = e.clientY - 420 - 20;
+              popup.style.left = left + "px"; popup.style.top = top + "px";
+            }
+          });
+          list.addEventListener("mouseout", (e) => {
+            if (e.target.classList.contains("preview-link")) { popup.style.display = "none"; iframe.src = ""; }
+          });
+        };
+
+        // --- 6. 외부 노출 메서드 (Public API) ---
+        return {
+          init: async () => {
+            isDevMode = new URLSearchParams(window.location.search).has('dev');
+            if(isDevMode) document.getElementById('dev-toolbar-btns').style.display = 'block';
+            
+            try {
+              const res = await fetch("/static/html/pub/list.json");
+              rawData = await res.json();
+              renderData();
+              bindEvents();
+            } catch (err) { console.error("데이터 로드 실패:", err); }
+          },
+          toggleSection: (element, key) => {
+            element.closest('.pub-section-dev').classList.toggle('collapsed');
+            const state = {};
+            document.querySelectorAll('.pub-section-dev').forEach(sec => state[sec.dataset.groupKey] = sec.classList.contains('collapsed'));
+            localStorage.setItem(STORE_TOGGLE, JSON.stringify(state));
+          },
+          moveGroup: (groupKey, direction) => {
+            const container = document.getElementById("list");
+            const sections = Array.from(container.children);
+            const idx = sections.findIndex(s => s.dataset.groupKey === groupKey);
+            const targetIdx = idx + direction;
+            if (targetIdx < 0 || targetIdx >= sections.length) return;
+
+            const rects = new Map();
+            sections.forEach(s => rects.set(s, s.getBoundingClientRect()));
+
+            direction === -1 ? container.insertBefore(sections[idx], sections[targetIdx]) : container.insertBefore(sections[targetIdx], sections[idx]);
+
+            const newSections = Array.from(container.children);
+            newSections.forEach(s => {
+              const deltaY = rects.get(s).top - s.getBoundingClientRect().top;
+              if (deltaY !== 0) {
+                s.style.transition = 'none'; s.style.transform = `translateY(${deltaY}px)`; s.offsetHeight;
+                s.style.transition = 'transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1)'; s.style.transform = 'translateY(0)';
+                const clean = () => { s.style.transition = ''; s.style.transform = ''; s.removeEventListener('transitionend', clean); };
+                s.addEventListener('transitionend', clean);
+              }
+            });
+
+            newSections.forEach((s, i) => {
+              const btns = s.querySelectorAll('.order-btn');
+              if(btns.length > 0) { btns[0].disabled = (i === 0); btns[1].disabled = (i === newSections.length - 1); }
+            });
+
+            const order = newSections.map(s => s.dataset.groupKey);
+            localStorage.setItem(STORE_ORDER, JSON.stringify(order));
+            utils.toast("순서가 자동 저장되었습니다.");
+          },
+          resetAll: () => {
+            if(confirm("모든 설정(순서 및 아코디언 상태)을 초기화하시겠습니까?")) {
+              localStorage.removeItem(STORE_ORDER);
+              localStorage.removeItem(STORE_TOGGLE);
+              location.reload();
+            }
+          }
+        };
+      })();
+
+      // App 초기화 실행
+      app.init();
     </script>
   </body>
 </html>
