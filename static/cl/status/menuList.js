@@ -102,7 +102,7 @@ module.exports = {
     "b2b/01/02/02/004/CIBB2B010202004M.html": { title: "완료(없음)", status: "검수중", worker: "변혜선", note: "" },
     "b2b/01/02/01/001/CIBB2B010201001M.html": { title: "조회입력 및 결과(없음)", status: "검수중", worker: "변혜선", note: "주석확인" },
     "b2b/01/02/01/002/CIBB2B010201002M.html": { title: "상세(없음)", status: "검수중", worker: "변혜선", note: "" },
-    "b2b/b2bcpfl/pc/pltd/CIBB2B010204001M.html": { title: "", status: "검수중", worker: "변혜선", note: "" },
+    "b2b/b2bcpfl/pc/pltd/CIBB2B010204001M.html": { title: "", status: "검수중", worker: "변혜선", note: "주석 [dev] 20260821 확인" },
     "b2b/b2bcpfl/pc/pltd/CIBB2B040200000P.html": { title: "", status: "검수중", worker: "변혜선", note: "" },
     "b2b/b2bcpfl/pc/pltd/CIBB2B040200002P.html": { title: "", status: "검수중", worker: "변혜선", note: "" },
     "b2b/01/02/03/001/CIBB2B010203001M.html": { title: "조회입력 및 결과(없음)", status: "검수중", worker: "변혜선", note: "" },
