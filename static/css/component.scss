@@ -149,6 +149,11 @@
 		height: var(--sizeIconMd);
 	}
 
+	&-mdLg {
+		width: var(--sizeIconMdLg);
+		height: var(--sizeIconMdLg);
+	}
+
 	&-lg {
 		width: var(--sizeIconLg);
 		height: var(--sizeIconLg);
@@ -2422,8 +2427,8 @@
 		}
 
 		&+.form-label {
-			color: var(--colorFgTertiary);
-			font-size: var(--contentFontSizeSm);
+			color: var(--colorFgBase);
+			font-size: var(--contentFontSizeMd);
 			font-weight: var(--fontWeightRegular);
 			line-height: var(--contentLineHeightSm);
 		}
@@ -3349,6 +3354,7 @@ input[type=password] {
 /* Tab */
 .box-tab {
 	.list-tab-button {
+
 		display: flex;
 		align-items: center;
 		gap: var(--spacingXs);
@@ -3357,6 +3363,53 @@ input[type=password] {
 			display: inline-flex;
 			align-items: center;
 			gap: var(--spacingXs);
+		}
+
+		&.type-button {
+			.item-tab-button {
+				.btn-tab {
+					border: var(--borderWidthUnit1) solid var(--colorBorderBase);
+					color: var(--colorFgNeutral);
+					background-color: var(--colorBgBase);
+
+					&:hover {
+						border-color: var(--colorBorderHover);
+						background-color: var(--colorBgHover);
+					}
+
+					&:active {
+						background-color: var(--colorBgAccent);
+					}
+
+					&:disabled {
+						color: var(--colorFgNeutralDisabled);
+						border-color: var(--colorBorderDisabled);
+						background-color: var(--colorBgBase);
+					}
+
+					&.active {
+						border: var(--borderWidthUnit1) solid var(--colorBorderPrimary);
+						color: var(--colorFgPrimary);
+						background-color: var(--colorBgBase);
+
+						&:hover {
+							background-color: var(--colorBgPrimaryHover);
+						}
+
+						&:active {
+							background-color: var(--colorBgPrimaryAccent);
+						}
+
+						&:disabled {
+							color: var(--colorFgPrimaryDisabled);
+							border-color: var(--colorBorderPrimaryDisabled);
+							background-color: var(--colorBgBase);
+						}
+					}
+				}
+			}
+
+
 		}
 
 		&.type-chip {
@@ -3574,6 +3627,8 @@ input[type=password] {
 				}
 			}
 		}
+
+
 	}
 }
 
@@ -4773,8 +4828,13 @@ body.is-scroll-locked {
 	+.list {
 		margin-top: var(--spacingXsSm);
 	}
-	+.list{
-		&.type-star{
+
+	+.list {
+		&.type-star {
+			margin-top: var(--spacingXs);
+		}
+
+		&.type-reference {
 			margin-top: var(--spacingXs);
 		}
 	}
@@ -4972,9 +5032,11 @@ body.is-scroll-locked {
 
 			ul {
 				list-style: none;
+
 				.color-fg-error {
 					color: var(--colorFgError);
 				}
+
 				li {
 					color: var(--colorFgSecondary);
 					display: flex;

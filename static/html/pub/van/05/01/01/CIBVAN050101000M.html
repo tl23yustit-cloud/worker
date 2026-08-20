@@ -1,180 +1,142 @@
 <!-- 디자인 가이드 필요 -->
 <!doctype html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>수협은행</title>
-    <link rel="stylesheet" href="/static/css/reset.css" />
-    <link rel="stylesheet" href="/static/css/layout.css" />
-    <link rel="stylesheet" href="/static/css/component.css" />
-    <link rel="stylesheet" href="/static/css/common.css" />
-    <link rel="stylesheet" href="/static/css/van.css" />
-  </head>
 
-  <body>
-    <div class="wrapper">
-      <div id="header">
-        @@include('static/html/pub/layout/skipNavigation.html')
-        @@include('static/html/pub/layout/header_sub.html')
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>수협은행</title>
+  <link rel="stylesheet" href="/static/css/reset.css" />
+  <link rel="stylesheet" href="/static/css/layout.css" />
+  <link rel="stylesheet" href="/static/css/component.css" />
+  <link rel="stylesheet" href="/static/css/common.css" />
+  <link rel="stylesheet" href="/static/css/van.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <div id="header">
+      @@include('static/html/pub/layout/skipNavigation.html')
+      @@include('static/html/pub/layout/header_sub.html')
+    </div>
+
+    <div id="container" class="container">
+      <div id="leftArea">
+        @@include('static/html/pub/layout/leftArea.html')
       </div>
-
-      <div id="container" class="container">
-        <div id="leftArea">
-          @@include('static/html/pub/layout/leftArea.html')
-        </div>
-        <div id="contents">
-          <div class="content">
-            @@include('static/html/pub/layout/breadcrumb.html')
-            <div class="van">
-              <h2 class="typeH2">
-                계좌 통합관리서비스(어카운트인포) 조회신청/조회
-              </h2>
-              <div>
-                계좌 통합관리서비스(어카운트인포)란?<br />
-                전 금융기곤에서 발급받은 계좌정보를 한눈에 조회하실 수 있는
-                서비스입니다.
-              </div>
-
-              <div class="list-lg-wrap">
-                <h4 class="typeH4">이용안내</h4>
-                <div class="list type-dotted mt-6">
-                  <ul>
-                    <li class="typeLg">
-                      수협은행 홈페이지 및 모바일앱을 통해 전 금융기관에 개설된
-                      본인명의 계좌정보를 일괄 조회할 수 있는 서비스입니다.
-                    </li>
-                    <li class="typeLg">
-                      더욱 안전한 서비스 제공을 위해 추가로 휴대폰 본인 인증을
-                      완료해야 합니다. (본인명의 휴대폰만 가능합니다.)
-                    </li>
-                    <li class="typeLg">
-                      최초 신청 후에는 별다른 동의 없이 1년간 조회가 가능합니다.
-                    </li>
-                    <li class="typeLg ">
-                      만 19세 이상 내국인만 서비스가 가능합니다. (법인, 외국인
-                      및 미성년자는 불가)
-                    </li>
-                  </ul>
+      <div id="contents">
+        <div class="content">
+          @@include('static/html/pub/layout/breadcrumb.html')
+          <!--[dev] :20260820 전체수정-->
+          <div class="van">
+            <h2 class="typeH2">
+              계좌 통합관리서비스(어카운트인포) 조회신청/조회
+            </h2>
+            <div class="bg-box size-5xl4xl">
+              <div class="typeLgSemibold">계좌 통합관리서비스(어카운트인포)란?</div>
+              <div class="typeH1">모든 금융기관에서 발급 받은 계좌정보를<br>
+                한 눈에 조회 할 수 있는 서비스</div>
+              <div class="info-wrap">
+                <div class="info-item">
+                  <p class="typeLgMedium">수협은행 홈페이지 및 모바일 앱 이용</p>
+                  <p class="type2XlSemibold"><span class="color-fg-primary">매일</span> 00:30~23:30</p>
                 </div>
-              </div>
-              <div class="list-lg-wrap">
-                <h4 class="typeH4">조회 서비스 가능 시간</h4>
-                <div class="list type-dotted mt-6">
-                  <ul>
-                    <li class="typeLg">
-                      수협은행 홈페이지 및 모바일앱: 매일 00:30~23:30
-                    </li>
-                    <li class="typeLg">수협은행 영업점: 영업시간</li>
-                    <li class="typeLg">
-                      금융결제원 홈페이지 및 모바일앱: 매일 00:30~23:30
-                    </li>
-                  </ul>
+                <div class="info-item">
+                  <p class="typeLgMedium">수협은행 영업점 이용</p>
+                  <p class="type2XlSemibold"><span class="color-fg-primary">영업시간</span> 09:00~18:00</p>
                 </div>
-              </div>
-              <div class="list-lg-wrap">
-                <h4 class="typeH4">계좌조회서비스</h4>
-                <div class="list type-dotted mt-6">
-                  <ul>
-                    <li class="typeLg">
-                      서비스 제공 금융기관
-                      <div class="list type-bar mt-6">
-                        <ul>
-                          <li class="typeLg">
-                            은행, 제2금융권(상호저축은행, 서민금융기관*),
-                            금융투자회사(금투사)의 계좌정보를 조회할 수
-                            있습니다.
-                          </li>
-                          <li class="typeLg">
-                            서민금융기관: 농축협, 새마을금고, 신협,
-                            산림조합중앙회, 우체국
-                          </li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="typeLg">
-                      잔고이전 및 해지
-                      <div class="list type-bar">
-                        <ul>
-                          <li class="typeLg">
-                            1년 이상 거래가 없는 소액 비활동성 계좌의 경우
-                            금융결제원 계좌통합관리서비스(Account INFO) 홈페이지
-                            및 모바일앱과 금융기관 및 이용기관 비대면채널에서<br />
-                            계좌를 해지하고, 해당 원리금을 본인명의 계좌로
-                            입금하거나 서민금융진흥원에서 기부할 수 있습니다.
-                          </li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="typeLg">
-                      기타안내
-                      <div class="list type-bar">
-                        <ul>
-                          <li class="typeLg">
-                            계좌정보 조회 시, 수협은행 및 회원수협 계좌는
-                            조회되지 않습니다.
-                          </li>
-                          <li class="typeLg">
-                            수협은행 및 회원수협 계좌는 [수협은행 홈페이지 및
-                            모바일앱 - 조회 &gt; 전체계좌조회]에서 조회가
-                            가능합니다.
-                          </li>
-                          <li class="typeLg">
-                            계좌정보는 각 금융기관으로부터 제공받는 정보입니다.
-                          </li>
-                          <li class="typeLg">
-                            계좌정보에 대한 문의사항이 있을 경우 해당 금융기관
-                            고객센터로 연락하시기 바랍니다.
-                          </li>
-                        </ul>
-                      </div>
-                    </li>
-                  </ul>
+                <div class="info-item">
+                  <p class="typeLgMedium">금융결제원 홈페이지 및 모바일앱 이용</p>
+                  <p class="type2XlSemibold"><span class="color-fg-primary">매일</span> 00:30~23:30</p>
                 </div>
-              </div>
-              <!-- 조회 서비스 해지 -->
-              <div class="list-lg-wrap">
-                <h4 class="typeH4">조회 서비스 해지</h4>
-                <div class="list type-dotted mt-6">
-                  <ul>
-                    <li class="typeLg">
-                      계좌 통합관리서비스(어카운트인포) 해지를 원하실 경우
-                      <br />
-                      [수협은행 홈페이지 및 모바일앱 &gt; 조회 &gt;
-                      계좌통합관리서비스(어카운트인포) &gt;
-                      계좌통합관리서비스(어카운트인포) 조회해지]에서 신청하시기
-                      바랍니다.
-                    </li>
-                    <li class="typeLg">
-                      해지 후 서비스를 다시 이용하기 위해서는 서비스 이용 동의
-                      및 휴대폰 본인 인증이 필요합니다.
-                    </li>
-                    <li class="typeLg">
-                      서비스 약관 동의 후 1년이 경과할 경우, 서비스 약관 동의 및
-                      휴대폰 본인 인증 과정을 다시 진행 후 조회가 가능합니다.
-                    </li>
-                    <li class="typeLg">
-                      수협 비대면 채널에서 조회하는 서비스만 해지됩니다.
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <div class="btn-wrap center lg-bot">
-                <button
-                  type="button"
-                  class="btn type-bg-primary size-xxl wSize-sm"
-                >
-                  <span class="text">조회</span>
-                </button>
               </div>
             </div>
+            <div class="info-text-wrap">
+              <div class="info-text-inner">
+                <div class="typeH4">계좌조회 서비스</div>
+                <div class="typeH6">서비스 제공 금융기관</div>
+                <div class="list type-dotted">
+                  <ul>
+                    <li class="typeLg color-fg-base">은행, 제2금융권(상호저축 은행, 서민금융기관*), 금융투자회사(금투사)의 계좌정보를 조회할 수 있습니다.</li>
+                  </ul>
+                </div>
+                <div class="list type-star">
+                  <ul>
+                    <li class="typeMd">은행, 제2금융권(상호저축 은행, 서민금융기관*), 금융투자회사(금투사)의 계좌정보를 조회할 수 있습니다.</li>
+                  </ul>
+                </div>
+                <div class="typeH6">잔고이전 및 해지</div>
+                <div class="list type-dotted">
+                  <ul>
+                    <li class="typeLg color-fg-base">1년 이상 거래가 없는 소액 비활동성 계좌의 경우 금융결제원 계좌통합관리서비스(Account INFO)홈페이지 및
+                      모바일앱과 금융기관 및 이용기관 비대면 채널에서 계좌를 해지하고, 해당 원리금을 본인의 계좌로 입금하거나 서민금융 진흥원에 기부할 수 있습니다.</li>
+                  </ul>
+                </div>
+                <div class="typeH6">기타안내</div>
+                <div class="list type-dotted">
+                  <ul>
+                    <li class="typeLg color-fg-base">계정정보 조회 시, 수협은행 및 회원수협 계좌는 조회되지 않습니다.</li>
+                    <li class="typeLg color-fg-base">수협은행 및 회원수협 계좌는 조회되지 않습니다.</li>
+                    <li class="typeLg color-fg-base">계좌정보는 각 금융기관으로부터 제공받는 정보입니다.</li>
+                    <li class="typeLg color-fg-base">계좌정보에 대한 문의사항이 있을 경우 해당 금융기관 고객센터로 연락하시기 바랍니다.</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="info-text-inner">
+                <div class="typeH4">조회 서비스 해지</div>
+                <div class="list type-dotted">
+                  <ul>
+                    <li class="typeLg color-fg-base">계좌 통합관리서비스(어카운트인포) 해지를 원하실 경우 [수협은행 홈페이지 및
+                      모바일앱>조회>계좌통합관리서비스(어카운트인포)>계좌통합관리서비스(어카운트인포) 조회 해지]에서 신청하시기 바랍니다.</li>
+                    <li class="typeLg color-fg-base">해지 후 서비스를 다시 이용하기 위해서는 서비스 이용동의 및 휴대폰 본인인증이 필요합니다.</li>
+                    <li class="typeLg color-fg-base">서비스 약관 동의 후 1년이 경과할 경우, 서비스 약관 동의 및 휴대폰 본인 인증 과정을 다시 진행 후 조회가
+                      가능힙니다.</li>
+                  </ul>
+                </div>
+                <div class="list type-reference">
+                  <ul>
+                    <li class="typeLg color-fg-error">만 19세 이상 내국인만 서비스가 가능합니다.(법인, 외국인 및 미성년자는 불가)</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="line-box size-xl">
+              <h4 class="typeH4">이용안내</h4>
+              <div class="list type-dotted mt-6">
+                <ul>
+                  <li class="typeLg">
+                    수협은행 홈페이지 및 모바일앱을 통해 전 금융기관에 개설된
+                    본인명의 계좌정보를 일괄 조회할 수 있는 서비스입니다.
+                  </li>
+                  <li class="typeLg">
+                    더욱 안전한 서비스 제공을 위해 추가로 휴대폰 본인 인증을
+                    완료해야 합니다. (본인명의 휴대폰만 가능합니다.)
+                  </li>
+                  <li class="typeLg">
+                    최초 신청 후에는 별다른 동의 없이 1년간 조회가 가능합니다.
+                  </li>
+                  <li class="typeLg ">
+                    만 19세 이상 내국인만 서비스가 가능합니다. (법인, 외국인
+                    및 미성년자는 불가)
+                  </li>
+                </ul>
+              </div>
+            </div>            
+            <div class="btn-wrap center lg-bot">
+              <button type="button" class="btn type-bg-primary size-xxl">
+                <span class="text">조회</span>
+              </button>
+            </div>
           </div>
+          <!--//[dev] :20260820 전체수정-->
         </div>
-        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
       </div>
-      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+      <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
     </div>
-    <script src="/static/js/ui/cib_ui_common.js"></script>
-  </body>
+    <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+  </div>
+  <script src="/static/js/ui/cib_ui_common.js"></script>
+</body>
+
 </html>
 <script></script>
