@@ -258,6 +258,13 @@
     }
 }
 
+.step-1,
+.step-2,
+.step-3 {
+    margin-bottom: 24px;
+}
+
+
 .address-box {
     .title {
         font-size: var(--contentFontSizeM);
@@ -272,21 +279,33 @@
         border-radius: var(--radiusXl);
         border: 1px solid var(--colorBorderSecondary);
         background-color: var(--colorBgHover);
+        overflow: hidden;
+        /* 부모의 둥근 모서리에 맞춰 내부 영역이 잘리도록 처리 */
 
         &-top {
             display: flex;
             gap: 6px;
             justify-content: center;
             padding: 24px;
-
+            margin-bottom: 0;
+            /* 기존 마진으로 인한 간격 오류 방지 */
 
             input[type="text"] {
                 width: 209px;
             }
-
-            margin-bottom:24px;
         }
 
+        &-bottom {
+            padding: 16px 24px;
+            background-color: var(--colorBgBase);
+            border-top: 1px solid var(--colorBorderSecondary);
+
+            .address-list {
+                display: flex;
+                flex-direction: column;
+                gap: 2px;
+            }
+        }
     }
 
     .empty-box {
@@ -295,8 +314,7 @@
         justify-content: center;
         align-items: center;
         border-radius: var(--radiusXl);
-        border: 1px solid var(--colorBorderSecondary);
+        border: 1px dashed var(--colorBorderSecondary);
         background-color: var(--colorBgHover);
-
     }
 }
