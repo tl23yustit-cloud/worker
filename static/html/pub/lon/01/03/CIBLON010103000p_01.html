@@ -141,7 +141,7 @@
                   <td colspan="3">
                     <div id="myProgressBar" class="loading-progress-bar size-sm">
                       <div class="bg-progress-bar" aria-hidden="true">
-                        <span class="progress-gauge" aria-hidden="true">
+                        <span class="progress-gauge " aria-hidden="true">
                         </span>
                       </div>
                       <div class="box-text">
@@ -349,265 +349,160 @@
 </html>
 <script>
   setProgressBar1("#myProgressBar", {
-    percent: 90
-  });
-
-  // setTimeout(() => {
-  //   setProgressBar1("#myProgressBar", {
-  //     percent: 50
-  //   });
-  // }, 1000);
-
-  // setTimeout(() => {
-  //   setProgressBar1("#myProgressBar", {
-  //     percent: 80
-  //   });
-  // }, 2000);
-
-  // setTimeout(() => {
-  //   setProgressBar1("#myProgressBar", {
-  //     percent: 100
-  //   });
-  // }, 3000);
+  percent: 90,
+  status: "progress",
+  message: "로딩중...",
+});
   function setProgressBar1(target, options = {}) {
-    const el =
-      typeof target === "string"
-        ? document.querySelector(target)
-        : target;
+  const el =
+    typeof target === "string"
+      ? document.querySelector(target)
+      : target;
 
-    if (!el) return;
+  if (!el) return;
 
-    const {
-      percent = 0,
-      status = "auto",
-      message,
-      label,
-      duration = 600,
-    } = options;
+  const {
+    percent = 0,
+    duration = 1000,
+    status = "auto",
+    message,
+    label,
+  } = options;
 
-    const gaugeEl = el.querySelector(".progress-gauge");
-    const numEl = el.querySelector(".percent .num");
-    const messageEl = el.querySelector(".message");
-    const labelEl = el.querySelector(".title-progress");
+  const gaugeEl = el.querySelector(".progress-gauge");
+  const numEl = el.querySelector(".percent .num");
+  const messageEl = el.querySelector(".message");
+  const labelEl = el.querySelector(".title-progress");
 
-    if (!gaugeEl) return;
+  if (!gaugeEl) return;
 
-    // ----------------------------------------
-    // 최종 퍼센트
-    // ----------------------------------------
-    const targetPercent = Math.min(
-      Math.max(Number(percent) || 0, 0),
-      100
+  // ----------------------------------------
+  // 최종 데이터 값
+  // ----------------------------------------
+  const targetPercent = Math.min(
+    Math.max(Number(percent) || 0, 0),
+    100
+  );
+
+  // ----------------------------------------
+  // 기존 애니메이션 취소
+  // ----------------------------------------
+  if (el._progressAnimationFrame) {
+    cancelAnimationFrame(
+      el._progressAnimationFrame
     );
-
-    // ----------------------------------------
-    // 기존 애니메이션 취소
-    // ----------------------------------------
-    if (el._progressAnimationFrame) {
-      cancelAnimationFrame(el._progressAnimationFrame);
-    }
-
-    // ----------------------------------------
-    // 라벨
-    // ----------------------------------------
-    if (label && labelEl) {
-      labelEl.textContent = label;
-    }
-
-    // ----------------------------------------
-    // 메시지
-    // ----------------------------------------
-    if (message && messageEl) {
-      messageEl.textContent = message;
-    }
-
-    // ----------------------------------------
-    // 색상
-    // ----------------------------------------
-    function setColor(type) {
-      if (type === "blue") {
-        gaugeEl.style.setProperty(
-          "background-color",
-          "#0F62FD",
-          "important"
-        );
-      }
-
-      if (type === "yellow") {
-        gaugeEl.style.setProperty(
-          "background-color",
-          "#FAC515",
-          "important"
-        );
-      }
-
-      if (type === "red") {
-        gaugeEl.style.setProperty(
-          "background-color",
-          "#D33128",
-          "important"
-        );
-      }
-    }
-
-    // ----------------------------------------
-    // 숫자 표시
-    // ----------------------------------------
-    function setNumber(value) {
-      if (numEl) {
-        numEl.textContent = Math.round(value);
-      }
-    }
-
-    // ----------------------------------------
-    // 하나의 구간을 애니메이션
-    // ----------------------------------------
-    function animateSection(
-      from,
-      to,
-      color
-    ) {
-      return new Promise((resolve) => {
-        if (from === to) {
-          setColor(color);
-          setNumber(to);
-          gaugeEl.style.width = `${to}%`;
-          resolve();
-          return;
-        }
-
-        setColor(color);
-
-        const startTime = performance.now();
-
-        function animate(currentTime) {
-          const elapsed =
-            currentTime - startTime;
-
-          const progress = Math.min(
-            elapsed / duration,
-            1
-          );
-
-          // ease-out
-          const eased =
-            1 - Math.pow(1 - progress, 3);
-
-          const current =
-            from + (to - from) * eased;
-
-          gaugeEl.style.width =
-            `${current}%`;
-
-          setNumber(current);
-
-          if (progress < 1) {
-            el._progressAnimationFrame =
-              requestAnimationFrame(animate);
-          } else {
-            gaugeEl.style.width =
-              `${to}%`;
-
-            setNumber(to);
-
-            resolve();
-          }
-        }
-
-        el._progressAnimationFrame =
-          requestAnimationFrame(animate);
-      });
-    }
-
-    // ----------------------------------------
-    // 전체 구간 실행
-    // ----------------------------------------
-    async function runProgress() {
-      // 초기화
-      gaugeEl.style.width = "0%";
-      setNumber(0);
-
-      // ----------------------------------------
-      // 0 ~ 30 : 파랑
-      // ----------------------------------------
-      if (targetPercent > 0) {
-        const blueEnd =
-          Math.min(targetPercent, 30);
-
-        await animateSection(
-          0,
-          blueEnd,
-          "blue"
-        );
-      }
-
-      // ----------------------------------------
-      // 31 ~ 70 : 노랑
-      // 실제 게이지는 30 → 70
-      // ----------------------------------------
-      if (targetPercent > 30) {
-        const yellowEnd =
-          Math.min(targetPercent, 70);
-
-        await animateSection(
-          30,
-          yellowEnd,
-          "yellow"
-        );
-      }
-
-      // ----------------------------------------
-      // 71 ~ 100 : 빨강
-      // 실제 게이지는 70 → 100
-      // ----------------------------------------
-      if (targetPercent > 70) {
-        await animateSection(
-          70,
-          targetPercent,
-          "red"
-        );
-      }
-    }
-
-    // ----------------------------------------
-    // 상태 처리
-    // ----------------------------------------
-    let currentStatus = status;
-
-    if (status === "auto") {
-      currentStatus =
-        targetPercent === 100
-          ? "success"
-          : "progress";
-    }
-
-    el.classList.remove(
-      "is-success",
-      "is-fail"
-    );
-
-    if (currentStatus === "success") {
-      el.classList.add("is-success");
-
-      if (!message && messageEl) {
-        messageEl.textContent =
-          "Complete message";
-      }
-    } else if (currentStatus === "fail") {
-      el.classList.add("is-fail");
-
-      if (!message && messageEl) {
-        messageEl.textContent =
-          "Error message";
-      }
-    } else {
-      if (!message && messageEl) {
-        messageEl.textContent =
-          "In progress message";
-      }
-    }
-
-    // 실행
-    runProgress();
   }
+
+  // ----------------------------------------
+  // 최종값에 따라 색상 결정
+  // ----------------------------------------
+  if (targetPercent <= 30) {
+    // 0 ~ 30 : 파랑
+    gaugeEl.style.backgroundColor = "#2878f0";
+
+  } else if (targetPercent <= 70) {
+    // 31 ~ 70 : 노랑
+    gaugeEl.style.backgroundColor = "#f5c400";
+
+  } else {
+    // 71 ~ 100 : 빨강
+    gaugeEl.style.backgroundColor = "#ef4b4b";
+  }
+
+  // ----------------------------------------
+  // 초기화
+  // ----------------------------------------
+  gaugeEl.style.width = "0%";
+
+  if (numEl) {
+    numEl.textContent = "0";
+  }
+
+  // ----------------------------------------
+  // 라벨
+  // ----------------------------------------
+  if (label && labelEl) {
+    labelEl.textContent = label;
+  }
+
+  // ----------------------------------------
+  // 메시지
+  // ----------------------------------------
+  if (message && messageEl) {
+    messageEl.textContent = message;
+  }
+
+  // ----------------------------------------
+  // 숫자 + 게이지 애니메이션
+  // ----------------------------------------
+  const startTime = performance.now();
+
+  function animate(currentTime) {
+    const progress = Math.min(
+      (currentTime - startTime) / duration,
+      1
+    );
+
+    // ease-out
+    const eased =
+      1 - Math.pow(1 - progress, 3);
+
+    const currentPercent =
+      targetPercent * eased;
+
+    // 게이지
+    gaugeEl.style.width =
+      `${currentPercent}%`;
+
+    // 숫자
+    if (numEl) {
+      numEl.textContent =
+        Math.round(currentPercent);
+    }
+
+    if (progress < 1) {
+      el._progressAnimationFrame =
+        requestAnimationFrame(animate);
+    } else {
+      // 마지막 값 정확하게 고정
+      gaugeEl.style.width =
+        `${targetPercent}%`;
+
+      if (numEl) {
+        numEl.textContent =
+          targetPercent;
+      }
+
+      el._progressAnimationFrame = null;
+    }
+  }
+
+  el._progressAnimationFrame =
+    requestAnimationFrame(animate);
+
+  // ----------------------------------------
+  // 상태
+  // ----------------------------------------
+  let currentStatus = status;
+
+  if (status === "auto") {
+    currentStatus =
+      targetPercent === 100
+        ? "success"
+        : "progress";
+  }
+
+  el.classList.remove(
+    "is-success",
+    "is-fail"
+  );
+
+  if (currentStatus === "success") {
+    el.classList.add("is-success");
+  }
+
+  if (currentStatus === "fail") {
+    el.classList.add("is-fail");
+  }
+}
 </script>

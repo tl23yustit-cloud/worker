@@ -428,7 +428,19 @@
 }
 
 .tit-wrap {
-	margin: var(--spacing2Xl) 0 var(--spacingSm);
+	margin: var(--spacing4Xl) 0 var(--spacingSm);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	.typeH4 {
+
+		padding: var(--spacingXs) 0;
+	}
+
+	.typeSm {
+		color: var(--colorFgTertiary)
+	}
 }
 
 .accor-wrap {
@@ -520,6 +532,11 @@
 
 		&-xl2xl {
 			padding: var(--spacingXl) var(--spacing2Xl);
+			border-radius: var(--radius2Xl);
+		}
+
+		&-4xl2xlxl {
+			padding: var(--spacing4Xl) var(--spacing2Xl) var(--spacingXl);
 			border-radius: var(--radius2Xl);
 		}
 
@@ -1024,11 +1041,213 @@ table {
 		}
 
 		.tbl-head {
-			+ .wScroll{
-				table{
+			+.wScroll {
+				table {
 					margin-top: 0;
 				}
 			}
+		}
+	}
+}
+
+.rate-range {
+	width: 100%;
+	padding: 42px 0 0;
+
+	&-graph {
+		position: relative;
+		width: calc(100% - 32px);
+		height: 5px;
+		border-radius: var(--radiusFull);
+	}
+
+	// 전체 회색 영역
+	&-track {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 5px;
+		background: var(--colorBgSecondary);
+		border-radius: var(--radiusFull);
+	}
+
+	// 현재 값까지의 영역
+	&-active {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 0;
+		height: 5px;
+		background: var(--colorBgPrimary);
+		transition: width 0.4s ease;
+		border-radius: var(--radiusFull);
+	}
+
+	// 현재 값
+	&-current {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 0;
+		height: 8px;
+		transition: left 0.4s ease;
+	}
+
+	// 말풍선
+	&-tooltip {
+		position: absolute;
+		bottom: 18px;
+		left: 50%;
+		transform: translateX(-50%);
+		min-width: 42px;
+		padding: var(--spacingXs);
+		box-sizing: border-box;
+
+		text-align: center;
+		white-space: nowrap;
+
+		background: var(--colorBgPrimary);
+		border-radius: var(--radiusXs);
+
+		&.bg-black {
+			background: var(--colorBgBaseInvert);
+			padding: var(--spacingMd);
+			border-radius: var(--radiusMd);
+
+			&::after {
+				background: var(--colorBgBaseInvert);
+			}
+		}
+
+		.typeXsSemibold {
+			color: var(--colorFgBaseInvert);
+		}
+
+		// 말풍선 아래쪽 꼬리
+		&::after {
+			content: '';
+			position: absolute;
+			left: 50%;
+			bottom: -4px;
+			width: 8px;
+			height: 8px;
+			background: var(--colorBgPrimary);
+			transform: translateX(-50%) rotate(45deg);
+		}
+	}
+
+	// 하단 최소/최대 텍스트
+	&-labels {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-top: var(--spacingSm);
+		font-size: 16px;
+		line-height: 1.4;
+		color: #222;
+
+		span {
+			&:last-child {
+				text-align: right;
+			}
+		}
+	}
+
+	&.type-amount {
+		width: 412px;
+		margin: 0 auto;
+
+		.rate-range {
+			&-graph {
+				width: 100%;
+			}
+
+			&-track {
+				background: var(--colorBgOverlayWhite);
+			}
+
+			&-labels {
+				margin-top: var(--spacingLg);
+			}
+		}
+	}
+}
+
+.drop-box {
+	width: 100%;
+
+	.ico-chevron-down {
+		position: relative;
+		display: inline-block;
+		width: var(--sizeBaseXs);
+		height: var(--sizeBaseXs);
+		margin-left: -2px;
+		transform: rotate(0deg);
+		transition: transform 0.2s ease;
+	}
+
+	&-toggle {
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		height: var(--sizeBaseSmMd);
+		padding: 0;
+		border: 0;
+		cursor: pointer;
+
+		// 양쪽 점선
+		&::before {
+			content: '';
+			position: absolute;
+			top: 50%;
+			left: 0;
+			width: 100%;
+			border-top: 1px dashed var(--colorBorderBase);
+			transform: translateY(-50%);
+		}
+
+		// 텍스트가 점선을 가림
+		span {
+			position: relative;
+			z-index: 1;
+			display: flex;
+			align-items: center;
+			gap: 8px;
+			padding: 0 var(--spacingXs) 0 var(--spacingSm);
+			background: #fff;
+			font-size: 13px;
+			line-height: 1;
+			color: #333;
+		}
+	}
+
+	&-content {
+		display: grid;
+		grid-template-rows: 0fr;
+		transition: grid-template-rows 0.25s ease;
+	}
+
+	&-inner {
+		min-height: 0;
+		overflow: hidden;
+		transition: padding 0.25s ease;
+		.tbl-area{
+			margin-top: 10px;
+		}
+	}
+
+	// 열림
+	&.is-open {
+		.drop-box-content {
+			grid-template-rows: 1fr;
+		}
+
+
+		.ico-chevron-down {
+			transform: rotate(180deg);
 		}
 	}
 }

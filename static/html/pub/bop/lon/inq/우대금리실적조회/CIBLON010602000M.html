@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="/static/css/layout.css" />
   <link rel="stylesheet" href="/static/css/component.css" />
   <link rel="stylesheet" href="/static/css/common.css" />
-  <link rel="stylesheet" href="/static/css/dts.css" />
+  <link rel="stylesheet" href="/static/css/bop.css" />
 </head>
 
 <body>
@@ -26,7 +26,7 @@
       <div id="contents">
         <div class="content">
           @@include('static/html/pub/layout/breadcrumb.html')
-          <div class="dts">
+          <div class="bop">
             <h2 class="typeH2">우대금리 실적조회</h2>
             <div class="box-hidden-area">
               <div class="tbl-area">
@@ -83,25 +83,30 @@
               </div>
               <!--[dev] 디자인미확정-->
               <div class="tit-wrap">
-                <div class="typeH6">우대금리 확인하기</div>
+                <div class="typeH4">우대금리 확인하기</div>
+                <div class="typeSm">2026년 05월 07일 16시 50분 27초</div>
               </div>
-              <div class="line-box size-lgXl">
-                <div class="typeH7">실적 충족현황</div>
-                <div id="myProgressBar" class="loading-progress-bar size-sm">
-                  <div class="bg-progress-bar" aria-hidden="true">
-                    <span class="progress-gauge" aria-hidden="true"
-                      style="width: 30%; background-color: rgb(15, 98, 253) !important;">
-                    </span>
-                  </div>
-                  <div class="box-text">
-                    <span class="percent typeMd">
-                      <span class="num typeSmSemibold">30</span>%
-                    </span>
+              <div class="line-box size-xl">
+                <div class="typeLgSemibold">실적 충족현황</div>
+                <div class="rate-range" data-min="0.1" data-max="1.0" data-value="0.9" data-unit="%">
+                  <div class="rate-range-graph">
+                    <div class="rate-range-track"></div>
+                    <div class="rate-range-active"></div>
+
+                    <div class="rate-range-current">
+                      <div class="rate-range-tooltip">
+                        <span class="typeXsSemibold"></span>
+                      </div>
+                    </div>
                   </div>
 
+                  <div class="rate-range-labels">
+                    <span class="typeXsSemibold">0.1%</span>
+                    <span class="typeXsSemibold">최대우대금리 1.0%</span>
+                  </div>
                 </div>
               </div>
-              <div class="list type-dotted mt-6">
+              <div class="list type-dotted mt-8">
                 <ul>
                   <li class="typeMd">
                     이번 달 실적은 07월에 이자납일일에 반영됩니다.
@@ -113,7 +118,7 @@
                 </ul>
               </div>
               <div class="tit-wrap">
-                <div class="typeH6">실적 항목 확인하기</div>
+                <div class="typeH4">실적 항목 확인하기</div>
               </div>
               <div class="accor-wrap">
                 <div class="box-accordion line">
@@ -133,7 +138,44 @@
                     </button>
                   </div>
                   <div id="accordionContent01" class="content-accordion">
-                    $Accordion Content$
+                    <div class="line-box size-lgXl balance-alert">
+                      <div class="typeLgMedium">이번달 평균잔액<span class="color-fg-primary">500,000원</span> </div>
+                      <button type="button" class="btn type-line-neutral size-md">
+                        <span class="text">평균 잔액 조회하기</span>
+                      </button>
+                    </div>
+                    <div class="bg-box size-4xl2xlxl">
+                      <div class="rate-range type-amount" data-min="100000" data-max="1000000" data-value="500000"
+                        data-unit="원">
+                        <div class="rate-range-graph">
+                          <div class="rate-range-track"></div>
+                          <div class="rate-range-active"></div>
+
+                          <div class="rate-range-current">
+                            <div class="rate-range-tooltip bg-black">
+                              <span class="typeXsSemibold"></span>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="rate-range-labels">
+                          <span class="typeXsSemibold">0%</span>
+                          <span class="typeXsSemibold">0.2%</span>
+                          <span class="typeXsSemibold">0.3%</span>
+                          <span class="typeXsSemibold">0.5%</span>
+                        </div>
+                      </div>
+                      <div class="text-wrap">
+                        <div class="typeLgBold">이번달 내에 <span class="color-fg-primary">5만원 이상 더 이용시</span> 금리 우대를 받을 수
+                          있어요!</div>
+                      </div>
+                    </div>
+                    <div class="typeLgSemibold mt-10">실적기준</div>
+                    <div class="list type-dotted">
+                      <ul>
+                        <li class="typeMd color-fg-base">1구간 : 0.2%우대, 2구간 : 0.3%우대, 3구간 : 0.5%우대</li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
                 <div class="box-accordion line">
@@ -153,7 +195,38 @@
                     </button>
                   </div>
                   <div id="accordionContent01" class="content-accordion">
-                    $Accordion Content$
+                    <div class="bg-box size-4xl2xlxl">
+                      <div class="rate-range type-amount" data-min="100000" data-max="1000000" data-value="500000"
+                        data-unit="원">
+                        <div class="rate-range-graph">
+                          <div class="rate-range-track"></div>
+                          <div class="rate-range-active"></div>
+
+                          <div class="rate-range-current">
+                            <div class="rate-range-tooltip bg-black">
+                              <span class="typeXsSemibold"></span>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="rate-range-labels">
+                          <span class="typeXsSemibold">0%</span>
+                          <span class="typeXsSemibold">0.2%</span>
+                          <span class="typeXsSemibold">0.3%</span>
+                          <span class="typeXsSemibold">0.5%</span>
+                        </div>
+                      </div>
+                      <div class="text-wrap">
+                        <div class="typeLgBold">이번달 내에 <span class="color-fg-primary">5만원 이상 더 이용시</span> 금리 우대를 받을 수
+                          있어요!</div>
+                      </div>
+                    </div>
+                    <div class="typeLgSemibold mt-10">실적기준</div>
+                    <div class="list type-dotted">
+                      <ul>
+                        <li class="typeMd color-fg-base">1구간 : 0.2%우대, 2구간 : 0.3%우대, 3구간 : 0.5%우대</li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
                 <div class="box-accordion line">
@@ -173,7 +246,94 @@
                     </button>
                   </div>
                   <div id="accordionContent01" class="content-accordion">
-                    $Accordion Content$
+                    <div class="drop-box">
+                      <button type="button" class="drop-box-toggle">
+                        <span class="typeMdMedium">카드이용실적 확인<i class="ico line ico-size-sm ico-chevron-down"
+                            aria-hidden="true"></i></span>
+                      </button>
+                      <div class="drop-box-content">
+                        <div class="drop-box-inner">
+                          <div class="tbl-area">
+                            <div class="typeH6">실적인정금액 상세내용</div>
+                            <table class="table-type03">
+                              <caption>
+                                실적인정금액 상세내용 테이블
+                              </caption>
+                              <colgroup>
+                                <col>
+                                <col>
+                                <col>
+                              </colgroup>
+                              <thead>
+                                <tr>
+                                  <th>선택</th>
+                                  <th>실행번호</th>
+                                  <th>신규일</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>
+                                    <span class="typeMd">2026-05-18</span>
+                                  </td>
+                                  <td>
+                                    <span class="typeMd">2026-05-18</span>
+                                  </td>
+                                  <td class="text-right">
+                                    <span class="typeMd">100,000,000</span>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                          <nav class="pagination size-md" aria-label="페이지네이션">
+                            <button type="button" class="btn-nav first" disabled="" aria-disabled="true"
+                              aria-label="첫 페이지">
+                              <span class="blind">첫 페이지</span>
+                            </button>
+                            <button type="button" class="btn-nav prev" disabled="" aria-disabled="true"
+                              aria-label="이전 페이지">
+                              <span class="blind">이전 페이지</span>
+                            </button>
+
+                            <ol class="list-pagination">
+                              <li>
+                                <button type="button" class="btn-page active" aria-current="page" aria-label="1페이지">
+                                  1
+                                </button>
+                              </li>
+                              <li>
+                                <button type="button" class="btn-page" aria-label="2페이지">
+                                  2
+                                </button>
+                              </li>
+                              <li>
+                                <button type="button" class="btn-page" aria-label="3페이지">
+                                  3
+                                </button>
+                              </li>
+                              <li>
+                                <button type="button" class="btn-page" aria-label="4페이지">
+                                  4
+                                </button>
+                              </li>
+                              <li>
+                                <button type="button" class="btn-page" aria-label="5페이지">
+                                  5
+                                </button>
+                              </li>
+                            </ol>
+
+                            <button type="button" class="btn-nav next" aria-label="다음 페이지">
+                              <span class="blind">다음 페이지</span>
+                            </button>
+                            <button type="button" class="btn-nav last" aria-label="마지막 페이지">
+                              <span class="blind">마지막 페이지</span>
+                            </button>
+                          </nav>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div class="box-accordion line">
@@ -250,4 +410,68 @@
 </body>
 
 </html>
-<script></script>
+<script>
+  function formatAmount(value, unit) {
+    const number = Number(value);
+
+    if (unit === '원') {
+      return `${number.toLocaleString('ko-KR')}원`;
+    }
+
+    return `${number}%`;
+  }
+
+
+  function renderRateRange(range) {
+    const min = Number(range.dataset.min);
+    const max = Number(range.dataset.max);
+    const value = Number(range.dataset.value);
+    const unit = range.dataset.unit || '%';
+
+    const activeEl = range.querySelector('.rate-range-active');
+    const currentEl = range.querySelector('.rate-range-current');
+    const tooltipEl = range.querySelector('.rate-range-tooltip span');
+
+    if (!activeEl || !currentEl || !tooltipEl) return;
+
+    // 현재 값의 위치
+    let percent = ((value - min) / (max - min)) * 100;
+
+    // 0 ~ 100% 제한
+    percent = Math.max(0, Math.min(100, percent));
+
+    // 그래프
+    activeEl.style.width = `${percent}%`;
+    currentEl.style.left = `${percent}%`;
+
+    // 말풍선
+    tooltipEl.textContent = formatAmount(value, unit);
+  }
+
+
+  // 최초 실행
+  document.querySelectorAll('.rate-range').forEach((range) => {
+  const activeEl = range.querySelector('.rate-range-active');
+  const currentEl = range.querySelector('.rate-range-current');
+
+  if (!activeEl || !currentEl) return;
+
+  // 처음에는 0으로 시작
+  activeEl.style.width = '0%';
+  currentEl.style.left = '0%';
+
+  // 브라우저가 0% 상태를 먼저 그린 다음 이동
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      renderRateRange(range);
+    });
+  });
+});
+  document.querySelectorAll('.drop-box').forEach((dropBox) => {
+    const toggle = dropBox.querySelector('.drop-box-toggle');
+
+    toggle.addEventListener('click', () => {
+      dropBox.classList.toggle('is-open');
+    });
+  });
+</script>
