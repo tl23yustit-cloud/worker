@@ -963,6 +963,15 @@ function fnTab(initialActiveIndex) {
 				$content.style.display = "none";
 			}
 		});
+
+		if ($container.querySelector(".list-tab-button.type-button")) {
+			$currentButtons.forEach(function ($button) {
+				var isActive = $button.classList.contains(classActiveState);
+				$button.classList.toggle("type-line-primary", isActive);
+				$button.classList.toggle("type-line-neutral", !isActive);
+				$button.setAttribute("aria-selected", String(isActive));
+			});
+		}
 	});
 
 	document.addEventListener("click", function (event) {
@@ -994,6 +1003,12 @@ function fnTab(initialActiveIndex) {
 					$button.classList.add(classActiveState);
 				} else {
 					$button.classList.remove(classActiveState);
+				}
+
+				$button.setAttribute("aria-selected", String(index === targetActiveIndex));
+				if ($menuWrap.querySelector(".list-tab-button.type-button")) {
+					$button.classList.toggle("type-line-primary", index === targetActiveIndex);
+					$button.classList.toggle("type-line-neutral", index !== targetActiveIndex);
 				}
 			});
 
