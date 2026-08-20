@@ -1,7 +1,7 @@
 module.exports = {
 
     // 공통/검색 및 알림
-    "b2b/01/02/04/05/01/CIBB2B010205001M.html": {
+    "b2b/01/02/05/001/CIBB2B010205001M.html": {
         title: "조회입력 및 결과",
         status: "검수중",
         worker: "이상우",
@@ -9,21 +9,21 @@ module.exports = {
     },
 
 
-    "b2b/01/02/04/05/01/CIBB2B010205001M.html": {
-        title: "조회입력 및 결과",
-        status: "검수중",
-        worker: "이상우",
-        note: ""
-    },
+    // "b2b/01/02/04/05/01/CIBB2B010205001M.html": {
+    //     title: "조회입력 및 결과",
+    //     status: "검수중",
+    //     worker: "이상우",
+    //     note: ""
+    // },
 
-    "b2b/01/02/04/05/01/CIBB2B010205001M.html": {
-        title: "매매계약상세조회",
-        status: "검수중",
-        worker: "이상우",
-        note: ""
-    },
+    // "b2b/01/02/04/05/01/CIBB2B010205001M.html": {
+    //     title: "매매계약상세조회",
+    //     status: "검수중",
+    //     worker: "이상우",
+    //     note: ""
+    // },
 
-    "b2b/01/02/04/CIBB2B010204000P.html": {
+    "b2b/01/02/04/000/CIBB2B010204000P.html": {
         title: "구매자금대출 상세내역",
         status: "검수중",
         worker: "이상우",
@@ -102,10 +102,10 @@ module.exports = {
     "b2b/01/02/02/004/CIBB2B010202004M.html": { title: "완료(없음)", status: "검수중", worker: "변혜선", note: "" },
     "b2b/01/02/01/001/CIBB2B010201001M.html": { title: "조회입력 및 결과(없음)", status: "검수중", worker: "변혜선", note: "주석확인" },
     "b2b/01/02/01/002/CIBB2B010201002M.html": { title: "상세(없음)", status: "검수중", worker: "변혜선", note: "" },
-    "b2b/b2bcpfl/pc/pltd/CIBB2B010204001M.html": { title: "", status: "검수중", worker: "변혜선", note: "주석 [dev] 20260821 확인" },
+    "b2b/01/02/04/001/CIBB2B010204001M.html": { title: "", status: "검수중", worker: "변혜선", note: "주석 [dev] 20260821 확인" },
     "b2b/b2bcpfl/pc/pltd/CIBB2B040200000P.html": { title: "", status: "검수중", worker: "변혜선", note: "" },
     "b2b/b2bcpfl/pc/pltd/CIBB2B040200002P.html": { title: "", status: "검수중", worker: "변혜선", note: "" },
-    "b2b/01/02/03/001/CIBB2B010203001M.html": { title: "조회입력 및 결과(없음)", status: "검수중", worker: "변혜선", note: "" },
+    "b2b/01/02/03/001/CIBB2B010203001M.html": { title: "조회입력 및 결과(없음)", status: "검수중", worker: "변혜선", note: "[dev]20260821" },
     "b2b/01/02/03/002/CIBB2B010203002M.html": { title: "정보입력(없음)", status: "검수중", worker: "변혜선", note: "" },
     "b2b/01/02/03/003/CIBB2B010203003M.html": { title: "정보확인(없음)", status: "검수중", worker: "변혜선", note: "" },
     "b2b/01/02/03/004/CIBB2B010203004M.html": { title: "완료(없음)", status: "검수중", worker: "변혜선", note: "" },
@@ -222,11 +222,11 @@ module.exports = {
     "dts/02/01/03/CIBDTS020103000M.html": { title: "해지예상조회_2단계 연금신탁(없음)", status: "검수중", worker: "변혜선", note: "" },
     "dts/02/01/04/CIBDTS020104000M.html": { title: "해지예상조회_2단계 MMT(없음)", status: "검수중", worker: "변혜선", note: "" },
     "dts/02/03/CIBDTS020300000M.html": { title: "우대금리예상조회(없음)", status: "검수중", worker: "변혜선", note: "" },
-    "bop/foe/dli/ai/CIBFOE090400000M.html": { title: "", status: "검수중", worker: "변혜선", note: "" },
-    "bop/foe/dli/ai/CIBFOE090401000M.html": { title: "", status: "검수중", worker: "변혜선", note: "주석확인" },
+    "bop/foe/09/04/CIBFOE090400000M.html": { title: "계좌(REF)조회_번호입력", status: "검수중", worker: "변혜선", note: "" },
+    "bop/foe/09/04/01/CIBFOE090401000M.html": { title: "계좌(REF)조회_상세", status: "검수중", worker: "변혜선", note: "주석확인" },
     "bop/foe/dli/od/CIBFOE090200000M.html": { title: "", status: "검수중", worker: "변혜선", note: "" },
     "bop/foe/dli/od/detail/CIBFOE090201000M.html": { title: "", status: "검수중", worker: "변혜선", note: "주석확인" },
-    "bop/foe/dli/ped/CIBFOE090300000M.html": { title: "", status: "검수중", worker: "변혜선", note: "" },
+    "bop/foe/09/03/CIBFOE090300000M.html": { title: "결제대상내역_목록", status: "검수중", worker: "변혜선", note: "" },
     "bop/foe/fce/fce/CIBFOE050102000M.html": { title: "", status: "완료", worker: "변혜선", note: "주석확인" },
     "bop/foe/fx/ctl/한도조회.html": { title: "", status: "수정중", worker: "변혜선", note: "" },
     // 뱅킹업무(bop) > 외환(foe) > 수입(import) / FX(fx)
@@ -291,8 +291,8 @@ module.exports = {
     // 대출(lon) > 조회
     "lon/01/03/CIBLON010103000p.html": { title: "계좌상세조회", status: "검수중", worker: "변혜선", note: "" },
     "lon/01/03/CIBLON010103000p_01.html": { title: "계좌상세조회", status: "검수중", worker: "변혜선", note: "" },
-    "lon/01/04/CIBLON010104000p.html": { title: "대출 상세조회", status: "검수중", worker: "변혜선", note: "" },
-    "lon/01/04/CIBLON010104000p_01.html": { title: "대출 상세조회", status: "검수중", worker: "변혜선", note: "" },
+    "bop/lon/01/01/04/CIBLON010104000p.html": { title: "대출 상세조회", status: "검수중", worker: "변혜선", note: "" },
+    "bop/lon/01/01/04/CIBLON010104000p_01.html": { title: "대출 상세조회", status: "검수중", worker: "변혜선", note: "" },
     "lon/01/05/CIBLON010105000p.html": { title: "상환스케줄", status: "수정중", worker: "변혜선", note: "" },
     "lon/01/06/CIBLON010106000p.html": { title: "담보상세내역조회", status: "검수중", worker: "변혜선", note: "" },
     "lon/01/02/01/CIBLON010201000M.html": { title: "거래내역조회_조회", status: "완료", worker: "변혜선", note: "주석확인" },
@@ -305,11 +305,11 @@ module.exports = {
     "bop/lon/inq/clrs/계좌상세단일조회.html": { title: "", status: "수정중", worker: "변혜선", note: "" },
     
     // 뱅킹업무(bop) > 대출 거래내역 조회
-    "bop/lon/inq/eri_02/CIBLON010501000M.html": { title: "", status: "검수중", worker: "변혜선", note: "" },
+    "bop/lon/01/05/01/CIBLON010501000M.html": { title: "상환예상조회_조회", status: "검수중", worker: "변혜선", note: "" },
     "bop/lon/inq/eri_02/CIBLON020109000p.html": { title: "", status: "검수중", worker: "변혜선", note: "" },
     "bop/lon/inq/eri_02/CIBLON020110000p.html": { title: "", status: "검수중", worker: "변혜선", note: "" },
-    "bop/lon/inq/ip/CIBLON010401000M.html": { title: "", status: "검수중", worker: "손창우", note: "" },
-    "bop/lon/inq/scat/CIBLON010301000M.html": { title: "", status: "검수중", worker: "변혜선", note: "" },
+    "bop/lon/01/04/01/CIBLON010401000M.html": { title: "이자조회_조회", status: "검수중", worker: "손창우", note: "" },
+    "bop/lon/01/03/01/CIBLON010301000M.html": { title: "종합통장거래내역조회_조회", status: "검수중", worker: "변혜선", note: "" },
     "bop/lon/ip/이자납입_이자납입결재요청완료.html": { title: "", status: "수정중", worker: "변혜선", note: "" },
     "bop/lon/ip/이자납입_이자납입이체완료.html": { title: "", status: "수정중", worker: "변혜선", note: "" },
     "bop/lon/ip/이자납입_이자납입확인.html": { title: "", status: "수정중", worker: "변혜선", note: "" },
@@ -366,10 +366,10 @@ module.exports = {
     // 신탁(fin_tpr)
     "fin_tpr/02/CIBFIN_TPR020000000M.html": { title: "특정금전신탁", status: "검수중", worker: "변혜선", note: "" },
     "fin_tpr/03/CIBFIN_TPR030100000.html": { title: "상품성 신탁 운용방법 및 보수율 현황_기준년월2026년 3월", status: "완료", worker: "변혜선", note: "주석확인/화면아이디확인필요(CIBFIN_TPR030100000T)" },
-    "fin_tpr/04/01/CIBFIN_TPR040100000T.html": { title: "기준가/수익률조회_신탁기준가격", status: "검수중", worker: "변혜선", note: "" },
-    "fin_tpr/04/01/01/CIBFIN_TPR040101000P.html": { title: "기준가/수익률조회_신탁기준가격_[팝업]기준가변동추이표", status: "검수중", worker: "변혜선", note: "" },
-    "fin_tpr/04/02/CIBFIN_TPR040200000T.html": { title: "기준가/수익률조회_신탁배당률", status: "검수중", worker: "변혜선", note: "" },
-    "fin_tpr/04/03/CIBFIN_TPR040300000T.html": { title: "기준가/수익률조회_기간별수익률", status: "검수중", worker: "변혜선", note: "" },
+    "fin/fin_tpr/04/01/CIBFIN_TPR040100000T.html": { title: "기준가/수익률조회_신탁기준가격", status: "검수중", worker: "변혜선", note: "" },
+    "fin/fin_tpr/04/01/01/CIBFIN_TPR040101000P.html": { title: "기준가/수익률조회_신탁기준가격_[팝업]기준가변동추이표", status: "검수중", worker: "변혜선", note: "" },
+    "fin/fin_tpr/04/02/CIBFIN_TPR040200000T.html": { title: "기준가/수익률조회_신탁배당률", status: "검수중", worker: "변혜선", note: "" },
+    "fin/fin_tpr/04/03/CIBFIN_TPR040300000T.html": { title: "기준가/수익률조회_기간별수익률", status: "검수중", worker: "변혜선", note: "" },
     "fin_tpr/05/01/CIBFIN_TPR050100000.html": { title: "연금저축신탁 비교공시_가입시 유의사항", status: "완료", worker: "변혜선", note: "" },
 
     // 금융상품(fin) > 신탁(tpr) > 신탁 운용방법 및 비교공시(pom / cdpst)
