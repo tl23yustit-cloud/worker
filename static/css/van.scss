@@ -1,0 +1,95 @@
+.van {
+    .bg-box {
+        &.size-5xl4xl {
+            // text-align: center;
+
+            position: relative;
+            flex-direction: column;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &::after {
+                content: "";
+                display: inline-block;
+                position: absolute;
+                top: 224px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 311px;
+                height: 282px;
+                background: url("../images/van/img_acount.png") no-repeat center / contain;
+                margin: var(--spacing2Xl);
+            }
+
+            .typeLgSemibold {
+                padding-bottom: var(--spacingSm);
+                background-color: var(--colorChartBlueMedium);
+                border-radius: var(--radiusFull);
+                color: var(--colorFgLightSolid);
+                display: inline-block;
+                padding: var(--spacingSm) var(--spacingXl);
+            }
+
+            .typeH1 {
+                margin-top: var(--spacingXl);
+                color: var(--colorFgBase);
+                text-align: center;
+            }
+
+            .info-wrap {
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+                background-color: var(--colorBgPrimaryHover);
+                padding: var(--spacingXl) var(--spacing3Xl);
+                margin-top: 364px;
+                width: 906px;
+                border-radius: var(--radiusXl);
+                .info-item {
+                    flex: 1;
+                    text-align: center;
+                    position: relative;
+
+                    &:not(:last-child)::after {
+                        content: '';
+                        position: absolute;
+                        right: 0;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        width: 1px;
+                        height: 54px;
+                        background-color: var(--colorBorderSecondary);
+                    }
+
+                    .typeLgMedium {
+                        color: var(--colorFgSecondary);
+                        padding-bottom: var(--spacingXs);
+                    }
+
+                    .type2XlSemibold {
+                        color: var(--colorFgBase);
+                    }
+                }
+            }
+        }
+    }
+
+    .info-text-wrap {
+        margin: var(--spacing5Xl) 0;
+
+        .info-text-inner {
+            +.info-text-inner {
+                margin-top: var(--spacing4Xl);
+            }
+        }
+
+        .typeH4 {
+            margin-bottom: var(--spacingMd);
+        }
+
+        .typeH6 {
+            margin: var(--spacingMd) 0 var(--spacingSm);
+        }
+    }
+}
