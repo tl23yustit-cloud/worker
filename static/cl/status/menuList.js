@@ -125,7 +125,7 @@ module.exports = {
 
 
     //뱅킹관리/카드/회원결제관리
-    "bmg/crd/mpim/CIBCRD060100000M.html": { title: "", status: "검수중", worker: "변혜선", note: "임시 그리드 화면" },
+    "crd/06/01/CIBCRD060100000M.html": { title: "", status: "검수중", worker: "변혜선", note: "임시 그리드 화면" },
     // 뱅킹관리 > 사용자관리
     "umg/08/01/CIBUMG080100000M.html": { title: "목록", status: "검수중", worker: "이상우", note: "그리드영역 보완필요" },
     "umg/08/02/CIBUMG080200000M.html": { title: "메뉴권한 변경", status: "검수중", worker: "이상우", note: "디자인 확정아님, 주석확인" },
@@ -149,23 +149,23 @@ module.exports = {
     "bop/alert.html": { title: "", status: "완료", worker: "변혜선", note: "" },
     
     
-    "bop/crd/cm/CIBCRD020801000M.html": { title: "", status: "완료", worker: "손창우", note: "" },
-    "bop/crd/cm/CIBCRD020802000M.html": { title: "", status: "완료", worker: "손창우", note: "" },
-    "bop/crd/cm/CIBCRD020803000M.html": { title: "", status: "완료", worker: "손창우", note: "" },
+    "crd/02/08/01/CIBCRD020801000M.html": { title: "해외원화결제 차단서비스(조회)", status: "완료", worker: "손창우", note: "" },
+    "crd/02/08/02/CIBCRD020802000M.html": { title: "해외원화결제 차단서비스(등록완료)", status: "완료", worker: "손창우", note: "" },
+    "crd/02/08/03/CIBCRD020803000M.html": { title: "해외원화결제 차단서비스(해제완료)", status: "완료", worker: "손창우", note: "" },
     "bop/clrs/대출상환스케줄조회.html": { title: "", status: "수정중", worker: "변혜선", note: "" },
-    "bop/crd/02/01/01/CIBCRD020100000T.html": {
+    "crd/02/01/00/CIBCRD020100000T.html": {
         title: "보유카드조회(당행Tab)",
         status: "검수중",
         worker: "변혜선",
         note: "임시 그리드 화면"
     },
-    "bop/crd/02/01/01/CIBCRD020100000T.html": {
-        title: "보유카드조회(당행Tab)",
-        status: "검수중",
-        worker: "변혜선",
-        note: "임시 그리드 화면"
-    },
-    "bop/crd/02/01/01/CIBCRD020102000P.html": {
+    // "bop/crd/02/01/01/CIBCRD020100000T.html": {
+    //     title: "보유카드조회(당행Tab)",
+    //     status: "검수중",
+    //     worker: "변혜선",
+    //     note: "임시 그리드 화면"
+    // },
+    "crd/02/01/02/CIBCRD020102000P.html": {
         title: "카드 상세보기 팝업",
         status: "검수중",
         worker: "변혜선",
@@ -184,22 +184,18 @@ module.exports = {
         worker: "변혜선",
         note: ""
     },
-    "bop/crd/06/04/01/CIBCRD060401000M.html": { title: "", status: "검수중", worker: "변혜선", note: "임시 그리드 화면" },
-    "bop/crd/06/04/02/CIBCRD060402000M.html": { title: "", status: "검수중", worker: "변혜선", note: "임시 그리드 화면" },
-    "bop/crd/06/05/01/CIBCRD060501000M.html": { title: "", status: "검수중", worker: "변혜선", note: "임시 그리드 화면" },
-    "bop/crd/06/05/02/CIBCRD060502000M.html": { title: "", status: "검수중", worker: "변혜선", note: "임시 그리드 화면" },
-    "bop/crd/06/06/01/CIBCRD060601000M.html": { title: "", status: "검수중", worker: "변혜선", note: "" },
-    "bop/crd/06/06/02/CIBCRD060602000M.html": { title: "", status: "검수중", worker: "변혜선", note: "" },
-    "bop/crd/06/06/03/CIBCRD060603000M.html": { title: "", status: "검수중", worker: "변혜선", note: "" },
-    "bop/crd/06/06/04/CIBCRD060604000M.html": { title: "", status: "검수중", worker: "변혜선", note: "" },
-    "bop/crd/06/06/05/CIBCRD060605000M.html": { title: "", status: "검수중", worker: "변혜선", note: "" },
-    "bop/crd/06/06/06/CIBCRD060606000M.html": {
-        title: "이용한도조회",
-        status: "검수중",
-        worker: "변혜선",
-        note: ""
-    },
-    "bop/crd/06/06/CIBCRD060600000M.html": { title: "", status: "검수중", worker: "변혜선", note: "임시 그리드 화면" },
+    "crd/06/04/01/CIBCRD060401000M.html": { title: "결제일변경(조회)", status: "검수중", worker: "변혜선", note: "임시 그리드 화면" },
+    "crd/06/04/01/001/CIBCRD060401001P.html": { title: "결제일별 이용기간 안내 팝업", status: "검수중", worker: "변혜선", note: "임시 그리드 화면" },
+    "crd/06/04/02/CIBCRD060402000M.html": { title: "결제일변경(완료)", status: "검수중", worker: "변혜선", note: "임시 그리드 화면" },
+    "crd/06/05/01/CIBCRD060501000M.html": { title: "E-MAIL청구서신청(조회)", status: "검수중", worker: "변혜선", note: "임시 그리드 화면" },
+    "crd/06/05/02/CIBCRD060502000M.html": { title: "E-MAIL청구서신청(완료)", status: "검수중", worker: "변혜선", note: "임시 그리드 화면" },
+    "crd/06/06/CIBCRD060600000M.html": { title: "SMS알림서비스", status: "검수중", worker: "변혜선", note: "임시 그리드 화면" },
+    "crd/06/06/01/CIBCRD060601000M.html": { title: "SMS알림서비스 신청", status: "검수중", worker: "변혜선", note: "" },
+    "crd/06/06/02/CIBCRD060602000M.html": { title: "SMS알림서비스 신청(완료)", status: "검수중", worker: "변혜선", note: "" },
+    "crd/06/06/03/CIBCRD060603000M.html": { title: "SMS알림서비스 해지", status: "검수중", worker: "변혜선", note: "" },
+    "crd/06/06/04/CIBCRD060604000M.html": { title: "SMS알림서비스 해지(완료)", status: "검수중", worker: "변혜선", note: "" },
+    "crd/06/06/05/CIBCRD060605000M.html": { title: "SMS알림서비스 변경", status: "검수중", worker: "변혜선", note: "" },
+    "crd/06/06/06/CIBCRD060606000M.html": { title: "SMS알림서비스 변경(완료)", status: "검수중", worker: "변혜선", note: "" },
     
     //뱅킹업무(bop) > 카드(crd) > 
     "crd/02/03/CIBCRD020300000M.html": { title: "기업카드비밀번호 등록", status: "완료", worker: "변혜선", note: "" },
@@ -362,12 +358,6 @@ module.exports = {
         worker: "이상우",
         note: ""
     },
-    "crd/06/04/01/CIBCRD060401001P.html": {
-        title: "결제일별 이용기간 안내 팝업",
-        status: "검수중",
-        worker: "이상우",
-        note: ""
-    },
 
     // 금융상품(fin) > 대출 및 공통 폼
     "fin/lon/대출01.html": { title: "", status: "수정중", worker: "변혜선", note: "" },
@@ -404,12 +394,10 @@ module.exports = {
         worker: "이상우",
         note: ""
     },
-    "fin_mfi/mff/faq/ff/CIBFIN_MFI100200000M.html": { title: "", status: "검수중", worker: "변혜선", note: "" },
-    "fin_mfi/mff/faq/general/CIBFIN_MFI100100000M.html": { title: "", status: "검수중", worker: "변혜선", note: "" },
-
     // 금융상품_수협은행(fin_MFI) >
+    "fin_mfi/10/01/CIBFIN_MFI100100000M.html": { title: "FAQ_총론", status: "검수중", worker: "변혜선", note: "" },
+    "fin_mfi/10/02/CIBFIN_MFI100200000M.html": { title: "", status: "검수중", worker: "변혜선", note: "" },
     "fin_mfi/mff/trr/CIBFIN_MFI090000000M.html": { title: "", status: "검수중", worker: "변혜선", note: "" },
-    "fin_mfi/npi/faq/ff/CIBFIN_MFI100200000M.html": { title: "", status: "검수중", worker: "변혜선", note: "" },
     // 금융상품 > 부동산신탁공매물건정보  
     "fin_tpr/06/CIBFIN_TPR060000000M.html": {
         title: "부동산신탁공매물건정보",
