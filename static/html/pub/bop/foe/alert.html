@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>수협은행</title>
+  <link rel="stylesheet" href="/static/css/reset.css" />
+  <link rel="stylesheet" href="/static/css/layout.css" />
+  <link rel="stylesheet" href="/static/css/component.css" />
+  <link rel="stylesheet" href="/static/css/common.css" />
+  <link rel="stylesheet" href="/static/css/dts.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <div id="header">
+      @@include('static/html/pub/layout/skipNavigation.html')
+      @@include('static/html/pub/layout/header_sub.html')
+    </div>
+
+    <div id="container" class="container">
+      <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+      <div id="contents">
+        <div class="content">
+          @@include('static/html/pub/layout/breadcrumb.html')
+          <div class="dts">
+            <h4 class="typeH">무증빙해외송금</h4>
+            <button type="button" class="btn type-bg-primary size-md btn-modal" data-target="modal-03">
+              <span class="text">확인필요</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+    </div>
+    <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+  </div>
+  <script src="/static/js/ui/cib_ui_common.js"></script>
+  <div id="modal-03" class="modal" data-dim="true" data-backdrop-close="false" data-alert="false" data-size="xs"
+    role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc">
+    <div class="modal-wrapper">
+      <div class="modal-title">
+        <h4 class="typeH4">확인 필요</h4>
+      </div>
+      <div class="modal-slot">
+        <div class="text-center error-code">
+          <p class="typeLgSemibold">상세 내용을 확인하세요.</p>
+          <div class="line-box size-lgXl mt-24 mb-24">
+            <span class="typeMd">해외송금 거래는 외국환거래법상 거주지인 경우에만 해당합니다.<br>
+            번거로우시겠지만 인근 영업점 방문해 주세요.
+            </span>
+          </div>
+          <span class="typeMd">고객지원센터 1588-1515 (서비스코드 04번)</span>
+        </div>
+
+      </div>
+      <div class="modal-footer flex items-center justify-center gap-8">
+        <button type="button" class="btn type-bg-primary size-lg">
+          <span class="text">확인</span>
+        </button>
+      </div>
+      <button type="button" class="ico btn-close" aria-label="모달 닫기">
+        <i class="ico-close ico-size-smMd" aria-hidden="true"></i>
+        <span class="blind">닫기</span>
+      </button>
+    </div>
+  </div>
+
+</body>
+
+</html>
