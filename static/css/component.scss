@@ -4773,6 +4773,11 @@ body.is-scroll-locked {
 	+.list {
 		margin-top: var(--spacingXsSm);
 	}
+	+.list{
+		&.type-star{
+			margin-top: var(--spacingXs);
+		}
+	}
 }
 
 [class^=list] {
@@ -4967,7 +4972,9 @@ body.is-scroll-locked {
 
 			ul {
 				list-style: none;
-
+				.color-fg-error {
+					color: var(--colorFgError);
+				}
 				li {
 					color: var(--colorFgSecondary);
 					display: flex;
@@ -4975,7 +4982,7 @@ body.is-scroll-locked {
 					align-items: flex-start;
 					flex-wrap: wrap;
 					position: relative;
-					padding-left: var(--spacingSm);
+					padding-left: var(--spacingMd);
 
 					&::before {
 						content: "※";
