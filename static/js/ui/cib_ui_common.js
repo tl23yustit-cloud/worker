@@ -720,6 +720,72 @@ function fnBoxSelect() {
 		closeAllSelects();
 	});
 }
+function fnBoxSelect() {
+	const $boxeSelect = document.querySelectorAll('.box-select');
+
+	$boxeSelect.forEach(function ($boxeSelect) {
+		const $triggerBtn = $boxeSelect.querySelector('.select');
+		const $blindText = $boxeSelect.querySelector('.select .blind');
+		// 1. 선택 가능한 항목 요소들 가져오기
+		const $selectItems = $boxeSelect.querySelectorAll('.item-select');
+
+		if (!$triggerBtn) return;
+
+		// 드롭다운 열기/닫기 토글
+		$triggerBtn.addEventListener('click', function (e) {
+			e.stopPropagation();
+
+			const isOpen = this.classList.contains('active');
+			closeAllSelects();
+
+			if (!isOpen) {
+				this.classList.add('active');
+				$boxeSelect.classList.add('is-open');
+				if ($blindText) $blindText.textContent = '접힘';
+			}
+		});
+
+		// 2. [추가] 각 옵션 항목(li) 클릭 이벤트 처리
+		$selectItems.forEach(function ($item) {
+			$item.addEventListener('click', function (e) {
+				e.stopPropagation(); // 이벤트 버블링 방지
+
+				// A. 클릭한 항목의 텍스트 가져오기 (span.form-box 또는 내부 텍스트)
+				const selectedText = this.textContent.trim();
+
+				// B. 버튼 영역의 텍스트 표시 요소(예: .text) 찾기 및 텍스트 변경
+				const $textSpan = $triggerBtn.querySelector('.text');
+				if ($textSpan) {
+					$textSpan.textContent = selectedText;
+				} else {
+					// .text 클래스가 없을 경우 blind 요소를 유지하면서 텍스트 변경
+					const blindContent = $blindText ? $blindText.outerHTML : '';
+					$triggerBtn.innerHTML = selectedText + blindContent;
+				}
+
+				// C. aria-selected 상태 업데이트 (접근성 반영)
+				$selectItems.forEach(function (el) {
+					el.setAttribute('aria-selected', 'false');
+					el.classList.remove('selected');
+				});
+				this.setAttribute('aria-selected', 'true');
+				this.classList.add('selected');
+
+				// D. 선택 후 드롭다운 닫기
+				closeAllSelects();
+			});
+		});
+
+		$boxeSelect.addEventListener('click', function (e) {
+			e.stopPropagation();
+		});
+	});
+
+	// 드롭다운 바깥 영역 클릭 시 일괄 닫기
+	document.addEventListener('click', function () {
+		closeAllSelects();
+	});
+}
 
 function closeAllSelects() {
 	const $activeTriggers = document.querySelectorAll('.box-select .select.active');
