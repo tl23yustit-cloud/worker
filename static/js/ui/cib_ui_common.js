@@ -964,14 +964,11 @@ function fnTab(initialActiveIndex) {
 			}
 		});
 
-		if ($container.querySelector(".list-tab-button.type-button")) {
-			$currentButtons.forEach(function ($button) {
-				var isActive = $button.classList.contains(classActiveState);
-				$button.classList.toggle("type-line-primary", isActive);
-				$button.classList.toggle("type-line-neutral", !isActive);
-				$button.setAttribute("aria-selected", String(isActive));
-			});
-		}
+		// 초기 로드 시 버튼 상태 설정 (active 및 aria-selected 제어)
+		$currentButtons.forEach(function ($button) {
+			var isActive = $button.classList.contains(classActiveState);
+			$button.setAttribute("aria-selected", String(isActive));
+		});
 	});
 
 	document.addEventListener("click", function (event) {
@@ -1006,10 +1003,6 @@ function fnTab(initialActiveIndex) {
 				}
 
 				$button.setAttribute("aria-selected", String(index === targetActiveIndex));
-				if ($menuWrap.querySelector(".list-tab-button.type-button")) {
-					$button.classList.toggle("type-line-primary", index === targetActiveIndex);
-					$button.classList.toggle("type-line-neutral", index !== targetActiveIndex);
-				}
 			});
 
 			$scopeContents.forEach(function ($content, index) {
