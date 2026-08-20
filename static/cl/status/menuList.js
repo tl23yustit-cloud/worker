@@ -544,8 +544,8 @@ module.exports = {
     "van/05/01/CIBVAN050101000M.html": {
         title: "서비스안내",
         status: "검수중",
-        worker: "이상우",
-        note: ""
+        worker: "이상우, 변혜선",
+        note: "[dev] :20260820 전체수정"
     },
     "van/05/01CIBVAN050103000M.html": {
         title: "은행/제2금융권/증권사탭",
