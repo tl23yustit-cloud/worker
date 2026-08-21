@@ -52,7 +52,7 @@ module.exports = {
     "원금상환_이체확인증": { title: "", status: "수정중", worker: "변혜선", note: "" },
     "중도상환수수료계산": { title: "", status: "수정중", worker: "변혜선", note: "" },
     "alert": { title: "", status: "완료", worker: "변혜선", note: "" },
-    
+
     "CIBCRD020801000M": { title: "해외원화결제 차단서비스(조회)", status: "완료", worker: "손창우", note: "" },
     "CIBCRD020802000M": { title: "해외원화결제 차단서비스(등록완료)", status: "완료", worker: "손창우", note: "" },
     "CIBCRD020803000M": { title: "해외원화결제 차단서비스(해제완료)", status: "완료", worker: "손창우", note: "" },
@@ -74,7 +74,7 @@ module.exports = {
     "CIBCRD060604000M": { title: "SMS알림서비스 해지(완료)", status: "검수중", worker: "변혜선", note: "" },
     "CIBCRD060605000M": { title: "SMS알림서비스 변경", status: "검수중", worker: "변혜선", note: "" },
     "CIBCRD060606000M": { title: "SMS알림서비스 변경(완료)", status: "검수중", worker: "변혜선", note: "" },
-    
+
     // 💡 뱅킹업무(bop) > 카드(crd)
     "CIBCRD020300000M": { title: "기업카드비밀번호 등록", status: "완료", worker: "변혜선", note: "" },
     "CIBCRD020301000P": { title: "비밀번호 일괄입력 팝업", status: "완료", worker: "손창우", note: "" },
@@ -129,7 +129,7 @@ module.exports = {
     "CIBFOE040301001M": { title: "외화송금내역조회_기업송금송금취소_정보확인", status: "검수중", worker: "변혜선", note: "" },
     "CIBFOE040301002M": { title: "외화송금내역조회_기업송금송금취소_취소확인", status: "검수중", worker: "변혜선", note: "주석확인" },
     "CIBFOE040301003p": { title: "[팝업]외화송금내역서", status: "검수중", worker: "변혜선", note: "" },
-    
+
     // 💡 대출 (lon)
     "CIBLON010101000M": { title: "대출보유계좌조회_정상계좌조회", status: "검수중", worker: "변혜선", note: "" },
     "CIBLON010102000M": { title: "대출보유계좌조회_해지계좌조회", status: "검수중", worker: "변혜선", note: "" },
@@ -184,7 +184,7 @@ module.exports = {
     "loan02": { title: "", status: "수정중", worker: "변혜선", note: "" },
     "loan03": { title: "", status: "수정중", worker: "변혜선", note: "" },
     "prdListFormV": { title: "", status: "수정중", worker: "윤재선", note: "" },
-    
+
     // 💡 신탁 (fin_tpr)
     "CIBFIN_TPR020000000M": { title: "특정금전신탁", status: "검수중", worker: "변혜선", note: "" },
     "CIBFIN_TPR030100000": { title: "상품성 신탁 운용방법 및 보수율 현황_기준년월2026년 3월", status: "완료", worker: "변혜선", note: "주석확인/화면아이디확인필요(CIBFIN_TPR030100000T)" },
@@ -272,5 +272,10 @@ module.exports = {
     "CIBVAN050102000M": { title: "계좌 통합관리서비스(어카운트포인트) 조회신청/조회-약관동의", status: "검수중", worker: "변혜선", note: "" },
     "CIBVAN050103000M": { title: "은행/제2금융권/증권사탭", status: "검수중", worker: "이상우", note: "" },
     "CIBVAN050204000M": { title: "이용안내 및 해지실행", status: "검수중", worker: "이상우", note: "" },
-    "CIBVAN050205000M": { title: "해지완료", status: "검수중", worker: "이상우", note: "" }
+    "CIBVAN050205000M": { title: "해지완료", status: "검수중", worker: "이상우", note: "" },
+    "CIBFOE04010200P": { title: "[팝업]영문주소검색", status: "검수중", worker: "이상우", note: "" }
+
+
+
+
 };
