@@ -1453,219 +1453,226 @@ document.querySelectorAll('table td .typeMd').forEach((el) => {
 });
 //단순프로그래스
 function setProgressBar1(target, options = {}) {
-  const el =
-    typeof target === "string"
-      ? document.querySelector(target)
-      : target;
+	const el =
+		typeof target === "string"
+			? document.querySelector(target)
+			: target;
 
-  if (!el) return;
+	if (!el) return;
 
-  const {
-    percent = 0,
-    duration = 1000,
-    status = "auto",
-    message,
-    label,
-  } = options;
+	const {
+		percent = 0,
+		duration = 1000,
+		status = "auto",
+		message,
+		label,
+	} = options;
 
-  const gaugeEl = el.querySelector(".progress-gauge");
-  const numEl = el.querySelector(".percent .num");
-  const messageEl = el.querySelector(".message");
-  const labelEl = el.querySelector(".title-progress");
+	const gaugeEl = el.querySelector(".progress-gauge");
+	const numEl = el.querySelector(".percent .num");
+	const messageEl = el.querySelector(".message");
+	const labelEl = el.querySelector(".title-progress");
 
-  if (!gaugeEl) return;
+	if (!gaugeEl) return;
 
-  // ----------------------------------------
-  // 최종 데이터 값
-  // ----------------------------------------
-  const targetPercent = Math.min(
-    Math.max(Number(percent) || 0, 0),
-    100
-  );
+	// ----------------------------------------
+	// 최종 데이터 값
+	// ----------------------------------------
+	const targetPercent = Math.min(
+		Math.max(Number(percent) || 0, 0),
+		100
+	);
 
-  // ----------------------------------------
-  // 기존 애니메이션 취소
-  // ----------------------------------------
-  if (el._progressAnimationFrame) {
-    cancelAnimationFrame(
-      el._progressAnimationFrame
-    );
-  }
+	// ----------------------------------------
+	// 기존 애니메이션 취소
+	// ----------------------------------------
+	if (el._progressAnimationFrame) {
+		cancelAnimationFrame(
+			el._progressAnimationFrame
+		);
+	}
 
-  // ----------------------------------------
-  // 최종값에 따라 색상 결정
-  // ----------------------------------------
-  if (targetPercent <= 30) {
-    // 0 ~ 30 : 파랑
-    gaugeEl.style.backgroundColor = "#2878f0";
+	// ----------------------------------------
+	// 최종값에 따라 색상 결정
+	// ----------------------------------------
+	if (targetPercent <= 30) {
+		// 0 ~ 30 : 파랑
+		gaugeEl.style.backgroundColor = "#2878f0";
 
-  } else if (targetPercent <= 70) {
-    // 31 ~ 70 : 노랑
-    gaugeEl.style.backgroundColor = "#f5c400";
+	} else if (targetPercent <= 70) {
+		// 31 ~ 70 : 노랑
+		gaugeEl.style.backgroundColor = "#f5c400";
 
-  } else {
-    // 71 ~ 100 : 빨강
-    gaugeEl.style.backgroundColor = "#ef4b4b";
-  }
+	} else {
+		// 71 ~ 100 : 빨강
+		gaugeEl.style.backgroundColor = "#ef4b4b";
+	}
 
-  // ----------------------------------------
-  // 초기화
-  // ----------------------------------------
-  gaugeEl.style.width = "0%";
+	// ----------------------------------------
+	// 초기화
+	// ----------------------------------------
+	gaugeEl.style.width = "0%";
 
-  if (numEl) {
-    numEl.textContent = "0";
-  }
+	if (numEl) {
+		numEl.textContent = "0";
+	}
 
-  // ----------------------------------------
-  // 라벨
-  // ----------------------------------------
-  if (label && labelEl) {
-    labelEl.textContent = label;
-  }
+	// ----------------------------------------
+	// 라벨
+	// ----------------------------------------
+	if (label && labelEl) {
+		labelEl.textContent = label;
+	}
 
-  // ----------------------------------------
-  // 메시지
-  // ----------------------------------------
-  if (message && messageEl) {
-    messageEl.textContent = message;
-  }
+	// ----------------------------------------
+	// 메시지
+	// ----------------------------------------
+	if (message && messageEl) {
+		messageEl.textContent = message;
+	}
 
-  // ----------------------------------------
-  // 숫자 + 게이지 애니메이션
-  // ----------------------------------------
-  const startTime = performance.now();
+	// ----------------------------------------
+	// 숫자 + 게이지 애니메이션
+	// ----------------------------------------
+	const startTime = performance.now();
 
-  function animate(currentTime) {
-    const progress = Math.min(
-      (currentTime - startTime) / duration,
-      1
-    );
+	function animate(currentTime) {
+		const progress = Math.min(
+			(currentTime - startTime) / duration,
+			1
+		);
 
-    // ease-out
-    const eased =
-      1 - Math.pow(1 - progress, 3);
+		// ease-out
+		const eased =
+			1 - Math.pow(1 - progress, 3);
 
-    const currentPercent =
-      targetPercent * eased;
+		const currentPercent =
+			targetPercent * eased;
 
-    // 게이지
-    gaugeEl.style.width =
-      `${currentPercent}%`;
+		// 게이지
+		gaugeEl.style.width =
+			`${currentPercent}%`;
 
-    // 숫자
-    if (numEl) {
-      numEl.textContent =
-        Math.round(currentPercent);
-    }
+		// 숫자
+		if (numEl) {
+			numEl.textContent =
+				Math.round(currentPercent);
+		}
 
-    if (progress < 1) {
-      el._progressAnimationFrame =
-        requestAnimationFrame(animate);
-    } else {
-      // 마지막 값 정확하게 고정
-      gaugeEl.style.width =
-        `${targetPercent}%`;
+		if (progress < 1) {
+			el._progressAnimationFrame =
+				requestAnimationFrame(animate);
+		} else {
+			// 마지막 값 정확하게 고정
+			gaugeEl.style.width =
+				`${targetPercent}%`;
 
-      if (numEl) {
-        numEl.textContent =
-          targetPercent;
-      }
+			if (numEl) {
+				numEl.textContent =
+					targetPercent;
+			}
 
-      el._progressAnimationFrame = null;
-    }
-  }
+			el._progressAnimationFrame = null;
+		}
+	}
 
-  el._progressAnimationFrame =
-    requestAnimationFrame(animate);
+	el._progressAnimationFrame =
+		requestAnimationFrame(animate);
 
-  // ----------------------------------------
-  // 상태
-  // ----------------------------------------
-  let currentStatus = status;
+	// ----------------------------------------
+	// 상태
+	// ----------------------------------------
+	let currentStatus = status;
 
-  if (status === "auto") {
-    currentStatus =
-      targetPercent === 100
-        ? "success"
-        : "progress";
-  }
+	if (status === "auto") {
+		currentStatus =
+			targetPercent === 100
+				? "success"
+				: "progress";
+	}
 
-  el.classList.remove(
-    "is-success",
-    "is-fail"
-  );
+	el.classList.remove(
+		"is-success",
+		"is-fail"
+	);
 
-  if (currentStatus === "success") {
-    el.classList.add("is-success");
-  }
+	if (currentStatus === "success") {
+		el.classList.add("is-success");
+	}
 
-  if (currentStatus === "fail") {
-    el.classList.add("is-fail");
-  }
+	if (currentStatus === "fail") {
+		el.classList.add("is-fail");
+	}
 }
 //말풍선프로그래스
 function formatAmount(value, unit) {
-    const number = Number(value);
+	const number = Number(value);
 
-    if (unit === '원') {
-      return `${number.toLocaleString('ko-KR')}원`;
-    }
+	if (unit === '원') {
+		return `${number.toLocaleString('ko-KR')}원`;
+	}
 
-    return `${number}%`;
-  }
-
-
-  function renderRateRange(range) {
-    const min = Number(range.dataset.min);
-    const max = Number(range.dataset.max);
-    const value = Number(range.dataset.value);
-    const unit = range.dataset.unit || '%';
-
-    const activeEl = range.querySelector('.rate-range-active');
-    const currentEl = range.querySelector('.rate-range-current');
-    const tooltipEl = range.querySelector('.rate-range-tooltip span');
-
-    if (!activeEl || !currentEl || !tooltipEl) return;
-
-    // 현재 값의 위치
-    let percent = ((value - min) / (max - min)) * 100;
-
-    // 0 ~ 100% 제한
-    percent = Math.max(0, Math.min(100, percent));
-
-    // 그래프
-    activeEl.style.width = `${percent}%`;
-    currentEl.style.left = `${percent}%`;
-
-    // 말풍선
-    tooltipEl.textContent = formatAmount(value, unit);
-  }
+	return `${number}%`;
+}
 
 
-  // 최초 실행
-  document.querySelectorAll('.rate-range').forEach((range) => {
-  const activeEl = range.querySelector('.rate-range-active');
-  const currentEl = range.querySelector('.rate-range-current');
+function renderRateRange(range) {
+	const min = Number(range.dataset.min);
+	const max = Number(range.dataset.max);
+	const value = Number(range.dataset.value);
+	const unit = range.dataset.unit || '%';
 
-  if (!activeEl || !currentEl) return;
+	const activeEl = range.querySelector('.rate-range-active');
+	const currentEl = range.querySelector('.rate-range-current');
+	const tooltipEl = range.querySelector('.rate-range-tooltip span');
 
-  // 처음에는 0으로 시작
-  activeEl.style.width = '0%';
-  currentEl.style.left = '0%';
+	if (!activeEl || !currentEl || !tooltipEl) return;
 
-  // 브라우저가 0% 상태를 먼저 그린 다음 이동
-  requestAnimationFrame(() => {
-    requestAnimationFrame(() => {
-      renderRateRange(range);
-    });
-  });
+	// 현재 값의 위치
+	let percent = ((value - min) / (max - min)) * 100;
+
+	// 0 ~ 100% 제한
+	percent = Math.max(0, Math.min(100, percent));
+
+	// 그래프
+	activeEl.style.width = `${percent}%`;
+	currentEl.style.left = `${percent}%`;
+	// 색상 변경
+	if (percent <= 30) {
+		activeEl.style.backgroundColor = '#D33128';
+	} else if (percent <= 70) {
+		activeEl.style.backgroundColor = '#FAC515';
+	} else {
+		activeEl.style.backgroundColor = '#0F62FD';
+	}
+	// 말풍선
+	tooltipEl.textContent = formatAmount(value, unit);
+}
+
+
+// 최초 실행
+document.querySelectorAll('.rate-range').forEach((range) => {
+	const activeEl = range.querySelector('.rate-range-active');
+	const currentEl = range.querySelector('.rate-range-current');
+
+	if (!activeEl || !currentEl) return;
+
+	// 처음에는 0으로 시작
+	activeEl.style.width = '0%';
+	currentEl.style.left = '0%';
+
+	// 브라우저가 0% 상태를 먼저 그린 다음 이동
+	requestAnimationFrame(() => {
+		requestAnimationFrame(() => {
+			renderRateRange(range);
+		});
+	});
 });
 //드롭박스
-  document.querySelectorAll('.drop-box').forEach((dropBox) => {
-    const toggle = dropBox.querySelector('.drop-box-toggle');
+document.querySelectorAll('.drop-box').forEach((dropBox) => {
+	const toggle = dropBox.querySelector('.drop-box-toggle');
 
-    toggle.addEventListener('click', () => {
-      dropBox.classList.toggle('is-open');
-    });
-  });
+	toggle.addEventListener('click', () => {
+		dropBox.classList.toggle('is-open');
+	});
+});
