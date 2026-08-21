@@ -252,13 +252,13 @@ module.exports = {
     "bop/lon/01/01/CIBLON010101000M.html": { title: "", status: "진행중", worker: "변혜선", note: "" },
     "bop/lon/01/01/CIBLON010101000M.html": {
         title: "대출보유계좌조회_정상계좌조회",
-        status: "진행중",
+        status: "검수중",
         worker: "변혜선",
         note: ""
     },
     "bop/lon/01/01/CIBLON010102000M.html": {
         title: "대출보유계좌조회_해지계좌조회",
-        status: "진행중",
+        status: "검수중",
         worker: "변혜선",
         note: ""
     },
