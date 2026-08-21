@@ -63,21 +63,19 @@
                           <span class="form-box">
                             <input type="radio" name="searchPeriod" title="조회기간" id="period_01" class="radio-btn"
                               checked />
+                            <!--[dev]20260821 전일,3일전 삭제 텍스트 공통 "전"삭제-->
                             <label for="period_01" class="form-label">당일</label>
                             <input type="radio" name="searchPeriod" title="조회기간" id="period_02" class="radio-btn" />
-                            <label for="period_02" class="form-label">전일</label>
+                            <label for="period_02" class="form-label">1주일</label>
                             <input type="radio" name="searchPeriod" title="조회기간" id="period_03" class="radio-btn" />
-                            <label for="period_03" class="form-label">3일전</label>
+                            <label for="period_03" class="form-label">1달</label>
                             <input type="radio" name="searchPeriod" title="조회기간" id="period_04" class="radio-btn" />
-                            <label for="period_04" class="form-label">1주일전</label>
+                            <label for="period_04" class="form-label">3달</label>
                             <input type="radio" name="searchPeriod" title="조회기간" id="period_05" class="radio-btn" />
-                            <label for="period_05" class="form-label">1달전</label>
+                            <label for="period_05" class="form-label">6달</label>
                             <input type="radio" name="searchPeriod" title="조회기간" id="period_06" class="radio-btn" />
-                            <label for="period_06" class="form-label">3달전</label>
-                            <input type="radio" name="searchPeriod" title="조회기간" id="period_07" class="radio-btn" />
-                            <label for="period_07" class="form-label">6달전</label>
-                            <input type="radio" name="searchPeriod" title="조회기간" id="period_08" class="radio-btn" />
-                            <label for="period_08" class="form-label">1년전</label>
+                            <label for="period_06" class="form-label">1년</label>
+                            <!--//[dev]20260821 전일 삭제 텍스트 공통 "전"삭제-->
                           </span>
                         </div>
                         <div class="calendar-wrap">
@@ -103,14 +101,7 @@
                       </div>
                     </td>
                   </tr>
-                  <tr>
-                    <th scope="row">
-                      <label for="추심의뢰번호">추심의뢰번호</label>
-                    </th>
-                    <td>
-                      <input type="text" class="input size-lg wSize-md" id="추심의뢰번호" placeholder="입력해주세요" value="" />
-                    </td>
-                  </tr>
+                  <!--[dev] 20260821위치 이동-->
                   <tr>
                     <th scope="row">판매기업 사업자번호</th>
                     <td>
@@ -123,6 +114,53 @@
                         <button type="button" class="btn type-line-secondary size-lg">
                           <span class="text">자주쓰는 사업자번호</span>
                         </button>
+                      </div>
+                    </td>
+                  </tr>
+                  <!--//[dev] 20260821위치 이동-->
+                  <tr>
+                    <th scope="row">
+                      <label for="추심의뢰번호">추심의뢰번호</label>
+                    </th>
+                    <td>
+                      <input type="text" class="input size-lg wSize-lg" id="추심의뢰번호" placeholder="입력해주세요" value="" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <label for="대출상태">대출상태</label>
+                    </th>
+                    <td>
+                      <div class="box-select wSize-lg">
+                        <button type="button" class="select size-lg" role="combobox" aria-expanded="false"
+                          aria-haspopup="listbox" aria-controls="selectDropdown02" title="대출상태 선택">
+                          <span class="text">선택하세요</span>
+                          <span class="blind">펼침</span>
+                        </button>
+                        <div id="selectDropdown02" class="box-list-select">
+                          <ul class="list-select" role="listbox" aria-label="선택 항목 리스트">
+                            <li class="item-select" role="group">
+                              <button type="button" class="btn-item-select">
+                                이자납입일 전일까지
+                              </button>
+                            </li>
+                            <li class="item-select" role="group">
+                              <button type="button" class="btn-item-select">
+                                차기이자납입일 전일까지
+                              </button>
+                            </li>
+                            <li class="item-select" role="group">
+                              <button type="button" class="btn-item-select">
+                                전일까지
+                              </button>
+                            </li>
+                            <li class="item-select" role="group">
+                              <button type="button" class="btn-item-select">
+                                지정일까지
+                              </button>
+                            </li>
+                          </ul>
+                        </div>
                       </div>
                     </td>
                   </tr>
