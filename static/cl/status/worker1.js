@@ -35,4 +35,10 @@ module.exports = {
         worker: "변혜선",
         note: ""
     },
+    "b2b/01/03/01/001/CIBB2B010301001M.html": {
+        title: "판매기업-매매계약내역조회",
+        status: "진행중",
+        worker: "변혜선",
+        note: ""
+    },
 };
