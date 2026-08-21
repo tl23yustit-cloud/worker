@@ -1661,6 +1661,7 @@ function formatAmount(value, unit) {
     });
   });
 });
+//드롭박스
   document.querySelectorAll('.drop-box').forEach((dropBox) => {
     const toggle = dropBox.querySelector('.drop-box-toggle');
 
