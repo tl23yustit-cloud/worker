@@ -1,0 +1,201 @@
+<!-- CIBFOE030101000M -->
+
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/bop.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">
+        @@include('static/html/pub/layout/skipNavigation.html')
+        @@include('static/html/pub/layout/header_sub.html')
+      </div>
+
+      <div id="container" class="container">
+        <div id="leftArea">
+          @@include('static/html/pub/layout/leftArea.html')
+        </div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="bop">
+              <h2 class="typeH2">이율조회</h2>
+              <div class="tbl-area">
+                <table class="table-type01">
+                  <caption>
+                    외화예금종류, 외화선택, 조회일 입력 항목 테이블
+                  </caption>
+                  <colgroup>
+                    <col />
+                    <col />
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="row">
+                        <span>외화예금종류</span>
+                      </th>
+                      <td>
+                        <div class="form-box-wrap">
+                          <span class="form-box">
+                            <input
+                              type="radio"
+                              name="SampleRadio0302"
+                              id="SampleRadio01"
+                              class="form-radio size-lg"
+                            />
+                            <label for="SampleRadio01" class="form-label"
+                              >외화정기예금</label
+                            >
+                          </span>
+                          <span class="form-box">
+                            <input
+                              type="radio"
+                              name="SampleRadio0302"
+                              id="SampleRadio02"
+                              class="form-radio size-lg"
+                              checked
+                            />
+                            <label for="SampleRadio02" class="form-label"
+                              >외화보통예금</label
+                            >
+                          </span>
+                          <span class="form-box">
+                            <input
+                              type="radio"
+                              name="SampleRadio0302"
+                              id="SampleRadio03"
+                              class="form-radio size-lg"
+                            />
+                            <label for="SampleRadio03" class="form-label"
+                              >외화MMDA</label
+                            >
+                          </span>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row" id="th-currency">외화선택</th>
+                      <td>
+                        <div class="box-select wSize-md">
+                          <button
+                            type="button"
+                            class="select size-lg"
+                            role="combobox"
+                            aria-expanded="false"
+                            aria-haspopup="listbox"
+                            aria-controls="selectDropdown01"
+                            aria-labelledby="th-currency selected-currency"
+                          >
+                            <span class="text" id="selected-currency">USD</span>
+                            <span class="blind">펼침</span>
+                          </button>
+                          <div id="selectDropdown01" class="box-list-select">
+                            <ul
+                              class="list-select"
+                              role="listbox"
+                              aria-label="외화 선택 항목 리스트"
+                            >
+                              <li
+                                class="item-select"
+                                role="option"
+                                aria-selected="true"
+                              >
+                                <span class="form-box">USD</span>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">조회일</th>
+                      <td>
+                        <div class="input-box">
+                          <input
+                            type="text"
+                            class="input"
+                            placeholder="조회일 선택"
+                            aria-label="조회일"
+                            value="2026-01-06"
+                          />
+                          <button type="button" class="btn">
+                            <i
+                              class="ico-calendar ico-size-smMd"
+                              aria-hidden="true"
+                            ></i>
+                            <span class="blind">날짜 열기</span>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="btn-wrap center sm-mid">
+                <button type="button" class="btn type-bg-neutral size-xl">
+                  <span class="text">조회</span>
+                </button>
+              </div>
+              <div class="tbl-area">
+                <div class="tbl-head">
+                  <div class="left-area">
+                    <h4 lass="typeH4">외화보통예금(USD)</h4>
+                  </div>
+                  <div class="right-area">
+                    <span class="color-fg-secondary typeMd"
+                      >조회기준일시 YYYY-MM-DD 00:00:00(세전,연%)</span
+                    >
+                  </div>
+                </div>
+                <div class="wScroll">
+                  <table class="table-type03">
+                    <caption>
+                      외화정기예금 USD 이율 조회 결과 테이블로 구분, 거주자,
+                      비거주자에 따른 이율 정보 제공
+                    </caption>
+                    <colgroup>
+                      <col />
+                      <col />
+                    </colgroup>
+                    <thead>
+                      <tr>
+                        <th>거주자</th>
+                        <th>비거주자</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><span class="typeMd">7일</span></td>
+                        <td><span class="typeMd">0.00</span></td>
+                      </tr>
+                      <tr>
+                        <td><span class="typeMd">0.00</span></td>
+                        <td><span class="typeMd">0.00</span></td>
+                      </tr>
+                      <tr>
+                        <td><span class="typeMd">0.00</span></td>
+                        <td><span class="typeMd">0.00</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
+</html>

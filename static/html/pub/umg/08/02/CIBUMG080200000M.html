@@ -3,618 +3,1107 @@
 <!-- 디자인 확정아님 -->
 <!doctype html>
 <html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      사용자별 메뉴권한관리 &gt; 사용자관리 &gt; 뱅킹관리 | 수협은행
+    </title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/bmg.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>
-    사용자별 메뉴권한관리 &gt; 사용자관리 &gt; 뱅킹관리 | 수협은행
-  </title>
-  <link rel="stylesheet" href="/static/css/reset.css" />
-  <link rel="stylesheet" href="/static/css/layout.css" />
-  <link rel="stylesheet" href="/static/css/component.css" />
-  <link rel="stylesheet" href="/static/css/common.css" />
-  <link rel="stylesheet" href="/static/css/bmg.css" />
-</head>
-
-<body>
-  <div class="wrapper">
-    <div id="header">
-      @@include('static/html/pub/layout/skipNavigation.html')
-      @@include('static/html/pub/layout/header_sub.html')
-    </div>
-
-    <div id="container" class="container">
-      <div id="leftArea">
-        @@include('static/html/pub/layout/leftArea.html')
+  <body>
+    <div class="wrapper">
+      <div id="header">
+        @@include('static/html/pub/layout/skipNavigation.html')
+        @@include('static/html/pub/layout/header_sub.html')
       </div>
-      <div id="contents">
-        <div class="content">
-          @@include('static/html/pub/layout/breadcrumb.html')
-          <div class="bmg">
-            <h2 class="typeH2">사용자별 메뉴권한 관리</h2>
-            <div class="tbl-area">
-              <div class="tbl-head">
-                <h4 class="typeH4">사용자 정보</h4>
-              </div>
 
-              <table class="table-type01">
-                <caption>
-                  사용자 정보(사용자ID, 사용자명, 부서명, 직위) 요약 표
-                </caption>
-                <colgroup>
-                  <!--[dev] : 테이블 사이즈 조정-->
-                  <col width="150px">
-                  <col width="300px">
-                  <col width="150px">
-                  <col width="300px">
-                  <!--//[dev] : 테이블 사이즈 조정-->
-                </colgroup>
-                <tbody>
-                  <tr>
-                    <th scope="row">사용자ID</th>
-                    <td>
-                      <span class="typeMd">SUHYUP0001</span>
-                    </td>
-                    <th scope="row">사용자명</th>
-                    <td>
-                      <span class="typeMd">김일반</span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">부서명</th>
-                    <td>
-                      <span class="typeMd">자금부</span>
-                    </td>
-                    <th scope="row">직위</th>
-                    <td>
-                      <span class="typeMd">부장</span>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-
-
-            </div>
-            <!-- 텝영역 -->
-            <div class="box-tab">
-              <div class="tab-head">
-                <div class="left-area">
-                  <h4 class="typeH4">메뉴권한</h4>
+      <div id="container" class="container">
+        <div id="leftArea">
+          @@include('static/html/pub/layout/leftArea.html')
+        </div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="bmg">
+              <h2 class="typeH2">사용자별 메뉴권한 관리</h2>
+              <div class="tbl-area">
+                <div class="tbl-head">
+                  <h4 class="typeH4">사용자 정보</h4>
                 </div>
-                <div class="right-area">
-                  <button type="button" class="btn type-line-neutral size-md">
-                    <span class="text">메뉴권한 등록 이용가이드 다운로드</span>
-                    <i class="ico line ico-size-smMd ico-download" aria-hidden="true"></i>
-                  </button>
-                </div>
-              </div>
-              <ul class="list-tab-button type-outline" role="tablist" aria-label="메뉴권한 유형">
-                <!-- 1. 조회 -->
-                <li class="item-tab-button">
-                  <button type="button" class="btn-tab" id="tabBtnTypeOutline01" role="tab" aria-selected="false"
-                    aria-controls="tabPanelTypeOutline01">
-                    <span class="text">조회</span>
-                  </button>
-                </li>
-                <!-- 2. 이체 -->
-                <li class="item-tab-button">
-                  <button type="button" class="btn-tab" id="tabBtnTypeOutline02" role="tab" aria-selected="false"
-                    aria-controls="tabPanelTypeOutline02">
-                    <span class="text">이체</span>
-                  </button>
-                </li>
-                <!-- 3. 뱅킹업무 -->
-                <li class="item-tab-button">
-                  <button type="button" class="btn-tab" id="tabBtnTypeOutline03" role="tab" aria-selected="false"
-                    aria-controls="tabPanelTypeOutline03">
-                    <span class="text">뱅킹업무</span>
-                  </button>
-                </li>
-                <!-- 4. 금융서비스 -->
-                <li class="item-tab-button">
-                  <button type="button" class="btn-tab" id="tabBtnTypeOutline04" role="tab" aria-selected="false"
-                    aria-controls="tabPanelTypeOutline04">
-                    <span class="text">금융서비스</span>
-                  </button>
-                </li>
-                <!-- 5. B2B전자결제 -->
-                <li class="item-tab-button">
-                  <button type="button" class="btn-tab" id="tabBtnTypeOutline05" role="tab" aria-selected="false"
-                    aria-controls="tabPanelTypeOutline05">
-                    <span class="text">B2B전자결제</span>
-                  </button>
-                </li>
-                <!-- 6. 뱅킹관리 (기본 활성화) -->
-                <li class="item-tab-button">
-                  <button type="button" class="btn-tab active" id="tabBtnTypeOutline06" role="tab"
-                    aria-selected="true" aria-controls="tabPanelTypeOutline06">
-                    <span class="text">뱅킹관리</span>
-                  </button>
-                </li>
-                <!-- 7. 스마트뱅킹 전용 -->
-                <li class="item-tab-button">
-                  <button type="button" class="btn-tab" id="tabBtnTypeOutline07" role="tab" aria-selected="false"
-                    aria-controls="tabPanelTypeOutline07">
-                    <span class="text">스마트뱅킹 전용</span>
-                  </button>
-                </li>
-              </ul>
 
-              <!-- Tab Content 01 (조회 탭) -->
-              <div class="box-tab-content" id="tabPanelTypeOutline01" role="tabpanel"
-                aria-labelledby="tabBtnTypeOutline01" style="display: none">
-                <h3 class="blind">조회 메뉴권한</h3>
-                <div class="checkbox-wrap">
-                  <!-- 최상단: 조회메뉴권한 전체선택 -->
-                  <div class="all-select-wrap">
-                    <span class="form-box">
-                      <input type="checkbox" name="" id="InquiryAllCheck" class="form-checkbox size-lg" />
-                      <label for="InquiryAllCheck" class="form-label">
-                        <span class="typeH4">조회메뉴권한 전체선택</span>
-                      </label>
-                    </span>
+                <table class="table-type01">
+                  <caption>
+                    사용자 정보(사용자ID, 사용자명, 부서명, 직위) 요약 표
+                  </caption>
+                  <colgroup>
+                    <!--[dev] : 테이블 사이즈 조정-->
+                    <col width="150px" />
+                    <col width="300px" />
+                    <col width="150px" />
+                    <col width="300px" />
+                    <!--//[dev] : 테이블 사이즈 조정-->
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="row">사용자ID</th>
+                      <td>
+                        <span class="typeMd">SUHYUP0001</span>
+                      </td>
+                      <th scope="row">사용자명</th>
+                      <td>
+                        <span class="typeMd">김일반</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">부서명</th>
+                      <td>
+                        <span class="typeMd">자금부</span>
+                      </td>
+                      <th scope="row">직위</th>
+                      <td>
+                        <span class="typeMd">부장</span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!-- 텝영역 -->
+              <div class="box-tab">
+                <div class="tab-head">
+                  <div class="left-area">
+                    <h4 class="typeH4">메뉴권한</h4>
                   </div>
+                  <div class="right-area">
+                    <button type="button" class="btn type-line-neutral size-md">
+                      <span class="text"
+                        >메뉴권한 등록 이용가이드 다운로드</span
+                      >
+                      <i
+                        class="ico line ico-size-smMd ico-download"
+                        aria-hidden="true"
+                      ></i>
+                    </button>
+                  </div>
+                </div>
+                <ul
+                  class="list-tab-button type-outline"
+                  role="tablist"
+                  aria-label="탭 이름"
+                >
+                  <!-- 1. 조회 -->
+                  <li class="item-tab-button">
+                    <button
+                      type="button"
+                      class="btn-tab"
+                      id="tabBtnTypeOutline01"
+                      role="tab"
+                      aria-selected="false"
+                      aria-controls="tabPanelTypeOutline01"
+                    >
+                      <span class="text">조회</span>
+                    </button>
+                  </li>
+                  <!-- 2. 이체 -->
+                  <li class="item-tab-button">
+                    <button
+                      type="button"
+                      class="btn-tab"
+                      id="tabBtnTypeOutline02"
+                      role="tab"
+                      aria-selected="false"
+                      aria-controls="tabPanelTypeOutline02"
+                    >
+                      <span class="text">이체</span>
+                    </button>
+                  </li>
+                  <!-- 3. 뱅킹업무 -->
+                  <li class="item-tab-button">
+                    <button
+                      type="button"
+                      class="btn-tab"
+                      id="tabBtnTypeOutline03"
+                      role="tab"
+                      aria-selected="false"
+                      aria-controls="tabPanelTypeOutline03"
+                    >
+                      <span class="text">뱅킹업무</span>
+                    </button>
+                  </li>
+                  <!-- 4. 금융서비스 -->
+                  <li class="item-tab-button">
+                    <button
+                      type="button"
+                      class="btn-tab"
+                      id="tabBtnTypeOutline04"
+                      role="tab"
+                      aria-selected="false"
+                      aria-controls="tabPanelTypeOutline04"
+                    >
+                      <span class="text">금융서비스</span>
+                    </button>
+                  </li>
+                  <!-- 5. B2B전자결제 -->
+                  <li class="item-tab-button">
+                    <button
+                      type="button"
+                      class="btn-tab"
+                      id="tabBtnTypeOutline05"
+                      role="tab"
+                      aria-selected="false"
+                      aria-controls="tabPanelTypeOutline05"
+                    >
+                      <span class="text">B2B전자결제</span>
+                    </button>
+                  </li>
+                  <!-- 6. 뱅킹관리 (기본 활성화) -->
+                  <li class="item-tab-button">
+                    <button
+                      type="button"
+                      class="btn-tab active"
+                      title="선택됨"
+                      id="tabBtnTypeOutline06"
+                      role="tab"
+                      aria-selected="true"
+                      aria-controls="tabPanelTypeOutline06"
+                    >
+                      <span class="text">뱅킹관리</span>
+                    </button>
+                  </li>
+                  <!-- 7. 스마트뱅킹 전용 -->
+                  <li class="item-tab-button">
+                    <button
+                      type="button"
+                      class="btn-tab"
+                      id="tabBtnTypeOutline07"
+                      role="tab"
+                      aria-selected="false"
+                      aria-controls="tabPanelTypeOutline07"
+                    >
+                      <span class="text">스마트뱅킹 전용</span>
+                    </button>
+                  </li>
+                </ul>
 
-                  <!-- 1. 계좌조회 권한 섹션 -->
-                  <div class="form-group">
+                <!-- Tab Content 01 (조회 탭) -->
+                <div
+                  class="box-tab-content"
+                  id="tabPanelTypeOutline01"
+                  role="tabpanel"
+                  aria-labelledby="tabBtnTypeOutline01"
+                  style="display: none"
+                >
+                  <h3 class="blind">Tab Content01</h3>
+                  <div class="checkbox-wrap">
+                    <!-- 최상단: 조회메뉴권한 전체선택 -->
                     <div class="all-select-wrap">
                       <span class="form-box">
-                        <input type="checkbox" name="" id="AccountInquiryAllCheck" class="form-checkbox size-lg" />
-                        <label for="AccountInquiryAllCheck" class="form-label">
-                          <span class="typeH6">계좌조회 권한 전체선택</span>
+                        <input
+                          type="checkbox"
+                          name=""
+                          id="InquiryAllCheck"
+                          class="form-checkbox size-lg"
+                        />
+                        <label for="InquiryAllCheck" class="form-label">
+                          <span class="typeH4">조회메뉴권한 전체선택</span>
                         </label>
                       </span>
                     </div>
 
-                    <!-- 계좌조회 -->
-                    <fieldset>
-                      <legend class="blind">계좌조회 메뉴 목록</legend>
-                      <div class="checkbox-group">
-                        <div class="group-title-wrap">
-                          <strong class="typeH6">계좌조회</strong>
-                        </div>
-                        <div class="check-list">
-                          <div>
-                            <span class="form-box">
-                              <input type="checkbox" name="inquiryAuthority" id="inquiry-1-1"
-                                class="form-checkbox size-lg" />
-                              <label for="inquiry-1-1" class="form-label">모든보유계좌조회</label>
-                            </span>
-                          </div>
-                          <div>
-                            <span class="form-box">
-                              <input type="checkbox" name="inquiryAuthority" id="inquiry-1-2"
-                                class="form-checkbox size-lg" />
-                              <label for="inquiry-1-2" class="form-label">휴면계좌 조회</label>
-                            </span>
-                          </div>
-                        </div>
+                    <!-- 1. 계좌조회 권한 섹션 -->
+                    <div class="form-group">
+                      <div class="all-select-wrap">
+                        <span class="form-box">
+                          <input
+                            type="checkbox"
+                            name=""
+                            id="AccountInquiryAllCheck"
+                            class="form-checkbox size-lg"
+                          />
+                          <label
+                            for="AccountInquiryAllCheck"
+                            class="form-label"
+                          >
+                            <span class="typeH6">계좌조회 권한 전체선택</span>
+                          </label>
+                        </span>
                       </div>
-                    </fieldset>
 
-                    <!-- 거래내역조회 (형제 구조로 반영) -->
-                    <fieldset>
-                      <legend class="blind">거래내역조회 메뉴 목록</legend>
-                      <div class="checkbox-group">
-                        <div class="group-title-wrap">
-                          <strong class="typeH6">거래내역조회</strong>
-                        </div>
-                        <div class="check-list">
-                          <div>
-                            <span class="form-box">
-                              <input type="checkbox" name="inquiryAuthority" id="inquiry-2-1"
-                                class="form-checkbox size-lg" />
-                              <label for="inquiry-2-1" class="form-label">거래내역조회</label>
-                            </span>
+                      <!-- 계좌조회 -->
+                      <fieldset>
+                        <legend class="blind">계좌조회 메뉴 목록</legend>
+                        <div class="checkbox-group">
+                          <div class="group-title-wrap">
+                            <strong class="typeH6">계좌조회</strong>
                           </div>
-                          <div>
-                            <span class="form-box">
-                              <input type="checkbox" name="inquiryAuthority" id="inquiry-2-2"
-                                class="form-checkbox size-lg" />
-                              <label for="inquiry-2-2" class="form-label">거래내역파일요청</label>
-                            </span>
+                          <div class="check-list">
+                            <div>
+                              <span class="form-box">
+                                <input
+                                  type="checkbox"
+                                  name="inquiryAuthority"
+                                  id="inquiry-1-1"
+                                  class="form-checkbox size-lg"
+                                />
+                                <label for="inquiry-1-1" class="form-label"
+                                  >모든보유계좌조회</label
+                                >
+                              </span>
+                            </div>
+                            <div>
+                              <span class="form-box">
+                                <input
+                                  type="checkbox"
+                                  name="inquiryAuthority"
+                                  id="inquiry-1-2"
+                                  class="form-checkbox size-lg"
+                                />
+                                <label for="inquiry-1-2" class="form-label"
+                                  >휴면계좌 조회</label
+                                >
+                              </span>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    </fieldset>
+                      </fieldset>
+
+                      <!-- 거래내역조회 (형제 구조로 반영) -->
+                      <fieldset>
+                        <legend class="blind">거래내역조회 메뉴 목록</legend>
+                        <div class="checkbox-group">
+                          <div class="group-title-wrap">
+                            <strong class="typeH6">거래내역조회</strong>
+                          </div>
+                          <div class="check-list">
+                            <div>
+                              <span class="form-box">
+                                <input
+                                  type="checkbox"
+                                  name="inquiryAuthority"
+                                  id="inquiry-2-1"
+                                  class="form-checkbox size-lg"
+                                />
+                                <label for="inquiry-2-1" class="form-label"
+                                  >거래내역조회</label
+                                >
+                              </span>
+                            </div>
+                            <div>
+                              <span class="form-box">
+                                <input
+                                  type="checkbox"
+                                  name="inquiryAuthority"
+                                  id="inquiry-2-2"
+                                  class="form-checkbox size-lg"
+                                />
+                                <label for="inquiry-2-2" class="form-label"
+                                  >거래내역파일요청</label
+                                >
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </fieldset>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <!-- Tab Content 02 -->
-              <div class="box-tab-content" id="tabPanelTypeOutline02" role="tabpanel"
-                aria-labelledby="tabBtnTypeOutline02" style="display: none">
-                <h3 class="blind">이체 메뉴권한</h3>
-                Tab 본문 02
-              </div>
+                <!-- Tab Content 02 -->
+                <div
+                  class="box-tab-content"
+                  id="tabPanelTypeOutline02"
+                  role="tabpanel"
+                  aria-labelledby="tabBtnTypeOutline02"
+                  style="display: none"
+                >
+                  <h3 class="blind">Tab Content02</h3>
+                  Tab 본문 02
+                </div>
 
-              <!-- Tab Content 03 -->
-              <div class="box-tab-content" id="tabPanelTypeOutline03" role="tabpanel"
-                aria-labelledby="tabBtnTypeOutline03" style="display: none">
-                <h3 class="blind">뱅킹업무 메뉴권한</h3>
-                Tab 본문 03
-              </div>
+                <!-- Tab Content 03 -->
+                <div
+                  class="box-tab-content"
+                  id="tabPanelTypeOutline03"
+                  role="tabpanel"
+                  aria-labelledby="tabBtnTypeOutline03"
+                  style="display: none"
+                >
+                  <h3 class="blind">Tab Content03</h3>
+                  Tab 본문 03
+                </div>
 
-              <!-- Tab Content 04 -->
-              <div class="box-tab-content" id="tabPanelTypeOutline04" role="tabpanel"
-                aria-labelledby="tabBtnTypeOutline04" style="display: none">
-                <h3 class="blind">금융서비스 메뉴권한</h3>
-                Tab 본문 04
-              </div>
+                <!-- Tab Content 04 -->
+                <div
+                  class="box-tab-content"
+                  id="tabPanelTypeOutline04"
+                  role="tabpanel"
+                  aria-labelledby="tabBtnTypeOutline04"
+                  style="display: none"
+                >
+                  <h3 class="blind">Tab Content04</h3>
+                  Tab 본문 04
+                </div>
 
-              <!-- Tab Content 05 -->
-              <div class="box-tab-content" id="tabPanelTypeOutline05" role="tabpanel"
-                aria-labelledby="tabBtnTypeOutline05" style="display: none">
-                <h3 class="blind">B2B전자결제 메뉴권한</h3>
-                Tab 본문 05
-              </div>
+                <!-- Tab Content 05 -->
+                <div
+                  class="box-tab-content"
+                  id="tabPanelTypeOutline05"
+                  role="tabpanel"
+                  aria-labelledby="tabBtnTypeOutline05"
+                  style="display: none"
+                >
+                  <h3 class="blind">Tab Content05</h3>
+                  Tab 본문 05
+                </div>
 
-              <!-- Tab Content 06 (기본 활성화) -->
-              <div class="box-tab-content active" id="tabPanelTypeOutline06" role="tabpanel"
-                aria-labelledby="tabBtnTypeOutline06" style="display: block">
-                <h3 class="blind">뱅킹관리 메뉴권한</h3>
-                <div class="checkbox-wrap">
-                  <!-- 최상단: 뱅킹메뉴권한 전체선택 -->
-                  <div class="all-select-wrap">
-                    <span class="form-box">
-                      <input type="checkbox" name="" id="BankingAllCheck" class="form-checkbox size-lg" />
-                      <label for="BankingAllCheck" class="form-label">
-                        <span class="typeH4">뱅킹메뉴권한 전체선택</span>
-                      </label>
-                    </span>
-                  </div>
-
-                  <!-- 1. My 정보 권한 전체선택 섹션 -->
-                  <div class="form-group">
+                <!-- Tab Content 06 (기본 활성화) -->
+                <div
+                  class="box-tab-content active"
+                  id="tabPanelTypeOutline06"
+                  role="tabpanel"
+                  aria-labelledby="tabBtnTypeOutline06"
+                  style="display: block"
+                >
+                  <h3 class="blind">Tab Content06</h3>
+                  <div class="checkbox-wrap">
+                    <!-- 최상단: 뱅킹메뉴권한 전체선택 -->
                     <div class="all-select-wrap">
                       <span class="form-box">
-                        <input type="checkbox" name="" id="MyInfoAllCheck" class="form-checkbox size-lg" />
-                        <label for="MyInfoAllCheck" class="form-label">
-                          <span class="typeH6">My 정보 권한 전체선택</span>
+                        <input
+                          type="checkbox"
+                          name=""
+                          id="BankingAllCheck"
+                          class="form-checkbox size-lg"
+                        />
+                        <label for="BankingAllCheck" class="form-label">
+                          <span class="typeH4">뱅킹메뉴권한 전체선택</span>
                         </label>
                       </span>
                     </div>
 
-                    <!-- 고객권한 관리 -->
-                    <fieldset>
-                      <legend class="blind">고객권한 관리 메뉴 목록</legend>
-                      <div class="checkbox-group">
-                        <div class="group-title-wrap">
-                          <strong class="typeH6">고객권한 관리</strong>
-                        </div>
-                        <div class="check-list">
-                          <div>
-                            <span class="form-box">
-                              <input type="checkbox" name="authority" id="auth-1-1" class="form-checkbox size-lg" />
-                              <label for="auth-1-1" class="form-label">초기 페이지 설정</label>
-                            </span>
-                          </div>
-                          <div>
-                            <span class="form-box">
-                              <input type="checkbox" name="authority" id="auth-1-2" class="form-checkbox size-lg" />
-                              <label for="auth-1-2" class="form-label">메뉴권한조회</label>
-                            </span>
-                          </div>
-                          <div>
-                            <span class="form-box">
-                              <input type="checkbox" name="authority" id="auth-1-3" class="form-checkbox size-lg" />
-                              <label for="auth-1-3" class="form-label">부재설정 및 대리등록</label>
-                            </span>
-                          </div>
-                        </div>
+                    <!-- 1. My 정보 권한 전체선택 섹션 -->
+                    <div class="form-group">
+                      <div class="all-select-wrap">
+                        <span class="form-box">
+                          <input
+                            type="checkbox"
+                            name=""
+                            id="MyInfoAllCheck"
+                            class="form-checkbox size-lg"
+                          />
+                          <label for="MyInfoAllCheck" class="form-label">
+                            <span class="typeH6">My 정보 권한 전체선택</span>
+                          </label>
+                        </span>
                       </div>
-                    </fieldset>
 
-                    <!-- 고객정보 관리 -->
-                    <fieldset>
-                      <legend class="blind">고객정보 관리 메뉴 목록</legend>
-                      <div class="checkbox-group">
-                        <div class="group-title-wrap">
-                          <strong class="typeH6">고객정보 관리</strong>
+                      <!-- 고객권한 관리 -->
+                      <fieldset>
+                        <legend class="blind">고객권한 관리 메뉴 목록</legend>
+                        <div class="checkbox-group">
+                          <div class="group-title-wrap">
+                            <span class="form-box">
+                              <input
+                                type="checkbox"
+                                name=""
+                                id="CustomerAuthorityAllCheck"
+                                class="form-checkbox size-lg"
+                              />
+                              <label
+                                for="CustomerAuthorityAllCheck"
+                                class="form-label"
+                              >
+                                <strong class="typeH6">고객권한 관리</strong>
+                              </label>
+                            </span>
+                          </div>
+                          <div class="check-list">
+                            <div>
+                              <span class="form-box">
+                                <input
+                                  type="checkbox"
+                                  name="authority"
+                                  id="auth-1-1"
+                                  class="form-checkbox size-lg"
+                                />
+                                <label for="auth-1-1" class="form-label"
+                                  >초기 페이지 설정</label
+                                >
+                              </span>
+                            </div>
+                            <div>
+                              <span class="form-box">
+                                <input
+                                  type="checkbox"
+                                  name="authority"
+                                  id="auth-1-2"
+                                  class="form-checkbox size-lg"
+                                />
+                                <label for="auth-1-2" class="form-label"
+                                  >메뉴권한조회</label
+                                >
+                              </span>
+                            </div>
+                            <div>
+                              <span class="form-box">
+                                <input
+                                  type="checkbox"
+                                  name="authority"
+                                  id="auth-1-3"
+                                  class="form-checkbox size-lg"
+                                />
+                                <label for="auth-1-3" class="form-label"
+                                  >부재설정 및 대리등록</label
+                                >
+                              </span>
+                            </div>
+                          </div>
                         </div>
-                        <div class="check-list">
-                          <div>
-                            <span class="form-box">
-                              <input type="checkbox" name="authority" id="auth-2-1" class="form-checkbox size-lg" />
-                              <label for="auth-2-1" class="form-label">고객정보조회/변경</label>
-                            </span>
-                          </div>
-                          <div>
-                            <span class="form-box">
-                              <input type="checkbox" name="authority" id="auth-2-2" class="form-checkbox size-lg" />
-                              <label for="auth-2-2" class="form-label">파트너고객등급조회(수협은행)</label>
-                            </span>
-                          </div>
-                          <div>
-                            <span class="form-box">
-                              <input type="checkbox" name="authority" id="auth-2-3" class="form-checkbox size-lg" />
-                              <label for="auth-2-3" class="form-label">파트너고객등급조회(수협중앙회)</label>
-                            </span>
-                          </div>
-                          <div>
-                            <span class="form-box">
-                              <input type="checkbox" name="authority" id="auth-2-4" class="form-checkbox size-lg" />
-                              <label for="auth-2-4" class="form-label">이체비밀번호변경</label>
-                            </span>
-                          </div>
-                          <div>
-                            <span class="form-box">
-                              <input type="checkbox" name="authority" id="auth-2-5" class="form-checkbox size-lg" />
-                              <label for="auth-2-5" class="form-label">서비스정지 해제</label>
-                            </span>
-                          </div>
-                          <div>
-                            <span class="form-box">
-                              <input type="checkbox" name="authority" id="auth-2-6" class="form-checkbox size-lg" />
-                              <label for="auth-2-6" class="form-label">전화번호 조회/변경</label>
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                    </fieldset>
+                      </fieldset>
 
-                    <!-- 판매기업 -->
-                    <fieldset>
-                      <legend class="blind">판매기업 메뉴 목록</legend>
-                      <div class="checkbox-group">
-                        <div class="group-title-wrap">
-                          <strong class="typeH6">판매기업</strong>
+                      <!-- 고객정보 관리 -->
+                      <fieldset>
+                        <legend class="blind">고객정보 관리 메뉴 목록</legend>
+                        <div class="checkbox-group">
+                          <div class="group-title-wrap">
+                            <span class="form-box">
+                              <input
+                                type="checkbox"
+                                name=""
+                                id="CustomerInfoAllCheck"
+                                class="form-checkbox size-lg"
+                              />
+                              <label
+                                for="CustomerInfoAllCheck"
+                                class="form-label"
+                              >
+                                <strong class="typeH6">고객정보 관리</strong>
+                              </label>
+                            </span>
+                          </div>
+                          <div class="check-list">
+                            <div>
+                              <span class="form-box">
+                                <input
+                                  type="checkbox"
+                                  name="authority"
+                                  id="auth-2-1"
+                                  class="form-checkbox size-lg"
+                                />
+                                <label for="auth-2-1" class="form-label"
+                                  >고객정보조회/변경</label
+                                >
+                              </span>
+                            </div>
+                            <div>
+                              <span class="form-box">
+                                <input
+                                  type="checkbox"
+                                  name="authority"
+                                  id="auth-2-2"
+                                  class="form-checkbox size-lg"
+                                />
+                                <label for="auth-2-2" class="form-label"
+                                  >파트너고객등급조회(수협은행)</label
+                                >
+                              </span>
+                            </div>
+                            <div>
+                              <span class="form-box">
+                                <input
+                                  type="checkbox"
+                                  name="authority"
+                                  id="auth-2-3"
+                                  class="form-checkbox size-lg"
+                                />
+                                <label for="auth-2-3" class="form-label"
+                                  >파트너고객등급조회(수협중앙회)</label
+                                >
+                              </span>
+                            </div>
+                            <div>
+                              <span class="form-box">
+                                <input
+                                  type="checkbox"
+                                  name="authority"
+                                  id="auth-2-4"
+                                  class="form-checkbox size-lg"
+                                />
+                                <label for="auth-2-4" class="form-label"
+                                  >이체비밀번호변경</label
+                                >
+                              </span>
+                            </div>
+                            <div>
+                              <span class="form-box">
+                                <input
+                                  type="checkbox"
+                                  name="authority"
+                                  id="auth-2-5"
+                                  class="form-checkbox size-lg"
+                                />
+                                <label for="auth-2-5" class="form-label"
+                                  >서비스정지 해제</label
+                                >
+                              </span>
+                            </div>
+                            <div>
+                              <span class="form-box">
+                                <input
+                                  type="checkbox"
+                                  name="authority"
+                                  id="auth-2-6"
+                                  class="form-checkbox size-lg"
+                                />
+                                <label for="auth-2-6" class="form-label"
+                                  >전화번호 조회/변경</label
+                                >
+                              </span>
+                            </div>
+                          </div>
                         </div>
-                        <div class="check-list">
-                          <div>
-                            <span class="form-box">
-                              <input type="checkbox" name="authority" id="auth-3-1" class="form-checkbox size-lg" />
-                              <label for="auth-3-1" class="form-label">매매계약내역조회</label>
-                            </span>
-                          </div>
-                          <div>
-                            <span class="form-box">
-                              <input type="checkbox" name="authority" id="auth-3-2" class="form-checkbox size-lg" />
-                              <label for="auth-3-2" class="form-label">추심의뢰대상내역등록</label>
-                            </span>
-                          </div>
-                          <div>
-                            <span class="form-box">
-                              <input type="checkbox" name="authority" id="auth-3-3" class="form-checkbox size-lg" />
-                              <label for="auth-3-3" class="form-label">추심의뢰등록내역조회</label>
-                            </span>
-                          </div>
-                          <div>
-                            <span class="form-box">
-                              <input type="checkbox" name="authority" id="auth-3-4" class="form-checkbox size-lg" />
-                              <label for="auth-3-4" class="form-label">결제진행내역</label>
-                            </span>
-                          </div>
-                          <div>
-                            <span class="form-box">
-                              <input type="checkbox" name="authority" id="auth-3-5" class="form-checkbox size-lg" />
-                              <label for="auth-3-5" class="form-label">거래수수료징수내역</label>
-                            </span>
-                          </div>
-                          <div>
-                            <span class="form-box">
-                              <input type="checkbox" name="authority" id="auth-3-6" class="form-checkbox size-lg" />
-                              <label for="auth-3-6" class="form-label">거래수수료집계내역</label>
-                            </span>
-                          </div>
-                          <div>
-                            <span class="form-box">
-                              <input type="checkbox" name="authority" id="auth-3-7" class="form-checkbox size-lg" />
-                              <label for="auth-3-7" class="form-label">통지서비스 신청/해지</label>
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                    </fieldset>
-                  </div>
+                      </fieldset>
 
-                  <!-- 2. 전자어음 전체선택 박스 영역 -->
-                  <div class="form-group">
-                    <div class="all-select-wrap">
-                      <span class="form-box">
-                        <input type="checkbox" name="" id="ElectronicBillAllCheck" class="form-checkbox size-lg" />
-                        <label for="ElectronicBillAllCheck" class="form-label">
-                          <span class="typeH6">전자어음 전체선택</span>
-                        </label>
-                      </span>
+                      <!-- 판매기업 -->
+                      <fieldset>
+                        <legend class="blind">판매기업 메뉴 목록</legend>
+                        <div class="checkbox-group">
+                          <div class="group-title-wrap">
+                            <span class="form-box">
+                              <input
+                                type="checkbox"
+                                name=""
+                                id="SellerCompanyAllCheck"
+                                class="form-checkbox size-lg"
+                              />
+                              <label
+                                for="SellerCompanyAllCheck"
+                                class="form-label"
+                              >
+                                <strong class="typeH6">판매기업</strong>
+                              </label>
+                            </span>
+                          </div>
+                          <div class="check-list">
+                            <div>
+                              <span class="form-box">
+                                <input
+                                  type="checkbox"
+                                  name="authority"
+                                  id="auth-3-1"
+                                  class="form-checkbox size-lg"
+                                />
+                                <label for="auth-3-1" class="form-label"
+                                  >매매계약내역조회</label
+                                >
+                              </span>
+                            </div>
+                            <div>
+                              <span class="form-box">
+                                <input
+                                  type="checkbox"
+                                  name="authority"
+                                  id="auth-3-2"
+                                  class="form-checkbox size-lg"
+                                />
+                                <label for="auth-3-2" class="form-label"
+                                  >추심의뢰대상내역등록</label
+                                >
+                              </span>
+                            </div>
+                            <div>
+                              <span class="form-box">
+                                <input
+                                  type="checkbox"
+                                  name="authority"
+                                  id="auth-3-3"
+                                  class="form-checkbox size-lg"
+                                />
+                                <label for="auth-3-3" class="form-label"
+                                  >추심의뢰등록내역조회</label
+                                >
+                              </span>
+                            </div>
+                            <div>
+                              <span class="form-box">
+                                <input
+                                  type="checkbox"
+                                  name="authority"
+                                  id="auth-3-4"
+                                  class="form-checkbox size-lg"
+                                />
+                                <label for="auth-3-4" class="form-label"
+                                  >결제진행내역</label
+                                >
+                              </span>
+                            </div>
+                            <div>
+                              <span class="form-box">
+                                <input
+                                  type="checkbox"
+                                  name="authority"
+                                  id="auth-3-5"
+                                  class="form-checkbox size-lg"
+                                />
+                                <label for="auth-3-5" class="form-label"
+                                  >거래수수료징수내역</label
+                                >
+                              </span>
+                            </div>
+                            <div>
+                              <span class="form-box">
+                                <input
+                                  type="checkbox"
+                                  name="authority"
+                                  id="auth-3-6"
+                                  class="form-checkbox size-lg"
+                                />
+                                <label for="auth-3-6" class="form-label"
+                                  >거래수수료집계내역</label
+                                >
+                              </span>
+                            </div>
+                            <div>
+                              <span class="form-box">
+                                <input
+                                  type="checkbox"
+                                  name="authority"
+                                  id="auth-3-7"
+                                  class="form-checkbox size-lg"
+                                />
+                                <label for="auth-3-7" class="form-label"
+                                  >통지서비스 신청/해지</label
+                                >
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </fieldset>
                     </div>
 
-                    <!-- 전자어음 권한 -->
-                    <fieldset>
-                      <legend class="blind">전자어음 권한 메뉴 목록</legend>
-                      <div class="checkbox-group">
-                        <div class="group-title-wrap">
-                          <strong class="typeH6">전자어음 권한</strong>
-                        </div>
-                        <div class="check-list">
-                          <div>
-                            <span class="form-box">
-                              <input type="checkbox" name="authority" id="auth-4-1" class="form-checkbox size-lg" />
-                              <label for="auth-4-1" class="form-label">서비스이용안내</label>
-                            </span>
-                          </div>
-                          <div>
-                            <span class="form-box">
-                              <input type="checkbox" name="authority" id="auth-4-2" class="form-checkbox size-lg" />
-                              <label for="auth-4-2" class="form-label">어음발행</label>
-                            </span>
-                          </div>
-                          <div>
-                            <span class="form-box">
-                              <input type="checkbox" name="authority" id="auth-4-3" class="form-checkbox size-lg" />
-                              <label for="auth-4-3" class="form-label">어음발행(발행전보증)</label>
-                            </span>
-                          </div>
-                          <div>
-                            <span class="form-box">
-                              <input type="checkbox" name="authority" id="auth-4-4" class="form-checkbox size-lg" />
-                              <label for="auth-4-4" class="form-label">발행어음조회</label>
-                            </span>
-                          </div>
-                          <div>
-                            <span class="form-box">
-                              <input type="checkbox" name="authority" id="auth-4-5" class="form-checkbox size-lg" />
-                              <label for="auth-4-5" class="form-label">발행보증어음조회(발행보증인)</label>
-                            </span>
-                          </div>
-                          <div>
-                            <span class="form-box">
-                              <input type="checkbox" name="authority" id="auth-4-6" class="form-checkbox size-lg" />
-                              <label for="auth-4-6" class="form-label">발행보증어음조회(발행인/배서인)</label>
-                            </span>
-                          </div>
-                          <div>
-                            <span class="form-box">
-                              <input type="checkbox" name="authority" id="auth-4-7" class="form-checkbox size-lg" />
-                              <label for="auth-4-7" class="form-label">배서어음조회</label>
-                            </span>
-                          </div>
-                          <div>
-                            <span class="form-box">
-                              <input type="checkbox" name="authority" id="auth-4-8" class="form-checkbox size-lg" />
-                              <label for="auth-4-8" class="form-label">수취어음조회</label>
-                            </span>
-                          </div>
-                          <div>
-                            <span class="form-box">
-                              <input type="checkbox" name="authority" id="auth-4-9" class="form-checkbox size-lg" />
-                              <label for="auth-4-9" class="form-label">만기결제어음조회</label>
-                            </span>
-                          </div>
-                          <div>
-                            <span class="form-box">
-                              <input type="checkbox" name="authority" id="auth-4-10" class="form-checkbox size-lg" />
-                              <label for="auth-4-10" class="form-label">부도어음조회</label>
-                            </span>
-                          </div>
-                          <div>
-                            <span class="form-box">
-                              <input type="checkbox" name="authority" id="auth-4-11" class="form-checkbox size-lg" />
-                              <label for="auth-4-11" class="form-label">상환청구조회</label>
-                            </span>
-                          </div>
-                          <div>
-                            <span class="form-box">
-                              <input type="checkbox" name="authority" id="auth-4-12" class="form-checkbox size-lg" />
-                              <label for="auth-4-12" class="form-label">상환청구</label>
-                            </span>
-                          </div>
-                          <div>
-                            <span class="form-box">
-                              <input type="checkbox" name="authority" id="auth-4-13" class="form-checkbox size-lg" />
-                              <label for="auth-4-13" class="form-label">반환어음조회</label>
-                            </span>
-                          </div>
-                          <div>
-                            <span class="form-box">
-                              <input type="checkbox" name="authority" id="auth-4-14" class="form-checkbox size-lg" />
-                              <label for="auth-4-14" class="form-label">이용자조회</label>
-                            </span>
-                          </div>
-                          <div>
-                            <span class="form-box">
-                              <input type="checkbox" name="authority" id="auth-4-15" class="form-checkbox size-lg" />
-                              <label for="auth-4-15" class="form-label">어음할인신청</label>
-                            </span>
-                          </div>
-                          <div>
-                            <span class="form-box">
-                              <input type="checkbox" name="authority" id="auth-4-16" class="form-checkbox size-lg" />
-                              <label for="auth-4-16" class="form-label">어음할인신청내역조회</label>
-                            </span>
-                          </div>
-                          <div>
-                            <span class="form-box">
-                              <input type="checkbox" name="authority" id="auth-4-17" class="form-checkbox size-lg" />
-                              <label for="auth-4-17" class="form-label">결제요청내역조회</label>
-                            </span>
-                          </div>
-                          <div>
-                            <span class="form-box">
-                              <input type="checkbox" name="authority" id="auth-4-18" class="form-checkbox size-lg" />
-                              <label for="auth-4-18" class="form-label">분할어음배서조회</label>
-                            </span>
-                          </div>
-                          <div>
-                            <span class="form-box">
-                              <input type="checkbox" name="authority" id="auth-4-19" class="form-checkbox size-lg" />
-                              <label for="auth-4-19" class="form-label">사고신고사전조회</label>
-                            </span>
-                          </div>
-                          <div>
-                            <span class="form-box">
-                              <input type="checkbox" name="authority" id="auth-4-20" class="form-checkbox size-lg" />
-                              <label for="auth-4-20" class="form-label">만기전 지급제시 신청</label>
-                            </span>
-                          </div>
-                          <div>
-                            <span class="form-box">
-                              <input type="checkbox" name="authority" id="auth-4-21" class="form-checkbox size-lg" />
-                              <label for="auth-4-21" class="form-label">할인신청승인내역조회</label>
-                            </span>
-                          </div>
-                          <div>
-                            <span class="form-box">
-                              <input type="checkbox" name="authority" id="auth-4-22" class="form-checkbox size-lg" />
-                              <label for="auth-4-22" class="form-label">중도반환승인내역조회</label>
-                            </span>
-                          </div>
-                          <div>
-                            <span class="form-box">
-                              <input type="checkbox" name="authority" id="auth-4-23" class="form-checkbox size-lg" />
-                              <label for="auth-4-23" class="form-label">부도어음반환승인내역조회</label>
-                            </span>
-                          </div>
-                          <div>
-                            <span class="form-box">
-                              <input type="checkbox" name="authority" id="auth-4-24" class="form-checkbox size-lg" />
-                              <label for="auth-4-24" class="form-label">기한후배서승인내역조회</label>
-                            </span>
-                          </div>
-                        </div>
+                    <!-- 2. 전자어음 전체선택 박스 영역 -->
+                    <div class="form-group">
+                      <div class="all-select-wrap">
+                        <span class="form-box">
+                          <input
+                            type="checkbox"
+                            name=""
+                            id="ElectronicBillAllCheck"
+                            class="form-checkbox size-lg"
+                          />
+                          <label
+                            for="ElectronicBillAllCheck"
+                            class="form-label"
+                          >
+                            <span class="typeH6">전자어음 전체선택</span>
+                          </label>
+                        </span>
                       </div>
-                    </fieldset>
+
+                      <!-- 전자어음 권한 -->
+                      <fieldset>
+                        <legend class="blind">전자어음 권한 메뉴 목록</legend>
+                        <div class="checkbox-group">
+                          <div class="group-title-wrap">
+                            <span class="form-box">
+                              <input
+                                type="checkbox"
+                                name=""
+                                id="ElectronicBillAllCheck2"
+                                class="form-checkbox size-lg"
+                              />
+                              <label
+                                for="ElectronicBillAllCheck2"
+                                class="form-label"
+                              >
+                                <strong class="typeH6">전자어음 권한</strong>
+                              </label>
+                            </span>
+                          </div>
+                          <div class="check-list">
+                            <div>
+                              <span class="form-box">
+                                <input
+                                  type="checkbox"
+                                  name="authority"
+                                  id="auth-4-1"
+                                  class="form-checkbox size-lg"
+                                />
+                                <label for="auth-4-1" class="form-label"
+                                  >서비스이용안내</label
+                                >
+                              </span>
+                            </div>
+                            <div>
+                              <span class="form-box">
+                                <input
+                                  type="checkbox"
+                                  name="authority"
+                                  id="auth-4-2"
+                                  class="form-checkbox size-lg"
+                                />
+                                <label for="auth-4-2" class="form-label"
+                                  >어음발행</label
+                                >
+                              </span>
+                            </div>
+                            <div>
+                              <span class="form-box">
+                                <input
+                                  type="checkbox"
+                                  name="authority"
+                                  id="auth-4-3"
+                                  class="form-checkbox size-lg"
+                                />
+                                <label for="auth-4-3" class="form-label"
+                                  >어음발행(발행전보증)</label
+                                >
+                              </span>
+                            </div>
+                            <div>
+                              <span class="form-box">
+                                <input
+                                  type="checkbox"
+                                  name="authority"
+                                  id="auth-4-4"
+                                  class="form-checkbox size-lg"
+                                />
+                                <label for="auth-4-4" class="form-label"
+                                  >발행어음조회</label
+                                >
+                              </span>
+                            </div>
+                            <div>
+                              <span class="form-box">
+                                <input
+                                  type="checkbox"
+                                  name="authority"
+                                  id="auth-4-5"
+                                  class="form-checkbox size-lg"
+                                />
+                                <label for="auth-4-5" class="form-label"
+                                  >발행보증어음조회(발행보증인)</label
+                                >
+                              </span>
+                            </div>
+                            <div>
+                              <span class="form-box">
+                                <input
+                                  type="checkbox"
+                                  name="authority"
+                                  id="auth-4-6"
+                                  class="form-checkbox size-lg"
+                                />
+                                <label for="auth-4-6" class="form-label"
+                                  >발행보증어음조회(발행인/배서인)</label
+                                >
+                              </span>
+                            </div>
+                            <div>
+                              <span class="form-box">
+                                <input
+                                  type="checkbox"
+                                  name="authority"
+                                  id="auth-4-7"
+                                  class="form-checkbox size-lg"
+                                />
+                                <label for="auth-4-7" class="form-label"
+                                  >배서어음조회</label
+                                >
+                              </span>
+                            </div>
+                            <div>
+                              <span class="form-box">
+                                <input
+                                  type="checkbox"
+                                  name="authority"
+                                  id="auth-4-8"
+                                  class="form-checkbox size-lg"
+                                />
+                                <label for="auth-4-8" class="form-label"
+                                  >수취어음조회</label
+                                >
+                              </span>
+                            </div>
+                            <div>
+                              <span class="form-box">
+                                <input
+                                  type="checkbox"
+                                  name="authority"
+                                  id="auth-4-9"
+                                  class="form-checkbox size-lg"
+                                />
+                                <label for="auth-4-9" class="form-label"
+                                  >만기결제어음조회</label
+                                >
+                              </span>
+                            </div>
+                            <div>
+                              <span class="form-box">
+                                <input
+                                  type="checkbox"
+                                  name="authority"
+                                  id="auth-4-10"
+                                  class="form-checkbox size-lg"
+                                />
+                                <label for="auth-4-10" class="form-label"
+                                  >부도어음조회</label
+                                >
+                              </span>
+                            </div>
+                            <div>
+                              <span class="form-box">
+                                <input
+                                  type="checkbox"
+                                  name="authority"
+                                  id="auth-4-11"
+                                  class="form-checkbox size-lg"
+                                />
+                                <label for="auth-4-11" class="form-label"
+                                  >상환청구조회</label
+                                >
+                              </span>
+                            </div>
+                            <div>
+                              <span class="form-box">
+                                <input
+                                  type="checkbox"
+                                  name="authority"
+                                  id="auth-4-12"
+                                  class="form-checkbox size-lg"
+                                />
+                                <label for="auth-4-12" class="form-label"
+                                  >상환청구</label
+                                >
+                              </span>
+                            </div>
+                            <div>
+                              <span class="form-box">
+                                <input
+                                  type="checkbox"
+                                  name="authority"
+                                  id="auth-4-13"
+                                  class="form-checkbox size-lg"
+                                />
+                                <label for="auth-4-13" class="form-label"
+                                  >반환어음조회</label
+                                >
+                              </span>
+                            </div>
+                            <div>
+                              <span class="form-box">
+                                <input
+                                  type="checkbox"
+                                  name="authority"
+                                  id="auth-4-14"
+                                  class="form-checkbox size-lg"
+                                />
+                                <label for="auth-4-14" class="form-label"
+                                  >이용자조회</label
+                                >
+                              </span>
+                            </div>
+                            <div>
+                              <span class="form-box">
+                                <input
+                                  type="checkbox"
+                                  name="authority"
+                                  id="auth-4-15"
+                                  class="form-checkbox size-lg"
+                                />
+                                <label for="auth-4-15" class="form-label"
+                                  >어음할인신청</label
+                                >
+                              </span>
+                            </div>
+                            <div>
+                              <span class="form-box">
+                                <input
+                                  type="checkbox"
+                                  name="authority"
+                                  id="auth-4-16"
+                                  class="form-checkbox size-lg"
+                                />
+                                <label for="auth-4-16" class="form-label"
+                                  >어음할인신청내역조회</label
+                                >
+                              </span>
+                            </div>
+                            <div>
+                              <span class="form-box">
+                                <input
+                                  type="checkbox"
+                                  name="authority"
+                                  id="auth-4-17"
+                                  class="form-checkbox size-lg"
+                                />
+                                <label for="auth-4-17" class="form-label"
+                                  >결제요청내역조회</label
+                                >
+                              </span>
+                            </div>
+                            <div>
+                              <span class="form-box">
+                                <input
+                                  type="checkbox"
+                                  name="authority"
+                                  id="auth-4-18"
+                                  class="form-checkbox size-lg"
+                                />
+                                <label for="auth-4-18" class="form-label"
+                                  >분할어음배서조회</label
+                                >
+                              </span>
+                            </div>
+                            <div>
+                              <span class="form-box">
+                                <input
+                                  type="checkbox"
+                                  name="authority"
+                                  id="auth-4-19"
+                                  class="form-checkbox size-lg"
+                                />
+                                <label for="auth-4-19" class="form-label"
+                                  >사고신고사전조회</label
+                                >
+                              </span>
+                            </div>
+                            <div>
+                              <span class="form-box">
+                                <input
+                                  type="checkbox"
+                                  name="authority"
+                                  id="auth-4-20"
+                                  class="form-checkbox size-lg"
+                                />
+                                <label for="auth-4-20" class="form-label"
+                                  >만기전 지급제시 신청</label
+                                >
+                              </span>
+                            </div>
+                            <div>
+                              <span class="form-box">
+                                <input
+                                  type="checkbox"
+                                  name="authority"
+                                  id="auth-4-21"
+                                  class="form-checkbox size-lg"
+                                />
+                                <label for="auth-4-21" class="form-label"
+                                  >할인신청승인내역조회</label
+                                >
+                              </span>
+                            </div>
+                            <div>
+                              <span class="form-box">
+                                <input
+                                  type="checkbox"
+                                  name="authority"
+                                  id="auth-4-22"
+                                  class="form-checkbox size-lg"
+                                />
+                                <label for="auth-4-22" class="form-label"
+                                  >중도반환승인내역조회</label
+                                >
+                              </span>
+                            </div>
+                            <div>
+                              <span class="form-box">
+                                <input
+                                  type="checkbox"
+                                  name="authority"
+                                  id="auth-4-23"
+                                  class="form-checkbox size-lg"
+                                />
+                                <label for="auth-4-23" class="form-label"
+                                  >부도어음반환승인내역조회</label
+                                >
+                              </span>
+                            </div>
+                            <div>
+                              <span class="form-box">
+                                <input
+                                  type="checkbox"
+                                  name="authority"
+                                  id="auth-4-24"
+                                  class="form-checkbox size-lg"
+                                />
+                                <label for="auth-4-24" class="form-label"
+                                  >기한후배서승인내역조회</label
+                                >
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </fieldset>
+                    </div>
+
+                    <!-- 하위그룹이 없을때 -->
+                    <div class="form-group">
+                      <div class="all-select-wrap">
+                        <span class="form-box">
+                          <input
+                            type="checkbox"
+                            name=""
+                            id="NoSubgroupCaseCheck"
+                            class="form-checkbox size-lg"
+                          />
+                          <label for="NoSubgroupCaseCheck" class="form-label">
+                            <span class="typeH6">하위그룹이 없을때 케이스(참고)</span>
+                          </label>
+                        </span>
+                      </div>
+
+                      <!-- 고객권한 관리 -->
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <!-- Tab Content 07 -->
-              <div class="box-tab-content" id="tabPanelTypeOutline07" role="tabpanel"
-                aria-labelledby="tabBtnTypeOutline07" style="display: none">
-                <h3 class="blind">스마트뱅킹 전용 메뉴권한</h3>
-                Tab 본문 07
-              </div>
+                <!-- Tab Content 07 -->
+                <div
+                  class="box-tab-content"
+                  id="tabPanelTypeOutline07"
+                  role="tabpanel"
+                  aria-labelledby="tabBtnTypeOutline07"
+                  style="display: none"
+                >
+                  <h3 class="blind">Tab Content07</h3>
+                  Tab 본문 07
+                </div>
 
-              <!-- 하단 버튼 및 공통 이용안내 영역 -->
-              <div class="btn-wrap center lg-bot">
-                <button type="button" class="btn type-line-neutral size-xxl">
-                  <span class="text">취소</span>
-                </button>
-                <button type="button" class="btn type-bg-primary size-xxl">
-                  <span class="text">확인</span>
-                </button>
-              </div>
-              <div class="line-box size-xl mt-48">
-                <span class="typeLgSemibold">이용안내</span>
-                <div class="list type-dotted">
-                  <ul>
-                    <li class="typeMd">
-                      사용자를 선택하여 메뉴권한을 변경할 수 있습니다.
-                    </li>
-                  </ul>
+                <!-- 하단 버튼 및 공통 이용안내 영역 -->
+                <div class="btn-wrap center lg-bot">
+                  <button type="button" class="btn type-line-neutral size-xxl">
+                    <span class="text">취소</span>
+                  </button>
+                  <button type="button" class="btn type-bg-primary size-xxl">
+                    <span class="text">확인</span>
+                  </button>
+                </div>
+                <div class="line-box size-xl mt-48">
+                  <span class="typeLgSemibold">이용안내</span>
+                  <div class="list type-dotted">
+                    <ul>
+                      <li class="typeMd">
+                        사용자를 선택하여 메뉴권한을 변경할 수 있습니다.
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
       </div>
-      <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
     </div>
-    <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
-  </div>
-  <script src="/static/js/ui/cib_ui_common.js"></script>
-</body>
-
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
 </html>
 <script></script>
