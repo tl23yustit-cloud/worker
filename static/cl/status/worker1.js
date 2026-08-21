@@ -17,4 +17,10 @@ module.exports = {
         worker: "변혜선",
         note: ""
     },
+    "bop/foe/03/01/CIBFOE030101000M.html": {
+        title: "이율조회_외화정기예금",
+        status: "진행중",
+        worker: "변혜선",
+        note: ""
+    },
 };
