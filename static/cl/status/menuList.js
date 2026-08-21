@@ -178,7 +178,7 @@ module.exports = {
     },
     "bop/crd/04/01/CIBCRD040101000T.html": {
         title: "사업장 이용내역조회(실시간 승인내역(Tab)",
-        status: "검수중",
+        status: "진행중",
         worker: "변혜선",
         note: ""
     },
@@ -224,8 +224,8 @@ module.exports = {
     "dts/02/03/CIBDTS020300000M.html": { title: "우대금리예상조회(없음)", status: "검수중", worker: "변혜선", note: "" },
     "bop/foe/09/04/CIBFOE090400000M.html": { title: "계좌(REF)조회_번호입력", status: "검수중", worker: "변혜선", note: "" },
     "bop/foe/09/04/01/CIBFOE090401000M.html": { title: "계좌(REF)조회_상세", status: "검수중", worker: "변혜선", note: "주석확인" },
-    "bop/foe/dli/od/CIBFOE090200000M.html": { title: "", status: "검수중", worker: "변혜선", note: "" },
-    "bop/foe/dli/od/detail/CIBFOE090201000M.html": { title: "", status: "검수중", worker: "변혜선", note: "주석확인" },
+    "bop/foe/09/02/CIBFOE090200000M.html": { title: "개설내역_목록", status: "검수중", worker: "변혜선", note: "" },
+    "bop/foe/09/02/01/CIBFOE090201000M.html": { title: "개설내역_상세", status: "검수중", worker: "변혜선", note: "주석확인" },
     "bop/foe/09/03/CIBFOE090300000M.html": { title: "결제대상내역_목록", status: "검수중", worker: "변혜선", note: "" },
     "bop/foe/fce/fce/CIBFOE050102000M.html": { title: "", status: "완료", worker: "변혜선", note: "주석확인" },
     "bop/foe/fx/ctl/한도조회.html": { title: "", status: "수정중", worker: "변혜선", note: "" },
@@ -233,9 +233,9 @@ module.exports = {
     "bop/foe/import/oilc/수입신용장전문조회_목록.html": { title: "", status: "수정중", worker: "변혜선", note: "" },
     "bop/foe/import/oilc/L_G_발급신청_조회.html": { title: "", status: "수정중", worker: "변혜선", note: "" },
     "bop/foe/or/dor/CIBFOE040301004p.html": { title: "", status: "검수중", worker: "변혜선", note: "" },
-    "bop/foe/or/dor/eri/mfur/CIBFOE040104004P.html": { title: "", status: "검수중", worker: "변혜선", note: "" },
-    "bop/foe/or/dor/eri/ns/CIBFOE040104002P.html": { title: "", status: "검수중", worker: "변혜선", note: "주석확인" },
-    "bop/foe/or/dor/eri/swiftcode/CIBFOE040104003P.html": { title: "", status: "검수중", worker: "변혜선", note: "" },
+    "bop/foe/04/01/04/002/CIBFOE040104002P.html": { title: "[팝업]국가검색", status: "검수중", worker: "변혜선", note: "주석확인" },
+    "bop/foe/04/01/04/003/CIBFOE040104003P.html": { title: "[팝업]SWIFTCODE_SWIFTCODE", status: "검수중", worker: "변혜선", note: "" },
+    "bop/foe/04/01/04/004/CIBFOE040104004P.html": { title: "[팝업]자주쓰는송금계좌", status: "검수중", worker: "변혜선", note: "" },
     
     // 외환(foe)
     "foe/04/04/01/CIBFOE040401000T.html": { title: "자주쓰는송금계좌관리_국내외화이체_목록", status: "완료", worker: "변혜선", note: "주석확인" },
@@ -243,22 +243,22 @@ module.exports = {
     "foe/04/04/02/CIBFOE040402000T.html": { title: "자주쓰는송금계좌관리_해외송금_목록", status: "완료", worker: "변혜선", note: "주석확인" },
     "foe/04/04/02/01/CIBFOE04040201M.html": { title: "자주쓰는송금계좌관리_해외송금_등록", status: "검수중", worker: "변혜선", note: "주석확인" },
     "foe/09/01/CIBFOE090100000M.html": { title: "매입명세_목록", status: "완료", worker: "변혜선", note: "주석확인" },
-    "bop/foe/or/orhistory/CIBFOE040300000M.html": { title: "", status: "검수중", worker: "손창우,변혜선", note: "" },
-    "bop/foe/or/orhistory/di/CIBFOE040301000M.html": { title: "", status: "검수중", worker: "변혜선", note: "" },
-    "bop/foe/or/orhistory/di/crcic/CIBFOE040301001M.html": { title: "", status: "검수중", worker: "변혜선", note: "" },
-    "bop/foe/or/orhistory/di/crrcic/CIBFOE040301002M.html": { title: "", status: "검수중", worker: "변혜선", note: "주석확인" },
-    "bop/foe/or/orhistory/di/ri/CIBFOE040301004p.html": { title: "", status: "검수중", worker: "변혜선", note: "" },
-    "bop/foe/or/orhistory/di/sfcr/CIBFOE040301003p.html": { title: "", status: "검수중", worker: "변혜선", note: "" },
-    "bop/lon/01/01/CIBLON010101000M.html": { title: "", status: "검수중", worker: "변혜선", note: "" },
+    "bop/foe/04/03/CIBFOE040300000M.html": { title: "외화송금내역조회_목록", status: "검수중", worker: "손창우,변혜선", note: "" },
+    "bop/foe/04/03/01/CIBFOE040301000M.html": { title: "외화송금내역_상세조회", status: "검수중", worker: "변혜선", note: "" },
+    "bop/foe/04/03/01/001/CIBFOE040301001M.html": { title: "외화송금내역조회_기업송금송금취소_정보확인", status: "검수중", worker: "변혜선", note: "" },
+    "bop/foe/04/03/01/002/CIBFOE040301002M.html": { title: "외화송금내역조회_기업송금송금취소_취소확인", status: "검수중", worker: "변혜선", note: "주석확인" },
+    "bop/foe/04/03/01/003/CIBFOE040301003p.html": { title: "[팝업]외화송금내역서", status: "검수중", worker: "변혜선", note: "" },
+    "bop/foe/04/03/01/003/CIBFOE040301004p.html": { title: "[팝업]외화송금계산서", status: "검수중", worker: "변혜선", note: "" },
+    "bop/lon/01/01/CIBLON010101000M.html": { title: "", status: "진행중", worker: "변혜선", note: "" },
     "bop/lon/01/01/CIBLON010101000M.html": {
         title: "대출보유계좌조회_정상계좌조회",
-        status: "검수중",
+        status: "진행중",
         worker: "변혜선",
         note: ""
     },
     "bop/lon/01/01/CIBLON010102000M.html": {
         title: "대출보유계좌조회_해지계좌조회",
-        status: "검수중",
+        status: "진행중",
         worker: "변혜선",
         note: ""
     },
@@ -290,7 +290,6 @@ module.exports = {
     
     // 대출(lon) > 조회
     "lon/01/03/CIBLON010103000p.html": { title: "계좌상세조회", status: "검수중", worker: "변혜선", note: "" },
-    "lon/01/03/CIBLON010103000p_01.html": { title: "계좌상세조회", status: "검수중", worker: "변혜선", note: "" },
     "bop/lon/01/01/04/CIBLON010104000p.html": { title: "대출 상세조회", status: "검수중", worker: "변혜선", note: "" },
     "bop/lon/01/01/04/CIBLON010104000p_01.html": { title: "대출 상세조회", status: "검수중", worker: "변혜선", note: "" },
     "lon/01/05/CIBLON010105000p.html": { title: "상환스케줄", status: "수정중", worker: "변혜선", note: "" },
@@ -418,7 +417,7 @@ module.exports = {
         worker: "이상우",
         note: ""
     },
-    "foe/04/01/03/001/CIBFOE040103001P.html": {
+    "bop/foe/04/01/03/001/CIBFOE040103001P.html": {
         title: "[팝업]외화거래이용약관",
         status: "검수중",
         worker: "이상우",
