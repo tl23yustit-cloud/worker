@@ -248,7 +248,7 @@ module.exports = {
     "bop/foe/04/03/01/001/CIBFOE040301001M.html": { title: "외화송금내역조회_기업송금송금취소_정보확인", status: "검수중", worker: "변혜선", note: "" },
     "bop/foe/04/03/01/002/CIBFOE040301002M.html": { title: "외화송금내역조회_기업송금송금취소_취소확인", status: "검수중", worker: "변혜선", note: "주석확인" },
     "bop/foe/04/03/01/003/CIBFOE040301003p.html": { title: "[팝업]외화송금내역서", status: "검수중", worker: "변혜선", note: "" },
-    "bop/foe/04/03/01/003/CIBFOE040301004p.html": { title: "[팝업]외화송금계산서", status: "검수중", worker: "변혜선", note: "" },
+    "bop/foe/04/03/01/004/CIBFOE040301004p.html": { title: "[팝업]외화송금계산서", status: "검수중", worker: "변혜선", note: "" },
     "bop/lon/01/01/CIBLON010101000M.html": { title: "", status: "진행중", worker: "변혜선", note: "" },
     "bop/lon/01/01/CIBLON010101000M.html": {
         title: "대출보유계좌조회_정상계좌조회",
