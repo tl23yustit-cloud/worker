@@ -41,4 +41,10 @@ module.exports = {
         worker: "변혜선",
         note: ""
     },
+    "b2b/01/03/02/001/CIBB2B010302001M.html": {
+        title: "추심의뢰대상내역조회입력",
+        status: "진행중",
+        worker: "변혜선",
+        note: ""
+    },
 };
