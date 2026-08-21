@@ -268,7 +268,7 @@ module.exports = {
         worker: "변혜선",
         note: ""
     },
-    "bop/lon/inq/우대금리실적조회/CIBLON010602000M.html": {
+    "bop/lon/01/06/CIBLON010602000M.html": {
         title: "우대금리 실적조회_조회결과",
         status: "검수중",
         worker: "변혜선",
