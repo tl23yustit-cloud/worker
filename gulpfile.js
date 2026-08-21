@@ -10,13 +10,13 @@ const fileinclude = require('gulp-file-include');
 const fg = require("fast-glob");
 
 // ==========================================
-// 💡 [환경 설정 플래그]
-// true  : SVN 환경 (svn info 명령어 기준 수정일 계산)
-// false : Git 환경 (git log 명령어 기준 수정일 계산)
+// 💡 [최적화 설정 플래그]
+// true  : 개발 중 (git/svn 명령어 안 씀 -> 속도 초고속 🚀)
+// false : 빌드/배포 전용 (git/svn 로그 수집 켜기)
 // ==========================================
 const IS_SVN_MODE = false; 
+const IS_FAST_DEV_MODE = true; // 💡 개발 시에는 git log 조회를 꺼서 속도를 극대화합니다.
 
-// [초기화]
 function clean(cb) {
     if (fs.existsSync('dist')) {
         fs.rmSync('dist', { recursive: true, force: true });
@@ -24,13 +24,12 @@ function clean(cb) {
     cb();
 }
 
-// 캐싱용 Map 객체들 (성능 최적화 핵심)
 const mdCache = new Map();
-const timeCache = new Map(); // 💡 파일별 날짜 결과 캐싱
+const timeCache = new Map();
 
 function clearCaches(cb) {
     mdCache.clear();
-    timeCache.clear(); // 빌드/와치 시 캐시 초기화
+    timeCache.clear();
     cb();
 }
 
@@ -70,59 +69,51 @@ function getDepthsFromMD(htmlFilePath) {
         }
 
         mdCache.set(currentPath, { depthName, missingPart });
-        
         if (missingPart) missing.push(missingPart);
         depths.push(depthName);
     }
-    
     return { depths, missing }; 
 }
 
-// 💡 [최적화된 수정일 가져오기 함수 (캐싱 적용)]
 function getFileModifiedTime(filePath, stat) {
-    // 이미 조회한 적이 있는 파일이라면 캐시된 값을 즉시 반환 (속도 극대화)
     if (timeCache.has(filePath)) {
         return timeCache.get(filePath);
     }
 
     let modifiedTime = null;
 
-    try {
-        const relativePath = path.relative(process.cwd(), filePath).replace(/\\/g, '/');
-
-        if (IS_SVN_MODE) {
-            const svnOutput = execSync(`svn info "${relativePath}"`, { encoding: 'utf8' });
-            const match = svnOutput.match(/Last Changed Date:\s+([^\n]+)/);
-            if (match && match[1]) {
-                const dateObj = new Date(match[1].trim());
-                if (!isNaN(dateObj.getTime())) {
-                    modifiedTime = dateObj.toLocaleString("ko-KR");
+    // 💡 개발 모드이고 빠른 속도가 필요할 때는 무거운 git/svn 명령어를 생략합니다.
+    if (!IS_FAST_DEV_MODE) {
+        try {
+            const relativePath = path.relative(process.cwd(), filePath).replace(/\\/g, '/');
+            if (IS_SVN_MODE) {
+                const svnOutput = execSync(`svn info "${relativePath}"`, { encoding: 'utf8' });
+                const match = svnOutput.match(/Last Changed Date:\s+([^\n]+)/);
+                if (match && match[1]) {
+                    const dateObj = new Date(match[1].trim());
+                    if (!isNaN(dateObj.getTime())) modifiedTime = dateObj.toLocaleString("ko-KR");
+                }
+            } else {
+                const gitTimeStr = execSync(`git log -1 --format="%cd" --date=iso-strict "${relativePath}"`, { encoding: 'utf8' }).trim();
+                if (gitTimeStr) {
+                    const dateObj = new Date(gitTimeStr);
+                    if (!isNaN(dateObj.getTime())) modifiedTime = dateObj.toLocaleString("ko-KR");
                 }
             }
-        } else {
-            const gitTimeStr = execSync(`git log -1 --format="%cd" --date=iso-strict "${relativePath}"`, { encoding: 'utf8' }).trim();
-            if (gitTimeStr) {
-                const dateObj = new Date(gitTimeStr);
-                if (!isNaN(dateObj.getTime())) {
-                    modifiedTime = dateObj.toLocaleString("ko-KR");
-                }
-            }
+        } catch (e) {
+            // 에러 시 폴백
         }
-    } catch (e) {
-        // 에러 발생 시 mtime 폴백
     }
 
-    // 만약 명령어 결과가 없다면 파일 시스템 mtime 사용
+    // 명령어를 안 쓰거나 실패한 경우 파일 시스템 mtime 즉시 사용 (0.1ms 컷)
     if (!modifiedTime) {
         modifiedTime = stat.mtime.toLocaleString("ko-KR");
     }
 
-    // 메모리에 결과 저장
     timeCache.set(filePath, modifiedTime);
     return modifiedTime;
 }
 
-// 퍼블리스트용 JSON 자동 생성
 function generatePubList(done) {
     let statusMap = {};
     const statusJsPath = path.resolve('./static/cl/status/status.js');
@@ -221,7 +212,9 @@ function watchFiles() {
     const browserSync = require('browser-sync').create();
     browserSync.init({ server: { baseDir: './dist', index: 'static/html/pub/index.html' }, port: 3000 });
 
-    // 💡 개별 파일 수정 시 해당 파일만 캐시를 지우고 빠르게 반영하도록 최적화
+    // 루트 index.html 감시 추가
+    gulp.watch('index.html', gulp.series(html, (done) => { browserSync.reload(); done(); }));
+    
     gulp.watch(['static/html/**/*.html', '!static/html/**/*.md'], gulp.series(generatePubList, html, (done) => { browserSync.reload(); done(); }));
     gulp.watch('static/html/**/*.md', gulp.series(clearCaches, generatePubList, (done) => { browserSync.reload(); done(); }));
     gulp.watch('static/cl/status/**/*.js', gulp.series(generatePubList, (done) => { browserSync.reload(); done(); }));
