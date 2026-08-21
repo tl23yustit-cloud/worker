@@ -1,12 +1,20 @@
 const gulp = require('gulp');
 const fs = require('fs');
 const path = require('path');
+const { execSync } = require('child_process'); // Git 명령어 실행용
 const sass = require('gulp-sass')(require('sass'));
 const sourcemaps = require('gulp-sourcemaps');
 const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
 const fileinclude = require('gulp-file-include');
 const fg = require("fast-glob");
+
+// ==========================================
+// 💡 [환경 설정 플래그]
+// true  : Git 환경 (마지막 커밋 날짜 기준 수정일 계산)
+// false : SVN / 내부망 환경 (파일 시스템 mtime 기준 수정일 계산)
+// ==========================================
+const IS_GIT_MODE = true; 
 
 // [초기화]
 function clean(cb) {
@@ -16,10 +24,9 @@ function clean(cb) {
     cb();
 }
 
-// 💡 [개선 1] .md 파일 내용 캐싱용 Map 객체 (디스크 I/O 최소화)
+// .md 파일 내용 캐싱용 Map 객체
 const mdCache = new Map();
 
-// .md 캐시 초기화 함수 (Watch에서 활용)
 function clearMdCache(cb) {
     mdCache.clear();
     cb();
@@ -39,12 +46,11 @@ function getDepthsFromMD(htmlFilePath) {
     for (const part of parts) {
         currentPath = path.join(currentPath, part);
         
-        // 💡 캐시 확인: 이미 탐색한 폴더면 파일 시스템(fs) 접근 패스
         if (mdCache.has(currentPath)) {
             const cached = mdCache.get(currentPath);
             if (cached.missingPart) missing.push(cached.missingPart);
             depths.push(cached.depthName);
-            continue; // 아래 로직 생략하고 다음 뎁스로 진행
+            continue;
         }
 
         const mdPath1 = path.join(currentPath, '.md');
@@ -61,7 +67,6 @@ function getDepthsFromMD(htmlFilePath) {
             missingPart = part;
         }
 
-        // 💡 탐색 결과 캐싱
         mdCache.set(currentPath, { depthName, missingPart });
         
         if (missingPart) missing.push(missingPart);
@@ -71,6 +76,28 @@ function getDepthsFromMD(htmlFilePath) {
     return { depths, missing }; 
 }
 
+// 💡 [모드별 수정일 가져오기 함수 (경로 정규화 적용)]
+function getFileModifiedTime(filePath, stat) {
+    if (IS_GIT_MODE) {
+        try {
+            // 프로젝트 루트 기준의 올바른 상대 경로로 변환 후 백슬래시(\)를 슬래시(/)로 변경
+            const relativePath = path.relative(process.cwd(), filePath).replace(/\\/g, '/');
+
+            // 해당 파일의 마지막 커밋 날짜 가져오기
+            const gitTimeStr = execSync(`git log -1 --format="%ai" "${relativePath}"`, { encoding: 'utf8' }).trim();
+            
+            if (gitTimeStr) {
+                return new Date(gitTimeStr).toLocaleString("ko-KR");
+            }
+        } catch (e) {
+            // Git 히스토리가 없거나 에러 발생 시 아래 mtime으로 폴백
+        }
+    }
+    
+    // SVN 환경 또는 Git 커밋 내역이 없는(Untracked/Modified) 파일인 경우 파일 시스템 mtime 사용
+    return stat.mtime.toLocaleString("ko-KR");
+}
+
 // 퍼블리스트용 JSON 자동 생성
 function generatePubList(done) {
     let statusMap = {};
@@ -78,7 +105,6 @@ function generatePubList(done) {
     const statusDir = path.resolve('./static/cl/status');
 
     if (fs.existsSync(statusJsPath)) {
-        // 💡 [개선 2] require.cache 순회 최적화
         for (const key in require.cache) {
             if (key.startsWith(statusDir)) {
                 delete require.cache[key];
@@ -87,7 +113,6 @@ function generatePubList(done) {
         statusMap = require(statusJsPath);
     }
 
-    // 💡 [개선 3] objectMode와 stats 옵션을 켜서 fs.statSync 개별 호출 제거
     const entries = fg.sync([
         "static/html/pub/**/*.html",
         "!static/html/pub/**/layout/*.html"
@@ -95,20 +120,19 @@ function generatePubList(done) {
 
     const list = entries.map(entry => {
         const filePath = entry.path;
-        const stat = entry.stats; // fs.statSync 대용
+        const stat = entry.stats;
         const fileName = entry.name;
         const fileId = path.basename(filePath, ".html");
         const statusKey = path.relative("static/html/pub", filePath).replace(/\\/g, "/");
         
-        const statusInfo = statusMap[statusKey] || {};
+        const statusInfo = statusMap[fileId] || statusMap[statusKey] || {};
 
         let issues = [];
-        
         const mdResult = getDepthsFromMD(filePath);
         const depths = mdResult.depths;
         const missingMdDirs = mdResult.missing;
 
-        if (!statusMap[statusKey]) {
+        if (!statusMap[fileId] && !statusMap[statusKey]) {
             issues.push("status.js 미등록");
         } 
         
@@ -127,7 +151,7 @@ function generatePubList(done) {
             worker: statusInfo.worker || "-",
             note: statusInfo.note || "-",
             link: statusKey,
-            modified: stat.mtime.toLocaleString("ko-KR"),
+            modified: getFileModifiedTime(filePath, stat),
             hasIssues: issues.length > 0,
             issueReasons: issues 
         };
@@ -173,18 +197,10 @@ function watchFiles() {
     const browserSync = require('browser-sync').create();
     browserSync.init({ server: { baseDir: './dist', index: 'static/html/pub/index.html' }, port: 3000 });
 
-    // 💡 [개선 4] Watch 영역 분리 (불필요한 HTML 빌드 방지)
-    
-    // 1. HTML이 바뀌면: JSON 갱신 + HTML 빌드
     gulp.watch(['static/html/**/*.html', '!static/html/**/*.md'], gulp.series(generatePubList, html, (done) => { browserSync.reload(); done(); }));
-    
-    // 2. MD 폴더명이 바뀌면: 캐시 삭제 + JSON만 갱신 (HTML 빌드 안 함)
     gulp.watch('static/html/**/*.md', gulp.series(clearMdCache, generatePubList, (done) => { browserSync.reload(); done(); }));
-    
-    // 3. Status 데이터가 바뀌면: JSON만 갱신 (HTML 빌드 안 함)
     gulp.watch('static/cl/status/**/*.js', gulp.series(generatePubList, (done) => { browserSync.reload(); done(); }));
 
-    // CSS 및 Assets
     gulp.watch(['static/css/**/*.scss', 'static/cl/**/*.scss'], gulp.series(styles, (done) => { browserSync.reload(); done(); }));
     gulp.watch(['static/js/**/*', 'static/images/**/*', 'static/css/**/font/**/*', 'static/cl/**/*', '!static/cl/**/*.scss'], gulp.series(copyAssets, (done) => { browserSync.reload(); done(); }));
 }
