@@ -48,7 +48,7 @@
       a.preview-link:hover { background: #dbeafe; }
 
       .col-status { width: 90px; min-width: 90px; text-align: center !important; }
-      .col-date { width: 100px; min-width: 100px; text-align: center !important; }
+      .col-date { width: 120px; min-width: 120px; text-align: center !important; font-size: 13px; color: #475569; white-space: nowrap; }
       .col-preview { width: 80px; min-width: 80px; text-align: center !important; }
       .col-worker { width: 90px; min-width: 90px; text-align: center !important; }
 
@@ -142,6 +142,14 @@
         let rawData = [];
         let isDevMode = false;
 
+        // 💡 화면에는 날짜만 출력하고, 마우스를 올리면 전체 시간이 툴팁(title)으로 표시됨
+        const formatModifiedDate = (modStr) => {
+          if (!modStr) return "-";
+          const parts = modStr.split(',');
+          const dateOnly = parts[0] ? parts[0].trim() : modStr;
+          return `<span title="${modStr}">${dateOnly}</span>`;
+        };
+
         const utils = {
           highlight: (text, keyword) => {
             if (!keyword || !text) return text || "-";
@@ -197,11 +205,9 @@
             let issueReasons = item.issueReasons ? [...item.issueReasons] : [];
             let resolvedDepths;
 
-            // 💡 [수정] 무시 폴더일 경우 별도의 뎁스로 강제 분류 및 에러(이슈) 제거
             if (isIgnoredFolder) {
-              // 테이블 경로에 원본 폴더명을 함께 표시해주기 위해 원본 폴더명을 뒤에 붙여줌
               resolvedDepths = ["무시 폴더 (Ignore)", ...rawFolders];
-              issueReasons = []; // 이슈 뱃지가 뜨지 않도록 제거
+              issueReasons = []; 
             } else {
               const isStatusRegistered = !issueReasons.includes("status.js 미등록");
               resolvedDepths = (isDevMode || isStatusRegistered) && item.depths && item.depths.length > 0
@@ -213,29 +219,24 @@
             return { ...item, displayDepths: resolvedDepths, rawFolders, isIgnoredFolder, issueReasons };
           });
 
-          // 무시 폴더 숨기기 로직 (일반 모드일 때만 숨김)
           const visibleData = processed.filter(item => {
             if (!isDevMode && item.isIgnoredFolder) return false;
             return true;
           });
 
-          // 검색 필터
           const filtered = visibleData.filter(item => {
             const fields = [item.title, item.file, item.worker, item.note, item.displayDepths.join("/")].join(" ").toLowerCase();
             return fields.includes(keyword);
           });
 
-          // 한글 뎁스명 및 화면명 기준 가나다순 정렬 로직
           filtered.sort((a, b) => {
             const depthA = a.displayDepths.join('/');
             const depthB = b.displayDepths.join('/');
             
-            // 1. 뎁스 경로(한글명) 기준으로 정렬
             if (depthA !== depthB) {
               return depthA.localeCompare(depthB, 'ko-KR');
             }
             
-            // 2. 경로가 같다면 화면명(title) 기준으로 정렬
             const titleA = a.title || '';
             const titleB = b.title || '';
             return titleA.localeCompare(titleB, 'ko-KR');
@@ -246,7 +247,6 @@
           if (isDevMode) {
             const valid = [], invalid = [];
             filtered.forEach(item => {
-              // 무시 폴더는 에러 검사 로직을 통과시킴 (상단 warning 영역에 노출 안 됨)
               if (item.isIgnoredFolder) {
                 valid.push(item);
                 return;
@@ -286,7 +286,7 @@
               groups[group].forEach(item => {
                 let depthTd = "";
                 for (let i = 0; i < maxDepth; i++) depthTd += `<td>${utils.highlight(item.displayDepths[i] || "-", keyword)}</td>`;
-                html += `<tr>${depthTd}<td><b>${utils.highlight(item.title, keyword)}</b></td><td>${utils.highlight(item.fileId || item.file, keyword)}</td><td class="col-status"><span class="status ${utils.getStatusClass(item.status)}">${item.status || "대기"}</span></td><td class="col-date">${item.modified ? item.modified.substring(0,10) : "-"}</td><td class="col-preview"><a href="${utils.getPageUrl(item.link)}" target="_blank" rel="noopener noreferrer" class="preview-link">열기</a></td><td class="col-worker">${utils.highlight(item.worker, keyword)}</td><td class="note">${utils.highlight(item.note, keyword)}</td></tr>`;
+                html += `<tr>${depthTd}<td><b>${utils.highlight(item.title, keyword)}</b></td><td>${utils.highlight(item.fileId || item.file, keyword)}</td><td class="col-status"><span class="status ${utils.getStatusClass(item.status)}">${item.status || "대기"}</span></td><td class="col-date">${formatModifiedDate(item.modified)}</td><td class="col-preview"><a href="${utils.getPageUrl(item.link)}" target="_blank" rel="noopener noreferrer" class="preview-link">열기</a></td><td class="col-worker">${utils.highlight(item.worker, keyword)}</td><td class="note">${utils.highlight(item.note, keyword)}</td></tr>`;
               });
               html += `</tbody></table></div></section>`;
             });
@@ -334,7 +334,7 @@
                       if (hasRealIssue) trClass = "dev-issue";
                       noteHtml = `<div style="margin-bottom:4px;">${badges}</div>${noteHtml !== "-" ? noteHtml : ""}`;
                     }
-                    return `<tr class="${trClass}"><td class="depth-path">${paths}</td><td><b>${utils.highlight(item.title, keyword)}</b></td><td>${utils.highlight(item.fileId || item.file, keyword)}</td><td class="col-status"><span class="status ${utils.getStatusClass(item.status)}">${item.status || '대기'}</span></td><td class="col-date">${(item.modified || "").substring(0,10)}</td><td class="col-preview"><a href="${utils.getPageUrl(item.link)}" target="_blank" rel="noopener noreferrer" class="preview-link">열기</a></td><td class="col-worker">${utils.highlight(item.worker, keyword)}</td><td class="note">${utils.highlight(noteHtml, keyword)}</td></tr>`;
+                    return `<tr class="${trClass}"><td class="depth-path">${paths}</td><td><b>${utils.highlight(item.title, keyword)}</b></td><td>${utils.highlight(item.fileId || item.file, keyword)}</td><td class="col-status"><span class="status ${utils.getStatusClass(item.status)}">${item.status || '대기'}</span></td><td class="col-date">${formatModifiedDate(item.modified)}</td><td class="col-preview"><a href="${utils.getPageUrl(item.link)}" target="_blank" rel="noopener noreferrer" class="preview-link">열기</a></td><td class="col-worker">${utils.highlight(item.worker, keyword)}</td><td class="note">${utils.highlight(noteHtml, keyword)}</td></tr>`;
                   }).join('')}
                   </tbody></table></div></div>
                 </section>`;
@@ -397,7 +397,8 @@
             isDevMode = new URLSearchParams(window.location.search).has('dev');
             
             try {
-              const res = await fetch("/static/html/pub/list.json");
+              // 💡 캐시 우회용 타임스탬프(?t=밀리초)를 추가하여 항상 최신 list.json을 불러오도록 함
+              const res = await fetch("/static/html/pub/list.json?t=" + new Date().getTime());
               rawData = await res.json();
               renderData();
               bindEvents();

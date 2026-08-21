@@ -1,7 +1,7 @@
 const gulp = require('gulp');
 const fs = require('fs');
 const path = require('path');
-const { execSync } = require('child_process'); // Git 명령어 실행용
+const { execSync } = require('child_process');
 const sass = require('gulp-sass')(require('sass'));
 const sourcemaps = require('gulp-sourcemaps');
 const postcss = require('gulp-postcss');
@@ -11,10 +11,10 @@ const fg = require("fast-glob");
 
 // ==========================================
 // 💡 [환경 설정 플래그]
-// true  : Git 환경 (마지막 커밋 날짜 기준 수정일 계산)
-// false : SVN / 내부망 환경 (파일 시스템 mtime 기준 수정일 계산)
+// true  : SVN 환경 (svn info 명령어 기준 수정일 계산)
+// false : Git 환경 (git log 명령어 기준 수정일 계산)
 // ==========================================
-const IS_GIT_MODE = true; 
+const IS_SVN_MODE = false; 
 
 // [초기화]
 function clean(cb) {
@@ -24,11 +24,13 @@ function clean(cb) {
     cb();
 }
 
-// .md 파일 내용 캐싱용 Map 객체
+// 캐싱용 Map 객체들 (성능 최적화 핵심)
 const mdCache = new Map();
+const timeCache = new Map(); // 💡 파일별 날짜 결과 캐싱
 
-function clearMdCache(cb) {
+function clearCaches(cb) {
     mdCache.clear();
+    timeCache.clear(); // 빌드/와치 시 캐시 초기화
     cb();
 }
 
@@ -76,26 +78,48 @@ function getDepthsFromMD(htmlFilePath) {
     return { depths, missing }; 
 }
 
-// 💡 [모드별 수정일 가져오기 함수 (경로 정규화 적용)]
+// 💡 [최적화된 수정일 가져오기 함수 (캐싱 적용)]
 function getFileModifiedTime(filePath, stat) {
-    if (IS_GIT_MODE) {
-        try {
-            // 프로젝트 루트 기준의 올바른 상대 경로로 변환 후 백슬래시(\)를 슬래시(/)로 변경
-            const relativePath = path.relative(process.cwd(), filePath).replace(/\\/g, '/');
-
-            // 해당 파일의 마지막 커밋 날짜 가져오기
-            const gitTimeStr = execSync(`git log -1 --format="%ai" "${relativePath}"`, { encoding: 'utf8' }).trim();
-            
-            if (gitTimeStr) {
-                return new Date(gitTimeStr).toLocaleString("ko-KR");
-            }
-        } catch (e) {
-            // Git 히스토리가 없거나 에러 발생 시 아래 mtime으로 폴백
-        }
+    // 이미 조회한 적이 있는 파일이라면 캐시된 값을 즉시 반환 (속도 극대화)
+    if (timeCache.has(filePath)) {
+        return timeCache.get(filePath);
     }
-    
-    // SVN 환경 또는 Git 커밋 내역이 없는(Untracked/Modified) 파일인 경우 파일 시스템 mtime 사용
-    return stat.mtime.toLocaleString("ko-KR");
+
+    let modifiedTime = null;
+
+    try {
+        const relativePath = path.relative(process.cwd(), filePath).replace(/\\/g, '/');
+
+        if (IS_SVN_MODE) {
+            const svnOutput = execSync(`svn info "${relativePath}"`, { encoding: 'utf8' });
+            const match = svnOutput.match(/Last Changed Date:\s+([^\n]+)/);
+            if (match && match[1]) {
+                const dateObj = new Date(match[1].trim());
+                if (!isNaN(dateObj.getTime())) {
+                    modifiedTime = dateObj.toLocaleString("ko-KR");
+                }
+            }
+        } else {
+            const gitTimeStr = execSync(`git log -1 --format="%cd" --date=iso-strict "${relativePath}"`, { encoding: 'utf8' }).trim();
+            if (gitTimeStr) {
+                const dateObj = new Date(gitTimeStr);
+                if (!isNaN(dateObj.getTime())) {
+                    modifiedTime = dateObj.toLocaleString("ko-KR");
+                }
+            }
+        }
+    } catch (e) {
+        // 에러 발생 시 mtime 폴백
+    }
+
+    // 만약 명령어 결과가 없다면 파일 시스템 mtime 사용
+    if (!modifiedTime) {
+        modifiedTime = stat.mtime.toLocaleString("ko-KR");
+    }
+
+    // 메모리에 결과 저장
+    timeCache.set(filePath, modifiedTime);
+    return modifiedTime;
 }
 
 // 퍼블리스트용 JSON 자동 생성
@@ -197,16 +221,17 @@ function watchFiles() {
     const browserSync = require('browser-sync').create();
     browserSync.init({ server: { baseDir: './dist', index: 'static/html/pub/index.html' }, port: 3000 });
 
+    // 💡 개별 파일 수정 시 해당 파일만 캐시를 지우고 빠르게 반영하도록 최적화
     gulp.watch(['static/html/**/*.html', '!static/html/**/*.md'], gulp.series(generatePubList, html, (done) => { browserSync.reload(); done(); }));
-    gulp.watch('static/html/**/*.md', gulp.series(clearMdCache, generatePubList, (done) => { browserSync.reload(); done(); }));
+    gulp.watch('static/html/**/*.md', gulp.series(clearCaches, generatePubList, (done) => { browserSync.reload(); done(); }));
     gulp.watch('static/cl/status/**/*.js', gulp.series(generatePubList, (done) => { browserSync.reload(); done(); }));
 
     gulp.watch(['static/css/**/*.scss', 'static/cl/**/*.scss'], gulp.series(styles, (done) => { browserSync.reload(); done(); }));
     gulp.watch(['static/js/**/*', 'static/images/**/*', 'static/css/**/font/**/*', 'static/cl/**/*', '!static/cl/**/*.scss'], gulp.series(copyAssets, (done) => { browserSync.reload(); done(); }));
 }
 
-const dev = gulp.series(clean, generatePubList, gulp.parallel(html, styles, copyAssets), watchFiles);
-const build = gulp.series(clean, generatePubList, html, stylesBuild, copyAssets);
+const dev = gulp.series(clean, clearCaches, generatePubList, gulp.parallel(html, styles, copyAssets), watchFiles);
+const build = gulp.series(clean, clearCaches, generatePubList, html, stylesBuild, copyAssets);
 
 exports.default = dev;
 exports.build = build;
