@@ -135,10 +135,7 @@
 
     <script>
       const app = (function() {
-        // 폴더명과 화면에 표시할 뎁스명이 다를 때 사용하는 매핑이다.
-        const depthNameMap = {
-        };
-        // 그룹 순서와 접힘 상태를 저장하는 로컬스토리지 키다.
+        const depthNameMap = {};
         const STORE_ORDER = 'suhyup_group_order';
         const STORE_TOGGLE = 'suhyup_group_toggle';
         
@@ -146,21 +143,17 @@
         let isDevMode = false;
 
         const utils = {
-          // 검색어가 포함된 텍스트를 강조 표시한다.
           highlight: (text, keyword) => {
             if (!keyword || !text) return text || "-";
             const escaped = keyword.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
             const regex = new RegExp(`(${escaped})`, 'gi');
             return String(text).replace(regex, '<mark style="background-color: #fef08a; color: #111827; padding: 0 2px; border-radius: 2px; font-weight: bold;">$1</mark>');
           },
-          // 상태값에 대응하는 스타일 클래스를 반환한다.
           getStatusClass: (status) => {
             const map = { "완료": "complete", "진행중": "progress", "검수중": "examination", "수정중": "modify", "수정완료": "modify" };
             return map[status] || "wait";
           },
-          // 목록 데이터의 상대 경로를 실제 페이지 URL로 변환한다.
           getPageUrl: (link) => `/static/html/pub/${String(link || "").replace(/^\/+/, "")}`,
-          // 개발 모드 경고 사유를 배지 HTML로 변환한다.
           getBadge: (reason) => {
             if (reason.includes("ok") || reason.includes("완벽")) return "";
             if (reason.includes("status.js 미등록")) return `<span class="issue-badge badge-red">${reason}</span>`;
@@ -168,14 +161,12 @@
             if (reason.includes("화면명 누락")) return `<span class="issue-badge badge-yellow">${reason}</span>`;
             return `<span class="issue-badge badge-red">${reason}</span>`;
           },
-          // 화면 하단에 작업 결과를 잠시 알린다.
           toast: (msg) => {
             const el = document.getElementById("toast");
             el.innerText = msg;
             el.className = "show";
             setTimeout(() => { el.className = ""; }, 3000);
           },
-          // 전체 항목과 상태별 건수를 상단 범례에 표시한다.
           renderSummary: (data) => {
             const counts = {};
             data.forEach(item => {
@@ -191,37 +182,76 @@
           }
         };
 
-        // 원본 데이터를 뎁스, 검색어, 모드에 맞게 가공한 뒤 화면을 갱신한다.
         const renderData = () => {
           const keyword = document.getElementById("search").value.toLowerCase().trim();
 
-          // MD 뎁스를 우선 사용하고 미연결 항목은 폴더명으로 표시한다.
           const processed = rawData.map(item => {
             const pathParts = (item.link || "").split('/');
             pathParts.pop(); 
             const rawFolders = pathParts;
             
-            const isStatusRegistered = !(item.issueReasons || []).includes("status.js 미등록");
-            let resolvedDepths = (isDevMode || isStatusRegistered) && item.depths && item.depths.length > 0
-              ? item.depths
-              : rawFolders;
-            if (resolvedDepths.length === 0) resolvedDepths = ["분류 미지정"];
+            const isIgnoredFolder = rawFolders.some(folder => 
+              folder.startsWith('_') || folder.toLowerCase() === 'ignore'
+            );
 
-            return { ...item, displayDepths: resolvedDepths, rawFolders };
+            let issueReasons = item.issueReasons ? [...item.issueReasons] : [];
+            let resolvedDepths;
+
+            // 💡 [수정] 무시 폴더일 경우 별도의 뎁스로 강제 분류 및 에러(이슈) 제거
+            if (isIgnoredFolder) {
+              // 테이블 경로에 원본 폴더명을 함께 표시해주기 위해 원본 폴더명을 뒤에 붙여줌
+              resolvedDepths = ["무시 폴더 (Ignore)", ...rawFolders];
+              issueReasons = []; // 이슈 뱃지가 뜨지 않도록 제거
+            } else {
+              const isStatusRegistered = !issueReasons.includes("status.js 미등록");
+              resolvedDepths = (isDevMode || isStatusRegistered) && item.depths && item.depths.length > 0
+                ? item.depths
+                : rawFolders;
+              if (resolvedDepths.length === 0) resolvedDepths = ["분류 미지정"];
+            }
+
+            return { ...item, displayDepths: resolvedDepths, rawFolders, isIgnoredFolder, issueReasons };
           });
 
-          // 제목, 파일, 작업자, 비고, 뎁스 기준으로 목록을 검색한다.
-          const filtered = processed.filter(item => {
+          // 무시 폴더 숨기기 로직 (일반 모드일 때만 숨김)
+          const visibleData = processed.filter(item => {
+            if (!isDevMode && item.isIgnoredFolder) return false;
+            return true;
+          });
+
+          // 검색 필터
+          const filtered = visibleData.filter(item => {
             const fields = [item.title, item.file, item.worker, item.note, item.displayDepths.join("/")].join(" ").toLowerCase();
             return fields.includes(keyword);
           });
 
-          utils.renderSummary(rawData);
+          // 한글 뎁스명 및 화면명 기준 가나다순 정렬 로직
+          filtered.sort((a, b) => {
+            const depthA = a.displayDepths.join('/');
+            const depthB = b.displayDepths.join('/');
+            
+            // 1. 뎁스 경로(한글명) 기준으로 정렬
+            if (depthA !== depthB) {
+              return depthA.localeCompare(depthB, 'ko-KR');
+            }
+            
+            // 2. 경로가 같다면 화면명(title) 기준으로 정렬
+            const titleA = a.title || '';
+            const titleB = b.title || '';
+            return titleA.localeCompare(titleB, 'ko-KR');
+          });
 
-          // 개발 모드에서는 정상 목록과 경고 목록을 분리한다.
+          utils.renderSummary(visibleData);
+
           if (isDevMode) {
             const valid = [], invalid = [];
             filtered.forEach(item => {
+              // 무시 폴더는 에러 검사 로직을 통과시킴 (상단 warning 영역에 노출 안 됨)
+              if (item.isIgnoredFolder) {
+                valid.push(item);
+                return;
+              }
+
               const hasNoTitle = !item.title || item.title.trim() === "";
               if (hasNoTitle) {
                 item.issueReasons = item.issueReasons || [];
@@ -239,7 +269,6 @@
         };
 
         const views = {
-          // 일반 표 형태의 목록을 렌더링한다.
           renderNormal: (data, keyword) => {
             const container = document.getElementById("list");
             if (!data.length) return container.innerHTML = "<p style='padding:20px; background:#fff; border-radius:12px; border:1px solid #e2e8f0;'>데이터가 없습니다.</p>";
@@ -264,7 +293,6 @@
             container.innerHTML = html;
           },
 
-          // 뎁스별 아코디언 목록과 그룹 순서 조작 버튼을 렌더링한다.
           renderDevAccordion: (data, keyword, showIssues) => {
             const container = document.getElementById("list");
             if (!data.length) return container.innerHTML = "<p style='padding:20px; background:#fff; border-radius:12px; border:1px solid #e2e8f0;'>표시할 데이터가 없습니다.</p>";
@@ -314,7 +342,6 @@
             container.innerHTML = html;
           },
 
-          // 개발 모드에서 메타데이터 누락 항목을 별도 표로 렌더링한다.
           renderWarning: (invalidData, keyword) => {
             const section = document.getElementById('warning-section');
             const tbody = document.getElementById('warning-body');
@@ -339,19 +366,11 @@
           }
         };
 
-        // 검색, 단축키, 미리보기 팝업 이벤트를 등록한다.
         const bindEvents = () => {
           let debounceTimer;
           document.getElementById("search").addEventListener("input", () => {
             clearTimeout(debounceTimer);
             debounceTimer = setTimeout(renderData, 250);
-          });
-
-          window.addEventListener('keydown', (e) => {
-            // if (e.target.tagName !== 'INPUT' && (e.key === '/' || (e.ctrlKey && e.key.toLowerCase() === 'f'))) {
-            //   e.preventDefault();
-            //   document.getElementById("search").focus();
-            // }
           });
 
           const popup = document.getElementById("preview-popup"), iframe = document.getElementById("preview-iframe");
@@ -374,7 +393,6 @@
         };
 
         return {
-          // 목록 데이터를 불러오고 애플리케이션을 시작한다.
           init: async () => {
             isDevMode = new URLSearchParams(window.location.search).has('dev');
             
@@ -385,14 +403,12 @@
               bindEvents();
             } catch (err) { console.error("데이터 로드 실패:", err); }
           },
-          // 그룹의 접힘 상태를 변경하고 저장한다.
           toggleSection: (element, key) => {
             element.closest('.pub-section-dev').classList.toggle('collapsed');
             const state = {};
             document.querySelectorAll('.pub-section-dev').forEach(sec => state[sec.dataset.groupKey] = sec.classList.contains('collapsed'));
             localStorage.setItem(STORE_TOGGLE, JSON.stringify(state));
           },
-          // 그룹 순서를 변경하고 변경 결과를 저장한다.
           moveGroup: (groupKey, direction) => {
             const container = document.getElementById("list");
             const sections = Array.from(container.children);
@@ -425,7 +441,6 @@
             localStorage.setItem(STORE_ORDER, JSON.stringify(order));
             utils.toast("순서가 자동 저장되었습니다.");
           },
-          // 저장된 그룹 순서와 접힘 상태를 초기화한다.
           resetAll: () => {
             if(confirm("모든 설정(순서 및 아코디언 상태)을 초기화하시겠습니까?")) {
               localStorage.removeItem(STORE_ORDER);
