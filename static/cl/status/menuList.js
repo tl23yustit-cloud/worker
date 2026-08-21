@@ -262,7 +262,7 @@ module.exports = {
         worker: "변혜선",
         note: ""
     },
-    "bop/lon/inq/우대금리실적조회/CIBLON010601000M.html": {
+    "bop/lon/01/06/CIBLON010601000M.html": {
         title: "우대금리 실적조회_조회",
         status: "검수중",
         worker: "변혜선",
@@ -274,13 +274,13 @@ module.exports = {
         worker: "변혜선",
         note: ""
     },
-    "bop/lon/inq/우대금리실적조회/CIBLON010603000p.html": {
+    "bop/lon/01/06/CIBLON010603000p.html": {
         title: "평균 잔액 조회하기",
         status: "검수중",
         worker: "변혜선",
         note: ""
     },
-    "bop/lon/inq/우대금리실적조회/CIBLON010604000p.html": {
+    "bop/lon/01/06/CIBLON010604000p.html": {
         title: "부수거래 실적 안내",
         status: "검수중",
         worker: "변혜선",
