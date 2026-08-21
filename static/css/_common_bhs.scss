@@ -1674,24 +1674,33 @@ table {
 		}
 	}
 
-	.form-box {
-		padding: var(--spacingLgXl) 0;
-
-		em {
-			color: var(--colorFgPrimary);
-			padding-right: var(--spacingXs);
+	.form-box-wrap {
+		padding: 0 0 var(--spacingLgXl) 0;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		+.form-box-wrap {
+			border-top: 1px solid var(--colorBorderSecondary);
+			padding: var(--spacingLgXl);
+			margin: 0 -20px;
+			&:last-child{
+				padding-bottom: 0;
+			}
 		}
 	}
 
+
 	.form-sbox-wrap {
-		.list{
+		.list {
 			margin-left: var(--spacingXl);
 		}
-		&:last-child{
-			.list{
-			margin-bottom: var(--spacingLg);
+
+		&:last-child {
+			.list {
+				margin-bottom: var(--spacingLg);
+			}
 		}
-		}
+
 		+.form-sbox-wrap {
 			margin-top: 28px;
 		}
