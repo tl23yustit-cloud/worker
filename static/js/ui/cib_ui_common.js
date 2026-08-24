@@ -1131,7 +1131,9 @@ function fnModal() {
 			document.documentElement.style.removeProperty('--scrollbar-width');
 		}
 	};
-
+	document.querySelectorAll('table td .typeMd').forEach((el) => {
+		el.innerHTML = el.innerHTML.replace(/원/g, ' 원');
+	});
 	document.addEventListener('click', (e) => {
 		// 1. 모달 또는 알림창 열기 버튼 클릭 (.btn-modal 또는 .btn-alert)
 		const openBtn = e.target.closest('.btn-modal, .btn-alert');
@@ -1451,6 +1453,7 @@ function fnSwiperHtmlControl() {
 document.querySelectorAll('table td .typeMd').forEach((el) => {
 	el.innerHTML = el.innerHTML.replace(/원/g, ' 원');
 });
+
 //단순프로그래스
 function setProgressBar1(target, options = {}) {
 	const el =
