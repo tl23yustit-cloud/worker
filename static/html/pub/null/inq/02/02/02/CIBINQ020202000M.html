@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>수협은행</title>
+  <link rel="stylesheet" href="/static/css/reset.css" />
+  <link rel="stylesheet" href="/static/css/layout.css" />
+  <link rel="stylesheet" href="/static/css/component.css" />
+  <link rel="stylesheet" href="/static/css/common.css" />
+  <link rel="stylesheet" href="/static/css/trn.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <div id="header">
+      @@include('static/html/pub/layout/skipNavigation.html')
+      @@include('static/html/pub/layout/header_sub.html')
+    </div>
+
+    <div id="container" class="container">
+      <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+      <div id="contents">
+        <div class="content">
+          @@include('static/html/pub/layout/breadcrumb.html')
+          <div class="bop">
+            <h2 class="typeH2">
+              거래내역파일신청
+            </h2>
+            <div class="tbl-area">
+              <table class="table-type01">
+                <caption>
+                  거래내역파일신청
+                </caption>
+                <colgroup>
+                  <col>
+                  <col>
+                  <col>
+                  <col>
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th scope="row">계좌번호</th>
+                    <td colspan="3">
+                      <div class="box-select wSize-lg">
+                        <button type="button" class="select size-lg" role="combobox" aria-expanded="false"
+                          aria-haspopup="listbox" aria-controls="selectDropdown01">
+                          <span class="text">0000-0000-0000 (기업운전일반자금대출)</span>
+                          <span class="blind">펼침</span>
+                        </button>
+                        <div id="selectDropdown01" class="box-list-select">
+                          <ul class="list-select" role="listbox" aria-label="선택 항목 리스트">
+                            <li class="item-select" role="group" aria-label="선택 항목 리스트">
+                              <!-- {dev} <span class="form-box">-> <button class="btn-item-select">로 변경(모든 드롭은 이렇게 변경)  -->
+                              <button class="btn-item-select"> 0000-0000-0000 (기업운전일반자금대출)</button>
+                            </li>
+                            <li class="item-select" role="group" aria-label="선택 항목 리스트">
+                              <!-- {dev} <span class="form-box">-> <button class="btn-item-select">로 변경(모든 드롭은 이렇게 변경)  -->
+                              <button class="btn-item-select">1</button>
+                            </li>
+                            <li class="item-select" role="group" aria-label="선택 항목 리스트">
+                              <!-- {dev} <span class="form-box">-> <button class="btn-item-select">로 변경(모든 드롭은 이렇게 변경)  -->
+                              <button class="btn-item-select">1</button>
+                            </li>
+                            <li class="item-select" role="group" aria-label="선택 항목 리스트">
+                              <!-- {dev} <span class="form-box">-> <button class="btn-item-select">로 변경(모든 드롭은 이렇게 변경)  -->
+                              <button class="btn-item-select">1</button>
+                            </li>
+                            <li class="item-select" role="group" aria-label="선택 항목 리스트">
+                              <!-- {dev} <span class="form-box">-> <button class="btn-item-select">로 변경(모든 드롭은 이렇게 변경)  -->
+                              <button class="btn-item-select">1</button>
+                            </li>
+                            <li class="item-select" role="group" aria-label="선택 항목 리스트">
+                              <!-- {dev} <span class="form-box">-> <button class="btn-item-select">로 변경(모든 드롭은 이렇게 변경)  -->
+                              <button class="btn-item-select">1</button>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">거래구분</th>
+                    <td>
+                      <div class="form-box-wrap">
+                        <span class="form-box">
+                          <input type="radio" name="SampleRadio0302" id="SampleRadio0302" class="form-radio size-md"
+                            checked="" />
+                          <label for="SampleRadio0302" class="form-label">전체</label>
+                        </span>
+                        <span class="form-box">
+                          <input type="radio" name="SampleRadio0302" id="SampleRadio0302" class="form-radio size-md" />
+                          <label for="SampleRadio0302" class="form-label">입금내역</label>
+                        </span>
+                        <span class="form-box">
+                          <input type="radio" name="SampleRadio0302" id="SampleRadio0302" class="form-radio size-md" />
+                          <label for="SampleRadio0302" class="form-label">출금내역</label>
+                        </span>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">정렬방식</th>
+                    <td>
+                      <div class="form-box-wrap">
+                        <span class="form-box">
+                          <input type="radio" name="nameOfDeposit" id="name" class="form-radio size-md" checked="" />
+                          <label for="nameOfDeposit" class="form-label">최근 거래 내역이 위로</label>
+                        </span>
+                        <span class="form-box">
+                          <input type="radio" name="nameOfDeposit" id="nameOfDeposit" class="form-radio size-md" />
+                          <label for="SampleRadio0302" class="form-label">과거 거래 내역이 위로</label>
+                        </span>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">조회기간</th>
+                    <td class="flex flex-column">
+                      <div class="tbl-column">
+                        <div class="radio-group">
+                          <span class="form-box">
+                            <input type="radio" name="SampleRadio0302_01" id="SampleRadio0302_01" class="radio-btn"
+                              checked="" />
+                            <label for="SampleRadio0302_01" class="form-label">당일</label>
+                            <input type="radio" name="SampleRadio0302_01" id="SampleRadio0302_02" class="radio-btn" />
+                            <label for="SampleRadio0302_02" class="form-label">전일</label>
+                            <input type="radio" name="SampleRadio0302_01" id="SampleRadio0302_03" class="radio-btn" />
+                            <label for="SampleRadio0302_03" class="form-label">3일전</label>
+                            <input type="radio" name="SampleRadio0302_01" id="SampleRadio0302_04" class="radio-btn" />
+                            <label for="SampleRadio0302_04" class="form-label">1주일전</label>
+                            <input type="radio" name="SampleRadio0302_01" id="SampleRadio0302_05" class="radio-btn" />
+                            <label for="SampleRadio0302_05" class="form-label">1달전</label>
+                            <input type="radio" name="SampleRadio0302_01" id="SampleRadio0302_06" class="radio-btn" />
+                            <label for="SampleRadio0302_06" class="form-label">3달전</label>
+                            <input type="radio" name="SampleRadio0302_01" id="SampleRadio0302_07" class="radio-btn" />
+                            <label for="SampleRadio0302_07" class="form-label">6달전</label>
+                            <input type="radio" name="SampleRadio0302_01" id="SampleRadio0302_08" class="radio-btn" />
+                            <label for="SampleRadio0302_08" class="form-label">1년전</label>
+                          </span>
+                        </div>
+                        <div class="calendar-wrap">
+                          <div class="input-box">
+                            <input type="text" class="input" placeholder="이쳬예약일" title="" aria-label="이쳬예약일"
+                              value="2026-01-06">
+                            <button type="button" class="btn">
+                              <i class="ico-calendar ico-size-smMd" aria-hidden="true"></i>
+                              <span class="blind">날짜 열기</span>
+                            </button>
+                          </div>
+                          ~
+                          <div class="input-box">
+                            <input type="text" class="input" placeholder="이쳬예약일" title="" aria-label="이쳬예약일"
+                              value="2026-01-06">
+                            <button type="button" class="btn">
+                              <i class="ico-calendar ico-size-smMd" aria-hidden="true"></i>
+                              <span class="blind">날짜 열기</span>
+                            </button>
+                          </div>
+                          <div class="box-select wSize-smMd">
+                            <button type="button" class="select size-lg" role="combobox" aria-expanded="false"
+                              aria-haspopup="listbox" aria-controls="selectDropdown01">
+                              <span class="text">월별선택</span>
+                              <span class="blind">펼침</span>
+                            </button>
+                            <div id="selectDropdown01" class="box-list-select">
+                              <ul class="list-select" role="listbox" aria-label="선택 항목 리스트">
+                                <li class="item-select" role="group" aria-label="선택 항목 리스트">
+                                  <!-- {dev} <span class="form-box">-> <button class="btn-item-select">로 변경(모든 드롭은 이렇게 변경)  -->
+                                  <button class="btn-item-select">월별선택</button>
+                                </li>
+                                <li class="item-select" role="group" aria-label="선택 항목 리스트">
+                                  <!-- {dev} <span class="form-box">-> <button class="btn-item-select">로 변경(모든 드롭은 이렇게 변경)  -->
+                                  <button class="btn-item-select">1</button>
+                                </li>
+                                <li class="item-select" role="group" aria-label="선택 항목 리스트">
+                                  <!-- {dev} <span class="form-box">-> <button class="btn-item-select">로 변경(모든 드롭은 이렇게 변경)  -->
+                                  <button class="btn-item-select">1</button>
+                                </li>
+                                <li class="item-select" role="group" aria-label="선택 항목 리스트">
+                                  <!-- {dev} <span class="form-box">-> <button class="btn-item-select">로 변경(모든 드롭은 이렇게 변경)  -->
+                                  <button class="btn-item-select">1</button>
+                                </li>
+                                <li class="item-select" role="group" aria-label="선택 항목 리스트">
+                                  <!-- {dev} <span class="form-box">-> <button class="btn-item-select">로 변경(모든 드롭은 이렇게 변경)  -->
+                                  <button class="btn-item-select">1</button>
+                                </li>
+                                <li class="item-select" role="group" aria-label="선택 항목 리스트">
+                                  <!-- {dev} <span class="form-box">-> <button class="btn-item-select">로 변경(모든 드롭은 이렇게 변경)  -->
+                                  <button class="btn-item-select">1</button>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="btn-wrap center lg-mid pb-48">
+              <button type="button" class="btn type-bg-primary size-xxl">
+                <span class="text">확인</span>
+              </button>
+            </div>
+            <div class="line-box size-xl">
+              <span class="typeLgSemibold">이용안내</span>
+              <div class="list type-dotted">
+                <ul>
+                  <li class="typeMd">
+                    고객님께서 거래하셨던 거래내역을 엑셀로 다운받아 보실 수 있습니다.
+                  </li>
+                  <li class="typeMd">
+                    신청은 평일(토요일제외) 09:00 ~ 08:00까지 가능합니다.
+                  </li>
+                  <li class="typeMd">
+                    조회는 현재일 기준 10년까지 가능합니다.
+                  </li>
+                  <li class="typeMd">
+                    신청은 최대 10건까지 가능합니다.
+                  </li>
+                  <li class="typeMd">
+                    요청가능한 계좌는 입출금이 자유로운 예금에 한하며 신청 내역은 신청 익일 오전 9시 전까지 받아보실수 있습니다.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+</body>
+
+</html>
+<script>
+
+</script>
