@@ -19,73 +19,85 @@ module.exports = {
     },
     "CIBFOE030101000M": {
         title: "이율조회_외화정기예금",
-        status: "진행중",
+        status: "검수중",
         worker: "변혜선",
         note: ""
     },
     "CIBFOE030102000M": {
         title: "이율조회_외화보통예금",
-        status: "진행중",
+        status: "검수중",
         worker: "변혜선",
         note: ""
     },
     "CIBFOE030103000M": {
         title: "이율조회_외화MMDA",
-        status: "진행중",
+        status: "검수중",
         worker: "변혜선",
         note: ""
     },
     "CIBB2B010301001M": {
         title: "판매기업-매매계약내역조회",
-        status: "진행중",
+        status: "검수중",
         worker: "변혜선",
         note: ""
     },
     "CIBB2B010301002M": {
         title: "매매계약내역조회 상세",
-        status: "진행중",
+        status: "검수중",
         worker: "변혜선",
         note: ""
     },
     "CIBB2B010302001M": {
         title: "추심의뢰대상내역조회입력",
-        status: "진행중",
+        status: "검수중",
         worker: "변혜선",
         note: ""
     },
     "CIBB2B010302002M": {
         title: "추심의뢰대상내역등록",
-        status: "진행중",
+        status: "검수중",
         worker: "변혜선",
         note: ""
     },
     "CIBB2B010302003M": {
         title: "추심의뢰대상등록 실행확인",
-        status: "진행중",
+        status: "검수중",
         worker: "변혜선",
         note: ""
     },
     "CIBB2B010302004M": {
         title: "추심의뢰대상등록 처리확인",
-        status: "진행중",
+        status: "검수중",
         worker: "변혜선",
         note: ""
     },
     "CIBB2B010303005M": {
         title: "결제진행내역-조건입력",
-        status: "진행중",
+        status: "검수중",
         worker: "변혜선",
         note: ""
     },
     "CIBB2B010205000P": {
         title: "(팝업) 매매계약 상세조회",
-        status: "진행중",
+        status: "검수중",
         worker: "변혜선",
         note: ""
     },
     "CIBB2B010303002M": {
         title: "추심의뢰대상내역조회",
-        status: "진행중",
+        status: "검수중",
+        worker: "변혜선",
+        note: ""
+    },
+    "CIBB2B010303003M": {
+        title: "추심의뢰대상내역조회",
+        status: "검수중",
+        worker: "변혜선",
+        note: ""
+    },
+    "CIBB2B010303004M": {
+        title: "추심의뢰대상내역조회",
+        status: "검수중",
         worker: "변혜선",
         note: ""
     },
