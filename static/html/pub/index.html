@@ -5,102 +5,449 @@
     <title>수협 기업 인터넷뱅킹 퍼블리싱 리스트</title>
     <link rel="stylesheet" href="/static/cl/favicon.ico" />
     <style>
-      * { margin: 0; padding: 0; box-sizing: border-box; }
-      body { font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, sans-serif; padding: 24px 32px; background-color: #f8fafc; color: #0f172a; }
-      h1 { margin-bottom: 24px; font-size: 26px; font-weight: 800; color: #0f172a; display: flex; align-items: center; gap: 10px; }
-      
-      .toolbar { display: flex; justify-content: space-between; align-items: center; background: #ffffff; padding: 16px 24px; border-radius: 12px; border: 1px solid #e2e8f0; margin-bottom: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
-      .toolbar-left { display: flex; gap: 12px; align-items: center; width: 100%; max-width: 400px; position: relative; }
-      input[type="text"] { width: 100%; padding: 10px 14px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 14px; outline: none; transition: all 0.2s; }
-      input[type="text"]:focus { border-color: #3b82f6; box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1); }
-      .toolbar-right { display: flex; gap: 16px; align-items: center; }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family:
+          Pretendard,
+          -apple-system,
+          BlinkMacSystemFont,
+          system-ui,
+          sans-serif;
+        padding: 24px 32px;
+        background-color: #f8fafc;
+        color: #0f172a;
+      }
+      h1 {
+        margin-bottom: 24px;
+        font-size: 26px;
+        font-weight: 800;
+        color: #0f172a;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
 
-      .action-btn { padding: 9px 16px; border-radius: 8px; font-weight: 600; cursor: pointer; border: none; font-size: 13px; transition: background 0.2s; display: flex; align-items: center; gap: 6px; }
-      .btn-reset { background: #fef2f2; color: #dc2626; border: 1px solid #fecaca; } .btn-reset:hover { background: #fee2e2; }
+      .toolbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: #ffffff;
+        padding: 16px 24px;
+        border-radius: 12px;
+        border: 1px solid #e2e8f0;
+        margin-bottom: 24px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      }
+      .toolbar-left {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        width: 100%;
+        max-width: 400px;
+        position: relative;
+      }
+      input[type="text"] {
+        width: 100%;
+        padding: 10px 14px;
+        border: 1px solid #cbd5e1;
+        border-radius: 8px;
+        font-size: 14px;
+        outline: none;
+        transition: all 0.2s;
+      }
+      input[type="text"]:focus {
+        border-color: #3b82f6;
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+      }
+      .toolbar-right {
+        display: flex;
+        gap: 16px;
+        align-items: center;
+      }
 
-      .status-wrap { display: flex; gap: 12px; align-items: center; font-size: 13px; font-weight: 600; padding-left: 16px; border-left: 1px solid #e2e8f0; }
-      .status { display: inline-flex; align-items: center; justify-content: center; font-weight: 600; font-size: 13px; }
-      .status::before { content: ""; display: inline-block; border-radius: 100%; width: 8px; height: 8px; margin-right: 6px; }
-      .status.wait { color: #64748b; } .status.wait::before { background-color: #94a3b8; }
-      .status.progress { color: #059669; } .status.progress::before { background-color: #10b981; }
-      .status.examination { color: #7c3aed; } .status.examination::before { background-color: #8b5cf6; }
-      .status.complete { color: #2563eb; } .status.complete::before { background-color: #3b82f6; }
-      .status.modify { color: #ea580c; } .status.modify::before { background-color: #f97316; }
-      .status-count { color: #0f172a; margin-left: 3px; }
-      .status-total { color: #0f172a; padding-right: 12px; border-right: 1px solid #e2e8f0; }
+      .action-btn {
+        padding: 9px 16px;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        border: none;
+        font-size: 13px;
+        transition: background 0.2s;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .btn-reset {
+        background: #fef2f2;
+        color: #dc2626;
+        border: 1px solid #fecaca;
+      }
+      .btn-reset:hover {
+        background: #fee2e2;
+      }
 
-      #warning-section { display: none; margin-bottom: 24px; }
-      .warning-container { background: #fef2f2; border: 1px solid #fca5a5; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(220, 38, 38, 0.05); }
-      .warning-header { background: #fee2e2; color: #991b1b; padding: 14px 24px; font-weight: 700; font-size: 14px; display: flex; justify-content: space-between;}
-      
-      .issue-badge { display: inline-block; padding: 3px 8px; border-radius: 6px; font-size: 11.5px; font-weight: 700; margin-right: 4px; margin-bottom: 4px; box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
-      .badge-red { background: #ef4444; color: #fff; border: 1px solid #dc2626; }
-      .badge-orange { background: #f97316; color: #fff; border: 1px solid #ea580c; }
-      .badge-yellow { background: #facc15; color: #854d0e; border: 1px solid #eab308; }
+      .status-wrap {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        font-size: 13px;
+        font-weight: 600;
+        padding-left: 16px;
+        border-left: 1px solid #e2e8f0;
+      }
+      .status {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+        font-size: 13px;
+      }
+      .status::before {
+        content: "";
+        display: inline-block;
+        border-radius: 100%;
+        width: 8px;
+        height: 8px;
+        margin-right: 6px;
+      }
+      .status.wait {
+        color: #64748b;
+      }
+      .status.wait::before {
+        background-color: #94a3b8;
+      }
+      .status.progress {
+        color: #059669;
+      }
+      .status.progress::before {
+        background-color: #10b981;
+      }
+      .status.examination {
+        color: #7c3aed;
+      }
+      .status.examination::before {
+        background-color: #8b5cf6;
+      }
+      .status.complete {
+        color: #2563eb;
+      }
+      .status.complete::before {
+        background-color: #3b82f6;
+      }
+      .status.modify {
+        color: #ea580c;
+      }
+      .status.modify::before {
+        background-color: #f97316;
+      }
+      .status-count {
+        color: #0f172a;
+        margin-left: 3px;
+      }
+      .status-total {
+        color: #0f172a;
+        padding-right: 12px;
+        border-right: 1px solid #e2e8f0;
+      }
 
-      table { width: 100%; border-collapse: collapse; background: #fff; text-align: left; }
-      th, td { border: 1px solid #e2e8f0; padding: 12px 16px; font-size: 13.5px; }
-      th { background: #f8fafc; color: #475569; font-weight: 600; white-space: nowrap; }
-      td.note { width: 220px; word-break: keep-all; line-height: 1.5; color: #475569;}
-      tbody tr { transition: background-color 0.15s; }
-      tbody tr:hover { background-color: #f1f5f9; }
-      a.preview-link { color: #2563eb; text-decoration: none; font-weight: 600; display: inline-block; padding: 4px 8px; background: #eff6ff; border-radius: 6px; transition: background 0.2s; white-space: nowrap; }
-      a.preview-link:hover { background: #dbeafe; }
+      #warning-section {
+        display: none;
+        margin-bottom: 24px;
+      }
+      .warning-container {
+        background: #fef2f2;
+        border: 1px solid #fca5a5;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px -1px rgba(220, 38, 38, 0.05);
+      }
+      .warning-header {
+        background: #fee2e2;
+        color: #991b1b;
+        padding: 14px 24px;
+        font-weight: 700;
+        font-size: 14px;
+        display: flex;
+        justify-content: space-between;
+      }
 
-      .col-status { width: 90px; min-width: 90px; text-align: center !important; }
-      .col-date { width: 120px; min-width: 120px; text-align: center !important; font-size: 13px; color: #475569; white-space: nowrap; }
-      .col-preview { width: 80px; min-width: 80px; text-align: center !important; }
-      .col-worker { width: 90px; min-width: 90px; text-align: center !important; }
+      .issue-badge {
+        display: inline-block;
+        padding: 3px 8px;
+        border-radius: 6px;
+        font-size: 11.5px;
+        font-weight: 700;
+        margin-right: 4px;
+        margin-bottom: 4px;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+      }
+      .badge-red {
+        background: #ef4444;
+        color: #fff;
+        border: 1px solid #dc2626;
+      }
+      .badge-orange {
+        background: #f97316;
+        color: #fff;
+        border: 1px solid #ea580c;
+      }
+      .badge-yellow {
+        background: #facc15;
+        color: #854d0e;
+        border: 1px solid #eab308;
+      }
 
-      .pub-section-normal { margin-bottom: 24px; }
-      .pub-section-normal h2 { font-size: 18px; margin-bottom: 12px; color: #0f172a; font-weight: 700;}
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        background: #fff;
+        text-align: left;
+      }
+      th,
+      td {
+        border: 1px solid #e2e8f0;
+        padding: 12px 16px;
+        font-size: 13.5px;
+      }
+      th {
+        background: #f8fafc;
+        color: #475569;
+        font-weight: 600;
+        white-space: nowrap;
+      }
+      td.note {
+        width: 220px;
+        word-break: keep-all;
+        line-height: 1.5;
+        color: #475569;
+      }
+      tbody tr {
+        transition: background-color 0.15s;
+      }
+      tbody tr:hover {
+        background-color: #f1f5f9;
+      }
+      a.preview-link {
+        color: #2563eb;
+        text-decoration: none;
+        font-weight: 600;
+        display: inline-block;
+        padding: 4px 8px;
+        background: #eff6ff;
+        border-radius: 6px;
+        transition: background 0.2s;
+        white-space: nowrap;
+      }
+      a.preview-link:hover {
+        background: #dbeafe;
+      }
 
-      .pub-section-dev { background: #fff; border-radius: 12px; border: 1px solid #e2e8f0; margin-bottom: 16px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.02); will-change: transform; }
-      .pub-header { background: #1e293b; padding: 16px 24px; font-weight: 700; font-size: 16px; color: #ffffff; display: flex; justify-content: space-between; align-items: center; cursor: pointer; user-select: none; transition: background 0.2s;}
-      .pub-header:hover { background: #0f172a; }
-      .header-right { display: flex; align-items: center; gap: 8px; }
-      .count-badge { background: rgba(255,255,255,0.15); color: #fff; font-size: 13px; padding: 2px 10px; border-radius: 20px; margin-left: 10px; font-weight: 500; }
-      
-      .order-btn { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #fff; width: 32px; height: 32px; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 12px; transition: background 0.2s; }
-      .order-btn:hover:not(:disabled) { background: rgba(255,255,255,0.25); }
-      .order-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+      .col-status {
+        width: 90px;
+        min-width: 90px;
+        text-align: center !important;
+      }
+      .col-date {
+        width: 120px;
+        min-width: 120px;
+        text-align: center !important;
+        font-size: 13px;
+        color: #475569;
+        white-space: nowrap;
+      }
+      .col-preview {
+        width: 80px;
+        min-width: 80px;
+        text-align: center !important;
+      }
+      .col-worker {
+        width: 90px;
+        min-width: 90px;
+        text-align: center !important;
+      }
 
-      .pub-body { max-height: 5000px; overflow: hidden; transition: max-height 0.35s ease, opacity 0.25s ease; opacity: 1; }
-      .pub-section-dev.collapsed .pub-body { max-height: 0; opacity: 0; }
-      
-      .depth-path { color: #64748b; font-size: 13px; line-height: 1.5; }
-      .depth-path .arrow { font-size: 10px; color: #cbd5e1; margin: 0 6px; vertical-align: middle; }
-      .depth-path strong { color: #0f172a; font-weight: 700; }
-      tr.dev-issue { background-color: #fef2f2 !important; }
-      tr.dev-issue:hover { background-color: #fee2e2 !important; }
+      .pub-section-normal {
+        margin-bottom: 24px;
+      }
+      .pub-section-normal h2 {
+        font-size: 18px;
+        margin-bottom: 12px;
+        color: #0f172a;
+        font-weight: 700;
+      }
 
-      #toast { visibility: hidden; background: #1e293b; color: #fff; text-align: center; border-radius: 8px; padding: 14px 24px; position: fixed; bottom: 30px; right: 30px; z-index: 10000; font-size: 14px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); font-weight: 600; }
-      #toast.show { visibility: visible; animation: fadein 0.3s, fadeout 0.4s 2.5s forwards; }
-      @keyframes fadein { from { bottom: 0; opacity: 0; } to { bottom: 30px; opacity: 1; } }
-      @keyframes fadeout { from { bottom: 30px; opacity: 1; } to { bottom: 0; opacity: 0; visibility: hidden; } }
+      .pub-section-dev {
+        background: #fff;
+        border-radius: 12px;
+        border: 1px solid #e2e8f0;
+        margin-bottom: 16px;
+        overflow: hidden;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+        will-change: transform;
+      }
+      .pub-header {
+        background: #1e293b;
+        padding: 16px 24px;
+        font-weight: 700;
+        font-size: 16px;
+        color: #ffffff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        user-select: none;
+        transition: background 0.2s;
+      }
+      .pub-header:hover {
+        background: #0f172a;
+      }
+      .header-right {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .count-badge {
+        background: rgba(255, 255, 255, 0.15);
+        color: #fff;
+        font-size: 13px;
+        padding: 2px 10px;
+        border-radius: 20px;
+        margin-left: 10px;
+        font-weight: 500;
+      }
+
+      .order-btn {
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: #fff;
+        width: 32px;
+        height: 32px;
+        border-radius: 6px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        transition: background 0.2s;
+      }
+      .order-btn:hover:not(:disabled) {
+        background: rgba(255, 255, 255, 0.25);
+      }
+      .order-btn:disabled {
+        opacity: 0.3;
+        cursor: not-allowed;
+      }
+
+      /* 컨테이너를 Grid로 변경하여 0fr <-> 1fr 트랜지션 활용 */
+      .pub-body {
+        display: grid;
+        grid-template-rows: 1fr;
+        transition:
+          grid-template-rows 0.35s ease,
+          opacity 0.25s ease;
+        opacity: 1;
+      }
+      .pub-section-dev.collapsed .pub-body {
+        grid-template-rows: 0fr;
+        opacity: 0;
+      }
+
+      /* Grid 행 높이가 0이 될 때 내부 테이블이 삐져나오지 않도록 hidden 처리 */
+      .pub-body .table-container {
+        overflow: hidden;
+      }
+
+      .depth-path {
+        color: #64748b;
+        font-size: 13px;
+        line-height: 1.5;
+      }
+      .depth-path .arrow {
+        font-size: 10px;
+        color: #cbd5e1;
+        margin: 0 6px;
+        vertical-align: middle;
+      }
+      .depth-path strong {
+        color: #0f172a;
+        font-weight: 700;
+      }
+      tr.dev-issue {
+        background-color: #fef2f2 !important;
+      }
+      tr.dev-issue:hover {
+        background-color: #fee2e2 !important;
+      }
+
+      #toast {
+        visibility: hidden;
+        background: #1e293b;
+        color: #fff;
+        text-align: center;
+        border-radius: 8px;
+        padding: 14px 24px;
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        z-index: 10000;
+        font-size: 14px;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        font-weight: 600;
+      }
+      #toast.show {
+        visibility: visible;
+        animation:
+          fadein 0.3s,
+          fadeout 0.4s 2.5s forwards;
+      }
+      @keyframes fadein {
+        from {
+          bottom: 0;
+          opacity: 0;
+        }
+        to {
+          bottom: 30px;
+          opacity: 1;
+        }
+      }
+      @keyframes fadeout {
+        from {
+          bottom: 30px;
+          opacity: 1;
+        }
+        to {
+          bottom: 0;
+          opacity: 0;
+          visibility: hidden;
+        }
+      }
 
       /* 미리보기 팝업 및 성능 최적화 스타일 */
-      #preview-popup { 
-        display: none; 
-        position: fixed; 
-        z-index: 9999; 
-        width: 640px; 
-        height: 420px; 
-        border: 1px solid #cbd5e1; 
-        border-radius: 12px; 
-        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); 
-        background: #fff; 
-        pointer-events: none; 
-        overflow: hidden; 
-        will-change: left, top; 
+      #preview-popup {
+        display: none;
+        position: fixed;
+        z-index: 9999;
+        width: 640px;
+        height: 420px;
+        border: 1px solid #cbd5e1;
+        border-radius: 12px;
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        background: #fff;
+        pointer-events: none;
+        overflow: hidden;
+        will-change: left, top;
       }
-      #preview-iframe { 
-        width: 1920px; 
-        height: 1280px; 
-        transform: scale(0.3333); 
-        transform-origin: top left; 
-        border: none; 
-        will-change: transform; 
+      #preview-iframe {
+        width: 1920px;
+        height: 1280px;
+        transform: scale(0.3333);
+        transform-origin: top left;
+        border: none;
+        will-change: transform;
       }
     </style>
   </head>
@@ -110,19 +457,53 @@
 
     <div class="toolbar">
       <div class="toolbar-left">
-        <input type="text" id="search" placeholder="화면명, 파일명, 작업자 검색..." autocomplete="off" />
+        <input
+          type="text"
+          id="search"
+          placeholder="화면명, 파일명, 작업자 검색..."
+          autocomplete="off"
+        />
       </div>
       <div class="toolbar-right">
         <div id="dev-toolbar-btns">
-          <button class="action-btn btn-reset" onclick="app.resetAll()">초기화</button>
+          <button class="action-btn btn-reset" onclick="app.resetAll()">
+            초기화
+          </button>
         </div>
         <div class="status-wrap">
-          <span class="status-total">전체 <strong id="total-count">0</strong>건</span>
-          <span class="status wait">대기 <strong class="status-count" data-status-count="대기">0</strong></span>
-          <span class="status complete">완료 <strong class="status-count" data-status-count="완료">0</strong></span>
-          <span class="status progress">진행중 <strong class="status-count" data-status-count="진행중">0</strong></span>
-          <span class="status examination">검수중 <strong class="status-count" data-status-count="검수중">0</strong></span>
-          <span class="status modify">수정중 <strong class="status-count" data-status-count="수정중">0</strong></span>
+          <span class="status-total"
+            >전체 <strong id="total-count">0</strong>건</span
+          >
+          <span class="status wait"
+            >대기
+            <strong class="status-count" data-status-count="대기"
+              >0</strong
+            ></span
+          >
+          <span class="status complete"
+            >완료
+            <strong class="status-count" data-status-count="완료"
+              >0</strong
+            ></span
+          >
+          <span class="status progress"
+            >진행중
+            <strong class="status-count" data-status-count="진행중"
+              >0</strong
+            ></span
+          >
+          <span class="status examination"
+            >검수중
+            <strong class="status-count" data-status-count="검수중"
+              >0</strong
+            ></span
+          >
+          <span class="status modify"
+            >수정중
+            <strong class="status-count" data-status-count="수정중"
+              >0</strong
+            ></span
+          >
         </div>
       </div>
     </div>
@@ -130,8 +511,10 @@
     <div id="warning-section">
       <div class="warning-container">
         <div class="warning-header">
-          <span>확인 필요 데이터 (메타데이터 누락 / .md 누락 / 화면명 누락)</span>
-          <span id="warning-count" style="font-weight: 500;">0건</span>
+          <span
+            >확인 필요 데이터 (메타데이터 누락 / .md 누락 / 화면명 누락)</span
+          >
+          <span id="warning-count" style="font-weight: 500">0건</span>
         </div>
         <table>
           <thead>
@@ -155,17 +538,17 @@
     <div id="preview-popup"><iframe id="preview-iframe" src=""></iframe></div>
 
     <script>
-      const app = (function() {
+      const app = (function () {
         const depthNameMap = {};
-        const STORE_ORDER = 'suhyup_group_order';
-        const STORE_TOGGLE = 'suhyup_group_toggle';
-        
+        const STORE_ORDER = "suhyup_group_order";
+        const STORE_TOGGLE = "suhyup_group_toggle";
+
         let rawData = [];
         let isDevMode = false;
 
         const formatModifiedDate = (modStr) => {
           if (!modStr) return "-";
-          const parts = modStr.split(',');
+          const parts = modStr.split(",");
           const dateOnly = parts[0] ? parts[0].trim() : modStr;
           return `<span title="${modStr}">${dateOnly}</span>`;
         };
@@ -173,53 +556,76 @@
         const utils = {
           highlight: (text, keyword) => {
             if (!keyword || !text) return text || "-";
-            const escaped = keyword.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-            const regex = new RegExp(`(${escaped})`, 'gi');
-            return String(text).replace(regex, '<mark style="background-color: #fef08a; color: #111827; padding: 0 2px; border-radius: 2px; font-weight: bold;">$1</mark>');
+            const escaped = keyword.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+            const regex = new RegExp(`(${escaped})`, "gi");
+            return String(text).replace(
+              regex,
+              '<mark style="background-color: #fef08a; color: #111827; padding: 0 2px; border-radius: 2px; font-weight: bold;">$1</mark>',
+            );
           },
           getStatusClass: (status) => {
-            const map = { "완료": "complete", "진행중": "progress", "검수중": "examination", "수정중": "modify", "수정완료": "modify" };
+            const map = {
+              완료: "complete",
+              진행중: "progress",
+              검수중: "examination",
+              수정중: "modify",
+              수정완료: "modify",
+            };
             return map[status] || "wait";
           },
-          getPageUrl: (link) => `/static/html/pub/${String(link || "").replace(/^\/+/, "")}`,
+          getPageUrl: (link) =>
+            `/static/html/pub/${String(link || "").replace(/^\/+/, "")}`,
           getBadge: (reason) => {
             if (reason.includes("ok") || reason.includes("완벽")) return "";
-            if (reason.includes("status.js 미등록")) return `<span class="issue-badge badge-red">${reason}</span>`;
-            if (reason.includes(".md 누락")) return `<span class="issue-badge badge-orange">${reason}</span>`;
-            if (reason.includes("화면명 누락")) return `<span class="issue-badge badge-yellow">${reason}</span>`;
+            if (reason.includes("status.js 미등록"))
+              return `<span class="issue-badge badge-red">${reason}</span>`;
+            if (reason.includes(".md 누락"))
+              return `<span class="issue-badge badge-orange">${reason}</span>`;
+            if (reason.includes("화면명 누락"))
+              return `<span class="issue-badge badge-yellow">${reason}</span>`;
             return `<span class="issue-badge badge-red">${reason}</span>`;
           },
           toast: (msg) => {
             const el = document.getElementById("toast");
             el.innerText = msg;
             el.className = "show";
-            setTimeout(() => { el.className = ""; }, 3000);
+            setTimeout(() => {
+              el.className = "";
+            }, 3000);
           },
           renderSummary: (data) => {
             const counts = {};
-            data.forEach(item => {
+            data.forEach((item) => {
               const status = item.status || "대기";
               counts[status] = (counts[status] || 0) + 1;
             });
             document.getElementById("total-count").textContent = data.length;
-            ["대기", "완료", "진행중", "검수중"].forEach(status => {
-              document.querySelector(`[data-status-count="${status}"]`).textContent = counts[status] || 0;
+            ["대기", "완료", "진행중", "검수중"].forEach((status) => {
+              document.querySelector(
+                `[data-status-count="${status}"]`,
+              ).textContent = counts[status] || 0;
             });
-            const modifyCount = (counts["수정중"] || 0) + (counts["수정완료"] || 0);
-            document.querySelector('[data-status-count="수정중"]').textContent = modifyCount;
-          }
+            const modifyCount =
+              (counts["수정중"] || 0) + (counts["수정완료"] || 0);
+            document.querySelector('[data-status-count="수정중"]').textContent =
+              modifyCount;
+          },
         };
 
         const renderData = () => {
-          const keyword = document.getElementById("search").value.toLowerCase().trim();
+          const keyword = document
+            .getElementById("search")
+            .value.toLowerCase()
+            .trim();
 
-          const processed = rawData.map(item => {
-            const pathParts = (item.link || "").split('/');
-            pathParts.pop(); 
+          const processed = rawData.map((item) => {
+            const pathParts = (item.link || "").split("/");
+            pathParts.pop();
             const rawFolders = pathParts;
-            
-            const isIgnoredFolder = rawFolders.some(folder => 
-              folder.startsWith('_') || folder.toLowerCase() === 'ignore'
+
+            const isIgnoredFolder = rawFolders.some(
+              (folder) =>
+                folder.startsWith("_") || folder.toLowerCase() === "ignore",
             );
 
             let issueReasons = item.issueReasons ? [...item.issueReasons] : [];
@@ -227,46 +633,65 @@
 
             if (isIgnoredFolder) {
               resolvedDepths = ["무시 폴더 (Ignore)", ...rawFolders];
-              issueReasons = []; 
+              issueReasons = [];
             } else {
-              const isStatusRegistered = !issueReasons.includes("status.js 미등록");
-              resolvedDepths = (isDevMode || isStatusRegistered) && item.depths && item.depths.length > 0
-                ? item.depths
-                : rawFolders;
+              const isStatusRegistered =
+                !issueReasons.includes("status.js 미등록");
+              resolvedDepths =
+                (isDevMode || isStatusRegistered) &&
+                item.depths &&
+                item.depths.length > 0
+                  ? item.depths
+                  : rawFolders;
               if (resolvedDepths.length === 0) resolvedDepths = ["분류 미지정"];
             }
 
-            return { ...item, displayDepths: resolvedDepths, rawFolders, isIgnoredFolder, issueReasons };
+            return {
+              ...item,
+              displayDepths: resolvedDepths,
+              rawFolders,
+              isIgnoredFolder,
+              issueReasons,
+            };
           });
 
-          const visibleData = processed.filter(item => {
+          const visibleData = processed.filter((item) => {
             if (!isDevMode && item.isIgnoredFolder) return false;
             return true;
           });
 
-          const filtered = visibleData.filter(item => {
-            const fields = [item.title, item.file, item.worker, item.note, item.displayDepths.join("/")].join(" ").toLowerCase();
+          const filtered = visibleData.filter((item) => {
+            const fields = [
+              item.title,
+              item.file,
+              item.worker,
+              item.note,
+              item.displayDepths.join("/"),
+            ]
+              .join(" ")
+              .toLowerCase();
             return fields.includes(keyword);
           });
 
           filtered.sort((a, b) => {
-            const depthA = a.displayDepths.join('/');
-            const depthB = b.displayDepths.join('/');
-            
+            const depthA = a.displayDepths.join("/");
+            const depthB = b.displayDepths.join("/");
+
             if (depthA !== depthB) {
-              return depthA.localeCompare(depthB, 'ko-KR');
+              return depthA.localeCompare(depthB, "ko-KR");
             }
-            
-            const titleA = a.title || '';
-            const titleB = b.title || '';
-            return titleA.localeCompare(titleB, 'ko-KR');
+
+            const titleA = a.title || "";
+            const titleB = b.title || "";
+            return titleA.localeCompare(titleB, "ko-KR");
           });
 
           utils.renderSummary(visibleData);
 
           if (isDevMode) {
-            const valid = [], invalid = [];
-            filtered.forEach(item => {
+            const valid = [],
+              invalid = [];
+            filtered.forEach((item) => {
               if (item.isIgnoredFolder) {
                 valid.push(item);
                 return;
@@ -275,87 +700,130 @@
               const hasNoTitle = !item.title || item.title.trim() === "";
               if (hasNoTitle) {
                 item.issueReasons = item.issueReasons || [];
-                if (!item.issueReasons.includes("화면명 누락")) item.issueReasons.push("화면명 누락");
+                if (!item.issueReasons.includes("화면명 누락"))
+                  item.issueReasons.push("화면명 누락");
               }
-              const hasIssues = item.issueReasons && item.issueReasons.some(r => !r.includes("ok") && !r.includes("완벽"));
+              const hasIssues =
+                item.issueReasons &&
+                item.issueReasons.some(
+                  (r) => !r.includes("ok") && !r.includes("완벽"),
+                );
               hasIssues ? invalid.push(item) : valid.push(item);
             });
             views.renderWarning(invalid, keyword);
             views.renderDevAccordion(filtered, keyword, true);
           } else {
             views.renderDevAccordion(filtered, keyword, false);
-            document.getElementById('warning-section').style.display = 'none';
+            document.getElementById("warning-section").style.display = "none";
           }
         };
 
         const views = {
           renderNormal: (data, keyword) => {
             const container = document.getElementById("list");
-            if (!data.length) return container.innerHTML = "<p style='padding:20px; background:#fff; border-radius:12px; border:1px solid #e2e8f0;'>데이터가 없습니다.</p>";
+            if (!data.length)
+              return (container.innerHTML =
+                "<p style='padding:20px; background:#fff; border-radius:12px; border:1px solid #e2e8f0;'>데이터가 없습니다.</p>");
 
-            const maxDepth = Math.max(...data.map(i => i.displayDepths.length));
+            const maxDepth = Math.max(
+              ...data.map((i) => i.displayDepths.length),
+            );
             const groups = {};
-            data.forEach(i => { const key = i.displayDepths[0]; if (!groups[key]) groups[key] = []; groups[key].push(i); });
+            data.forEach((i) => {
+              const key = i.displayDepths[0];
+              if (!groups[key]) groups[key] = [];
+              groups[key].push(i);
+            });
 
             let html = "";
-            Object.keys(groups).sort().forEach(group => {
-              html += `<section class="pub-section-normal"><h2>${utils.highlight(group, keyword)}</h2><div style="border: 1px solid #e2e8f0; border-radius: 8px; overflow:hidden;"><table><thead><tr>`;
-              for(let i=0; i<maxDepth; i++) html += `<th>${i+1}Depth</th>`;
-              html += `<th>화면명</th><th>화면ID</th><th class="col-status">상태</th><th class="col-date">수정일</th><th class="col-preview">보기</th><th class="col-worker">작업자</th><th>비고</th></tr></thead><tbody>`;
+            Object.keys(groups)
+              .sort()
+              .forEach((group) => {
+                html += `<section class="pub-section-normal"><h2>${utils.highlight(group, keyword)}</h2><div style="border: 1px solid #e2e8f0; border-radius: 8px; overflow:hidden;"><table><thead><tr>`;
+                for (let i = 0; i < maxDepth; i++)
+                  html += `<th>${i + 1}Depth</th>`;
+                html += `<th>화면명</th><th>화면ID</th><th class="col-status">상태</th><th class="col-date">수정일</th><th class="col-preview">보기</th><th class="col-worker">작업자</th><th>비고</th></tr></thead><tbody>`;
 
-              groups[group].forEach(item => {
-                let depthTd = "";
-                for (let i = 0; i < maxDepth; i++) depthTd += `<td>${utils.highlight(item.displayDepths[i] || "-", keyword)}</td>`;
-                html += `<tr>${depthTd}<td><b>${utils.highlight(item.title, keyword)}</b></td><td>${utils.highlight(item.fileId || item.file, keyword)}</td><td class="col-status"><span class="status ${utils.getStatusClass(item.status)}">${item.status || "대기"}</span></td><td class="col-date">${formatModifiedDate(item.modified)}</td><td class="col-preview"><a href="${utils.getPageUrl(item.link)}" target="_blank" rel="noopener noreferrer" class="preview-link">열기</a></td><td class="col-worker">${utils.highlight(item.worker, keyword)}</td><td class="note">${utils.highlight(item.note, keyword)}</td></tr>`;
+                groups[group].forEach((item) => {
+                  let depthTd = "";
+                  for (let i = 0; i < maxDepth; i++)
+                    depthTd += `<td>${utils.highlight(item.displayDepths[i] || "-", keyword)}</td>`;
+                  html += `<tr>${depthTd}<td><b>${utils.highlight(item.title, keyword)}</b></td><td>${utils.highlight(item.fileId || item.file, keyword)}</td><td class="col-status"><span class="status ${utils.getStatusClass(item.status)}">${item.status || "대기"}</span></td><td class="col-date">${formatModifiedDate(item.modified)}</td><td class="col-preview"><a href="${utils.getPageUrl(item.link)}" target="_blank" rel="noopener noreferrer" class="preview-link">열기</a></td><td class="col-worker">${utils.highlight(item.worker, keyword)}</td><td class="note">${utils.highlight(item.note, keyword)}</td></tr>`;
+                });
+                html += `</tbody></table></div></section>`;
               });
-              html += `</tbody></table></div></section>`;
-            });
             container.innerHTML = html;
           },
 
           renderDevAccordion: (data, keyword, showIssues) => {
             const container = document.getElementById("list");
-            if (!data.length) return container.innerHTML = "<p style='padding:20px; background:#fff; border-radius:12px; border:1px solid #e2e8f0;'>표시할 데이터가 없습니다.</p>";
+            if (!data.length)
+              return (container.innerHTML =
+                "<p style='padding:20px; background:#fff; border-radius:12px; border:1px solid #e2e8f0;'>표시할 데이터가 없습니다.</p>");
 
-            const groupKeys = [...new Set(data.map(item => item.displayDepths[0]))];
+            const groupKeys = [
+              ...new Set(data.map((item) => item.displayDepths[0])),
+            ];
             const savedOrder = JSON.parse(localStorage.getItem(STORE_ORDER));
-            const toggleState = JSON.parse(localStorage.getItem(STORE_TOGGLE)) || {};
+            const toggleState =
+              JSON.parse(localStorage.getItem(STORE_TOGGLE)) || {};
             const orderedGroups = savedOrder
-              ? [...savedOrder.filter(g => groupKeys.includes(g)), ...groupKeys.filter(g => !savedOrder.includes(g))]
+              ? [
+                  ...savedOrder.filter((g) => groupKeys.includes(g)),
+                  ...groupKeys.filter((g) => !savedOrder.includes(g)),
+                ]
               : groupKeys;
 
             let html = "";
             orderedGroups.forEach((groupName, idx) => {
-              const groupData = data.filter(i => i.displayDepths[0] === groupName);
-              const isCollapsed = toggleState[groupName] === true ? "collapsed" : "";
-              
+              const groupData = data.filter(
+                (i) => i.displayDepths[0] === groupName,
+              );
+              const isCollapsed =
+                toggleState[groupName] === true ? "collapsed" : "";
+
               html += `
                 <section class="pub-section-dev ${isCollapsed}" data-group-key="${groupName}">
                   <div class="pub-header" onclick="app.toggleSection(this, '${groupName}')">
                     <div><span>${utils.highlight(groupName, keyword)}</span><span class="count-badge">${groupData.length}</span></div>
                     <div class="header-right" onclick="event.stopPropagation()">
-                      <button class="order-btn" onclick="app.moveGroup('${groupName}', -1)" ${idx === 0 ? 'disabled' : ''}>▲</button>
-                      <button class="order-btn" onclick="app.moveGroup('${groupName}', 1)" ${idx === orderedGroups.length - 1 ? 'disabled' : ''}>▼</button>
+                      <button class="order-btn" onclick="app.moveGroup('${groupName}', -1)" ${idx === 0 ? "disabled" : ""}>▲</button>
+                      <button class="order-btn" onclick="app.moveGroup('${groupName}', 1)" ${idx === orderedGroups.length - 1 ? "disabled" : ""}>▼</button>
                     </div>
                   </div>
                   <div class="pub-body"><div class="table-container"><table><thead><tr>
                     <th width="30%">분류 경로 (Depth)</th><th>화면명</th><th>화면 ID</th><th class="col-status">상태</th><th class="col-date">수정일</th><th class="col-preview">보기</th><th class="col-worker">작업자</th><th width="15%">비고</th>
                   </tr></thead><tbody>
-                  ${groupData.map(item => {
-                    const paths = item.displayDepths.map((d, i, arr) => i === arr.length - 1 ? `<strong>${utils.highlight(d, keyword)}</strong>` : utils.highlight(d, keyword)).join('<span class="arrow">▶</span>');
-                    let noteHtml = item.note || "-";
-                    let trClass = "";
-                    if (showIssues && item.issueReasons && item.issueReasons.length > 0) {
-                      let hasRealIssue = false;
-                      const badges = item.issueReasons.map(r => {
-                        if (!r.includes("ok") && !r.includes("완벽")) hasRealIssue = true;
-                        return utils.getBadge(r);
-                      }).join('');
-                      if (hasRealIssue) trClass = "dev-issue";
-                      noteHtml = `<div style="margin-bottom:4px;">${badges}</div>${noteHtml !== "-" ? noteHtml : ""}`;
-                    }
-                    return `<tr class="${trClass}"><td class="depth-path">${paths}</td><td><b>${utils.highlight(item.title, keyword)}</b></td><td>${utils.highlight(item.fileId || item.file, keyword)}</td><td class="col-status"><span class="status ${utils.getStatusClass(item.status)}">${item.status || '대기'}</span></td><td class="col-date">${formatModifiedDate(item.modified)}</td><td class="col-preview"><a href="${utils.getPageUrl(item.link)}" target="_blank" rel="noopener noreferrer" class="preview-link">열기</a></td><td class="col-worker">${utils.highlight(item.worker, keyword)}</td><td class="note">${utils.highlight(noteHtml, keyword)}</td></tr>`;
-                  }).join('')}
+                  ${groupData
+                    .map((item) => {
+                      const paths = item.displayDepths
+                        .map((d, i, arr) =>
+                          i === arr.length - 1
+                            ? `<strong>${utils.highlight(d, keyword)}</strong>`
+                            : utils.highlight(d, keyword),
+                        )
+                        .join('<span class="arrow">▶</span>');
+                      let noteHtml = item.note || "-";
+                      let trClass = "";
+                      if (
+                        showIssues &&
+                        item.issueReasons &&
+                        item.issueReasons.length > 0
+                      ) {
+                        let hasRealIssue = false;
+                        const badges = item.issueReasons
+                          .map((r) => {
+                            if (!r.includes("ok") && !r.includes("완벽"))
+                              hasRealIssue = true;
+                            return utils.getBadge(r);
+                          })
+                          .join("");
+                        if (hasRealIssue) trClass = "dev-issue";
+                        noteHtml = `<div style="margin-bottom:4px;">${badges}</div>${noteHtml !== "-" ? noteHtml : ""}`;
+                      }
+                      return `<tr class="${trClass}"><td class="depth-path">${paths}</td><td><b>${utils.highlight(item.title, keyword)}</b></td><td>${utils.highlight(item.fileId || item.file, keyword)}</td><td class="col-status"><span class="status ${utils.getStatusClass(item.status)}">${item.status || "대기"}</span></td><td class="col-date">${formatModifiedDate(item.modified)}</td><td class="col-preview"><a href="${utils.getPageUrl(item.link)}" target="_blank" rel="noopener noreferrer" class="preview-link">열기</a></td><td class="col-worker">${utils.highlight(item.worker, keyword)}</td><td class="note">${utils.highlight(noteHtml, keyword)}</td></tr>`;
+                    })
+                    .join("")}
                   </tbody></table></div></div>
                 </section>`;
             });
@@ -363,27 +831,36 @@
           },
 
           renderWarning: (invalidData, keyword) => {
-            const section = document.getElementById('warning-section');
-            const tbody = document.getElementById('warning-body');
-            document.getElementById('warning-count').innerText = invalidData.length + "건";
-            
-            if (invalidData.length === 0) return section.style.display = 'none';
+            const section = document.getElementById("warning-section");
+            const tbody = document.getElementById("warning-body");
+            document.getElementById("warning-count").innerText =
+              invalidData.length + "건";
 
-            section.style.display = 'block';
-            tbody.innerHTML = invalidData.map(item => {
-              const reasons = (item.issueReasons || []).map(r => utils.getBadge(r)).join('');
-              const rawPath = item.rawFolders && item.rawFolders.length > 0 ? item.rawFolders.join('/') : "-";
-              return `<tr>
+            if (invalidData.length === 0)
+              return (section.style.display = "none");
+
+            section.style.display = "block";
+            tbody.innerHTML = invalidData
+              .map((item) => {
+                const reasons = (item.issueReasons || [])
+                  .map((r) => utils.getBadge(r))
+                  .join("");
+                const rawPath =
+                  item.rawFolders && item.rawFolders.length > 0
+                    ? item.rawFolders.join("/")
+                    : "-";
+                return `<tr>
                 <td>${reasons}</td>
                 <td style="color:#64748b; font-size:12px;">${utils.highlight(rawPath, keyword)}</td>
                 <td><b>${utils.highlight(item.file, keyword)}</b></td>
-                <td class="col-status"><span class="status ${utils.getStatusClass(item.status)}">${item.status || '대기'}</span></td>
+                <td class="col-status"><span class="status ${utils.getStatusClass(item.status)}">${item.status || "대기"}</span></td>
                 <td class="col-preview"><a href="${utils.getPageUrl(item.link)}" target="_blank" rel="noopener noreferrer" class="preview-link">열기</a></td>
                 <td class="col-worker">${utils.highlight(item.worker, keyword)}</td>
                 <td class="note">${utils.highlight(item.note, keyword)}</td>
               </tr>`;
-            }).join('');
-          }
+              })
+              .join("");
+          },
         };
 
         const bindEvents = () => {
@@ -396,10 +873,10 @@
           const popup = document.getElementById("preview-popup");
           const iframe = document.getElementById("preview-iframe");
           const list = document.body;
-          
-          let currentPreviewUrl = ""; 
-          let hoverTimer = null;       
-          let mouseMoveRaf = null;     
+
+          let currentPreviewUrl = "";
+          let hoverTimer = null;
+          let mouseMoveRaf = null;
 
           const updatePopupPosition = (e) => {
             let left = e.clientX + 20;
@@ -427,7 +904,9 @@
           list.addEventListener("mousemove", (e) => {
             if (e.target.classList.contains("preview-link")) {
               if (mouseMoveRaf) cancelAnimationFrame(mouseMoveRaf);
-              mouseMoveRaf = requestAnimationFrame(() => updatePopupPosition(e));
+              mouseMoveRaf = requestAnimationFrame(() =>
+                updatePopupPosition(e),
+              );
             }
           });
 
@@ -442,59 +921,86 @@
 
         return {
           init: async () => {
-            isDevMode = new URLSearchParams(window.location.search).has('dev');
+            isDevMode = new URLSearchParams(window.location.search).has("dev");
             try {
-              const res = await fetch("/static/html/pub/list.json?t=" + new Date().getTime());
+              const res = await fetch(
+                "/static/html/pub/list.json?t=" + new Date().getTime(),
+              );
               rawData = await res.json();
               renderData();
               bindEvents();
-            } catch (err) { console.error("데이터 로드 실패:", err); }
+            } catch (err) {
+              console.error("데이터 로드 실패:", err);
+            }
           },
           toggleSection: (element, key) => {
-            element.closest('.pub-section-dev').classList.toggle('collapsed');
+            element.closest(".pub-section-dev").classList.toggle("collapsed");
             const state = {};
-            document.querySelectorAll('.pub-section-dev').forEach(sec => state[sec.dataset.groupKey] = sec.classList.contains('collapsed'));
+            document
+              .querySelectorAll(".pub-section-dev")
+              .forEach(
+                (sec) =>
+                  (state[sec.dataset.groupKey] =
+                    sec.classList.contains("collapsed")),
+              );
             localStorage.setItem(STORE_TOGGLE, JSON.stringify(state));
           },
           moveGroup: (groupKey, direction) => {
             const container = document.getElementById("list");
             const sections = Array.from(container.children);
-            const idx = sections.findIndex(s => s.dataset.groupKey === groupKey);
+            const idx = sections.findIndex(
+              (s) => s.dataset.groupKey === groupKey,
+            );
             const targetIdx = idx + direction;
             if (targetIdx < 0 || targetIdx >= sections.length) return;
 
             const rects = new Map();
-            sections.forEach(s => rects.set(s, s.getBoundingClientRect()));
+            sections.forEach((s) => rects.set(s, s.getBoundingClientRect()));
 
-            direction === -1 ? container.insertBefore(sections[idx], sections[targetIdx]) : container.insertBefore(sections[targetIdx], sections[idx]);
+            direction === -1
+              ? container.insertBefore(sections[idx], sections[targetIdx])
+              : container.insertBefore(sections[targetIdx], sections[idx]);
 
             const newSections = Array.from(container.children);
-            newSections.forEach(s => {
+            newSections.forEach((s) => {
               const deltaY = rects.get(s).top - s.getBoundingClientRect().top;
               if (deltaY !== 0) {
-                s.style.transition = 'none'; s.style.transform = `translateY(${deltaY}px)`; s.offsetHeight;
-                s.style.transition = 'transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1)'; s.style.transform = 'translateY(0)';
-                const clean = () => { s.style.transition = ''; s.style.transform = ''; s.removeEventListener('transitionend', clean); };
-                s.addEventListener('transitionend', clean);
+                s.style.transition = "none";
+                s.style.transform = `translateY(${deltaY}px)`;
+                s.offsetHeight;
+                s.style.transition =
+                  "transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1)";
+                s.style.transform = "translateY(0)";
+                const clean = () => {
+                  s.style.transition = "";
+                  s.style.transform = "";
+                  s.removeEventListener("transitionend", clean);
+                };
+                s.addEventListener("transitionend", clean);
               }
             });
 
             newSections.forEach((s, i) => {
-              const btns = s.querySelectorAll('.order-btn');
-              if(btns.length > 0) { btns[0].disabled = (i === 0); btns[1].disabled = (i === newSections.length - 1); }
+              const btns = s.querySelectorAll(".order-btn");
+              if (btns.length > 0) {
+                btns[0].disabled = i === 0;
+                btns[1].disabled = i === newSections.length - 1;
+              }
             });
 
-            const order = newSections.map(s => s.dataset.groupKey);
+            const order = newSections.map((s) => s.dataset.groupKey);
             localStorage.setItem(STORE_ORDER, JSON.stringify(order));
             utils.toast("순서가 자동 저장되었습니다.");
           },
           resetAll: () => {
-            if(confirm("모든 설정(순서 및 아코디언 상태)을 초기화하시겠습니까?")) {
+            if (
+              confirm("모든 설정(순서 및 아코디언 상태)을 초기화하시겠습니까?")
+            ) {
               localStorage.removeItem(STORE_ORDER);
               localStorage.removeItem(STORE_TOGGLE);
               location.reload();
             }
-          }
+          },
         };
       })();
 
