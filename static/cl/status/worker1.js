@@ -41,6 +41,12 @@ module.exports = {
         worker: "변혜선",
         note: ""
     },
+     "CIBB2B010301002M.html": {
+        title: "매매계약내역조회 상세",
+        status: "진행중",
+        worker: "변혜선",
+        note: ""
+    },
     "CIBB2B010302001M.html": {
         title: "추심의뢰대상내역조회입력",
         status: "진행중",
