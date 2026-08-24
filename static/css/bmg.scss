@@ -7,6 +7,8 @@
     }
   }
 
+
+
   .btn-wrap {
     &.sm-mid {
       &+.wrap-board-grid {
@@ -98,180 +100,253 @@
   }
 }
 
-.approval-grid {
-  /* Layout */
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  row-gap: var(--spacingMd);
-  column-gap: 32px;
-  align-items: center;
+.approval-grid-wrapper {
+  .badge {
+    &.purple {
+      background-color: var(--colorAccentFuchsia);
+    }
 
-  li.card {
+    &.blue {
+      background-color: var(--colorAccentBlue);
+    }
+
+    &.cyan {
+      background-color: var(--colorAccentCyan);
+    }
+
+    &.red {
+      background-color: var(--colorAccentRose);
+    }
+  }
+
+  .grid-header {
     display: flex;
-    flex-direction: column;
-    position: relative;
-    height: 306px;
-    background-color: var(--colorBgAccent);
-    border-radius: 8px;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
 
-    &::after {
-      content: '';
-      position: absolute;
-      top: 50%;
-      right: -24px;
-      width: 16px;
-      height: 16px;
-      transform: translateY(-50%);
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M5.52876 3.52858C5.78911 3.26823 6.21122 3.26823 6.47157 3.52858L10.4716 7.52858C10.7319 7.78892 10.7319 8.21103 10.4716 8.47138L6.47157 12.4714C6.21122 12.7317 5.78911 12.7317 5.52876 12.4714C5.26841 12.211 5.26841 11.7889 5.52876 11.5286L9.05735 7.99998L5.52876 4.47138C5.26841 4.21103 5.26841 3.78892 5.52876 3.52858Z' fill='%23343F54'/%3E%3C/svg%3E");
+    .left-area {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
 
-
-    }
-
-    &:nth-child(3n)::after,
-    &:last-child::after {
-      display: none;
-    }
-
-    /* ---------------------------------------------------- */
-
-    /* Modifier: 기안자 카드 */
-    &.drafter {
-      background-color: var(--colorBgHover);
-
-      .step {
-        background-color: var(--colorBgNeutral);
+      .ico-wrapper {
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+        background-color: var(--colorBgSecondary);
       }
     }
 
-    /* 뱃지(필수결재자, OTP 등) 영역 */
-    .legend {
-      position: absolute;
-      top: 16px;
-      left: 16px;
+    .right-area {
+      .legend {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 16px;
+
+        li {
+          display: flex;
+          gap: 4px;
+          justify-content: center;
+          align-items: center;
+          color: var(--colorFgTertiary);
+          font-size: var(--contentFontSizeMd);
+          font-weight: var(--fontWeightRegular);
+          line-height: var(--contentLineHeightMd);
+
+        }
+
+        .badge {
+          display: inline-block;
+          width: 8px;
+          height: 8px;
+          border-radius: 2px;
+
+
+        }
+      }
+    }
+
+
+  }
+
+  .approval-grid {
+
+
+    /* Layout */
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: var(--spacingMd);
+    column-gap: 32px;
+    align-items: center;
+
+    li.card {
       display: flex;
-      gap: 4px;
-
-      .badge {
-        width: 8px;
-        height: 8px;
-        border-radius: 2px;
-
-        &.purple {
-          background-color: var(--colorAccentFuchsia);
-        }
-
-        &.blue {
-          background-color: var(--colorAccentBlue);
-        }
-      }
-    }
-
-    /* 결재 단계 표시(우측 상단) */
-    .step {
-      position: absolute;
-      top: 0;
-      right: 0;
-      padding: 6px 20px;
+      flex-direction: column;
+      position: relative;
+      height: 306px;
+      background-image: url('../images/bmg/bg-payer-type2.png'); // background-color -> background-image 수정
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 100% 100%;
       border-radius: 8px;
 
-      color: #fff;
-      font-size: var(--fontSizeMd);
-      font-weight: var(--fontWeightSemibold);
-      line-height: var(--lineHeightMd);
-      background-color: var(--colorBgBaseInvert);
-    }
+      &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        right: -24px;
+        width: 16px;
+        height: 16px;
+        transform: translateY(-50%);
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M5.52876 3.52858C5.78911 3.26823 6.21122 3.26823 6.47157 3.52858L10.4716 7.52858C10.7319 7.78892 10.7319 8.21103 10.4716 8.47138L6.47157 12.4714C6.21122 12.7317 5.78911 12.7317 5.52876 12.4714C5.26841 12.211 5.26841 11.7889 5.52876 11.5286L9.05735 7.99998L5.52876 4.47138C5.26841 4.21103 5.26841 3.78892 5.52876 3.52858Z' fill='%23343F54'/%3E%3C/svg%3E");
 
-    /* 프로필 영역 */
-    .profile {
-      display: flex;
-      flex-grow: 1;
-      align-items: center;
-      justify-content: center;
 
-      .profile-wrapper {
+      }
+
+      &:nth-child(3n)::after,
+      &:last-child::after {
+        display: none;
+      }
+
+      /* ---------------------------------------------------- */
+
+      /* Modifier: 기안자 카드 */
+      &.drafter {
+        background-image: url('../images/bmg/bg-payer-type1.png'); // background-color -> background-image 수정
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 100% 100%;
+
+        .step {
+          background-color: var(--colorBgNeutral);
+        }
+      }
+
+      /* 뱃지(필수결재자, OTP 등) 영역 */
+      .legend {
+        position: absolute;
+        top: 16px;
+        left: 16px;
         display: flex;
-        flex-direction: column;
+        gap: 4px;
+
+
+      }
+
+      /* 결재 단계 표시(우측 상단) */
+      .step {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 6px 18px;
+        border-radius: 8px;
+
+        color: #fff;
+        font-size: var(--fontSizeMd);
+        font-weight: var(--fontWeightSemibold);
+        line-height: var(--lineHeightMd);
+        background-color: var(--colorBgBaseInvert);
+      }
+
+      /* 프로필 영역 */
+      .profile {
+        display: flex;
+        flex-grow: 1;
         align-items: center;
         justify-content: center;
 
-        .profile-img {
+        .profile-wrapper {
           display: flex;
+          flex-direction: column;
           align-items: center;
           justify-content: center;
-          width: 64px;
-          height: 64px;
-          border-radius: var(--radiusFull);
-          overflow: hidden;
 
-          img {
-            width: 100%;
-            height: 100%;
+          .profile-img {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 64px;
+            height: 64px;
+            border-radius: var(--radiusFull);
             overflow: hidden;
+
+            img {
+              width: 100%;
+              height: 100%;
+              overflow: hidden;
+            }
           }
-        }
 
-        .profile-name {
-          margin-top: 8px;
-          font-size: var(--fontSizeXl);
-          font-weight: var(--fontWeightSemibold);
-          line-height: var(--lineHeightXl);
-        }
+          .profile-name {
+            margin-top: 8px;
+            font-size: var(--fontSizeXl);
+            font-weight: var(--fontWeightSemibold);
+            line-height: var(--lineHeightXl);
+          }
 
-        .profile-id {
-          margin-bottom: 8px;
-          color: var(--colorFgSecondary);
-          font-size: var(--fontSizeSm);
-          font-weight: var(--fontWeightRegular);
-          line-height: var(--lineHeightSm);
-        }
+          .profile-id {
+            margin-bottom: 8px;
+            color: var(--colorFgSecondary);
+            font-size: var(--fontSizeSm);
+            font-weight: var(--fontWeightRegular);
+            line-height: var(--lineHeightSm);
+          }
 
-        .profile-nav {
-          display: flex;
-          align-items: center;
-          gap: 8px;
-          padding: 6px;
-          border-radius: 24px;
-          background-color: var(--colorBgBase);
+          .profile-nav {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px;
+            border-radius: 24px;
+            background-color: var(--colorBgBase);
 
-          .pagination-info {
-            font-size: var(--contentFontSizeXs);
-            font-weight: var(--fontWeightMedium);
-            line-height: var(--contentLineHeightXs);
+            .pagination-info {
+              font-size: var(--contentFontSizeXs);
+              font-weight: var(--fontWeightMedium);
+              line-height: var(--contentLineHeightXs);
 
-            .total {
-              opacity: 0.5;
+              .total {
+                opacity: 0.5;
+              }
             }
           }
         }
       }
-    }
 
-    /* 금액 정보 영역 (하단) */
-    .money-info {
-      padding: 0 12px 12px 12px;
+      /* 금액 정보 영역 (하단) */
+      .money-info {
+        padding: 0 12px 12px 12px;
 
-      .info-wrap {
-        background-color: var(--colorBgBase);
-        border-radius: 8px;
-      }
-
-      dl {
-        display: flex;
-        justify-content: space-between;
-        gap: 8px;
-        padding: 8px;
-
-        font-size: var(--fontSizeMd);
-        line-height: var(--contentLineHeightMd);
-
-        dt {
-          color: var(--colorFgTertiary);
-          font-weight: var(--fontWeightRegular);
+        .info-wrap {
+          background-color: var(--colorBgBase);
+          border-radius: 8px;
         }
 
-        dd {
-          color: var(--colorFgBase);
-          font-weight: var(--fontWeightSemibold);
+        dl {
+          display: flex;
+          justify-content: space-between;
+          gap: 8px;
+          padding: 8px;
+
+          font-size: var(--fontSizeMd);
+          line-height: var(--contentLineHeightMd);
+
+          dt {
+            color: var(--colorFgTertiary);
+            font-weight: var(--fontWeightRegular);
+          }
+
+          dd {
+            color: var(--colorFgBase);
+            font-weight: var(--fontWeightSemibold);
+          }
         }
       }
     }
