@@ -46,7 +46,7 @@ module.exports = {
     "CIBUMG19020000M": { title: "상세", status: "완료", worker: "손창우", note: "주석확인" },
     "CIBUMG19030000M": { title: "삭제완료", status: "완료", worker: "손창우", note: "" },
     "CIBUMG18010000M": { title: "목록", status: "완료", worker: "손창우", note: "임시 그리드 화면" },
-    "CIBUMG200100000P": { title: "", status: "검수중", worker: "이상우", note: "" },
+    "CIBUMG200100000P": { title: "결제선 확인 팝업(미정)", status: "검수중", worker: "이상우", note: "" },
 
     // 💡 뱅킹업무(bop) 루트 기타 화면
     "원금상환_이체확인증": { title: "", status: "수정중", worker: "변혜선", note: "" },
