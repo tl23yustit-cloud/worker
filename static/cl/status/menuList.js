@@ -192,7 +192,7 @@ module.exports = {
     "CIBFIN_TPR040101000P": { title: "기준가/수익률조회_신탁기준가격_[팝업]기준가변동추이표", status: "검수중", worker: "변혜선", note: "" },
     "CIBFIN_TPR040200000T": { title: "기준가/수익률조회_신탁배당률", status: "검수중", worker: "변혜선", note: "" },
     "CIBFIN_TPR040300000T": { title: "기준가/수익률조회_기간별수익률", status: "검수중", worker: "변혜선", note: "" },
-    "CIBFIN_TPR050100000": { title: "연금저축신탁 비교공시_가입시 유의사항", status: "완료", worker: "변혜선", note: "" },
+    "CIBFIN_TPR050100000T": { title: "연금저축신탁 비교공시_가입시 유의사항", status: "완료", worker: "변혜선", note: "" },
     "CIBFIN_TPR030200000": { title: "", status: "완료", worker: "변혜선", note: "" },
     "CIBFIN_TPR030300000": { title: "", status: "완료", worker: "변혜선", note: "" },
     "CIBFIN_TPR030400000": { title: "", status: "완료", worker: "변혜선", note: "" },
