@@ -81,7 +81,7 @@ module.exports = {
         title: "(팝업) 매매계약 상세조회",
         status: "검수중",
         worker: "변혜선",
-        note: ""
+        note: "주석확인-[dev] : 20260824 td 에 클래스 text-right 추가"
     },
     "CIBB2B010303002M": {
         title: "추심의뢰대상내역조회",
@@ -98,6 +98,18 @@ module.exports = {
     "CIBB2B010303004M": {
         title: "추심의뢰대상내역조회",
         status: "검수중",
+        worker: "변혜선",
+        note: ""
+    },
+    "CIBB2B040200000P": {
+        title: "추심의뢰대상내역조회",
+        status: "진행중",
+        worker: "변혜선",
+        note: "화면id 확인필요(화면 id 규칙으로 일단 넣어둠)"
+    },
+    "CIBB2B010304001M": {
+        title: "거래수수료징수내역-조건입력",
+        status: "진행중",
         worker: "변혜선",
         note: ""
     },
