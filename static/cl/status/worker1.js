@@ -197,7 +197,7 @@ module.exports = {
         worker: "변혜선",
         note: ""
     },
-    "CIB2B010303001M": {
+    "CIBB2B010303001M": {
         title: "추심의뢰등록내역조회",
         status: "진행중",
         worker: "변혜선",
