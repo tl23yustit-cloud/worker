@@ -1,4 +1,120 @@
 .bmg {
+  .terms-box {
+    .terms {
+      width: 100%;
+      height: 400px;
+      border-radius: var(--radiusXl);
+      border: 1px solid var(--colorBorderSecondary);
+      overflow: scroll;
+      margin-bottom:12px;
+      padding:24px;
+    }
+    .form-box-wrap{
+      display: flex;
+      justify-content: end;
+    }
+  }
+
+  .step-list {
+    display: flex;
+    width: 100%;
+    padding: var(--spacing4Xl) 70px;
+    box-sizing: border-box;
+    border: 1px solid var(--colorBorderSecondary);
+    border-radius: var(--radiusXl);
+    margin-bottom: var(--spacing4Xl);
+
+    li {
+      display: flex;
+      align-items: center;
+
+      &:not(:last-child) {
+        flex: 1;
+      }
+
+      .step-icon {
+        width: 64px;
+        height: 64px;
+        display: inline-block;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        margin-right: 16px;
+      }
+
+      .step-badge {
+        font-size: var(--contentFontSizeXs);
+        font-weight: var(--fontWeightMedium);
+        line-height: var(--contentLineHeightXs);
+        border-radius: 99px;
+        margin-bottom: 6px;
+        padding: 2px 8px;
+        border: 1px solid var(--colorBorderBase);
+        display: inline-block;
+      }
+
+      .step-title {
+        color: var(--colorFgSecondary);
+        font-size: var(--contentFontSizeLg);
+        font-weight: var(--fontWeightSemibold);
+        line-height: var(--contentLineHeightLg);
+      }
+
+      &.step1 .step-icon {
+        background-image: url(../images/bmg/img_bng_step1.png);
+      }
+
+      &.step2 .step-icon {
+        background-image: url(../images/bmg/img_bng_step2.png);
+      }
+
+      &.step3 .step-icon {
+        background-image: url(../images/bmg/img_bng_step3.png);
+      }
+
+      &::after {
+        content: "";
+        width: 34px;
+        height: 27px;
+        display: block;
+        flex-shrink: 0;
+
+        margin-left: auto;
+        margin-right: auto;
+
+        background-image: url(../images/bmg/img_bmg_step.png);
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+      }
+
+      /* ✨ active가 붙은 스텝의 오른쪽에 있는 점을 활성화 이미지로 교체 */
+      &.active::after {
+        background-image: url(../images/bmg/img_bmg_step_active.png);
+      }
+
+      &.active {
+        .step-badge {
+          background-color: var(--colorBgNeutral);
+          border: none;
+          color: var(--colorFgLightSolid)
+        }
+
+        .step-title {
+          color: var(--colorFgBase);
+        }
+      }
+
+      /* 마지막 스텝 처리 */
+      &:last-child {
+        flex: 0 0 auto;
+
+        &::after {
+          display: none;
+        }
+      }
+    }
+  }
+
+
   .typeH2 {
 
     &+.result-box,
