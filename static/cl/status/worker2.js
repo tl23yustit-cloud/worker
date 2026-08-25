@@ -3,7 +3,7 @@ module.exports = {
       "CIBUMG20200000M": { title: "조회", status: "검수중", worker: "이상우", note: "" },
       "CIBUMG02050000M": { title: "Step1 사용자정보 등록", status: "검수중", worker: "이상우", note: "" },
       "CIBUMG02060000M": { title: "Step2 계좌권한 등록", status: "검수중", worker: "이상우", note: "" },
-      "CIBUMG02070000M": { title: "Step2 계좌권한 등록", status: "검수중", worker: "이상우", note: "" },
+      "CIBUMG02070000M": { title: "Step3 카드권한 등록", status: "검수중", worker: "이상우", note: "" },
 
 
 
