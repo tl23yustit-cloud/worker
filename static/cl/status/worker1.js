@@ -173,4 +173,10 @@ module.exports = {
         worker: "변혜선",
         note: ""
     },
+    "CIBNQ020202000M": {
+        title: "신청정보 입력",
+        status: "수정완료",
+        worker: "변혜선",
+        note: " 화면id변경 CIBINQ020202000M->CIBNQ020202000M"
+    },
 };

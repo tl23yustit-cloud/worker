@@ -232,7 +232,7 @@ module.exports = {
     // "CIBNQ020201000M": { title: "", status: "완료", worker: "변혜선", note: "" },
     "CIBINQ020201000M": { title: "거래내역파일신청_신청목록(없음)", status: "완료", worker: "변혜선", note: "" },
     // "CIBNQ020202000M": { title: "", status: "완료", worker: "변혜선", note: "주석확인" },
-    "CIBINQ020202000M": { title: "거래내역파일신청_신청정보입력(없음)", status: "완료", worker: "변혜선", note: "주석확인" },
+    "CIBNQ020201000M": { title: "거래내역파일신청_신청정보입력(없음)", status: "수정완료", worker: "변혜선", note: "주석확인, 화면id변경 CIBINQ020201000M->CIBNQ020201000M" },
 
     // 💡 메인 및 검색
     "main_sample_banner_top": { title: "", status: "완료", worker: "손창우", note: "" },
