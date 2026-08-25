@@ -4,6 +4,7 @@ module.exports = {
       "CIBUMG02050000M": { title: "Step1 사용자정보 등록", status: "검수중", worker: "이상우", note: "" },
       "CIBUMG02060000M": { title: "Step2 계좌권한 등록", status: "검수중", worker: "이상우", note: "" },
       "CIBUMG02070000M": { title: "Step3 카드권한 등록", status: "검수중", worker: "이상우", note: "" },
+      "CIBUMG02080000M": { title: "사용자 등록확인", status: "검수중", worker: "이상우", note: "" },
 
 
 
@@ -12,3 +13,4 @@ module.exports = {
 
 // CIBUMG02070000M
 // CIBUMG02060000M
+// CIBUMG02080000M
