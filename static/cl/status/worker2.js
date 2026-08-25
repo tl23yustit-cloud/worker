@@ -1,6 +1,6 @@
 module.exports = {
       "CIBUMG020100000M": { title: "사용자관리 목록", status: "검수중", worker: "이상우", note: "" },
-      "CIBUMG20200000M": { title: "조회", status: "대기중", worker: "이상우", note: "" },
-      "CIBUMG02050000M": { title: "Step1 사용자정보 등록", status: "대기중", worker: "이상우", note: "" },
+      "CIBUMG20200000M": { title: "조회", status: "검수중", worker: "이상우", note: "" },
+      "CIBUMG02050000M": { title: "Step1 사용자정보 등록", status: "검수중", worker: "이상우", note: "" },
 
 };

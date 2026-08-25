@@ -28,23 +28,23 @@
             @@include('static/html/pub/layout/breadcrumb.html')
             <div class="bmg">
               <h2 class="typeH2">사용자 등록</h2>
-              <ul class="step-list">
+              <ul class="step-list" aria-label="진행 단계">
                 <li class="step1 active">
-                  <i class="step-icon"></i>
+                  <i class="step-icon" aria-hidden="true"></i>
                   <div class="step-content">
                     <span class="step-badge">STEP 01</span>
                     <p class="step-title">사용자정보 등록</p>
                   </div>
                 </li>
                 <li class="step2">
-                  <i class="step-icon"></i>
+                  <i class="step-icon" aria-hidden="true"></i>
                   <div class="step-content">
                     <span class="step-badge">STEP 02</span>
                     <p class="step-title">계좌권한 등록</p>
                   </div>
                 </li>
                 <li class="step3">
-                  <i class="step-icon"></i>
+                  <i class="step-icon" aria-hidden="true"></i>
                   <div class="step-content">
                     <span class="step-badge">STEP 03</span>
                     <p class="step-title">카드권한 등록</p>
@@ -63,15 +63,14 @@
                 </button>
               </div>
 
+              <!-- 약관 동의 영역 -->
               <div class="terms-box">
                 <div class="terms">
-                  <!-- for dev : 약관 내용은 terms 태그안에 넣어주세요 아래는 임시영역 태그 삭제 부탁드립니다 -->
                   <div class="flex items-center justify-center h-100">
                     약관 영역노출
                   </div>
                 </div>
 
-                <!-- ✨ 웹 접근성 개선: fieldset과 legend로 라디오 그룹핑 및 연동 -->
                 <fieldset class="form-box-wrap">
                   <legend class="sr-only">
                     사용자 정보 등록 약관 동의 여부
@@ -80,7 +79,7 @@
                   <span class="form-box">
                     <input
                       type="radio"
-                      name="nameOfDeposit"
+                      name="termsAgree"
                       id="termsAgreeNo"
                       class="form-radio size-md"
                     />
@@ -92,7 +91,7 @@
                   <span class="form-box">
                     <input
                       type="radio"
-                      name="nameOfDeposit"
+                      name="termsAgree"
                       id="termsAgreeYes"
                       class="form-radio size-md"
                     />
@@ -100,6 +99,8 @@
                   </span>
                 </fieldset>
               </div>
+
+              <!-- 1. 사용자 기본정보 등록 테이블 -->
               <div class="tbl-area">
                 <div class="tbl-head">
                   <div class="left-area">
@@ -113,20 +114,24 @@
                 </div>
                 <table class="table-type01">
                   <caption>
-                    사용자 등록 정보 입력 (사용자구분, 사용자ID, 사용자명,
-                    부서명, 직위, 휴대전화번호 항목 입력)
+                    사용자 기본정보 등록 입력 폼 (사용자구분, 사용자ID,
+                    사용자명, 부서명, 직위, 휴대전화번호 항목 입력)
                   </caption>
                   <colgroup>
                     <col style="width: 20%" />
                     <col style="width: 80%" />
                   </colgroup>
                   <tbody>
-                    <!-- 1. 사용자구분 -->
+                    <!-- 사용자구분 -->
                     <tr>
                       <th scope="row">사용자구분</th>
                       <td>
                         <div class="tbl-flex">
-                          <div class="form-box-wrap">
+                          <fieldset
+                            class="form-box-wrap"
+                            style="border: 0; padding: 0; margin: 0"
+                          >
+                            <legend class="sr-only">사용자구분 선택</legend>
                             <span class="form-box">
                               <input
                                 type="radio"
@@ -150,7 +155,7 @@
                                 >결재사용자</label
                               >
                             </span>
-                          </div>
+                          </fieldset>
                           <button
                             type="button"
                             class="btn type-line-secondary size-lg"
@@ -161,22 +166,23 @@
                       </td>
                     </tr>
 
-                    <!-- 2. 사용자 ID -->
+                    <!-- 사용자 ID -->
                     <tr>
                       <th scope="row">
-                        <span class="required">사용자ID</span>
+                        <label for="userIdInput"
+                          ><span class="required">사용자ID</span></label
+                        >
                       </th>
                       <td>
                         <div class="tbl-flex">
-                          <div class="input-box wSize-lg">
-                            <input
-                              type="text"
-                              class="input size-lg"
-                              value="SUHYUP001"
-                              placeholder="아이디를 입력해주세요"
-                              title="사용자ID"
-                            />
-                          </div>
+                          <input
+                            type="text"
+                            id="userIdInput"
+                            class="input size-lg wSize-md"
+                            value="SUHYUP001"
+                            placeholder="아이디를 입력해주세요"
+                            aria-required="true"
+                          />
                           <button
                             type="button"
                             class="btn type-line-secondary size-lg"
@@ -190,60 +196,61 @@
                       </td>
                     </tr>
 
-                    <!-- 3. 사용자명 -->
+                    <!-- 사용자명 -->
                     <tr>
                       <th scope="row">
-                        <span class="required">사용자명</span>
+                        <label for="userNameInput"
+                          ><span class="required">사용자명</span></label
+                        >
                       </th>
                       <td>
-                        <div class="input-box wSize-lg">
-                          <input
-                            type="text"
-                            class="input size-lg"
-                            value="김수협"
-                            placeholder="사용자명을 입력해주세요"
-                            title="사용자명"
-                          />
-                        </div>
+                        <input
+                          type="text"
+                          id="userNameInput"
+                          class="input size-lg wSize-md"
+                          value="김수협"
+                          placeholder="사용자명을 입력해주세요"
+                          aria-required="true"
+                        />
                         <p class="input-guide-text">
                           동명이인은 구분하여 입력해주세요.
                         </p>
                       </td>
                     </tr>
 
-                    <!-- 4. 부서명 -->
+                    <!-- 부서명 -->
                     <tr>
-                      <th scope="row">부서명</th>
+                      <th scope="row">
+                        <label for="userDeptInput">부서명</label>
+                      </th>
                       <td>
-                        <div class="input-box wSize-lg">
-                          <input
-                            type="text"
-                            class="input size-lg"
-                            value="영업팀"
-                            placeholder="부서명을 입력해주세요"
-                            title="부서명"
-                          />
-                        </div>
+                        <input
+                          type="text"
+                          id="userDeptInput"
+                          class="input size-lg wSize-md"
+                          value="영업팀"
+                          placeholder="부서명을 입력해주세요"
+                        />
                       </td>
                     </tr>
 
-                    <!-- 5. 직위 -->
+                    <!-- 직위 -->
                     <tr>
-                      <th scope="row">직위</th>
+                      <th scope="row">
+                        <label for="userPositionInput">직위</label>
+                      </th>
                       <td>
-                        <div class="input-box wSize-lg">
-                          <input
-                            type="text"
-                            class="input size-lg"
-                            value="과장"
-                            placeholder="직위를 입력해주세요"
-                            title="직위"
-                          />
-                        </div>
+                        <input
+                          type="text"
+                          id="userPositionInput"
+                          class="input size-lg wSize-md"
+                          value="과장"
+                          placeholder="직위를 입력해주세요"
+                        />
                       </td>
                     </tr>
 
-                    <!-- 6. 휴대전화번호 -->
+                    <!-- 휴대전화번호 -->
                     <tr>
                       <th scope="row">
                         <span class="required">휴대전화번호</span>
@@ -253,11 +260,13 @@
                           <div class="box-select wSize-sm">
                             <button
                               type="button"
+                              id="phonePrefixBtn"
                               class="select size-lg"
                               role="combobox"
                               aria-expanded="false"
                               aria-haspopup="listbox"
                               aria-controls="selectPhonePrefix"
+                              aria-label="휴대전화 국번 선택"
                             >
                               <span class="text">02</span>
                               <span class="blind">펼침</span>
@@ -266,40 +275,40 @@
                               <ul
                                 class="list-select"
                                 role="listbox"
-                                aria-label="선택 항목 리스트"
+                                aria-label="휴대전화 국번 리스트"
                               >
-                                <li class="item-select" role="group">
+                                <li class="item-select" role="option">
                                   <span class="form-box">02</span>
                                 </li>
-                                <li class="item-select" role="group">
+                                <li class="item-select" role="option">
                                   <span class="form-box">010</span>
                                 </li>
-                                <li class="item-select" role="group">
+                                <li class="item-select" role="option">
                                   <span class="form-box">011</span>
                                 </li>
                               </ul>
                             </div>
                           </div>
-                          <span>-</span>
-                          <div class="input-box wSize-sm">
-                            <input
-                              type="text"
-                              class="input size-lg"
-                              value="1234"
-                              maxlength="4"
-                              title="휴대전화번호 중간자리"
-                            />
-                          </div>
-                          <span>-</span>
-                          <div class="input-box wSize-sm">
-                            <input
-                              type="text"
-                              class="input size-lg"
-                              value="5678"
-                              maxlength="4"
-                              title="휴대전화번호 뒷자리"
-                            />
-                          </div>
+                          <span aria-hidden="true">-</span>
+                          <input
+                            type="text"
+                            id="phoneMiddleNum"
+                            class="input size-lg wSize-sm"
+                            value="1234"
+                            maxlength="4"
+                            title="휴대전화번호 중간자리 입력"
+                            aria-required="true"
+                          />
+                          <span aria-hidden="true">-</span>
+                          <input
+                            type="text"
+                            id="phoneEndNum"
+                            class="input size-lg wSize-sm"
+                            value="5678"
+                            maxlength="4"
+                            title="휴대전화번호 뒷자리 입력"
+                            aria-required="true"
+                          />
                         </div>
                         <p class="input-guide-text">
                           PUSH알림 수신을 위해 정확히 입력해 주세요.
@@ -308,6 +317,199 @@
                     </tr>
                   </tbody>
                 </table>
+              </div>
+
+              <!-- 2. 이체한도 및 OTP등록 테이블 -->
+              <div class="tbl-area">
+                <div class="tbl-head">
+                  <div class="left-area">
+                    <h4 class="typeH4">이체한도 및 OTP등록</h4>
+                  </div>
+                </div>
+                <table class="table-type01">
+                  <caption>
+                    이체한도 및 OTP등록 정보 입력 폼 (1회 이체한도, 1일
+                    이체한도, OTP종류, OTP PIN 비밀번호 및 확인 항목 입력)
+                  </caption>
+                  <colgroup>
+                    <col style="width: 20%" />
+                    <col style="width: 80%" />
+                  </colgroup>
+                  <tbody>
+                    <!-- 1회 이체한도 -->
+                    <tr>
+                      <th scope="row">
+                        <label for="limitOnceInput"
+                          ><span class="required">1회 이체한도</span></label
+                        >
+                      </th>
+                      <td>
+                        <div class="tbl-flex">
+                          <input
+                            type="text"
+                            id="limitOnceInput"
+                            class="input size-lg wSize-md"
+                            placeholder="이체금액을 입력하세요"
+                            aria-required="true"
+                          />
+                          <button
+                            type="button"
+                            class="btn type-line-secondary size-lg"
+                          >
+                            <span class="text">최대</span>
+                          </button>
+                        </div>
+                        <p class="input-guide-text">
+                          최대 한도 100,000,000원(일억원)
+                        </p>
+                      </td>
+                    </tr>
+
+                    <!-- 1일 이체한도 -->
+                    <tr>
+                      <th scope="row">
+                        <label for="limitDailyInput"
+                          ><span class="required">1일 이체한도</span></label
+                        >
+                      </th>
+                      <td>
+                        <div class="tbl-flex">
+                          <input
+                            type="text"
+                            id="limitDailyInput"
+                            class="input size-lg wSize-md"
+                            placeholder="이체금액을 입력하세요"
+                            aria-required="true"
+                          />
+                          <button
+                            type="button"
+                            class="btn type-line-secondary size-lg"
+                          >
+                            <span class="text">최대</span>
+                          </button>
+                        </div>
+                        <p class="input-guide-text">
+                          최대 한도 100,000,000원(일억원)
+                        </p>
+                      </td>
+                    </tr>
+
+                    <!-- OTP종류 -->
+                    <tr>
+                      <th scope="row">OTP종류</th>
+                      <td>
+                        <fieldset
+                          class="form-box-wrap"
+                          style="border: 0; padding: 0; margin: 0"
+                        >
+                          <legend class="sr-only">OTP종류 선택</legend>
+                          <span class="form-box">
+                            <input
+                              type="radio"
+                              name="otpType"
+                              id="otpType01"
+                              class="form-radio size-md"
+                            />
+                            <label for="otpType01" class="form-label"
+                              >SH기업 디지털OTP(모바일,브라우저)</label
+                            >
+                          </span>
+                          <span class="form-box">
+                            <input
+                              type="radio"
+                              name="otpType"
+                              id="otpType02"
+                              class="form-radio size-md"
+                              checked
+                            />
+                            <label for="otpType02" class="form-label"
+                              >타행OTP</label
+                            >
+                          </span>
+                        </fieldset>
+                      </td>
+                    </tr>
+
+                    <!-- OTP PIN (비밀번호) -->
+                    <tr>
+                      <th scope="row">
+                        <label for="otpPinInput">OTP PIN<br />(비밀번호)</label>
+                      </th>
+                      <td>
+                        <div class="tbl-flex">
+                          <input
+                            type="password"
+                            id="otpPinInput"
+                            class="input size-lg wSize-smMd"
+                            placeholder="숫자6자리"
+                            maxlength="6"
+                            aria-required="true"
+                          />
+                          <button
+                            type="button"
+                            class="btn type-line-secondary size-lg"
+                          >
+                            <span class="text">마우스입력</span>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <!-- OTP PIN (비밀번호 확인) -->
+                    <tr>
+                      <th scope="row">
+                        <label for="otpPinConfirmInput"
+                          >OTP PIN<br />(비밀번호 확인)</label
+                        >
+                      </th>
+                      <td>
+                        <div class="tbl-flex">
+                          <input
+                            type="password"
+                            id="otpPinConfirmInput"
+                            class="input size-lg wSize-smMd"
+                            placeholder="숫자6자리"
+                            maxlength="6"
+                            aria-required="true"
+                          />
+                          <button
+                            type="button"
+                            class="btn type-line-secondary size-lg"
+                          >
+                            <span class="text">마우스입력</span>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="btn-wrap center lg-bot">
+                <button type="button" class="btn type-bg-primary-tint size-xxl">
+                  <span class="text">취소</span>
+                </button>
+                <button type="button" class="btn type-bg-primary size-xxl">
+                  <span class="text">다음</span>
+                </button>
+              </div>
+              <div class="line-box size-xl mt-48">
+                <span class="typeLgSemibold">이용안내</span>
+                <div class="list type-dotted">
+                  <ul>
+                    <li class="typeMd">
+                      거래 구분에서 입·출금내역 및 입금내역, 출금내역,
+                      현금IC카드결제내역을 확인할 수 있습니다.
+                    </li>
+                    <li class="typeMd">
+                      입출금이 자유로운 계좌는 최근 5년까지, 그 외 계좌는 최근
+                      10년까지 조회 가능합니다.
+                    </li>
+                    <li class="typeMd">
+                      해지된 계좌 조회를 원하실 계좌번호 직접입력을 누르시어
+                      조회하시길 바랍니다.
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
