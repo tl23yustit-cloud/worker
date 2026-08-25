@@ -17,24 +17,24 @@ module.exports = {
         worker: "변혜선",
         note: ""
     },
-    "CIBFOE030101000M": {
-        title: "이율조회_외화정기예금",
-        status: "검수중",
-        worker: "변혜선",
-        note: ""
-    },
-    "CIBFOE030102000M": {
-        title: "이율조회_외화보통예금",
-        status: "검수중",
-        worker: "변혜선",
-        note: ""
-    },
-    "CIBFOE030103000M": {
-        title: "이율조회_외화MMDA",
-        status: "검수중",
-        worker: "변혜선",
-        note: ""
-    },
+    // "CIBFOE030101000M": {
+    //     title: "이율조회_외화정기예금",
+    //     status: "검수중",
+    //     worker: "변혜선",
+    //     note: ""
+    // },
+    // "CIBFOE030102000M": {
+    //     title: "이율조회_외화보통예금",
+    //     status: "검수중",
+    //     worker: "변혜선",
+    //     note: ""
+    // },
+    // "CIBFOE030103000M": {
+    //     title: "이율조회_외화MMDA",
+    //     status: "검수중",
+    //     worker: "변혜선",
+    //     note: ""
+    // },
     "CIBB2B010301001M": {
         title: "판매기업-매매계약내역조회",
         status: "검수중",
@@ -103,73 +103,73 @@ module.exports = {
     },
     "CIBB2B040200000P": {
         title: "추심의뢰대상내역조회",
-        status: "진행중",
+        status: "검수중",
         worker: "변혜선",
         note: "화면id 확인필요(화면 id 규칙으로 일단 넣어둠)"
     },
     "CIBB2B010304001M": {
         title: "거래수수료징수내역-조건입력",
-        status: "진행중",
+        status: "검수중",
         worker: "변혜선",
         note: ""
     },
     "CIBB2B010306001M": {
         title: "거래수수료집계내역-조건입력",
-        status: "진행중",
+        status: "검수중",
         worker: "변혜선",
         note: ""
     },
     "CIBB2B010307001M": {
         title: "통지서비스 신청/해지",
-        status: "진행중",
+        status: "검수중",
         worker: "변혜선",
         note: ""
     },
     "CIBB2B010307002M": {
         title: "통지서비스 신청/해지",
-        status: "진행중",
+        status: "검수중",
         worker: "변혜선",
         note: ""
     },
     "CIBB2B010307003M": {
         title: "통지서비스 신청/해지",
-        status: "진행중",
+        status: "검수중",
         worker: "변혜선",
         note: ""
     },
     "CIBB2B010307004M": {
         title: "통지서비스 신청/해지",
-        status: "진행중",
+        status: "검수중",
         worker: "변혜선",
         note: ""
     },
     "CIBB2B010307005M": {
         title: "통지서비스 신청/해지",
-        status: "진행중",
+        status: "검수중",
         worker: "변혜선",
         note: ""
     },
     "CIBB2B010307006M": {
         title: "통지서비스 신청/해지",
-        status: "진행중",
+        status: "검수중",
         worker: "변혜선",
         note: ""
     },
     "CIBB2B010307007M": {
         title: "통지서비스 신청/해지",
-        status: "진행중",
+        status: "검수중",
         worker: "변혜선",
         note: ""
     },
     "CIBB2B010307008M": {
         title: "통지서비스 신청/해지",
-        status: "진행중",
+        status: "검수중",
         worker: "변혜선",
         note: ""
     },
     "CIBB2B010307009M": {
         title: "통지서비스 신청/해지",
-        status: "진행중",
+        status: "검수중",
         worker: "변혜선",
         note: ""
     },
@@ -178,5 +178,11 @@ module.exports = {
         status: "수정완료",
         worker: "변혜선",
         note: " 화면id변경 CIBINQ020202000M->CIBNQ020202000M"
+    },
+    "CIBLON020101000M": {
+        title: "이자납입_조회",
+        status: "진행중",
+        worker: "변혜선",
+        note: ""
     },
 };
