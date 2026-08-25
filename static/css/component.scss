@@ -5755,3 +5755,190 @@ body.is-scroll-locked {
 
 	}
 }
+
+//달력
+// #3c4043: #3c4043
+// #5f6368: #5f6368;
+// $bg-white: #ffffff;
+// $border-color: #e8eaed;
+
+.calendarLayer_wrap {
+	display: inline-block;
+	padding: 16px;
+
+	.calendarLayer_data {
+		position: relative;
+		width: 280px;
+		padding: 20px 16px;
+		background-color: var(--colorBgBase);
+		border-radius: 16px;
+		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+		box-sizing: border-box;
+		border: 1px solid var(--colorBorderSecondary);
+
+		.pop_header {
+			._calendar_header {
+				position: absolute;
+				width: 1px;
+				height: 1px;
+				margin: -1px;
+				overflow: hidden;
+				clip: rect(0, 0, 0, 0);
+			}
+		}
+
+		.calendar_select {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			margin-bottom: 16px;
+			padding: 0 4px;
+			.period {
+				font-size: 15px;
+				font-weight: 700;
+				color: #3c4043;
+			}
+
+			a {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				width: 24px;
+				height: 24px;
+				text-decoration: none;
+				 color: #5f6368;
+				position: relative;
+
+				&::before {
+					content: '';
+					display: block;
+					width: 6px;
+					height: 6px;
+					 border-top: 2px solid #5f6368;
+					 border-left: 2px solid #5f6368;
+				}
+
+				&.month_prev::before {
+					transform: rotate(-45deg);
+				}
+
+				&.month_next::before {
+					transform: rotate(135deg);
+				}
+
+				&.year_prev,
+				&.year_next {
+					display: none;
+				}
+			}
+		}
+
+		.calendar_wrap {
+			caption {
+				position: absolute;
+				width: 1px;
+				height: 1px;
+				margin: -1px;
+				overflow: hidden;
+				clip: rect(0, 0, 0, 0);
+			}
+
+			.calendarSmall {
+				width: 100%;
+				border-collapse: collapse;
+
+				th {
+					padding-bottom: 8px;
+					font-size: 13px;
+					font-weight: 500;
+					 color: #5f6368;
+					text-align: center;
+				}
+
+				td {
+					height: 36px;
+					text-align: center;
+					padding: 2px 0;
+
+					button {
+						width: 32px;
+						height: 32px;
+						margin: 0 auto;
+						border: none;
+						background: none;
+						border-radius: 8px;
+						font-size: 13px;
+						 color: #3c4043;
+						cursor: pointer;
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						transition: background-color 0.15s ease;
+
+						&:hover {
+							background-color: #f1f3f4;
+						}
+						&.is-today {
+							text-decoration: underline;
+							text-underline-offset: 3px;
+							font-weight: 600;
+						}
+						&.is-selected {
+							background-color: var(--colorBgPrimary);
+							color: #ffffff;
+							font-weight: 600;
+
+							&:hover {
+								// background-color: darken(--colorBgPrimary, 5%);
+							}
+						}
+					}
+				}
+			}
+		}
+
+		.calendar_footer {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			margin-top: 16px;
+			padding-top: 12px;
+			border-top: 1px solid var(--colorBorderSecondary);
+
+			.btn_reset {
+				border: none;
+				background: none;
+				 color: #5f6368;
+				font-size: 13px;
+				cursor: pointer;
+				display: flex;
+				align-items: center;
+				gap: 4px;
+
+				&::before {
+					content: '↻';
+					font-size: 14px;
+				}
+			}
+
+			.btn_apply {
+				padding: 6px 16px;
+				border: none;
+				border-radius: 6px;
+				background-color: var(--colorBgPrimary);
+				color: #ffffff;
+				font-size: 13px;
+				font-weight: 600;
+				cursor: pointer;
+
+				&:hover {
+					// background-color: darken(--colorBgPrimary, 5%);
+				}
+			}
+		}
+
+		.btn_calendar_close {
+			display: none; // UI상 닫기 버튼 대신 푸터 영역 활용
+		}
+	}
+}
