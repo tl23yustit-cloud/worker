@@ -1679,3 +1679,57 @@ document.querySelectorAll('.drop-box').forEach((dropBox) => {
 		dropBox.classList.toggle('is-open');
 	});
 });
+//캘린더 호출
+document.addEventListener('DOMContentLoaded', () => {
+  const calendarWrap = document.querySelector('.calendar-wrap');
+  if (!calendarWrap) return;
+
+  const toggleBtns = calendarWrap.querySelectorAll('.input-box .btn');
+  const calendarLayer = calendarWrap.querySelector('.calendarLayer_wrap');
+
+  if (!calendarLayer) return;
+
+  toggleBtns.forEach((btn, index) => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+
+      // 이미 열려있는 상태에서 같은 버튼을 누르면 닫기
+      const isActive = calendarLayer.classList.contains('is-active');
+      const currentActiveIndex = calendarLayer.dataset.activeIndex;
+
+      if (isActive && currentActiveIndex == index) {
+        calendarLayer.classList.remove('is-active');
+        return;
+      }
+
+      // 두 번째(오른쪽) 버튼을 눌렀을 때는 오른쪽 정렬 클래스 추가
+      if (index > 0) {
+        calendarLayer.classList.add('align-right');
+      } else {
+        calendarLayer.classList.remove('align-right');
+      }
+
+      // 달력 열기 및 현재 버튼 인덱스 기록
+      calendarLayer.dataset.activeIndex = index;
+      calendarLayer.classList.add('is-active');
+    });
+  });
+
+  // 달력 내부 클릭 시 닫힘 방지
+  calendarLayer.addEventListener('click', (e) => {
+    e.stopPropagation();
+  });
+
+  // 닫기 및 적용 버튼
+  const applyBtn = calendarLayer.querySelector('.btn_apply');
+  if (applyBtn) {
+    applyBtn.addEventListener('click', () => {
+      calendarLayer.classList.remove('is-active');
+    });
+  }
+
+  // 외부 클릭 시 닫기
+  document.addEventListener('click', () => {
+    calendarLayer.classList.remove('is-active');
+  });
+});
