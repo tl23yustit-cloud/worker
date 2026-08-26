@@ -173,6 +173,12 @@ module.exports = {
         worker: "변혜선",
         note: ""
     },
+    "CIBB2B010303001M": {
+        title: "추심의뢰등록내역조회",
+        status: "진행중",
+        worker: "변혜선",
+        note: ""
+    },
     "CIBNQ020202000M": {
         title: "신청정보 입력",
         status: "수정완료",
@@ -197,8 +203,38 @@ module.exports = {
         worker: "변혜선",
         note: ""
     },
-    "CIBB2B010303001M": {
-        title: "추심의뢰등록내역조회",
+    "CIBLON020105000M": {
+        title: "이자납입_이자납입 결재요청 완료",
+        status: "진행중",
+        worker: "변혜선",
+        note: ""
+    },
+    "CIBLON020106000M": {
+        title: "이자납입_이자납입 이체 완료",
+        status: "진행중",
+        worker: "변혜선",
+        note: ""
+    },
+    "CIBLON020107000M": {
+        title: "이자납입_이체확인증",
+        status: "진행중",
+        worker: "변혜선",
+        note: ""
+    },
+    "CIBCRD040105000P": {
+        title: "카드결제일 안내 팝업",
+        status: "진행중",
+        worker: "변혜선",
+        note: ""
+    },
+    "CIBCRD040106000P": {
+        title: "카드매출전표 팝업",
+        status: "진행중",
+        worker: "변혜선",
+        note: "주석 [dev] 20260826 확인"
+    },
+    "CIBCRD040107000P": {
+        title: "가맹점정보 팝업",
         status: "진행중",
         worker: "변혜선",
         note: ""
