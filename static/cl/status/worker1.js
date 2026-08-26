@@ -175,7 +175,7 @@ module.exports = {
     },
     "CIBB2B010303001M": {
         title: "추심의뢰등록내역조회",
-        status: "진행중",
+        status: "검수중",
         worker: "변혜선",
         note: ""
     },
@@ -187,55 +187,79 @@ module.exports = {
     },
     "CIBLON020101000M": {
         title: "이자납입_조회",
-        status: "진행중",
+        status: "검수중",
         worker: "변혜선",
         note: ""
     },
     "CIBLON020103000M": {
         title: "이자납입_정보입력",
-        status: "진행중",
+        status: "검수중",
         worker: "변혜선",
         note: ""
     },
     "CIBLON020104000M": {
         title: "이자납입_이자납입 확인",
-        status: "진행중",
+        status: "검수중",
         worker: "변혜선",
         note: ""
     },
     "CIBLON020105000M": {
         title: "이자납입_이자납입 결재요청 완료",
-        status: "진행중",
+        status: "검수중",
         worker: "변혜선",
         note: ""
     },
     "CIBLON020106000M": {
         title: "이자납입_이자납입 이체 완료",
-        status: "진행중",
+        status: "검수중",
         worker: "변혜선",
         note: ""
     },
     "CIBLON020107000M": {
         title: "이자납입_이체확인증",
-        status: "진행중",
+        status: "검수중",
         worker: "변혜선",
         note: ""
     },
     "CIBCRD040105000P": {
         title: "카드결제일 안내 팝업",
-        status: "진행중",
+        status: "검수중",
         worker: "변혜선",
         note: ""
     },
     "CIBCRD040106000P": {
         title: "카드매출전표 팝업",
-        status: "진행중",
+        status: "검수중",
         worker: "변혜선",
         note: "주석 [dev] 20260826 확인"
     },
     "CIBCRD040107000P": {
         title: "가맹점정보 팝업",
-        status: "진행중",
+        status: "검수중",
+        worker: "변혜선",
+        note: ""
+    },
+    "CIBCRD020501000T": {
+        title: "카드 일시정지(조회)",
+        status: "검수중",
+        worker: "변혜선",
+        note: "임시 그리드"
+    },
+    "CIBCRD020503000T": {
+        title: "카드 일시정지 내역조회/해제(조회)",
+        status: "검수중",
+        worker: "변혜선",
+        note: "임시 그리드"
+    },
+    "CIBCRD020502000M": {
+        title: "카드 일시정지(완료)",
+        status: "검수중",
+        worker: "변혜선",
+        note: ""
+    },
+    "CIBCRD020504000M": {
+        title: "카드 일시정지 내역조회/해제(완료)",
+        status: "검수중",
         worker: "변혜선",
         note: ""
     },
