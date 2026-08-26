@@ -1,56 +1,869 @@
-window.addEventListener('load', function () {
-	fnSkipNavigation(); // skip Navigation
-	fnLNB(); // LNB
-	fnHeader(); // header
-	fnBoxAccordion(); // Accordion
-	fnBtnAnchor(); // Anchor
-	fnSelectColorChange(); // select 태그 class 추가
-	fnInputClear(); // 기본 검색
-	fnBoxSearchDetail(); // 상세검색
-	fnBoxSelect(); // 기본 드롭다운
-	fnBoxMultiSelect(); // 멀티 드롭다운
-	fnTextareaCounter(); // Textarea
-	var defaultTabIndex = 0
-	fnTab(0); // Tab
-	fnBoxTooltip(); // Tooltip
-	fnModal(); // Modal
-	fnInitSortButtons() //정렬 버튼
-	initTableCheckbox() //allcheck
-	fnInitViewSelector() //뷰셀렉터
-	fnSwiperHtmlControl() // 슬라이드 옵션 html 컨트롤
-});
+/**
+ * ============================================================================
+ * [개발팀 연동 가이드] 동적 DOM 생성 시 UI 컴포넌트 초기화 함수
+ * ============================================================================
+ * 
+ * AJAX 통신, 모달 오픈, 탭 변경 등 화면에 HTML을 동적으로 렌더링한 직후 호출해 주세요.
+ * 스와이퍼(Swiper), 체크박스 테이블, 프로그래스바 등 인스턴스/상태 기반 UI를 찾아 실행합니다.
+ * (아코디언, 드롭다운 등 단순 클릭/토글 UI는 자동 적용되므로 신경 쓰지 않으셔도 됩니다.)
+ * 
+ * @param {HTMLElement} context - (옵션) 새로 생성된 요소를 감싸는 부모 DOM 요소
+ *                                지정 시 해당 영역 안에서만 탐색하므로 성능에 좋습니다.
+ *                                생략 시 문서 전체(document)를 스캔합니다. (중복 방지 처리됨)
+ * 
+ * @example
+ * // 1. innerHTML로 특정 영역 내용을 갈아끼울 때 (추천)
+ * const $list = document.getElementById('list-container');
+ * $list.innerHTML = '<div class="swiper">...</div>';
+ * window.initDynamicUI($list);
+ * 
+ * @example
+ * // 2. createElement로 새 요소를 덧붙일 때
+ * const $newItem = document.createElement('div');
+ * $newItem.innerHTML = '<table class="js-check-table">...</table>';
+ * document.querySelector('.content-area').appendChild($newItem);
+ * window.initDynamicUI($newItem);
+ * 
+ * @example
+ * // 3. 부모 요소를 특정하기 어렵거나 화면 전체가 크게 바뀐 경우 (전체 스캔)
+ * // HTML 렌더링을 마친 후 괄호를 비우고 호출합니다.
+ * window.initDynamicUI();
+ */
 
-// skip Navigation
-function fnSkipNavigation() {
-	const $btnsSkipNav = document.querySelectorAll(".skip-nav .btn-skip-nav");
+if (!window._isUICommonDelegated) {
+	window._isUICommonDelegated = true;
+	
+	window.addEventListener('load', function () {
+		fnHeader(); // Header
+		fnSkipNavigation(); // Skip Nav
+		
+		setupDelegatedEvents(); 
+		initDynamicUI();
+	});
+}
 
-	$btnsSkipNav.forEach(function ($btn) {
-		// $btn.addEventListener('focus', function () {
-		// 	this.classList.add("is-open");
-		// });
+// 동적 DOM 생성 시 재호출 함수
+window.initDynamicUI = function(context = document) {
+	fnSwiperHtmlControl(context);
+	initTableCheckbox(context);
+	initCurrencyFormat(context);
+	initRateRange(context);
+	fnInitTextareaLength(context); 
+};
 
-		$btn.addEventListener('blur', function () {
-			this.classList.remove("is-open");
+
+function setupDelegatedEvents() {
+	
+	// LNB
+	document.addEventListener('click', function (e) {
+		const $lnbWrapper = e.target.closest('.wrap-left-menu');
+		if (!$lnbWrapper) return;
+		
+		const $clickedLink = e.target.closest('.link');
+		if (!$clickedLink) return;
+
+		const $currentLi = $clickedLink.parentElement;
+		if (!$currentLi || $currentLi.classList.contains("none") || $currentLi.classList.contains("item-depth4")) return;
+
+		e.preventDefault();
+		const $blindTextSpan = $clickedLink.querySelector(".blind");
+		const isAlreadySelected = $clickedLink.classList.contains("selected");
+
+		if (isAlreadySelected) {
+			$clickedLink.classList.remove("selected");
+			if ($blindTextSpan) $blindTextSpan.textContent = "메뉴 접힘";
+		} else {
+			$clickedLink.classList.add("selected");
+			if ($blindTextSpan) $blindTextSpan.textContent = "메뉴 펼침";
+		}
+	});
+
+	// Accordion
+	document.addEventListener('click', function (e) {
+		const $clickedButton = e.target.closest(".box-accordion .box-item-list");
+		if (!$clickedButton) return;
+
+		const $currentContainer = $clickedButton.closest(".box-accordion");
+		if (!$currentContainer) return;
+
+		const $blindTextSpan = $clickedButton.querySelector(".blind");
+		const isAlreadyOpen = $currentContainer.classList.contains("is-open");
+
+		if (isAlreadyOpen) {
+			$currentContainer.classList.remove("is-open");
+			if ($blindTextSpan) $blindTextSpan.textContent = "상세내용 열기";
+		} else {
+			$currentContainer.classList.add("is-open");
+			if ($blindTextSpan) $blindTextSpan.textContent = "상세내용 닫기";
+		}
+	});
+
+	// Anchor
+	document.addEventListener('click', function(e) {
+		const $btnAnchor = e.target.closest('.btn-anchor');
+		if ($btnAnchor) {
+			if (!$btnAnchor.classList.contains("active")) {
+				$btnAnchor.classList.add('active');
+				$btnAnchor.setAttribute('title', '선택됨');
+			} else {
+				$btnAnchor.classList.remove('active');
+				$btnAnchor.removeAttribute("title");
+			}
+		}
+	});
+
+	// Select 태그 class 추가
+	document.addEventListener('change', function(e) {
+		const $select = e.target.closest('select.select');
+		if ($select) {
+			if ($select.selectedIndex > 0) $select.classList.add('selected');
+			else $select.classList.remove('selected');
+		}
+	});
+
+	// 기본 검색 (Input Clear)
+	document.addEventListener('input', function(e) {
+		const $input = e.target.closest('.box-input-search .input');
+		if ($input) toggleInputDeleteButton($input);
+	});
+	document.addEventListener('click', function(e) {
+		const $btnDelete = e.target.closest('.box-input-search .btn-delete');
+		if ($btnDelete) {
+			e.preventDefault();
+			const $input = $btnDelete.closest('.box-input-search').querySelector('.input');
+			if ($input) {
+				$input.value = "";
+				$input.focus();
+				toggleInputDeleteButton($input);
+			}
+		}
+	});
+	function toggleInputDeleteButton($input) {
+		const $btnDelete = $input.closest('.box-input-search').querySelector('.btn-delete');
+		if ($btnDelete) {
+			$btnDelete.style.display = $input.value.trim().length > 0 ? "block" : "none";
+		}
+	}
+
+	// 상세검색
+	document.addEventListener('click', function(e) {
+		const $toggleBtn = e.target.closest('.box-search-detail .box-top-visual .btn');
+		if ($toggleBtn) {
+			const $boxSearchDetail = $toggleBtn.closest('.box-search-detail');
+			const $blindText = $toggleBtn.querySelector('.blind');
+			const isExpanded = $boxSearchDetail.classList.contains('active');
+
+			if (isExpanded) {
+				$boxSearchDetail.classList.remove('active');
+				$toggleBtn.classList.remove('active');
+				$toggleBtn.setAttribute('aria-expanded', 'false');
+				if ($blindText) $blindText.textContent = '펼침';
+			} else {
+				$boxSearchDetail.classList.add('active');
+				$toggleBtn.classList.add('active');
+				$toggleBtn.setAttribute('aria-expanded', 'true');
+				if ($blindText) $blindText.textContent = '접힘';
+			}
+		}
+	});
+
+	// 기본 드롭다운
+	document.addEventListener('click', function(e) {
+		const $boxSelectTrigger = e.target.closest('.box-select .select');
+		const $boxSelectItem = e.target.closest('.box-select .item-select');
+		
+		if ($boxSelectTrigger) {
+			e.stopPropagation();
+			const $boxSelect = $boxSelectTrigger.closest('.box-select');
+			const isOpen = $boxSelectTrigger.classList.contains('active');
+			const $blindText = $boxSelectTrigger.querySelector('.blind');
+			
+			closeAllSelects();
+			
+			if (!isOpen) {
+				$boxSelectTrigger.classList.add('active');
+				$boxSelect.classList.add('is-open');
+				if ($blindText) $blindText.textContent = '접힘';
+			}
+			return;
+		}
+
+		if ($boxSelectItem) {
+			e.stopPropagation();
+			const $boxSelect = $boxSelectItem.closest('.box-select');
+			const $triggerBtn = $boxSelect.querySelector('.select');
+			const $blindText = $triggerBtn.querySelector('.blind');
+			const selectedText = $boxSelectItem.textContent.trim();
+			
+			const $textSpan = $triggerBtn.querySelector('.text');
+			if ($textSpan) {
+				$textSpan.textContent = selectedText;
+			} else {
+				const blindContent = $blindText ? $blindText.outerHTML : '';
+				$triggerBtn.innerHTML = selectedText + blindContent;
+			}
+
+			$boxSelect.querySelectorAll('.item-select').forEach(function(el) {
+				el.setAttribute('aria-selected', 'false');
+				el.classList.remove('selected');
+			});
+			$boxSelectItem.setAttribute('aria-selected', 'true');
+			$boxSelectItem.classList.add('selected');
+			
+			closeAllSelects();
+			return;
+		}
+
+		if (!e.target.closest('.box-select')) {
+			closeAllSelects();
+		}
+	});
+
+	function closeAllSelects() {
+		document.querySelectorAll('.box-select .select.active').forEach($btn => {
+			$btn.classList.remove('active');
+			const $blindText = $btn.querySelector('.blind');
+			if ($blindText) $blindText.textContent = '펼침';
+		});
+		document.querySelectorAll('.box-select.is-open').forEach($comp => {
+			$comp.classList.remove('is-open');
+		});
+	}
+
+	// 멀티 드롭다운
+	document.addEventListener('click', function(e) {
+		const $triggerBtn = e.target.closest('.box-multi-select .select');
+		const $resetBtn = e.target.closest('.box-multi-select .utilities .btn-reset');
+
+		if ($triggerBtn) {
+			e.stopPropagation();
+			const $boxMultiSelect = $triggerBtn.closest('.box-multi-select');
+			const isOpen = $triggerBtn.classList.contains('active');
+			const $blindText = $triggerBtn.querySelector('.blind');
+			
+			closeAllMultiSelects();
+
+			if (!isOpen) {
+				$triggerBtn.classList.add('active');
+				$boxMultiSelect.classList.add('is-open');
+				if ($blindText) $blindText.textContent = '접힘';
+			}
+			return;
+		}
+
+		if ($resetBtn) {
+			const $boxMultiSelect = $resetBtn.closest('.box-multi-select');
+			const $allCheck = $boxMultiSelect.querySelector('.box-list-select-all .form-checkbox');
+			const $itemChecks = $boxMultiSelect.querySelectorAll('.list-select .form-checkbox');
+			
+			$itemChecks.forEach(item => item.checked = false);
+			if ($allCheck) {
+				$allCheck.checked = false;
+				updateAllCheckboxState($allCheck, $itemChecks);
+			}
+			return;
+		}
+
+		if (!e.target.closest('.box-multi-select')) {
+			closeAllMultiSelects();
+		}
+	});
+
+	document.addEventListener('change', function(e) {
+		const $boxMultiSelect = e.target.closest('.box-multi-select');
+		if (!$boxMultiSelect) return;
+
+		const $allCheck = $boxMultiSelect.querySelector('.box-list-select-all .form-checkbox');
+		const $itemChecks = Array.from($boxMultiSelect.querySelectorAll('.list-select .form-checkbox'));
+
+		if (e.target === $allCheck) {
+			const isChecked = $allCheck.checked;
+			$itemChecks.forEach(item => item.checked = isChecked);
+			updateAllCheckboxState($allCheck, $itemChecks);
+		} else if ($itemChecks.includes(e.target)) {
+			if ($allCheck) updateAllCheckboxState($allCheck, $itemChecks);
+		}
+	});
+
+	function closeAllMultiSelects() {
+		document.querySelectorAll('.box-multi-select .select.active').forEach($btn => {
+			$btn.classList.remove('active');
+			const $blindText = $btn.querySelector('.blind');
+			if ($blindText) $blindText.textContent = '펼침';
+		});
+		document.querySelectorAll('.box-multi-select.is-open').forEach($comp => {
+			$comp.classList.remove('is-open');
+		});
+	}
+
+	function updateAllCheckboxState($allCheck, $items) {
+		const totalCount = $items.length;
+		let checkedCount = 0;
+		$items.forEach(item => { if (item.checked) checkedCount++; });
+
+		if (checkedCount === 0) {
+			$allCheck.checked = false;
+			$allCheck.indeterminate = false;
+			$allCheck.classList.remove('is-indeterminate');
+		} else if (checkedCount === totalCount) {
+			$allCheck.checked = true;
+			$allCheck.indeterminate = false;
+			$allCheck.classList.remove('is-indeterminate');
+		} else {
+			$allCheck.checked = false;
+			$allCheck.indeterminate = true;
+			$allCheck.classList.add('is-indeterminate');
+		}
+	}
+
+	// Textarea 글자수
+	document.addEventListener('input', function(e) {
+		const $textarea = e.target.closest('.form-text-area textarea');
+		if ($textarea) {
+			const $currentSpan = $textarea.closest('.form-text-area').querySelector('.current');
+			if ($currentSpan) $currentSpan.textContent = $textarea.value.length;
+		}
+	});
+
+	// Tab
+	document.addEventListener('click', function(e) {
+		const classTabWrapper = "box-tab";
+		const classTabButton = "btn-tab";
+		const classTabContent = "box-tab-content";
+		const classActiveState = "active";
+		const classDisabledState = "disabled";
+
+		const $clickedButton = e.target.closest("." + classTabWrapper + " ." + classTabButton);
+		if (!$clickedButton) return;
+
+		const $menuWrap = $clickedButton.closest("." + classTabWrapper);
+		if (!$menuWrap) return;
+
+		const $scopeButtons = Array.prototype.filter.call($menuWrap.querySelectorAll("." + classTabButton), btn => btn.closest("." + classTabWrapper) === $menuWrap);
+		const $scopeContents = Array.prototype.filter.call($menuWrap.querySelectorAll("." + classTabContent), content => content.closest("." + classTabWrapper) === $menuWrap);
+
+		const targetActiveIndex = $scopeButtons.indexOf($clickedButton);
+		const isAlreadyActive = $clickedButton.classList.contains(classActiveState);
+		const isDisabledTab = $clickedButton.classList.contains(classDisabledState) || $clickedButton.hasAttribute("disabled");
+
+		if (!isAlreadyActive && !isDisabledTab) {
+			$scopeButtons.forEach(($button, index) => {
+				const isThisButtonDisabled = $button.classList.contains(classDisabledState) || $button.hasAttribute("disabled");
+				if (isThisButtonDisabled) return;
+
+				if (index === targetActiveIndex) $button.classList.add(classActiveState);
+				else $button.classList.remove(classActiveState);
+				$button.setAttribute("aria-selected", String(index === targetActiveIndex));
+			});
+
+			$scopeContents.forEach(($content, index) => {
+				const $matchingButton = $scopeButtons[index];
+				const isMatchingButtonDisabled = $matchingButton ? ($matchingButton.classList.contains(classDisabledState) || $matchingButton.hasAttribute("disabled")) : false;
+				if (isMatchingButtonDisabled) return;
+
+				if (index === targetActiveIndex) {
+					$content.classList.add(classActiveState);
+					$content.style.display = "block";
+				} else {
+					$content.classList.remove(classActiveState);
+					$content.style.display = "none";
+				}
+			});
+		}
+		
+		document.querySelectorAll("[id^='tabSingleList'], [id^='tabSingleList2']").forEach($targetItem => {
+			$targetItem.classList.add(classActiveState);
+		});
+	});
+
+	// Tooltip
+	document.addEventListener('click', function(e) {
+		const classActiveState = "active";
+		const $triggerBtn = e.target.closest('.box-tooltip .btn');
+		const $closeBtn = e.target.closest('.box-tooltip .btn-close');
+		
+		if ($triggerBtn) {
+			e.stopPropagation();
+			const targetId = $triggerBtn.getAttribute("aria-describedby");
+			const $layer = targetId ? document.getElementById(targetId) : null;
+			const isCurrentlyActive = $triggerBtn.classList.contains(classActiveState);
+			
+			closeAllTooltips();
+			if (!isCurrentlyActive && $layer) {
+				$triggerBtn.classList.add(classActiveState);
+				$layer.setAttribute("aria-hidden", "false");
+			}
+			return;
+		}
+
+		if ($closeBtn || !e.target.closest('.box-tooltip')) {
+			closeAllTooltips();
+		}
+	});
+
+	document.addEventListener("keydown", function(e) {
+		if (e.key === "Escape" || e.key === "Esc") closeAllTooltips();
+	});
+
+	function closeAllTooltips() {
+		document.querySelectorAll(".box-tooltip .btn.active").forEach($activeBtn => {
+			$activeBtn.classList.remove("active");
+			const targetId = $activeBtn.getAttribute("aria-describedby");
+			if (targetId) {
+				const $targetLayer = document.getElementById(targetId);
+				if ($targetLayer) $targetLayer.setAttribute("aria-hidden", "true");
+			}
+		});
+	}
+
+	// Modal
+	let lastFocusedElement;
+	const getScrollbarWidth = () => window.innerWidth - document.documentElement.clientWidth;
+	const updateBodyScroll = () => {
+		const hasActive = document.querySelector('.modal.is-active, .alert.is-active');
+		if (hasActive) {
+			const scrollbarWidth = getScrollbarWidth();
+			if (scrollbarWidth > 0) document.documentElement.style.setProperty('--scrollbar-width', `${scrollbarWidth}px`);
+			document.body.classList.add('is-scroll-locked');
+		} else {
+			document.body.classList.remove('is-scroll-locked');
+			document.documentElement.style.removeProperty('--scrollbar-width');
+		}
+	};
+
+	document.addEventListener('click', (e) => {
+		const openBtn = e.target.closest('.btn-modal, .btn-alert');
+		if (openBtn) {
+			const targetId = openBtn.dataset.target;
+			const targetEl = document.getElementById(targetId);
+			if (targetEl) {
+				lastFocusedElement = document.activeElement;
+				targetEl.classList.add('is-active');
+				updateBodyScroll();
+				const firstFocusable = targetEl.querySelector('button, [href], input, select, textarea');
+				if (firstFocusable) firstFocusable.focus();
+			}
+		}
+
+		const closeBtn = e.target.closest('.btn-close');
+		if (closeBtn) {
+			const container = closeBtn.closest('.modal, .alert');
+			if (container) {
+				container.classList.remove('is-active');
+				updateBodyScroll();
+				if (lastFocusedElement) lastFocusedElement.focus();
+			}
+		}
+
+		if (e.target.classList.contains('modal') || e.target.classList.contains('alert')) {
+			if (e.target.dataset.backdropClose !== "false") {
+				e.target.classList.remove('is-active');
+				updateBodyScroll();
+				if (lastFocusedElement) lastFocusedElement.focus();
+			}
+		}
+	});
+
+	document.addEventListener('keydown', (e) => {
+		if (e.key === 'Escape') {
+			const activeEl = document.querySelector('.modal.is-active, .alert.is-active');
+			if (activeEl) {
+				activeEl.classList.remove('is-active');
+				updateBodyScroll();
+				if (lastFocusedElement) lastFocusedElement.focus();
+			}
+		}
+	});
+
+	// 정렬 버튼
+	document.addEventListener('click', function(e) {
+		const $button = e.target.closest('.sort-btn-wrapper .btn');
+		if ($button) {
+			const wrapper = $button.closest('.sort-btn-wrapper');
+			const buttons = wrapper.querySelectorAll('.btn');
+			const isCurrentlyPressed = $button.getAttribute('aria-pressed') === 'true';
+
+			buttons.forEach(btn => {
+				btn.setAttribute('aria-pressed', 'false');
+				btn.classList.remove('type-bg-neutral');
+				btn.classList.add('type-line-neutral');
+			});
+
+			if (!isCurrentlyPressed) {
+				$button.setAttribute('aria-pressed', 'true');
+				$button.classList.remove('type-line-neutral');
+				$button.classList.add('type-bg-neutral');
+			}
+		}
+	});
+
+	// 뷰셀렉터
+	document.addEventListener('click', function(e) {
+		const $button = e.target.closest('.view-selector button');
+		if ($button) {
+			e.preventDefault();
+			const selector = $button.closest('.view-selector');
+			const buttons = Array.from(selector.querySelectorAll('button'));
+			const index = buttons.indexOf($button);
+
+			buttons.forEach(btn => {
+				btn.classList.remove('active');
+				const icon = btn.querySelector('i');
+				if (icon) {
+					icon.classList.remove('color-fg-primary');
+					icon.classList.add('color-fg-netral');
+				}
+			});
+
+			$button.classList.add('active');
+			const currentIcon = $button.querySelector('i');
+			if (currentIcon) {
+				currentIcon.classList.remove('color-fg-netral');
+				currentIcon.classList.add('color-fg-primary');
+			}
+
+			const parentTabContent = selector.closest('.box-tab-content') || selector.closest('.content');
+			if (!parentTabContent) return;
+
+			const cardContainer = parentTabContent.querySelector('.card-swiper-container');
+			const listContainer = parentTabContent.querySelector('.list-view-container');
+
+			if (index === 0) {
+				if (cardContainer) cardContainer.style.display = 'block';
+				if (listContainer) listContainer.style.display = 'none';
+			} else if (index === 1) {
+				if (cardContainer) cardContainer.style.display = 'none';
+				if (listContainer) listContainer.style.display = 'block';
+			}
+		}
+	});
+
+	// 드롭박스
+	document.addEventListener('click', function(e) {
+		const toggle = e.target.closest('.drop-box-toggle');
+		if (toggle) {
+			const dropBox = toggle.closest('.drop-box');
+			if (dropBox) dropBox.classList.toggle('is-open');
+		}
+	});
+
+	// 캘린더
+	document.addEventListener('click', function(e) {
+		const toggleBtn = e.target.closest('.calendar-wrap .input-box .btn');
+		const calendarLayer = e.target.closest('.calendarLayer_wrap');
+		const applyBtn = e.target.closest('.calendarLayer_wrap .btn_apply');
+
+		if (toggleBtn) {
+			e.stopPropagation();
+			const calendarWrap = toggleBtn.closest('.calendar-wrap');
+			const layer = calendarWrap.querySelector('.calendarLayer_wrap');
+			if (!layer) return;
+
+			const btns = Array.from(calendarWrap.querySelectorAll('.input-box .btn'));
+			const index = btns.indexOf(toggleBtn);
+			const isActive = layer.classList.contains('is-active');
+			const currentActiveIndex = layer.dataset.activeIndex;
+
+			if (isActive && currentActiveIndex == index) {
+				layer.classList.remove('is-active');
+				return;
+			}
+			if (index > 0) layer.classList.add('align-right');
+			else layer.classList.remove('align-right');
+
+			layer.dataset.activeIndex = index;
+			layer.classList.add('is-active');
+			return;
+		}
+
+		if (applyBtn) {
+			applyBtn.closest('.calendarLayer_wrap').classList.remove('is-active');
+			return;
+		}
+
+		if (calendarLayer) {
+			e.stopPropagation();
+			return;
+		}
+
+		document.querySelectorAll('.calendarLayer_wrap.is-active').forEach(layer => {
+			layer.classList.remove('is-active');
 		});
 	});
 }
 
-// header
-function fnHeader() {
 
+// 슬라이드 옵션 html 컨트롤
+function fnSwiperHtmlControl(context = document) {
+	if (typeof Swiper === 'undefined') return;
+	
+	const swiperContainers = context.querySelectorAll('.swiper');
+	swiperContainers.forEach(function (container) {
+		if (container.swiper) return;
+
+		var dataset = container.dataset;
+		var isAutoplay = dataset.autoplay === 'true';
+		var autoDelay = parseInt(dataset.delay, 10) || 3000;
+		var isLoop = dataset.loop === 'true';
+		var speed = parseInt(dataset.speed, 10) || 300;
+		var rawPerView = dataset.slidesPerView;
+		var slidesPerView = rawPerView === 'auto' ? 'auto' : (parseInt(rawPerView, 10) || 1);
+		var slidesPerGroup = parseInt(dataset.slidesPerGroup, 10) || 1;
+		var useNavigation = dataset.useNavigation !== 'false';
+		var paginationType = dataset.paginationType || 'bullets';
+		var isCustomBullet = dataset.customBullet === 'true';
+		var playBtnSelector = dataset.btnPlay || '.swiper-btn-play';
+		var pauseBtnSelector = dataset.btnPause || '.swiper-btn-pause';
+
+		var swiperOptions = {
+			speed: speed,
+			loop: isLoop,
+			slidesPerView: slidesPerView,
+			slidesPerGroup: slidesPerGroup,
+			autoplay: isAutoplay ? { delay: autoDelay, disableOnInteraction: false } : false
+		};
+
+		var $pagination = container.querySelector('.swiper-pagination');
+		var $prevBtn = container.querySelector('.swiper-button-prev');
+		var $nextBtn = container.querySelector('.swiper-button-next');
+		var $scrollbar = container.querySelector('.swiper-scrollbar');
+
+		if ($pagination) {
+			var paginationConfig = { el: $pagination, clickable: true };
+			if (paginationType === 'dash') {
+				paginationConfig.type = 'bullets';
+				paginationConfig.bulletClass = 'swiper-pagination-dash';
+				paginationConfig.bulletActiveClass = 'is-active';
+				paginationConfig.renderBullet = function (index, className) { return '<span class="' + className + '"></span>'; };
+			} else if (paginationType === 'custom') {
+				paginationConfig.type = 'custom';
+				paginationConfig.renderCustom = function (swiper, current, total) {
+					return '<span class="current">' + current + '</span> <span class="divider">/</span> <span class="total">' + total + '</span>';
+				};
+			} else if (paginationType === 'bullets' && isCustomBullet) {
+				paginationConfig.type = 'bullets';
+				paginationConfig.renderBullet = function (index, className) {
+					return '<span class="' + className + '">' + (index + 1) + '</span>';
+				};
+			} else {
+				paginationConfig.type = paginationType;
+			}
+			swiperOptions.pagination = paginationConfig;
+		}
+
+		if (useNavigation && $prevBtn && $nextBtn) swiperOptions.navigation = { nextEl: $nextBtn, prevEl: $prevBtn };
+		if ($scrollbar) swiperOptions.scrollbar = { el: $scrollbar, draggable: true };
+
+		var swiper = new Swiper(container, swiperOptions);
+		var $playBtn = container.querySelector(playBtnSelector);
+		var $pauseBtn = container.querySelector(pauseBtnSelector);
+
+		if ($pauseBtn) {
+			$pauseBtn.addEventListener('click', function () {
+				if (swiper.autoplay) swiper.autoplay.stop();
+				if ($playBtn) { $pauseBtn.style.display = 'none'; $playBtn.style.display = 'inline-block'; }
+			});
+		}
+		if ($playBtn) {
+			$playBtn.addEventListener('click', function () {
+				if (swiper.autoplay) swiper.autoplay.start();
+				if ($pauseBtn) { $playBtn.style.display = 'none'; $pauseBtn.style.display = 'inline-block'; }
+			});
+		}
+	});
+}
+
+// allcheck
+function initTableCheckbox(context = document) {
+	var tables = context.querySelectorAll(".js-check-table");
+	
+	tables.forEach(function (table) {
+		if (table.dataset.checkInit) return;
+		table.dataset.checkInit = 'true';
+
+		function updateState() {
+			var checkAlls = table.querySelectorAll(".check-all");
+			var rowChecks = table.querySelectorAll(".row-check");
+			var count = table.querySelector(".selected-count span");
+			if (!checkAlls.length || !rowChecks.length) return;
+
+			var checked = table.querySelectorAll(".row-check:checked").length;
+			if (count) count.textContent = checked;
+
+			checkAlls.forEach(function (ca) {
+				ca.checked = (checked > 0 && checked === rowChecks.length);
+				ca.indeterminate = (checked > 0 && checked < rowChecks.length);
+			});
+		}
+
+		table.addEventListener('change', function (e) {
+			const targetCheckAll = e.target.closest('.check-all');
+			const targetRowCheck = e.target.closest('.row-check');
+
+			if (targetCheckAll) {
+				table.querySelectorAll('.row-check').forEach(function (item) {
+					item.checked = targetCheckAll.checked;
+				});
+				updateState();
+			}
+			
+			if (targetRowCheck) {
+				updateState();
+			}
+		});
+
+		updateState();
+	});
+}
+
+// 통화 포맷
+function initCurrencyFormat(context = document) {
+	context.querySelectorAll('table td .typeMd').forEach((el) => {
+		if (!el.dataset.formatted) {
+			el.innerHTML = el.innerHTML.replace(/원/g, ' 원');
+			el.dataset.formatted = 'true';
+		}
+	});
+}
+
+// 말풍선 프로그래스
+function initRateRange(context = document) {
+	context.querySelectorAll('.rate-range').forEach((range) => {
+		if (range.dataset.init) return;
+		range.dataset.init = 'true';
+
+		const activeEl = range.querySelector('.rate-range-active');
+		const currentEl = range.querySelector('.rate-range-current');
+		if (!activeEl || !currentEl) return;
+
+		activeEl.style.width = '0%';
+		currentEl.style.left = '0%';
+
+		requestAnimationFrame(() => {
+			requestAnimationFrame(() => { renderRateRange(range); });
+		});
+	});
+}
+
+function renderRateRange(range) {
+	const min = Number(range.dataset.min);
+	const max = Number(range.dataset.max);
+	const value = Number(range.dataset.value);
+	const unit = range.dataset.unit || '%';
+
+	const activeEl = range.querySelector('.rate-range-active');
+	const currentEl = range.querySelector('.rate-range-current');
+	const tooltipEl = range.querySelector('.rate-range-tooltip span');
+
+	if (!activeEl || !currentEl || !tooltipEl) return;
+
+	let percent = ((value - min) / (max - min)) * 100;
+	percent = Math.max(0, Math.min(100, percent));
+
+	activeEl.style.width = `${percent}%`;
+	currentEl.style.left = `${percent}%`;
+
+	if (percent <= 30) activeEl.style.backgroundColor = '#D33128';
+	else if (percent <= 70) activeEl.style.backgroundColor = '#FAC515';
+	else activeEl.style.backgroundColor = '#0F62FD';
+
+	tooltipEl.textContent = formatAmount(value, unit);
+}
+
+function formatAmount(value, unit) {
+	const number = Number(value);
+	if (unit === '원') return `${number.toLocaleString('ko-KR')}원`;
+	return `${number}%`;
+}
+
+// Textarea 
+function fnInitTextareaLength(context = document) {
+	context.querySelectorAll('.form-text-area textarea').forEach($textarea => {
+		if ($textarea.dataset.lenInit) return;
+		$textarea.dataset.lenInit = 'true';
+		
+		const $formTextArea = $textarea.closest('.form-text-area');
+		const $currentSpan = $formTextArea.querySelector('.current');
+		const $totalSpan = $formTextArea.querySelector('.total');
+		const numTotal = $textarea.getAttribute('maxLength');
+
+		if ($currentSpan) $currentSpan.textContent = $textarea.value.length;
+		if ($totalSpan && numTotal) $totalSpan.textContent = numTotal;
+	});
+}
+
+// 단순프로그래스
+function setProgressBar1(target, options = {}) {
+	const el = typeof target === "string" ? document.querySelector(target) : target;
+	if (!el) return;
+
+	const { percent = 0, duration = 1000, status = "auto", message, label } = options;
+	const gaugeEl = el.querySelector(".progress-gauge");
+	const numEl = el.querySelector(".percent .num");
+	const messageEl = el.querySelector(".message");
+	const labelEl = el.querySelector(".title-progress");
+
+	if (!gaugeEl) return;
+
+	const targetPercent = Math.min(Math.max(Number(percent) || 0, 0), 100);
+	if (el._progressAnimationFrame) cancelAnimationFrame(el._progressAnimationFrame);
+
+	if (targetPercent <= 30) gaugeEl.style.backgroundColor = "#2878f0";
+	else if (targetPercent <= 70) gaugeEl.style.backgroundColor = "#f5c400";
+	else gaugeEl.style.backgroundColor = "#ef4b4b";
+
+	gaugeEl.style.width = "0%";
+	if (numEl) numEl.textContent = "0";
+	if (label && labelEl) labelEl.textContent = label;
+	if (message && messageEl) messageEl.textContent = message;
+
+	const startTime = performance.now();
+	function animate(currentTime) {
+		const progress = Math.min((currentTime - startTime) / duration, 1);
+		const eased = 1 - Math.pow(1 - progress, 3);
+		const currentPercent = targetPercent * eased;
+
+		gaugeEl.style.width = `${currentPercent}%`;
+		if (numEl) numEl.textContent = Math.round(currentPercent);
+
+		if (progress < 1) {
+			el._progressAnimationFrame = requestAnimationFrame(animate);
+		} else {
+			gaugeEl.style.width = `${targetPercent}%`;
+			if (numEl) numEl.textContent = targetPercent;
+			el._progressAnimationFrame = null;
+		}
+	}
+	el._progressAnimationFrame = requestAnimationFrame(animate);
+
+	let currentStatus = status;
+	if (status === "auto") currentStatus = targetPercent === 100 ? "success" : "progress";
+
+	el.classList.remove("is-success", "is-fail");
+	if (currentStatus === "success") el.classList.add("is-success");
+	if (currentStatus === "fail") el.classList.add("is-fail");
+}
+
+// skip Navigation
+function fnSkipNavigation() {
+	const $btnsSkipNav = document.querySelectorAll(".skip-nav .btn-skip-nav");
+	$btnsSkipNav.forEach(function ($btn) {
+		$btn.addEventListener('blur', function () { this.classList.remove("is-open"); });
+	});
+}
+
+// Header
+function fnHeader() {
 	var $header = document.querySelector(".header");
 	var $gnb = document.querySelector(".header-bottom");
 	var $banner = document.querySelector(".banner-layer");
-
 	var $items = document.querySelectorAll(".gnb-item");
 	var $links = document.querySelectorAll(".gnb-link");
 	var $menus = document.querySelectorAll(".mega-wrap");
-
 	var $selectButtons = document.querySelectorAll(".util-menu .btn-select");
 	var $menuToggleButtons = document.querySelectorAll(".menu-toggle");
 	var $hasDepthItems = document.querySelectorAll(".menu-item.has-depth");
 
-	// 서치 레이어 관련 요소
 	var $searchLayer = document.querySelector(".search-layer");
 	var $btnSearch = document.querySelector(".btn-search");
 	var $input = document.querySelector(".search-input, .box-input-search .input");
@@ -61,86 +874,59 @@ function fnHeader() {
 	const autoBox = document.querySelector(".search-autocomplete");
 	const list = document.querySelector(".autocomplete-list");
 	const searchArea = document.querySelector(".search-area");
-
-	// 검색패널
 	const historyBox = document.querySelector(".autocomplete-history");
 	const keywordBox = document.querySelector(".autocomplete-keyword");
 	const noResultBox = document.querySelector(".autocomplete-no-result");
 	const historyWrap = document.querySelector(".history-wrap");
 
-	if (!searchArea || !focusInput || !autoBox || !historyWrap) {
-		return;
-	}
+	if (!searchArea || !focusInput || !autoBox || !historyWrap) return;
+	
 	const historyList = historyWrap.querySelector(".history-list");
-
 	const hasHistory = historyList.children.length > 0;
 	const historyEmpty = document.querySelector(".history-empty");
 	const btnDeleteAll = document.querySelector(".btn-delete-all");
 	const btnPannelClose = document.querySelector(".btn-pannel-close");
 
-	//스위치
 	const autoSaveSwitch = document.querySelector("#SAMPLESWITCHSM01");
 	const autoSaveText = document.querySelector(".switch-wrap .typeSm");
 	const offBox = document.querySelector(".autocomplete-off");
 
-	// 띠배너 닫기 이벤트 연동
 	if ($banner) {
 		var $btnBannerClose = $banner.querySelector(".banner");
 		if ($btnBannerClose) {
 			$btnBannerClose.addEventListener("click", function () {
 				$banner.classList.remove("is-show");
-				// 배너가 사라지면 스크롤 위치 재계산
-				setTimeout(function () {
-					window.dispatchEvent(new Event('scroll'));
-				}, 100);
+				setTimeout(function () { window.dispatchEvent(new Event('scroll')); }, 100);
 			});
 		}
 	}
 
-	// 메인 스와이퍼 배너 visual
-	// Swiper 라이브러리가 로드되어 있고, .wrap-visual 요소가 화면에 존재하는 경우에만 실행
 	if (typeof Swiper !== 'undefined' && document.querySelector('.wrap-visual')) {
-		const visualSlider = new Swiper('.wrap-visual', {
-			initialSlide: 0,
-			loop: true,
-			autoplay: {
-				delay: 5000,
-				disableOnInteraction: false,
-			},
-		});
+		new Swiper('.wrap-visual', { initialSlide: 0, loop: true, autoplay: { delay: 5000, disableOnInteraction: false } });
 	}
 
-	// 유틸 메뉴 셀렉트 버튼 토글
 	if ($selectButtons.length > 0) {
-		$selectButtons.forEach(function ($button) {
-			$button.addEventListener("click", function () {
-				this.classList.toggle("active");
-			});
-		});
+		$selectButtons.forEach($button => $button.addEventListener("click", function () { this.classList.toggle("active"); }));
 	}
-	// GNB 메가메뉴 Hover
+
 	if ($links.length > 0 && $header) {
-		$links.forEach(function ($link) {
+		$links.forEach($link => {
 			$link.addEventListener("click", function () {
 				$header.classList.add("is-open");
-
-				$items.forEach(function ($item) { $item.classList.remove("is-active"); });
-				$menus.forEach(function ($menu) { $menu.classList.remove("is-active"); });
-
+				$items.forEach($item => $item.classList.remove("is-active"));
+				$menus.forEach($menu => $menu.classList.remove("is-active"));
 				var $currentItem = this.closest(".gnb-item");
 				if ($currentItem) {
 					$currentItem.classList.add("is-active");
-
 					var $targetMegaMenu = $currentItem.querySelector(".mega-wrap");
 					if ($targetMegaMenu) $targetMegaMenu.classList.add("is-active");
 				}
 			});
 		});
-
 		$header.addEventListener("mouseleave", function () {
 			$header.classList.remove("is-open");
-			$items.forEach(function ($item) { $item.classList.remove("is-active"); });
-			$menus.forEach(function ($menu) { $menu.classList.remove("is-active"); });
+			$items.forEach($item => $item.classList.remove("is-active"));
+			$menus.forEach($menu => $menu.classList.remove("is-active"));
 		});
 	}
 
@@ -148,41 +934,27 @@ function fnHeader() {
 		let timer;
 		window.addEventListener("scroll", function () {
 			clearTimeout(timer);
-
-			// 1. body 바로 아래의 띠배너 및 header-top 요소 찾기
 			var $bannerLayer = document.querySelector(".banner-layer");
 			var $headerTop = document.querySelector(".header-top");
 			var $container = document.querySelector(".container") || document.querySelector("#contents");
-
-			// 2. header-top 높이 (기본값 약 64px)
 			var topHeight = $headerTop ? $headerTop.offsetHeight : 64;
-
-			// 3. 띠배너가 존재하고 화면에 보이고 있는지 확인 후 높이 계산
-			var bannerHeight = 0;
-			if ($bannerLayer && $bannerLayer.classList.contains("is-show")) {
-				bannerHeight = $bannerLayer.offsetHeight;
-			}
-
-			// 4. 스크롤 기준점 (띠배너 높이 + header-top 높이)
+			var bannerHeight = ($bannerLayer && $bannerLayer.classList.contains("is-show")) ? $bannerLayer.offsetHeight : 0;
 			var threshold = topHeight + bannerHeight;
 
-			// 5. 스크롤 위치 판단 조건문
 			if (window.scrollY >= threshold) {
 				$gnb.classList.add("is-fixed");
 				if ($header) $header.classList.add("is-fixed");
-				if ($container) $container.style.paddingBottom = "64px"; //  헤더 높이값 추가(덜컥거림 방지)
+				if ($container) $container.style.paddingBottom = "64px";
 			} else {
 				$gnb.classList.remove("is-fixed");
 				if ($header) $header.classList.remove("is-fixed");
-				if ($container) $container.style.paddingBottom = ""; // 원복
+				if ($container) $container.style.paddingBottom = "";
 			}
 		});
 	}
 
-
-	//  사이드/전체 메뉴 토글 버튼 및 뎁스 분류 스타일링
 	if ($menuToggleButtons.length > 0) {
-		$menuToggleButtons.forEach(function ($button) {
+		$menuToggleButtons.forEach($button => {
 			$button.addEventListener("click", function () {
 				var $item = this.closest(".menu-item");
 				if ($item) {
@@ -194,38 +966,30 @@ function fnHeader() {
 	}
 
 	if ($hasDepthItems.length > 0) {
-		$hasDepthItems.forEach(function ($item) {
+		$hasDepthItems.forEach($item => {
 			var depthCount = $item.querySelectorAll(".depth-list > li").length;
-			if (depthCount >= 2) {
-				$item.classList.add("is-toggle");
-			} else {
-				$item.classList.add("is-single");
-			}
+			if (depthCount >= 2) $item.classList.add("is-toggle");
+			else $item.classList.add("is-single");
 		});
 	}
 
-	//  검색 레이어 팝업 및 드롭다운 연동 인터랙션
 	if ($btnSearch && $searchLayer) {
 		$btnSearch.addEventListener("click", function (event) {
 			event.preventDefault();
-
 			if ($header) $header.classList.remove("is-open");
-			$items.forEach(function ($item) { $item.classList.remove("is-active"); });
-			$menus.forEach(function ($menu) { $menu.classList.remove("is-active"); });
-
+			$items.forEach($item => $item.classList.remove("is-active"));
+			$menus.forEach($menu => $menu.classList.remove("is-active"));
 			$searchLayer.classList.add("is-search-open");
 		});
 
 		if ($input && $dropdown) {
 			$input.addEventListener("blur", function () {
-				setTimeout(function () {
-					$dropdown.classList.remove("is-search-open");
-				}, 100);
+				setTimeout(function () { $dropdown.classList.remove("is-search-open"); }, 100);
 			});
 		}
 
 		if ($links.length > 0) {
-			$links.forEach(function ($link) {
+			$links.forEach($link => {
 				$link.addEventListener("mouseenter", function () {
 					$searchLayer.classList.remove("is-search-open");
 					if ($dropdown) $dropdown.classList.remove("is-search-open");
@@ -245,105 +1009,59 @@ function fnHeader() {
 	}
 	historyWrap.classList.toggle("is-empty", !hasHistory);
 
-	// 검색어
 	const items = document.querySelectorAll(".autocomplete-list .typeMd");
+	items.forEach((item) => { item.dataset.keyword = item.textContent.trim(); });
 
-	// 원본 검색어 저장
-	items.forEach((item) => {
-		item.dataset.keyword = item.textContent.trim();
-	});
-
-	// 자동완성 열기
-	function openAutocomplete() {
-		autoBox.classList.add("is-active");
-		searchArea.classList.add("is-active");
-	}
-
-	// 자동완성 닫기
+	function openAutocomplete() { autoBox.classList.add("is-active"); searchArea.classList.add("is-active"); }
 	function closeAutocomplete() {
-		autoBox.classList.remove("is-active");
-		searchArea.classList.remove("is-active");
-
-		document.querySelectorAll(".autocomplete-panel").forEach((panel) => {
-			panel.classList.remove("is-active");
-		});
+		autoBox.classList.remove("is-active"); searchArea.classList.remove("is-active");
+		document.querySelectorAll(".autocomplete-panel").forEach(panel => panel.classList.remove("is-active"));
 	}
-	btnPannelClose.addEventListener("click", () => {
-		closeAutocomplete();
-	});
-	// 패널 전환
+	
+	btnPannelClose.addEventListener("click", closeAutocomplete);
+
 	function showPanel(panel) {
-		document.querySelectorAll(".autocomplete-panel").forEach((item) => {
-			item.classList.remove("is-active");
-		});
-
-		if (panel) {
-			panel.classList.add("is-active");
-		}
+		document.querySelectorAll(".autocomplete-panel").forEach(item => item.classList.remove("is-active"));
+		if (panel) panel.classList.add("is-active");
 	}
 
-	// 포커스
 	focusInput.addEventListener("focus", () => {
 		openAutocomplete();
-		// const hasHistory = true;
-		// 나중에 실제 데이터로 변경
-
-		// showPanel(hasHistory ? historyBox : "");
-		if (autoSaveSwitch.checked) {
-			showPanel(historyBox);
-		} else {
-			showPanel(offBox);
-		}
+		if (autoSaveSwitch.checked) showPanel(historyBox);
+		else showPanel(offBox);
 	});
 
 	focusInput.addEventListener("input", () => {
 		const value = focusInput.value.trim();
-
-		// 입력 없으면 최근검색어
 		if (!value) {
 			items.forEach((textEl) => {
 				const li = textEl.closest("li");
-
 				li.style.display = "";
 				textEl.textContent = textEl.dataset.keyword;
 			});
-
-			// const hasHistory = true;
-			// showPanel(hasHistory ? historyBox : "");
 			showPanel(autoSaveSwitch.checked ? historyBox : offBox);
 			return;
 		}
 
 		let hasResult = false;
-
 		items.forEach((textEl) => {
 			const keyword = textEl.dataset.keyword;
 			const li = textEl.closest("li");
-
 			if (keyword.includes(value)) {
 				li.style.display = "";
 				hasResult = true;
-
-				textEl.innerHTML = keyword.replace(
-					new RegExp(value, "g"),
-					`<strong>${value}</strong>`,
-				);
+				textEl.innerHTML = keyword.replace(new RegExp(value, "g"), `<strong>${value}</strong>`);
 			} else {
 				li.style.display = "none";
 				textEl.textContent = keyword;
 			}
 		});
 
-		if (hasResult) {
-			showPanel(keywordBox);
-		} else {
-			showPanel(noResultBox);
-		}
-
+		if (hasResult) showPanel(keywordBox);
+		else showPanel(noResultBox);
 		openAutocomplete();
 	});
 
-	// 키워드 클릭
 	list.addEventListener("click", (e) => {
 		const link = e.target.closest(".keyword-btn");
 		if (!link) return;
@@ -352,1384 +1070,37 @@ function fnHeader() {
 		closeAutocomplete();
 	});
 
-	// 바깥 클릭
 	document.addEventListener("click", (e) => {
-		if (!e.target.closest(".search-area")) {
-			closeAutocomplete();
-		}
+		if (!e.target.closest(".search-area")) closeAutocomplete();
 	});
 
 	function updateHistoryState() {
 		const hasHistory = historyList.children.length > 0;
-
 		historyList.style.display = hasHistory ? "" : "none";
 		historyEmpty.style.display = hasHistory ? "none" : "flex";
 		btnDeleteAll.style.display = hasHistory ? "" : "none";
 	}
+
 	historyList.addEventListener("click", (e) => {
 		const btn = e.target.closest(".btn-delete-item");
-
 		if (!btn) return;
-
-		btn.closest("li").remove();
-		e.preventDefault();
-		e.stopPropagation();
-
+		e.preventDefault(); e.stopPropagation();
 		btn.closest("li").remove();
 		updateHistoryState();
 	});
+
 	btnDeleteAll.addEventListener("click", () => {
 		historyList.innerHTML = "";
-
 		updateHistoryState();
 	});
+
 	function updateAutoSave() {
-		if (autoSaveSwitch.checked) {
-			autoSaveText.textContent = "자동저장 켜기";
-		} else {
-			autoSaveText.textContent = "자동저장 끄기";
-		}
+		autoSaveText.textContent = autoSaveSwitch.checked ? "자동저장 켜기" : "자동저장 끄기";
 	}
 
 	autoSaveSwitch.addEventListener("change", () => {
 		updateAutoSave();
-
-		// 검색창에 입력이 없을 때만 패널 변경
-		if (!focusInput.value.trim()) {
-			showPanel(autoSaveSwitch.checked ? historyBox : offBox);
-		}
+		if (!focusInput.value.trim()) showPanel(autoSaveSwitch.checked ? historyBox : offBox);
 	});
-
 	updateAutoSave();
 }
-
-// LNB
-function fnLNB() {
-	var classLnbContainer = "wrap-left-menu";
-	var classTriggerLink = "link";
-	var classActiveState = "selected";
-	var classBlindText = "blind";
-	var classHasNoChild = "none";
-
-	var textOpenGuide = "메뉴 펼침";
-	var textCloseGuide = "메뉴 접힘";
-
-	var $lnbWrapper = document.querySelector("." + classLnbContainer);
-	if (!$lnbWrapper) return;
-
-	var $links = $lnbWrapper.querySelectorAll("." + classTriggerLink);
-	$links.forEach(function ($link) {
-		var $li = $link.parentElement;
-		if (!$li || $li.classList.contains(classHasNoChild)) return;
-
-		var $subList = $link.nextElementSibling;
-		var $blindSpan = $link.querySelector("." + classBlindText);
-
-		if ($link.classList.contains(classActiveState)) {
-			if ($blindSpan) $blindSpan.textContent = textOpenGuide;
-		} else {
-			if ($blindSpan) $blindSpan.textContent = textCloseGuide;
-		}
-	});
-
-	// [단계 2] 전역 클릭 위임 이벤트
-	$lnbWrapper.addEventListener("click", function (event) {
-		var $clickedLink = event.target.closest("." + classTriggerLink);
-		if (!$clickedLink) return;
-
-		var $currentLi = $clickedLink.parentElement;
-		if (!$currentLi) return;
-
-		if ($currentLi.classList.contains(classHasNoChild) || $currentLi.classList.contains("item-depth4")) {
-			return;
-		}
-
-		event.preventDefault();
-
-		var $correspondingSubList = $clickedLink.nextElementSibling;
-		var $blindTextSpan = $clickedLink.querySelector("." + classBlindText);
-		var isAlreadySelected = $clickedLink.classList.contains(classActiveState);
-
-		if (isAlreadySelected) {
-			$clickedLink.classList.remove(classActiveState);
-
-			if ($blindTextSpan) $blindTextSpan.textContent = textCloseGuide;
-		} else {
-			$clickedLink.classList.add(classActiveState);
-
-			if ($blindTextSpan) $blindTextSpan.textContent = textOpenGuide;
-		}
-	});
-}
-
-// Accordion
-function fnBoxAccordion() {
-	var CONFIG = {
-		WRAPPER: "box-accordion",
-		TRIGGER: "box-item-list",
-		OPEN_CLASS: "is-open",
-		BLIND_CLASS: "blind",
-		TEXT_OPEN: "상세내용 열기",
-		TEXT_CLOSE: "상세내용 닫기"
-	};
-
-	var $accordions = document.querySelectorAll("." + CONFIG.WRAPPER);
-	if ($accordions.length === 0) return;
-
-	$accordions.forEach(function ($container) {
-		var $button = $container.querySelector("." + CONFIG.TRIGGER);
-		if (!$button) return;
-
-		var $blindTextSpan = $button.querySelector("." + CONFIG.BLIND_CLASS);
-		var isOpen = $container.classList.contains(CONFIG.OPEN_CLASS);
-
-		if ($blindTextSpan) {
-			$blindTextSpan.textContent = isOpen ? CONFIG.TEXT_CLOSE : CONFIG.TEXT_OPEN;
-		}
-	});
-
-	document.addEventListener("click", function (event) {
-		var $clickedButton = event.target.closest("." + CONFIG.WRAPPER + " ." + CONFIG.TRIGGER);
-		if (!$clickedButton) return;
-
-		var $currentContainer = $clickedButton.closest("." + CONFIG.WRAPPER);
-		if (!$currentContainer) return;
-
-		var $blindTextSpan = $clickedButton.querySelector("." + CONFIG.BLIND_CLASS);
-
-		var isAlreadyOpen = $currentContainer.classList.contains(CONFIG.OPEN_CLASS);
-
-		if (isAlreadyOpen) {
-			$currentContainer.classList.remove(CONFIG.OPEN_CLASS);
-
-			if ($blindTextSpan) {
-				$blindTextSpan.textContent = CONFIG.TEXT_OPEN;
-			}
-		} else {
-			$currentContainer.classList.add(CONFIG.OPEN_CLASS);
-
-			if ($blindTextSpan) {
-				$blindTextSpan.textContent = CONFIG.TEXT_CLOSE;
-			}
-		}
-	});
-}
-
-// Anchor
-function fnBtnAnchor() {
-	const $BtnsAnchor = document.querySelectorAll('.btn-anchor');
-	$BtnsAnchor.forEach(function ($btnAnchor) {
-		$btnAnchor.addEventListener('click', function () {
-			if (!this.classList.contains("active")) {
-				this.classList.add('active');
-				this.setAttribute('title', '선택됨');
-			} else {
-				this.classList.remove('active');
-				this.removeAttribute("title");
-			}
-		});
-	});
-}
-
-// select 태그 class 추가
-function fnSelectColorChange() {
-	const $selects = document.querySelectorAll('.select');
-	$selects.forEach(function ($select) {
-		$select.addEventListener('change', function () {
-			if (this.selectedIndex > 0) {
-				this.classList.add('selected');
-			} else {
-				this.classList.remove('selected');
-			}
-		});
-	});
-}
-
-// 기본 검색
-function fnInputClear() {
-	var classSearchContainer = "box-input-search";
-	var classInput = "input";
-	var classButtonDelete = "btn-delete";
-
-	var $searchWrappers = document.querySelectorAll("." + classSearchContainer);
-	if ($searchWrappers.length === 0) return;
-
-	$searchWrappers.forEach(function ($wrapper) {
-		var $input = $wrapper.querySelector("." + classInput);
-		var $btnDelete = $wrapper.querySelector("." + classButtonDelete);
-
-		if (!$input || !$btnDelete) return;
-
-		function toggleDeleteButton() {
-			var hasText = $input.value.trim().length > 0;
-
-			if (hasText) {
-				$btnDelete.style.display = "block";
-			} else {
-				$btnDelete.style.display = "none";
-			}
-		}
-
-		$input.addEventListener("input", toggleDeleteButton);
-		$input.addEventListener("keyup", toggleDeleteButton);
-		$input.addEventListener("paste", function () {
-			setTimeout(toggleDeleteButton, 0);
-		});
-
-		$btnDelete.addEventListener("click", function (event) {
-			event.preventDefault();
-
-			$input.value = "";
-
-			this.style.display = "none";
-
-			$input.focus();
-		});
-
-		toggleDeleteButton();
-	});
-}
-
-// 상세검색
-function fnBoxSearchDetail() {
-	const $boxesSearchDetail = document.querySelectorAll('.box-search-detail');
-
-	$boxesSearchDetail.forEach(function ($boxSearchDetail) {
-		const $toggleBtn = $boxSearchDetail.querySelector('.box-top-visual .btn');
-		const $hiddenPanel = $boxSearchDetail.querySelector('.box-bottom-hidden');
-		const $blindText = $toggleBtn ? $toggleBtn.querySelector('.blind') : null;
-
-		if (!$toggleBtn || !$hiddenPanel) return;
-
-		$toggleBtn.addEventListener('click', function () {
-			const isExpanded = $boxSearchDetail.classList.contains('active');
-
-			if (isExpanded) {
-				$boxSearchDetail.classList.remove('active');
-				this.classList.remove('active');
-				this.setAttribute('aria-expanded', 'false');
-				if ($blindText) $blindText.textContent = '펼침';
-			} else {
-				$boxSearchDetail.classList.add('active');
-				this.classList.add('active');
-				this.setAttribute('aria-expanded', 'true');
-				if ($blindText) $blindText.textContent = '접힘';
-			}
-		});
-	});
-}
-// 기본 드롭다운
-// function fnBoxSelect() {
-// 	const $boxeSelect = document.querySelectorAll('.box-select');
-
-// 	$boxeSelect.forEach(function ($boxeSelect) {
-// 		const $triggerBtn = $boxeSelect.querySelector('.select');
-// 		const $blindText = $boxeSelect.querySelector('.select .blind');
-
-// 		if (!$triggerBtn) return;
-
-// 		$triggerBtn.addEventListener('click', function (e) {
-// 			e.stopPropagation();
-
-// 			const isOpen = this.classList.contains('active');
-// 			closeAllSelects();
-
-// 			if (!isOpen) {
-// 				this.classList.add('active');
-// 				$boxeSelect.classList.add('is-open');
-// 				if ($blindText) $blindText.textContent = '접힘';
-// 			}
-// 		});
-
-// 		$boxeSelect.addEventListener('click', function (e) {
-// 			e.stopPropagation();
-// 		});
-
-// 	});
-
-// 	// 드롭다운 바깥 영역 클릭 시 일괄 닫기
-// 	document.addEventListener('click', function () {
-// 		closeAllSelects();
-// 	});
-// }
-
-// 기본 드롭다운
-function fnBoxSelect() {
-	const $boxeSelect = document.querySelectorAll('.box-select');
-
-	$boxeSelect.forEach(function ($boxeSelect) {
-		const $triggerBtn = $boxeSelect.querySelector('.select');
-		const $blindText = $boxeSelect.querySelector('.select .blind');
-		// 1. 선택 가능한 항목 요소들 가져오기
-		const $selectItems = $boxeSelect.querySelectorAll('.item-select');
-
-		if (!$triggerBtn) return;
-
-		// 드롭다운 열기/닫기 토글
-		$triggerBtn.addEventListener('click', function (e) {
-			e.stopPropagation();
-
-			const isOpen = this.classList.contains('active');
-			closeAllSelects();
-
-			if (!isOpen) {
-				this.classList.add('active');
-				$boxeSelect.classList.add('is-open');
-				if ($blindText) $blindText.textContent = '접힘';
-			}
-		});
-
-		// 2. [추가] 각 옵션 항목(li) 클릭 이벤트 처리
-		$selectItems.forEach(function ($item) {
-			$item.addEventListener('click', function (e) {
-				e.stopPropagation(); // 이벤트 버블링 방지
-
-				// A. 클릭한 항목의 텍스트 가져오기 (span.form-box 또는 내부 텍스트)
-				const selectedText = this.textContent.trim();
-
-				// B. 버튼 영역의 텍스트 표시 요소(예: .text) 찾기 및 텍스트 변경
-				const $textSpan = $triggerBtn.querySelector('.text');
-				if ($textSpan) {
-					$textSpan.textContent = selectedText;
-				} else {
-					// .text 클래스가 없을 경우 blind 요소를 유지하면서 텍스트 변경
-					const blindContent = $blindText ? $blindText.outerHTML : '';
-					$triggerBtn.innerHTML = selectedText + blindContent;
-				}
-
-				// C. aria-selected 상태 업데이트 (접근성 반영)
-				$selectItems.forEach(function (el) {
-					el.setAttribute('aria-selected', 'false');
-					el.classList.remove('selected');
-				});
-				this.setAttribute('aria-selected', 'true');
-				this.classList.add('selected');
-
-				// D. 선택 후 드롭다운 닫기
-				closeAllSelects();
-			});
-		});
-
-		$boxeSelect.addEventListener('click', function (e) {
-			e.stopPropagation();
-		});
-	});
-
-	// 드롭다운 바깥 영역 클릭 시 일괄 닫기
-	document.addEventListener('click', function () {
-		closeAllSelects();
-	});
-}
-function fnBoxSelect() {
-	const $boxeSelect = document.querySelectorAll('.box-select');
-
-	$boxeSelect.forEach(function ($boxeSelect) {
-		const $triggerBtn = $boxeSelect.querySelector('.select');
-		const $blindText = $boxeSelect.querySelector('.select .blind');
-		// 1. 선택 가능한 항목 요소들 가져오기
-		const $selectItems = $boxeSelect.querySelectorAll('.item-select');
-
-		if (!$triggerBtn) return;
-
-		// 드롭다운 열기/닫기 토글
-		$triggerBtn.addEventListener('click', function (e) {
-			e.stopPropagation();
-
-			const isOpen = this.classList.contains('active');
-			closeAllSelects();
-
-			if (!isOpen) {
-				this.classList.add('active');
-				$boxeSelect.classList.add('is-open');
-				if ($blindText) $blindText.textContent = '접힘';
-			}
-		});
-
-		// 2. [추가] 각 옵션 항목(li) 클릭 이벤트 처리
-		$selectItems.forEach(function ($item) {
-			$item.addEventListener('click', function (e) {
-				e.stopPropagation(); // 이벤트 버블링 방지
-
-				// A. 클릭한 항목의 텍스트 가져오기 (span.form-box 또는 내부 텍스트)
-				const selectedText = this.textContent.trim();
-
-				// B. 버튼 영역의 텍스트 표시 요소(예: .text) 찾기 및 텍스트 변경
-				const $textSpan = $triggerBtn.querySelector('.text');
-				if ($textSpan) {
-					$textSpan.textContent = selectedText;
-				} else {
-					// .text 클래스가 없을 경우 blind 요소를 유지하면서 텍스트 변경
-					const blindContent = $blindText ? $blindText.outerHTML : '';
-					$triggerBtn.innerHTML = selectedText + blindContent;
-				}
-
-				// C. aria-selected 상태 업데이트 (접근성 반영)
-				$selectItems.forEach(function (el) {
-					el.setAttribute('aria-selected', 'false');
-					el.classList.remove('selected');
-				});
-				this.setAttribute('aria-selected', 'true');
-				this.classList.add('selected');
-
-				// D. 선택 후 드롭다운 닫기
-				closeAllSelects();
-			});
-		});
-
-		$boxeSelect.addEventListener('click', function (e) {
-			e.stopPropagation();
-		});
-	});
-
-	// 드롭다운 바깥 영역 클릭 시 일괄 닫기
-	document.addEventListener('click', function () {
-		closeAllSelects();
-	});
-}
-
-function closeAllSelects() {
-	const $activeTriggers = document.querySelectorAll('.box-select .select.active');
-	const $openComponents = document.querySelectorAll('.box-select.is-open');
-
-	$activeTriggers.forEach(function ($btn) {
-		const $blindText = $btn.querySelector('.blind');
-		$btn.classList.remove('active');
-
-		if ($blindText) $blindText.textContent = '펼침';
-	});
-	$openComponents.forEach(function ($comp) { $comp.classList.remove('is-open'); });
-}
-
-//멀티 드롭다운
-function fnBoxMultiSelect() {
-	const $boxesMultiSelect = document.querySelectorAll('.box-multi-select');
-
-	$boxesMultiSelect.forEach(function ($boxMultiSelect) {
-		const $triggerBtn = $boxMultiSelect.querySelector('.select');
-		const $blindText = $boxMultiSelect.querySelector('.select .blind');
-		const $allCheckbox = $boxMultiSelect.querySelector('.box-list-select-all .form-checkbox');
-		const $itemCheckboxes = $boxMultiSelect.querySelectorAll('.list-select .form-checkbox');
-		const $resetBtn = $boxMultiSelect.querySelector('.utilities .btn-reset');
-
-		if (!$triggerBtn) return;
-
-		$triggerBtn.addEventListener('click', function (e) {
-			e.stopPropagation();
-
-			const isOpen = this.classList.contains('active');
-			closeAllMultiSelects();
-
-			if (!isOpen) {
-				this.classList.add('active');
-				$boxMultiSelect.classList.add('is-open');
-				if ($blindText) $blindText.textContent = '접힘';
-			}
-		});
-
-		$boxMultiSelect.addEventListener('click', function (e) {
-			e.stopPropagation();
-		});
-
-		if ($allCheckbox) {
-			$allCheckbox.addEventListener('change', function () {
-				const isChecked = this.checked;
-
-				$itemCheckboxes.forEach(function ($itemCheck) {
-					$itemCheck.checked = isChecked;
-					const $liItem = $itemCheck.closest('.item-mulit-select');
-				});
-
-				updateAllCheckboxState($allCheckbox, $itemCheckboxes);
-			});
-		}
-
-		$itemCheckboxes.forEach(function ($itemCheck) {
-			$itemCheck.addEventListener('change', function () {
-				if ($allCheckbox) {
-					updateAllCheckboxState($allCheckbox, $itemCheckboxes);
-				}
-			});
-		});
-
-		if ($resetBtn) {
-			$resetBtn.addEventListener('click', function () {
-				$itemCheckboxes.forEach(function ($itemCheck) {
-					$itemCheck.checked = false;
-				});
-
-				if ($allCheckbox) {
-					$allCheckbox.checked = false;
-					updateAllCheckboxState($allCheckbox, $itemCheckboxes);
-				}
-			});
-		}
-	});
-
-	// 드롭다운 바깥 영역 클릭 시 일괄 닫기
-	document.addEventListener('click', function () {
-		closeAllMultiSelects();
-	});
-}
-
-function closeAllMultiSelects() {
-	const $activeTriggers = document.querySelectorAll('.box-multi-select .select.active');
-	const $openComponents = document.querySelectorAll('.box-multi-select.is-open');
-
-	$activeTriggers.forEach(function ($btn) {
-		const $blindText = $btn.querySelector('.blind');
-		$btn.classList.remove('active');
-
-		if ($blindText) $blindText.textContent = '펼침';
-	});
-	$openComponents.forEach(function ($comp) { $comp.classList.remove('is-open'); });
-}
-
-function updateAllCheckboxState($allCheck, $items) {
-	const totalCount = $items.length;
-	let checkedCount = 0;
-
-	$items.forEach(function ($itemCheck) {
-		if ($itemCheck.checked) checkedCount++;
-	});
-
-	if (checkedCount === 0) {
-		$allCheck.checked = false;
-		$allCheck.indeterminate = false;
-		$allCheck.classList.remove('is-indeterminate');
-	} else if (checkedCount === totalCount) {
-		$allCheck.checked = true;
-		$allCheck.indeterminate = false;
-		$allCheck.classList.remove('is-indeterminate');
-	} else {
-		$allCheck.checked = false;
-		$allCheck.indeterminate = true;
-		$allCheck.classList.add('is-indeterminate');
-	}
-}
-
-// Textarea
-function fnTextareaCounter() {
-	const $formTextAreas = document.querySelectorAll('.form-text-area');
-
-	$formTextAreas.forEach(function ($formTextArea) {
-		const $textarea = $formTextArea.querySelector('textarea');
-		const $currentSpan = $formTextArea.querySelector('.current');
-		const $totalSpan = $formTextArea.querySelector('.total');
-		const numTotal = $textarea.getAttribute('maxLength');
-
-		if (!$textarea || !$currentSpan) return;
-
-		$textarea.addEventListener('input', function () {
-			const currentLength = this.value.length;
-			$currentSpan.textContent = currentLength;
-		});
-
-		$currentSpan.textContent = $textarea.value.length;
-		$totalSpan.textContent = numTotal;
-	});
-}
-
-// Tab
-function fnTab(initialActiveIndex) {
-	var classTabWrapper = "box-tab";
-	var classTabButton = "btn-tab";
-	var classTabContent = "box-tab-content";
-	var classActiveState = "active";
-	var classDisabledState = "disabled";
-	var textDisabledGuide = "비활성화됨";
-
-	var $tabWrappers = document.querySelectorAll("." + classTabWrapper);
-	if ($tabWrappers.length === 0) return;
-
-	$tabWrappers.forEach(function ($container) {
-		var $currentButtons = Array.prototype.filter.call($container.querySelectorAll("." + classTabButton), function ($btn) {
-			return $btn.closest("." + classTabWrapper) === $container;
-		});
-		var $currentContents = Array.prototype.filter.call($container.querySelectorAll("." + classTabContent), function ($content) {
-			return $content.closest("." + classTabWrapper) === $container;
-		});
-
-		var $disabledButtons = $container.querySelectorAll("." + classDisabledState + " ." + classTabButton + ", ." + classTabButton + "." + classDisabledState);
-		$disabledButtons.forEach(function ($button) {
-			$button.setAttribute("title", textDisabledGuide);
-			$button.setAttribute("disabled", "true");
-		});
-
-		$currentContents.forEach(function ($content) {
-			var hasActive = $content.classList.contains(classActiveState);
-			if (hasActive) {
-				$content.style.display = "block";
-			} else {
-				$content.style.display = "none";
-			}
-		});
-
-		// 초기 로드 시 버튼 상태 설정 (active 및 aria-selected 제어)
-		$currentButtons.forEach(function ($button) {
-			var isActive = $button.classList.contains(classActiveState);
-			$button.setAttribute("aria-selected", String(isActive));
-		});
-	});
-
-	document.addEventListener("click", function (event) {
-		var $clickedButton = event.target.closest("." + classTabWrapper + " ." + classTabButton);
-		if (!$clickedButton) return;
-
-		var $menuWrap = $clickedButton.closest("." + classTabWrapper);
-		if (!$menuWrap) return;
-
-		var $scopeButtons = Array.prototype.filter.call($menuWrap.querySelectorAll("." + classTabButton), function ($btn) {
-			return $btn.closest("." + classTabWrapper) === $menuWrap;
-		});
-		var $scopeContents = Array.prototype.filter.call($menuWrap.querySelectorAll("." + classTabContent), function ($content) {
-			return $content.closest("." + classTabWrapper) === $menuWrap;
-		});
-
-		var targetActiveIndex = $scopeButtons.indexOf($clickedButton);
-
-		var isAlreadyActive = $clickedButton.classList.contains(classActiveState);
-		var isDisabledTab = $clickedButton.classList.contains(classDisabledState) || $clickedButton.hasAttribute("disabled");
-
-		if (!isAlreadyActive && !isDisabledTab) {
-
-			$scopeButtons.forEach(function ($button, index) {
-				var isThisButtonDisabled = $button.classList.contains(classDisabledState) || $button.hasAttribute("disabled");
-				if (isThisButtonDisabled) return;
-
-				if (index === targetActiveIndex) {
-					$button.classList.add(classActiveState);
-				} else {
-					$button.classList.remove(classActiveState);
-				}
-
-				$button.setAttribute("aria-selected", String(index === targetActiveIndex));
-			});
-
-			$scopeContents.forEach(function ($content, index) {
-				var $matchingButton = $scopeButtons[index];
-				var isMatchingButtonDisabled = $matchingButton ? ($matchingButton.classList.contains(classDisabledState) || $matchingButton.hasAttribute("disabled")) : false;
-
-				if (isMatchingButtonDisabled) return;
-
-				if (index === targetActiveIndex) {
-					$content.classList.add(classActiveState);
-					$content.style.display = "block";
-				} else {
-					$content.classList.remove(classActiveState);
-					$content.style.display = "none";
-				}
-			});
-		}
-
-		var $forcedTargetLists1 = document.querySelectorAll("[id^='tabSingleList']");
-		if ($forcedTargetLists1.length > 0) {
-			$forcedTargetLists1.forEach(function ($targetItem) {
-				$targetItem.classList.add(classActiveState);
-			});
-		}
-
-		var $forcedTargetLists2 = document.querySelectorAll("[id^='tabSingleList2']");
-		if ($forcedTargetLists2.length > 0) {
-			$forcedTargetLists2.forEach(function ($targetItem) {
-				$targetItem.classList.add(classActiveState);
-			});
-		}
-	});
-}
-
-// Tooltip
-function fnBoxTooltip() {
-	var classTooltipContainer = "box-tooltip";
-	var classTriggerButton = "btn";
-	var classActiveState = "active";
-	var classButtonClose = "btn-close";
-
-	var $tooltipWrappers = document.querySelectorAll("." + classTooltipContainer);
-	if ($tooltipWrappers.length === 0) return;
-
-	$tooltipWrappers.forEach(function ($wrapper) {
-		var $button = $wrapper.querySelector("." + classTriggerButton);
-		if (!$button) return;
-
-		var tooltipTargetId = $button.getAttribute("aria-describedby");
-		if (!tooltipTargetId) return;
-
-		var $layer = document.getElementById(tooltipTargetId);
-		if (!$layer) return;
-
-		var $buttonClose = $wrapper.querySelector("." + classButtonClose);
-		if (!$buttonClose) return
-
-		$button.addEventListener("click", function (event) {
-			event.stopPropagation();
-
-			var isCurrentlyActive = this.classList.contains(classActiveState);
-
-			fnCloseAllClickTooltips();
-
-			if (!isCurrentlyActive) {
-				this.classList.add(classActiveState);
-				$layer.setAttribute("aria-hidden", "false");
-			}
-		});
-
-		$layer.addEventListener("click", function (event) {
-			event.stopPropagation();
-		});
-
-		$buttonClose.addEventListener("click", function () {
-			fnCloseAllClickTooltips();
-		});
-	});
-
-	document.addEventListener("click", function () {
-		fnCloseAllClickTooltips();
-	});
-
-	document.addEventListener("keydown", function (event) {
-		if (event.key === "Escape" || event.key === "Esc") {
-			fnCloseAllClickTooltips();
-		}
-	});
-
-	function fnCloseAllClickTooltips() {
-		var $activeButtons = document.querySelectorAll("." + classTooltipContainer + " ." + classTriggerButton + "." + classActiveState);
-
-		$activeButtons.forEach(function ($activeBtn) {
-			$activeBtn.classList.remove(classActiveState);
-
-			var targetId = $activeBtn.getAttribute("aria-describedby");
-			if (targetId) {
-				var $targetLayer = document.getElementById(targetId);
-				if ($targetLayer) $targetLayer.setAttribute("aria-hidden", "true");
-			}
-		});
-	}
-}
-
-// 모달
-function fnModal() {
-	let lastFocusedElement; // 열기 전 요소를 기억할 변수
-
-	// 스크롤바 너비를 동적으로 계산하는 함수
-	const getScrollbarWidth = () => {
-		return window.innerWidth - document.documentElement.clientWidth;
-	};
-
-	// 활성 상태에 따라 body 스크롤 제어 및 들썩임 방지
-	const updateBodyScroll = () => {
-		const hasActive = document.querySelector('.modal.is-active, .alert.is-active');
-		if (hasActive) {
-			const scrollbarWidth = getScrollbarWidth();
-			// 스크롤바가 실제로 존재하는 경우에만 padding-right 부여
-			if (scrollbarWidth > 0) {
-				document.documentElement.style.setProperty('--scrollbar-width', `${scrollbarWidth}px`);
-			}
-			document.body.classList.add('is-scroll-locked');
-		} else {
-			document.body.classList.remove('is-scroll-locked');
-			document.documentElement.style.removeProperty('--scrollbar-width');
-		}
-	};
-	document.querySelectorAll('table td .typeMd').forEach((el) => {
-		el.innerHTML = el.innerHTML.replace(/원/g, ' 원');
-	});
-	document.addEventListener('click', (e) => {
-		// 1. 모달 또는 알림창 열기 버튼 클릭 (.btn-modal 또는 .btn-alert)
-		const openBtn = e.target.closest('.btn-modal, .btn-alert');
-		if (openBtn) {
-			const targetId = openBtn.dataset.target;
-			const targetEl = document.getElementById(targetId);
-
-			if (targetEl) {
-				lastFocusedElement = document.activeElement; // 현재 포커스 저장
-				targetEl.classList.add('is-active');      // 클래스로 제어
-				updateBodyScroll();                       // 배경 스크롤 잠금 및 패딩 적용
-
-				// 내부의 첫 번째 포커스 가능 요소 찾기
-				const firstFocusable = targetEl.querySelector('button, [href], input, select, textarea');
-				if (firstFocusable) firstFocusable.focus();
-			}
-		}
-
-		// 2. 닫기 버튼 클릭 (.btn-close)
-		const closeBtn = e.target.closest('.btn-close');
-		if (closeBtn) {
-			const container = closeBtn.closest('.modal, .alert'); // modal 또는 alert 닫기
-			if (container) {
-				container.classList.remove('is-active');
-				updateBodyScroll(); // 남은 모달 여부에 따라 스크롤 복구
-
-				// 포커스 복귀
-				if (lastFocusedElement) lastFocusedElement.focus();
-			}
-		}
-
-		// 3. 배경(백드롭) 클릭 시 닫기 (.modal 또는 .alert 배경)
-		if (e.target.classList.contains('modal') || e.target.classList.contains('alert')) {
-			const backdropClose = e.target.dataset.backdropClose !== "false";
-
-			if (backdropClose) {
-				e.target.classList.remove('is-active');
-				updateBodyScroll(); // 남은 모달 여부에 따라 스크롤 복구
-				if (lastFocusedElement) lastFocusedElement.focus();
-			}
-		}
-	});
-
-	// 4. ESC 키로 닫기
-	document.addEventListener('keydown', (e) => {
-		if (e.key === 'Escape') {
-			const activeEl = document.querySelector('.modal.is-active, .alert.is-active');
-			if (activeEl) {
-				activeEl.classList.remove('is-active');
-				updateBodyScroll(); // 남은 모달 여부에 따라 스크롤 복구
-				if (lastFocusedElement) lastFocusedElement.focus();
-			}
-		}
-	});
-}
-
-//정렬버튼
-function fnInitSortButtons() {
-	const wrappers = document.querySelectorAll('.sort-btn-wrapper');
-
-	wrappers.forEach(wrapper => {
-		const buttons = wrapper.querySelectorAll('.btn');
-
-		buttons.forEach(button => {
-			button.addEventListener('click', () => {
-				const isCurrentlyPressed = button.getAttribute('aria-pressed') === 'true';
-
-				buttons.forEach(btn => {
-					btn.setAttribute('aria-pressed', 'false');
-					btn.classList.remove('type-bg-neutral');
-					btn.classList.add('type-line-neutral');
-				});
-
-				if (!isCurrentlyPressed) {
-					button.setAttribute('aria-pressed', 'true');
-					button.classList.remove('type-line-neutral');
-					button.classList.add('type-bg-neutral');
-				}
-			});
-		});
-	});
-}
-
-//뷰셀렉터
-function fnInitViewSelector() {
-	const selectors = document.querySelectorAll('.view-selector');
-
-	selectors.forEach(selector => {
-		const buttons = selector.querySelectorAll('button');
-
-		buttons.forEach((button, index) => {
-			button.addEventListener('click', (e) => {
-				e.preventDefault();
-
-				// 1. 모든 버튼과 아이콘 상태 초기화 (active 제거 및 netral 복원)
-				buttons.forEach(btn => {
-					btn.classList.remove('active');
-					const icon = btn.querySelector('i');
-					if (icon) {
-						icon.classList.remove('color-fg-primary');
-						icon.classList.add('color-fg-netral');
-					}
-				});
-
-				// 2. 현재 클릭된 버튼 활성화 (active 추가 및 primary 적용)
-				button.classList.add('active');
-				const currentIcon = button.querySelector('i');
-				if (currentIcon) {
-					currentIcon.classList.remove('color-fg-netral');
-					currentIcon.classList.add('color-fg-primary');
-				}
-
-				// 3. 카드 및 리스트 영역 토글 처리
-				const parentTabContent = selector.closest('.box-tab-content') || selector.closest('.content');
-				if (!parentTabContent) return;
-
-				const cardContainer = parentTabContent.querySelector('.card-swiper-container');
-				const listContainer = parentTabContent.querySelector('.list-view-container');
-
-				if (index === 0) {
-					if (cardContainer) cardContainer.style.display = 'block';
-					if (listContainer) listContainer.style.display = 'none';
-				} else if (index === 1) {
-					if (cardContainer) cardContainer.style.display = 'none';
-					if (listContainer) listContainer.style.display = 'block';
-				}
-			});
-		});
-	});
-}
-
-//allcheck
-function initTableCheckbox() {
-
-	var tables = document.querySelectorAll(".js-check-table");
-
-	tables.forEach(function (table) {
-
-		var checkAlls = table.querySelectorAll(".check-all");
-		var rowChecks = table.querySelectorAll(".row-check");
-		var count = table.querySelector(".selected-count span");
-
-		if (!checkAlls.length || !rowChecks.length) return;
-
-		function updateState() {
-
-			var checked = table.querySelectorAll(".row-check:checked").length;
-
-			if (count) {
-				count.textContent = checked;
-			}
-
-			checkAlls.forEach(function (checkAll) {
-				checkAll.checked = checked === rowChecks.length;
-				checkAll.indeterminate = checked > 0 && checked < rowChecks.length;
-			});
-		}
-
-		checkAlls.forEach(function (checkAll) {
-
-			checkAll.addEventListener("change", function () {
-
-				rowChecks.forEach(function (item) {
-					item.checked = checkAll.checked;
-				});
-
-				updateState();
-
-			});
-
-		});
-
-		rowChecks.forEach(function (item) {
-
-			item.addEventListener("change", function () {
-				updateState();
-			});
-
-		});
-
-		updateState();
-
-	});
-
-}
-
-// 슬라이드 옵션 html 컨트롤
-function fnSwiperHtmlControl() {
-	var swiperContainers = document.querySelectorAll('.swiper');
-
-	swiperContainers.forEach(function (container) {
-		var dataset = container.dataset;
-
-		// 1. dataset 파싱 및 Default 기본값 지정
-		var isAutoplay = dataset.autoplay === 'true';
-		var autoDelay = parseInt(dataset.delay, 10) || 3000;
-		var isLoop = dataset.loop === 'true';
-		var speed = parseInt(dataset.speed, 10) || 300;
-
-		var rawPerView = dataset.slidesPerView;
-		var slidesPerView = rawPerView === 'auto' ? 'auto' : (parseInt(rawPerView, 10) || 1);
-		var slidesPerGroup = parseInt(dataset.slidesPerGroup, 10) || 1;
-
-		var useNavigation = dataset.useNavigation !== 'false';
-
-		// HTML의 data-pagination-type 속성을 dataset.paginationType으로 파싱
-		var paginationType = dataset.paginationType || 'bullets';
-		var isCustomBullet = dataset.customBullet === 'true';
-
-		var playBtnSelector = dataset.btnPlay || '.swiper-btn-play';
-		var pauseBtnSelector = dataset.btnPause || '.swiper-btn-pause';
-
-		// 2. Swiper 기본 옵션 구성
-		var swiperOptions = {
-			speed: speed,
-			loop: isLoop,
-			slidesPerView: slidesPerView,
-			slidesPerGroup: slidesPerGroup,
-			autoplay: isAutoplay ? {
-				delay: autoDelay,
-				disableOnInteraction: false
-			} : false
-		};
-
-		// 3. 컨트롤 요소 존재 여부 및 옵션 동적 동기화
-		var $pagination = container.querySelector('.swiper-pagination');
-		var $prevBtn = container.querySelector('.swiper-button-prev');
-		var $nextBtn = container.querySelector('.swiper-button-next');
-		var $scrollbar = container.querySelector('.swiper-scrollbar');
-
-		// Pagination 설정
-		if ($pagination) {
-			var paginationConfig = {
-				el: $pagination,
-				clickable: true
-			};
-
-			// [수정] 'dash' 타입: bullets 방식을 활용해 renderBullet 처리 (클릭 지원 + is-active 커스텀)
-			if (paginationType === 'dash') {
-				paginationConfig.type = 'bullets';
-				paginationConfig.bulletClass = 'swiper-pagination-dash';
-				paginationConfig.bulletActiveClass = 'is-active';
-				paginationConfig.renderBullet = function (index, className) {
-					return '<span class="' + className + '"></span>';
-				};
-			}
-			// 'custom' 타입
-			else if (paginationType === 'custom') {
-				paginationConfig.type = 'custom';
-				paginationConfig.renderCustom = function (swiper, current, total) {
-					return '<span class="current">' + current + '</span> <span class="divider">/</span> <span class="total">' + total + '</span>';
-				};
-			}
-			// 'bullets' 타입 + 커스텀 불릿 (숫자 불릿 등)
-			else if (paginationType === 'bullets' && isCustomBullet) {
-				paginationConfig.type = 'bullets';
-				paginationConfig.renderBullet = function (index, className) {
-					return '<span class="' + className + '">' + (index + 1) + '</span>';
-				};
-			}
-			// 기타 기본 타입 (fraction, progressbar, 기본 bullets)
-			else {
-				paginationConfig.type = paginationType;
-			}
-
-			swiperOptions.pagination = paginationConfig;
-		}
-
-		// Navigation 설정
-		if (useNavigation && $prevBtn && $nextBtn) {
-			swiperOptions.navigation = {
-				nextEl: $nextBtn,
-				prevEl: $prevBtn
-			};
-		}
-
-		// Scrollbar 설정
-		if ($scrollbar) {
-			swiperOptions.scrollbar = {
-				el: $scrollbar,
-				draggable: true
-			};
-		}
-
-		// 4. Swiper 인스턴스 생성
-		var swiper = new Swiper(container, swiperOptions);
-
-		// 5. 재생 / 정지 버튼 동적 바인딩
-		var $playBtn = container.querySelector(playBtnSelector);
-		var $pauseBtn = container.querySelector(pauseBtnSelector);
-
-		if ($pauseBtn) {
-			$pauseBtn.addEventListener('click', function () {
-				if (swiper.autoplay) {
-					swiper.autoplay.stop();
-				}
-				if ($playBtn) {
-					$pauseBtn.style.display = 'none';
-					$playBtn.style.display = 'inline-block';
-				}
-			});
-		}
-
-		if ($playBtn) {
-			$playBtn.addEventListener('click', function () {
-				if (swiper.autoplay) {
-					swiper.autoplay.start();
-				}
-				if ($pauseBtn) {
-					$playBtn.style.display = 'none';
-					$pauseBtn.style.display = 'inline-block';
-				}
-			});
-		}
-	});
-}
-document.querySelectorAll('table td .typeMd').forEach((el) => {
-	el.innerHTML = el.innerHTML.replace(/원/g, ' 원');
-});
-
-//단순프로그래스
-function setProgressBar1(target, options = {}) {
-	const el =
-		typeof target === "string"
-			? document.querySelector(target)
-			: target;
-
-	if (!el) return;
-
-	const {
-		percent = 0,
-		duration = 1000,
-		status = "auto",
-		message,
-		label,
-	} = options;
-
-	const gaugeEl = el.querySelector(".progress-gauge");
-	const numEl = el.querySelector(".percent .num");
-	const messageEl = el.querySelector(".message");
-	const labelEl = el.querySelector(".title-progress");
-
-	if (!gaugeEl) return;
-
-	// ----------------------------------------
-	// 최종 데이터 값
-	// ----------------------------------------
-	const targetPercent = Math.min(
-		Math.max(Number(percent) || 0, 0),
-		100
-	);
-
-	// ----------------------------------------
-	// 기존 애니메이션 취소
-	// ----------------------------------------
-	if (el._progressAnimationFrame) {
-		cancelAnimationFrame(
-			el._progressAnimationFrame
-		);
-	}
-
-	// ----------------------------------------
-	// 최종값에 따라 색상 결정
-	// ----------------------------------------
-	if (targetPercent <= 30) {
-		// 0 ~ 30 : 파랑
-		gaugeEl.style.backgroundColor = "#2878f0";
-
-	} else if (targetPercent <= 70) {
-		// 31 ~ 70 : 노랑
-		gaugeEl.style.backgroundColor = "#f5c400";
-
-	} else {
-		// 71 ~ 100 : 빨강
-		gaugeEl.style.backgroundColor = "#ef4b4b";
-	}
-
-	// ----------------------------------------
-	// 초기화
-	// ----------------------------------------
-	gaugeEl.style.width = "0%";
-
-	if (numEl) {
-		numEl.textContent = "0";
-	}
-
-	// ----------------------------------------
-	// 라벨
-	// ----------------------------------------
-	if (label && labelEl) {
-		labelEl.textContent = label;
-	}
-
-	// ----------------------------------------
-	// 메시지
-	// ----------------------------------------
-	if (message && messageEl) {
-		messageEl.textContent = message;
-	}
-
-	// ----------------------------------------
-	// 숫자 + 게이지 애니메이션
-	// ----------------------------------------
-	const startTime = performance.now();
-
-	function animate(currentTime) {
-		const progress = Math.min(
-			(currentTime - startTime) / duration,
-			1
-		);
-
-		// ease-out
-		const eased =
-			1 - Math.pow(1 - progress, 3);
-
-		const currentPercent =
-			targetPercent * eased;
-
-		// 게이지
-		gaugeEl.style.width =
-			`${currentPercent}%`;
-
-		// 숫자
-		if (numEl) {
-			numEl.textContent =
-				Math.round(currentPercent);
-		}
-
-		if (progress < 1) {
-			el._progressAnimationFrame =
-				requestAnimationFrame(animate);
-		} else {
-			// 마지막 값 정확하게 고정
-			gaugeEl.style.width =
-				`${targetPercent}%`;
-
-			if (numEl) {
-				numEl.textContent =
-					targetPercent;
-			}
-
-			el._progressAnimationFrame = null;
-		}
-	}
-
-	el._progressAnimationFrame =
-		requestAnimationFrame(animate);
-
-	// ----------------------------------------
-	// 상태
-	// ----------------------------------------
-	let currentStatus = status;
-
-	if (status === "auto") {
-		currentStatus =
-			targetPercent === 100
-				? "success"
-				: "progress";
-	}
-
-	el.classList.remove(
-		"is-success",
-		"is-fail"
-	);
-
-	if (currentStatus === "success") {
-		el.classList.add("is-success");
-	}
-
-	if (currentStatus === "fail") {
-		el.classList.add("is-fail");
-	}
-}
-//말풍선프로그래스
-function formatAmount(value, unit) {
-	const number = Number(value);
-
-	if (unit === '원') {
-		return `${number.toLocaleString('ko-KR')}원`;
-	}
-
-	return `${number}%`;
-}
-
-
-function renderRateRange(range) {
-	const min = Number(range.dataset.min);
-	const max = Number(range.dataset.max);
-	const value = Number(range.dataset.value);
-	const unit = range.dataset.unit || '%';
-
-	const activeEl = range.querySelector('.rate-range-active');
-	const currentEl = range.querySelector('.rate-range-current');
-	const tooltipEl = range.querySelector('.rate-range-tooltip span');
-
-	if (!activeEl || !currentEl || !tooltipEl) return;
-
-	// 현재 값의 위치
-	let percent = ((value - min) / (max - min)) * 100;
-
-	// 0 ~ 100% 제한
-	percent = Math.max(0, Math.min(100, percent));
-
-	// 그래프
-	activeEl.style.width = `${percent}%`;
-	currentEl.style.left = `${percent}%`;
-	// 색상 변경
-	if (percent <= 30) {
-		activeEl.style.backgroundColor = '#D33128';
-	} else if (percent <= 70) {
-		activeEl.style.backgroundColor = '#FAC515';
-	} else {
-		activeEl.style.backgroundColor = '#0F62FD';
-	}
-	// 말풍선
-	tooltipEl.textContent = formatAmount(value, unit);
-}
-
-
-// 최초 실행
-document.querySelectorAll('.rate-range').forEach((range) => {
-	const activeEl = range.querySelector('.rate-range-active');
-	const currentEl = range.querySelector('.rate-range-current');
-
-	if (!activeEl || !currentEl) return;
-
-	// 처음에는 0으로 시작
-	activeEl.style.width = '0%';
-	currentEl.style.left = '0%';
-
-	// 브라우저가 0% 상태를 먼저 그린 다음 이동
-	requestAnimationFrame(() => {
-		requestAnimationFrame(() => {
-			renderRateRange(range);
-		});
-	});
-});
-//드롭박스
-document.querySelectorAll('.drop-box').forEach((dropBox) => {
-	const toggle = dropBox.querySelector('.drop-box-toggle');
-
-	toggle.addEventListener('click', () => {
-		dropBox.classList.toggle('is-open');
-	});
-});
-//캘린더 호출
-document.addEventListener('DOMContentLoaded', () => {
-  const calendarWrap = document.querySelector('.calendar-wrap');
-  if (!calendarWrap) return;
-
-  const toggleBtns = calendarWrap.querySelectorAll('.input-box .btn');
-  const calendarLayer = calendarWrap.querySelector('.calendarLayer_wrap');
-
-  if (!calendarLayer) return;
-
-  toggleBtns.forEach((btn, index) => {
-    btn.addEventListener('click', (e) => {
-      e.stopPropagation();
-
-      // 이미 열려있는 상태에서 같은 버튼을 누르면 닫기
-      const isActive = calendarLayer.classList.contains('is-active');
-      const currentActiveIndex = calendarLayer.dataset.activeIndex;
-
-      if (isActive && currentActiveIndex == index) {
-        calendarLayer.classList.remove('is-active');
-        return;
-      }
-
-      // 두 번째(오른쪽) 버튼을 눌렀을 때는 오른쪽 정렬 클래스 추가
-      if (index > 0) {
-        calendarLayer.classList.add('align-right');
-      } else {
-        calendarLayer.classList.remove('align-right');
-      }
-
-      // 달력 열기 및 현재 버튼 인덱스 기록
-      calendarLayer.dataset.activeIndex = index;
-      calendarLayer.classList.add('is-active');
-    });
-  });
-
-  // 달력 내부 클릭 시 닫힘 방지
-  calendarLayer.addEventListener('click', (e) => {
-    e.stopPropagation();
-  });
-
-  // 닫기 및 적용 버튼
-  const applyBtn = calendarLayer.querySelector('.btn_apply');
-  if (applyBtn) {
-    applyBtn.addEventListener('click', () => {
-      calendarLayer.classList.remove('is-active');
-    });
-  }
-
-  // 외부 클릭 시 닫기
-  document.addEventListener('click', () => {
-    calendarLayer.classList.remove('is-active');
-  });
-});
