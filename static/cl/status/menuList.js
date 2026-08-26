@@ -42,10 +42,10 @@ module.exports = {
     "CIBUMG130300000M": { title: "부재등록완료", status: "검수중", worker: "이상우", note: "주석확인" },
     "CIBUMG130400000M": { title: "부재해제", status: "검수중", worker: "이상우", note: "디자인 확정아님" },
     "CIBUMG130500000M": { title: "부재해제완료", status: "검수중", worker: "이상우", note: "디자인 확정아님" },
-    "CIBUMG19010000M": { title: "목록", status: "완료", worker: "손창우", note: "임시 그리드 화면" },
-    "CIBUMG19020000M": { title: "상세", status: "완료", worker: "손창우", note: "주석확인" },
-    "CIBUMG19030000M": { title: "삭제완료", status: "완료", worker: "손창우", note: "" },
-    "CIBUMG18010000M": { title: "목록", status: "완료", worker: "손창우", note: "임시 그리드 화면" },
+    "CIBUMG190100000M": { title: "목록", status: "완료", worker: "손창우", note: "임시 그리드 화면, 20260826 화면id수정" },
+    "CIBUMG190200000M": { title: "상세", status: "완료", worker: "손창우", note: "주석확인, 20260826 화면id수정" },
+    "CIBUMG190300000M": { title: "삭제완료", status: "완료", worker: "손창우", note: "20260826 화면id수정" },
+    "CIBUMG180100000M": { title: "목록", status: "완료", worker: "손창우", note: "임시 그리드 화면, 20260826 화면id수정" },
     "CIBUMG200100000P": { title: "결제선 확인 팝업(미정)", status: "검수중", worker: "이상우", note: "" },
 
     // 💡 뱅킹업무(bop) 루트 기타 화면
@@ -187,12 +187,12 @@ module.exports = {
 
     // 💡 신탁 (fin_tpr)
     "CIBFIN_TPR020000000M": { title: "특정금전신탁", status: "검수중", worker: "변혜선", note: "" },
-    "CIBFIN_TPR030100000T": { title: "상품성 신탁 운용방법 및 보수율 현황_기준년월2026년 3월", status: "완료", worker: "변혜선", note: "주석확인" },
+    "CIBFIN_TPR030100000T": { title: "상품성 신탁 운용방법 및 보수율 현황_기준년월2026년 3월", status: "완료", worker: "변혜선", note: "주석확인, 20260826 화면id수정" },
     "CIBFIN_TPR040100000T": { title: "기준가/수익률조회_신탁기준가격", status: "검수중", worker: "변혜선", note: "" },
     "CIBFIN_TPR040101000P": { title: "기준가/수익률조회_신탁기준가격_[팝업]기준가변동추이표", status: "검수중", worker: "변혜선", note: "" },
     "CIBFIN_TPR040200000T": { title: "기준가/수익률조회_신탁배당률", status: "검수중", worker: "변혜선", note: "" },
     "CIBFIN_TPR040300000T": { title: "기준가/수익률조회_기간별수익률", status: "검수중", worker: "변혜선", note: "" },
-    "CIBFIN_TPR050100000T": { title: "연금저축신탁 비교공시_가입시 유의사항", status: "완료", worker: "변혜선", note: "" },
+    "CIBFIN_TPR050100000T": { title: "연금저축신탁 비교공시_가입시 유의사항", status: "완료", worker: "변혜선", note: "20260826 화면id수정" },
     "CIBFIN_TPR030200000": { title: "", status: "완료", worker: "변혜선", note: "" },
     "CIBFIN_TPR030300000": { title: "", status: "완료", worker: "변혜선", note: "" },
     "CIBFIN_TPR030400000": { title: "", status: "완료", worker: "변혜선", note: "" },
@@ -220,7 +220,7 @@ module.exports = {
     "CIBFOE040104005p": { title: "[팝업]최근송금내역", status: "검수중", worker: "변혜선", note: "주석확인" },
 
     // 💡 조회 (inq)
-    "CIBNQ010200000M": { title: "휴면계좌조회(없음)", status: "완료", worker: "변혜선", note: "" },
+    "CIBINQ010200000M": { title: "휴면계좌조회(없음)", status: "완료", worker: "변혜선", note: "20260826 화면id수정" },
     "CIBNQ020101000M": { title: "신청목록(없음)", status: "완료", worker: "변혜선", note: "주석확인" },
     "CIBNQ020102000M": { title: "신청정보 입력(없음)", status: "완료", worker: "변혜선", note: "주석확인" },
     "CIBINQ030101000M": { title: "조회정보 입력(임시)", status: "검수중", worker: "이상우", note: "" },
