@@ -1,0 +1,143 @@
+<!-- CIBUMG021400000M.html -->
+<!-- 그리드영역 넓이 디자인 가이드 필요  -->
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/bmg.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">
+        @@include('static/html/pub/layout/skipNavigation.html')
+        @@include('static/html/pub/layout/header_sub.html')
+      </div>
+
+      <div id="container" class="container">
+        <div id="leftArea">
+          @@include('static/html/pub/layout/leftArea.html')
+        </div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="bmg">
+              <h2 class="typeH2">인수인계</h2>
+              <div class="box-tab">
+                <ul
+                  class="list-tab-button type-outline"
+                  role="tablist"
+                  aria-label="탭 이름"
+                >
+                  <li class="item-tab-button">
+                    <button
+                      type="button"
+                      class="btn-tab active"
+                      title="선택됨"
+                      id="tabBtnTypeOutline01"
+                      role="tab"
+                      aria-selected="true"
+                      aria-controls="tabPanelTypeOutline01"
+                    >
+                      <span class="text">일반사용자</span>
+                    </button>
+                  </li>
+                  <li class="item-tab-button">
+                    <button
+                      type="button"
+                      class="btn-tab"
+                      id="tabBtnTypeOutline02"
+                      role="tab"
+                      aria-selected="false"
+                      aria-controls="tabPanelTypeOutline02"
+                    >
+                      <span class="text">결제사용자</span>
+                    </button>
+                  </li>
+                </ul>
+
+                <!-- 첫 번째 탭 패널 시작 -->
+                <div
+                  class="box-tab-content active"
+                  id="tabPanelTypeOutline01"
+                  role="tabpanel"
+                  aria-labelledby="tabBtnTypeOutline01"
+                  style="display: block"
+                >
+                  <h3 class="blind">일반사용자 탭</h3>
+
+                  <h4 class="typeH4">사용자 기본정보</h4>
+                  <div class="tbl-area">
+                    <h5 class="typeH5">인계자</h5>
+                    <div class="text-center">그리드영역</div>
+                  </div>
+                  <div class="tbl-area">
+                    <h5 class="typeH5">인수자</h5>
+                    <div class="text-center">그리드영역</div>
+                  </div>
+
+                  <h4 class="typeH4 mt-64">계좌권한</h4>
+                  <div class="tbl-area">
+                    <h5 class="typeH5">인계자</h5>
+                    <div class="text-center">그리드영역</div>
+                  </div>
+                  <div class="tbl-area">
+                    <h5 class="typeH5">인수자</h5>
+                    <div class="text-center">그리드영역</div>
+                  </div>
+                  <h4 class="typeH4 mt-64">카드권한</h4>
+                  <div class="tbl-area">
+                    <h5 class="typeH5">인계자</h5>
+                    <div class="text-center">그리드영역</div>
+                  </div>
+                  <div class="tbl-area">
+                    <h5 class="typeH5">인수자</h5>
+                    <div class="text-center">그리드영역</div>
+                  </div>
+                </div>
+                <!-- 첫 번째 탭 패널 끝 -->
+
+                <!-- 두 번째 탭 패널 시작 -->
+                <div
+                  class="box-tab-content"
+                  id="tabPanelTypeOutline02"
+                  role="tabpanel"
+                  aria-labelledby="tabBtnTypeOutline02"
+                  style="display: none"
+                >
+                  <h3 class="blind">결제사용자 탭</h3>
+                  Tab 본문 02
+                </div>
+                <!-- 두 번째 탭 패널 끝 -->
+              </div>
+
+              <div class="line-box size-xl mt-48">
+                <span class="typeLgSemibold">이용안내</span>
+                <div class="list type-dotted">
+                  <ul>
+                    <li class="typeMd">
+                      인수자는 인계자와 동일한 사용자구분(일반사용자,
+                      결제사용자)만 가능합니다.
+                    </li>
+                    <li class="typeMd">
+                      각 사용자별 결재선은 인수인계 대상에서 제외됩니다.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
+</html>
