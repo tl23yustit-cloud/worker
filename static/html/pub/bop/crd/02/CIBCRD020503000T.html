@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>수협은행</title>
+  <link rel="stylesheet" href="/static/css/reset.css" />
+  <link rel="stylesheet" href="/static/css/layout.css" />
+  <link rel="stylesheet" href="/static/css/component.css" />
+  <link rel="stylesheet" href="/static/css/common.css" />
+  <link rel="stylesheet" href="/static/css/bop.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <div id="header">
+      @@include('static/html/pub/layout/skipNavigation.html')
+      @@include('static/html/pub/layout/header_sub.html')
+    </div>
+
+    <div id="container" class="container">
+      <div id="leftArea">
+        @@include('static/html/pub/layout/leftArea.html')
+      </div>
+      <div id="contents">
+        <div class="content">
+          @@include('static/html/pub/layout/breadcrumb.html')
+          <div class="bop">
+            <h2 class="typeH2">카드 일시정지/해제</h2>
+            <div class="box-tab">
+              <ul class="list-tab-button type-outline" role="tablist" aria-label="탭 이름">
+                <li class="item-tab-button">
+                  <button type="button" class="btn-tab"  id="tabBtnTypeOutline01" role="tab"
+                    aria-selected="true" aria-controls="tabPanelTypeOutline01">
+                    <span class="text">카드 일시정지</span>
+                  </button>
+                </li>
+                <li class="item-tab-button">
+                  <button type="button" class="btn-tab active" title="선택됨"id="tabBtnTypeOutline02" role="tab" aria-selected="false"
+                    aria-controls="tabPanelTypeOutline02">
+                    <span class="text">일시정지 내역조회/해제</span>
+                  </button>
+                </li>
+              </ul>
+              <div class="box-tab-content" id="tabPanelTypeOutline01" role="tabpanel"
+                aria-labelledby="tabBtnTypeOutline01" style="display: block">
+                <div class="tbl-area">
+                  <div class="tbl-head">
+                    <h6 class="typeH6">조회결과</h6>
+                  </div>
+                  <div class="wrap-board-grid">
+                    <!-- [dev] 그리드 -->
+                    <div class="board-grid">
+                      <!-- [dev] 그리드 컨텐츠 영역 : 작업 시 삭제-->
+                      <i style="
+                            display: block;
+                            border: var(--borderWidthMd) solid
+                              var(--colorBorderBase);
+                            border-radius: var(--radiusMd);
+                            padding: var(--spacing2Xl);
+                          ">임시 그리드 영역</i>
+                      <!-- //[dev] 그리드 컨텐츠 영역 : 작업 시 삭제 -->
+                    </div>
+                    <!-- //[dev] 그리드 -->
+                  </div>
+                </div>
+                <div class="btn-wrap center sm-mid">
+                  <button type="button" class="btn type-bg-primary size-xxl">
+                    <span class="text">카드선택</span>
+                  </button>
+                </div>
+                <div class="tbl-area">
+                  <div class="tbl-head">
+                    <div class="left-area">
+                      <h6 class="typeH6">OTP 비밀번호 입력</h6>
+                    </div>
+                  </div>
+                  <table class="table-type01">
+                    <caption>
+                      OTP
+                    </caption>
+                    <colgroup>
+                      <col>
+                      <col>
+                    </colgroup>
+                    <tbody>
+                      <tr>
+                        <th scope="row" rowspan="2" class="noradius">
+                          <label for="OTP">OTP
+                          </label>
+                        </th>
+                        <td>
+                          <div class="otp-text-wrap">
+                            <input type="password" id="OTP" class="input wSize-smMd size-lg" placeholder="숫자 6자리"
+                              title="" aria-label="숫자 6자리">
+                            <div class="typeMd">OTP 만료 기한이 <span>14</span>일 남았습니다.
+                              <span>(2026-04-30)</span>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="otp-noti">
+                            <div class="list type-dotted">
+                              <ul>
+                                <li class="typeMd">
+                                  OTP에 생성된 숫자 6자리를 입력하세요
+                                </li>
+                                <li class="typeMd">
+                                  OTP는 1분마다 새로운 비밀번호가 생성됩니다
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="btn-wrap center lg-bot">
+                  <button type="button" class="btn type-bg-primary size-xxl">
+                    <span class="text">일시정지</span>
+                  </button>
+                </div>
+                <div class="line-box size-xl mt-48">
+                  <span class="typeLgSemibold">이용안내</span>
+                  <div class="list type-dotted">
+                    <ul>
+                      <li class="typeMd">
+                        카드 일시정지 업무를 진행 할 수 있는 화면입니다.
+                      </li>
+                      <li class="typeMd">
+                        카드 일시정지 시 카드 승인결제, 국내/해외 현금서비스 및 예금인출 업무 또한 정지처리 됩니다.
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="box-tab-content active" id="tabPanelTypeOutline02" role="tabpanel"
+                aria-labelledby="tabBtnTypeOutline02" style="display: none">
+                <div class="tbl-head">
+                  <div class="right-area">
+                    <span class="required typeMd">필수 항목</span>
+                  </div>
+                </div>
+                <table class="table-type01">
+                  <caption>
+                    정지일시 조회기간 선택 테이블
+                  </caption>
+                  <colgroup>
+                    <col>
+                    <col>
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="row" id="search_period">
+                        <span class="required">정지일시 조회기간</span>
+                      </th>
+                      <td colspan="3">
+                        <div class="tbl-column">
+                          <div class="radio-group">
+                            <span class="form-box" aria-labelledby="search_period">
+                              <input type="radio" name="SampleRadio0302_01" id="SampleRadio0302_01" title="정지일시 조회기간"
+                                class="radio-btn" checked="">
+                              <label for="SampleRadio0302_01" class="form-label">당일</label>
+                              <input type="radio" name="SampleRadio0302_01" id="SampleRadio0302_02" title="정지일시 조회기간"
+                                class="radio-btn">
+                              <label for="SampleRadio0302_03" class="form-label">1개월</label>
+                              <input type="radio" name="SampleRadio0302_01" id="SampleRadio0302_03" title="정지일시 조회기간"
+                                class="radio-btn">
+                              <label for="SampleRadio0302_03" class="form-label">3개월</label>
+                              <input type="radio" name="SampleRadio0302_01" id="SampleRadio0302_04" title="정지일시 조회기간"
+                                class="radio-btn">
+                              <label for="SampleRadio0302_04" class="form-label">6개월</label>
+                              <input type="radio" name="SampleRadio0302_01" id="SampleRadio0302_05" title="정지일시 조회기간"
+                                class="radio-btn">
+                              <label for="SampleRadio0302_05" class="form-label">1년</label>
+                            </span>
+                          </div>
+                          <div class="calendar-wrap">
+                            <div class="input-box gap-10">
+                              <input type="text" class="input" placeholder="이쳬예약일" title="" aria-label="이쳬예약일"
+                                value="2026-01-06">
+                              <button type="button" class="btn">
+                                <i class="ico-calendar ico-size-smMd" aria-hidden="true"></i>
+                                <span class="blind">날짜 열기</span>
+                              </button>
+                            </div>
+                            ~
+                            <div class="input-box">
+                              <input type="text" class="input" placeholder="이쳬예약일" title="" aria-label="이쳬예약일"
+                                value="2026-01-06">
+                              <button type="button" class="btn">
+                                <i class="ico-calendar ico-size-smMd" aria-hidden="true"></i>
+                                <span class="blind">날짜 열기</span>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>                
+                <div class="btn-wrap center sm-mid">
+                  <button type="button" class="btn type-bg-neutral size-xl">
+                    <span class="text">조회</span>
+                  </button>
+                </div>
+                <div class="tbl-area">
+                  <div class="tbl-head">
+                    <h6 class="typeH6">조회결과</h6>
+                  </div>
+                  <div class="wrap-board-grid">
+                    <!-- [dev] 그리드 -->
+                    <div class="board-grid">
+                      <!-- [dev] 그리드 컨텐츠 영역 : 작업 시 삭제-->
+                      <i style="
+                            display: block;
+                            border: var(--borderWidthMd) solid
+                              var(--colorBorderBase);
+                            border-radius: var(--radiusMd);
+                            padding: var(--spacing2Xl);
+                          ">임시 그리드 영역</i>
+                      <!-- //[dev] 그리드 컨텐츠 영역 : 작업 시 삭제 -->
+                    </div>
+                    <!-- //[dev] 그리드 -->
+                  </div>
+                </div>
+                <div class="btn-wrap center sm-mid">
+                  <button type="button" class="btn type-bg-primary size-xxl">
+                    <span class="text">카드선택</span>
+                  </button>
+                </div>
+                <div class="tbl-area">
+                  <div class="tbl-head">
+                    <div class="left-area">
+                      <h6 class="typeH6">OTP 비밀번호 입력</h6>
+                    </div>
+                  </div>
+                  <table class="table-type01">
+                    <caption>
+                      OTP
+                    </caption>
+                    <colgroup>
+                      <col>
+                      <col>
+                    </colgroup>
+                    <tbody>
+                      <tr>
+                        <th scope="row" rowspan="2" class="noradius">
+                          <label for="OTP">OTP
+                          </label>
+                        </th>
+                        <td>
+                          <div class="otp-text-wrap">
+                            <input type="password" id="OTP" class="input wSize-smMd size-lg" placeholder="숫자 6자리"
+                              title="" aria-label="숫자 6자리">
+                            <div class="typeMd">OTP 만료 기한이 <span>14</span>일 남았습니다.
+                              <span>(2026-04-30)</span>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="otp-noti">
+                            <div class="list type-dotted">
+                              <ul>
+                                <li class="typeMd">
+                                  OTP에 생성된 숫자 6자리를 입력하세요
+                                </li>
+                                <li class="typeMd">
+                                  OTP는 1분마다 새로운 비밀번호가 생성됩니다
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="btn-wrap center lg-bot">
+                  <button type="button" class="btn type-bg-primary size-xxl">
+                    <span class="text">일시정지 해제</span>
+                  </button>
+                </div>
+                <div class="line-box size-xl mt-48">
+                  <span class="typeLgSemibold">이용안내</span>
+                  <div class="list type-dotted">
+                    <ul>
+                      <li class="typeMd">
+                        일시정지 처리된 카드목록을 조회하고 일시정지 철회를 진행 할 수 있는 화면입니다.
+                      </li>
+                      <li class="typeMd">
+                        일시정지 해제 업무는 관리자만 진행 할 수 있으며, 특정 항목은 견제자의 승인 완료 시 일시정지가 가능합니다.
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+    </div>
+    <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+  </div>
+  <script src="/static/js/ui/cib_ui_common.js"></script>
+</body>
+
+</html>
+<script></script>
