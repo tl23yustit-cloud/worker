@@ -239,4 +239,28 @@ module.exports = {
         worker: "변혜선",
         note: ""
     },
+    "CIBCRD020501000T": {
+        title: "카드 일시정지(조회)",
+        status: "진행중",
+        worker: "변혜선",
+        note: "임시 그리드"
+    },
+    "CIBCRD020503000T": {
+        title: "카드 일시정지 내역조회/해제(조회)",
+        status: "진행중",
+        worker: "변혜선",
+        note: "임시 그리드"
+    },
+    "CIBCRD020502000M": {
+        title: "카드 일시정지(완료)",
+        status: "진행중",
+        worker: "변혜선",
+        note: ""
+    },
+    "CIBCRD020504000M": {
+        title: "카드 일시정지 내역조회/해제(완료)",
+        status: "진행중",
+        worker: "변혜선",
+        note: ""
+    },
 };
