@@ -27,8 +27,8 @@ module.exports = {
     "CIBB2B010203003M": { title: "정보확인(없음)", status: "검수중", worker: "변혜선", note: "" },
     "CIBB2B010203004M": { title: "완료(없음)", status: "검수중", worker: "변혜선", note: "" },
     "CIBB2B010100000M": { title: "", status: "검수중", worker: "변혜선", note: "" },
-    "CIBB2B010301001M": { title: "판매기업-매매계약내역조회", status: "진행중", worker: "변혜선", note: "" },
-    "CIBB2B010302001M": { title: "추심의뢰대상내역조회입력", status: "진행중", worker: "변혜선", note: "" },
+    "CIBB2B010301001M": { title: "판매기업-매매계약내역조회", status: "검수중", worker: "변혜선", note: "" },
+    "CIBB2B010302001M": { title: "추심의뢰대상내역조회입력", status: "검수중", worker: "변혜선", note: "" },
 
     // 💡 뱅킹관리/카드/회원결제관리
     "CIBCRD060100000M": { title: "", status: "검수중", worker: "변혜선", note: "임시 그리드 화면" },
@@ -61,7 +61,7 @@ module.exports = {
     "CIBCRD020102000P": { title: "카드 상세보기 팝업", status: "검수중", worker: "변혜선", note: "임시 그리드 화면" },
     "CIBCRD02040000M": { title: "", status: "검수중", worker: "변혜선", note: "" },
     "CIBCRD030100000M": { title: "이용한도조회", status: "검수중", worker: "변혜선", note: "임시 그리드 화면" },
-    "CIBCRD040101000T": { title: "이용내역조회(실시간 승인내역(Tab)", status: "진행중", worker: "변혜선", note: "주석-[dev] : 20260826 확인" },
+    "CIBCRD040101000T": { title: "이용내역조회(실시간 승인내역(Tab)", status: "검수중", worker: "변혜선", note: "주석-[dev] : 20260826 확인" },
     "CIBCRD060401000M": { title: "결제일변경(조회)", status: "검수중", worker: "변혜선", note: "임시 그리드 화면" },
     "CIBCRD060401001P": { title: "결제일별 이용기간 안내 팝업", status: "검수중", worker: "변혜선", note: "임시 그리드 화면" },
     "CIBCRD060402000M": { title: "결제일변경(완료)", status: "검수중", worker: "변혜선", note: "임시 그리드 화면" },
@@ -101,9 +101,9 @@ module.exports = {
     "CIBDTS020300000M": { title: "우대금리예상조회(없음)", status: "검수중", worker: "변혜선", note: "" },
 
     // 💡 외환 (foe)
-    "CIBFOE030101000M": { title: "이율조회_외화정기예금", status: "진행중", worker: "변혜선", note: "" },
-    "CIBFOE030102000M": { title: "이율조회_외화보통예금", status: "진행중", worker: "변혜선", note: "" },
-    "CIBFOE030103000M": { title: "이율조회_외화MMDA", status: "진행중", worker: "변혜선", note: "" },
+    "CIBFOE030101000M": { title: "이율조회_외화정기예금", status: "검수중", worker: "변혜선", note: "" },
+    "CIBFOE030102000M": { title: "이율조회_외화보통예금", status: "검수중", worker: "변혜선", note: "" },
+    "CIBFOE030103000M": { title: "이율조회_외화MMDA", status: "검수중", worker: "변혜선", note: "" },
     "CIBFOE090400000M": { title: "계좌(REF)조회_번호입력", status: "검수중", worker: "변혜선", note: "" },
     "CIBFOE090401000M": { title: "계좌(REF)조회_상세", status: "검수중", worker: "변혜선", note: "주석확인" },
     "CIBFOE090200000M": { title: "개설내역_목록", status: "검수중", worker: "변혜선", note: "" },
