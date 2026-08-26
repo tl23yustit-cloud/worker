@@ -13,6 +13,7 @@ module.exports = {
       "CIBUMG021400000M": { title: "인수인계 구분 선택", status: "검수중", worker: "이상우", note: "" },
       "CIBUMG021500000M": { title: "인수자선택", status: "검수중", worker: "이상우", note: "" },
       "CIBUMG021600000M": { title: "인수인계 완료/승인요청완료", status: "검수중", worker: "이상우", note: "" },
+      "CIBUMG021700000M": { title: "인수인계 완료/승인요청완료", status: "검수중", worker: "이상우", note: "" },
 
 
 };
@@ -28,3 +29,5 @@ module.exports = {
 //CIBUMG021400000M
 // CIBUMG021500000M
 // CIBUMG021600000M
+
+// CIBUMG021700000M
