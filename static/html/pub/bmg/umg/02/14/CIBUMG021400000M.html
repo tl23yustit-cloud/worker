@@ -1,0 +1,125 @@
+<!-- CIBUMG021400000M.html -->
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/bmg.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">
+        @@include('static/html/pub/layout/skipNavigation.html')
+        @@include('static/html/pub/layout/header_sub.html')
+      </div>
+
+      <div id="container" class="container">
+        <div id="leftArea">
+          @@include('static/html/pub/layout/leftArea.html')
+        </div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="bmg">
+              <h2 class="typeH2">인수인계</h2>
+              <div class="flex justify-between mb-12">
+                <h4 class="typeH4">인수인계 구분</h4>
+              </div>
+              
+              <fieldset class="handover-group">
+                <legend class="blind">인수인계 구분 선택</legend>
+                <div class="handover-list">
+                  <span class="form-box">
+                    <input
+                      type="radio"
+                      name="handoverType"
+                      id="type01"
+                      class="form-radio"
+                      checked
+                    />
+                    <label for="type01" class="handover-item">
+                      <i
+                        class="ico etc ico-size-4xl ico-handover"
+                        aria-hidden="true"
+                      ></i>
+                      <strong class="title">인계자 → 인수자</strong>
+                      <span class="desc"
+                        >인계자의 계좌권한, 카드권한, 메뉴권한을<br />인수자에게
+                        인계합니다.</span
+                      >
+                    </label>
+                  </span>
+
+                  <span class="form-box">
+                    <input
+                      type="radio"
+                      name="handoverType"
+                      id="type02"
+                      class="form-radio"
+                    />
+                    <label for="type02" class="handover-item">
+                      <i
+                        class="ico etc ico-handover ico-size-4xl type2"
+                        aria-hidden="true"
+                      ></i>
+                      <strong class="title">인계자 ↔ 인수자</strong>
+                      <span class="desc"
+                        >인계자와 인수자의 계좌권한, 카드권한, 메뉴권한을<br />서로에게
+                        인수인계합니다.</span
+                      >
+                    </label>
+                  </span>
+                </div>
+              </fieldset>
+
+              <div class="btn-wrap center lg-bot" style="margin-top: 32px">
+                <button type="button" class="btn type-bg-primary-tint size-xxl">
+                  <span class="text">취소</span>
+                </button>
+                <button type="button" class="btn type-bg-primary size-xxl">
+                  <span class="text">다음</span>
+                </button>
+              </div>
+
+              <div class="line-box size-xl mt-48">
+                <span class="typeLgSemibold">이용안내</span>
+                <div class="list type-dotted">
+                  <ul>
+                    <li class="typeMd">
+                      인수인계는 기존 사용자의 계좌권한, 카드권한, 메뉴권한을 다른 사용자에게 인수인계하는 기능입니다.
+                    </li>
+                    <li class="typeMd">
+                      일반사용자는 일반사용자에게, 결재사용자는 결재사용자에게 인수인계가 가능합니다.
+                    </li>
+                    <li class="typeMd">
+                      인수인계의 종류는 인계자→인수자와 인계자↔인수자의 2가지가 있습니다.
+                    </li>
+                    <li class="typeMd">
+                      인계자→인수자를 선택하면 인계자의 권한을 인수자에게 인수인계합니다.
+                    </li>
+                    <li class="typeMd">
+                      인계자↔인수자를 선택하시면 두 사용자의 권한을 서로에게 인수인계합니다.
+                    </li>
+                    <li class="typeMd">
+                      각 사용자별 결재선은 인수인계 대상에서 제외됩니다.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
+</html>

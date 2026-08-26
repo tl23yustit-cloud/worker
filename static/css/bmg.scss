@@ -1,5 +1,61 @@
 .bmg {
-  
+
+  .handover-group {
+    margin-top: 12px;
+
+    .handover-list {
+      display: flex;
+      gap: 12px;
+
+      .form-box {
+        flex: 1; 
+        min-width: 0; 
+      }
+
+      .form-radio {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+
+        &:checked+.handover-item {
+          border: 2px solid var(--colorBorderPrimary);
+        }
+      }
+
+      .handover-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: var(--spacing2Xl) var(--spacing4Xl);
+        text-align: center;
+        gap: 6px;
+        width: 100%; 
+        box-sizing: border-box; 
+        background-color: var(--colorBgHover);
+        border-radius: var(--radiusXl);
+        cursor: pointer; 
+
+        .title {
+          font-size: var(--contentFontSizeXl);
+          font-weight: var(--fontWeightSemibold);
+          line-height: var(--contentLineHeightXl);
+        }
+
+        .desc {
+          color: var(--colorFgSecondary);
+          font-size: var(--contentFontSizeSm);
+          font-weight: var(--fontWeightRegular);
+          line-height: var(--contentLineHeightSm);
+        }
+      }
+    }
+  }
 
   .contents-wrapper {
     background-color: var(--colorBgHover);

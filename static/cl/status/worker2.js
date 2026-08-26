@@ -9,7 +9,8 @@ module.exports = {
       "CIBUMG021000000M": { title: "사용자 등록 승인요청", status: "검수중", worker: "이상우", note: "" },
       "CIBUMG021100000M": { title: "권한복사(일반사용자)", status: "검수중", worker: "이상우", note: "" },
       "CIBUMG021200000M": { title: "권한복사(일반사용자) 완료/승인요청완료", status: "검수중", worker: "이상우", note: "" },
-      "CIBUMG021300000M": { title: "권한복사(결재사용자)", status: "검수중", worker: "이상우", note: "" }
+      "CIBUMG021300000M": { title: "권한복사(결재사용자)", status: "검수중", worker: "이상우", note: "" },
+      "CIBUMG021400000M": { title: "인수인계 구분 선택", status: "검수중", worker: "이상우", note: "" }
 
 
 };
@@ -22,3 +23,4 @@ module.exports = {
 //CIBUMG021100000
 //CIBUMG021200000M
 // CIBUMG021300000M
+//CIBUMG021400000M
