@@ -258,16 +258,34 @@
         }
     }
 
-    .right-area {
-        &:has(.required) {
+    // .right-area {
+    //     &:has(.required) {
 
+    //         &::before {
+    //             content: "*";
+    //             color: var(--colorFgError);
+    //         }
+    //     }
+
+    //     .required {
+    //         &.typeMd {
+    //             color: var(--colorFgBase) !important;
+    //             margin-right: var(--spacingMd);
+    //         }
+    //     }
+    // }
+
+    .right-area {
+        gap:var(--spacingSm);
+        .required {
+
+            // .required 요소 바로 앞에 * 추가
             &::before {
                 content: "*";
                 color: var(--colorFgError);
+                margin-right: 2px; // *과 텍스트 사이 간격 (필요 시 조정)
             }
-        }
 
-        .required {
             &.typeMd {
                 color: var(--colorFgBase) !important;
                 margin-right: var(--spacingMd);
@@ -418,14 +436,15 @@
                     border-radius: var(--radiusXl);
                     background-color: var(--colorBgBase);
                     padding: var(--spacingLgXl) var(--spacingXl);
-                    .p-wrap{
-                        .typeMd{
+
+                    .p-wrap {
+                        .typeMd {
                             margin-top: var(--spacingXs);
-                            color:var(--colorFgSecondary);
+                            color: var(--colorFgSecondary);
                         }
                     }
                 }
             }
         }
-    }    
+    }
 }
