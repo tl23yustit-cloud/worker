@@ -7,7 +7,7 @@ module.exports = {
       "CIBUMG02080000M": { title: "사용자 등록확인", status: "검수중", worker: "이상우", note: "" },
       "CIBUMG02090000M": { title: "사용자 등록완료", status: "검수중", worker: "이상우", note: "" },
       "CIBUMG021000000": { title: "사용자 등록 승인요청", status: "검수중", worker: "이상우", note: "" },
-
+      "CIBUMG021100000": { title: "권한복사(일반사용자)", status: "검수중", worker: "이상우", note: "" },
 
 
 
@@ -18,3 +18,4 @@ module.exports = {
 // CIBUMG02080000M
 //CIBUMG02090000M
 //CIBUMG021000000
+//CIBUMG021100000
