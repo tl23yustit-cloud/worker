@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>수협은행</title>
+  <link rel="stylesheet" href="/static/css/reset.css" />
+  <link rel="stylesheet" href="/static/css/layout.css" />
+  <link rel="stylesheet" href="/static/css/component.css" />
+  <link rel="stylesheet" href="/static/css/common.css" />
+  <link rel="stylesheet" href="/static/css/bop.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <div id="header">
+      @@include('static/html/pub/layout/skipNavigation.html')
+      @@include('static/html/pub/layout/header_sub.html')
+    </div>
+
+    <div id="container" class="container">
+      <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+      <div id="contents">
+        <div class="content">
+          @@include('static/html/pub/layout/breadcrumb.html')
+          <div class="bop">
+            <button type="button" class="btn type-bg-primary size-md btn-modal" data-target="modal-16">
+              <span class="text">가맹점정보</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+    </div>
+    <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+  </div>
+  <script src="/static/js/ui/cib_ui_common.js"></script>
+  <div id="modal-16" class="modal is-active" data-dim="true" data-backdrop-close="false" data-alert="true"
+    data-size="md" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc">
+    <div class="modal-wrapper">
+      <div class="modal-title">
+        <h4 class="typeH4">가맹점정보</h4>
+      </div>
+      <div class="modal-slot">
+        <div id="modal-desc">
+          <div class="tbl-area">
+            <table class="table-type01">
+              <caption>
+                가맹점정보 테이블
+              </caption>
+              <colgroup>
+                <col width="160px">
+                <col width="272px">
+                <col width="160px">
+                <col width="272px">
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th scope="row">가맹점명</th>
+                  <td>
+                    <span class="typeMd">종합공구</span>
+                  </td>
+                  <th scope="row">가맹점번호</th>
+                  <td>
+                    <span class="typeMd">123456789</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">사업자번호</th>
+                  <td>
+                    <span class="typeMd">123-45-67899</span>
+                  </td>
+                  <th scope="row">대표자명</th>
+                  <td>
+                    <span class="typeMd">홍길동</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">업종명</th>
+                  <td>
+                    <span class="typeMd">기계 공구</span>
+                  </td>
+                  <th scope="row">전화번호</th>
+                  <td>
+                    <span class="typeMd">02-1234-1234</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">주소</th>
+                  <td colspan="3">
+                    <span class="typeMd">
+                      (12345)서울 송파구 오금로 62
+                    </span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>       
+        </div>
+      </div>
+      <div class="modal-footer flex items-center justify-center gap-8">
+        <button type="button" class="btn ico-line-rounded size-xl">
+          <span class="text">닫기</span>
+        </button>
+      </div>
+
+      <button type="button" class="ico btn-close" aria-label="모달 닫기">
+        <i class="ico-close ico-size-smMd" aria-hidden="true"></i>
+        <span class="blind">닫기</span>
+      </button>
+    </div>
+  </div>
+</body>
+</html>
+</script>
