@@ -1,0 +1,500 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>B2B전자결제 &gt; 전자어음 &gt; 이용할인신청 | 수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/b2b.scss" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">
+        @@include('static/html/pub/layout/skipNavigation.html')
+        @@include('static/html/pub/layout/header_sub.html')
+      </div>
+
+      <div id="container" class="container">
+        <div id="leftArea">
+          @@include('static/html/pub/layout/leftArea.html')
+        </div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="b2b">
+              <h2 class="typeH2">어음할인신청</h2>
+              <div class="tbl-area">
+                <table class="table-type01">
+                  <caption>
+                    어음할인신청 조회를 위한 수취인 계좌번호 및 조회기간 입력 표
+                  </caption>
+                  <colgroup>
+                    <col />
+                    <col />
+                    <col />
+                    <col />
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="row">
+                        <span id="label-account">수취인 계좌번호</span>
+                      </th>
+                      <td colspan="3">
+                        <div class="box-select wSize-lg">
+                          <button
+                            type="button"
+                            class="select size-lg"
+                            role="combobox"
+                            aria-expanded="false"
+                            aria-haspopup="listbox"
+                            aria-controls="selectDropdown01"
+                            aria-labelledby="label-account"
+                          >
+                            <span class="text"
+                              >0000-0000-0000 (기업운전일반자금대출)</span
+                            >
+                            <span class="blind">펼침</span>
+                          </button>
+                          <div id="selectDropdown01" class="box-list-select">
+                            <ul
+                              class="list-select"
+                              role="listbox"
+                              aria-label="수취인 계좌번호 선택 리스트"
+                            >
+                              <li
+                                class="item-select"
+                                role="option"
+                                aria-selected="true"
+                              >
+                                <span class="form-box">
+                                  0000-0000-0000 (기업운전일반자금대출)
+                                </span>
+                              </li>
+                              <li
+                                class="item-select"
+                                role="option"
+                                aria-selected="false"
+                              >
+                                <span class="form-box"> 1 </span>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <!-- 접근성: 라디오 그룹을 위한 id 추가 -->
+                        <span id="label-period">조회기간</span>
+                      </th>
+                      <td>
+                        <div class="tbl-column">
+                          <!-- 접근성: role="radiogroup" 및 aria-labelledby 연결로 폼 그룹핑 명확화 -->
+                          <div
+                            class="radio-group"
+                            role="radiogroup"
+                            aria-labelledby="label-period"
+                          >
+                            <span class="form-box">
+                              <input
+                                type="radio"
+                                name="SampleRadio0302_01"
+                                id="SampleRadio0302_01"
+                                class="radio-btn"
+                                checked=""
+                              />
+                              <label for="SampleRadio0302_01" class="form-label"
+                                >1주일</label
+                              >
+                              <input
+                                type="radio"
+                                name="SampleRadio0302_01"
+                                id="SampleRadio0302_02"
+                                class="radio-btn"
+                              />
+                              <label for="SampleRadio0302_02" class="form-label"
+                                >1개월</label
+                              >
+                              <input
+                                type="radio"
+                                name="SampleRadio0302_01"
+                                id="SampleRadio0302_03"
+                                class="radio-btn"
+                              />
+                              <label for="SampleRadio0302_03" class="form-label"
+                                >3개월</label
+                              >
+                              <input
+                                type="radio"
+                                name="SampleRadio0302_01"
+                                id="SampleRadio0302_04"
+                                class="radio-btn"
+                              />
+                              <label for="SampleRadio0302_04" class="form-label"
+                                >6개월</label
+                              >
+                            </span>
+                          </div>
+                          <div class="calendar-wrap">
+                            <div class="input-box">
+                              <input
+                                type="text"
+                                class="input"
+                                placeholder="조회 시작일"
+                                title="조회 시작일 입력"
+                                aria-label="조회 시작일 입력"
+                                value="2026-01-06"
+                              />
+                              <button type="button" class="btn">
+                                <i
+                                  class="ico-calendar ico-size-smMd"
+                                  aria-hidden="true"
+                                ></i>
+                                <span class="blind">조회 시작일 달력 열기</span>
+                              </button>
+                            </div>
+                            <!-- 접근성: 단순 시각적 기호(~)를 스크린 리더가 불필요하게 읽지 않도록 처리 -->
+                            <span aria-hidden="true" class="mx-10">~</span>
+                            <div class="input-box">
+                              <input
+                                type="text"
+                                class="input"
+                                placeholder="조회 종료일"
+                                title="조회 종료일 입력"
+                                aria-label="조회 종료일 입력"
+                                value="2026-01-06"
+                              />
+                              <button type="button" class="btn">
+                                <i
+                                  class="ico-calendar ico-size-smMd"
+                                  aria-hidden="true"
+                                ></i>
+                                <span class="blind">조회 종료일 달력 열기</span>
+                              </button>
+                            </div>
+                            <div class="box-select wSize-smMd">
+                              <!-- 접근성: 어떤 콤보박스인지 명확히 하기 위해 title 및 aria-label 추가 -->
+                              <button
+                                type="button"
+                                class="select size-lg"
+                                role="combobox"
+                                aria-expanded="false"
+                                aria-haspopup="listbox"
+                                aria-controls="selectDropdown02"
+                                title="조회기간 월별선택"
+                                aria-label="조회기간 월별선택"
+                              >
+                                <span class="text">월별선택</span>
+                                <span class="blind">펼침</span>
+                              </button>
+                              <div
+                                id="selectDropdown02"
+                                class="box-list-select"
+                              >
+                                <ul
+                                  class="list-select"
+                                  role="listbox"
+                                  aria-label="조회기간 월별 선택 리스트"
+                                >
+                                  <li
+                                    class="item-select"
+                                    role="option"
+                                    aria-selected="true"
+                                  >
+                                    <span class="form-box"> 월별선택 </span>
+                                  </li>
+                                  <li
+                                    class="item-select"
+                                    role="option"
+                                    aria-selected="false"
+                                  >
+                                    <span class="form-box"> 1 </span>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="btn-wrap center">
+                <button type="button" class="btn type-bg-neutral size-xl">
+                  <span class="text">조회</span>
+                </button>
+              </div>
+              <div class="tbl-area">
+                <h4 class="typeH4">대출한도 여유액 조회</h4>
+                <table class="table-type01">
+                  <caption>
+                    대출계좌번호 선택 및 대출약정액 입력 표
+                  </caption>
+                  <colgroup>
+                    <col />
+                    <col />
+                    <col />
+                    <col />
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="row">
+                        <span id="label-loan-account">대출계좌번호</span>
+                      </th>
+                      <td colspan="3">
+                        <div class="box-select wSize-lg">
+                          <button
+                            type="button"
+                            class="select size-lg"
+                            role="combobox"
+                            aria-expanded="false"
+                            aria-haspopup="listbox"
+                            aria-controls="selectDropdown03"
+                            aria-labelledby="label-loan-account"
+                          >
+                            <span class="text">선택하세요</span>
+                            <span class="blind">펼침</span>
+                          </button>
+                          <div id="selectDropdown03" class="box-list-select">
+                            <ul
+                              class="list-select"
+                              role="listbox"
+                              aria-label="대출계좌번호 선택 리스트"
+                            >
+                              <li
+                                class="item-select"
+                                role="option"
+                                aria-selected="true"
+                              >
+                                <span class="form-box"> 선택하세요 </span>
+                              </li>
+                              <li
+                                class="item-select"
+                                role="option"
+                                aria-selected="false"
+                              >
+                                <span class="form-box"> 1234-5678-9012 </span>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span id="label-loan-amount">대출약정액</span>
+                      </th>
+                      <td colspan="3">
+                        <input
+                          type="text"
+                          class="input size-lg wSize-md"
+                          placeholder="금액없음"
+                          title="대출약정액 입력"
+                          aria-labelledby="label-loan-amount"
+                        />
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- 결과 영역 -->
+              <div class="tbl-area">
+                <div class="tbl-head">
+                  <div class="left-area">
+                    <h4 class="typeH4">조회결과</h4>
+                  </div>
+                  <div class="right-area"></div>
+                </div>
+
+                <table class="table-type03">
+                  <caption>
+                    전자어음번호, 분할번호, 배서번호, 어음상태, 어음금액,
+                    발행일자, 만기일자, 발행인명, 할인신청 버튼으로 구성된
+                    어음할인신청 조회결과 표
+                  </caption>
+                  <colgroup>
+                    <col width="200px" />
+                    <col width="80px" />
+                    <col width="80px" />
+                    <col width="100px" />
+                    <col width="auto" />
+                    <col width="110px" />
+                    <col width="110px" />
+                    <col width="100px" />
+                    <col width="120px" />
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th scope="col">전자어음번호</th>
+                      <th scope="col">분할번호</th>
+                      <th scope="col">배서번호</th>
+                      <th scope="col">어음상태</th>
+                      <th scope="col">어음금액</th>
+                      <th scope="col">발행일자</th>
+                      <th scope="col">만기일자</th>
+                      <th scope="col">발행인명</th>
+                      <th scope="col">할인신청</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <span class="typeMd">00720260818409000000</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">00</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">00</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">할인가능</span>
+                      </td>
+                      <td class="text-right">
+                        <span class="typeMd">1,234,567</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">2026-07-01</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">2026-08-31</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">김나다</span>
+                      </td>
+                      <td>
+                        <!-- 접근성: 목록 내 버튼 식별성 강화 (어떤 항목에 대한 버튼인지 명시) -->
+                        <button
+                          type="button"
+                          class="btn type-line-secondary size-sm"
+                          title="전자어음번호 00720260818409000000 할인신청"
+                          aria-label="전자어음번호 00720260818409000000 할인신청"
+                        >
+                          <span class="text">할인신청</span>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <nav class="pagination size-md mt-30" aria-label="페이지네이션">
+                <button
+                  type="button"
+                  class="btn-nav first"
+                  disabled=""
+                  aria-disabled="true"
+                  aria-label="첫 페이지"
+                >
+                  <span class="blind">첫 페이지</span>
+                </button>
+                <button
+                  type="button"
+                  class="btn-nav prev"
+                  disabled=""
+                  aria-disabled="true"
+                  aria-label="이전 페이지"
+                >
+                  <span class="blind">이전 페이지</span>
+                </button>
+
+                <ol class="list-pagination">
+                  <li>
+                    <button
+                      type="button"
+                      class="btn-page active"
+                      aria-current="page"
+                      aria-label="1페이지"
+                    >
+                      1
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button" class="btn-page" aria-label="2페이지">
+                      2
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button" class="btn-page" aria-label="3페이지">
+                      3
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button" class="btn-page" aria-label="4페이지">
+                      4
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button" class="btn-page" aria-label="5페이지">
+                      5
+                    </button>
+                  </li>
+                </ol>
+
+                <button
+                  type="button"
+                  class="btn-nav next"
+                  aria-label="다음 페이지"
+                >
+                  <span class="blind">다음 페이지</span>
+                </button>
+                <button
+                  type="button"
+                  class="btn-nav last"
+                  aria-label="마지막 페이지"
+                >
+                  <span class="blind">마지막 페이지</span>
+                </button>
+              </nav>
+              <!-- 이용안내 영역 -->
+              <div class="line-box size-xl mt-48">
+                <span class="typeLgSemibold">이용안내</span>
+                <div class="list type-dotted">
+                  <ul>
+                    <li class="typeMd">
+                      할인신청 대상내역을 조회하는 서비스입니다.
+                    </li>
+                    <li class="typeMd">
+                      어음만기 1영업일전 까지 할인 신청이 가능합니다.
+                    </li>
+                    <li class="typeMd">
+                      어음거래내역에 개인 앞 배서가 있으면 할인 신청이
+                      불가능합니다.
+                    </li>
+                    <li class="typeMd">
+                      전자어음할인신청은 대출약정한도 내에서 신청할 수 있습니다.
+                    </li>
+                    <li class="typeMd">
+                      할인신청 대상어음을 조회 후 [할인신청] 버튼을 클릭하시면
+                      상세조회 및 할인신청을 할 수 있습니다.
+                    </li>
+                    <li class="typeMd">
+                      당일 중도반환한 어음은 당일 할인신청이 불가하며 익영업일에
+                      할인신청이 가능합니다.
+                    </li>
+                    <li class="typeMd">
+                      인터넷뱅킹에서는 할인신청만 가능하며, 할인실행(대출)업무는
+                      해당지점을 방문하셔야 합니다.
+                    </li>
+                    <li class="typeMd">이용가능시간 : 08:30 ~ 22:00</li>
+                  </ul>
+                </div>
+              </div>
+              <!-- // 이용안내 영역 -->
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
+</html>
