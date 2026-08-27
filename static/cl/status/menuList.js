@@ -275,7 +275,7 @@ module.exports = {
     "CIBVAN050103000M": { title: "은행/제2금융권/증권사탭", status: "검수중", worker: "이상우", note: "" },
     "CIBVAN050204000M": { title: "이용안내 및 해지실행", status: "검수중", worker: "이상우", note: "" },
     "CIBVAN050205000M": { title: "해지완료", status: "검수중", worker: "이상우", note: "" },
-    "CIBFOE04010200P": { title: "[팝업]영문주소검색", status: "검수중", worker: "이상우", note: "" }
+    "CIBFOE040102001P": { title: "[팝업]영문주소검색", status: "검수중", worker: "이상우", note: "" }
 
 
 
