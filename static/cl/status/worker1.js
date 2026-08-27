@@ -265,55 +265,55 @@ module.exports = {
     },
     "CIBTRN010106000M": {
         title: "이체 결과확인 - 다건",
-        status: "진행중",
+        status: "검수증",
         worker: "변혜선",
         note: ""
     },
     "CIBTRN010109000P": {
         title: "수협은행계산기",
-        status: "진행중",
+        status: "검수증",
         worker: "변혜선",
         note: ""
     },
     "CIBTRN010113000P": {
         title: "자주쓰는 입금계좌 등록",
-        status: "진행중",
+        status: "검수증",
         worker: "변혜선",
         note: ""
     },
     "CIBTRN010114000P": {
         title: "이체확인증 인쇄",
-        status: "진행중",
+        status: "검수증",
         worker: "변혜선",
         note: ""
     },
     "CIBTRN010115000P": {
         title: "이메일 발송",
-        status: "진행중",
+        status: "검수증",
         worker: "변혜선",
         note: ""
     },
     "CIBTRN010116000P": {
         title: "FAX 발송",
-        status: "진행중",
+        status: "검수증",
         worker: "변혜선",
         note: ""
     },
     "CIBFPD020101001T": {
         title: "[팝업]공시자료 변경내역_적용약관",
-        status: "진행중",
+        status: "검수증",
         worker: "변혜선",
         note: ""
     },
     "CIBFPD020101002T": {
         title: "[팝업]공시자료 변경내역_상품설명서",
-        status: "진행중",
+        status: "검수증",
         worker: "변혜선",
         note: ""
     },
     "CIBFPD010100000M": {
         title: "은행상품공시이용메뉴얼",
-        status: "진행중",
+        status: "검수증",
         worker: "변혜선",
         note: ""
     },
