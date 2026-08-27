@@ -146,7 +146,7 @@ module.exports = {
     "CIBLON010103000p": { title: "계좌상세조회", status: "검수중", worker: "변혜선", note: "" },
     "CIBLON010104000p": { title: "대출 상세조회", status: "검수중", worker: "변혜선", note: "" },
     "CIBLON010104000p_01": { title: "대출 상세조회", status: "검수중", worker: "변혜선", note: "" },
-    "CIBLON010105000p": { title: "상환스케줄", status: "수정중", worker: "변혜선", note: "" },
+    "CIBLON010105000p": { title: "상환스케줄", status: "검수중", worker: "변혜선", note: "" },
     "CIBLON010106000p": { title: "담보상세내역조회", status: "검수중", worker: "변혜선", note: "" },
     "CIBLON010201000M": { title: "거래내역조회_조회", status: "완료", worker: "변혜선", note: "주석확인" },
     "CIBLON010202000p": { title: "분할상환내역조회", status: "검수중", worker: "변혜선", note: "" },
