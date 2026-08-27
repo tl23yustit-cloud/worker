@@ -1,4 +1,10 @@
 module.exports = {
+
+    "index": { title: "인덱스", status: "대기", worker: "변혜선", note: "" },
+    "layout": { title: "레이아웃", status: "대기", worker: "변혜선", note: "" },
+    "common": { title: "공통", status: "대기", worker: "변혜선", note: "" },
+    "guide": { title: "공통", status: "대기", worker: "-", note: "" },
+    "img-bg-bnr": { title: "img-bg-bnr.html", status: "대기", worker: "-", note: "" },
     // 💡 공통/검색 및 알림
     "CIBB2B010205001M": { title: "조회입력 및 결과", status: "검수중", worker: "이상우", note: "" },
     "CIBB2B010204000P": { title: "구매자금대출 상세내역", status: "검수중", worker: "이상우", note: "" },
