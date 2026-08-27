@@ -228,7 +228,7 @@ module.exports = {
     "CIBINQ030201000M": { title: "조회정보 입력(임시)", status: "검수중", worker: "이상우", note: "" },
     "CIBINQ030202000M": { title: "조회결과(임시)", status: "검수중", worker: "이상우", note: "" },
     "CIBINQ030301000M": { title: "조회결과(임시)", status: "검수중", worker: "이상우", note: "" },
-    "CIBNQ030302000P": { title: "[팝업]상세(임시)", status: "검수중", worker: "이상우", note: "" },
+    "CIBINQ030302000P": { title: "[팝업]상세(임시)", status: "검수중", worker: "이상우", note: "" },
     // "CIBNQ020201000M": { title: "", status: "완료", worker: "변혜선", note: "" },
     "CIBINQ020201000M": { title: "거래내역파일신청_신청목록(없음)", status: "완료", worker: "변혜선", note: "" },
     "CIBINQ020202000M": { title: "거래내역파일신청_신청정보 입력(없음)", status: "완료", worker: "변혜선", note: "주석확인" },
