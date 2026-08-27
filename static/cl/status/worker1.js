@@ -263,4 +263,28 @@ module.exports = {
         worker: "변혜선",
         note: ""
     },
+    "CIBTRN010106000M": {
+        title: "이체 결과확인 - 다건",
+        status: "진행중",
+        worker: "변혜선",
+        note: ""
+    },
+    "CIBTRN010113000M": {
+        title: "자주쓰는 입금계좌 등록",
+        status: "진행중",
+        worker: "변혜선",
+        note: ""
+    },
+    "CIBTRN010114000M": {
+        title: "이체확인증 인쇄",
+        status: "진행중",
+        worker: "변혜선",
+        note: ""
+    },
+    "CIBTRN010115000M": {
+        title: "이메일 발송",
+        status: "진행중",
+        worker: "변혜선",
+        note: ""
+    },
 };
