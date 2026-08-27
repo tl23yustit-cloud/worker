@@ -215,7 +215,7 @@ module.exports = {
         worker: "변혜선",
         note: ""
     },
-    "CIBLON020107000M": {
+    "CIBLON020107000P": {
         title: "이자납입_이체확인증",
         status: "검수중",
         worker: "변혜선",
