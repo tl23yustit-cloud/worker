@@ -18,11 +18,12 @@ module.exports = {
       "CIBUMG020400000M": { title: "삭제완료/승인요청완료", status: "검수중", worker: "이상우", note: "" },
       "CIBCRD020702000M": { title: "업종제한 설정(완료)", status: "검수중", worker: "이상우", note: "" },
 
+      //어음할인신청
+      "CIBB2B021601000M": { title: "어음할인 조회", status: "검수중", worker: "이상우", note: "" },
+      "CIBB2B021602000M": { title: "부가요건확인", status: "검수중", worker: "이상우", note: "" },
+      "CIBB2B021603000M": { title: "OTP 인증", status: "검수중", worker: "이상우", note: "" },
+      "CIBB2B021604000M": { title: "할인신청1단계", status: "검수중", worker: "이상우", note: "" },
+      "CIBB2B021605000M": { title: "할인신청2단계", status: "검수중", worker: "이상우", note: "" },
 
 };
 
-// CIBB2B021601000M
-// CIBB2B021602000M
-// CIBB2B021603000M
-// CIBB2B021604000M
-// CIBB2B021605000M
