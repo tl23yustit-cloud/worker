@@ -323,4 +323,10 @@ module.exports = {
         worker: "변혜선",
         note: ""
     },
+    "CIBLGN010100000P": {
+        title: "기업뱅킹-QR인증서 로그인(QR코드 인증완료)",
+        status: "진행중",
+        worker: "변혜선",
+        note: ""
+    },
 };

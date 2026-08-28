@@ -2,313 +2,291 @@
 <!-- 뱅킹업무 > 외환 > 해외송금 > 무증빙해외송금 -->
 <!doctype html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      뱅킹업무 &gt; 외환 &gt; 해외송금 &gt; 무증빙해외송금 | 수협은행
-    </title>
-    <link rel="stylesheet" href="/static/css/reset.css" />
-    <link rel="stylesheet" href="/static/css/layout.css" />
-    <link rel="stylesheet" href="/static/css/component.css" />
-    <link rel="stylesheet" href="/static/css/common.css" />
-    <link rel="stylesheet" href="/static/css/foe.css" />
-  </head>
 
-  <body>
-    <div class="wrapper">
-      <div id="header">
-        @@include('static/html/pub/layout/skipNavigation.html')
-        @@include('static/html/pub/layout/header_sub.html')
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>
+    뱅킹업무 &gt; 외환 &gt; 해외송금 &gt; 무증빙해외송금 | 수협은행
+  </title>
+  <link rel="stylesheet" href="/static/css/reset.css" />
+  <link rel="stylesheet" href="/static/css/layout.css" />
+  <link rel="stylesheet" href="/static/css/component.css" />
+  <link rel="stylesheet" href="/static/css/common.css" />
+  <link rel="stylesheet" href="/static/css/foe.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <div id="header">
+      @@include('static/html/pub/layout/skipNavigation.html')
+      @@include('static/html/pub/layout/header_sub.html')
+    </div>
+
+    <div id="container" class="container">
+      <div id="leftArea">
+        @@include('static/html/pub/layout/leftArea.html')
       </div>
+      <div id="contents">
+        <div class="content">
+          @@include('static/html/pub/layout/breadcrumb.html')
+          <div class="foe">
+            <h2 class="typeH2">
+              무증빙해외송금
+              <div class="box-steps">
+                <ol class="list-steps">
+                  <li class="item-steps passed" aria-current="step">
+                    <i class="icon" aria-hidden="true">1</i>
+                    <span class="text">1</span>
+                  </li>
+                  <li class="item-steps passed">
+                    <i class="icon" aria-hidden="true">2</i>
+                    <span class="text">2</span>
+                  </li>
+                  <li class="item-steps passed">
+                    <i class="icon" aria-hidden="true">3</i>
+                    <span class="text">3</span>
+                  </li>
+                  <li class="item-steps current">
+                    <i class="icon" aria-hidden="true">4</i>
+                    <span class="text">송금정보확인</span>
+                  </li>
+                  <li class="item-steps">
+                    <i class="icon" aria-hidden="true">5</i>
+                    <span class="text">5</span>
+                  </li>
+                </ol>
+              </div>
+            </h2>
 
-      <div id="container" class="container">
-        <div id="leftArea">
-          @@include('static/html/pub/layout/leftArea.html')
-        </div>
-        <div id="contents">
-          <div class="content">
-            @@include('static/html/pub/layout/breadcrumb.html')
-            <div class="foe">
-              <h2 class="typeH2">
-                무증빙해외송금
-                <div class="box-steps">
-                  <ol class="list-steps">
-                    <li class="item-steps passed" aria-current="step">
-                      <i class="icon" aria-hidden="true">1</i>
-                      <span class="text">1</span>
-                    </li>
-                    <li class="item-steps passed">
-                      <i class="icon" aria-hidden="true">2</i>
-                      <span class="text">2</span>
-                    </li>
-                    <li class="item-steps passed">
-                      <i class="icon" aria-hidden="true">3</i>
-                      <span class="text">3</span>
-                    </li>
-                    <li class="item-steps current">
-                      <i class="icon" aria-hidden="true">4</i>
-                      <span class="text">송금정보확인</span>
-                    </li>
-                    <li class="item-steps">
-                      <i class="icon" aria-hidden="true">5</i>
-                      <span class="text">5</span>
-                    </li>
-                  </ol>
+            <!-- 1. 송금정보확인 테이블 영역 -->
+            <div class="tbl-area">
+              <div class="tbl-head">
+                <div class="left-area">
+                  <h4 class="typeH4">송금정보확인</h4>
                 </div>
-              </h2>
+              </div>
+              <table class="table-type01">
+                <caption>
+                  예금주명, 통화, 송금액, 송금환산액, 적용환율, 송금수수료,
+                  전신료, 수취인성명, 수취인계좌번호, SWIFT CODE, 수취은행명,
+                  수취인주소, 수취인도시 입력테이블
+                </caption>
+                <colgroup>
+                  <col style="width: 20%" />
+                  <col style="width: 30%" />
+                  <col style="width: 20%" />
+                  <col style="width: 30%" />
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th scope="row">예금주명</th>
+                    <td colspan="3">
+                      <span class="typeMd">홍길동</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">통화</th>
+                    <td>
+                      <span class="typeMd">USD-미국(달러)</span>
+                    </td>
+                    <th scope="row">송금액</th>
+                    <td class="text-right">
+                      <span class="typeMd">1,000.00</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">송금환산액</th>
+                    <td class="text-right">
+                      <span class="typeMd">1,000 원</span>
+                    </td>
+                    <th scope="row">
+                      <div>
+                        적용환율
+                        <div class="box-tooltip tail-top-start">
+                          <button type="button" class="btn type-ghost-neutral size-Xs"
+                            aria-describedby="tooltipBoxTop0101">
+                            <i class="ico line ico-size-sm ico-info-circle colorFgNetral" aria-hidden="true"></i>
+                            <span class="blind">연회비 안내 툴팁 열기</span>
+                          </button>
 
-              <!-- 1. 송금정보확인 테이블 영역 -->
-              <div class="tbl-area">
-                <div class="tbl-head">
-                  <div class="left-area">
-                    <h4 class="typeH4">송금정보확인</h4>
-                  </div>
-                </div>
-                <table class="table-type01">
-                  <caption>
-                    예금주명, 통화, 송금액, 송금환산액, 적용환율, 송금수수료,
-                    전신료, 수취인성명, 수취인계좌번호, SWIFT CODE, 수취은행명,
-                    수취인주소, 수취인도시 입력테이블
-                  </caption>
-                  <colgroup>
-                    <col style="width: 20%" />
-                    <col style="width: 30%" />
-                    <col style="width: 20%" />
-                    <col style="width: 30%" />
-                  </colgroup>
-                  <tbody>
-                    <tr>
-                      <th scope="row">예금주명</th>
-                      <td colspan="3">
-                        <span class="typeMd">홍길동</span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">통화</th>
-                      <td>
-                        <span class="typeMd">USD-미국(달러)</span>
-                      </td>
-                      <th scope="row">송금액</th>
-                      <td class="text-right">
-                        <span class="typeMd">1,000.00</span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">송금환산액</th>
-                      <td class="text-right">
-                        <span class="typeMd">1,000 원</span>
-                      </td>
-                      <th scope="row">
-                        <div>
-                          적용환율
-                          <div class="box-tooltip tail-top-start">
-                            <button
-                              type="button"
-                              class="btn type-ghost-neutral size-Xs"
-                              aria-describedby="tooltipBoxTop0101"
-                            >
-                              <i
-                                class="ico line ico-size-sm ico-info-circle colorFgNetral"
-                                aria-hidden="true"
-                              ></i>
-                              <span class="blind">연회비 안내 툴팁 열기</span>
-                            </button>
-
-                            <div
-                              id="tooltipBoxTop0101"
-                              class="layer-tooltip size-244"
-                              role="tooltip"
-                              aria-hidden="true"
-                            >
-                              <div class="content-tooltip whitespace-normal">
-                                <span class="text"
-                                  >적용 가능한 우대율 중 최대 우대율 이율인
-                                  기본우대율(전신매도율 60%)에 따른 우대율이
-                                  적용되었습니다.
-                                </span>
-                              </div>
-                              <button type="button" class="btn-close">
-                                <i
-                                  class="ico-close ico-size-sm"
-                                  aria-hidden="true"
-                                ></i>
-                                <span class="blind">툴팁 닫기</span>
-                              </button>
-                              <i
-                                class="ico-tail-tooltip"
-                                aria-hidden="true"
-                              ></i>
+                          <div id="tooltipBoxTop0101" class="layer-tooltip size-244" role="tooltip" aria-hidden="true">
+                            <div class="content-tooltip whitespace-normal">
+                              <span class="text">적용 가능한 우대율 중 최대 우대율 이율인
+                                기본우대율(전신매도율 60%)에 따른 우대율이
+                                적용되었습니다.
+                              </span>
                             </div>
+                            <button type="button" class="btn-close">
+                              <i class="ico-close ico-size-sm" aria-hidden="true"></i>
+                              <span class="blind">툴팁 닫기</span>
+                            </button>
+                            <i class="ico-tail-tooltip" aria-hidden="true"></i>
                           </div>
                         </div>
-                      </th>
-                      <td class="text-right">
-                        <span class="typeMd">1,000.00 원 (환율우대 60%)</span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">송금수수료</th>
-                      <td class="text-right">
-                        <span class="typeMd">3,000 원</span>
-                      </td>
-                      <th scope="row">전신료</th>
-                      <td class="text-right">
-                        <span class="typeMd">1,000 원</span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">수취인성명</th>
-                      <td>
-                        <span class="typeMd">BANKCO MUNNICIPAL DE ROSARIO</span>
-                      </td>
-                      <th scope="row">수취인계좌번호</th>
-                      <td>
-                        <span class="typeMd">0000000</span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">SWIFT CODE</th>
-                      <td>
-                        <span class="typeMd">MUNRARXXX</span>
-                      </td>
-                      <th scope="row">수취은행명</th>
-                      <td>
-                        <span class="typeMd">BANKCO MUNNICIPAL DE ROSARIO</span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">수취인주소</th>
-                      <td colspan="3">
-                        <span class="typeMd">BANKCO MUNNICIPAL DE ROSARIO</span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">수취인도시</th>
-                      <td colspan="3">
-                        <span class="typeMd">SIMUNG</span>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
+                      </div>
+                    </th>
+                    <td class="text-right">
+                      <span class="typeMd">1,000.00 원 (환율우대 60%)</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">송금수수료</th>
+                    <td class="text-right">
+                      <span class="typeMd">3,000 원</span>
+                    </td>
+                    <th scope="row">전신료</th>
+                    <td class="text-right">
+                      <span class="typeMd">1,000 원</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">수취인성명</th>
+                    <td>
+                      <span class="typeMd">BANKCO MUNNICIPAL DE ROSARIO</span>
+                    </td>
+                    <th scope="row">수취인계좌번호</th>
+                    <td>
+                      <span class="typeMd">0000000</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">SWIFT CODE</th>
+                    <td>
+                      <span class="typeMd">MUNRARXXX</span>
+                    </td>
+                    <th scope="row">수취은행명</th>
+                    <td>
+                      <span class="typeMd">BANKCO MUNNICIPAL DE ROSARIO</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">수취인주소</th>
+                    <td colspan="3">
+                      <span class="typeMd">BANKCO MUNNICIPAL DE ROSARIO</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">수취인도시</th>
+                    <td colspan="3">
+                      <span class="typeMd">SIMUNG</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
 
-              <!-- 2. 출금계좌정보 테이블 영역 -->
-              <div class="tbl-area">
-                <div class="tbl-head">
-                  <div class="left-area">
-                    <h4 class="typeH4">출금계좌정보</h4>
-                  </div>
+            <!-- 2. 출금계좌정보 테이블 영역 -->
+            <div class="tbl-area">
+              <div class="tbl-head">
+                <div class="left-area">
+                  <h4 class="typeH4">출금계좌정보</h4>
                 </div>
-                <table class="table-type01">
-                  <caption>
-                    외화출금계좌번호, 외화출금액, 원화출금계좌번호, 원화출금액
-                    입력테이블
-                  </caption>
-                  <colgroup>
-                    <col style="width: 20%" />
-                    <col style="width: 30%" />
-                    <col style="width: 20%" />
-                    <col style="width: 30%" />
-                  </colgroup>
-                  <tbody>
-                    <tr>
-                      <th scope="row">외화출금계좌번호</th>
-                      <td>
-                        <span class="typeMd">0000-0000-0000</span>
-                      </td>
-                      <th scope="row">외화출금액</th>
-                      <td class="text-right">
-                        <span class="typeMd">1.00</span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">원화출금계좌번호</th>
-                      <td>
-                        <span class="typeMd">0000-0000-0000</span>
-                      </td>
-                      <th scope="row">원화출금액</th>
-                      <td class="text-right">
-                        <span class="typeMd">1,000 원</span>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
               </div>
-              <!-- 3. OTP 테이블 영역 -->
-              <div class="tbl-area">
-                <div class="tbl-head">
-                  <div class="left-area">
-                    <h4 class="typeH4">OTP 비밀번호 입력</h4>
-                  </div>
+              <table class="table-type01">
+                <caption>
+                  외화출금계좌번호, 외화출금액, 원화출금계좌번호, 원화출금액
+                  입력테이블
+                </caption>
+                <colgroup>
+                  <col style="width: 20%" />
+                  <col style="width: 30%" />
+                  <col style="width: 20%" />
+                  <col style="width: 30%" />
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th scope="row">외화출금계좌번호</th>
+                    <td>
+                      <span class="typeMd">0000-0000-0000</span>
+                    </td>
+                    <th scope="row">외화출금액</th>
+                    <td class="text-right">
+                      <span class="typeMd">1.00</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">원화출금계좌번호</th>
+                    <td>
+                      <span class="typeMd">0000-0000-0000</span>
+                    </td>
+                    <th scope="row">원화출금액</th>
+                    <td class="text-right">
+                      <span class="typeMd">1,000 원</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- 3. OTP 테이블 영역 -->
+            <div class="tbl-area">
+              <div class="tbl-head">
+                <div class="left-area">
+                  <h4 class="typeH4">OTP 비밀번호 입력</h4>
                 </div>
-                <table class="table-type01">
-                  <caption>
-                    OTP
-                  </caption>
-                  <colgroup>
-                    <col />
-                    <col />
-                  </colgroup>
-                  <tbody>
-                    <tr>
-                      <th scope="row" rowspan="2" class="noradius">
-                        <label for="OTP">OTP </label>
-                      </th>
-                      <td>
-                        <div class="otp-text-wrap">
-                          <input
-                            type="password"
-                            id="OTP"
-                            class="input wSize-smMd size-lg"
-                            placeholder="숫자 6자리"
-                            title=""
-                            aria-label="숫자 6자리"
-                          />
-                          <div class="typeMd">
-                            OTP 만료 기한이 <span>14</span>일 남았습니다.
-                            <span>(2026-04-30)</span>
-                          </div>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div class="otp-noti">
-                          <div class="list type-dotted">
-                            <ul>
-                              <li class="typeMd">
-                                OTP에 생성된 숫자 6자리를 입력하세요
-                              </li>
-                              <li class="typeMd">
-                                OTP는 1분마다 새로운 비밀번호가 생성됩니다
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
               </div>
+              <table class="table-type01">
+                <caption>
+                  OTP
+                </caption>
+                <colgroup>
+                  <col />
+                  <col />
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th scope="row" rowspan="2" class="noradius">
+                      <label for="OTP">OTP </label>
+                    </th>
+                    <td>
+                      <div class="otp-text-wrap">
+                        <input type="password" id="OTP" class="input wSize-smMd size-lg" placeholder="숫자 6자리" title=""
+                          aria-label="숫자 6자리" />
+                        <div class="typeMd">
+                          OTP 만료 기한이 <span>14</span>일 남았습니다.
+                          <span>(2026-04-30)</span>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="otp-noti">
+                        <div class="list type-dotted">
+                          <ul>
+                            <li class="typeMd">
+                              OTP에 생성된 숫자 6자리를 입력하세요
+                            </li>
+                            <li class="typeMd">
+                              OTP는 1분마다 새로운 비밀번호가 생성됩니다
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
 
-              <!-- 하단 버튼 영역 -->
-              <div class="btn-wrap center lg-bot">
-                <button type="button" class="btn type-line-neutral size-xxl">
-                  <span class="text">취소</span>
-                </button>
-                <button type="button" class="btn type-bg-primary size-xxl">
-                  <span class="text">송금신청</span>
-                </button>
-              </div>
+            <!-- 하단 버튼 영역 -->
+            <div class="btn-wrap center lg-bot">
+              <button type="button" class="btn type-line-neutral size-xxl">
+                <span class="text">취소</span>
+              </button>
+              <button type="button" class="btn type-bg-primary size-xxl">
+                <span class="text">송금신청</span>
+              </button>
             </div>
           </div>
         </div>
-        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
       </div>
-      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+      <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
     </div>
-    <script src="/static/js/ui/cib_ui_common.js"></script>
-  </body>
+    <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+  </div>
+  <script src="/static/js/ui/cib_ui_common.js"></script>
+</body>
+
 </html>
 <script></script>
