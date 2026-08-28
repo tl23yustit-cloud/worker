@@ -25,13 +25,15 @@
         <div class="content">
           @@include('static/html/pub/layout/breadcrumb.html')
           <div class="bop">
+            <!--[dev]:20260831 텍스트 수정-->
             <h2 class="typeH2">
-              상환예상조회
+              종합통장거래내역조회
             </h2>
+            <!--//[dev]:20260831 텍스트 수정-->
             <div class="tbl-area">
               <table class="table-type01">
                 <caption>
-                  상환예상조회 테이블
+                  종합통장거래내역조회 테이블
                 </caption>
                 <colgroup>
                   <col width="180px">
@@ -73,10 +75,13 @@
                       </div>
                     </td>
                   </tr>
+                  <!--[dev]:20260831 라디오전체수정-->
                   <tr>
-                    <th scope="row">거래구분</th>
+                    <th scope="row" id="transaction_type">
+                      <span>거래구분</span>
+                    </th>
                     <td>
-                      <div class="form-box-wrap" role="radiogroup">
+                      <div class="form-box-wrap" role="radiogroup" aria-labelledby="transaction_type">
                         <span class="form-box">
                           <input type="radio" name="transType" id="transType_01" title="거래구분" class="form-radio size-md"
                             checked />
@@ -95,29 +100,34 @@
                       </div>
                     </td>
                   </tr>
+                  <!--//[dev]:20260831 라디오전체수정-->
+                  <!--[dev]:20260831 라디오전체수정-->
                   <tr>
-                    <th>조회기간</th>
-                    <td>
+                    <th scope="row" id="search_period">
+                      <span>조회기간</span>
+                    </th>
+                    <td colspan="3">
                       <div class="tbl-column">
                         <div class="radio-group">
-                          <span class="form-box">
-                            <input type="radio" name="SampleRadio0302_01" id="SampleRadio0302_01" class="radio-btn"
-                              checked="">
+                          <span class="form-box" aria-labelledby="search_period">
+                            <input type="radio" name="SampleRadio0302_01" id="SampleRadio0302_01" title="조회기간"
+                              class="radio-btn" checked="">
                             <label for="SampleRadio0302_01" class="form-label">당일</label>
-                            <input type="radio" name="SampleRadio0302_01" id="SampleRadio0302_02" class="radio-btn">
-                            <label for="SampleRadio0302_02" class="form-label">전일</label>
-                            <input type="radio" name="SampleRadio0302_01" id="SampleRadio0302_03" class="radio-btn">
-                            <label for="SampleRadio0302_03" class="form-label">3일전</label>
-                            <input type="radio" name="SampleRadio0302_01" id="SampleRadio0302_04" class="radio-btn">
-                            <label for="SampleRadio0302_04" class="form-label">1주일전</label>
-                            <input type="radio" name="SampleRadio0302_01" id="SampleRadio0302_05" class="radio-btn">
-                            <label for="SampleRadio0302_05" class="form-label">1달전</label>
-                            <input type="radio" name="SampleRadio0302_01" id="SampleRadio0302_06" class="radio-btn">
-                            <label for="SampleRadio0302_06" class="form-label">3달전</label>
-                            <input type="radio" name="SampleRadio0302_01" id="SampleRadio0302_07" class="radio-btn">
-                            <label for="SampleRadio0302_07" class="form-label">6달전</label>
-                            <input type="radio" name="SampleRadio0302_01" id="SampleRadio0302_08" class="radio-btn">
-                            <label for="SampleRadio0302_08" class="form-label">1년전</label>
+                            <input type="radio" name="SampleRadio0302_01" id="SampleRadio0302_02" title="조회기간"
+                              class="radio-btn">
+                            <label for="SampleRadio0302_03" class="form-label">1주일</label>
+                            <input type="radio" name="SampleRadio0302_01" id="SampleRadio0302_03" title="조회기간"
+                              class="radio-btn">
+                            <label for="SampleRadio0302_04" class="form-label">1개월</label>
+                            <input type="radio" name="SampleRadio0302_01" id="SampleRadio0302_04" title="조회기간"
+                              class="radio-btn">
+                            <label for="SampleRadio0302_05" class="form-label">3개월</label>
+                            <input type="radio" name="SampleRadio0302_01" id="SampleRadio0302_05" title="조회기간"
+                              class="radio-btn">
+                            <label for="SampleRadio0302_04" class="form-label">6개월</label>
+                            <input type="radio" name="SampleRadio0302_06" id="SampleRadio0302_06" title="조회기간"
+                              class="radio-btn">
+                            <label for="SampleRadio0302_05" class="form-label">1년</label>
                           </span>
                         </div>
                         <div class="calendar-wrap">
@@ -143,10 +153,12 @@
                       </div>
                     </td>
                   </tr>
+                  <!--//[dev]:20260831 라디오전체수정-->
                   <tr>
-                    <th scope="row">조회순서</th>
+                    <!--[dev]:20260831 라디오전체수정-->
+                    <th scope="row" id="order_lookup"><span>조회순서</span></th>
                     <td>
-                      <div class="form-box-wrap" role="radiogroup">
+                      <div class="form-box-wrap" role="radiogroup" aria-labelledby="order_lookup">
                         <span class="form-box">
                           <input type="radio" name="PaymentStatus" id="PaymentStatus_01" title="조회순서"
                             class="form-radio size-md" checked />
@@ -159,23 +171,7 @@
                         </span>
                       </div>
                     </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">상환예정일자</th>
-                    <td>
-                      <div class="tbl-column">
-                        <div class="calendar-wrap">
-                          <div class="input-box">
-                            <input type="text" class="input" placeholder="상환예정일자" aria-label="상환예정일자"
-                              value="2026-01-06" />
-                            <button type="button" class="btn">
-                              <i class="ico-calendar ico-size-smMd" aria-hidden="true"></i>
-                              <span class="blind">상환예정일자 달력 열기</span>
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </td>
+                    <!--//[dev]:20260831 라디오전체수정-->
                   </tr>
                 </tbody>
               </table>
@@ -305,7 +301,7 @@
                   <tr>
                     <td><span class="typeMd">0/인터넷</span></td>
                     <td><span class="typeMd">0</span></td>
-                  </tr>                  
+                  </tr>
                   <tr>
                     <td rowspan="2"><span class="typeMd">2026-07-20</span></td>
                     <td rowspan="2"><span class="typeMd">즐거운생활</span></td>
@@ -318,7 +314,7 @@
                   <tr>
                     <td><span class="typeMd">0/인터넷</span></td>
                     <td><span class="typeMd">0</span></td>
-                  </tr>                  
+                  </tr>
                   <tr>
                     <td rowspan="2"><span class="typeMd">2026-07-20</span></td>
                     <td rowspan="2"><span class="typeMd">즐거운생활</span></td>
@@ -331,7 +327,7 @@
                   <tr>
                     <td><span class="typeMd">0/인터넷</span></td>
                     <td><span class="typeMd">0</span></td>
-                  </tr>                  
+                  </tr>
                 </tbody>
               </table>
               <nav class="pagination size-md mb-64" aria-label="페이지네이션">
@@ -377,6 +373,24 @@
                   <span class="blind">마지막 페이지</span>
                 </button>
               </nav>
+              <!--[dev]:20260831 추가-->
+              <div class="line-box size-xl mt-48">
+                <span class="typeLgSemibold">이용안내</span>
+                <div class="list type-dotted">
+                  <ul>
+                    <li class="typeMd">
+                      거래 구분에서 입·출금내역 및 입금내역, 출금내역을 확인 할 수 있습니다.
+                    </li>
+                    <li class="typeMd">
+                      입출금이 자유로운 계좌는 최근 5년까지, 그 외 계좌는 최근 10년 까지 조회 가능합니다.
+                    </li>
+                    <li class="typeMd">
+                      해지된 계좌를 원하실 경우 계좌번호 직접입력을 누르시어 조회하시길 바랍니다.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <!--//[dev]:20260831 추가-->
             </div>
           </div>
         </div>

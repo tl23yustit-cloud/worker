@@ -158,7 +158,7 @@ module.exports = {
     "CIBLON020109000p": { title: "", status: "검수중", worker: "변혜선", note: "" },
     "CIBLON020110000p": { title: "", status: "검수중", worker: "변혜선", note: "" },
     "CIBLON010401000M": { title: "이자조회_조회", status: "검수중", worker: "손창우", note: "" },
-    "CIBLON010301000M": { title: "종합통장거래내역조회_조회", status: "검수중", worker: "변혜선", note: "" },
+    "CIBLON010301000M": { title: "종합통장거래내역조회_조회", status: "검수중", worker: "변혜선", note: "주석-[dev]:20260831 확인" },
     "이자납입_이자납입결재요청완료": { title: "", status: "수정중", worker: "변혜선", note: "" },
     "이자납입_이자납입이체완료": { title: "", status: "수정중", worker: "변혜선", note: "" },
     "이자납입_이자납입확인": { title: "", status: "수정중", worker: "변혜선", note: "" },
