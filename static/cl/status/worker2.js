@@ -24,6 +24,7 @@ module.exports = {
       "CIBB2B021603000M": { title: "OTP 인증", status: "검수중", worker: "이상우", note: "" },
       "CIBB2B021604000M": { title: "할인신청1단계", status: "검수중", worker: "이상우", note: "" },
       "CIBB2B021605000M": { title: "할인신청2단계", status: "검수중", worker: "이상우", note: "" },
+      "CIBB2B021606000M": { title: "할인신청완료", status: "검수중", worker: "이상우", note: "" },
 
 };
 
