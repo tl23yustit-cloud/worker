@@ -1,3 +1,4 @@
+<!-- for dev: 화면설계서에 금액 관련해서 원 단위가 없음 이부분 확인필요  정렬은 공통사항으로 오른쪽 정렬 임의로 적용했음-->
 <!doctype html>
 <html lang="ko">
   <head>
@@ -25,6 +26,7 @@
           @@include('static/html/pub/layout/leftArea.html')
         </div>
 
+        <!-- Contents 영역 -->
         <div id="contents">
           <div class="content">
             @@include('static/html/pub/layout/breadcrumb.html')
@@ -86,7 +88,7 @@
                     </tr>
                     <tr>
                       <th scope="row">금액</th>
-                      <td>
+                      <td class="text-right">
                         <span class="typeMd" data-formatted="true"
                           >180,000</span
                         >
@@ -141,7 +143,7 @@
                       <th scope="row">법인명</th>
                       <td colspan="3">
                         <span class="typeMd" data-formatted="true"
-                          >PMS95817</span
+                          >홍길상사</span
                         >
                       </td>
                     </tr>
@@ -160,7 +162,7 @@
                 <h4 class="typeH4">배서인 정보</h4>
                 <table class="table-type01 fixed">
                   <caption>
-                    법인/개인구분, 사업자(주민)등록번호, 법인명, 배서인명, 은행
+                    법인/개인구분, 사업자(주민)등록번호, 법인명, 수취인명, 은행
                     및 계좌번호 정보가 포함된 배서인 정보 테이블
                   </caption>
                   <colgroup>
@@ -191,7 +193,7 @@
                       </td>
                     </tr>
                     <tr>
-                      <th scope="row">배서인명</th>
+                      <th scope="row">수취인명</th>
                       <td colspan="3">
                         <span class="typeMd" data-formatted="true">홍길동</span>
                       </td>
@@ -263,11 +265,11 @@
 
               <!-- 기타정보 섹션 -->
               <div class="tbl-area">
-                <h4 class="typeH4">기타정보</h4>
+                <h4 class="typeH4">기타 정보</h4>
                 <table class="table-type01 fixed">
                   <caption>
                     배서금액(할인금액), 배서번호, 분할번호, 대출한도 여유액,
-                    대출계좌번호 정보가 포함된 기타정보 테이블
+                    대출계좌번호 정보가 포함된 기타 정보 테이블
                   </caption>
                   <colgroup>
                     <col style="width: 160px" />
@@ -278,7 +280,7 @@
                   <tbody>
                     <tr>
                       <th scope="row">배서금액(할인금액)</th>
-                      <td>
+                      <td class="text-right">
                         <span class="typeMd" data-formatted="true"
                           >180,000</span
                         >
@@ -294,7 +296,7 @@
                         <span class="typeMd" data-formatted="true">00</span>
                       </td>
                       <th scope="row">대출한도 여유액</th>
-                      <td>
+                      <td class="text-right">
                         <span class="typeMd" data-formatted="true"
                           >200,000,000</span
                         >
@@ -304,7 +306,7 @@
                       <th scope="row">대출계좌번호</th>
                       <td colspan="3">
                         <span class="typeMd" data-formatted="true"
-                          >000000000000</span
+                          >706-11-039205</span
                         >
                       </td>
                     </tr>
@@ -312,12 +314,13 @@
                 </table>
               </div>
 
-              <!-- 하단 신청 버튼 영역 -->
               <div class="btn-wrap center lg-bot">
                 <button type="button" class="btn type-bg-primary size-xxl">
                   <span class="text">신청</span>
                 </button>
               </div>
+
+              <!-- 이용안내 섹션 -->
               <div class="line-box size-xl mt-48">
                 <span class="typeLgSemibold">이용안내</span>
                 <div class="list type-dotted">
@@ -326,14 +329,14 @@
                       어음만기 1영업일전 까지 할인 신청이 가능합니다.
                     </li>
                     <li class="typeMd">
-                      인터넷뱅킹에서는 할인신청만 하며, 할인실행(대출)업무는 해당지점을 방문하셔야 합니다.
+                      인터넷뱅킹에서는 할인신청만 하며, 할인실행(대출)업무는
+                      해당지점을 방문하셔야 합니다.
                     </li>
                     <li class="typeMd">
-                      전자어음 관련 세금계산서를 소지하시고 해당지점을 방문하세요.
+                      전자어음 관련 세금계산서를 소지하시고 해당지점을
+                      방문하세요.
                     </li>
-                    <li class="typeMd">
-                      이용가능시간 : 08:30~22:00(영업일)
-                    </li>
+                    <li class="typeMd">이용가능시간 : 08:30~22:00(영업일)</li>
                   </ul>
                 </div>
               </div>
