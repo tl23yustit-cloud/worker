@@ -441,15 +441,15 @@
       }
 
       &.step1 .step-icon {
-        background-image: url(../images/bmg/img_bng_step1.png);
+        background-image: url("../images/bmg/img_bmg_step1.png");
       }
 
       &.step2 .step-icon {
-        background-image: url(../images/bmg/img_bng_step2.png);
+        background-image: url("../images/bmg/img_bmg_step2.png");
       }
 
       &.step3 .step-icon {
-        background-image: url(../images/bmg/img_bng_step3.png);
+        background-image: url("../images/bmg/img_bmg_step3.png");
       }
 
       &::after {
@@ -462,14 +462,14 @@
         margin-left: auto;
         margin-right: auto;
 
-        background-image: url(../images/bmg/img_bmg_step.png);
+        background-image: url("../images/bmg/img_bmg_step.png");
         background-size: 100% 100%;
         background-repeat: no-repeat;
       }
 
       /* ✨ active가 붙은 스텝의 오른쪽에 있는 점을 활성화 이미지로 교체 */
       &.active::after {
-        background-image: url(../images/bmg/img_bmg_step_active.png);
+        background-image: url("../images/bmg/img_bmg_step_active.png");
       }
 
       &.active {
@@ -911,4 +911,52 @@
       }
     }
   }
+}
+
+.modal-slot .class-check-wrapper {
+  display: flex;
+  gap: 16px;
+
+
+  .class-check-card {
+    flex-grow: 1;
+    padding: 48px 32px 32px 32px;
+    background-color: var(--colorAccentVioletTint);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 16px;
+
+    .class-items-list {
+      width: 100%;
+      padding: var(--spacingLgXl);
+      
+    }
+
+    .class-title {
+      font-size: var(--contentFontSize2Xl);
+      font-weight: var(--fontWeightBold);
+      line-height: var(--contentLineHeight2Xl);
+      margin-bottom: 4px;
+    }
+
+    .class-desc {
+      font-size: var(--contentFontSizeMd);
+      font-weight: var(--fontWeightRegular);
+      line-height: var(--contentLineHeightMd);
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .ico-user {
+      width: 107px;
+      height: 107px;
+      margin-bottom: 8px;
+    }
+  }
+
+  .class-check-card:first-child {
+    background-color: var(--colorBgSecondary);
+  }
+
 }
