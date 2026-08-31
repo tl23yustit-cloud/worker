@@ -215,7 +215,7 @@ module.exports = {
     "CIBFIN_TPR060100000M": { title: "부동산신탁공매물건정보_상세", status: "검수중", worker: "이상우", note: "" },
 
     // 💡 외환 추가 화면들
-    "CIBFOE040102000M": { title: "무증빙해외송금_Step1.영문고객정보", status: "검수중", worker: "이상우", note: "" },
+    "CIBFOE040102000M": { title: "무증빙해외송금_Step1.영문고객정보", status: "검수중", worker: "이상우", note: "주석확인-[dev]:20260831 디자인변경" },
     "CIBFOE040103001P": { title: "[팝업]외화거래이용약관", status: "검수중", worker: "이상우", note: "" },
     "CIBFOE040104001P": { title: "[팝업]송금안내", status: "검수중", worker: "이상우", note: "" },
     "CIBFOE040104000M": { title: "무증빙해외송금_Step3.송금정보입력", status: "검수중", worker: "이상우", note: "" },
