@@ -766,8 +766,13 @@ function initAutoTableCaptions(context = document) {
 function initPaginationButtonState(context = document) {
 	context.querySelectorAll('.list-pagination .btn-page').forEach(($btn) => {
 		const isActive = $btn.classList.contains('active');
-		if (isActive) $btn.setAttribute('title', '현재 페이지');
-		else $btn.removeAttribute('title');
+		if (isActive) {
+			$btn.setAttribute('aria-current', 'page');
+			$btn.setAttribute('title', '현재 페이지');
+		} else {
+			$btn.removeAttribute('aria-current');
+			$btn.removeAttribute('title');
+		}
 	});
 }
 
