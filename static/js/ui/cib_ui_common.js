@@ -46,6 +46,8 @@ if (!window._isUICommonDelegated) {
 window.initDynamicUI = function(context = document) {
 	fnSwiperHtmlControl(context);
 	initTableCheckbox(context);
+	initAutoTableCaptions(context);
+	initPaginationButtonState(context);
 	initCurrencyFormat(context);
 	initRateRange(context);
 	fnInitTextareaLength(context); 
@@ -204,10 +206,8 @@ function setupDelegatedEvents() {
 			}
 
 			$boxSelect.querySelectorAll('.item-select').forEach(function(el) {
-				el.setAttribute('aria-selected', 'false');
 				el.classList.remove('selected');
 			});
-			$boxSelectItem.setAttribute('aria-selected', 'true');
 			$boxSelectItem.classList.add('selected');
 			
 			closeAllSelects();
@@ -353,7 +353,6 @@ function setupDelegatedEvents() {
 
 				if (index === targetActiveIndex) $button.classList.add(classActiveState);
 				else $button.classList.remove(classActiveState);
-				$button.setAttribute("aria-selected", String(index === targetActiveIndex));
 			});
 
 			$scopeContents.forEach(($content, index) => {
@@ -373,6 +372,27 @@ function setupDelegatedEvents() {
 		
 		document.querySelectorAll("[id^='tabSingleList'], [id^='tabSingleList2']").forEach($targetItem => {
 			$targetItem.classList.add(classActiveState);
+		});
+	});
+
+	// Pagination 버튼 선택 상태
+	document.addEventListener('click', function(e) {
+		const $pageButton = e.target.closest('.list-pagination .btn-page');
+		if (!$pageButton) return;
+
+		const $pageList = $pageButton.closest('.list-pagination');
+		if (!$pageList) return;
+
+		$pageList.querySelectorAll('.btn-page').forEach(($btn) => {
+			const isActive = $btn === $pageButton;
+			$btn.classList.toggle('active', isActive);
+			if (isActive) {
+				$btn.setAttribute('aria-current', 'page');
+				$btn.setAttribute('title', '현재 페이지');
+			} else {
+				$btn.removeAttribute('aria-current');
+				$btn.removeAttribute('title');
+			}
 		});
 	});
 
@@ -713,6 +733,41 @@ function initTableCheckbox(context = document) {
 		});
 
 		updateState();
+	});
+}
+
+// 테이블 자동 caption 생성
+function initAutoTableCaptions(context = document) {
+	context.querySelectorAll('table.table-type01, table.table-type02, table.table-type03').forEach((table) => {
+		const labels = Array.from(
+			table.querySelectorAll('thead th, tbody th, tr:first-child th')
+		).map((th) => {
+			const text = th.textContent.replace(/\s+/g, ' ').trim();
+			return text;
+		}).filter(Boolean);
+
+		if (!labels.length) return;
+
+		const uniqueLabels = [...new Set(labels)];
+		const captionText = `${uniqueLabels.join(', ')}에 대한 구성 테이블입니다.`;
+		const existingCaption = table.querySelector('caption');
+
+		if (existingCaption) {
+			existingCaption.textContent = captionText;
+			return;
+		}
+
+		const caption = document.createElement('caption');
+		caption.textContent = captionText;
+		table.insertBefore(caption, table.firstChild);
+	});
+}
+
+function initPaginationButtonState(context = document) {
+	context.querySelectorAll('.list-pagination .btn-page').forEach(($btn) => {
+		const isActive = $btn.classList.contains('active');
+		if (isActive) $btn.setAttribute('title', '현재 페이지');
+		else $btn.removeAttribute('title');
 	});
 }
 
