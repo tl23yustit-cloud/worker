@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>수협은행</title>
+  <link rel="stylesheet" href="/static/css/reset.css" />
+  <link rel="stylesheet" href="/static/css/layout.css" />
+  <link rel="stylesheet" href="/static/css/component.css" />
+  <link rel="stylesheet" href="/static/css/common.css" />
+  <link rel="stylesheet" href="/static/css/bop.scss" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <div id="header">
+      @@include('static/html/pub/layout/skipNavigation.html')
+      @@include('static/html/pub/layout/header_sub.html')
+    </div>
+
+    <div id="container" class="container">
+      <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+      <div id="contents">
+        <div class="content">
+          @@include('static/html/pub/layout/breadcrumb.html')
+          <div class="bop">
+            <h2 class="typeH2">
+              해지예상조회
+            </h2>
+            <div class="tbl-area">
+              <table class="table-type01">
+                <caption>
+                  해지예상조회 테이블
+                </caption>
+                <colgroup>
+                  <col width="180px">
+                  <col class="auto">
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th scope="row">
+                      <span id="label-account">계좌번호</span>
+                    </th>
+                    <td colspan="3">
+                      <div class="box-select wSize-lg">
+                        <button type="button" class="select size-lg" role="combobox" aria-expanded="false"
+                          aria-haspopup="listbox" aria-controls="selectDropdown01" aria-labelledby="label-account">
+                          <span class="text">0000-0000-0000 (기업운전일반자금대출)</span>
+                          <span class="blind">목록 열기</span>
+                        </button>
+                        <div id="selectDropdown01" class="box-list-select">
+                          <ul class="list-select" role="listbox" aria-label="수취인 계좌번호 선택 리스트">
+                            <li class="item-select" role="option" aria-selected="true">
+                              <span class="form-box">0000-0000-0000 (기업운전일반자금대출)</span>
+                            </li>
+                            <li class="item-select" role="option" aria-selected="false">
+                              <span class="form-box">1</span>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">상환예정일자</th>
+                    <td>
+                      <div class="tbl-column">
+                        <div class="calendar-wrap">
+                          <div class="input-box">
+                            <input type="text" class="input" placeholder="상환예정일자" aria-label="상환예정일자"
+                              value="2026-01-06" />
+                            <button type="button" class="btn">
+                              <i class="ico-calendar ico-size-smMd" aria-hidden="true"></i>
+                              <span class="blind">상환예정일자 달력 열기</span>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <span id="currency-code">통화코드</span>
+                    </th>
+                    <td colspan="3">
+                      <div class="box-select wSize-lg">
+                        <button type="button" class="select size-lg" role="combobox" aria-expanded="false"
+                          aria-haspopup="listbox" aria-controls="selectDropdown01" aria-labelledby="currency-code">
+                          <span class="text">0000-0000-0000 (기업운전일반자금대출)</span>
+                          <span class="blind">목록 열기</span>
+                        </button>
+                        <div id="selectDropdown01" class="box-list-select">
+                          <ul class="list-select" role="listbox" aria-label="통화코드 선택 리스트">
+                            <li class="item-select" role="option" aria-selected="true">
+                              <span class="form-box">0000-0000-0000 (기업운전일반자금대출)</span>
+                            </li>
+                            <li class="item-select" role="option" aria-selected="false">
+                              <span class="form-box">1</span>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="btn-wrap center lg-mid">
+              <button type="button" class="btn type-bg-neutral size-xl">
+                <span class="text">조회</span>
+              </button>
+            </div>
+            <div class="tbl-area">
+              <div class="tbl-head">
+                <div class="left-area">
+                  <h4 class="typeH4">
+                    <span class="text">기본조회</span>
+                  </h4>
+                </div>
+              </div>
+              <table class="table-type01">
+                <caption>
+                  기본조회 테이블
+                </caption>
+                <colgroup>
+                  <col width="150px">
+                  <col width="300px">
+                  <col width="150px">
+                  <col width="300px">
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th scope="row">예금주명</th>
+                    <td colspan="3">
+                      <span class="typeMd">홍길동 주식회사</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">계좌번호</th>
+                    <td>
+                      <span class="typeMd">0000-0000-0000</span>
+                    </td>
+                    <th scope="row">해지구분</th>
+                    <td>
+                      <span class="typeMd">일반해지</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">해지예정일</th>
+                    <td>
+                      <span class="typeMd">YYYY-MM-DD</span>
+                    </td>
+                    <th scope="row">상품종류</th>
+                    <td>
+                      <span class="typeMd">외화보통-예금</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">거래점</th>
+                    <td>
+                      <span class="typeMd">역삼점</span>
+                    </td>
+                    <th scope="row">신규일</th>
+                    <td>
+                      <span class="typeMd">YYYY-MM-DD</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">만기일</th>
+                    <td>
+                      <span class="typeMd">YYYY-MM-DD</span>
+                    </td>
+                    <th scope="row">총납입회차</th>
+                    <td>
+                      <span class="typeMd">00회</span>
+                    </td>                    
+                  </tr>
+                  <tr>
+                    <th scope="row">상품명</th>
+                    <td>
+                      <span class="typeMd">외화보통예금</span>
+                    </td>
+                    <th scope="row">적용환율</th>
+                    <td class="text-right">
+                      <span class="typeMd">1,496.80</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">①원금</th>
+                    <td class="text-right">
+                      <span class="typeMd">USD 5.18</span>
+                    </td>
+                    <th scope="row">①원화환산금액</th>
+                    <td class="text-right">
+                      <span class="typeMd">7,753</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">기지급이자</th>
+                    <td class="text-right">
+                      <span class="typeMd">USD 0.00</span>
+                    </td>
+                    <th scope="row">②세전이자(원화)</th>
+                   <td class="text-right">
+                      <span class="typeMd">98원</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">만기후이자</th>
+                    <td class="text-right">
+                      <span class="typeMd">USD 0.00</span>
+                    </td>
+                    <th scope="row">③소득세/법인세</th>
+                    <td class="text-right">
+                      <span class="typeMd">10원</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">세전이자</th>
+                    <td class="text-right">
+                      <span class="typeMd">USD 0.07</span>
+                    </td>
+                    <th scope="row">④주민세</th>
+                    <td class="text-right">
+                      <span class="typeMd">0원</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">②세후이자</th>
+                    <td class="text-right">
+                      <span class="typeMd">USD 0.05</span>
+                    </td>
+                    <th scope="row">⑤세후이자(원화)(②-③-④)</th>
+                    <td class="text-right">
+                      <span class="typeMd">88원</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">해지지급액①+②</th>
+                    <td class="text-right">
+                      <span class="typeMd">USD 5.23</span>
+                    </td>
+                    <th scope="row">원화환산지급액①+⑤</th>
+                    <td class="text-right">
+                      <span class="typeMd">7,841원</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="list type-reference mt-6">
+                <ul>
+                  <li class="typeMd">원화금액은 현재 시점의 환율로 계산된 것이며, 실제 해지 시점의 환유 변동에 따라 달라질 수 있습니다.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+</body>
+
+</html>
+<script>
+
+</script>
