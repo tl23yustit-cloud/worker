@@ -666,178 +666,84 @@
                     <tbody>
                       <tr>
                         <th scope="row">
-                          <span>계좌번호</span>
+                          <span class="required" id="search_perio">조회기간</span>
                         </th>
-                        <td colspan="3">
-                          <div class="box-select wSize-lg">
-                            <button type="button" class="select size-lg" role="combobox" aria-expanded="false"
-                              aria-haspopup="listbox" aria-controls="selectDropdown01">
-                              <span class="text">0000-0000-0000 (기업운전일반자금대출)</span>
-                              <span class="blind">펼침</span>
-                            </button>
-                            <div id="selectDropdown01" class="box-list-select">
-                              <ul class="list-select" role="listbox" aria-label="선택 항목 리스트">
-                                <li class="item-select" role="group" aria-label="선택 항목 리스트">
-                                  <span class="form-box">
-                                    0000-0000-0000 (기업운전일반자금대출)
-                                  </span>
-                                </li>
-                                <li class="item-select" role="group" aria-label="선택 항목 리스트">
-                                  <span class="form-box"> 1 </span>
-                                </li>
-                                <li class="item-select" role="group" aria-label="선택 항목 리스트">
-                                  <span class="form-box"> 1 </span>
-                                </li>
-                                <li class="item-select" role="group" aria-label="선택 항목 리스트">
-                                  <span class="form-box"> 1 </span>
-                                </li>
-                                <li class="item-select" role="group" aria-label="선택 항목 리스트">
-                                  <span class="form-box"> 1 </span>
-                                </li>
-                                <li class="item-select" role="group" aria-label="선택 항목 리스트">
-                                  <span class="form-box"> 1 </span>
-                                </li>
-                              </ul>
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <th scope="row">거래구분</th>
-                        <td>
-                          <div class="form-box-wrap">
-                            <span class="form-box">
-                              <input type="radio" name="SampleRadio0302" id="SampleRadio0302" class="form-radio size-md"
-                                checked="" />
-                              <label for="SampleRadio0302" class="form-label">전체</label>
-                            </span>
-                            <span class="form-box">
-                              <input type="radio" name="SampleRadio0302" id="SampleRadio0302"
-                                class="form-radio size-md" />
-                              <label for="SampleRadio0302" class="form-label">입금내역</label>
-                            </span>
-                            <span class="form-box">
-                              <input type="radio" name="SampleRadio0302" id="SampleRadio0302"
-                                class="form-radio size-md" />
-                              <label for="SampleRadio0302" class="form-label">출금내역</label>
-                            </span>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <th scope="row">정렬방식</th>
-                        <td>
-                          <div class="form-box-wrap">
-                            <span class="form-box">
-                              <input type="radio" name="nameOfDeposit" id="name" class="form-radio size-md"
-                                checked="" />
-                              <label for="nameOfDeposit" class="form-label">최근 거래 내역이 위로</label>
-                            </span>
-                            <span class="form-box">
-                              <input type="radio" name="nameOfDeposit" id="nameOfDeposit" class="form-radio size-md" />
-                              <label for="SampleRadio0302" class="form-label">과거 거래 내역이 위로</label>
-                            </span>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <th scope="row">출력건수</th>
-                        <td>
-                          <div class="form-box-wrap">
-                            <span class="form-box">
-                              <input type="radio" name="prints" id="name" class="form-radio size-md" checked="" />
-                              <label for="nameOfDeposit" class="form-label">15</label>
-                            </span>
-                            <span class="form-box">
-                              <input type="radio" name="prints" id="nameOfDeposit" class="form-radio size-md" />
-                              <label for="SampleRadio0302" class="form-label">30</label>
-                            </span>
-                            <span class="form-box">
-                              <input type="radio" name="prints" id="nameOfDeposit" class="form-radio size-md" />
-                              <label for="SampleRadio0302" class="form-label">50</label>
-                            </span>
-                            <span class="form-box">
-                              <input type="radio" name="prints" id="nameOfDeposit" class="form-radio size-md" />
-                              <label for="SampleRadio0302" class="form-label">100</label>
-                            </span>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <th scope="row">조회기간</th>
                         <td>
                           <div class="tbl-column">
-                            <div class="radio-group">
+                            <!-- 1. radiogroup에 aria-labelledby 추가 -->
+                            <div class="radio-group" role="radiogroup" aria-labelledby="search_perio">
                               <span class="form-box">
-                                <input type="radio" name="SampleRadio0302_01" id="SampleRadio0302_01" class="radio-btn"
-                                  checked="" />
-                                <label for="SampleRadio0302_01" class="form-label">오늘</label>
-                                <input type="radio" name="SampleRadio0302_01" id="SampleRadio0302_02"
-                                  class="radio-btn" />
-                                <label for="SampleRadio0302_02" class="form-label">어제</label>
-                                <input type="radio" name="SampleRadio0302_01" id="SampleRadio0302_03"
-                                  class="radio-btn" />
-                                <label for="SampleRadio0302_03" class="form-label">3일</label>
-                                <input type="radio" name="SampleRadio0302_01" id="SampleRadio0302_04"
-                                  class="radio-btn" />
-                                <label for="SampleRadio0302_04" class="form-label">1주일</label>
-                                <input type="radio" name="SampleRadio0302_01" id="SampleRadio0302_05"
-                                  class="radio-btn" />
-                                <label for="SampleRadio0302_05" class="form-label">1개월</label>
-                                <input type="radio" name="SampleRadio0302_01" id="SampleRadio0302_06"
-                                  class="radio-btn" />
-                                <label for="SampleRadio0302_06" class="form-label">3개월</label>
-                                <input type="radio" name="SampleRadio0302_01" id="SampleRadio0302_07"
-                                  class="radio-btn" />
-                                <label for="SampleRadio0302_07" class="form-label">6개월</label>
-                                <input type="radio" name="SampleRadio0302_01" id="SampleRadio0302_08"
-                                  class="radio-btn" />
-                                <label for="SampleRadio0302_08" class="form-label">12개월</label>
+                                <input type="radio" name="searchPeriod" id="period_01" class="radio-btn" checked>
+                                <label for="period_01" class="form-label">당일</label>
+                              </span>
+                              <span class="form-box">
+                                <input type="radio" name="searchPeriod" id="period_02" class="radio-btn">
+                                <label for="period_02" class="form-label">전일</label>
+                              </span>
+                              <span class="form-box">
+                                <input type="radio" name="searchPeriod" id="period_03" class="radio-btn">
+                                <label for="period_03" class="form-label">3일</label>
+                              </span>
+                              <span class="form-box">
+                                <input type="radio" name="searchPeriod" id="period_04" class="radio-btn">
+                                <label for="period_04" class="form-label">1주일</label>
+                              </span>
+                              <span class="form-box">
+                                <input type="radio" name="searchPeriod" id="period_05" class="radio-btn">
+                                <label for="period_05" class="form-label">1달</label>
+                              </span>
+                              <span class="form-box">
+                                <input type="radio" name="searchPeriod" id="period_06" class="radio-btn">
+                                <label for="period_06" class="form-label">3달</label>
+                              </span>
+                              <span class="form-box">
+                                <input type="radio" name="searchPeriod" id="period_07" class="radio-btn">
+                                <label for="period_07" class="form-label">6달</label>
+                              </span>
+                              <span class="form-box">
+                                <input type="radio" name="searchPeriod" id="period_08" class="radio-btn">
+                                <label for="period_08" class="form-label">1년</label>
                               </span>
                             </div>
+
                             <div class="calendar-wrap">
+                              <!-- 날짜 입력 영역 -->
                               <div class="input-box">
-                                <input type="text" class="input" placeholder="이쳬예약일" title="" aria-label="이쳬예약일"
-                                  value="2026-01-06" />
+                                <input type="text" class="input" placeholder="조회 시작일" aria-label="조회 시작일"
+                                  value="2026-01-06">
                                 <button type="button" class="btn">
                                   <i class="ico-calendar ico-size-smMd" aria-hidden="true"></i>
-                                  <span class="blind">날짜 열기</span>
+                                  <span class="blind">조회 시작일 달력 열기</span>
                                 </button>
                               </div>
-                              ~
+                              <span aria-hidden="true">~</span>
                               <div class="input-box">
-                                <input type="text" class="input" placeholder="이쳬예약일" title="" aria-label="이쳬예약일"
-                                  value="2026-01-06" />
+                                <input type="text" class="input" placeholder="조회 종료일" aria-label="조회 종료일"
+                                  value="2026-01-06">
                                 <button type="button" class="btn">
                                   <i class="ico-calendar ico-size-smMd" aria-hidden="true"></i>
-                                  <span class="blind">날짜 열기</span>
+                                  <span class="blind">조회 종료일 달력 열기</span>
                                 </button>
                               </div>
+                              <!-- 커스텀 셀렉트 박스 ARIA 표준 수정 -->
                               <div class="box-select wSize-smMd">
                                 <button type="button" class="select size-lg" role="combobox" aria-expanded="false"
-                                  aria-haspopup="listbox" aria-controls="selectDropdown01">
+                                  aria-haspopup="listbox" aria-controls="selectDropdown01"
+                                  aria-labelledby="search_perio">
                                   <span class="text">월별선택</span>
-                                  <span class="blind">펼침</span>
+                                  <span class="blind">목록 열기</span>
                                 </button>
                                 <div id="selectDropdown01" class="box-list-select">
-                                  <ul class="list-select" role="listbox" aria-label="선택 항목 리스트">
-                                    <li class="item-select" role="group" aria-label="선택 항목 리스트">
-                                      <span class="form-box"> 월별선택 </span>
+                                  <ul class="list-select" role="listbox" aria-label="월별 선택 목록">
+                                    <!-- li에 role="option" 및 aria-selected 부여 -->
+                                    <li class="item-select" role="option" aria-selected="true">
+                                      <span class="form-box">월별선택</span>
                                     </li>
-                                    <li class="item-select" role="group" aria-label="선택 항목 리스트">
-                                      <span class="form-box"> 1 </span>
+                                    <li class="item-select" role="option" aria-selected="false">
+                                      <span class="form-box">1월</span>
                                     </li>
-                                    <li class="item-select" role="group" aria-label="선택 항목 리스트">
-                                      <span class="form-box"> 1 </span>
-                                    </li>
-                                    <li class="item-select" role="group" aria-label="선택 항목 리스트">
-                                      <span class="form-box"> 1 </span>
-                                    </li>
-                                    <li class="item-select" role="group" aria-label="선택 항목 리스트">
-                                      <span class="form-box"> 1 </span>
-                                    </li>
-                                    <li class="item-select" role="group" aria-label="선택 항목 리스트">
-                                      <span class="form-box"> 1 </span>
+                                    <li class="item-select" role="option" aria-selected="false">
+                                      <span class="form-box">2월</span>
                                     </li>
                                   </ul>
                                 </div>
@@ -848,76 +754,90 @@
                       </tr>
                       <tr>
                         <th scope="row">
-                          <span class="typeMdSemibold">계좌번호</span>
+                          <span id="label-account">수취인 계좌번호</span>
                         </th>
                         <td colspan="3">
-                          <div class="tbl-flex">
-                            <div class="box-select wSize-lg">
-                              <button type="button" class="select size-lg" role="combobox" aria-expanded="false"
-                                aria-haspopup="listbox" aria-controls="selectDropdown01">
-                                <span class="text">보통예금 1010-27330000</span>
-                                <span class="blind">펼침</span>
-                              </button>
-                              <div id="selectDropdown01" class="box-list-select">
-                                <ul class="list-select" role="listbox" aria-label="선택 항목 리스트">
-                                  <li class="item-select" role="group" aria-label="선택 항목 리스트">
-                                    <span class="form-box">
-                                      보통예금 1010-27330000
-                                    </span>
-                                  </li>
-                                  <li class="item-select" role="group" aria-label="선택 항목 리스트">
-                                    <span class="form-box"> 1 </span>
-                                  </li>
-                                  <li class="item-select" role="group" aria-label="선택 항목 리스트">
-                                    <span class="form-box"> 1 </span>
-                                  </li>
-                                  <li class="item-select" role="group" aria-label="선택 항목 리스트">
-                                    <span class="form-box"> 1 </span>
-                                  </li>
-                                  <li class="item-select" role="group" aria-label="선택 항목 리스트">
-                                    <span class="form-box"> 1 </span>
-                                  </li>
-                                  <li class="item-select" role="group" aria-label="선택 항목 리스트">
-                                    <span class="form-box"> 1 </span>
-                                  </li>
-                                </ul>
-                              </div>
-                            </div>
-                            <button type="button" class="btn type-line-secondary size-lg">
-                              <span class="text">인출가능금액조회</span>
+                          <div class="box-select wSize-lg">
+                            <button type="button" class="select size-lg" role="combobox" aria-expanded="false"
+                              aria-haspopup="listbox" aria-controls="selectDropdown01" aria-labelledby="label-account">
+                              <span class="text">0000-0000-0000 (기업운전일반자금대출)</span>
+                              <span class="blind">목록 열기</span>
                             </button>
+                            <div id="selectDropdown01" class="box-list-select">
+                              <ul class="list-select" role="listbox" aria-label="수취인 계좌번호 선택 리스트">
+                                <li class="item-select" role="option" aria-selected="true">
+                                  <span class="form-box">0000-0000-0000 (기업운전일반자금대출)</span>
+                                </li>
+                                <li class="item-select" role="option" aria-selected="false">
+                                  <span class="form-box">1</span>
+                                </li>
+                              </ul>
+                            </div>
                           </div>
                         </td>
                       </tr>
+
                       <tr>
-                        <th scope="row">추가검색</th>
+                        <th scope="row">
+                          <label for="userDeptInput">부서명</label>
+                        </th>
                         <td>
-                          <div class="tbl-column">
-                            <div class="tbl-flex">
-                              <span class="form-box">
-                                <input type="checkbox" name="" id="SampleCheckbox0201" class="form-checkbox" />
-                                <label for="SampleCheckbox0201" class="form-label">조회대상금액</label>
-                              </span>
-                              <div class="input-box-wrap tbl-flex">
-                                <div class="input-box gap-10">
-                                  <input type="text" class="input" placeholder="" title="" />
-                                  <span class="typeMd">원</span>
-                                </div>
-                                ~
-                                <div class="input-box gap-10">
-                                  <input type="text" class="input" placeholder="" title="" />
-                                  <span class="typeMd">원</span>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="tbl-flex">
-                              <span class="form-box">
-                                <input type="checkbox" name="" id="SampleCheckbox0201" class="form-checkbox" />
-                                <label for="SampleCheckbox0201" class="form-label">보낸분/받는분 표시내용</label>
-                              </span>
-                              <input type="text" class="input wSize-md size-lg" title="성명(영문)" value=""
-                                placeholder="입력해주세요" />
-                            </div>
+                          <input type="text" id="userDeptInput" class="input size-lg wSize-md" value=""
+                            placeholder="부서명을 입력해주세요" />
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <th scope="row">
+                          <span class="required" id="label-phone">
+                            휴대전화번호<span class="blind">(필수)</span>
+                          </span>
+                        </th>
+                        <td>
+                          <div class="tbl-flex">
+                            <!-- aria-labelledby와 aria-describedby 연결 -->
+                            <input type="text" class="input size-lg wSize-sm" value="010" maxlength="3"
+                              aria-labelledby="label-phone" aria-label="휴대전화번호 앞자리" aria-required="true"
+                              aria-describedby="phone-guide" />
+                            <span aria-hidden="true">-</span>
+                            <input type="text" class="input size-lg wSize-sm" value="" maxlength="4"
+                              aria-labelledby="label-phone" aria-label="휴대전화번호 중간자리" aria-required="true"
+                              aria-describedby="phone-guide" />
+                            <span aria-hidden="true">-</span>
+                            <input type="text" class="input size-lg wSize-sm" value="" maxlength="4"
+                              aria-labelledby="label-phone" aria-label="휴대전화번호 뒷자리" aria-required="true"
+                              aria-describedby="phone-guide" />
+                          </div>
+                          <p class="input-guide-text" id="phone-guide">
+                            PUSH알림 수신을 위해 정확히 입력해 주세요.
+                          </p>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <th scope="row">
+                          <span class="required" id="label-searchType">
+                            조회구분<span class="blind">(필수)</span>
+                          </span>
+                        </th>
+                        <td>
+                          <!-- radiogroup에 aria-labelledby -->
+                          <div class="form-box-wrap" role="radiogroup" aria-labelledby="label-searchType">
+                            <!--[dev] 관리자일 경우에만 노출-->
+                            <span class="form-box">
+                              <input type="radio" name="searchType" id="searchType_01" class="form-radio size-md"
+                                checked />
+                              <label for="searchType_01" class="form-label">사업자</label>
+                            </span>
+                            <span class="form-box">
+                              <input type="radio" name="searchType" id="searchType_02" class="form-radio size-md" />
+                              <label for="searchType_02" class="form-label">사업장</label>
+                            </span>
+                            <!--//[dev] 관리자일 경우에만 노출-->
+                            <span class="form-box">
+                              <input type="radio" name="searchType" id="searchType_03" class="form-radio size-md" />
+                              <label for="searchType_03" class="form-label">카드</label>
+                            </span>
                           </div>
                         </td>
                       </tr>
@@ -1494,7 +1414,7 @@
               </div>
             </div>
             <div class="prototype-group-sub">
-               <h3 class="prototype-group-title02" id="titleTypeB">
+              <h3 class="prototype-group-title02" id="titleTypeB">
                 사용가능성이 농후한 스타일
               </h3>
               <div class="list-lg-wrap">
