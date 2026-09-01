@@ -365,6 +365,12 @@ module.exports = {
         worker: "변혜선",
         note: ""
     },
+    "CIBFOE040206000M": {
+        title: "해외송금(기업송금)_Step4. 송금정보확인",
+        status: "진행중",
+        worker: "변혜선",
+        note: ""
+    },
     "CIBFOE040204001P": {
         title: "[팝업]무역송금유의사항",
         status: "진행중",
