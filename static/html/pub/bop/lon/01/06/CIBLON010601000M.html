@@ -1,149 +1,145 @@
 <!doctype html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>이자조회 &gt; 조회 &gt; 대출 &gt; 뱅킹관리 | 수협은행</title>
-    <link rel="stylesheet" href="/static/css/reset.css" />
-    <link rel="stylesheet" href="/static/css/layout.css" />
-    <link rel="stylesheet" href="/static/css/component.css" />
-    <link rel="stylesheet" href="/static/css/common.css" />
-    <link rel="stylesheet" href="/static/css/dts.css" />
-  </head>
 
-  <body>
-    <div class="wrapper">
-      <div id="header">
-        @@include('static/html/pub/layout/skipNavigation.html')
-        @@include('static/html/pub/layout/header_sub.html')
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>이자조회 &gt; 조회 &gt; 대출 &gt; 뱅킹관리 | 수협은행</title>
+  <link rel="stylesheet" href="/static/css/reset.css" />
+  <link rel="stylesheet" href="/static/css/layout.css" />
+  <link rel="stylesheet" href="/static/css/component.css" />
+  <link rel="stylesheet" href="/static/css/common.css" />
+  <link rel="stylesheet" href="/static/css/dts.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <div id="header">
+      @@include('static/html/pub/layout/skipNavigation.html')
+      @@include('static/html/pub/layout/header_sub.html')
+    </div>
+
+    <div id="container" class="container">
+      <div id="leftArea">
+        @@include('static/html/pub/layout/leftArea.html')
       </div>
-
-      <div id="container" class="container">
-        <div id="leftArea">
-          @@include('static/html/pub/layout/leftArea.html')
-        </div>
-        <div id="contents">
-          <div class="content">
-            @@include('static/html/pub/layout/breadcrumb.html')
-            <div class="dts">
-              <h2 class="typeH2">우대금리 실적조회</h2>
-              <div class="tbl-area">
-                <table class="table-type01">
-                  <caption>
-                    해지예상조회 테이블
-                  </caption>
-                  <colgroup>
-                    <col />
-                    <col />
-                  </colgroup>
-                  <tbody>
-                    <tr>
-                      <th scope="row">계좌번호</th>
-                      <td>
-                        <div class="flex flex-column gap-8">
-                          <div class="box-select wSize-lg">
-                            <button
-                              type="button"
-                              class="select size-lg"
-                              role="combobox"
-                              aria-expanded="false"
-                              aria-haspopup="listbox"
-                              aria-controls="selectDropdown01"
-                              title="계좌번호"
-                            >
-                              <span class="text">선택하세요</span>
-                              <span class="blind">펼침</span>
-                            </button>
-                            <div id="selectDropdown01" class="box-list-select">
-                              <ul
-                                class="list-select"
-                                role="listbox"
-                                aria-label="선택 항목 리스트"
-                              >
-                                <li class="item-select" role="group">
-                                  <button type="button" class="btn-item-select">
-                                    0000-0000-0000 (기업운전일반자금대출)
-                                  </button>
-                                </li>
-                                <li class="item-select" role="group">
-                                  <button type="button" class="btn-item-select">
-                                    가능한 계좌가 없습니다.
-                                  </button>
-                                </li>
-                                <li class="item-select" role="group">
-                                  <button type="button" class="btn-item-select">
-                                    직접입력
-                                  </button>
-                                </li>
-                              </ul>
-                            </div>
-                          </div>
-                          <!-- [dev] 직접 선택인 경우 노출 -->
-                          <div class="form-box">
-                            <input
-                              type="text"
-                              class="input size-lg wSize-md"
-                              placeholder="숫자만 입력해주세요."
-                              title="계좌번호 직접입력"
-                            />
-                            <button
-                              type="button"
-                              class="btn type-line-secondary size-lg"
-                            >
-                              <span class="text">마우스입력</span>
-                            </button>
+      <div id="contents">
+        <div class="content">
+          @@include('static/html/pub/layout/breadcrumb.html')
+          <div class="dts">
+            <h2 class="typeH2">우대금리 실적조회</h2>
+            <div class="tbl-area">
+              <table class="table-type01">
+                <caption>
+                  해지예상조회 테이블
+                </caption>
+                <colgroup>
+                  <col />
+                  <col />
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th scope="row">계좌번호</th>
+                    <td>
+                      <div class="flex flex-column gap-8">
+                        <div class="box-select wSize-lg">
+                          <!--[dev]:20260901 웹접근성  aria-required="true" 추가-->
+                          <button type="button" class="select size-lg" role="combobox" aria-expanded="false"
+                            aria-haspopup="listbox" aria-controls="selectDropdown01" title="계좌번호" aria-required="true">
+                            <span class="text">선택하세요</span>
+                            <span class="blind">펼침</span>
+                          </button>
+                          <!--//[dev]:20260901 웹접근성  aria-required="true" 추가-->
+                          <div id="selectDropdown01" class="box-list-select">
+                            <ul class="list-select" role="listbox" aria-label="선택 항목 리스트">
+                              <!--[dev]:20260901 웹접근성   aria-selected="true" , aria-selected="false" 추가-->
+                              <li class="item-select" role="group" aria-selected="true">
+                                <button type="button" class="btn-item-select">
+                                  0000-0000-0000 (기업운전일반자금대출)
+                                </button>
+                              </li>
+                              <li class="item-select" role="group" aria-selected="false">
+                                <button type="button" class="btn-item-select">
+                                  가능한 계좌가 없습니다.
+                                </button>
+                              </li>
+                              <li class="item-select" role="group" aria-selected="false">
+                                <button type="button" class="btn-item-select">
+                                  직접입력
+                                </button>
+                              </li>
+                              <!--//[dev]:20260901 웹접근성   aria-selected="true" , aria-selected="false" 추가-->
+                            </ul>
                           </div>
                         </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">조회구분</th>
-                      <td>
-                        <div class="form-box-wrap" role="radiogroup">
-                          <span class="form-box">
-                            <input
-                              type="radio"
-                              name="searchType"
-                              id="searchType_01"
-                              title="조회구분"
-                              class="form-radio size-md"
-                              checked
-                            />
-                            <label for="searchType_01" class="form-label"
-                              >이번달</label
-                            >
-                          </span>
-                          <span class="form-box">
-                            <input
-                              type="radio"
-                              name="searchType"
-                              id="searchType_02"
-                              title="조회구분"
-                              class="form-radio size-md"
-                            />
-                            <label for="searchType_02" class="form-label"
-                              >저번달</label
-                            >
-                          </span>
+                        <!-- [dev] 직접 선택인 경우 노출 -->
+                        <div class="form-box">
+                          <input type="text" class="input size-lg wSize-md" placeholder="숫자만 입력해주세요."
+                            title="계좌번호 직접입력" />
+                          <button type="button" class="btn type-line-secondary size-lg">
+                            <span class="text">마우스입력</span>
+                          </button>
                         </div>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <div class="btn-wrap center sm-mid">
-                <button type="button" class="btn type-bg-primary size-xxl">
-                  <span class="text">확인</span>
-                </button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">조회구분</th>
+                    <td>
+                      <!--[dev]:20260901 웹접근성  aria-label="조회구분" 추가-->
+                      <div class="form-box-wrap" role="radiogroup" aria-label="조회구분">
+                        <!--//[dev]:20260901 웹접근성  aria-label="조회구분" 추가-->
+                        <span class="form-box">
+                          <input type="radio" name="searchType" id="searchType_01" title="조회구분"
+                            class="form-radio size-md" checked />
+                          <label for="searchType_01" class="form-label">이번달</label>
+                        </span>
+                        <span class="form-box">
+                          <input type="radio" name="searchType" id="searchType_02" title="조회구분"
+                            class="form-radio size-md" />
+                          <label for="searchType_02" class="form-label">저번달</label>
+                        </span>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="btn-wrap center sm-mid">
+              <button type="button" class="btn type-bg-primary size-xxl">
+                <span class="text">확인</span>
+              </button>
+            </div>
+            <!--[dev]:20260901 이용안내추가-->
+            <div class="line-box size-xl mt-48">
+              <span class="typeLgSemibold">이용안내</span>
+              <div class="list type-dotted">
+                <ul>
+                  <li class="typeMd">
+                    입출금계좌 평균 잔액, 총수신 평균 전액은 전일 기준이며 잔액 변동 시 최종실적에서 차감될 수 있습니다.
+                  </li>
+                  <li class="typeMd">
+                    조회일 이후 실적 취소 시 해당실적에서 차감될 수 있습니다.
+                  </li>
+                  <li class="typeMd">
+                    실적충족여부와 관계없이 연체 시 부수거래우대 금리 적용 제외될 수 있습니다.
+                  </li>
+                  <li class="typeMd">
+                    회원수협의 부수거래 실적은 제외합니다.
+                  </li>
+                </ul>
               </div>
             </div>
+            <!--//[dev]:20260901 이용안내추가-->
           </div>
         </div>
-        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
       </div>
-      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+      <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
     </div>
-    <script src="/static/js/ui/cib_ui_common.js"></script>
-  </body>
+    <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+  </div>
+  <script src="/static/js/ui/cib_ui_common.js"></script>
+</body>
+
 </html>
 <script></script>
