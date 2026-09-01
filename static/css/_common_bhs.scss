@@ -1350,6 +1350,7 @@ table {
 			display: inline-flex;
 			align-items: center;
 		}
+
 		.ico {
 			vertical-align: sub;
 			margin: 0 var(--spacingXs);
@@ -1371,6 +1372,21 @@ table {
 
 	.right-area {
 		margin-left: auto;
+
+		.required {
+
+			// .required 요소 바로 앞에 * 추가
+			&::before {
+				content: "*";
+				color: var(--colorFgError);
+				margin-right: 2px; // *과 텍스트 사이 간격 (필요 시 조정)
+			}
+
+			&.typeMd {
+				color: var(--colorFgBase) !important;
+				margin-right: var(--spacingMd);
+			}
+		}
 	}
 
 	.typeH4 {
