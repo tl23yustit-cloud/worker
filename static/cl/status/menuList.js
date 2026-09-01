@@ -139,7 +139,7 @@ module.exports = {
     // 💡 대출 (lon)
     "CIBLON010101000M": { title: "대출보유계좌조회_정상계좌조회", status: "검수중", worker: "변혜선", note: "" },
     "CIBLON010102000M": { title: "대출보유계좌조회_해지계좌조회", status: "검수중", worker: "변혜선", note: "" },
-    "CIBLON010601000M": { title: "우대금리 실적조회_조회", status: "검수중", worker: "변혜선", note: "" },
+    "CIBLON010601000M": { title: "우대금리 실적조회_조회", status: "검수중", worker: "변혜선", note: "주석-[dev]:20260901 확인" },
     "CIBLON010602000M": { title: "우대금리 실적조회_조회결과", status: "검수중", worker: "변혜선", note: "" },
     "CIBLON010603000p": { title: "평균 잔액 조회하기", status: "검수중", worker: "변혜선", note: "" },
     "CIBLON010604000p": { title: "부수거래 실적 안내", status: "검수중", worker: "변혜선", note: "" },
