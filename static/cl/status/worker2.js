@@ -29,7 +29,7 @@ module.exports = {
       
       "CIBB2B040101000P": { title: "[팝업]목록", status: "검수중", worker: "이상우", note: "" },
       "CIBB2B040102000P": { title: "[팝업]추가등록", status: "검수중", worker: "이상우", note: "" },
-      "CIBB2B040103000P": { title: "추가, 삭제 완료", status: "검수중", worker: "이상우", note: "" },
+      "CIBB2B040103000P": { title: "[팝업]추가, 삭제 완료", status: "검수중", worker: "이상우", note: "" },
       
 };
 
