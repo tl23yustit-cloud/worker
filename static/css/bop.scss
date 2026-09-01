@@ -276,7 +276,8 @@
     // }
 
     .right-area {
-        gap:var(--spacingSm);
+        gap: var(--spacingSm);
+
         .required {
 
             // .required 요소 바로 앞에 * 추가
@@ -385,8 +386,164 @@
         }
     }
 
+    .card-list {
+        display: flex;
+        gap: 12px;
+        width: 100%;
+        margin-top: 12px;
+
+        .card-item {
+            display: flex;
+            flex: 1 1 0;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            gap: 18px;
+            min-width: 0;
+            border: 1px solid var(--colorBorderSecondary);
+            border-radius: var(--radiusXl);
+            padding: 32px 0;
+
+            .card-item-text {
+                display: flex;
+                flex-direction: column;
+                gap: 4px;
+                .typeMd{
+                    color:var(--colorFgSecondary);
+                }
+            }
+        }
+    }
+
+    .procedure-box {
+        margin-top: 12px;
+        padding: 64px 0 48px 0;
+        border: 1px solid var(--colorBorderSecondary);
+        border-radius: var(--radiusXl);
+        width: 100%;
+
+        .procedure-step-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            padding: 0 48px;
+            margin-top: 64px;
+
+            li {
+                font-size: var(--contentFontSizeLg);
+                font-weight: var(--fontWeightRegular);
+                line-height: var(--contentLineHeightLg);
+                display: flex;
+                align-items: flex-start;
+                gap: 12px;
+                min-height: 36px;
+
+                p {
+                    margin: 0;
+                    display: flex;
+                    flex-direction: column;
+                    line-height: 1.5;
+                }
+
+                .step-num {
+                    position: relative;
+                    width: 20px;
+                    height: 20px;
+                    min-width: 20px;
+                    font-size: 12px;
+                    font-weight: 700;
+                    border-radius: 100%;
+                    display: inline-flex;
+                    justify-content: center;
+                    align-items: center;
+                    background: var(--colorBgNeutral);
+                    color: var(--colorFgLightSolid);
+                    flex-shrink: 0;
+                    margin-top: 2px;
+                }
+            }
+
+        }
+
+
+        .procedure-img {
+            width: 100%;
+            height: 489px;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+        }
+
+
+    }
+
+
+    .edi-box,
+    .elc-box {
+        margin-bottom: 64px;
+
+        .bg-box {
+            border-radius: 16px;
+        }
+    }
+
     .bg-box {
+
+        .elc-wrapper,
+        .edi-wrapper,
+        .ptb-wrapper,
+        .export-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 56px 48px;
+            flex-direction: column;
+
+
+
+            .elc-image-area,
+            .edi-image-area,
+            .ptb-image-area ,
+            .export-image-area{
+                width: 180px;
+                height: 180px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-bottom: 24px;
+            }
+
+            .elc-image-area {
+                background: url("../images/bop/elc_image_x3.png") no-repeat center / contain;
+            }
+
+            .edi-image-area {
+                background: url("../images/bop/edi_image_x3.png") no-repeat center / contain;
+            }
+
+            .ptb-image-area {
+                background: url("../images/bop/ptb_image_x3.png") no-repeat center / contain;
+            }
+            .export-image-area {
+                background: url("../images/bop/export_image_x3.png") no-repeat center / contain;
+            }
+            .title {
+                font-size: var(--headingFontSizeH1);
+                font-weight: var(--fontWeightBold);
+                line-height: var(--headingLineHeightH1);
+                margin-bottom: 16px;
+                text-align: center;
+            }
+        }
+
+
         &.size-5xl4xl {
+
+
             position: relative;
             flex-direction: column;
             display: flex;
@@ -438,6 +595,7 @@
 
                     .p-wrap {
                         margin-top: 40px;
+
                         .typeMd {
                             margin-top: var(--spacingXs);
                             color: var(--colorFgSecondary);
