@@ -331,18 +331,36 @@ module.exports = {
     },
     "CIBFOE030200000M": {
         title: "해지예상조회",
-        status: "진행중",
+        status: "검수중",
         worker: "변혜선",
         note: ""
     },
     "CIBFOE040201000M": {
         title: "해외송금(기업송금)_이용안내",
+        status: "검수중",
+        worker: "변혜선",
+        note: ""
+    },
+    "CIBFOE040202000M": {
+        title: "해외송금(기업송금)__Step2. 영문고객정보",
         status: "진행중",
         worker: "변혜선",
         note: ""
     },
     "CIBFOE040203000M": {
         title: "해외송금(기업송금)_Step2. 약관동의",
+        status: "검수중",
+        worker: "변혜선",
+        note: ""
+    },
+    "CIBFOE040204000M": {
+        title: "해외송금(기업송금)_Step3. 송금정보입력",
+        status: "진행중",
+        worker: "변혜선",
+        note: ""
+    },
+    "CIBLGN000000000M": {
+        title: "기업뱅킹-사업자_공동인증서 로그인",
         status: "진행중",
         worker: "변혜선",
         note: ""
