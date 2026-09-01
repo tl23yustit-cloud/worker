@@ -218,7 +218,7 @@ module.exports = {
     "CIBFOE040102000M": { title: "무증빙해외송금_Step1.영문고객정보", status: "검수중", worker: "이상우", note: "주석확인-[dev]:20260831 디자인변경" },
     "CIBFOE040103001P": { title: "[팝업]외화거래이용약관", status: "검수중", worker: "이상우", note: "" },
     "CIBFOE040104001P": { title: "[팝업]송금안내", status: "검수중", worker: "이상우", note: "" },
-    "CIBFOE040104000M": { title: "무증빙해외송금_Step3.송금정보입력", status: "검수중", worker: "이상우", note: "" },
+    "CIBFOE040104000M": { title: "무증빙해외송금_Step3.송금정보입력", status: "검수중", worker: "이상우", note: "주석확인-[dev]:20260901 디자인변경" },
     "CIBFOE040105000M": { title: "무증빙해외송금_Step4.송금정보확인", status: "검수중", worker: "이상우", note: "" },
     "CIBFOE040106000M": { title: "무증빙해외송금_Step5.송금완료", status: "검수중", worker: "이상우", note: "" },
     "CIBFOE100100000M": { title: "외화수표조회_목록", status: "검수중", worker: "이상우", note: "" },
