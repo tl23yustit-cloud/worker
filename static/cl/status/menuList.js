@@ -263,7 +263,7 @@ module.exports = {
     "CIBTRN010105000M": { title: "완료-단건(없음)", status: "검수중", worker: "이상우", note: "진행사항 4->3 변경" },
     "CIBTRN010401000M": { title: "정보입력(임시)", status: "검수중", worker: "이상우", note: "08/12 컨텐츠 추가 (잔여한도)" },
     "CIBTRN010402000M": { title: "정보확인(임시)", status: "검수중", worker: "이상우", note: "" },
-    "CIBTRN010403000M": { title: "완료(임시)", status: "검수중", worker: "이상우", note: "" },
+    "CIBTRN010403000M": { title: "완료(임시)", status: "검수중", worker: "이상우", note: "09/01 col width 값 추가<br/>09/01 type-reference 클래스 변경" },
     "CIBTRN010107000P": { title: "[팝업]계좌선택(없음)", status: "검수중", worker: "이상우", note: "" },
     "CIBTRN010108000P": { title: "[팝업]은행선택(없음)", status: "검수중", worker: "이상우", note: "" },
     "CIBTRN010110000P": { title: "[팝업]장애은행조회(없음)", status: "검수중", worker: "이상우", note: "" },
