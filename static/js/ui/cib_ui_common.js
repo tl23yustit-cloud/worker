@@ -777,14 +777,14 @@ function initPaginationButtonState(context = document) {
 }
 
 // 통화 포맷
-function initCurrencyFormat(context = document) {
-	context.querySelectorAll('table td .typeMd').forEach((el) => {
-		if (!el.dataset.formatted) {
-			el.innerHTML = el.innerHTML.replace(/원/g, ' 원');
-			el.dataset.formatted = 'true';
-		}
-	});
-}
+// function initCurrencyFormat(context = document) {
+// 	context.querySelectorAll('table td .typeMd').forEach((el) => {
+// 		if (!el.dataset.formatted) {
+// 			el.innerHTML = el.innerHTML.replace(/원/g, ' 원');
+// 			el.dataset.formatted = 'true';
+// 		}
+// 	});
+// }
 
 // 말풍선 프로그래스
 function initRateRange(context = document) {
