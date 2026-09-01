@@ -343,7 +343,7 @@ module.exports = {
     },
     "CIBFOE040202000M": {
         title: "해외송금(기업송금)__Step2. 영문고객정보",
-        status: "진행중",
+        status: "검수중",
         worker: "변혜선",
         note: ""
     },
@@ -355,7 +355,25 @@ module.exports = {
     },
     "CIBFOE040204000M": {
         title: "해외송금(기업송금)_Step3. 송금정보입력",
+        status: "검수중",
+        worker: "변혜선",
+        note: ""
+    },
+    "CIBFOE040205000M": {
+        title: "해외송금(기업송금)_Step4. 송금정보확인",
         status: "진행중",
+        worker: "변혜선",
+        note: ""
+    },
+    "CIBFOE040204001P": {
+        title: "[팝업]무역송금유의사항",
+        status: "진행중",
+        worker: "변혜선",
+        note: ""
+    },
+    "CIBFOE040204002P": {
+        title: "[팝업]수수료안내",
+        status: "검수중",
         worker: "변혜선",
         note: ""
     },
