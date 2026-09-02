@@ -106,7 +106,7 @@
                 </div>
               </div>
               <table class="table-type03">
-                <caption>일자, 입금계좌(타행계좌), 입금, 출금, 잔액, 입출금은행, 대출이자, 회차/방법, 한도미사용수수료에 대한 구성 테이블입니다.</caption>
+                <caption>통화코드, 기준환율, 전신환율(사실때, 파실때), 현찰(사실때, 파실때), 외화수표 파실때에 대한 환율 정보 목록 테이블입니다.</caption>
                 <colgroup>
                   <col>
                   <col>
@@ -118,22 +118,23 @@
                 </colgroup>
                 <thead>
                   <tr>
-                    <th rowspan="2">통화코드</th>
-                    <th rowspan="2">기준환율</th>
-                    <th colspan="2">전신환율</th>
-                    <th colspan="2">현찰</th>
-                    <th rowspan="2">외화수표<br>파실때</th>
+                    <th rowspan="2" id="th-code">통화코드</th>
+                    <th rowspan="2" id="th-baseRate">기준환율</th>
+                    <th colspan="2" id="th-tt">전신환율</th>
+                    <th colspan="2" id="th-cash">현찰</th>
+                    <th rowspan="2" id="th-tcSell">외화수표<br>파실때</th>
                   </tr>
                   <tr>
-                    <th>사실때</th>
-                    <th>파실때</th>
-                    <th>사실때</th>
-                    <th>파실때</th>
+                    <th id="th-ttBuy">사실때</th>
+                    <th id="th-ttSell">파실때</th>
+                    <th id="th-cashBuy">사실때</th>
+                    <th id="th-cashSell">파실때</th>
                   </tr>
                 </thead>
                 <tbody>
+                  <!-- USD -->
                   <tr>
-                    <td rowspan="2" class="td-ico">
+                    <td rowspan="2" class="td-ico" headers="th-code">
                       <div>
                         <!--[dev]:20260902아이콘변경이 될 수 있음-->
                         <span class="typeMd"><i class="currency-102 circle ico-size-sm"
@@ -141,23 +142,23 @@
                         <!--//[dev]:20260902아이콘변경이 될 수 있음-->
                       </div>
                     </td>
-                    <td rowspan="2" class="text-right"><span class="typeMd">1,135.50</span></td>
-                    <td class="text-right"><span class="typeMd">1,135.50</span></td>
-                    <td class="text-right"><span class="typeMd">1,135.50</span></td>
-                    <td class="text-right"><span class="typeMd">1,135.50</span></td>
-                    <td class="text-right"><span class="typeMd">1,135.50</span></td>
-                    <td rowspan="2" class="text-right"><span class="typeMd">1,135.50</span></td>
-
-
+                    <td rowspan="2" class="text-right" headers="th-baseRate"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right" headers="th-tt th-ttBuy"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right" headers="th-tt th-ttSell"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right" headers="th-cash th-cashBuy"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right" headers="th-cash th-cashSell"><span class="typeMd">1,135.50</span></td>
+                    <td rowspan="2" class="text-right" headers="th-tcSell"><span class="typeMd">1,135.50</span></td>
                   </tr>
                   <tr>
-                    <td class="text-right"><span class="typeMd">1,135.50</span></td>
-                    <td class="text-right"><span class="typeMd">1,135.50</span></td>
-                    <td class="text-right"><span class="typeMd">1,135.50</span></td>
-                    <td class="text-right"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right" headers="th-tt th-ttBuy"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right" headers="th-tt th-ttSell"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right" headers="th-cash th-cashBuy"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right" headers="th-cash th-cashSell"><span class="typeMd">1,135.50</span></td>
                   </tr>
+
+                  <!-- JPY -->
                   <tr>
-                    <td rowspan="2" class="td-ico">
+                    <td rowspan="2" class="td-ico" headers="th-code">
                       <div>
                         <span class="typeMd">
                           <!--[dev]:20260902아이콘변경이 될 수 있음-->
@@ -165,21 +166,23 @@
                         <!--//[dev]:20260902아이콘변경이 될 수 있음-->
                       </div>
                     </td>
-                    <td rowspan="2" class="text-right"><span class="typeMd">1,135.50</span></td>
-                    <td class="text-right"><span class="typeMd">1,135.50</span></td>
-                    <td class="text-right"><span class="typeMd">1,135.50</span></td>
-                    <td class="text-right"><span class="typeMd">1,135.50</span></td>
-                    <td class="text-right"><span class="typeMd">1,135.50</span></td>
-                    <td rowspan="2" class="text-right"><span class="typeMd">1,135.50</span></td>
+                    <td rowspan="2" class="text-right" headers="th-baseRate"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right" headers="th-tt th-ttBuy"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right" headers="th-tt th-ttSell"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right" headers="th-cash th-cashBuy"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right" headers="th-cash th-cashSell"><span class="typeMd">1,135.50</span></td>
+                    <td rowspan="2" class="text-right" headers="th-tcSell"><span class="typeMd">1,135.50</span></td>
                   </tr>
                   <tr>
-                    <td class="text-right"><span class="typeMd">1,135.50</span></td>
-                    <td class="text-right"><span class="typeMd">1,135.50</span></td>
-                    <td class="text-right"><span class="typeMd">1,135.50</span></td>
-                    <td class="text-right"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right" headers="th-tt th-ttBuy"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right" headers="th-tt th-ttSell"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right" headers="th-cash th-cashBuy"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right" headers="th-cash th-cashSell"><span class="typeMd">1,135.50</span></td>
                   </tr>
+
+                  <!-- CNY -->
                   <tr>
-                    <td rowspan="2" class="td-ico">
+                    <td rowspan="2" class="td-ico" headers="th-code">
                       <div>
                         <span class="typeMd">
                           <!--[dev]:20260902아이콘변경이 될 수 있음-->
@@ -187,18 +190,18 @@
                         <!--//[dev]:20260902아이콘변경이 될 수 있음-->
                       </div>
                     </td>
-                    <td rowspan="2" class="text-right"><span class="typeMd">1,135.50</span></td>
-                    <td class="text-right"><span class="typeMd">1,135.50</span></td>
-                    <td class="text-right"><span class="typeMd">1,135.50</span></td>
-                    <td class="text-right"><span class="typeMd">1,135.50</span></td>
-                    <td class="text-right"><span class="typeMd">1,135.50</span></td>
-                    <td rowspan="2" class="text-right"><span class="typeMd">1,135.50</span></td>
+                    <td rowspan="2" class="text-right" headers="th-baseRate"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right" headers="th-tt th-ttBuy"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right" headers="th-tt th-ttSell"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right" headers="th-cash th-cashBuy"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right" headers="th-cash th-cashSell"><span class="typeMd">1,135.50</span></td>
+                    <td rowspan="2" class="text-right" headers="th-tcSell"><span class="typeMd">1,135.50</span></td>
                   </tr>
                   <tr>
-                    <td class="text-right"><span class="typeMd">1,135.50</span></td>
-                    <td class="text-right"><span class="typeMd">1,135.50</span></td>
-                    <td class="text-right"><span class="typeMd">1,135.50</span></td>
-                    <td class="text-right"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right" headers="th-tt th-ttBuy"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right" headers="th-tt th-ttSell"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right" headers="th-cash th-cashBuy"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right" headers="th-cash th-cashSell"><span class="typeMd">1,135.50</span></td>
                   </tr>
                 </tbody>
               </table>
