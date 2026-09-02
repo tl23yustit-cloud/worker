@@ -192,7 +192,7 @@ module.exports = {
     "prdListFormV": { title: "", status: "수정중", worker: "윤재선", note: "" },
 
     // 💡 신탁 (fin_tpr)
-    "CIBFIN_TPR020000000M": { title: "특정금전신탁", status: "검수중", worker: "변혜선", note: "" },
+    "CIBFIN_TPR020000000M": { title: "특정금전신탁", status: "검수중", worker: "변혜선", note: "주석확인-[dev]:20260902 디자인변경" },
     "CIBFIN_TPR030100000T": { title: "상품성 신탁 운용방법 및 보수율 현황_기준년월2026년 3월", status: "완료", worker: "변혜선", note: "주석확인, 20260826 화면id수정" },
     "CIBFIN_TPR040100000T": { title: "기준가/수익률조회_신탁기준가격", status: "검수중", worker: "변혜선", note: "" },
     "CIBFIN_TPR040101000P": { title: "기준가/수익률조회_신탁기준가격_[팝업]기준가변동추이표", status: "검수중", worker: "변혜선", note: "" },
