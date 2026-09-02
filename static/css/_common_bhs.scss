@@ -746,6 +746,31 @@ $securities: (
 	"292",
 	"294"
 );
+$currency: (
+	"101",
+	"102",
+	"103",
+	"104",
+	"105",
+	"106",
+	"107",
+	"108",
+	"109",
+	"110",
+	"111",
+	"112",
+	"113",
+	"114",
+	"115",
+	"116",
+	"117",
+	"118",
+	"119",
+	"120",
+	"121",
+	"122",
+	"123",
+);
 
 @mixin financial-icon($folder, $name, $shape, $codes) {
 	@each $code in $codes {
@@ -765,6 +790,9 @@ $securities: (
 
 @include financial-icon("securities", "securities", "circle", $securities);
 @include financial-icon("securities", "securities", "square", $securities);
+
+@include financial-icon("currency", "currency", "circle", $currency);
+@include financial-icon("currency", "currency", "square", $currency);
 
 // @each $bank in $bank-list {
 // 	.bank-#{$bank} {
@@ -1345,13 +1373,15 @@ table {
 }
 
 table {
-	.th-ico, .td-ico {
+
+	.th-ico,
+	.td-ico {
 		div {
 			display: inline-flex;
 			align-items: center;
 		}
 
-		.ico {
+		i {
 			vertical-align: sub;
 			margin: 0 var(--spacingXs);
 		}
