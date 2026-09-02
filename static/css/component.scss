@@ -805,6 +805,29 @@
 		line-height: var(--contentLineHeightSm);
 	}
 
+	&.finger {
+		position: relative;
+		padding: 0 var(--spacingXl) !important;
+
+		&::after {
+			content: "";
+			position: absolute;
+			right: -8px;
+			top: 75%;
+			transform: translateY(-50%);
+			width: 31px;
+			height: 24px;
+			background: url("../images/common/finger_image_x3.png") no-repeat center / contain;
+			pointer-events: none;
+			z-index: 1;
+		}
+
+		.text {
+			position: relative;
+			z-index: 2;
+		}
+	}
+
 	/* Anchor */
 	&-anchor {
 		padding: 0 var(--spacingLg);
@@ -4994,7 +5017,7 @@ body.is-scroll-locked {
 table {
 	td {
 		.list {
-			&.type-star {	
+			&.type-star {
 				ul {
 					li {
 						+li {
@@ -5003,7 +5026,8 @@ table {
 					}
 				}
 			}
-			&.type-reference {		
+
+			&.type-reference {
 				ul {
 					li {
 						+li {
