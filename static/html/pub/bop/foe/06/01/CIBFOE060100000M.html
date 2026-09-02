@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>수협은행</title>
+  <link rel="stylesheet" href="/static/css/reset.css" />
+  <link rel="stylesheet" href="/static/css/layout.css" />
+  <link rel="stylesheet" href="/static/css/component.css" />
+  <link rel="stylesheet" href="/static/css/common.css" />
+  <link rel="stylesheet" href="/static/css/bop.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <div id="header">
+      @@include('static/html/pub/layout/skipNavigation.html')
+      @@include('static/html/pub/layout/header_sub.html')
+    </div>
+
+    <div id="container" class="container">
+      <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+      <div id="contents">
+        <div class="content">
+          @@include('static/html/pub/layout/breadcrumb.html')
+          <div class="bop">
+            <h2 class="typeH2">
+              현재환율
+            </h2>
+            <div class="tbl-area">
+              <table class="table-type01">
+                <caption>
+                  조회기간으로 구분된 해외송금내역조회 조회 테이블
+                </caption>
+                <colgroup>
+                  <col width="180px">
+                  <col width="300px">
+                  <col width="180px">
+                  <col width="300px">
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th scope="row">지정일자</th>
+                    <td colspan="3">
+                      <div class="tbl-column">
+                        <div class="calendar-wrap">
+                          <div class="input-box">
+                            <input type="text" class="input" placeholder="지정일" aria-label="지정일" value="2026-01-06" />
+                            <button type="button" class="btn">
+                              <i class="ico-calendar ico-size-smMd" aria-hidden="true"></i>
+                              <span class="blind">지정일 달력 열기</span>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">회차</th>
+                    <td>
+                      <div class="box-select wSize-md">
+                        <button type="button" class="select size-lg" role="combobox" aria-expanded="false"
+                          aria-haspopup="listbox" aria-controls="selectDropdown01" aria-required="true">
+                          <span class="text">회차를 선택하세요</span>
+                          <span class="blind">펼침</span>
+                        </button>
+                        <div id="selectDropdown01" class="box-list-select">
+                          <ul class="list-select" role="listbox" aria-label="선택 항목 리스트">
+                            <li class="item-select" role="group" aria-selected="true">
+                              <button class="btn-item-select"> 1</button>
+                            </li>
+                            <li class="item-select" role="group" aria-selected="false">
+                              <button class="btn-item-select">1</button>
+                            </li>
+                            <li class="item-select" role="group" aria-selected="false">
+                              <button class="btn-item-select">1</button>
+                            </li>
+                            <li class="item-select" role="group" aria-selected="false">
+                              <button class="btn-item-select">1</button>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </td>
+                    <th scope="row">최종회차</th>
+                    <td>000 회차</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="list type-reference mt-6">
+              <ul>
+                <li class="typeMd">조회일이 1/1, 토/일인 경우 전 일자로 조회됩니다.</li>
+              </ul>
+            </div>
+            <div class="btn-wrap center sm-mid">
+              <button type="button" class="btn type-bg-neutral size-xl">
+                <span class="text">조회</span>
+              </button>
+            </div>
+            <div class="tbl-area">
+              <div class="tbl-head">
+                <div class="right-area flex items-center gap-4">
+                  <span class="color-fg-secondary typeMd">조회기준일(회차) : <span>YYYY-MM-DD (000 회차)</span></span>
+                </div>
+              </div>
+              <table class="table-type03">
+                <caption>일자, 입금계좌(타행계좌), 입금, 출금, 잔액, 입출금은행, 대출이자, 회차/방법, 한도미사용수수료에 대한 구성 테이블입니다.</caption>
+                <colgroup>
+                  <col>
+                  <col>
+                  <col>
+                  <col>
+                  <col>
+                  <col>
+                  <col>
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th rowspan="2">통화코드</th>
+                    <th rowspan="2">기준환율</th>
+                    <th colspan="2">전신환율</th>
+                    <th colspan="2">현찰</th>
+                    <th rowspan="2">외화수표<br>파실때</th>
+                  </tr>
+                  <tr>
+                    <th>사실때</th>
+                    <th>파실때</th>
+                    <th>사실때</th>
+                    <th>파실때</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td rowspan="2" class="td-ico">
+                      <div>
+                        <span class="typeMd"><i class="ico etc ico-size-sm ico-usd"
+                            aria-hidden="true"></i>USD</span>
+                      </div>
+                    </td>
+                    <td rowspan="2" class="text-right"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right"><span class="typeMd">1,135.50</span></td>
+                    <td rowspan="2" class="text-right"><span class="typeMd">1,135.50</span></td>
+                  </tr>
+                  <tr>
+                    <td class="text-right"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right"><span class="typeMd">1,135.50</span></td>
+                  </tr>
+                  <tr>
+                    <td rowspan="2" class="td-ico">
+                      <div>
+                        <span class="typeMd"><i class="ico etc ico-size-sm ico-jpy"
+                            aria-hidden="true"></i>USD</span>
+                      </div>
+                    </td>
+                    <td rowspan="2" class="text-right"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right"><span class="typeMd">1,135.50</span></td>
+                    <td rowspan="2" class="text-right"><span class="typeMd">1,135.50</span></td>
+                  </tr>
+                  <tr>
+                    <td class="text-right"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right"><span class="typeMd">1,135.50</span></td>
+                  </tr>
+                  <tr>
+                    <td rowspan="2" class="td-ico">
+                      <div>
+                        <span class="typeMd"><i class="ico etc ico-size-sm ico-cny"
+                            aria-hidden="true"></i>USD</span>
+                      </div>
+                    </td>
+                    <td rowspan="2" class="text-right"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right"><span class="typeMd">1,135.50</span></td>
+                    <td rowspan="2" class="text-right"><span class="typeMd">1,135.50</span></td>
+                  </tr>
+                  <tr>
+                    <td class="text-right"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right"><span class="typeMd">1,135.50</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <nav class="pagination size-md" aria-label="페이지네이션">
+              <button type="button" class="btn-nav first" disabled="" aria-disabled="true" aria-label="첫 페이지">
+                <span class="blind">첫 페이지</span>
+              </button>
+              <button type="button" class="btn-nav prev" disabled="" aria-disabled="true" aria-label="이전 페이지">
+                <span class="blind">이전 페이지</span>
+              </button>
+
+              <ol class="list-pagination">
+                <li>
+                  <button type="button" class="btn-page active" aria-current="page" aria-label="1페이지">
+                    1
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="btn-page" aria-label="2페이지">
+                    2
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="btn-page" aria-label="3페이지">
+                    3
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="btn-page" aria-label="4페이지">
+                    4
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="btn-page" aria-label="5페이지">
+                    5
+                  </button>
+                </li>
+              </ol>
+
+              <button type="button" class="btn-nav next" aria-label="다음 페이지">
+                <span class="blind">다음 페이지</span>
+              </button>
+              <button type="button" class="btn-nav last" aria-label="마지막 페이지">
+                <span class="blind">마지막 페이지</span>
+              </button>
+            </nav>
+          </div>
+        </div>
+      </div>
+      <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+    </div>
+
+    <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+  </div>
+  <script src="/static/js/ui/cib_ui_common.js"></script>
+</body>
+
+</html>

@@ -383,6 +383,12 @@ module.exports = {
         worker: "변혜선",
         note: ""
     },
+    "CIBFOE060100000M": {
+        title: "현재환율",
+        status: "진행중",
+        worker: "변혜선",
+        note: ""
+    },
     "CIBLGN000000000M": {
         title: "기업뱅킹-사업자_공동인증서 로그인",
         status: "진행중",
