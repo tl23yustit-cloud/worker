@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/dob.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">
+        @@include('static/html/pub/layout/skipNavigation.html')
+        @@include('static/html/pub/layout/header_sub.html')
+      </div>
+
+      <div id="container" class="container">
+        <div id="leftArea">
+          @@include('static/html/pub/layout/leftArea.html')
+        </div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="dob">
+              <h2 class="typeH2">
+                발급 신청
+                <div class="box-steps">
+                  <ol class="list-steps">
+                    <li class="item-steps passed">
+                      <span class="blind">1</span>
+                      <i class="icon" aria-hidden="true">1</i>
+                      <span class="text">1</span>
+                    </li>
+                    <li class="item-steps current" aria-current="step">
+                      <span class="blind">증명서 발급계좌 선택</span>
+                      <i class="icon" aria-hidden="true">2</i>
+                      <span class="text">증명서 발급계좌 선택</span>
+                    </li>
+                    <li class="item-steps">
+                      <i class="icon" aria-hidden="true">3</i>
+                      <span class="text">3</span>
+                    </li>
+                    <li class="item-steps">
+                      <i class="icon" aria-hidden="true">4</i>
+                      <span class="text">4</span>
+                    </li>
+                    <li class="item-steps">
+                      <i class="icon" aria-hidden="true">5</i>
+                      <span class="text">5</span>
+                    </li>
+                  </ol>
+                </div>
+              </h2>
+              <div class="tbl-area">
+                <h4 class="typeH4">증명서 발급계좌 선택</h4>
+                <table class="table-type03">
+                  <caption>
+                    No, 예금명, 통화코드, 계좌번호, 평가금액, 비고 정보가 포함된
+                    증명서 발급계좌 선택 표
+                  </caption>
+                  <colgroup>
+                    <col style="width: 80px" />
+                    <col style="width: 80px" />
+                    <col style="width: 260px" />
+                    <col style="width: 95px" />
+                    <col style="width: 306px" />
+                    <col style="width: 140px" />
+                    <col style="width: 95px" />
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th scope="col">
+                        <span class="blind">선택</span>
+                      </th>
+                      <th scope="col">No.</th>
+                      <th scope="col">예금명</th>
+                      <th scope="col">통화코드</th>
+                      <th scope="col">계좌번호</th>
+                      <th scope="col">평가금액</th>
+                      <th scope="col">비고</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <span class="form-box">
+                          <input
+                            type="checkbox"
+                            name="accountSelect"
+                            id="account_01"
+                            class="form-checkbox size-md"
+                            checked
+                          />
+                          <label for="account_01" class="blind"
+                            >1번 계좌 선택</label
+                          >
+                        </span>
+                      </td>
+                      <td>
+                        <span class="typeMd">1</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">기업자유</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">KRW</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">1234-56**-****-3456</span>
+                      </td>
+                      <td class="text-right">
+                        <span class="typeMd" data-formatted="true"
+                          >100,000,000</span
+                        >
+                      </td>
+                      <td>
+                        <span class="typeMd">-</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span class="form-box">
+                          <input
+                            type="checkbox"
+                            name="accountSelect"
+                            id="account_02"
+                            class="form-checkbox size-md"
+                          />
+                          <label for="account_02" class="blind"
+                            >2번 계좌 선택</label
+                          >
+                        </span>
+                      </td>
+                      <td>
+                        <span class="typeMd">2</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">기업예금</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">KRW</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">1234-56**-****-3456</span>
+                      </td>
+                      <td class="text-right">
+                        <span class="typeMd" data-formatted="true">-</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">-</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span class="form-box">
+                          <input
+                            type="checkbox"
+                            name="accountSelect"
+                            id="account_03"
+                            class="form-checkbox size-md"
+                          />
+                          <label for="account_03" class="blind"
+                            >3번 계좌 선택</label
+                          >
+                        </span>
+                      </td>
+                      <td>
+                        <span class="typeMd">3</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">외화 기업예금</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">EUR</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">1234-56**-****-3456</span>
+                      </td>
+                      <td class="text-right">
+                        <span class="typeMd" data-formatted="true">-</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">-</span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <p class="typeMd color-fg-secondary mt-12">
+                  ※ 보유하신 입출금 계좌 중 증명서/확인증 발급받을 계좌를 최대
+                  20개까지 선택할 수 있습니다.
+                </p>
+              </div>
+              <h4 class="typeH4 mt-48 mb-12">해지계좌</h4>
+              <div class="box-accordion line is-open">
+                <div class="box-item-list">
+                  <div class="box-title">
+                    <span class="title-text typeLgMedium"
+                      >해지계좌번호 입력</span
+                    >
+                  </div>
+                  <button
+                    type="button"
+                    class="btn-accordion"
+                    aria-expanded="false"
+                    aria-controls="accordionContent01"
+                  >
+                    <i class="ico-arrow" aria-hidden="true"></i>
+                    <span class="blind">상세내용 열기</span>
+                  </button>
+                </div>
+                <div id="accordionContent01" class="content-accordion">
+                  <div class="input-wrapper">
+                    <div class="w-392">
+                      <input
+                        type="text"
+                        class="input size-lg"
+                        placeholder="- 없이 입력"
+                        title=""
+                      />
+                    </div>
+                    <button
+                      type="button"
+                      class="btn type-line-secondary size-lg"
+                    >
+                      <span class="text">추가</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="list type-dotted mt-12">
+                <ul>
+                  <li class="typeMd">보유 계좌 조회 후 입력하시기 바랍니다.</li>
+                  <li class="typeMd">
+                    해지된 계좌는 직접 입력하신 후 선택하여 주시기 바랍니다.
+                  </li>
+                  <li class="typeMd">
+                    해지된 계좌는 해지일까지만 발급이 가능하므로,
+                    조회-해지계좌조회 메뉴에서 해지일자를 확인하시기 바랍니다.
+                  </li>
+                </ul>
+              </div>
+              <!-- 하단 확인 버튼 영역 -->
+              <div class="btn-wrap center lg-bot">
+                <button type="button" class="btn type-bg-primary-tint size-xxl">
+                  <span class="text">이전</span>
+                </button>
+                <button type="button" class="btn type-bg-primary size-xxl">
+                  <span class="text">다음</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
+</html>
