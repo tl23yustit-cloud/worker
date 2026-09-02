@@ -366,7 +366,7 @@ module.exports = {
         note: ""
     },
     "CIBFOE040206000M": {
-        title: "해외송금(기업송금)_Step4. 송금정보확인",
+        title: "해외송금(기업송금)_Step5. 송금등록완료",
         status: "진행중",
         worker: "변혜선",
         note: ""
