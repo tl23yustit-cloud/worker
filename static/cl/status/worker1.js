@@ -361,19 +361,19 @@ module.exports = {
     },
     "CIBFOE040205000M": {
         title: "해외송금(기업송금)_Step4. 송금정보확인",
-        status: "진행중",
+        status: "검수중",
         worker: "변혜선",
         note: ""
     },
     "CIBFOE040206000M": {
         title: "해외송금(기업송금)_Step5. 송금등록완료",
-        status: "진행중",
+        status: "검수중",
         worker: "변혜선",
         note: ""
     },
     "CIBFOE040204001P": {
         title: "[팝업]무역송금유의사항",
-        status: "진행중",
+        status: "검수중",
         worker: "변혜선",
         note: ""
     },
@@ -385,25 +385,25 @@ module.exports = {
     },
     "CIBFOE060100000M": {
         title: "현재환율",
-        status: "진행중",
+        status: "검수중",
         worker: "변혜선",
         note: "주석확인-[dev]:20260902아이콘변경이 될 수 있음"
     },
     "CIBLGN000000000M": {
         title: "기업뱅킹-사업자_공동인증서 로그인",
-        status: "진행중",
+        status: "검수중",
         worker: "변혜선",
         note: ""
     },
     "CIBLON010701000M": {
         title: "개인채무자보호법통지 조회_조회",
-        status: "진행중",
+        status: "검수중",
         worker: "변혜선",
         note: ""
     },
     "CIBLON010702000p": {
         title: "개인채무자보호법통지 조회_기한의이익상실예정통지",
-        status: "진행중",
+        status: "검수중",
         worker: "변혜선",
         note: ""
     },
