@@ -42,7 +42,7 @@ module.exports = {
       "CIBDOB040102000M": { title: "증명서 발급계좌 선택", status: "검수중", worker: "이상우", note: "" },
 
       "CIBDOB040103000M": { title: "신청정보확인", status: "검수중", worker: "이상우", note: "" },
-      "CIBDOB040103000P": { title: "신청정보확인(팝업)", status: "작업중", worker: "이상우", note: "" },
+      "CIBDOB040103000P": { title: "신청정보확인(팝업)", status: "검수중", worker: "이상우", note: "" },
 
       "CIBDOB040701000M": { title: "잔액잔고증명서_발급정보 입력", status: "검수중", worker: "이상우", note: "" },
 
