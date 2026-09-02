@@ -78,7 +78,7 @@ module.exports = {
     "CIBCRD060602000M": { title: "SMS알림서비스 신청(완료)", status: "검수중", worker: "변혜선", note: "" },
     "CIBCRD060603000M": { title: "SMS알림서비스 해지", status: "검수중", worker: "변혜선", note: "" },
     "CIBCRD060604000M": { title: "SMS알림서비스 해지(완료)", status: "검수중", worker: "변혜선", note: "" },
-    "CIBCRD060605000M": { title: "SMS알림서비스 변경", status: "검수중", worker: "변혜선", note: "" },
+    "CIBCRD060605000M": { title: "SMS알림서비스 변경", status: "검수중", worker: "변혜선", note: "주석확인-[dev]:20260902 디자인변경" },
     "CIBCRD060606000M": { title: "SMS알림서비스 변경(완료)", status: "검수중", worker: "변혜선", note: "" },
 
     // 💡 뱅킹업무(bop) > 카드(crd)
