@@ -387,7 +387,7 @@ module.exports = {
         title: "현재환율",
         status: "진행중",
         worker: "변혜선",
-        note: ""
+        note: "주석확인-[dev]:20260902아이콘변경이 될 수 있음"
     },
     "CIBLGN000000000M": {
         title: "기업뱅킹-사업자_공동인증서 로그인",

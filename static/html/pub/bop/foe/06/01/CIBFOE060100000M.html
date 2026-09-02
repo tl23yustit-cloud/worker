@@ -89,7 +89,7 @@
                 </tbody>
               </table>
             </div>
-            <div class="list type-reference mt-6">
+            <div class="list type-reference mt-12">
               <ul>
                 <li class="typeMd">조회일이 1/1, 토/일인 경우 전 일자로 조회됩니다.</li>
               </ul>
@@ -106,7 +106,7 @@
                 </div>
               </div>
               <table class="table-type03">
-                <caption>일자, 입금계좌(타행계좌), 입금, 출금, 잔액, 입출금은행, 대출이자, 회차/방법, 한도미사용수수료에 대한 구성 테이블입니다.</caption>
+                <caption>통화코드, 기준환율, 전신환율(사실때, 파실때), 현찰(사실때, 파실때), 외화수표 파실때에 대한 환율 정보 목록 테이블입니다.</caption>
                 <colgroup>
                   <col>
                   <col>
@@ -118,126 +118,104 @@
                 </colgroup>
                 <thead>
                   <tr>
-                    <th rowspan="2">통화코드</th>
-                    <th rowspan="2">기준환율</th>
-                    <th colspan="2">전신환율</th>
-                    <th colspan="2">현찰</th>
-                    <th rowspan="2">외화수표<br>파실때</th>
+                    <th rowspan="2" id="th-code">통화코드</th>
+                    <th rowspan="2" id="th-baseRate">기준환율</th>
+                    <th colspan="2" id="th-tt">전신환율</th>
+                    <th colspan="2" id="th-cash">현찰</th>
+                    <th rowspan="2" id="th-tcSell">외화수표<br>파실때</th>
                   </tr>
                   <tr>
-                    <th>사실때</th>
-                    <th>파실때</th>
-                    <th>사실때</th>
-                    <th>파실때</th>
+                    <th id="th-ttBuy">사실때</th>
+                    <th id="th-ttSell">파실때</th>
+                    <th id="th-cashBuy">사실때</th>
+                    <th id="th-cashSell">파실때</th>
                   </tr>
                 </thead>
                 <tbody>
+                  <!-- USD -->
                   <tr>
-                    <td rowspan="2" class="td-ico">
+                    <td rowspan="2" class="td-ico" headers="th-code">
                       <div>
-                        <span class="typeMd"><i class="ico etc ico-size-sm ico-usd"
+                        <!--[dev]:20260902아이콘변경이 될 수 있음-->
+                        <span class="typeMd"><i class="currency-102 circle ico-size-sm"
                             aria-hidden="true"></i>USD</span>
+                        <!--//[dev]:20260902아이콘변경이 될 수 있음-->
                       </div>
                     </td>
-                    <td rowspan="2" class="text-right"><span class="typeMd">1,135.50</span></td>
-                    <td class="text-right"><span class="typeMd">1,135.50</span></td>
-                    <td class="text-right"><span class="typeMd">1,135.50</span></td>
-                    <td class="text-right"><span class="typeMd">1,135.50</span></td>
-                    <td class="text-right"><span class="typeMd">1,135.50</span></td>
-                    <td rowspan="2" class="text-right"><span class="typeMd">1,135.50</span></td>
+                    <td rowspan="2" class="text-right" headers="th-baseRate"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right" headers="th-tt th-ttBuy"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right" headers="th-tt th-ttSell"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right" headers="th-cash th-cashBuy"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right" headers="th-cash th-cashSell"><span class="typeMd">1,135.50</span></td>
+                    <td rowspan="2" class="text-right" headers="th-tcSell"><span class="typeMd">1,135.50</span></td>
                   </tr>
                   <tr>
-                    <td class="text-right"><span class="typeMd">1,135.50</span></td>
-                    <td class="text-right"><span class="typeMd">1,135.50</span></td>
-                    <td class="text-right"><span class="typeMd">1,135.50</span></td>
-                    <td class="text-right"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right" headers="th-tt th-ttBuy"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right" headers="th-tt th-ttSell"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right" headers="th-cash th-cashBuy"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right" headers="th-cash th-cashSell"><span class="typeMd">1,135.50</span></td>
                   </tr>
+
+                  <!-- JPY -->
                   <tr>
-                    <td rowspan="2" class="td-ico">
+                    <td rowspan="2" class="td-ico" headers="th-code">
                       <div>
-                        <span class="typeMd"><i class="ico etc ico-size-sm ico-jpy"
-                            aria-hidden="true"></i>USD</span>
+                        <span class="typeMd">
+                          <!--[dev]:20260902아이콘변경이 될 수 있음-->
+                          <i class="currency-115 circle ico-size-sm" aria-hidden="true"></i>JPY(100엔)</span>
+                        <!--//[dev]:20260902아이콘변경이 될 수 있음-->
                       </div>
                     </td>
-                    <td rowspan="2" class="text-right"><span class="typeMd">1,135.50</span></td>
-                    <td class="text-right"><span class="typeMd">1,135.50</span></td>
-                    <td class="text-right"><span class="typeMd">1,135.50</span></td>
-                    <td class="text-right"><span class="typeMd">1,135.50</span></td>
-                    <td class="text-right"><span class="typeMd">1,135.50</span></td>
-                    <td rowspan="2" class="text-right"><span class="typeMd">1,135.50</span></td>
+                    <td rowspan="2" class="text-right" headers="th-baseRate"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right" headers="th-tt th-ttBuy"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right" headers="th-tt th-ttSell"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right" headers="th-cash th-cashBuy"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right" headers="th-cash th-cashSell"><span class="typeMd">1,135.50</span></td>
+                    <td rowspan="2" class="text-right" headers="th-tcSell"><span class="typeMd">1,135.50</span></td>
                   </tr>
                   <tr>
-                    <td class="text-right"><span class="typeMd">1,135.50</span></td>
-                    <td class="text-right"><span class="typeMd">1,135.50</span></td>
-                    <td class="text-right"><span class="typeMd">1,135.50</span></td>
-                    <td class="text-right"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right" headers="th-tt th-ttBuy"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right" headers="th-tt th-ttSell"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right" headers="th-cash th-cashBuy"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right" headers="th-cash th-cashSell"><span class="typeMd">1,135.50</span></td>
                   </tr>
+
+                  <!-- CNY -->
                   <tr>
-                    <td rowspan="2" class="td-ico">
+                    <td rowspan="2" class="td-ico" headers="th-code">
                       <div>
-                        <span class="typeMd"><i class="ico etc ico-size-sm ico-cny"
-                            aria-hidden="true"></i>USD</span>
+                        <span class="typeMd">
+                          <!--[dev]:20260902아이콘변경이 될 수 있음-->
+                          <i class="currency-120 circle ico-size-sm" aria-hidden="true"></i>CNY</span>
+                        <!--//[dev]:20260902아이콘변경이 될 수 있음-->
                       </div>
                     </td>
-                    <td rowspan="2" class="text-right"><span class="typeMd">1,135.50</span></td>
-                    <td class="text-right"><span class="typeMd">1,135.50</span></td>
-                    <td class="text-right"><span class="typeMd">1,135.50</span></td>
-                    <td class="text-right"><span class="typeMd">1,135.50</span></td>
-                    <td class="text-right"><span class="typeMd">1,135.50</span></td>
-                    <td rowspan="2" class="text-right"><span class="typeMd">1,135.50</span></td>
+                    <td rowspan="2" class="text-right" headers="th-baseRate"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right" headers="th-tt th-ttBuy"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right" headers="th-tt th-ttSell"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right" headers="th-cash th-cashBuy"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right" headers="th-cash th-cashSell"><span class="typeMd">1,135.50</span></td>
+                    <td rowspan="2" class="text-right" headers="th-tcSell"><span class="typeMd">1,135.50</span></td>
                   </tr>
                   <tr>
-                    <td class="text-right"><span class="typeMd">1,135.50</span></td>
-                    <td class="text-right"><span class="typeMd">1,135.50</span></td>
-                    <td class="text-right"><span class="typeMd">1,135.50</span></td>
-                    <td class="text-right"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right" headers="th-tt th-ttBuy"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right" headers="th-tt th-ttSell"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right" headers="th-cash th-cashBuy"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right" headers="th-cash th-cashSell"><span class="typeMd">1,135.50</span></td>
                   </tr>
                 </tbody>
               </table>
             </div>
-            <nav class="pagination size-md" aria-label="페이지네이션">
-              <button type="button" class="btn-nav first" disabled="" aria-disabled="true" aria-label="첫 페이지">
-                <span class="blind">첫 페이지</span>
-              </button>
-              <button type="button" class="btn-nav prev" disabled="" aria-disabled="true" aria-label="이전 페이지">
-                <span class="blind">이전 페이지</span>
-              </button>
-
-              <ol class="list-pagination">
-                <li>
-                  <button type="button" class="btn-page active" aria-current="page" aria-label="1페이지">
-                    1
-                  </button>
+            <div class="list type-dotted mt-12">
+              <ul>
+                <li class="typeMd">
+                  환율은 통화별 기준환율에 통화별 스프레드를 반영하여 고시합니다.
                 </li>
-                <li>
-                  <button type="button" class="btn-page" aria-label="2페이지">
-                    2
-                  </button>
+                <li class="typeMd">
+                  외국통화 수출입 비용 등 환전거래와 관련하여 발생하는 비용이 통화 별로 다르기 때문에 통화별 스프데르 차이가 있습니다
                 </li>
-                <li>
-                  <button type="button" class="btn-page" aria-label="3페이지">
-                    3
-                  </button>
-                </li>
-                <li>
-                  <button type="button" class="btn-page" aria-label="4페이지">
-                    4
-                  </button>
-                </li>
-                <li>
-                  <button type="button" class="btn-page" aria-label="5페이지">
-                    5
-                  </button>
-                </li>
-              </ol>
-
-              <button type="button" class="btn-nav next" aria-label="다음 페이지">
-                <span class="blind">다음 페이지</span>
-              </button>
-              <button type="button" class="btn-nav last" aria-label="마지막 페이지">
-                <span class="blind">마지막 페이지</span>
-              </button>
-            </nav>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
