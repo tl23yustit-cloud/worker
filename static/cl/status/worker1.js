@@ -413,4 +413,22 @@ module.exports = {
         worker: "변혜선",
         note: ""
     },
+    "CIBCRD020601000T": {
+        title: "카드해지(조회)",
+        status: "진행중",
+        worker: "변혜선",
+        note: ""
+    },
+    "CIBCRD020603000T": {
+        title: "카드해지 취소(조회)",
+        status: "진행중",
+        worker: "변혜선",
+        note: ""
+    },
+    "CIBCRD020605000T": {
+        title: "해지내역 조회",
+        status: "진행중",
+        worker: "변혜선",
+        note: ""
+    },
 };
