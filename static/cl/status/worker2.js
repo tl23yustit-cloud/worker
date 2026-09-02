@@ -38,10 +38,11 @@ module.exports = {
       "CIBFOE130300000M": { title: "전자무역서비스", status: "검수중", worker: "이상우", note: "" },
       "CIBFOE130400000M": { title: "수출환어음인수후매입제도", status: "검수중", worker: "이상우", note: "" },
 
+      "CIBDOB040101000M": { title: "증명서 발급신청", status: "검수중", worker: "이상우", note: "" },
 
       "CIBDOB040701000M": { title: "잔액잔고증명서_발급정보 입력", status: "검수중", worker: "이상우", note: "" },
 
 
 };
-
+// CIBDOB040101000M
 // CIBDOB040701000M
