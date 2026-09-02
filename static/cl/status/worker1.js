@@ -342,7 +342,7 @@ module.exports = {
         note: ""
     },
     "CIBFOE040202000M": {
-        title: "해외송금(기업송금)__Step2. 영문고객정보",
+        title: "해외송금(기업송금)__Step1. 영문고객정보",
         status: "검수중",
         worker: "변혜선",
         note: ""
