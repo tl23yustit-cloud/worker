@@ -395,4 +395,22 @@ module.exports = {
         worker: "변혜선",
         note: ""
     },
+    "CIBLON010701000M": {
+        title: "개인채무자보호법통지 조회_조회",
+        status: "진행중",
+        worker: "변혜선",
+        note: ""
+    },
+    "CIBLON010702000p": {
+        title: "개인채무자보호법통지 조회_기한의이익상실예정통지",
+        status: "진행중",
+        worker: "변혜선",
+        note: ""
+    },
+    "CIBLON010703000p": {
+        title: "개인채무자보호법통지 조회_채권양도예정통지서",
+        status: "진행중",
+        worker: "변혜선",
+        note: ""
+    },
 };
