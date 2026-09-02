@@ -39,7 +39,7 @@ module.exports = {
       "CIBFOE130400000M": { title: "수출환어음인수후매입제도", status: "검수중", worker: "이상우", note: "" },
 
       "CIBDOB040101000M": { title: "증명서 발급신청", status: "검수중", worker: "이상우", note: "" },
-      "CIBDOB040101000M": { title: "증명서 발급계좌 선택", status: "검수중", worker: "이상우", note: "" },
+      "CIBDOB040102000M": { title: "증명서 발급계좌 선택", status: "검수중", worker: "이상우", note: "" },
 
       "CIBDOB040103000M": { title: "신청정보확인", status: "작업중", worker: "이상우", note: "" },
       "CIBDOB040103000P": { title: "신청정보확인(팝업)", status: "작업중", worker: "이상우", note: "" },
