@@ -1,3 +1,5 @@
+<!-- 주석확인 -->
+
 <!doctype html>
 <html lang="ko">
   <head>
@@ -31,221 +33,215 @@
                 <div class="box-steps">
                   <ol class="list-steps">
                     <li class="item-steps passed">
-                      <span class="blind">1단계 증명서 구분</span>
+                      <span class="blind">1</span>
                       <i class="icon" aria-hidden="true">1</i>
-                      <span class="text">1단계</span>
+                      <span class="text">1</span>
                     </li>
-                    <li class="item-steps current" aria-current="step">
-                      <span class="blind">2단계 증명서 발급계좌 선택</span>
+                    <li class="item-steps passed">
+                      <span class="blind">2</span>
                       <i class="icon" aria-hidden="true">2</i>
-                      <span class="text">2단계</span>
+                      <span class="text">2</span>
                     </li>
-                    <li class="item-steps">
+                     <li class="item-steps current" aria-current="step">
+                      <span class="blind">수수료납부</span>
                       <i class="icon" aria-hidden="true">3</i>
-                      <span class="text">3단계</span>
+                      <span class="text">수수료납부</span>
                     </li>
-                    <li class="item-steps">
-                      <i class="icon" aria-hidden="true">4</i>
-                      <span class="text">4단계</span>
-                    </li>
-                    <li class="item-steps">
-                      <i class="icon" aria-hidden="true">5</i>
-                      <span class="text">5단계</span>
-                    </li>
+                   
+                 
                   </ol>
                 </div>
               </h2>
               <div class="tbl-area">
-                <h4 class="typeH4">증명서 발급계좌 선택</h4>
-                <table class="table-type03">
-                  <caption>
-                    No, 예금명, 통화코드, 계좌번호, 평가금액, 비고 정보가 포함된
-                    증명서 발급계좌 선택 표
-                  </caption>
+                <h4 class="typeH4">수수료 납부</h4>
+                <table class="table-type01">
+                  <caption></caption>
                   <colgroup>
-                    <col style="width: 80px" />
-                    <col style="width: 80px" />
-                    <col style="width: 260px" />
-                    <col style="width: 95px" />
-                    <col style="width: 306px" />
-                    <col style="width: 140px" />
-                    <col style="width: 95px" />
+                    <col />
+                    <col />
                   </colgroup>
-                  <thead>
-                    <tr>
-                      <th scope="col">
-                        <span class="blind">선택</span>
-                      </th>
-                      <th scope="col">No.</th>
-                      <th scope="col">예금명</th>
-                      <th scope="col">통화코드</th>
-                      <th scope="col">계좌번호</th>
-                      <th scope="col">평가금액</th>
-                      <th scope="col">비고</th>
-                    </tr>
-                  </thead>
                   <tbody>
                     <tr>
+                      <th scope="row">
+                        <span>수수료</span>
+                      </th>
                       <td>
-                        <span class="form-box">
-                          <input
-                            type="checkbox"
-                            name="accountSelect"
-                            id="account_01"
-                            class="form-checkbox size-md"
-                            checked
-                          />
-                          <label for="account_01" class="blind"
-                            >기업자유 계좌 선택</label
-                          >
-                        </span>
-                      </td>
-                      <td>
-                        <span class="typeMd">1</span>
-                      </td>
-                      <td>
-                        <span class="typeMd">기업자유</span>
-                      </td>
-                      <td>
-                        <span class="typeMd">KRW</span>
-                      </td>
-                      <td>
-                        <span class="typeMd">1234-56**-****-3456</span>
-                      </td>
-                      <td class="text-right">
-                        <span class="typeMd" data-formatted="true"
-                          >100,000,000</span
-                        >
-                      </td>
-                      <td>
-                        <span class="typeMd">-</span>
+                        <input
+                          type="text"
+                          id="charge"
+                          class="input size-lg wSize-md"
+                          value="1,000원"
+                          readonly
+                          title="수수료"
+                        />
                       </td>
                     </tr>
                     <tr>
-                      <td>
-                        <span class="form-box">
-                          <input
-                            type="checkbox"
-                            name="accountSelect"
-                            id="account_02"
-                            class="form-checkbox size-md"
-                          />
-                          <label for="account_02" class="blind"
-                            >기업예금 계좌 선택</label
-                          >
-                        </span>
-                      </td>
-                      <td>
-                        <span class="typeMd">2</span>
-                      </td>
-                      <td>
-                        <span class="typeMd">기업예금</span>
-                      </td>
-                      <td>
-                        <span class="typeMd">KRW</span>
-                      </td>
-                      <td>
-                        <span class="typeMd">1234-56**-****-3456</span>
-                      </td>
-                      <td class="text-right">
-                        <span class="typeMd" data-formatted="true">-</span>
-                      </td>
-                      <td>
-                        <span class="typeMd">-</span>
+                      <th scope="row">
+                        <span class="required">출금계좌번호</span>
+                      </th>
+                      <td colspan="3">
+                        <div class="tbl-flex">
+                          <div class="withdrawal-account">
+                            <div class="box-select wSize-lg">
+                              <button
+                                type="button"
+                                class="select size-lg"
+                                role="combobox"
+                                aria-expanded="false"
+                                aria-haspopup="listbox"
+                                aria-controls="selectDropdown01"
+                                title="출금계좌번호"
+                              >
+                                <span class="text">선택하세요</span>
+                                <span class="blind">펼침</span>
+                              </button>
+                              <div
+                                id="selectDropdown01"
+                                class="box-list-select"
+                              >
+                                <ul
+                                  class="list-select"
+                                  role="listbox"
+                                  aria-label="선택 항목 리스트"
+                                >
+                                  <li class="item-select" role="group">
+                                    <button
+                                      type="button"
+                                      class="btn-item-select"
+                                    >
+                                      0000-0000-0000 (기업운전일반자금대출)
+                                    </button>
+                                  </li>
+                                  <li class="item-select" role="group">
+                                    <button
+                                      type="button"
+                                      class="btn-item-select"
+                                    >
+                                      가능한 계좌가 없습니다.
+                                    </button>
+                                  </li>
+                                  <li class="item-select" role="group">
+                                    <button
+                                      type="button"
+                                      class="btn-item-select"
+                                    >
+                                      직접입력
+                                    </button>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                            <div class="account-balance-info">
+                              <ul>
+                                <li class="info-item">
+                                  <span class="typeSm"
+                                    >계좌잔액<strong class="typeMdBold"
+                                      >131,000,000</strong
+                                    >원</span
+                                  >
+                                </li>
+                                <!-- <span class="divider" aria-hidden="true"></span> -->
+                                <li class="info-item highlight">
+                                  <span class="typeSm"
+                                    >출금가능금액<strong class="typeMdBold"
+                                      >120,000,000</strong
+                                    >원</span
+                                  >
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
                       </td>
                     </tr>
+
                     <tr>
-                      <td>
-                        <span class="form-box">
+                      <th scope="row">
+                        <span class="required">계좌비밀번호</span>
+                      </th>
+                      <td colspan="3">
+                        <div class="input-box">
                           <input
-                            type="checkbox"
-                            name="accountSelect"
-                            id="account_03"
-                            class="form-checkbox size-md"
+                            type="password"
+                            class="input"
+                            placeholder="숫자 4자리"
+                            title=""
+                            aria-label="숫자 4자리"
                           />
-                          <label for="account_03" class="blind"
-                            >외화 기업예금 계좌 선택</label
-                          >
-                        </span>
-                      </td>
-                      <td>
-                        <span class="typeMd">3</span>
-                      </td>
-                      <td>
-                        <span class="typeMd">외화 기업예금</span>
-                      </td>
-                      <td>
-                        <span class="typeMd">EUR</span>
-                      </td>
-                      <td>
-                        <span class="typeMd">1234-56**-****-3456</span>
-                      </td>
-                      <td class="text-right">
-                        <span class="typeMd" data-formatted="true">-</span>
-                      </td>
-                      <td>
-                        <span class="typeMd">-</span>
+                          <button type="button" class="btn">
+                            <i class="ico-keypad ico-size-smMd"></i>
+                            <span class="blind">보안 키패드 열기</span>
+                          </button>
+                        </div>
                       </td>
                     </tr>
                   </tbody>
                 </table>
-                <p class="typeMd color-fg-secondary mt-12">
-                  ※ 보유하신 입출금 계좌 중 증명서/확인증 발급받을 계좌를 최대
-                  20개까지 선택할 수 있습니다.
-                </p>
               </div>
-              <h4 class="typeH4 mt-48 mb-12">해지계좌</h4>
-              <div class="box-accordion line is-open">
-                <div class="box-item-list">
-                  <div class="box-title">
-                    <span class="title-text typeLgMedium"
-                      >해지계좌번호 입력</span
-                    >
+
+              <div class="tbl-area">
+                <div class="tbl-head">
+                  <div class="left-area">
+                    <h6 class="typeH6">OTP 비밀번호 입력</h6>
                   </div>
-                  <button
-                    type="button"
-                    class="btn-accordion"
-                    aria-expanded="true"
-                    aria-controls="accordionContent01"
-                  >
-                    <i class="ico-arrow" aria-hidden="true"></i>
-                    <span class="blind">상세내용 닫기</span>
+                </div>
+                <table class="table-type01">
+                  <caption>
+                    OTP
+                  </caption>
+                  <colgroup>
+                    <col />
+                    <col />
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="row" rowspan="2" class="noradius">
+                        <label for="OTP">OTP </label>
+                      </th>
+                      <td>
+                        <div class="otp-text-wrap">
+                          <input
+                            type="password"
+                            id="OTP"
+                            class="input wSize-smMd size-lg"
+                            placeholder="숫자 6자리"
+                            title=""
+                            aria-label="숫자 6자리"
+                          />
+                          <div class="typeMd">
+                            OTP 만료 기한이 <span>14</span>일 남았습니다.
+                            <span>(2026-04-30)</span>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="otp-noti">
+                          <div class="list type-dotted">
+                            <ul>
+                              <li class="typeMd">
+                                OTP에 생성된 숫자 6자리를 입력하세요
+                              </li>
+                              <li class="typeMd">
+                                OTP는 1분마다 새로운 비밀번호가 생성됩니다
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                주석확인
+                <!-- For dev ) 이전까지 화면설계서와 다른 컨텐츠 디자인없음 당시 기획 공통으로 안정해져서 화면설계서에 잔류 있는거같음 작업시 확인바람 -->
+                <div class="flex mt-12 typeMd items-center gap-8">
+                  <button class="color-fg-primary">인증서가 없으신가요?</button>
+                  <button type="button" class="btn type-line-secondary size-sm">
+                    <span class="text">인증서발급/재발급 ></span>
                   </button>
                 </div>
-                <div id="accordionContent01" class="content-accordion">
-                  <div class="input-wrapper">
-                    <div class="w-392">
-                      <label for="accountNoInput" class="blind"
-                        >해지계좌번호 입력</label
-                      >
-                      <input
-                        type="text"
-                        id="accountNoInput"
-                        class="input size-lg"
-                        placeholder="- 없이 입력"
-                        aria-label="해지계좌번호 입력"
-                      />
-                    </div>
-                    <button
-                      type="button"
-                      class="btn type-line-secondary size-lg"
-                    >
-                      <span class="text">추가</span>
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div class="list type-dotted mt-12">
-                <ul>
-                  <li class="typeMd">보유 계좌 조회 후 입력하시기 바랍니다.</li>
-                  <li class="typeMd">
-                    해지된 계좌는 직접 입력하신 후 선택하여 주시기 바랍니다.
-                  </li>
-                  <li class="typeMd">
-                    해지된 계좌는 해지일까지만 발급이 가능하므로,
-                    조회-해지계좌조회 메뉴에서 해지일자를 확인하시기 바랍니다.
-                  </li>
-                </ul>
               </div>
               <!-- 하단 확인 버튼 영역 -->
               <div class="btn-wrap center lg-bot">
@@ -255,6 +251,18 @@
                 <button type="button" class="btn type-bg-primary size-xxl">
                   <span class="text">다음</span>
                 </button>
+              </div>
+              <!-- 이용안내 영역 -->
+              <div class="line-box size-xl mt-48">
+                <span class="typeLgSemibold">이용안내</span>
+                <div class="list type-dotted">
+                  <ul>
+                    <li class="typeMd">
+                      본증명서 발급기준일자의 최종잔액으로 고객님의 예금 등의
+                      대한 증명서를 발급하는 거래입니다.
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
