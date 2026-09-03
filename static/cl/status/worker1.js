@@ -342,7 +342,7 @@ module.exports = {
         note: ""
     },
     "CIBFOE040202000M": {
-        title: "해외송금(기업송금)__Step2. 영문고객정보",
+        title: "해외송금(기업송금)__Step1. 영문고객정보",
         status: "검수중",
         worker: "변혜선",
         note: ""
@@ -361,19 +361,19 @@ module.exports = {
     },
     "CIBFOE040205000M": {
         title: "해외송금(기업송금)_Step4. 송금정보확인",
-        status: "진행중",
+        status: "검수중",
         worker: "변혜선",
         note: ""
     },
     "CIBFOE040206000M": {
-        title: "해외송금(기업송금)_Step4. 송금정보확인",
-        status: "진행중",
+        title: "해외송금(기업송금)_Step5. 송금등록완료",
+        status: "검수중",
         worker: "변혜선",
         note: ""
     },
     "CIBFOE040204001P": {
         title: "[팝업]무역송금유의사항",
-        status: "진행중",
+        status: "검수중",
         worker: "변혜선",
         note: ""
     },
@@ -383,8 +383,56 @@ module.exports = {
         worker: "변혜선",
         note: ""
     },
+    "CIBFOE060100000M": {
+        title: "현재환율",
+        status: "검수중",
+        worker: "변혜선",
+        note: "주석확인-[dev]:20260902아이콘변경이 될 수 있음"
+    },
     "CIBLGN000000000M": {
         title: "기업뱅킹-사업자_공동인증서 로그인",
+        status: "검수중",
+        worker: "변혜선",
+        note: ""
+    },
+    "CIBLON010701000M": {
+        title: "개인채무자보호법통지 조회_조회",
+        status: "검수중",
+        worker: "변혜선",
+        note: ""
+    },
+    "CIBLON010702000p": {
+        title: "개인채무자보호법통지 조회_기한의이익상실예정통지",
+        status: "검수중",
+        worker: "변혜선",
+        note: ""
+    },
+    "CIBLON010703000p": {
+        title: "개인채무자보호법통지 조회_채권양도예정통지서",
+        status: "진행중",
+        worker: "변혜선",
+        note: ""
+    },
+    "CIBLON010704000p": {
+        title: "개인채무자보호법통지 조회_주택경매예정통지서",
+        status: "진행중",
+        worker: "변혜선",
+        note: ""
+    },
+    "CIBCRD020601000T": {
+        title: "카드해지(조회)",
+        status: "진행중",
+        worker: "변혜선",
+        note: ""
+    },
+    "CIBCRD020603000T": {
+        title: "카드해지 취소(조회)",
+        status: "진행중",
+        worker: "변혜선",
+        note: ""
+    },
+    "CIBCRD020605000T": {
+        title: "해지내역 조회",
         status: "진행중",
         worker: "변혜선",
         note: ""

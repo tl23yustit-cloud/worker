@@ -1,0 +1,172 @@
+.dob {
+    .input-wrapper {
+        margin-top: 20px;
+        padding: 20px;
+        border-radius: 16px;
+        background-color: var(--colorBgSecondary);
+        display: flex;
+        gap: 6px;
+    }
+
+    .certificate-preview {
+        margin-top: 48px;
+
+        h4 {
+            margin-bottom: 12px;
+        }
+
+        .certificate-list {
+            .certificate-item {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 24px;
+                background-color: var(--colorBgSecondary);
+                border-bottom: 1px solid #ECF1F8;
+
+                &:first-child {
+                    border-radius: 16px 16px 0 0;
+                }
+
+                &:last-child {
+                    border-bottom: none;
+                    border-radius: 0 0 16px 16px;
+                }
+
+                &:only-child {
+                    border-bottom: none;
+                    border-radius: 16px;
+                }
+
+                .title {
+                    font-size: var(--fontSizeLg);
+                    font-weight: var(--fontWeightSemibold);
+                    line-height: var(--contentLineHeightLg);
+                }
+            }
+        }
+    }
+
+    .withdrawal-account {
+        display: flex;
+
+        .account-balance-info {
+            display: flex;
+            align-items: center;
+            padding-left: var(--spacingLg);
+
+            ul {
+                display: flex;
+
+                .info-item {
+                    display: flex;
+                    align-items: center;
+
+                    +.info-item {
+                        &::before {
+                            content: "";
+                            display: inline-block;
+                            width: 1px;
+                            height: 12px;
+                            background-color: var(--colorBorderSecondary);
+                            margin: 0 12px;
+                        }
+                    }
+
+                    .typeSm {
+                        color: var(--colorFgBase);
+                    }
+
+                    .typeMdBold {
+                        color: var(--colorFgBase);
+                        padding-left: var(--spacingXs);
+                    }
+
+                    &.highlight {
+                        .typeSm {
+                            strong {
+                                color: var(--colorFgPrimary);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.modal {
+
+    .modal-slot {
+        .certificate-preview {
+            border: 1px solid var(--colorBorderBase);
+            padding: 48px;
+
+            .certificate-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding-bottom: 12px;
+                border-bottom: 2px solid var(--colorBorderPrimary);
+                margin-bottom: 32px;
+
+                .left-area {
+                    display: flex;
+                    align-items: center;
+                    gap: 12px;
+
+                    h1.title {
+                        font-size: var(--headingFontSizeH1);
+                        font-weight: var(--fontWeightBold);
+                        line-height: var(--headingLineHeightH1);
+                        color: var(--colorFgPrimary);
+                    }
+
+                    .date {
+                        font-size: var(--fontSizeMd);
+                        font-weight: var(--fontWeightRegular);
+                        line-height: var(--contentLineHeightMd);
+                        color: var(--colorFgSecondary);
+                    }
+                }
+
+                .right-area {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    .logo {
+                        display: block;
+                        width: 92px;
+                        height: 24px;
+                        background-image: url("../images/common/img_logo_x3.png");
+                        background-repeat: no-repeat;
+                        background-position: center center;
+                        background-size: contain;
+                    }
+                }
+            }
+
+            .certificate-body {
+                .tbl-area {
+                    margin-top: 48px;
+                }
+            }
+
+            .certificate-footer {
+                font-size: var(--contentFontSizeMd);
+                font-weight: var(--fontWeightRegular);
+                line-height: var(--contentLineHeightMd);
+                color: var(--colorFgSecondary);
+                display: flex;
+                flex-direction: column;
+                gap: 4px;
+                margin-top: 48px;
+                padding: 24px 32px;
+                border-radius: 16px;
+                border: 1px solid var(--colorBorderSecondary);
+                background-color: var(--colorBgBackdrop);
+            }
+        }
+    }
+}

@@ -63,9 +63,9 @@ module.exports = {
     "CIBCRD020802000M": { title: "해외원화결제 차단서비스(등록완료)", status: "완료", worker: "손창우", note: "" },
     "CIBCRD020803000M": { title: "해외원화결제 차단서비스(해제완료)", status: "완료", worker: "손창우", note: "" },
     "대출상환스케줄조회": { title: "", status: "수정중", worker: "변혜선", note: "" },
-    "CIBCRD020100000T": { title: "보유카드조회(당행Tab)", status: "검수중", worker: "변혜선", note: "임시 그리드 화면" },
+    "CIBCRD020100000T": { title: "보유카드조회(당행Tab)", status: "수정완료", worker: "변혜선", note: "임시 그리드 화면, 주석확인-[dev] : 20260903" },
     "CIBCRD020102000P": { title: "카드 상세보기 팝업", status: "검수중", worker: "변혜선", note: "임시 그리드 화면" },
-    "CIBCRD02040000M": { title: "", status: "검수중", worker: "변혜선", note: "" },
+    "CIBCRD02040000M": { title: "카드 기본정보 조회", status: "수정완료", worker: "변혜선", note: "주석확인-[dev]:20260903" },
     "CIBCRD030100000M": { title: "이용한도조회", status: "검수중", worker: "변혜선", note: "임시 그리드 화면" },
     "CIBCRD040101000T": { title: "이용내역조회(실시간 승인내역(Tab)", status: "검수중", worker: "변혜선", note: "주석-[dev] : 20260826 확인" },
     "CIBCRD060401000M": { title: "결제일변경(조회)", status: "검수중", worker: "변혜선", note: "임시 그리드 화면" },
@@ -78,12 +78,12 @@ module.exports = {
     "CIBCRD060602000M": { title: "SMS알림서비스 신청(완료)", status: "검수중", worker: "변혜선", note: "" },
     "CIBCRD060603000M": { title: "SMS알림서비스 해지", status: "검수중", worker: "변혜선", note: "" },
     "CIBCRD060604000M": { title: "SMS알림서비스 해지(완료)", status: "검수중", worker: "변혜선", note: "" },
-    "CIBCRD060605000M": { title: "SMS알림서비스 변경", status: "검수중", worker: "변혜선", note: "" },
+    "CIBCRD060605000M": { title: "SMS알림서비스 변경", status: "검수중", worker: "변혜선", note: "주석확인-[dev]:20260902 디자인변경" },
     "CIBCRD060606000M": { title: "SMS알림서비스 변경(완료)", status: "검수중", worker: "변혜선", note: "" },
 
     // 💡 뱅킹업무(bop) > 카드(crd)
-    "CIBCRD020300000M": { title: "기업카드비밀번호 등록", status: "완료", worker: "변혜선", note: "" },
-    "CIBCRD020301000P": { title: "비밀번호 일괄입력 팝업", status: "완료", worker: "손창우", note: "" },
+    "CIBCRD020300000M": { title: "기업카드비밀번호 등록", status: "수정완료", worker: "변혜선", note: "주석확인-[dev]:20260903" },
+    "CIBCRD020301000P": { title: "비밀번호 일괄입력 팝업", status: "수정완료", worker: "손창우", note: "주석확인-[dev]:20260903" },
     "CIBCRD020302000M": { title: "기업카드비밀번호 등록 완료", status: "완료", worker: "손창우", note: "" },
     "CIBCRD060601000T": { title: "", status: "검수중", worker: "변혜선", note: "임시 그리드 화면" },
     "CIBCRD060603000T": { title: "", status: "검수중", worker: "변혜선", note: "임시 그리드 화면" },
@@ -192,7 +192,7 @@ module.exports = {
     "prdListFormV": { title: "", status: "수정중", worker: "윤재선", note: "" },
 
     // 💡 신탁 (fin_tpr)
-    "CIBFIN_TPR020000000M": { title: "특정금전신탁", status: "검수중", worker: "변혜선", note: "" },
+    "CIBFIN_TPR020000000M": { title: "특정금전신탁", status: "검수중", worker: "변혜선", note: "주석확인-[dev]:20260902 디자인변경" },
     "CIBFIN_TPR030100000T": { title: "상품성 신탁 운용방법 및 보수율 현황_기준년월2026년 3월", status: "완료", worker: "변혜선", note: "주석확인, 20260826 화면id수정" },
     "CIBFIN_TPR040100000T": { title: "기준가/수익률조회_신탁기준가격", status: "검수중", worker: "변혜선", note: "" },
     "CIBFIN_TPR040101000P": { title: "기준가/수익률조회_신탁기준가격_[팝업]기준가변동추이표", status: "검수중", worker: "변혜선", note: "" },
