@@ -56,11 +56,15 @@ module.exports = {
 
       "CIBDOB040205000M": { title: "부재증명서 발급완료", status: "검수중", worker: "이상우", note: "" },
 
-      "CIBDOB040301000M": { title: "", status: "검수중", worker: "이상우", note: "" },
+      "CIBDOB040301000M": { title: "증명서 구분선택", status: "검수중", worker: "이상우", note: "" },
+      "CIBDOB040302000M": { title: "신청정보 확인", status: "검수중", worker: "이상우", note: "" },
+      "CIBDOB040303000P": { title: "신청정보확인(팝업)", status: "검수중", worker: "이상우", note: "" },
+      "CIBDOB040304000M": { title: "수수료 납부", status: "검수중", worker: "이상우", note: "" },
+      "CIBDOB040305000M": { title: "발급완료", status: "검수중", worker: "이상우", note: "" },
 
 };
 
 
 
 
-      // "": { title: "", status: "검수중", worker: "이상우", note: "" },
+// "": { title: "", status: "검수중", worker: "이상우", note: "" },
