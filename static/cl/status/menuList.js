@@ -65,7 +65,7 @@ module.exports = {
     "대출상환스케줄조회": { title: "", status: "수정중", worker: "변혜선", note: "" },
     "CIBCRD020100000T": { title: "보유카드조회(당행Tab)", status: "수정완료", worker: "변혜선", note: "임시 그리드 화면, 주석확인-[dev] : 20260903" },
     "CIBCRD020102000P": { title: "카드 상세보기 팝업", status: "검수중", worker: "변혜선", note: "임시 그리드 화면" },
-    "CIBCRD02040000M": { title: "", status: "검수중", worker: "변혜선", note: "" },
+    "CIBCRD02040000M": { title: "카드 기본정보 조회", status: "수정완료", worker: "변혜선", note: "주석확인-[dev]:20260903" },
     "CIBCRD030100000M": { title: "이용한도조회", status: "검수중", worker: "변혜선", note: "임시 그리드 화면" },
     "CIBCRD040101000T": { title: "이용내역조회(실시간 승인내역(Tab)", status: "검수중", worker: "변혜선", note: "주석-[dev] : 20260826 확인" },
     "CIBCRD060401000M": { title: "결제일변경(조회)", status: "검수중", worker: "변혜선", note: "임시 그리드 화면" },
