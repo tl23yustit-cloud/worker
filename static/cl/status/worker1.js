@@ -413,6 +413,12 @@ module.exports = {
         worker: "변혜선",
         note: ""
     },
+    "CIBLON010704000p": {
+        title: "개인채무자보호법통지 조회_주택경매예정통지서",
+        status: "진행중",
+        worker: "변혜선",
+        note: ""
+    },
     "CIBCRD020601000T": {
         title: "카드해지(조회)",
         status: "진행중",
