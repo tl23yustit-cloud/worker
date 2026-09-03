@@ -62,6 +62,9 @@ module.exports = {
       "CIBDOB040304000M": { title: "수수료 납부", status: "검수중", worker: "이상우", note: "" },
       "CIBDOB040305000M": { title: "발급완료", status: "검수중", worker: "이상우", note: "" },
 
+
+      "CIBDOB040401000M": { title: "증명서 구분선택", status: "검수중", worker: "이상우", note: "" },
+
 };
 
 
