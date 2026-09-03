@@ -46,6 +46,53 @@
             }
         }
     }
+
+    .withdrawal-account {
+        display: flex;
+
+        .account-balance-info {
+            display: flex;
+            align-items: center;
+            padding-left: var(--spacingLg);
+
+            ul {
+                display: flex;
+
+                .info-item {
+                    display: flex;
+                    align-items: center;
+
+                    +.info-item {
+                        &::before {
+                            content: "";
+                            display: inline-block;
+                            width: 1px;
+                            height: 12px;
+                            background-color: var(--colorBorderSecondary);
+                            margin: 0 12px;
+                        }
+                    }
+
+                    .typeSm {
+                        color: var(--colorFgBase);
+                    }
+
+                    .typeMdBold {
+                        color: var(--colorFgBase);
+                        padding-left: var(--spacingXs);
+                    }
+
+                    &.highlight {
+                        .typeSm {
+                            strong {
+                                color: var(--colorFgPrimary);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 .modal {
@@ -110,7 +157,7 @@
                 font-size: var(--contentFontSizeMd);
                 font-weight: var(--fontWeightRegular);
                 line-height: var(--contentLineHeightMd);
-                color:var(--colorFgSecondary);
+                color: var(--colorFgSecondary);
                 display: flex;
                 flex-direction: column;
                 gap: 4px;
