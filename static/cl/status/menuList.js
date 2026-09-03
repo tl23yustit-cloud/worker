@@ -63,7 +63,7 @@ module.exports = {
     "CIBCRD020802000M": { title: "해외원화결제 차단서비스(등록완료)", status: "완료", worker: "손창우", note: "" },
     "CIBCRD020803000M": { title: "해외원화결제 차단서비스(해제완료)", status: "완료", worker: "손창우", note: "" },
     "대출상환스케줄조회": { title: "", status: "수정중", worker: "변혜선", note: "" },
-    "CIBCRD020100000T": { title: "보유카드조회(당행Tab)", status: "검수중", worker: "변혜선", note: "임시 그리드 화면" },
+    "CIBCRD020100000T": { title: "보유카드조회(당행Tab)", status: "수정완료", worker: "변혜선", note: "임시 그리드 화면, 주석확인-[dev] : 20260903" },
     "CIBCRD020102000P": { title: "카드 상세보기 팝업", status: "검수중", worker: "변혜선", note: "임시 그리드 화면" },
     "CIBCRD02040000M": { title: "", status: "검수중", worker: "변혜선", note: "" },
     "CIBCRD030100000M": { title: "이용한도조회", status: "검수중", worker: "변혜선", note: "임시 그리드 화면" },
@@ -82,7 +82,7 @@ module.exports = {
     "CIBCRD060606000M": { title: "SMS알림서비스 변경(완료)", status: "검수중", worker: "변혜선", note: "" },
 
     // 💡 뱅킹업무(bop) > 카드(crd)
-    "CIBCRD020300000M": { title: "기업카드비밀번호 등록", status: "완료", worker: "변혜선", note: "" },
+    "CIBCRD020300000M": { title: "기업카드비밀번호 등록", status: "수정완료", worker: "변혜선", note: "주석확인-[dev]:20260903" },
     "CIBCRD020301000P": { title: "비밀번호 일괄입력 팝업", status: "완료", worker: "손창우", note: "" },
     "CIBCRD020302000M": { title: "기업카드비밀번호 등록 완료", status: "완료", worker: "손창우", note: "" },
     "CIBCRD060601000T": { title: "", status: "검수중", worker: "변혜선", note: "임시 그리드 화면" },
