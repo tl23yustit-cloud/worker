@@ -65,7 +65,7 @@
       .editor-grid input[type="text"] { min-height: 36px; padding: 7px 9px; border: 1px solid transparent; border-radius: 4px; }
       .editor-grid input[type="text"]:focus { border-color: var(--accent); }
       
-      .req-toggle-wrap { display: flex; align-items: center; justify-content: center; margin-bottom: 6px; }
+      .req-toggle-wrap { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; gap: 8px; font-size: 11px; }
       .grid-delete { display: block; margin: 6px auto 0; border: 0; background: transparent; color: #a14646; font-size: 11px; }
       .grid-component-stack { display: grid; gap: 4px; margin-top: 6px; }
       .grid-stack-button { position: relative; padding: 5px 22px 5px 7px; border: 1px solid var(--accent); border-radius: 4px; background: #f0f9f8; color: var(--accent-dark); font-size: 11px; text-align: left; display: block; }
@@ -84,9 +84,9 @@
       .menu-panel label.title { font-size: 11px; margin-top: 4px; }
       .menu-panel input[type="text"], .menu-panel select, .menu-panel textarea { min-height: 32px; padding: 6px 8px; font-size: 11px; }
       
-      .form-box { display: inline-flex; align-items: center; gap: 6px; }
+      .form-box { display: inline-flex; align-items: center; gap: 4px; }
       .form-checkbox { width: 16px; height: 16px; margin: 0; cursor: pointer; accent-color: var(--accent); }
-      .form-label { font-size: 12px; cursor: pointer; color: var(--ink); }
+      .form-label { font-size: 11px; cursor: pointer; color: var(--ink); }
       
       .actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 20px; }
       .btn { min-height: 40px; padding: 8px 15px; border: 1px solid var(--line); border-radius: 6px; background: #fff; color: var(--ink); font-weight: 800; }
@@ -324,7 +324,7 @@
         state: {
           tableClass: "table-type01",
           tableTitle: "",
-          headers: [ { text: "항목 1", required: false } ],
+          headers: [ { text: "항목 1", required: false, textRight: false } ],
           cells: [ [ { text: "", items: [] } ] ], 
           type01Groups: [ [0] ],
           activeCell: null,
@@ -342,13 +342,13 @@
         },
 
         addColumn() {
-          this.state.headers.push({ text: `항목 ${this.state.headers.length + 1}`, required: false });
+          this.state.headers.push({ text: `항목 ${this.state.headers.length + 1}`, required: false, textRight: false });
           this.state.cells.forEach(row => row.push({ text: "", items: [] }));
         },
         addRow() {
           if (this.state.tableClass === "table-type01") {
             const newIndex = this.state.headers.length;
-            this.state.headers.push({ text: `항목 ${newIndex + 1}`, required: false });
+            this.state.headers.push({ text: `항목 ${newIndex + 1}`, required: false, textRight: false });
             this.state.cells[0].push({ text: "", items: [] });
             this.state.type01Groups.push([newIndex]);
           } else {
@@ -360,7 +360,7 @@
           const group = this.state.type01Groups.find(g => g[0] === groupStartIdx);
           if (group && group.length < 2) {
             const newIndex = this.state.headers.length;
-            this.state.headers.push({ text: "", required: false });
+            this.state.headers.push({ text: "", required: false, textRight: false });
             this.state.cells[0].push({ text: "", items: [] });
             group.push(newIndex);
           }
@@ -382,7 +382,7 @@
           this.state.tableTitle = "";
           document.querySelector("#table-class").value = "table-type01";
           document.querySelector("#table-title").value = "";
-          this.state.headers = [ { text: "", required: false } ];
+          this.state.headers = [ { text: "", required: false, textRight: false } ];
           this.state.cells = [ [ { text: "", items: [] } ] ];
           this.state.type01Groups = [ [0] ];
           this.showToast("설정이 초기화되었습니다.");
@@ -405,6 +405,7 @@
                 const thHtml = `<th>
                   <div class="req-toggle-wrap">
                     <span class="form-box"><input type="checkbox" id="req-${hIdx}" class="form-checkbox" data-req="${hIdx}" ${header.required ? 'checked' : ''}><label for="req-${hIdx}" class="form-label" style="color:var(--accent-dark);font-weight:700;">필수값</label></span>
+                    <span class="form-box"><input type="checkbox" id="right-${hIdx}" class="form-checkbox" data-right="${hIdx}" ${header.textRight ? 'checked' : ''}><label for="right-${hIdx}" class="form-label" style="color:var(--accent-dark);font-weight:700;">우측정렬</label></span>
                   </div>
                   <input type="text" data-header="${hIdx}" value="${this.escape(header.text)}">
                   <button class="grid-delete" data-del-col="${hIdx}">삭제</button>
@@ -430,6 +431,7 @@
             headEl.innerHTML = `<tr>${this.state.headers.map((h, i) => `<th>
               <div class="req-toggle-wrap">
                 <span class="form-box"><input type="checkbox" id="req-${i}" class="form-checkbox" data-req="${i}" ${h.required ? 'checked' : ''}><label for="req-${i}" class="form-label" style="color:var(--accent-dark);font-weight:700;">필수값</label></span>
+                <span class="form-box"><input type="checkbox" id="right-${i}" class="form-checkbox" data-right="${i}" ${h.textRight ? 'checked' : ''}><label for="right-${i}" class="form-label" style="color:var(--accent-dark);font-weight:700;">우측정렬</label></span>
               </div>
               <input type="text" data-header="${i}" value="${this.escape(h.text)}">
               <button class="grid-delete" data-del-col="${i}">열 삭제</button>
@@ -482,7 +484,8 @@
                 tr += `      <th scope="row">\n        ${reqSpan}\n      </th>\n`;
                 
                 const colspan = (group.length === 1 && hasPair) ? ' colspan="3"' : '';
-                tr += `      <td${colspan}>\n${this.makeCellContent(c, h.text)}\n      </td>\n`;
+                const tdClass = h.textRight ? ' class="text-right"' : '';
+                tr += `      <td${colspan}${tdClass}>\n${this.makeCellContent(c, h.text)}\n      </td>\n`;
               });
               return tr + "    </tr>";
             }).join("");
@@ -495,7 +498,8 @@
             }).join("\n")}\n    </tr>`;
             const tbody = cells.map(row => `    <tr>\n${row.map((c, colIdx) => {
               const headerText = headers[colIdx] ? headers[colIdx].text : "";
-              return `      <td>\n${this.makeCellContent(c, headerText)}\n      </td>`;
+              const tdClass = headers[colIdx] && headers[colIdx].textRight ? ' class="text-right"' : '';
+              return `      <td${tdClass}>\n${this.makeCellContent(c, headerText)}\n      </td>`;
             }).join("\n")}\n    </tr>`).join("\n");
             
             tableHtml = `  <table class="${tableClass}">\n    <caption>${caption}</caption>\n    <colgroup>\n      ${colgroup}\n    </colgroup>\n    <thead>\n${thead}\n    </thead>\n    <tbody>\n${tbody}\n    </tbody>\n  </table>`;
@@ -683,6 +687,9 @@
               this.generateHTML();
             } else if (e.target.matches("[data-req]")) {
               this.state.headers[e.target.dataset.req].required = e.target.checked;
+              this.generateHTML();
+            } else if (e.target.matches("[data-right]")) {
+              this.state.headers[e.target.dataset.right].textRight = e.target.checked;
               this.generateHTML();
             }
           });
