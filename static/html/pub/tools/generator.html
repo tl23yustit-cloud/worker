@@ -324,7 +324,7 @@
         state: {
           tableClass: "table-type01",
           tableTitle: "",
-          headers: [ { text: "항목 1", required: false, textRight: false } ],
+          headers: [ { text: "항목 1", required: false, textRight: false, group: "" } ],
           cells: [ [ { text: "", items: [] } ] ], 
           type01Groups: [ [0] ],
           activeCell: null,
@@ -342,13 +342,13 @@
         },
 
         addColumn() {
-          this.state.headers.push({ text: `항목 ${this.state.headers.length + 1}`, required: false, textRight: false });
+          this.state.headers.push({ text: `항목 ${this.state.headers.length + 1}`, required: false, textRight: false, group: "" });
           this.state.cells.forEach(row => row.push({ text: "", items: [] }));
         },
         addRow() {
           if (this.state.tableClass === "table-type01") {
             const newIndex = this.state.headers.length;
-            this.state.headers.push({ text: `항목 ${newIndex + 1}`, required: false, textRight: false });
+            this.state.headers.push({ text: `항목 ${newIndex + 1}`, required: false, textRight: false, group: "" });
             this.state.cells[0].push({ text: "", items: [] });
             this.state.type01Groups.push([newIndex]);
           } else {
@@ -360,7 +360,7 @@
           const group = this.state.type01Groups.find(g => g[0] === groupStartIdx);
           if (group && group.length < 2) {
             const newIndex = this.state.headers.length;
-            this.state.headers.push({ text: "", required: false, textRight: false });
+            this.state.headers.push({ text: "", required: false, textRight: false, group: "" });
             this.state.cells[0].push({ text: "", items: [] });
             group.push(newIndex);
           }
@@ -382,7 +382,7 @@
           this.state.tableTitle = "";
           document.querySelector("#table-class").value = "table-type01";
           document.querySelector("#table-title").value = "";
-          this.state.headers = [ { text: "", required: false, textRight: false } ];
+          this.state.headers = [ { text: "", required: false, textRight: false, group: "" } ];
           this.state.cells = [ [ { text: "", items: [] } ] ];
           this.state.type01Groups = [ [0] ];
           this.showToast("설정이 초기화되었습니다.");
@@ -429,6 +429,7 @@
             document.querySelector("#add-row").textContent = "+ 행 추가";
             
             headEl.innerHTML = `<tr>${this.state.headers.map((h, i) => `<th>
+              <input type="text" data-header-group="${i}" value="${this.escape(h.group || '')}" placeholder="상위 그룹명 (선택)" style="margin-bottom: 6px; border-style: dashed; background: #fdfdfd; font-size: 11px;">
               <div class="req-toggle-wrap">
                 <span class="form-box"><input type="checkbox" id="req-${i}" class="form-checkbox" data-req="${i}" ${h.required ? 'checked' : ''}><label for="req-${i}" class="form-label" style="color:var(--accent-dark);font-weight:700;">필수값</label></span>
                 <span class="form-box"><input type="checkbox" id="right-${i}" class="form-checkbox" data-right="${i}" ${h.textRight ? 'checked' : ''}><label for="right-${i}" class="form-label" style="color:var(--accent-dark);font-weight:700;">우측정렬</label></span>
@@ -493,16 +494,57 @@
             tableHtml = `  <table class="table-type01">\n    <caption>${caption}</caption>\n    <colgroup>\n      ${colgroup}\n    </colgroup>\n    <tbody>\n${tbody}\n    </tbody>\n  </table>`;
           } else {
             const colgroup = headers.map(() => `<col style="width: auto">`).join("\n      ");
-            const thead = `    <tr>\n${headers.map((h, i) => {
-              return `      <th scope="col">${h.required ? `<span class="required">${this.escape(h.text)}</span>` : `<span>${this.escape(h.text)}</span>`}</th>`;
-            }).join("\n")}\n    </tr>`;
+            let thead = "";
+            
+            // 상위 그룹명이 하나라도 있는지 체크하여 2단 헤더 여부 결정
+            const hasGroup = headers.some(h => h.group && h.group.trim() !== '');
+            
+            if (hasGroup) {
+              let topRowHtml = "    <tr>\n";
+              let bottomRowHtml = "    <tr>\n";
+              let i = 0;
+              
+              while (i < headers.length) {
+                let g = headers[i].group ? headers[i].group.trim() : "";
+                if (g === "") {
+                  // 그룹이 없으면 위아래 2칸 차지
+                  const reqSpan = headers[i].required ? `<span class="required">${this.escape(headers[i].text)}</span>` : `<span>${this.escape(headers[i].text)}</span>`;
+                  topRowHtml += `      <th scope="col" rowspan="2">${reqSpan}</th>\n`;
+                  i++;
+                } else {
+                  // 같은 그룹명을 가진 열들을 병합
+                  let colspan = 1;
+                  while (i + colspan < headers.length && (headers[i + colspan].group || "").trim() === g) {
+                    colspan++;
+                  }
+                  topRowHtml += `      <th scope="colgroup" colspan="${colspan}"><span>${this.escape(g)}</span></th>\n`;
+                  
+                  for (let j = 0; j < colspan; j++) {
+                    let idx = i + j;
+                    const reqSpan = headers[idx].required ? `<span class="required">${this.escape(headers[idx].text)}</span>` : `<span>${this.escape(headers[idx].text)}</span>`;
+                    bottomRowHtml += `      <th scope="col">${reqSpan}</th>\n`;
+                  }
+                  i += colspan;
+                }
+              }
+              topRowHtml += "    </tr>";
+              bottomRowHtml += "    </tr>";
+              thead = `    <thead>\n${topRowHtml}\n${bottomRowHtml}\n    </thead>`;
+            } else {
+              // 일반 1단 헤더
+              const tr = `    <tr>\n${headers.map((h, i) => {
+                return `      <th scope="col">${h.required ? `<span class="required">${this.escape(h.text)}</span>` : `<span>${this.escape(h.text)}</span>`}</th>`;
+              }).join("\n")}\n    </tr>`;
+              thead = `    <thead>\n${tr}\n    </thead>`;
+            }
+
             const tbody = cells.map(row => `    <tr>\n${row.map((c, colIdx) => {
               const headerText = headers[colIdx] ? headers[colIdx].text : "";
               const tdClass = headers[colIdx] && headers[colIdx].textRight ? ' class="text-right"' : '';
               return `      <td${tdClass}>\n${this.makeCellContent(c, headerText)}\n      </td>`;
             }).join("\n")}\n    </tr>`).join("\n");
             
-            tableHtml = `  <table class="${tableClass}">\n    <caption>${caption}</caption>\n    <colgroup>\n      ${colgroup}\n    </colgroup>\n    <thead>\n${thead}\n    </thead>\n    <tbody>\n${tbody}\n    </tbody>\n  </table>`;
+            tableHtml = `  <table class="${tableClass}">\n    <caption>${caption}</caption>\n    <colgroup>\n      ${colgroup}\n    </colgroup>\n${thead}\n    <tbody>\n${tbody}\n    </tbody>\n  </table>`;
           }
 
           const h4Markup = tableTitle ? `  <h4 class="typeH4">${this.escape(tableTitle)}</h4>\n` : "";
@@ -680,6 +722,9 @@
           document.querySelector(".grid-scroll").addEventListener("change", e => {
             if (e.target.matches("[data-header]")) {
               this.state.headers[e.target.dataset.header].text = e.target.value;
+              this.generateHTML();
+            } else if (e.target.matches("[data-header-group]")) {
+              this.state.headers[e.target.dataset.headerGroup].group = e.target.value;
               this.generateHTML();
             } else if (e.target.matches("[data-cell-text]")) {
               const [r, c] = e.target.dataset.cellText.split(",");
