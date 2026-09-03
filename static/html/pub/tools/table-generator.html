@@ -30,7 +30,7 @@
       }
       button, input, select, textarea { font: inherit; }
       button { cursor: pointer; }
-      .page { max-width: 1440px; margin: 0 auto; padding: 42px 32px 72px; }
+      .page { max-width: 1440px; margin: 0 auto; padding: 42px 32px 72px; position: relative; }
       .masthead { display: flex; justify-content: space-between; align-items: end; gap: 24px; margin-bottom: 28px; }
       .eyebrow { margin: 0 0 8px; color: var(--accent-dark); font-size: 12px; font-weight: 800; letter-spacing: .08em; }
       h1 { margin: 0; font-size: clamp(28px, 4vw, 48px); letter-spacing: -.04em; }
@@ -96,6 +96,30 @@
       .status { min-height: 18px; margin: 16px 0 0; color: var(--accent-dark); font-size: 12px; font-weight: 700; }
       .preview { overflow: auto; min-height: 164px; padding: 18px; border: 1px solid var(--line); background: #fff; }
       pre { overflow: auto; max-height: 520px; margin: 0; padding: 18px; border-radius: 6px; background: #17212b; color: #e6f0ef; font: 12px/1.65 Consolas, monospace; white-space: pre-wrap; word-break: break-word; }
+
+      /* 토스트 메시지 스타일 */
+      .toast {
+        position: fixed;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%) translateY(20px);
+        background: #17212b;
+        color: #fff;
+        padding: 12px 24px;
+        border-radius: 8px;
+        font-size: 13px;
+        font-weight: 700;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        z-index: 100;
+      }
+      .toast.is-show {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(-50%) translateY(0);
+      }
     </style>
   </head>
   <body>
@@ -153,8 +177,7 @@
           <div class="panel-header">
             <h2>결과</h2>
             <div class="output-actions">
-              <button class="btn" id="copy-button" type="button">HTML 복사</button>
-              <button class="btn" id="download-button" type="button">파일 저장</button>
+              <button class="btn primary" id="copy-button" type="button">HTML 복사</button>
             </div>
           </div>
           <div class="panel-body">
@@ -166,6 +189,9 @@
         </section>
       </div>
     </main>
+
+    <!-- 토스트 메시지 -->
+    <div class="toast" id="toast-message">HTML 코드가 클립보드에 복사되었습니다.</div>
 
     <!-- 컴포넌트 추가 컨텍스트 메뉴 -->
     <div class="context-menu" id="cell-context-menu">
@@ -547,6 +573,15 @@
           return String(val || "").replace(/[&<>\"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
         },
 
+        showToast(message) {
+          const toast = document.querySelector("#toast-message");
+          toast.textContent = message;
+          toast.classList.add("is-show");
+          setTimeout(() => {
+            toast.classList.remove("is-show");
+          }, 2000);
+        },
+
         bindEvents() {
           document.querySelector("#table-class").addEventListener("change", e => {
             this.state.tableClass = e.target.value;
@@ -686,10 +721,7 @@
           document.querySelector("#copy-button").addEventListener("click", async () => {
             await navigator.clipboard.writeText(document.querySelector("#output").textContent);
             document.querySelector("#status").textContent = "HTML을 클립보드에 복사했습니다.";
-          });
-          document.querySelector("#download-button").addEventListener("click", () => {
-            const blob = new Blob([document.querySelector("#output").textContent], { type: "text/html;charset=utf-8" });
-            const link = document.createElement("a"); link.href = URL.createObjectURL(blob); link.download = "table.html"; link.click(); URL.revokeObjectURL(link.href);
+            this.showToast("HTML 코드가 클립보드에 복사되었습니다.");
           });
         }
       };
