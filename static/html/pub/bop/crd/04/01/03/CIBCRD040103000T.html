@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>수협은행</title>
+  <link rel="stylesheet" href="/static/css/reset.css" />
+  <link rel="stylesheet" href="/static/css/layout.css" />
+  <link rel="stylesheet" href="/static/css/component.css" />
+  <link rel="stylesheet" href="/static/css/common.css" />
+  <link rel="stylesheet" href="/static/css/bop.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <div id="header">
+      @@include('static/html/pub/layout/skipNavigation.html')
+      @@include('static/html/pub/layout/header_sub.html')
+    </div>
+
+    <div id="container" class="container">
+      <div id="leftArea">
+        @@include('static/html/pub/layout/leftArea.html')
+      </div>
+      <div id="contents">
+        <div class="content">
+          @@include('static/html/pub/layout/breadcrumb.html')
+          <div class="bop">
+            <h2 class="typeH2">이용내역조회</h2>
+            <div class="box-tab">
+              <ul class="list-tab-button type-outline" role="tablist" aria-label="탭 이름">
+                <li class="item-tab-button">
+                  <button type="button" class="btn-tab active" title="선택됨" id="tabBtnTypeOutline01" role="tab"
+                    aria-selected="true" aria-controls="tabPanelTypeOutline01">
+                    <span class="text">실시간 승인내역</span>
+                  </button>
+                </li>
+                <li class="item-tab-button">
+                  <button type="button" class="btn-tab" id="tabBtnTypeOutline02" role="tab" aria-selected="false"
+                    aria-controls="tabPanelTypeOutline02">
+                    <span class="text">이용내역</span>
+                  </button>
+                </li>
+                <li class="item-tab-button">
+                  <button type="button" class="btn-tab" id="tabBtnTypeOutline02" role="tab" aria-selected="false"
+                    aria-controls="tabPanelTypeOutline02">
+                    <span class="text">취소내역</span>
+                  </button>
+                </li>
+                <li class="item-tab-button">
+                  <button type="button" class="btn-tab" id="tabBtnTypeOutline02" role="tab" aria-selected="false"
+                    aria-controls="tabPanelTypeOutline02">
+                    <span class="text">가맹점 이용내역</span>
+                  </button>
+                </li>
+              </ul>
+              <div class="box-tab-content active" id="tabPanelTypeOutline01" role="tabpanel"
+                aria-labelledby="tabBtnTypeOutline01" style="display: block">
+                <div class="tbl-area">
+                  <div class="tbl-head">
+                    <h6 class="typeH6">조회조건</h6>
+                    <div class="right-area">
+                      <span class="required typeMd">필수 항목</span>
+                    </div>
+                  </div>
+                  <table class="table-type01">
+                    <caption>
+                      통지서비스신청/해지 테이블
+                    </caption>
+                    <colgroup>
+                      <col width="180px" />
+                      <col class="auto" />
+                    </colgroup>
+                    <tbody>
+                      <tr>
+                        <th scope="row">
+                          <span class="required">조회구분</span>
+                        </th>
+                        <td>
+                          <div class="form-box-wrap" role="radiogroup" aria-label="조회구분">
+                            <!--[dev] 관리자일 경우에만 노출-->
+                            <span class="form-box">
+                              <input type="radio" name="searchTypeA" id="searchTypeA_02" class="form-radio size-md">
+                              <label for="searchTypeA_02" class="form-label">사업장</label>
+                            </span>
+                            <!--//[dev] 관리자일 경우에만 노출-->
+                            <span class="form-box">
+                              <input type="radio" name="searchTypeA" id="searchTypeA_03" class="form-radio size-md">
+                              <label for="searchTypeA_03" class="form-label">카드</label>
+                            </span>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">
+                          <span class="required">사업장명</span>
+                        </th>
+                        <td>
+                          <div class="tbl-flex">
+                            <input type="text" class="input size-lg wSize-md" id="통지 연락처" placeholder="사업장을 검색하세요"
+                              value="" />
+                            <button type="button" class="btn type-line-secondary size-lg">
+                              <span class="text">검색</span>
+                            </button>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">
+                          <span class="required">조회기간</span>
+                        </th>
+                        <td>
+                          <div class="tbl-column">
+                            <div class="radio-group" role="radiogroup">
+                              <span class="form-box">
+                                <input type="radio" name="searchPeriod" title="조회기간" id="period_01" class="radio-btn"
+                                  checked="">
+                                <label for="period_01" class="form-label">당일</label>
+                                <input type="radio" name="searchPeriod" title="조회기간" id="period_02" class="radio-btn">
+                                <label for="period_02" class="form-label">전일</label>
+                                <input type="radio" name="searchPeriod" title="조회기간" id="period_03" class="radio-btn">
+                                <label for="period_03" class="form-label">3일전</label>
+                                <input type="radio" name="searchPeriod" title="조회기간" id="period_04" class="radio-btn">
+                                <label for="period_04" class="form-label">1주일전</label>
+                                <input type="radio" name="searchPeriod" title="조회기간" id="period_05" class="radio-btn">
+                                <label for="period_05" class="form-label">1달전</label>
+                                <input type="radio" name="searchPeriod" title="조회기간" id="period_06" class="radio-btn">
+                                <label for="period_06" class="form-label">3달전</label>
+                                <input type="radio" name="searchPeriod" title="조회기간" id="period_07" class="radio-btn">
+                                <label for="period_07" class="form-label">6달전</label>
+                                <input type="radio" name="searchPeriod" title="조회기간" id="period_08" class="radio-btn">
+                                <label for="period_08" class="form-label">1년전</label>
+                              </span>
+                            </div>
+                            <div class="calendar-wrap">
+                              <div class="input-box">
+                                <input type="text" class="input" placeholder="조회 시작일" aria-label="조회 시작일"
+                                  value="2026-01-06">
+                                <button type="button" class="btn">
+                                  <i class="ico-calendar ico-size-smMd" aria-hidden="true"></i>
+                                  <span class="blind">조회 시작일 달력 열기</span>
+                                </button>
+                              </div>
+                              <span aria-hidden="true">~</span>
+                              <div class="input-box">
+                                <input type="text" class="input" placeholder="조회 종료일" aria-label="조회 종료일"
+                                  value="2026-01-06">
+                                <button type="button" class="btn">
+                                  <i class="ico-calendar ico-size-smMd" aria-hidden="true"></i>
+                                  <span class="blind">조회 종료일 달력 열기</span>
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <!--[dev] : 20260826 웹접근성 id="approval_ategory",  aria-labelledby="approval_ategory" 추가-->
+                        <th scope="row" id="approval_ategory">
+                          <span class="required">승인구분</span>
+                        </th>
+                        <td>
+                          <div class="form-box-wrap" role="radiogroup" aria-labelledby="approval_ategory">
+                            <span class="form-box">
+                              <input type="radio" name="ApprovalType" id="ApprovalType_01" title="승인구분"
+                                class="form-radio size-md" />
+                              <label for="ApprovalType_01" class="form-label">전체</label>
+                            </span>
+                            <span class="form-box">
+                              <input type="radio" name="ApprovalType" id="ApprovalType_02" title="승인구분"
+                                class="form-radio size-md" />
+                              <label for="ApprovalType_02" class="form-label">국내</label>
+                            </span>
+                            <span class="form-box">
+                              <input type="radio" name="ApprovalType" id="ApprovalType_03" title="승인구분"
+                                class="form-radio size-md" />
+                              <label for="ApprovalType_03" class="form-label">해외</label>
+                            </span>
+                          </div>
+                        </td>
+                        <!--//[dev] : 20260826 웹접근성 id="approval_ategory",  aria-labelledby="approval_ategory" 추가-->
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="btn-wrap center sm-mid">
+                  <button type="button" class="btn type-line-neutral size-xxl">
+                    <span class="text">초기화</span>
+                  </button>
+                  <button type="button" class="btn type-bg-primary size-xxl">
+                    <span class="text">조회</span>
+                  </button>
+                </div>
+                <div class="tbl-area">
+                  <div class="tbl-head">
+                    <h6 class="typeH6">조회결과</h6>
+                    <!--[dev] : 20260826 right-area 추가-->
+                    <div class="right-area">
+                      <button type="button" class="btn type-line-neutral size-md">
+                        <span class="text">카드결제일 안내</span>
+                      </button>
+                      <span class="required typeMd">필수 항목</span>
+                    </div>
+                    <!--//[dev] : 20260826 right-area 추가-->
+                  </div>
+                  <table class="table-type01">
+                    <caption>
+                      상세안내 테이블
+                    </caption>
+                    <colgroup>
+                      <col width="150px">
+                      <col width="300px">
+                      <col width="150px">
+                      <col width="300px">
+                    </colgroup>
+                    <tbody>
+                      <tr>
+                        <th scope="row">사업장명</th>
+                        <td>
+                          <span class="typeMd">수협A</span>
+                        </td>
+                        <th scope="row">총건수(건)</th>
+                        <td>
+                          <span class="typeMd">180</span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">사용금액(원)</th>
+                        <td class="text-right">
+                          <span class="typeMd">6,235,867</span>
+                        </td>
+                        <th scope="row">사용금액(USD)</th>
+                        <td>
+                          <span class="typeMd">650.00</span>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div class="wrap-board-grid">
+                    <!-- [dev] 그리드 -->
+                    <div class="board-grid">
+                      <!-- [dev] 그리드 컨텐츠 영역 : 작업 시 삭제-->
+                      <i style="
+                            display: block;
+                            border: var(--borderWidthMd) solid
+                              var(--colorBorderBase);
+                            border-radius: var(--radiusMd);
+                            padding: var(--spacing2Xl);
+                          ">임시 그리드 영역</i>
+                      <!-- //[dev] 그리드 컨텐츠 영역 : 작업 시 삭제 -->
+                    </div>
+                    <!-- //[dev] 그리드 -->
+                  </div>
+                </div>
+                <div class="btn-wrap center sm-mid">
+                  <button type="button" class="btn type-line-neutral size-xxl">
+                    <span class="text">EXCEL 파일저장</span>
+                  </button>
+                  <button type="button" class="btn type-bg-primary size-xxl">
+                    <span class="text">FAX 발송</span>
+                  </button>
+                </div>
+              </div>
+              <div class="box-tab-content" id="tabPanelTypeOutline02" role="tabpanel"
+                aria-labelledby="tabBtnTypeOutline02" style="display: none">
+                <h3 class="blind">Tab Content02</h3>
+                Tab 본문 02
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+    </div>
+    <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+  </div>
+  <script src="/static/js/ui/cib_ui_common.js"></script>
+</body>
+
+</html>
+<script></script>
