@@ -65,6 +65,7 @@ module.exports = {
 
       "CIBDOB040401000M": { title: "증명서 구분선택", status: "검수중", worker: "이상우", note: "" },
       "CIBDOB040402000P": { title: "증명서 구분선택_대출실행번호선택(팝업)", status: "검수중", worker: "이상우", note: "" },
+      "CIBDOB040403000M": { title: "신청정보확인", status: "검수중", worker: "이상우", note: "" },
 
 };
 
