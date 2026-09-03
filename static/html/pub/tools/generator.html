@@ -550,9 +550,9 @@
                 const sz = it.size ? ` ${it.size}` : "";
                 const w = it.width ? ` ${it.width}` : "";
                 const err = it.error ? " is-error" : "";
-                const dis = it.disabled ? ' disabled=""' : "";
-                const ro = it.readonly ? ' readonly=""' : "";
-                const req = it.error ? ' required="" aria-required="true"' : "";
+                const dis = it.disabled ? ' disabled' : "";
+                const ro = it.readonly ? ' readonly' : "";
+                const req = it.error ? ' required aria-required="true"' : "";
                 const ph = it.placeholder ? ` placeholder="${this.escape(it.placeholder)}"` : ` placeholder="입력해주세요"`;
                 const val = it.value ? ` value="${this.escape(it.value)}"` : "";
                 const ariaLabel = headerText ? ` aria-label="${this.escape(headerText)} 입력"` : ` aria-label="입력란"`;
@@ -563,7 +563,7 @@
                 const w = it.width ? ` ${it.width}` : " wSize-lg";
                 const sz = it.size ? ` ${it.size}` : " size-lg";
                 const err = it.error ? " error" : "";
-                const dis = it.disabled ? ' disabled=""' : "";
+                const dis = it.disabled ? ' disabled' : "";
                 const optList = it.list ? it.list.split("\n").filter(Boolean) : ["Option01", "Option02"];
                 const ariaLabel = headerText ? ` aria-label="${this.escape(headerText)} 선택"` : ` aria-label="선택 옵션"`;
                 
@@ -583,15 +583,15 @@
                 grpContent += `          </div>\n`;
               }
               else if (it.type === 'button') {
-                const dis = it.disabled ? ' disabled=""' : "";
+                const dis = it.disabled ? ' disabled' : "";
                 grpContent += `          <button type="button" class="btn ${it.color} ${it.size}"${dis}>\n`;
                 grpContent += `            <span class="text">${this.escape(it.text)}</span>\n`;
                 grpContent += `          </button>\n`;
               }
               else if (it.type === 'checkbox') {
                 const sz = it.size ? ` ${it.size}` : "";
-                const chk = it.checked ? ' checked=""' : "";
-                const dis = it.disabled ? ' disabled=""' : "";
+                const chk = it.checked ? ' checked' : "";
+                const dis = it.disabled ? ' disabled' : "";
                 
                 grpContent += `          <span class="form-box">\n`;
                 grpContent += `            <input type="checkbox" name="" id="${uuid}" class="form-checkbox${sz}"${chk}${dis}>\n`;
@@ -600,7 +600,6 @@
               }
             });
             
-            // 분할선이 없더라도 컴포넌트가 2개 이상이거나 텍스트와 조합된 경우 tbl-flex로 묶어주도록 수정
             if (grp.length > 1 || (grp.length === 1 && cell.text)) {
               grpContent = `      <div class="tbl-flex">\n${grpContent}      </div>`;
             } else if (grp.length === 1) {
@@ -615,7 +614,6 @@
             }
           });
           
-          // 실질적으로 'divider'로 그룹이 쪼개진 경우에만 tbl-column으로 감쌈
           if (groups.length > 1) {
             const innerLines = flexBlocksHtml.map(b => `      ${b}`).join("\n");
             return `      <div class="tbl-column">\n${innerLines}\n      </div>`;
