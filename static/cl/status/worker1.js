@@ -81,7 +81,7 @@ module.exports = {
         title: "(팝업) 매매계약 상세조회",
         status: "검수중",
         worker: "변혜선",
-        note: "주석확인-[dev] : 20260824 td 에 클래스 text-right 추가"
+        note: "주석확인-[dev] : 20260824 td 에 클래스 text-right 추가<br/>09/03 col width 값 수정<br/>09/03 th scope 추가"
     },
     "CIBB2B010303002M": {
         title: "추심의뢰대상내역조회",

@@ -19,16 +19,16 @@ module.exports = {
       "CIBCRD020702000M": { title: "업종제한 설정(완료)", status: "검수중", worker: "이상우", note: "" },
 
       //어음할인신청
-      "CIBB2B021601000M": { title: "어음할인 조회", status: "검수중", worker: "이상우", note: "" },
-      "CIBB2B021602000M": { title: "부가요건확인", status: "검수중", worker: "이상우", note: "" },
-      "CIBB2B021603000M": { title: "OTP 인증", status: "검수중", worker: "이상우", note: "" },
-      "CIBB2B021604000M": { title: "할인신청1단계", status: "검수중", worker: "이상우", note: "" },
-      "CIBB2B021605000M": { title: "할인신청2단계", status: "검수중", worker: "이상우", note: "" },
-      "CIBB2B021606000M": { title: "할인신청완료", status: "검수중", worker: "이상우", note: "" },
+      "CIBB2B021601000M": { title: "어음할인 조회", status: "검수중", worker: "이상우", note: "09/03 col width 값 추가<br/>09/03 title 값 수정" },
+      "CIBB2B021602000M": { title: "부가요건확인", status: "검수중", worker: "이상우", note: "09/03 col width 값 수정" },
+      "CIBB2B021603000M": { title: "OTP 인증", status: "검수중", worker: "이상우", note: "09/03 col width 값 추가<br/>09/03 title 값 추가" },
+      "CIBB2B021604000M": { title: "할인신청1단계", status: "검수중", worker: "이상우", note: "09/03 col width 값 수정" },
+      "CIBB2B021605000M": { title: "할인신청2단계", status: "검수중", worker: "이상우", note: "09/03 col width 값 수정" },
+      "CIBB2B021606000M": { title: "할인신청완료", status: "검수중", worker: "이상우", note: "09/03 col width 값 수정" },
       //B2B공통
 
       "CIBB2B040101000P": { title: "[팝업]목록", status: "검수중", worker: "이상우", note: "" },
-      "CIBB2B040102000P": { title: "[팝업]추가등록", status: "검수중", worker: "이상우", note: "" },
+      "CIBB2B040102000P": { title: "[팝업]추가등록", status: "검수중", worker: "이상우", note: "09/03 col width 값 수정" },
       "CIBB2B040103000P": { title: "[팝업]추가, 삭제 완료", status: "검수중", worker: "이상우", note: "" },
 
 
