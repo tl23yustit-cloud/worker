@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>테이블 HTML 생성기 | 수협은행 퍼블리싱</title>
+    <title>테이블 및 이용안내 HTML 생성기 | 수협은행 퍼블리싱</title>
     <link rel="stylesheet" href="/static/css/reset.css" />
     <link rel="stylesheet" href="/static/css/layout.css" />
     <link rel="stylesheet" href="/static/css/component.css" />
@@ -35,7 +35,8 @@
       .eyebrow { margin: 0 0 8px; color: var(--accent-dark); font-size: 12px; font-weight: 800; letter-spacing: .08em; }
       h1 { margin: 0; font-size: clamp(28px, 4vw, 48px); letter-spacing: -.04em; }
       .workspace { display: block; }
-      .panel { border: 1px solid rgba(216, 224, 231, .9); border-radius: 10px; background: rgba(255, 255, 255, .92); box-shadow: 0 14px 38px rgba(35, 58, 67, .08); }
+      .panel { border: 1px solid rgba(216, 224, 231, .9); border-radius: 10px; background: rgba(255, 255, 255, .92); box-shadow: 0 14px 38px rgba(35, 58, 67, .08); margin-top: 20px; }
+      .panel:first-of-type { margin-top: 0; }
       .panel-header { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 19px 22px; border-bottom: 1px solid var(--line); }
       h2 { margin: 0; font-size: 18px; letter-spacing: -.02em; }
       .panel-body { padding: 22px; }
@@ -126,12 +127,13 @@
     <main class="page">
       <header class="masthead">
         <div>
-          <p class="eyebrow">PUBLISHING TOOL / TABLE</p>
-          <h1>테이블 HTML 생성기</h1>
+          <p class="eyebrow">PUBLISHING TOOL / TABLE & GUIDE</p>
+          <h1>HTML 생성기</h1>
         </div>
       </header>
 
       <div class="workspace">
+        <!-- 테이블 생성기 패널 -->
         <section class="panel">
           <div class="panel-header"><h2 id="form-title">테이블 설정</h2></div>
           <div class="panel-body">
@@ -175,7 +177,7 @@
 
         <section class="panel output-panel">
           <div class="panel-header">
-            <h2>결과</h2>
+            <h2>테이블 결과</h2>
             <div class="output-actions">
               <button class="btn primary" id="copy-button" type="button">HTML 복사</button>
             </div>
@@ -185,6 +187,44 @@
             <p class="status" id="status"></p>
             <div class="section-label"><label class="title">생성된 HTML</label></div>
             <pre id="output"></pre>
+          </div>
+        </section>
+
+        <!-- 이용안내 생성기 패널 -->
+        <section class="panel" style="margin-top: 40px;">
+          <div class="panel-header"><h2>이용안내(Guide) 생성기</h2></div>
+          <div class="panel-body">
+            <div class="field-grid">
+              <div class="field">
+                <label class="title" for="guide-title-input">상단 타이틀 텍스트</label>
+                <input type="text" id="guide-title-input" value="이용안내" />
+              </div>
+              <div class="field">
+                <label class="title" for="guide-mt-input">상단 여백(Margin Top 클래스)</label>
+                <input type="text" id="guide-mt-input" value="mt-48" placeholder="예: mt-48" />
+              </div>
+            </div>
+
+            <div class="field" style="margin-top:16px;">
+              <label class="title" for="guide-item-input">안내 항목 내용 (li 추가)</label>
+              <div style="display: flex; gap: 8px;">
+                <input type="text" id="guide-item-input" />
+                <button class="btn primary" id="add-guide-item" type="button" style="white-space: nowrap;">+ 안내 항목 추가</button>
+              </div>
+            </div>
+
+            <div class="list-fields" style="margin-top:16px;">
+              <label class="title">추가된 목록 미리보기 및 순서 관리</label>
+              <div id="guide-items-list" style="display: grid; gap: 8px; margin-top: 6px;">
+                <!-- 동적 생성 -->
+              </div>
+            </div>
+
+            <div class="section-label"><label class="title">생성된 이용안내 HTML</label></div>
+            <div class="preview" id="guide-preview" style="margin-bottom: 12px;"></div>
+            <div class="output-actions" style="display:flex; justify-content:flex-end;">
+              <button class="btn primary" id="copy-guide-button" type="button">이용안내 HTML 복사</button>
+            </div>
           </div>
         </section>
       </div>
@@ -287,13 +327,17 @@
           headers: [ { text: "항목 1", required: false } ],
           cells: [ [ { text: "", items: [] } ] ], 
           type01Groups: [ [0] ],
-          activeCell: null 
+          activeCell: null,
+          guideTitle: "이용안내",
+          guideMargin: "mt-48",
+          guideItems: []
         },
 
         init() {
           this.bindEvents();
           this.renderEditor();
           this.generateHTML();
+          this.renderGuide();
           document.querySelector('#btn-style').dispatchEvent(new Event('change'));
         },
 
@@ -341,6 +385,7 @@
           this.state.headers = [ { text: "", required: false } ];
           this.state.cells = [ [ { text: "", items: [] } ] ];
           this.state.type01Groups = [ [0] ];
+          this.showToast("설정이 초기화되었습니다.");
         },
 
         renderEditor() {
@@ -411,7 +456,7 @@
           }).join('') + `</div>`;
         },
 
-        generateHTML() {
+        generateHTML(showToastFlag = false) {
           const tableClass = this.state.tableClass;
           const tableTitle = this.state.tableTitle.trim();
           const headers = this.state.headers;
@@ -436,7 +481,8 @@
                 const headerId = `label-header-${hIdx}`;
                 const reqSpan = h.required ? `<span class="required" id="${headerId}">${this.escape(h.text)}</span>` : `<span id="${headerId}">${this.escape(h.text)}</span>`;
                 tr += `      <th scope="row">\n        ${reqSpan}\n      </th>\n`;
-                const colspan = (group.length === 1) ? ' colspan="3"' : '';
+                
+                const colspan = (group.length === 1 && hasPair) ? ' colspan="3"' : '';
                 tr += `      <td${colspan}>\n${this.makeCellContent(c, h.text)}\n      </td>\n`;
               });
               return tr + "    </tr>";
@@ -462,7 +508,13 @@
           
           document.querySelector("#output").textContent = finalHtml;
           document.querySelector("#preview").innerHTML = finalHtml;
-          document.querySelector("#status").textContent = `HTML 마크업이 업데이트 되었습니다 (접근성 자동 반영).`;
+          document.querySelector("#status").textContent = `HTML 마크업이 업데이트 되었습니다 (들여쓰기 정렬 완료).`;
+          
+          if (showToastFlag) {
+            this.showToast("테이블 HTML이 생성되었습니다.");
+          } else {
+            this.showToast("마크업이 업데이트되었습니다.");
+          }
         },
 
         makeCellContent(cell, headerText) {
@@ -486,7 +538,7 @@
             
             let grpContent = "";
             if (gIdx === 0 && cell.text) {
-              grpContent += `        <span class="typeMd">${this.escape(cell.text)}</span>\n`;
+              grpContent += `          <span class="typeMd">${this.escape(cell.text)}</span>\n`;
             }
             
             grp.forEach(it => {
@@ -503,7 +555,7 @@
                 const val = it.value ? ` value="${this.escape(it.value)}"` : "";
                 const ariaLabel = headerText ? ` aria-label="${this.escape(headerText)} 입력"` : ` aria-label="입력란"`;
                 
-                grpContent += `        <input type="text" class="input${sz}${w}${err}"${ariaLabel}${ph}${val}${dis}${ro}${req}>\n`;
+                grpContent += `          <input type="text" class="input${sz}${w}${err}"${ariaLabel}${ph}${val}${dis}${ro}${req}>\n`;
               } 
               else if (it.type === 'combo') {
                 const w = it.width ? ` ${it.width}` : " wSize-lg";
@@ -513,45 +565,45 @@
                 const optList = it.list ? it.list.split("\n").filter(Boolean) : ["Option01", "Option02"];
                 const ariaLabel = headerText ? ` aria-label="${this.escape(headerText)} 선택"` : ` aria-label="선택 옵션"`;
                 
-                grpContent += `        <div class="box-select${w}">\n`;
-                grpContent += `          <button type="button" class="select${sz}${err}" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="${uuid}"${ariaLabel}${dis}>\n`;
-                grpContent += `            <span class="text">Placeholder Text</span>\n`;
-                grpContent += `            <span class="blind">펼침</span>\n`;
-                grpContent += `          </button>\n`;
-                grpContent += `          <div id="${uuid}" class="box-list-select">\n`;
-                grpContent += `            <ul class="list-select" role="listbox" aria-label="${this.escape(headerText || '옵션 목록')}">\n`;
+                grpContent += `          <div class="box-select${w}">\n`;
+                grpContent += `            <button type="button" class="select${sz}${err}" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="${uuid}"${ariaLabel}${dis}>\n`;
+                grpContent += `              <span class="text">Placeholder Text</span>\n`;
+                grpContent += `              <span class="blind">펼침</span>\n`;
+                grpContent += `            </button>\n`;
+                grpContent += `            <div id="${uuid}" class="box-list-select">\n`;
+                grpContent += `              <ul class="list-select" role="listbox" aria-label="${this.escape(headerText || '옵션 목록')}">\n`;
                 optList.forEach((opt, optIdx) => {
                   const selectedAttr = optIdx === 0 ? ' aria-selected="true"' : ' aria-selected="false"';
-                  grpContent += `              <li class="item-select" role="option"${selectedAttr}><button class="btn-item-select">${this.escape(opt)}</button></li>\n`;
+                  grpContent += `                <li class="item-select" role="option"${selectedAttr}><button class="btn-item-select">${this.escape(opt)}</button></li>\n`;
                 });
-                grpContent += `            </ul>\n`;
+                grpContent += `              </ul>\n`;
+                grpContent += `            </div>\n`;
                 grpContent += `          </div>\n`;
-                grpContent += `        </div>\n`;
               }
               else if (it.type === 'button') {
                 const dis = it.disabled ? ' disabled=""' : "";
-                grpContent += `        <button type="button" class="btn ${it.color} ${it.size}"${dis}>\n`;
-                grpContent += `          <span class="text">${this.escape(it.text)}</span>\n`;
-                grpContent += `        </button>\n`;
+                grpContent += `          <button type="button" class="btn ${it.color} ${it.size}"${dis}>\n`;
+                grpContent += `            <span class="text">${this.escape(it.text)}</span>\n`;
+                grpContent += `          </button>\n`;
               }
               else if (it.type === 'checkbox') {
                 const sz = it.size ? ` ${it.size}` : "";
                 const chk = it.checked ? ' checked=""' : "";
                 const dis = it.disabled ? ' disabled=""' : "";
                 
-                grpContent += `        <span class="form-box">\n`;
-                grpContent += `          <input type="checkbox" name="" id="${uuid}" class="form-checkbox${sz}"${chk}${dis}>\n`;
-                grpContent += `          <label for="${uuid}" class="form-label">${this.escape(it.label)}</label>\n`;
-                grpContent += `        </span>\n`;
+                grpContent += `          <span class="form-box">\n`;
+                grpContent += `            <input type="checkbox" name="" id="${uuid}" class="form-checkbox${sz}"${chk}${dis}>\n`;
+                grpContent += `            <label for="${uuid}" class="form-label">${this.escape(it.label)}</label>\n`;
+                grpContent += `          </span>\n`;
               }
             });
             
             if (grp.length > 1 || (grp.length === 1 && (gIdx > 0 || cell.text))) {
-              grpContent = `        <div class="tbl-flex">\n${grpContent}        </div>`;
+              grpContent = `      <div class="tbl-flex">\n${grpContent}      </div>`;
             } else if (grp.length === 1) {
               grpContent = grpContent.trim();
             } else if (gIdx === 0 && cell.text) {
-              grpContent = `        <span class="typeMd">${this.escape(cell.text)}</span>`;
+              grpContent = `      <span class="typeMd">${this.escape(cell.text)}</span>`;
             }
             
             grpContent = grpContent.trim();
@@ -561,12 +613,37 @@
           });
           
           if (flexBlocksHtml.length > 1) {
-            const innerLines = flexBlocksHtml.map(b => `    ${b}`).join("\n");
+            const innerLines = flexBlocksHtml.map(b => `      ${b}`).join("\n");
             return `      <div class="tbl-column">\n${innerLines}\n      </div>`;
           } else if (flexBlocksHtml.length === 1) {
-            return flexBlocksHtml[0];
+            return `      ${flexBlocksHtml[0]}`;
           }
           return "";
+        },
+
+        renderGuide() {
+          const container = document.querySelector("#guide-items-list");
+          if (this.state.guideItems.length === 0) {
+            container.innerHTML = `<p class="hint" style="padding:10px 0;">추가된 안내 항목이 없습니다. 항목을 추가해주세요.</p>`;
+          } else {
+            container.innerHTML = this.state.guideItems.map((item, idx) => `
+              <div style="display:flex; gap:8px; align-items:center;">
+                <input type="text" data-guide-idx="${idx}" value="${this.escape(item)}" />
+                <button class="grid-button" data-guide-del="${idx}" style="color:#a14646; border-color:#a14646; white-space:nowrap;">삭제</button>
+              </div>
+            `).join("");
+          }
+
+          const title = this.escape(this.state.guideTitle);
+          const mt = this.escape(this.state.guideMargin);
+          const lis = this.state.guideItems.length > 0 
+            ? this.state.guideItems.map(i => `      <li class="typeMd">${this.escape(i)}</li>`).join("\n")
+            : `      <li class="typeMd">안내 문구를 입력해주세요.</li>`;
+
+          const guideHtml = `<div class="line-box size-xl ${mt}">\n  <span class="typeLgSemibold">${title}</span>\n  <div class="list type-dotted">\n    <ul>\n${lis}\n    </ul>\n  </div>\n</div>`;
+
+          document.querySelector("#guide-preview").innerHTML = guideHtml;
+          document.querySelector("#guide-preview").dataset.htmlCode = guideHtml;
         },
 
         escape(val) {
@@ -596,9 +673,9 @@
           document.querySelector("#add-column").addEventListener("click", () => { this.addColumn(); this.renderEditor(); this.generateHTML(); });
           document.querySelector("#add-row").addEventListener("click", () => { this.addRow(); this.renderEditor(); this.generateHTML(); });
           document.querySelector("#reset-button").addEventListener("click", () => { this.reset(); this.renderEditor(); this.generateHTML(); });
-          document.querySelector("#generate-button").addEventListener("click", () => this.generateHTML());
+          document.querySelector("#generate-button").addEventListener("click", () => this.generateHTML(true));
           
-          document.querySelector(".grid-scroll").addEventListener("input", e => {
+          document.querySelector(".grid-scroll").addEventListener("change", e => {
             if (e.target.matches("[data-header]")) {
               this.state.headers[e.target.dataset.header].text = e.target.value;
               this.generateHTML();
@@ -606,11 +683,7 @@
               const [r, c] = e.target.dataset.cellText.split(",");
               this.state.cells[r][c].text = e.target.value;
               this.generateHTML();
-            }
-          });
-          
-          document.querySelector(".grid-scroll").addEventListener("change", e => {
-            if (e.target.matches("[data-req]")) {
+            } else if (e.target.matches("[data-req]")) {
               this.state.headers[e.target.dataset.req].required = e.target.checked;
               this.generateHTML();
             }
@@ -721,7 +794,45 @@
           document.querySelector("#copy-button").addEventListener("click", async () => {
             await navigator.clipboard.writeText(document.querySelector("#output").textContent);
             document.querySelector("#status").textContent = "HTML을 클립보드에 복사했습니다.";
-            this.showToast("HTML 코드가 클립보드에 복사되었습니다.");
+            this.showToast("테이블 HTML 코드가 복사되었습니다.");
+          });
+
+          document.querySelector("#guide-title-input").addEventListener("change", e => {
+            this.state.guideTitle = e.target.value;
+            this.renderGuide();
+          });
+          document.querySelector("#guide-mt-input").addEventListener("change", e => {
+            this.state.guideMargin = e.target.value.trim();
+            this.renderGuide();
+          });
+          document.querySelector("#add-guide-item").addEventListener("click", () => {
+            const input = document.querySelector("#guide-item-input");
+            const val = input.value.trim();
+            if (!val) return;
+            this.state.guideItems.push(val);
+            input.value = "";
+            this.renderGuide();
+            this.showToast("이용안내 항목이 추가되었습니다.");
+          });
+          document.querySelector("#guide-items-list").addEventListener("change", e => {
+            if (e.target.matches("[data-guide-idx]")) {
+              const idx = e.target.dataset.guideIdx;
+              this.state.guideItems[idx] = e.target.value;
+              this.renderGuide();
+            }
+          });
+          document.querySelector("#guide-items-list").addEventListener("click", e => {
+            if (e.target.matches("[data-guide-del]")) {
+              const idx = e.target.dataset.guideDel;
+              this.state.guideItems.splice(idx, 1);
+              this.renderGuide();
+              this.showToast("이용안내 항목이 삭제되었습니다.");
+            }
+          });
+          document.querySelector("#copy-guide-button").addEventListener("click", async () => {
+            const code = document.querySelector("#guide-preview").dataset.htmlCode || "";
+            await navigator.clipboard.writeText(code);
+            this.showToast("이용안내 HTML 코드가 복사되었습니다.");
           });
         }
       };
