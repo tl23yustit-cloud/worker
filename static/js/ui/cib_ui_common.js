@@ -51,6 +51,8 @@ window.initDynamicUI = function(context = document) {
 	initCurrencyFormat(context);
 	initRateRange(context);
 	fnInitTextareaLength(context); 
+	renderRateRange(context);
+	
 };
 
 
@@ -806,6 +808,7 @@ function initRateRange(context = document) {
 }
 
 function renderRateRange(range) {
+	console.log(1)
 	const min = Number(range.dataset.min);
 	const max = Number(range.dataset.max);
 	const value = Number(range.dataset.value);
