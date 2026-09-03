@@ -48,10 +48,8 @@ window.initDynamicUI = function(context = document) {
 	initTableCheckbox(context);
 	initAutoTableCaptions(context);
 	initPaginationButtonState(context);
-	initCurrencyFormat(context);
 	initRateRange(context);
 	fnInitTextareaLength(context); 
-	renderRateRange(context);
 	
 };
 
