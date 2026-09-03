@@ -478,8 +478,7 @@
               group.forEach(hIdx => {
                 const h = headers[hIdx];
                 const c = cells[0][hIdx];
-                const headerId = `label-header-${hIdx}`;
-                const reqSpan = h.required ? `<span class="required" id="${headerId}">${this.escape(h.text)}</span>` : `<span id="${headerId}">${this.escape(h.text)}</span>`;
+                const reqSpan = h.required ? `<span class="required">${this.escape(h.text)}</span>` : `<span>${this.escape(h.text)}</span>`;
                 tr += `      <th scope="row">\n        ${reqSpan}\n      </th>\n`;
                 
                 const colspan = (group.length === 1 && hasPair) ? ' colspan="3"' : '';
@@ -492,8 +491,7 @@
           } else {
             const colgroup = headers.map(() => `<col style="width: auto">`).join("\n      ");
             const thead = `    <tr>\n${headers.map((h, i) => {
-              const headerId = `label-header-${i}`;
-              return `      <th scope="col">${h.required ? `<span class="required" id="${headerId}">${this.escape(h.text)}</span>` : `<span id="${headerId}">${this.escape(h.text)}</span>`}</th>`;
+              return `      <th scope="col">${h.required ? `<span class="required">${this.escape(h.text)}</span>` : `<span>${this.escape(h.text)}</span>`}</th>`;
             }).join("\n")}\n    </tr>`;
             const tbody = cells.map(row => `    <tr>\n${row.map((c, colIdx) => {
               const headerText = headers[colIdx] ? headers[colIdx].text : "";
@@ -599,7 +597,7 @@
             });
             
             if (grp.length > 1 || (grp.length === 1 && (gIdx > 0 || cell.text))) {
-              grpContent = `      <div class="tbl-flex">\n${grpContent}      </div>`;
+              grpContent = `      <div class="tbl-column">\n${grpContent}      </div>`;
             } else if (grp.length === 1) {
               grpContent = grpContent.trim();
             } else if (gIdx === 0 && cell.text) {
