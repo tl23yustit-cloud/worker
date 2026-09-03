@@ -82,7 +82,7 @@ module.exports = {
     "CIBCRD060606000M": { title: "SMS알림서비스 변경(완료)", status: "검수중", worker: "변혜선", note: "" },
 
     // 💡 뱅킹업무(bop) > 카드(crd)
-    "CIBCRD020300000M": { title: "기업카드비밀번호 등록", status: "완료", worker: "변혜선", note: "" },
+    "CIBCRD020300000M": { title: "기업카드비밀번호 등록", status: "수정완료", worker: "변혜선", note: "주석확인-[dev]:20260903" },
     "CIBCRD020301000P": { title: "비밀번호 일괄입력 팝업", status: "완료", worker: "손창우", note: "" },
     "CIBCRD020302000M": { title: "기업카드비밀번호 등록 완료", status: "완료", worker: "손창우", note: "" },
     "CIBCRD060601000T": { title: "", status: "검수중", worker: "변혜선", note: "임시 그리드 화면" },
