@@ -97,6 +97,11 @@
       .status { min-height: 18px; margin: 16px 0 0; color: var(--accent-dark); font-size: 12px; font-weight: 700; }
       .preview { overflow: auto; min-height: 164px; padding: 18px; border: 1px solid var(--line); background: #fff; }
       pre { overflow: auto; max-height: 520px; margin: 0; padding: 18px; border-radius: 6px; background: #17212b; color: #e6f0ef; font: 12px/1.65 Consolas, "맑은 고딕", monospace; white-space: pre-wrap; word-break: break-word; }
+      
+      /* 컨텍스트 메뉴 내 옵션 그룹 가시성 제어 */
+      .option-group { display: none; }
+      .option-group.is-visible { display: contents; }
+      
       @media (max-width: 900px) {
         .page { padding: 28px 16px 48px; }
         .masthead { align-items: start; flex-direction: column; }
@@ -175,27 +180,79 @@
         </section>
       </div>
     </main>
+
     <div class="context-menu" id="cell-context-menu" role="menu">
       <button type="button" data-cell-type="text" role="menuitem">텍스트</button>
       <button type="button" data-cell-type="input" role="menuitem">텍스트 input</button>
       <button type="button" data-cell-type="combo" role="menuitem">콤보박스</button>
       <button type="button" data-cell-type="button" role="menuitem">버튼</button>
+      
       <div class="cell-options" id="cell-options">
-        <label for="option-size">사이즈</label>
-          <select id="option-size"><option value="size-sm">small</option><option value="size-md" selected>medium</option><option value="size-lg">large</option><option value="size-xl">x-large</option><option value="size-xxl">xx-large</option></select>
-        <label for="option-color">색상</label>
-          <select id="option-color"><option value="type-bg-primary">primary 배경</option><option value="type-bg-neutral">neutral 배경</option><option value="type-bg-neutral-tint">neutral tint 배경</option><option value="type-bg-primary-tint">primary tint 배경</option><option value="type-bg-error">error 배경</option><option value="type-line-primary">primary 라인</option><option value="type-line-secondary" selected>secondary 라인</option><option value="type-line-neutral">neutral 라인</option><option value="type-line-error">error 라인</option><option value="type-ghost-primary">primary ghost</option><option value="type-ghost-neutral">neutral ghost</option><option value="type-ghost-invert">invert ghost</option><option value="type-ghost-error">error ghost</option></select>
-        <label for="option-text">버튼 텍스트</label>
-        <div class="button-stack"><div class="button-stack-item"><input id="option-text" type="text" placeholder="버튼명을 입력하세요" /><button type="button" class="grid-button" id="add-button-item">확인</button></div><div id="button-items"></div></div>
-        <label for="option-placeholder">placeholder</label>
-        <input id="option-placeholder" type="text" />
-        <label for="option-guide">하단 안내 문구 (줄바꿈으로 여러 개)</label>
-        <textarea id="option-guide"></textarea>
-        <label for="option-list">콤보박스 옵션값 (줄마다 1개)</label>
-        <textarea id="option-list"></textarea>
-        <label for="option-width">콤보박스 너비</label>
-        <select id="option-width"><option value="wSize-sm">small</option><option value="wSize-md">medium</option><option value="wSize-lg" selected>large</option></select>
-        <button type="button" class="grid-button" id="apply-options">옵션 적용</button>
+        
+        <!-- [1] 버튼 전용 옵션 -->
+        <div class="option-group" data-show="button">
+          <label for="btn-size">버튼 사이즈</label>
+          <select id="btn-size">
+            <option value="size-sm">Small</option>
+            <option value="size-md" selected>Medium</option>
+            <option value="size-lg">Large</option>
+            <option value="size-xl">X-large</option>
+            <option value="size-xxl">XX-large</option>
+          </select>
+      
+          <label for="btn-style">버튼 타입</label>
+          <select id="btn-style">
+            <option value="bg" selected>Background type</option>
+            <option value="outline">Outline type</option>
+            <option value="ghost">Ghost type</option>
+            <option value="round">Outline Round type</option>
+          </select>
+      
+          <label for="btn-color">버튼 색상</label>
+          <select id="btn-color">
+            <!-- JS에서 btn-style 선택에 따라 동적으로 채워집니다 -->
+          </select>
+      
+          <label for="btn-text">버튼 텍스트</label>
+          <div class="button-stack">
+            <div class="button-stack-item">
+              <input id="btn-text" type="text" placeholder="버튼명을 입력하세요" />
+              <button type="button" class="grid-button" id="add-button-item">확인</button>
+            </div>
+            <div id="button-items"></div>
+          </div>
+        </div>
+      
+        <!-- [2] 콤보박스 전용 옵션 -->
+        <div class="option-group" data-show="combo">
+          <label for="combo-size">콤보박스 사이즈</label>
+          <select id="combo-size">
+            <option value="size-md">Medium</option>
+            <option value="size-lg" selected>Large</option>
+          </select>
+      
+          <label for="combo-list">옵션 리스트 (줄마다 1개)</label>
+          <textarea id="combo-list" placeholder="항목1&#10;항목2"></textarea>
+        </div>
+      
+        <!-- [3] 텍스트 필드(input) 전용 옵션 -->
+        <div class="option-group" data-show="input">
+          <label for="input-value">Value (초기값)</label>
+          <input id="input-value" type="text" />
+      
+          <label for="input-placeholder">Placeholder</label>
+          <input id="input-placeholder" type="text" />
+      
+          <label for="input-title">Title 속성 (접근성)</label>
+          <input id="input-title" type="text" placeholder="입력칸 설명을 적어주세요" />
+      
+          <label style="display: flex; align-items: center; gap: 6px; flex-direction: row; margin-top: 8px;">
+            <input type="checkbox" id="input-readonly" style="width: auto; min-height: auto;" />
+            Readonly 적용
+          </label>
+        </div>
+      
+        <button type="button" class="grid-button" id="apply-options" style="margin-top: 10px;">옵션 적용</button>
       </div>
     </div>
 
@@ -212,14 +269,54 @@
       const cellContextMenu = document.querySelector("#cell-context-menu");
       let contextCell = null;
       let contextPosition = null;
+      
       let gridData = {
         headers: [""],
         rows: [[""]],
         fullRows: [false],
         cellTypes: [["text"]],
-         cellOptions: [[{ buttons: [] }]]
+        cellOptions: [[{ buttons: [] }]]
       };
       let type01Groups = [[0]];
+
+      // 버튼 타입별 색상 클래스 매핑
+      const buttonColors = {
+        bg: [
+          { val: 'type-bg-primary', label: 'Primary' },
+          { val: 'type-bg-neutral', label: 'Neutral' },
+          { val: 'type-bg-neutral-tint', label: 'Neutral-tint' },
+          { val: 'type-bg-primary-tint', label: 'Primary-tint' },
+          { val: 'type-bg-error', label: 'Error' }
+        ],
+        outline: [
+          { val: 'type-line-primary', label: 'Primary' },
+          { val: 'type-line-secondary', label: 'Secondary' },
+          { val: 'type-line-neutral', label: 'Neutral' }
+        ],
+        ghost: [
+          { val: 'type-ghost-primary', label: 'Primary' },
+          { val: 'type-ghost-neutral', label: 'Neutral' },
+          { val: 'type-ghost-invert', label: 'Invert' },
+          { val: 'type-ghost-error', label: 'Error' }
+        ],
+        round: [
+          { val: 'type-round-primary', label: 'Primary' },
+          { val: 'type-round-secondary', label: 'Secondary' },
+          { val: 'type-round-error', label: 'Error' }
+        ]
+      };
+
+      function renderButtonColors(typeValue, selectedColor = null) {
+        const colorSelect = document.querySelector('#btn-color');
+        const options = buttonColors[typeValue] || buttonColors.bg;
+        colorSelect.innerHTML = options.map(opt => 
+          `<option value="${opt.val}" ${opt.val === selectedColor ? 'selected' : ''}>${opt.label}</option>`
+        ).join('');
+      }
+
+      document.querySelector('#btn-style').addEventListener('change', (e) => {
+        renderButtonColors(e.target.value);
+      });
 
       function escapeHtml(value) {
         return String(value).replace(/[&<>\"]/g, character => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[character]));
@@ -309,19 +406,24 @@
         const safeValue = escapeHtml(value);
         const options = getCellOptions(rowIndex, columnIndex);
         const cellId = `table-cell-${rowIndex}-${columnIndex}`;
-        const guideItems = String(options.guide || "").split("\n").map(item => item.trim()).filter(Boolean);
-        const guide = guideItems.map(item => `<p class="input-guide-text">${escapeHtml(item)}</p>`).join("");
+        
         let content = `<span class="typeMd">${safeValue}</span>`;
+        
         if (type === "combo") {
           const optionItems = String(options.list || "").split("\n").map(item => item.trim()).filter(Boolean);
           const listItems = optionItems.length ? optionItems : [value || "선택해주세요"];
-          content = `<div class="box-select ${options.width || "wSize-lg"}"><button type="button" class="select ${options.size || "size-lg"}" id="${cellId}-combo" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="${cellId}-list" aria-label="${escapeHtml(column.label)}"><span class="text">${safeValue || "선택해주세요"}</span><span class="blind">목록 열기</span></button><div class="box-list-select" id="${cellId}-list"><ul class="list-select" role="listbox" aria-label="${escapeHtml(column.label)} 선택 항목">${listItems.map((item, index) => `<li class="item-select" role="option" aria-selected="${index === 0 ? "true" : "false"}"><button type="button" class="btn-item-select">${escapeHtml(item)}</button></li>`).join("")}</ul></div></div>`;
+          // 콤보박스는 options.size 사용 (size-md, size-lg)
+          content = `<div class="box-select ${options.size || "size-lg"}"><button type="button" class="select ${options.size || "size-lg"}" id="${cellId}-combo" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="${cellId}-list" aria-label="${escapeHtml(column.label)}"><span class="text">${safeValue || "선택해주세요"}</span><span class="blind">목록 열기</span></button><div class="box-list-select" id="${cellId}-list"><ul class="list-select" role="listbox" aria-label="${escapeHtml(column.label)} 선택 항목">${listItems.map((item, index) => `<li class="item-select" role="option" aria-selected="${index === 0 ? "true" : "false"}"><button type="button" class="btn-item-select">${escapeHtml(item)}</button></li>`).join("")}</ul></div></div>`;
         } else if (type === "button") {
-           const buttonItems = options.buttons?.length ? options.buttons : String(options.text || value || "버튼").split("\n").map(item => item.trim()).filter(Boolean);
-          content = `<div class="tbl-flex">${buttonItems.map((item, index) => `<button type="button" class="btn ${options.color || "type-line-secondary"} ${options.size || "size-md"}" aria-label="${escapeHtml(item)}"><span class="text">${escapeHtml(item)}</span></button>`).join("")}</div>`;
+          const buttonItems = options.buttons?.length ? options.buttons : String(value || "버튼").split("\n").map(item => item.trim()).filter(Boolean);
+          content = `<div class="tbl-flex">${buttonItems.map((item, index) => `<button type="button" class="btn ${options.color || "type-bg-primary"} ${options.size || "size-md"}" aria-label="${escapeHtml(item)}"><span class="text">${escapeHtml(item)}</span></button>`).join("")}</div>`;
         } else if (type === "input") {
-          const describedBy = guideItems.length ? ` aria-describedby="${cellId}-guide"` : "";
-          content = `<input type="text" class="input ${options.size || "size-lg"}" id="${cellId}-input" placeholder="${escapeHtml(options.placeholder || "")}" aria-label="${escapeHtml(column.label)}"${describedBy}>${guideItems.length ? `<div id="${cellId}-guide">${guide}</div>` : ""}`;
+          // 텍스트 필드 렌더링 임시 적용 (가이드 태그 전달 시 수정될 부분)
+          const titleAttr = options.title ? ` title="${escapeHtml(options.title)}"` : "";
+          const readonlyAttr = options.readonly ? " readonly" : "";
+          const placeholder = options.placeholder ? ` placeholder="${escapeHtml(options.placeholder)}"` : "";
+          const val = options.value ? ` value="${escapeHtml(options.value)}"` : ` value="${safeValue}"`;
+          content = `<input type="text" class="input size-lg" id="${cellId}-input" aria-label="${escapeHtml(column.label)}"${placeholder}${titleAttr}${readonlyAttr}${val}>`;
         }
         return `<td${className}>${content}</td>`;
       }
@@ -386,7 +488,7 @@
           rows: [[""]],
           fullRows: [false],
           cellTypes: [["text"]],
-           cellOptions: [[{ buttons: [] }]]
+          cellOptions: [[{ buttons: [] }]]
         };
         resetType01Groups();
         renderGrid();
@@ -418,9 +520,7 @@
       });
       document.querySelector("#add-column").addEventListener("click", () => {
         readGrid();
-        if (fields.tableClass.value === "table-type01") {
-          return;
-        }
+        if (fields.tableClass.value === "table-type01") return;
         gridData.headers.push(`열 ${gridData.headers.length + 1}`);
         gridData.rows.forEach(row => row.push(""));
         gridData.fullRows.push(false);
@@ -453,7 +553,6 @@
         if (removeButton) {
           const options = getCellOptions(Number(removeButton.dataset.deleteButtonRow), Number(removeButton.dataset.deleteButtonColumn));
           options.buttons.splice(Number(removeButton.dataset.deleteButtonIndex), 1);
-          options.text = options.buttons.join("\n");
           renderGrid();
           generate();
           return;
@@ -496,88 +595,125 @@
         renderGrid();
         generate();
       });
+
+      // 옵션 노출 제어 헬퍼 함수
+      function updateOptionsVisibility(selectedType) {
+        document.querySelectorAll(".option-group").forEach(group => {
+          const showTypes = group.dataset.show.split(" ");
+          if (showTypes.includes(selectedType)) {
+            group.classList.add("is-visible");
+          } else {
+            group.classList.remove("is-visible");
+          }
+        });
+      }
+
       document.querySelector(".grid-scroll").addEventListener("contextmenu", event => {
         const cell = event.target.closest("[data-row-index][data-column-index]");
         if (!cell) return;
         event.preventDefault();
         contextCell = cell;
         contextPosition = { rowIndex: Number(cell.dataset.rowIndex), columnIndex: Number(cell.dataset.columnIndex) };
-        const options = getCellOptions(Number(cell.dataset.rowIndex), Number(cell.dataset.columnIndex));
-        document.querySelector("#option-size").value = options.size || "size-md";
-        document.querySelector("#option-color").value = options.color || "type-line-secondary";
-        document.querySelector("#option-text").value = options.text || cell.value;
-        document.querySelector("#option-placeholder").value = options.placeholder || "";
-        document.querySelector("#option-guide").value = options.guide || "";
-        document.querySelector("#option-list").value = options.list || "";
-        document.querySelector("#option-width").value = options.width || "wSize-lg";
-        renderButtonItems(options.buttons || []);
+        
         document.querySelector("#cell-options").classList.remove("is-open");
         cellContextMenu.style.left = `${Math.min(event.clientX, window.innerWidth - 145)}px`;
         cellContextMenu.style.top = `${Math.min(event.clientY, window.innerHeight - 145)}px`;
         cellContextMenu.classList.add("is-open");
       });
+
       cellContextMenu.addEventListener("click", event => {
         const button = event.target.closest("[data-cell-type]");
         if (!button || !contextCell) return;
         const type = button.dataset.cellType;
+
         if (type === "button" || type === "combo" || type === "input") {
           contextCell.dataset.cellType = type;
-          renderButtonItems(getCellOptions(Number(contextCell.dataset.rowIndex), Number(contextCell.dataset.columnIndex)).buttons || []);
+          const options = getCellOptions(Number(contextCell.dataset.rowIndex), Number(contextCell.dataset.columnIndex));
+          
+          if (type === "button") {
+            document.querySelector("#btn-size").value = options.size || "size-md";
+            document.querySelector("#btn-style").value = options.style || "bg";
+            renderButtonColors(options.style || "bg", options.color);
+            renderButtonItems(options.buttons || []);
+          } else if (type === "combo") {
+            document.querySelector("#combo-size").value = options.size || "size-lg";
+            document.querySelector("#combo-list").value = options.list || "";
+          } else if (type === "input") {
+            document.querySelector("#input-value").value = options.value || "";
+            document.querySelector("#input-placeholder").value = options.placeholder || "";
+            document.querySelector("#input-title").value = options.title || "";
+            document.querySelector("#input-readonly").checked = options.readonly || false;
+          }
+          
+          updateOptionsVisibility(type);
           document.querySelector("#cell-options").classList.add("is-open");
           return;
         }
+        
         contextCell.dataset.cellType = type;
         readGrid();
         generate();
         cellContextMenu.classList.remove("is-open");
         contextCell = null;
       });
+
       document.querySelector("#apply-options").addEventListener("click", () => {
         if (!contextCell) return;
         const rowIndex = Number(contextCell.dataset.rowIndex);
         const columnIndex = Number(contextCell.dataset.columnIndex);
+        const type = contextCell.dataset.cellType;
         const existingButtons = getCellOptions(rowIndex, columnIndex).buttons || [];
-        gridData.cellOptions[rowIndex][columnIndex] = {
-          size: document.querySelector("#option-size").value,
-          color: document.querySelector("#option-color").value,
-          text: document.querySelector("#option-text").value,
-          placeholder: document.querySelector("#option-placeholder").value,
-          guide: document.querySelector("#option-guide").value,
-          list: document.querySelector("#option-list").value,
-          width: document.querySelector("#option-width").value
-        };
-        if (contextCell.dataset.cellType === "button") {
-          gridData.cellOptions[rowIndex][columnIndex].buttons = existingButtons;
+        
+        const newOptions = {};
+        
+        if (type === "button") {
+          newOptions.size = document.querySelector("#btn-size").value;
+          newOptions.style = document.querySelector("#btn-style").value;
+          newOptions.color = document.querySelector("#btn-color").value;
+          newOptions.buttons = existingButtons;
+        } else if (type === "combo") {
+          newOptions.size = document.querySelector("#combo-size").value;
+          newOptions.list = document.querySelector("#combo-list").value;
+        } else if (type === "input") {
+          newOptions.value = document.querySelector("#input-value").value;
+          newOptions.placeholder = document.querySelector("#input-placeholder").value;
+          newOptions.title = document.querySelector("#input-title").value;
+          newOptions.readonly = document.querySelector("#input-readonly").checked;
+          newOptions.size = "size-lg"; // 고정
         }
+        
+        gridData.cellOptions[rowIndex][columnIndex] = newOptions;
+        
         readGrid();
         generate();
         cellContextMenu.classList.remove("is-open");
         contextCell = null;
       });
+
       document.querySelector("#add-button-item").addEventListener("click", () => {
         if (!contextPosition) return;
         const { rowIndex, columnIndex } = contextPosition;
-        const text = document.querySelector("#option-text").value.trim();
+        const text = document.querySelector("#btn-text").value.trim();
         if (!text) return;
         const options = getCellOptions(rowIndex, columnIndex);
         options.buttons = options.buttons || [];
         options.buttons.push(text);
-        options.text = options.buttons.join("\n");
-        document.querySelector("#option-text").value = "";
+        document.querySelector("#btn-text").value = "";
         renderButtonItems(options.buttons);
         renderGrid();
         generate();
       });
+
       document.querySelector("#button-items").addEventListener("click", event => {
         const button = event.target.closest("[data-remove-option-button]");
         if (!button || !contextPosition) return;
         const options = getCellOptions(contextPosition.rowIndex, contextPosition.columnIndex);
         options.buttons.splice(Number(button.dataset.removeOptionButton), 1);
-        options.text = options.buttons.join("\n");
         renderButtonItems(options.buttons);
         renderGrid();
         generate();
       });
+
       document.addEventListener("click", event => {
         if (!event.target.closest("#cell-context-menu")) cellContextMenu.classList.remove("is-open");
       });
@@ -598,6 +734,7 @@
         URL.revokeObjectURL(link.href);
         status.textContent = "table.html 파일을 저장했습니다.";
       });
+      
       renderGrid();
       generate();
     </script>
