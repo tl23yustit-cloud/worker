@@ -409,67 +409,67 @@ module.exports = {
     },
     "CIBLON010703000p": {
         title: "개인채무자보호법통지 조회_채권양도예정통지서",
-        status: "진행중",
+        status: "검수중",
         worker: "변혜선",
         note: ""
     },
     "CIBLON010704000p": {
         title: "개인채무자보호법통지 조회_주택경매예정통지서",
-        status: "진행중",
+        status: "검수중",
         worker: "변혜선",
         note: ""
     },
     "CIBCRD020601000T": {
         title: "카드해지(조회)",
-        status: "진행중",
+        status: "검수중",
         worker: "변혜선",
         note: ""
     },
     "CIBCRD020602001P": {
         title: "해지사유 등록 팝업",
-        status: "진행중",
+        status: "검수중",
         worker: "변혜선",
         note: ""
     },
     "CIBCRD020603000T": {
         title: "카드해지 취소(조회)",
-        status: "진행중",
+        status: "검수중",
         worker: "변혜선",
         note: ""
     },
     "CIBCRD020605000T": {
         title: "해지내역 조회",
-        status: "진행중",
+        status: "검수중",
         worker: "변혜선",
         note: ""
     },
     "CIBCRD020602000M": {
         title: "카드해지(완료)",
-        status: "진행중",
+        status: "검수중",
         worker: "변혜선",
         note: ""
     },
     "CIBCRD020604000M": {
         title: "카드해지 취소(완료)",
-        status: "진행중",
+        status: "검수중",
         worker: "변혜선",
         note: ""
     },
     "CIBCRD040102000T": {
         title: "이용내역조회(이용내역Tab)",
-        status: "진행중",
+        status: "검수중",
         worker: "변혜선",
         note: "임시그리드"
     },
     "CIBCRD040103000T": {
         title: "이용내역조회(취소내역Tab)",
-        status: "진행중",
+        status: "검수중",
         worker: "변혜선",
         note: "임시그리드"
     },
     "CIBCRD040104000T": {
         title: "이용내역조회(가맹점내역Tab)",
-        status: "진행중",
+        status: "검수중",
         worker: "변혜선",
         note: "임시그리드"
     },
