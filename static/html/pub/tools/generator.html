@@ -600,8 +600,9 @@
               }
             });
             
-            if (grp.length > 1 || (grp.length === 1 && (gIdx > 0 || cell.text))) {
-              grpContent = `      <div class="tbl-column">\n${grpContent}      </div>`;
+            // 분할선이 없더라도 컴포넌트가 2개 이상이거나 텍스트와 조합된 경우 tbl-flex로 묶어주도록 수정
+            if (grp.length > 1 || (grp.length === 1 && cell.text)) {
+              grpContent = `      <div class="tbl-flex">\n${grpContent}      </div>`;
             } else if (grp.length === 1) {
               grpContent = grpContent.trim();
             } else if (gIdx === 0 && cell.text) {
@@ -614,7 +615,8 @@
             }
           });
           
-          if (flexBlocksHtml.length > 1) {
+          // 실질적으로 'divider'로 그룹이 쪼개진 경우에만 tbl-column으로 감쌈
+          if (groups.length > 1) {
             const innerLines = flexBlocksHtml.map(b => `      ${b}`).join("\n");
             return `      <div class="tbl-column">\n${innerLines}\n      </div>`;
           } else if (flexBlocksHtml.length === 1) {
