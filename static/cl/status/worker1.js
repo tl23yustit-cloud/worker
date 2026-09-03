@@ -455,10 +455,22 @@ module.exports = {
         worker: "변혜선",
         note: ""
     },
+    "CIBCRD040102000T": {
+        title: "이용내역조회(이용내역Tab)",
+        status: "진행중",
+        worker: "변혜선",
+        note: "임시그리드"
+    },
     "CIBCRD040103000T": {
         title: "이용내역조회(취소내역Tab)",
         status: "진행중",
         worker: "변혜선",
-        note: ""
+        note: "임시그리드"
+    },
+    "CIBCRD040104000T": {
+        title: "이용내역조회(가맹점내역Tab)",
+        status: "진행중",
+        worker: "변혜선",
+        note: "임시그리드"
     },
 };
