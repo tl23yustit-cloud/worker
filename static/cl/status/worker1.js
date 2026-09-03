@@ -267,7 +267,7 @@ module.exports = {
         title: "이체 결과확인 - 다건",
         status: "검수중",
         worker: "변혜선",
-        note: ""
+        note: "09/03 col width 값 추가<br/>09/03 간격 클래스 수정"
     },
     "CIBTRN010109000P": {
         title: "수협은행계산기",
@@ -279,25 +279,25 @@ module.exports = {
         title: "자주쓰는 입금계좌 등록",
         status: "검수중",
         worker: "변혜선",
-        note: ""
+        note: "09/03 col width 값 수정"
     },
     "CIBTRN010114000P": {
         title: "이체확인증 인쇄",
         status: "검수중",
         worker: "변혜선",
-        note: ""
+        note: "09/03 col width 값 수정"
     },
     "CIBTRN010115000P": {
         title: "이메일 발송",
         status: "검수중",
         worker: "변혜선",
-        note: ""
+        note: "09/03 col width 값 수정"
     },
     "CIBTRN010116000P": {
         title: "FAX 발송",
         status: "검수중",
         worker: "변혜선",
-        note: ""
+        note: "09/03 col width 값 수정<br/>09/03 title 값 추가"
     },
     "CIBFPD020101001T": {
         title: "[팝업]공시자료 변경내역_적용약관",
