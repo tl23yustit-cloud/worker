@@ -56,9 +56,11 @@ module.exports = {
 
       "CIBDOB040205000M": { title: "부재증명서 발급완료", status: "검수중", worker: "이상우", note: "" },
 
+      "CIBDOB040301000M": { title: "", status: "검수중", worker: "이상우", note: "" },
 
 };
 
 
 
 
+      // "": { title: "", status: "검수중", worker: "이상우", note: "" },
