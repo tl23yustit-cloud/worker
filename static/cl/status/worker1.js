@@ -219,7 +219,7 @@ module.exports = {
         title: "이자납입_이체확인증",
         status: "검수중",
         worker: "변혜선",
-        note: ""
+        note: "주석확인-[dev]:20260903 안내사항추가"
     },
     "CIBCRD040105000P": {
         title: "카드결제일 안내 팝업",
