@@ -44,7 +44,6 @@
       
       label.title { color: #40515f; font-size: 13px; font-weight: 800; }
       
-      /* 입력폼 전역 스타일 수정 (체크박스/라디오 제외) */
       input[type="text"], select, textarea { width: 100%; border: 1px solid var(--line); border-radius: 6px; background: #fff; color: var(--ink); outline: none; min-height: 42px; padding: 9px 11px; }
       textarea { min-height: 140px; padding: 12px; line-height: 1.55; resize: vertical; }
       input[type="text"]:focus, select:focus, textarea:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--focus); }
@@ -69,10 +68,12 @@
       .grid-delete { display: block; margin: 6px auto 0; border: 0; background: transparent; color: #a14646; font-size: 11px; }
       .grid-component-stack { display: grid; gap: 4px; margin-top: 6px; }
       .grid-stack-button { position: relative; padding: 5px 22px 5px 7px; border: 1px solid var(--accent); border-radius: 4px; background: #f0f9f8; color: var(--accent-dark); font-size: 11px; text-align: left; display: block; }
+      .grid-stack-divider { border-top: 2px dashed var(--accent); margin: 6px 0; text-align: center; position: relative; }
+      .grid-stack-divider span { position: relative; top: -8px; background: #fff; padding: 0 6px; font-size: 10px; color: var(--accent-dark); font-weight: 700; }
       .grid-stack-remove { position: absolute; top: 2px; right: 3px; padding: 0 3px; border: 0; background: transparent; color: #a14646; font-weight: 800; }
       
-      /* 컨텍스트 메뉴 */
-      .context-menu { position: fixed; z-index: 10; display: none; min-width: 260px; padding: 12px; border: 1px solid var(--line); border-radius: 6px; background: #fff; box-shadow: 0 8px 24px rgba(35, 58, 67, .16); }
+      /* 컨텍스트 메뉴 스타일 */
+      .context-menu { position: fixed; z-index: 10; display: none; min-width: 270px; padding: 12px; border: 1px solid var(--line); border-radius: 6px; background: #fff; box-shadow: 0 8px 24px rgba(35, 58, 67, .16); }
       .context-menu.is-open { display: block; }
       .menu-tabs { display: flex; gap: 4px; margin-bottom: 12px; border-bottom: 1px solid var(--line); padding-bottom: 8px; }
       .menu-tabs button { flex: 1; padding: 6px; border: 1px solid var(--line); border-radius: 4px; background: #fff; font-size: 11px; font-weight: 700; color: var(--muted); }
@@ -82,7 +83,6 @@
       .menu-panel label.title { font-size: 11px; margin-top: 4px; }
       .menu-panel input[type="text"], .menu-panel select, .menu-panel textarea { min-height: 32px; padding: 6px 8px; font-size: 11px; }
       
-      /* UI 자체 커스텀 폼 (체크박스 마크업 간이 구현 - common.css 없을 때 대비) */
       .form-box { display: inline-flex; align-items: center; gap: 6px; }
       .form-checkbox { width: 16px; height: 16px; margin: 0; cursor: pointer; accent-color: var(--accent); }
       .form-label { font-size: 12px; cursor: pointer; color: var(--ink); }
@@ -119,6 +119,10 @@
                   <option value="table-type03">table-type03</option>
                 </select>
               </div>
+              <div class="field">
+                <label class="title" for="table-title">테이블 제목 (h4 헤더 입력)</label>
+                <input type="text" id="table-title" placeholder="입력 시 h4 태그가 생성됩니다" />
+              </div>
             </div>
 
             <div class="list-fields" style="margin-top:20px;">
@@ -135,7 +139,7 @@
                   <tbody id="grid-body"></tbody>
                 </table>
               </div>
-              <p class="hint" style="margin-top:10px;">셀을 우클릭하여 인풋, 콤보박스, 버튼, 체크박스 등 컴포넌트를 스택형으로 추가할 수 있습니다.</p>
+              <p class="hint" style="margin-top:10px;">셀 우클릭 메뉴에서 컴포넌트를 추가하고, 줄바꿈 분할선 기능을 이용해 다중 행(.tbl-column) 레이아웃을 완성하세요.</p>
             </div>
 
             <div class="actions">
@@ -175,11 +179,16 @@
       <!-- Input Option Panel -->
       <div class="menu-panel is-active" id="panel-input">
         <label class="title">Input 사이즈</label>
-        <select id="input-size"><option value="" selected>Medium (Default)</option><option value="size-lg">Large</option><option value="size-xl">X-Large</option></select>
+        <select id="input-size">
+          <option value="size-sm">Small</option>
+          <option value="size-md">Medium</option>
+          <option value="size-lg" selected>Large</option>
+          <option value="size-xl">X-Large</option>
+        </select>
         <label class="title">Input 너비</label>
         <select id="input-width"><option value="wSize-sm">Small</option><option value="wSize-smMd">Small-Medium</option><option value="wSize-md">Medium</option><option value="wSize-lg" selected>Large</option></select>
         <label class="title">Placeholder / Value</label>
-        <input id="input-placeholder" type="text" placeholder="Hint Text" />
+        <input id="input-placeholder" type="text" value="입력해주세요" onfocus="if(this.value==='입력해주세요')this.value='';" onblur="if(this.value==='')this.value='입력해주세요';" placeholder="입력해주세요" />
         <input id="input-value" type="text" placeholder="Value (초기값)" />
         <div style="display:flex; gap:12px; margin-top:4px;">
           <span class="form-box"><input type="checkbox" id="input-disabled" class="form-checkbox"><label for="input-disabled" class="form-label">Disabled</label></span>
@@ -205,7 +214,13 @@
       <!-- Button Option Panel -->
       <div class="menu-panel" id="panel-button">
         <label class="title">버튼 사이즈</label>
-        <select id="btn-size"><option value="size-sm">Small</option><option value="size-md" selected>Medium</option><option value="size-lg">Large</option><option value="size-xl">X-large</option><option value="size-xxl">XX-large</option></select>
+        <select id="btn-size">
+          <option value="size-sm">Small</option>
+          <option value="size-md">Medium</option>
+          <option value="size-lg" selected>Large</option>
+          <option value="size-xl">X-large</option>
+          <option value="size-xxl">XX-large</option>
+        </select>
         <label class="title">버튼 스타일 / 색상</label>
         <select id="btn-style"><option value="bg" selected>Background</option><option value="outline">Outline</option><option value="ghost">Ghost</option><option value="round">Outline Round</option></select>
         <select id="btn-color"></select>
@@ -219,7 +234,11 @@
       <!-- Checkbox Option Panel -->
       <div class="menu-panel" id="panel-checkbox">
         <label class="title">체크박스 사이즈</label>
-        <select id="chk-size"><option value="size-sm">Small</option><option value="" selected>Medium (Default)</option><option value="size-lg">Large</option></select>
+        <select id="chk-size">
+          <option value="size-sm">Small</option>
+          <option value="size-md">Medium</option>
+          <option value="size-lg" selected>Large</option>
+        </select>
         <label class="title">라벨 텍스트</label>
         <input id="chk-label" type="text" value="Checkbox Label" />
         <div style="display:flex; gap:12px; margin-top:4px; flex-wrap: wrap;">
@@ -228,13 +247,17 @@
         </div>
       </div>
       
-      <button type="button" class="grid-button" id="add-component-btn" style="width: 100%; margin-top: 15px; border-color: var(--accent); color: var(--accent-dark);">+ 셀에 추가</button>
+      <div style="display: grid; gap: 6px; margin-top: 14px; border-top: 1px solid var(--line); padding-top: 10px;">
+        <button type="button" class="grid-button" id="add-divider-btn" style="border-style: dashed; color: var(--accent-dark);">+ 줄바꿈 분할선 삽입</button>
+        <button type="button" class="grid-button primary" id="add-component-btn" style="background: var(--accent); color: #fff; border-color: var(--accent);">+ 선택 요소를 셀에 추가</button>
+      </div>
     </div>
 
     <script>
       const App = {
         state: {
           tableClass: "table-type01",
+          tableTitle: "",
           headers: [ { text: "항목 1", required: false } ],
           cells: [ [ { text: "", items: [] } ] ], 
           type01Groups: [ [0] ],
@@ -286,7 +309,9 @@
         },
         reset() {
           this.state.tableClass = "table-type01";
+          this.state.tableTitle = "";
           document.querySelector("#table-class").value = "table-type01";
+          document.querySelector("#table-title").value = "";
           this.state.headers = [ { text: "", required: false } ];
           this.state.cells = [ [ { text: "", items: [] } ] ];
           this.state.type01Groups = [ [0] ];
@@ -352,6 +377,9 @@
         renderEditorStack(items, r, c) {
           if (!items || !items.length) return "";
           return `<div class="grid-component-stack">` + items.map((it, idx) => {
+            if (it.type === 'divider') {
+              return `<div class="grid-stack-divider"><span>tbl-column 줄바꿈</span><button type="button" class="grid-stack-remove" data-remove-item="${r},${c},${idx}">x</button></div>`;
+            }
             let label = it.type === 'input' ? 'Input' : (it.type === 'combo' ? 'Combo' : (it.type === 'checkbox' ? `Check: ${it.label}` : `Btn: ${it.text}`));
             return `<span class="grid-stack-button">${this.escape(label)}<button type="button" class="grid-stack-remove" data-remove-item="${r},${c},${idx}">x</button></span>`;
           }).join('') + `</div>`;
@@ -359,6 +387,7 @@
 
         generateHTML() {
           const tableClass = this.state.tableClass;
+          const tableTitle = this.state.tableTitle.trim();
           const headers = this.state.headers;
           const cells = this.state.cells;
           const colCount = headers.length;
@@ -366,7 +395,7 @@
           if (!colCount) return;
           const caption = `${this.escape([...new Set(headers.map(h => h.text).filter(Boolean))].join(", "))}에 대한 구성 테이블입니다.`;
           
-          let html = "";
+          let tableHtml = "";
           if (tableClass === "table-type01") {
             const hasPair = this.state.type01Groups.some(g => g.length === 2);
             const colgroup = hasPair 
@@ -378,87 +407,140 @@
               group.forEach(hIdx => {
                 const h = headers[hIdx];
                 const c = cells[0][hIdx];
-                const reqSpan = h.required ? `<span class="required">${this.escape(h.text)}</span>` : `<span>${this.escape(h.text)}</span>`;
+                const headerId = `label-header-${hIdx}`;
+                const reqSpan = h.required ? `<span class="required" id="${headerId}">${this.escape(h.text)}</span>` : `<span id="${headerId}">${this.escape(h.text)}</span>`;
                 tr += `      <th scope="row">\n        ${reqSpan}\n      </th>\n`;
                 const colspan = (group.length === 1) ? ' colspan="3"' : '';
-                tr += `      <td${colspan}>\n${this.makeCellContent(c)}\n      </td>\n`;
+                tr += `      <td${colspan}>\n${this.makeCellContent(c, h.text)}\n      </td>\n`;
               });
               return tr + "    </tr>";
-            }).join("\n");
+            }).join("");
             
-            html = `<div class="tbl-area">\n  <table class="table-type01">\n    <caption>${caption}</caption>\n    <colgroup>\n      ${colgroup}\n    </colgroup>\n    <tbody>\n${tbody}\n    </tbody>\n  </table>\n</div>`;
+            tableHtml = `  <table class="table-type01">\n    <caption>${caption}</caption>\n    <colgroup>\n      ${colgroup}\n    </colgroup>\n    <tbody>\n${tbody}\n    </tbody>\n  </table>`;
           } else {
             const colgroup = headers.map(() => `<col style="width: auto">`).join("\n      ");
-            const thead = `    <tr>\n${headers.map(h => `      <th scope="col">${h.required ? `<span class="required">${this.escape(h.text)}</span>` : `<span>${this.escape(h.text)}</span>`}</th>`).join("\n")}\n    </tr>`;
-            const tbody = cells.map(row => `    <tr>\n${row.map((c) => `      <td>\n${this.makeCellContent(c)}\n      </td>`).join("\n")}\n    </tr>`).join("\n");
+            const thead = `    <tr>\n${headers.map((h, i) => {
+              const headerId = `label-header-${i}`;
+              return `      <th scope="col">${h.required ? `<span class="required" id="${headerId}">${this.escape(h.text)}</span>` : `<span id="${headerId}">${this.escape(h.text)}</span>`}</th>`;
+            }).join("\n")}\n    </tr>`;
+            const tbody = cells.map(row => `    <tr>\n${row.map((c, colIdx) => {
+              const headerText = headers[colIdx] ? headers[colIdx].text : "";
+              return `      <td>\n${this.makeCellContent(c, headerText)}\n      </td>`;
+            }).join("\n")}\n    </tr>`).join("\n");
             
-            html = `<table class="${tableClass}">\n  <caption>${caption}</caption>\n  <colgroup>\n      ${colgroup}\n  </colgroup>\n  <thead>\n${thead}\n  </thead>\n  <tbody>\n${tbody}\n  </tbody>\n</table>`;
+            tableHtml = `  <table class="${tableClass}">\n    <caption>${caption}</caption>\n    <colgroup>\n      ${colgroup}\n    </colgroup>\n    <thead>\n${thead}\n    </thead>\n    <tbody>\n${tbody}\n    </tbody>\n  </table>`;
           }
+
+          const h4Markup = tableTitle ? `  <h4 class="typeH4">${this.escape(tableTitle)}</h4>\n` : "";
+          const finalHtml = `<div class="tbl-area">\n${h4Markup}${tableHtml}\n</div>`;
           
-          document.querySelector("#output").textContent = html;
-          document.querySelector("#preview").innerHTML = html;
-          document.querySelector("#status").textContent = `HTML 마크업이 업데이트 되었습니다.`;
+          document.querySelector("#output").textContent = finalHtml;
+          document.querySelector("#preview").innerHTML = finalHtml;
+          document.querySelector("#status").textContent = `HTML 마크업이 업데이트 되었습니다 (접근성 자동 반영).`;
         },
 
-        makeCellContent(cell) {
-          let content = "";
+        makeCellContent(cell, headerText) {
+          let groups = [];
+          let currentGroup = [];
           
-          if (cell.text) {
-             content += `        <span class="typeMd">${this.escape(cell.text)}</span>\n`;
-          }
-          
-          cell.items.forEach((it) => {
-            const uuid = `comp-${Math.random().toString(36).substr(2, 6)}`;
-            
-            if (it.type === 'input') {
-              const sz = it.size ? ` ${it.size}` : "";
-              const w = it.width ? ` ${it.width}` : "";
-              const err = it.error ? " is-error" : "";
-              const dis = it.disabled ? ' disabled=""' : "";
-              const ro = it.readonly ? ' readonly=""' : "";
-              const req = it.error ? ' required=""' : "";
-              const ph = it.placeholder ? ` placeholder="${this.escape(it.placeholder)}"` : ` placeholder="Hint Text"`;
-              const val = it.value ? ` value="${this.escape(it.value)}"` : "";
-              
-              content += `        <input type="text" class="input${sz}${w}${err}" title=""${ph}${val}${dis}${ro}${req}>\n`;
-            } 
-            else if (it.type === 'combo') {
-              const w = it.width ? ` ${it.width}` : " wSize-lg";
-              const sz = it.size ? ` ${it.size}` : " size-lg";
-              const err = it.error ? " error" : "";
-              const dis = it.disabled ? ' disabled=""' : "";
-              
-              const optList = it.list ? it.list.split("\n").filter(Boolean) : ["Option01", "Option02"];
-              
-              content += `        <div class="box-select${w}">\n`;
-              content += `          <button type="button" class="select${sz}${err}" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="${uuid}"${dis}>\n`;
-              content += `            <span class="text">Placeholder Text</span>\n            <span class="blind">펼침</span>\n          </button>\n`;
-              content += `          <div id="${uuid}" class="box-list-select">\n            <ul class="list-select" role="listbox">\n`;
-              optList.forEach(opt => {
-                content += `              <li class="item-select" role="option" aria-selected="false"><button class="btn-item-select">${this.escape(opt)}</button></li>\n`;
-              });
-              content += `            </ul>\n          </div>\n        </div>\n`;
-            }
-            else if (it.type === 'button') {
-              const dis = it.disabled ? ' disabled=""' : "";
-              content += `        <button type="button" class="btn ${it.color} ${it.size}"${dis}>\n          <span class="text">${this.escape(it.text)}</span>\n        </button>\n`;
-            }
-            else if (it.type === 'checkbox') {
-              const sz = it.size ? ` ${it.size}` : "";
-              const chk = it.checked ? ' checked=""' : "";
-              const dis = it.disabled ? ' disabled=""' : "";
-              
-              content += `        <span class="form-box">\n`;
-              content += `          <input type="checkbox" name="" id="${uuid}" class="form-checkbox${sz}"${chk}${dis}>\n`;
-              content += `          <label for="${uuid}" class="form-label">${this.escape(it.label)}</label>\n`;
-              content += `        </span>\n`;
+          cell.items.forEach(it => {
+            if (it.type === 'divider') {
+              groups.push(currentGroup);
+              currentGroup = [];
+            } else {
+              currentGroup.push(it);
             }
           });
-
-          if (cell.items.length > 0) {
-             content = `        <div class="tbl-flex">\n  ${content}        </div>`;
+          groups.push(currentGroup);
+          
+          let flexBlocksHtml = [];
+          
+          groups.forEach((grp, gIdx) => {
+            if (grp.length === 0 && groups.length === 1 && !cell.text) return;
+            
+            let grpContent = "";
+            if (gIdx === 0 && cell.text) {
+              grpContent += `        <span class="typeMd">${this.escape(cell.text)}</span>\n`;
+            }
+            
+            grp.forEach(it => {
+              const uuid = `comp-${Math.random().toString(36).substr(2, 6)}`;
+              
+              if (it.type === 'input') {
+                const sz = it.size ? ` ${it.size}` : "";
+                const w = it.width ? ` ${it.width}` : "";
+                const err = it.error ? " is-error" : "";
+                const dis = it.disabled ? ' disabled=""' : "";
+                const ro = it.readonly ? ' readonly=""' : "";
+                const req = it.error ? ' required="" aria-required="true"' : "";
+                const ph = it.placeholder ? ` placeholder="${this.escape(it.placeholder)}"` : ` placeholder="입력해주세요"`;
+                const val = it.value ? ` value="${this.escape(it.value)}"` : "";
+                const ariaLabel = headerText ? ` aria-label="${this.escape(headerText)} 입력"` : ` aria-label="입력란"`;
+                
+                grpContent += `        <input type="text" class="input${sz}${w}${err}"${ariaLabel}${ph}${val}${dis}${ro}${req}>\n`;
+              } 
+              else if (it.type === 'combo') {
+                const w = it.width ? ` ${it.width}` : " wSize-lg";
+                const sz = it.size ? ` ${it.size}` : " size-lg";
+                const err = it.error ? " error" : "";
+                const dis = it.disabled ? ' disabled=""' : "";
+                const optList = it.list ? it.list.split("\n").filter(Boolean) : ["Option01", "Option02"];
+                const ariaLabel = headerText ? ` aria-label="${this.escape(headerText)} 선택"` : ` aria-label="선택 옵션"`;
+                
+                grpContent += `        <div class="box-select${w}">\n`;
+                grpContent += `          <button type="button" class="select${sz}${err}" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="${uuid}"${ariaLabel}${dis}>\n`;
+                grpContent += `            <span class="text">Placeholder Text</span>\n`;
+                grpContent += `            <span class="blind">펼침</span>\n`;
+                grpContent += `          </button>\n`;
+                grpContent += `          <div id="${uuid}" class="box-list-select">\n`;
+                grpContent += `            <ul class="list-select" role="listbox" aria-label="${this.escape(headerText || '옵션 목록')}">\n`;
+                optList.forEach((opt, optIdx) => {
+                  const selectedAttr = optIdx === 0 ? ' aria-selected="true"' : ' aria-selected="false"';
+                  grpContent += `              <li class="item-select" role="option"${selectedAttr}><button class="btn-item-select">${this.escape(opt)}</button></li>\n`;
+                });
+                grpContent += `            </ul>\n`;
+                grpContent += `          </div>\n`;
+                grpContent += `        </div>\n`;
+              }
+              else if (it.type === 'button') {
+                const dis = it.disabled ? ' disabled=""' : "";
+                grpContent += `        <button type="button" class="btn ${it.color} ${it.size}"${dis}>\n`;
+                grpContent += `          <span class="text">${this.escape(it.text)}</span>\n`;
+                grpContent += `        </button>\n`;
+              }
+              else if (it.type === 'checkbox') {
+                const sz = it.size ? ` ${it.size}` : "";
+                const chk = it.checked ? ' checked=""' : "";
+                const dis = it.disabled ? ' disabled=""' : "";
+                
+                grpContent += `        <span class="form-box">\n`;
+                grpContent += `          <input type="checkbox" name="" id="${uuid}" class="form-checkbox${sz}"${chk}${dis}>\n`;
+                grpContent += `          <label for="${uuid}" class="form-label">${this.escape(it.label)}</label>\n`;
+                grpContent += `        </span>\n`;
+              }
+            });
+            
+            if (grp.length > 1 || (grp.length === 1 && (gIdx > 0 || cell.text))) {
+              grpContent = `        <div class="tbl-flex">\n${grpContent}        </div>`;
+            } else if (grp.length === 1) {
+              grpContent = grpContent.trim();
+            } else if (gIdx === 0 && cell.text) {
+              grpContent = `        <span class="typeMd">${this.escape(cell.text)}</span>`;
+            }
+            
+            grpContent = grpContent.trim();
+            if (grpContent) {
+              flexBlocksHtml.push(grpContent);
+            }
+          });
+          
+          if (flexBlocksHtml.length > 1) {
+            const innerLines = flexBlocksHtml.map(b => `    ${b}`).join("\n");
+            return `      <div class="tbl-column">\n${innerLines}\n      </div>`;
+          } else if (flexBlocksHtml.length === 1) {
+            return flexBlocksHtml[0];
           }
-          return content.trim();
+          return "";
         },
 
         escape(val) {
@@ -469,6 +551,11 @@
           document.querySelector("#table-class").addEventListener("change", e => {
             this.state.tableClass = e.target.value;
             this.renderEditor(); this.generateHTML();
+          });
+          
+          document.querySelector("#table-title").addEventListener("input", e => {
+            this.state.tableTitle = e.target.value;
+            this.generateHTML();
           });
           
           document.querySelector("#add-column").addEventListener("click", () => { this.addColumn(); this.renderEditor(); this.generateHTML(); });
@@ -515,11 +602,11 @@
             const td = e.target.closest("td[data-cell-r]");
             if (!td) return;
             e.preventDefault();
-            this.state.activeCell = { r: td.dataset.cellR, c: td.dataset.cellC };
+            this.state.activeCell = { r: Number(td.dataset.cellR), c: Number(td.dataset.cellC) };
             
             const menu = document.querySelector("#cell-context-menu");
-            menu.style.left = `${Math.min(e.clientX, window.innerWidth - 260)}px`;
-            menu.style.top = `${Math.min(e.clientY, window.innerHeight - 350)}px`;
+            menu.style.left = `${Math.min(e.clientX, window.innerWidth - 270)}px`;
+            menu.style.top = `${Math.min(e.clientY, window.innerHeight - 380)}px`;
             menu.classList.add("is-open");
           });
           
@@ -531,6 +618,15 @@
             document.querySelector(`#panel-${e.target.dataset.tab}`).classList.add("is-active");
           });
           
+          document.querySelector("#add-divider-btn").addEventListener("click", () => {
+            if (!this.state.activeCell) return;
+            const {r, c} = this.state.activeCell;
+            this.state.cells[r][c].items.push({ type: 'divider' });
+            this.renderEditor();
+            this.generateHTML();
+            document.querySelector("#cell-context-menu").classList.remove("is-open");
+          });
+
           document.querySelector("#add-component-btn").addEventListener("click", () => {
             if (!this.state.activeCell) return;
             const activeTab = document.querySelector(".menu-tabs button.is-active").dataset.tab;
