@@ -27,14 +27,14 @@ module.exports = {
     "CIBB2B010201002M": { title: "상세(없음)", status: "검수중", worker: "변혜선", note: "09/04 col width 값 수정<br/>09/04 th scope 추가" },
     "CIBB2B010204001M": { title: "", status: "검수중", worker: "변혜선", note: "주석 [dev] 20260821 확인<br/>09/03 col width 값 수정<br/>09/03 title 값 추가" },
     "CIBB2B040200000P": { title: "", status: "검수중", worker: "변혜선", note: "09/03 col width 값 수정" },
-    "CIBB2B040200002P": { title: "", status: "검수중", worker: "변혜선", note: "" },
+    "CIBB2B040200002P": { title: "", status: "검수중", worker: "변혜선", note: "09/04 col width 값 수정" },
     "CIBB2B010203001M": { title: "조회입력 및 결과(없음)", status: "검수중", worker: "변혜선", note: "[dev]20260821<br/>09/03 col width 값 수정<br/>09/03 title 값 추가" },
     "CIBB2B010203002M": { title: "정보입력(없음)", status: "검수중", worker: "변혜선", note: "09/03 col width 값 수정<br/>09/03 th scope 추가" },
     "CIBB2B010203003M": { title: "정보확인(없음)", status: "검수중", worker: "변혜선", note: "09/03 col width 값 수정<br/>09/03 th scope 추가" },
     "CIBB2B010203004M": { title: "완료(없음)", status: "검수중", worker: "변혜선", note: "09/03 col width 값 수정" },
     "CIBB2B010100000M": { title: "", status: "검수중", worker: "변혜선", note: "" },
-    "CIBB2B010301001M": { title: "판매기업-매매계약내역조회", status: "검수중", worker: "변혜선", note: "" },
-    "CIBB2B010302001M": { title: "추심의뢰대상내역조회입력", status: "검수중", worker: "변혜선", note: "" },
+    "CIBB2B010301001M": { title: "판매기업-매매계약내역조회", status: "검수중", worker: "변혜선", note: "09/04 col width 값 추가<br/>09/04 title 값 추가<br/>09/04 th scope 추가" },
+    "CIBB2B010302001M": { title: "추심의뢰대상내역조회입력", status: "검수중", worker: "변혜선", note: "09/04 col width 값 수정<br/>09/04 title 값 추가" },
 
     // 💡 뱅킹관리/카드/회원결제관리
     "CIBCRD060100000M": { title: "", status: "검수중", worker: "변혜선", note: "임시 그리드 화면" },
@@ -192,13 +192,13 @@ module.exports = {
     "prdListFormV": { title: "", status: "수정중", worker: "윤재선", note: "" },
 
     // 💡 신탁 (fin_tpr)
-    "CIBFIN_TPR020000000M": { title: "특정금전신탁", status: "검수중", worker: "변혜선", note: "주석확인-[dev]:20260902 디자인변경" },
-    "CIBFIN_TPR030100000T": { title: "상품성 신탁 운용방법 및 보수율 현황_기준년월2026년 3월", status: "완료", worker: "변혜선", note: "주석확인, 20260826 화면id수정" },
-    "CIBFIN_TPR040100000T": { title: "기준가/수익률조회_신탁기준가격", status: "검수중", worker: "변혜선", note: "" },
-    "CIBFIN_TPR040101000P": { title: "기준가/수익률조회_신탁기준가격_[팝업]기준가변동추이표", status: "검수중", worker: "변혜선", note: "" },
-    "CIBFIN_TPR040200000T": { title: "기준가/수익률조회_신탁배당률", status: "검수중", worker: "변혜선", note: "" },
-    "CIBFIN_TPR040300000T": { title: "기준가/수익률조회_기간별수익률", status: "검수중", worker: "변혜선", note: "" },
-    "CIBFIN_TPR050100000T": { title: "연금저축신탁 비교공시_가입시 유의사항", status: "완료", worker: "변혜선", note: "20260826 화면id수정" },
+    "CIBFIN_TPR020000000M": { title: "특정금전신탁", status: "검수중", worker: "변혜선", note: "주석확인-[dev]:20260902 디자인변경<br/>09/04 복합테이블 headers-id 적용" },
+    "CIBFIN_TPR030100000T": { title: "상품성 신탁 운용방법 및 보수율 현황_기준년월2026년 3월", status: "완료", worker: "변혜선", note: "주석확인, 20260826 화면id수정<br/>09/04 2단 복합테이블 headers-id 적용" },
+    "CIBFIN_TPR040100000T": { title: "기준가/수익률조회_신탁기준가격", status: "검수중", worker: "변혜선", note: "09/04 col width 값 추가<br/>09/04 th scope 추가" },
+    "CIBFIN_TPR040101000P": { title: "기준가/수익률조회_신탁기준가격_[팝업]기준가변동추이표", status: "검수중", worker: "변혜선", note: "09/04 th scope 추가" },
+    "CIBFIN_TPR040200000T": { title: "기준가/수익률조회_신탁배당률", status: "검수중", worker: "변혜선", note: "09/04 col width 값 추가<br/>09/04 th scope 추가" },
+    "CIBFIN_TPR040300000T": { title: "기준가/수익률조회_기간별수익률", status: "검수중", worker: "변혜선", note: "09/04 col width 값 추가<br/>09/04 th scope 추가" },
+    "CIBFIN_TPR050100000T": { title: "연금저축신탁 비교공시_가입시 유의사항", status: "완료", worker: "변혜선", note: "20260826 화면id수정<br/>09/04 col width 값 추가<br/>09/04 복합테이블 headers-id 적용" },
     "CIBFIN_TPR030200000": { title: "", status: "완료", worker: "변혜선", note: "" },
     "CIBFIN_TPR030300000": { title: "", status: "완료", worker: "변혜선", note: "" },
     "CIBFIN_TPR030400000": { title: "", status: "완료", worker: "변혜선", note: "" },
@@ -226,9 +226,9 @@ module.exports = {
     "CIBFOE040104005p": { title: "[팝업]최근송금내역", status: "검수중", worker: "변혜선", note: "주석확인" },
 
     // 💡 조회 (inq)
-    "CIBINQ010200000M": { title: "휴면계좌조회(없음)", status: "완료", worker: "변혜선", note: "20260826 화면id수정" },
-    "CIBNQ020101000M": { title: "신청목록(없음)", status: "완료", worker: "변혜선", note: "주석확인" },
-    "CIBNQ020102000M": { title: "신청정보 입력(없음)", status: "완료", worker: "변혜선", note: "주석확인" },
+    "CIBINQ010200000M": { title: "휴면계좌조회(없음)", status: "완료", worker: "변혜선", note: "20260826 화면id수정<br/>09/04 col width 값 수정<br/>09/04 th scope 추가" },
+    "CIBNQ020101000M": { title: "신청목록(없음)", status: "완료", worker: "변혜선", note: "주석확인<br/>09/04 col width 값 추가<br/>09/04 2단 colspan=3 삭제<br/>09/04 th scope 추가" },
+    "CIBNQ020102000M": { title: "신청정보 입력(없음)", status: "완료", worker: "변혜선", note: "주석확인<br/>09/04 col width 값 추가<br/>09/04 2단 colspan=3 삭제<br/>09/04 th scope 추가" },
     "CIBINQ030101000M": { title: "조회정보 입력(임시)", status: "검수중", worker: "이상우", note: "09/03 col width 값 추가<br/>09/03 title 값 수정<br/>09/03 title 값 추가" },
     "CIBINQ030102000M": { title: "조회결과(임시)", status: "검수중", worker: "이상우", note: "09/03 col width 값 추가<br/>09/03 th scope 추가" },
     "CIBINQ030201000M": { title: "조회정보 입력(임시)", status: "검수중", worker: "이상우", note: "09/03 col width 값 추가" },
@@ -237,7 +237,7 @@ module.exports = {
     "CIBINQ030302000P": { title: "[팝업]상세(임시)", status: "검수중", worker: "이상우", note: "09/03 col width 값 수정<br/>09/03 th scope 추가" },
     // "CIBNQ020201000M": { title: "", status: "완료", worker: "변혜선", note: "" },
     "CIBINQ020201000M": { title: "거래내역파일신청_신청목록(없음)", status: "완료", worker: "변혜선", note: "09/04 th scope 추가" },
-    "CIBINQ020202000M": { title: "거래내역파일신청_신청정보 입력(없음)", status: "완료", worker: "변혜선", note: "주석확인" },
+    "CIBINQ020202000M": { title: "거래내역파일신청_신청정보 입력(없음)", status: "완료", worker: "변혜선", note: "주석확인<br/>09/04 col width 값 추가<br/>09/04 2단 colspan=3 삭제" },
     // "CIBNQ020201000M": { title: "거래내역파일신청_신청정보입력(없음)", status: "수정완료", worker: "변혜선", note: "주석확인, 화면id변경 CIBINQ020201000M->CIBNQ020201000M" },
 
     // 💡 메인 및 검색

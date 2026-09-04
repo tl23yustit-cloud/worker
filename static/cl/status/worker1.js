@@ -57,19 +57,19 @@ module.exports = {
         title: "추심의뢰대상내역등록",
         status: "검수중",
         worker: "변혜선",
-        note: ""
+        note: "09/04 col width 값 수정"
     },
     "CIBB2B010302003M": {
         title: "추심의뢰대상등록 실행확인",
         status: "검수중",
         worker: "변혜선",
-        note: ""
+        note: "09/04 col width 값 수정<br/>09/04 title 값 추가"
     },
     "CIBB2B010302004M": {
         title: "추심의뢰대상등록 처리확인",
         status: "검수중",
         worker: "변혜선",
-        note: ""
+        note: "09/04 col width 값 수정"
     },
     "CIBB2B010303005M": {
         title: "결제진행내역-조건입력",
@@ -123,55 +123,55 @@ module.exports = {
         title: "통지서비스 신청/해지",
         status: "검수중",
         worker: "변혜선",
-        note: ""
+        note: "09/04 th scope 추가"
     },
     "CIBB2B010307002M": {
         title: "통지서비스 신청/해지",
         status: "검수중",
         worker: "변혜선",
-        note: ""
+        note: "09/04 col width 값 수정<br/>09/04 title 값 추가"
     },
     "CIBB2B010307003M": {
         title: "통지서비스 신청/해지",
         status: "검수중",
         worker: "변혜선",
-        note: ""
+        note: "09/04 col width 값 수정"
     },
     "CIBB2B010307004M": {
         title: "통지서비스 신청/해지",
         status: "검수중",
         worker: "변혜선",
-        note: ""
+        note: "09/04 col width 값 수정"
     },
     "CIBB2B010307005M": {
         title: "통지서비스 신청/해지",
         status: "검수중",
         worker: "변혜선",
-        note: ""
+        note: "09/04 col width 값 수정<br/>09/04 title 값 추가"
     },
     "CIBB2B010307006M": {
         title: "통지서비스 신청/해지",
         status: "검수중",
         worker: "변혜선",
-        note: ""
+        note: "09/04 col width 값 수정"
     },
     "CIBB2B010307007M": {
         title: "통지서비스 신청/해지",
         status: "검수중",
         worker: "변혜선",
-        note: ""
+        note: "09/04 col width 값 수정"
     },
     "CIBB2B010307008M": {
         title: "통지서비스 신청/해지",
         status: "검수중",
         worker: "변혜선",
-        note: ""
+        note: "09/04 col width 값 수정"
     },
     "CIBB2B010307009M": {
         title: "통지서비스 신청/해지",
         status: "검수중",
         worker: "변혜선",
-        note: ""
+        note: "09/04 col width 값 수정"
     },
     "CIBB2B010303001M": {
         title: "추심의뢰등록내역조회",
@@ -315,7 +315,7 @@ module.exports = {
         title: "은행상품공시이용메뉴얼",
         status: "검수중",
         worker: "변혜선",
-        note: ""
+        note: "09/04 col width 값 추가<br/>09/04 th scope 추가"
     },
     "CIBFPD020100000M": {
         title: "공시실_예금상품_입출금",

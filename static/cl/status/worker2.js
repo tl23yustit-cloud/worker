@@ -38,34 +38,34 @@ module.exports = {
       "CIBFOE130300000M": { title: "전자무역서비스", status: "검수중", worker: "이상우", note: "" },
       "CIBFOE130400000M": { title: "수출환어음인수후매입제도", status: "검수중", worker: "이상우", note: "" },
 
-      "CIBDOB040101000M": { title: "증명서 발급신청", status: "검수중", worker: "이상우", note: "" },
-      "CIBDOB040102000M": { title: "증명서 발급계좌 선택", status: "검수중", worker: "이상우", note: "" },
+      "CIBDOB040101000M": { title: "증명서 발급신청", status: "검수중", worker: "이상우", note: "09/04 col width 값 수정<br/>09/04 2단 colspan=3 삭제<br/>09/04 title 값 수정" },
+      "CIBDOB040102000M": { title: "증명서 발급계좌 선택", status: "검수중", worker: "이상우", note: "09/04 title 값 추가" },
 
-      "CIBDOB040103000M": { title: "신청정보확인", status: "검수중", worker: "이상우", note: "" },
+      "CIBDOB040103000M": { title: "신청정보확인", status: "검수중", worker: "이상우", note: "09/04 col width 값 수정" },
       "CIBDOB040103000P": { title: "신청정보확인(팝업)", status: "검수중", worker: "이상우", note: "" },
-      "CIBDOB040104000M": { title: "수수료 납부", status: "검수중", worker: "이상우", note: "" },
+      "CIBDOB040104000M": { title: "수수료 납부", status: "검수중", worker: "이상우", note: "09/04 col width 값 추가<br/>09/04 title 값 추가" },
       "CIBDOB040105000M": { title: "발급 신청", status: "검수중", worker: "이상우", note: "" },
-      "CIBDOB040701000M": { title: "잔액잔고증명서_발급정보 입력", status: "검수중", worker: "이상우", note: "" },
+      "CIBDOB040701000M": { title: "잔액잔고증명서_발급정보 입력", status: "검수중", worker: "이상우", note: "09/04 col width 값 수정<br/>09/04 title 값 수정<br/>09/04 title 값 추가" },
 
-      "CIBDOB040204000M": { title: "수수료납부", status: "검수중", worker: "이상우", note: "" },
+      "CIBDOB040204000M": { title: "수수료납부", status: "검수중", worker: "이상우", note: "09/04 col width 값 추가<br/>09/04 title 값 추가" },
 
       "CIBDOB040203000P": { title: "신청정보확인(팝업)", status: "검수중", worker: "이상우", note: "" },
 
-      "CIBDOB040201000M": { title: "부재증명서 증명서 발급신청", status: "검수중", worker: "이상우", note: "" },
-      "CIBDOB040202000M": { title: "부재증명서 신청정보확인", status: "검수중", worker: "이상우", note: "" },
+      "CIBDOB040201000M": { title: "부재증명서 증명서 발급신청", status: "검수중", worker: "이상우", note: "09/04 col width 값 수정<br/>09/04 2단 colspan=3 삭제" },
+      "CIBDOB040202000M": { title: "부재증명서 신청정보확인", status: "검수중", worker: "이상우", note: "09/04 col width 값 수정" },
 
-      "CIBDOB040205000M": { title: "부재증명서 발급완료", status: "검수중", worker: "이상우", note: "" },
+      "CIBDOB040205000M": { title: "부재증명서 발급완료", status: "검수중", worker: "이상우", note: "09/04 col width 값 수정" },
 
-      "CIBDOB040301000M": { title: "증명서 구분선택", status: "검수중", worker: "이상우", note: "" },
-      "CIBDOB040302000M": { title: "신청정보 확인", status: "검수중", worker: "이상우", note: "" },
-      "CIBDOB040303000P": { title: "신청정보확인(팝업)", status: "검수중", worker: "이상우", note: "" },
-      "CIBDOB040304000M": { title: "수수료 납부", status: "검수중", worker: "이상우", note: "" },
-      "CIBDOB040305000M": { title: "발급완료", status: "검수중", worker: "이상우", note: "" },
+      "CIBDOB040301000M": { title: "증명서 구분선택", status: "검수중", worker: "이상우", note: "09/04 col width 값 수정<br/>09/04 2단 colspan=3 삭제" },
+      "CIBDOB040302000M": { title: "신청정보 확인", status: "검수중", worker: "이상우", note: "09/04 col width 값 수정" },
+      "CIBDOB040303000P": { title: "신청정보확인(팝업)", status: "검수중", worker: "이상우", note: "09/04 col width 값 수정" },
+      "CIBDOB040304000M": { title: "수수료 납부", status: "검수중", worker: "이상우", note: "09/04 col width 값 추가<br/>09/04 title 값 추가" },
+      "CIBDOB040305000M": { title: "발급완료", status: "검수중", worker: "이상우", note: "09/04 col width 값 수정" },
 
 
-      "CIBDOB040401000M": { title: "증명서 구분선택", status: "검수중", worker: "이상우", note: "" },
-      "CIBDOB040402000P": { title: "증명서 구분선택_대출실행번호선택(팝업)", status: "검수중", worker: "이상우", note: "" },
-      "CIBDOB040403000M": { title: "신청정보확인", status: "검수중", worker: "이상우", note: "" },
+      "CIBDOB040401000M": { title: "증명서 구분선택", status: "검수중", worker: "이상우", note: "09/04 col width 값 수정<br/>09/04 2단 colspan=3 삭제" },
+      "CIBDOB040402000P": { title: "증명서 구분선택_대출실행번호선택(팝업)", status: "검수중", worker: "이상우", note: "09/04 th scope 추가" },
+      "CIBDOB040403000M": { title: "신청정보확인", status: "검수중", worker: "이상우", note: "09/04 col width 값 수정<br/>09/04 2단 colspan=3 삭제<br/>09/04 title 값 추가" },
 
 };
 
