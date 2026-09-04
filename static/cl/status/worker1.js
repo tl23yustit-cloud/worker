@@ -39,13 +39,13 @@ module.exports = {
         title: "판매기업-매매계약내역조회",
         status: "검수중",
         worker: "변혜선",
-        note: ""
+        note: "09/04 col width 값 추가<br/>09/04 title 값 추가<br/>09/04 th scope 추가"
     },
     "CIBB2B010301002M": {
         title: "매매계약내역조회 상세",
         status: "검수중",
         worker: "변혜선",
-        note: ""
+        note: "09/04 col width 값 수정<br/>09/04 th scope 추가"
     },
     "CIBB2B010302001M": {
         title: "추심의뢰대상내역조회입력",
@@ -75,31 +75,31 @@ module.exports = {
         title: "결제진행내역-조건입력",
         status: "검수중",
         worker: "변혜선",
-        note: ""
+        note: "09/04 col width 값 수정"
     },
     "CIBB2B010205000P": {
         title: "(팝업) 매매계약 상세조회",
         status: "검수중",
         worker: "변혜선",
-        note: "주석확인-[dev] : 20260824 td 에 클래스 text-right 추가"
+        note: "주석확인-[dev] : 20260824 td 에 클래스 text-right 추가<br/>09/03 col width 값 수정<br/>09/03 th scope 추가"
     },
     "CIBB2B010303002M": {
         title: "추심의뢰대상내역조회",
         status: "검수중",
         worker: "변혜선",
-        note: ""
+        note: "09/04 col width 값 수정"
     },
     "CIBB2B010303003M": {
         title: "추심의뢰대상내역조회",
         status: "검수중",
         worker: "변혜선",
-        note: ""
+        note: "09/04 col width 값 수정<br/>09/04 title 값 추가"
     },
     "CIBB2B010303004M": {
         title: "추심의뢰대상내역조회",
         status: "검수중",
         worker: "변혜선",
-        note: ""
+        note: "09/04 col width 값 수정"
     },
     "CIBB2B040200000P": {
         title: "추심의뢰대상내역조회",
@@ -111,13 +111,13 @@ module.exports = {
         title: "거래수수료징수내역-조건입력",
         status: "검수중",
         worker: "변혜선",
-        note: ""
+        note: "09/04 col width 값 수정<br/>09/04 title 값 추가"
     },
     "CIBB2B010306001M": {
         title: "거래수수료집계내역-조건입력",
         status: "검수중",
         worker: "변혜선",
-        note: ""
+        note: "09/04 col width 값 수정<br/>09/04 title 값 추가<br/>09/04 th scope 추가"
     },
     "CIBB2B010307001M": {
         title: "통지서비스 신청/해지",
@@ -177,7 +177,7 @@ module.exports = {
         title: "추심의뢰등록내역조회",
         status: "검수중",
         worker: "변혜선",
-        note: ""
+        note: "09/04 col width 값 추가<br/>09/04 title 값 추가"
     },
     "CIBNQ020202000M": {
         title: "신청정보 입력",
