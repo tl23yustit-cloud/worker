@@ -189,37 +189,37 @@ module.exports = {
         title: "이자납입_조회",
         status: "검수중",
         worker: "변혜선",
-        note: ""
+        note: "09/07 col width 값 추가"
     },
     "CIBLON020103000M": {
         title: "이자납입_정보입력",
         status: "검수중",
         worker: "변혜선",
-        note: ""
+        note: "09/07 col width 값 추가<br/>09/07 title 값 추가"
     },
     "CIBLON020104000M": {
         title: "이자납입_이자납입 확인",
         status: "검수중",
         worker: "변혜선",
-        note: ""
+        note: "09/07 col width 값 추가"
     },
     "CIBLON020105000M": {
         title: "이자납입_이자납입 결재요청 완료",
         status: "검수중",
         worker: "변혜선",
-        note: ""
+        note: "09/07 col width 값 추가"
     },
     "CIBLON020106000M": {
         title: "이자납입_이자납입 이체 완료",
         status: "검수중",
         worker: "변혜선",
-        note: ""
+        note: "09/07 col width 값 추가"
     },
     "CIBLON020107000P": {
         title: "이자납입_이체확인증",
         status: "검수중",
         worker: "변혜선",
-        note: "주석확인-[dev]:20260903 안내사항추가"
+        note: "주석확인-[dev]:20260903 안내사항추가<br/>09/07 col width 값 추가"
     },
     "CIBCRD040105000P": {
         title: "카드결제일 안내 팝업",
@@ -333,7 +333,7 @@ module.exports = {
         title: "해지예상조회",
         status: "검수중",
         worker: "변혜선",
-        note: ""
+        note: "09/07 col width 값 수정<br/>09/07 간격(mt-nn) 수정"
     },
     "CIBFOE040201000M": {
         title: "해외송금(기업송금)_이용안내",
@@ -399,25 +399,25 @@ module.exports = {
         title: "개인채무자보호법통지 조회_조회",
         status: "검수중",
         worker: "변혜선",
-        note: ""
+        note: "09/07 th scope 추가"
     },
     "CIBLON010702000p": {
         title: "개인채무자보호법통지 조회_기한의이익상실예정통지",
         status: "검수중",
         worker: "변혜선",
-        note: ""
+        note: "09/07 col width 값 수정"
     },
     "CIBLON010703000p": {
         title: "개인채무자보호법통지 조회_채권양도예정통지서",
         status: "검수중",
         worker: "변혜선",
-        note: ""
+        note: "09/07 col width 값 수정"
     },
     "CIBLON010704000p": {
         title: "개인채무자보호법통지 조회_주택경매예정통지서",
         status: "검수중",
         worker: "변혜선",
-        note: ""
+        note: "09/07 col width 값 수정<br/>09/07 th scope 추가"
     },
     "CIBCRD020601000T": {
         title: "카드해지(조회)",
