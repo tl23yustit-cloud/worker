@@ -225,7 +225,7 @@ module.exports = {
         title: "카드결제일 안내 팝업",
         status: "검수중",
         worker: "변혜선",
-        note: ""
+        note: "09/08 th scope 추가"
     },
     "CIBCRD040106000P": {
         title: "카드매출전표 팝업",
@@ -237,31 +237,31 @@ module.exports = {
         title: "가맹점정보 팝업",
         status: "검수중",
         worker: "변혜선",
-        note: ""
+        note: "09/08 col width 값 수정"
     },
     "CIBCRD020501000T": {
         title: "카드 일시정지(조회)",
         status: "검수중",
         worker: "변혜선",
-        note: "임시 그리드"
+        note: "임시 그리드<br/>09/08 col width 값 추가<br/>09/08 title 값 추가"
     },
     "CIBCRD020503000T": {
         title: "카드 일시정지 내역조회/해제(조회)",
         status: "검수중",
         worker: "변혜선",
-        note: "임시 그리드"
+        note: "임시 그리드<br/>09/08 col width 값 추가<br/>09/08 title 값 추가"
     },
     "CIBCRD020502000M": {
         title: "카드 일시정지(완료)",
         status: "검수중",
         worker: "변혜선",
-        note: ""
+        note: "09/08 th scope 추가"
     },
     "CIBCRD020504000M": {
         title: "카드 일시정지 내역조회/해제(완료)",
         status: "검수중",
         worker: "변혜선",
-        note: ""
+        note: "09/08 th scope 추가"
     },
     "CIBTRN010106000M": {
         title: "이체 결과확인 - 다건",
@@ -345,7 +345,7 @@ module.exports = {
         title: "해외송금(기업송금)__Step1. 영문고객정보",
         status: "검수중",
         worker: "변혜선",
-        note: ""
+        note: "09/08 col width 값 수정"
     },
     "CIBFOE040203000M": {
         title: "해외송금(기업송금)_Step2. 약관동의",
@@ -357,19 +357,19 @@ module.exports = {
         title: "해외송금(기업송금)_Step3. 송금정보입력",
         status: "검수중",
         worker: "변혜선",
-        note: ""
+        note: "09/08 col width 값 수정<br/>09/08 input radio 맵핑값 수정<br/>09/08 title 값 추가<br/>09/08 th scope 추가<br/>09/08 title 값 수정"
     },
     "CIBFOE040205000M": {
         title: "해외송금(기업송금)_Step4. 송금정보확인",
         status: "검수중",
         worker: "변혜선",
-        note: ""
+        note: "09/08 col width 값 수정<br/>09/08 title 값 수정<br/>09/08 col width 값 추가"
     },
     "CIBFOE040206000M": {
         title: "해외송금(기업송금)_Step5. 송금등록완료",
         status: "검수중",
         worker: "변혜선",
-        note: ""
+        note: "09/08 col width 값 수정"
     },
     "CIBFOE040204001P": {
         title: "[팝업]무역송금유의사항",
@@ -381,13 +381,13 @@ module.exports = {
         title: "[팝업]수수료안내",
         status: "검수중",
         worker: "변혜선",
-        note: ""
+        note: "09/08 col width style 수정<br/>09/08 2단 복합테이블 headers-id 적용"
     },
     "CIBFOE060100000M": {
         title: "현재환율",
         status: "검수중",
         worker: "변혜선",
-        note: "주석확인-[dev]:20260902아이콘변경이 될 수 있음"
+        note: "주석확인-[dev]:20260902아이콘변경이 될 수 있음<br/>09/08 col width 값 수정"
     },
     "CIBLGN000000000M": {
         title: "기업뱅킹-사업자_공동인증서 로그인",
@@ -423,54 +423,54 @@ module.exports = {
         title: "카드해지(조회)",
         status: "검수중",
         worker: "변혜선",
-        note: ""
+        note: "09/08 col width 값 수정"
     },
     "CIBCRD020602001P": {
         title: "해지사유 등록 팝업",
         status: "검수중",
         worker: "변혜선",
-        note: ""
+        note: "09/08 col width 값 수정"
     },
     "CIBCRD020603000T": {
         title: "카드해지 취소(조회)",
         status: "검수중",
         worker: "변혜선",
-        note: ""
+        note: "09/08 col width 값 수정"
     },
     "CIBCRD020605000T": {
         title: "해지내역 조회",
         status: "검수중",
         worker: "변혜선",
-        note: ""
+        note: "09/08 col width 값 수정"
     },
     "CIBCRD020602000M": {
         title: "카드해지(완료)",
         status: "검수중",
         worker: "변혜선",
-        note: ""
+        note: "09/08 col width style 수정"
     },
     "CIBCRD020604000M": {
         title: "카드해지 취소(완료)",
         status: "검수중",
         worker: "변혜선",
-        note: ""
+        note: "09/08 col width style 수정"
     },
     "CIBCRD040102000T": {
         title: "이용내역조회(이용내역Tab)",
         status: "검수중",
         worker: "변혜선",
-        note: "임시그리드"
+        note: "임시그리드<br/>09/08 col width 값 수정"
     },
     "CIBCRD040103000T": {
         title: "이용내역조회(취소내역Tab)",
         status: "검수중",
         worker: "변혜선",
-        note: "임시그리드"
+        note: "임시그리드<br/>09/08 col width 값 수정"
     },
     "CIBCRD040104000T": {
         title: "이용내역조회(가맹점내역Tab)",
         status: "검수중",
         worker: "변혜선",
-        note: "임시그리드"
+        note: "임시그리드<br/>09/08 col width 값 수정<br/>09/08 title 값 추가<br/>09/08 금액 text-right 클래스 추가"
     },
 };

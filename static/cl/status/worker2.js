@@ -16,7 +16,7 @@ module.exports = {
       "CIBUMG021700000M": { title: "인수인계 완료/승인요청완료", status: "검수중", worker: "이상우", note: "" },
       "CIBUMG020300000M": { title: "삭제확인", status: "검수중", worker: "이상우", note: "09/07 col width 값 수정" },
       "CIBUMG020400000M": { title: "삭제완료/승인요청완료", status: "검수중", worker: "이상우", note: "" },
-      "CIBCRD020702000M": { title: "업종제한 설정(완료)", status: "검수중", worker: "이상우", note: "" },
+      "CIBCRD020702000M": { title: "업종제한 설정(완료)", status: "검수중", worker: "이상우", note: "09/08 col width style 수정" },
 
       //어음할인신청
       "CIBB2B021601000M": { title: "어음할인 조회", status: "검수중", worker: "이상우", note: "09/03 col width 값 추가<br/>09/03 title 값 수정" },

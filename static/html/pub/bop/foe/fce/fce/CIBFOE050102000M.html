@@ -65,16 +65,18 @@
                 <caption>
                   환전가능통화
                 </caption>
+                <!-- [수정] 20260908 col width style 수정  -->
                 <colgroup>
-                  <col width="33.3%" />
-                  <col width="33.3%" />
-                  <col width="33.4%" />
+                  <col style="width:33.3%" />
+                  <col style="width:33.3%" />
+                  <col style="width:33.4%" />
                 </colgroup>
                 <thead>
+                  <!-- [수정] 20260908 th scope 추가 -->
                   <tr>
-                    <th>환전가능통화</th>
-                    <th>환율우대</th>
-                    <th>거래금액</th>
+                    <th scope="col">환전가능통화</th>
+                    <th scope="col">환율우대</th>
+                    <th scope="col">거래금액</th>
                   </tr>
                 </thead>
 
@@ -99,31 +101,33 @@
                 <div class="right-area"><span class="typeMd">조회기준일시 : 2026-10-22 15:00:00</span></div>
               </div>
               <table class="table-type05">
+                <!-- [수정] 20260908 2단 복합테이블 headers-id 적용  -->
                 <thead>
                   <tr>
-                    <th>통화</th>
-                    <th>USD</th>
-                    <th>JPY</th>
-                    <th>EUR</th>
-                    <th>CNY</th>
+                    <th id="col_1">통화</th>
+                    <th id="col_2">USD</th>
+                    <th id="col_3">JPY</th>
+                    <th id="col_4">EUR</th>
+                    <th id="col_5">CNY</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <th>현찰 살 때</th>
-                    <td><span class="typeMd">0,000.00</span></td>
-                    <td><span class="typeMd">0,000.00</span></td>
-                    <td><span class="typeMd">0,000.00</span></td>
-                    <td><span class="typeMd">0,000.00</span></td>
+                    <th id="row_1">현찰 살 때</th>
+                    <td headers="row_1 col_2"><span class="typeMd">0,000.00</span></td>
+                    <td headers="row_1 col_3"><span class="typeMd">0,000.00</span></td>
+                    <td headers="row_1 col_4"><span class="typeMd">0,000.00</span></td>
+                    <td headers="row_1 col_5"><span class="typeMd">0,000.00</span></td>
                   </tr>
                   <tr>
-                    <th>현찰 살 때현찰 팔 때</th>
-                    <td><span class="typeMd">0,000.00</span></td>
-                    <td><span class="typeMd">0,000.00</span></td>
-                    <td><span class="typeMd">0,000.00</span></td>
-                    <td><span class="typeMd">0,000.00</span></td>
+                    <th id="row_2">현찰 살 때현찰 팔 때</th>
+                    <td headers="row_2 col_2"><span class="typeMd">0,000.00</span></td>
+                    <td headers="row_2 col_3"><span class="typeMd">0,000.00</span></td>
+                    <td headers="row_2 col_4"><span class="typeMd">0,000.00</span></td>
+                    <td headers="row_2 col_5"><span class="typeMd">0,000.00</span></td>
                   </tr>
                 </tbody>
+                <!-- //[수정] 20260908 2단 복합테이블 headers-id 적용  -->
               </table>
             </div>
             <div class="tbl-area">
@@ -136,9 +140,10 @@
                 <caption>
                   환전정보입력
                 </caption>
+                <!-- [수정] 20260908 col width 값 추가  -->
                 <colgroup>
-                  <col />
-                  <col />
+                  <col style="width: 160px" />
+                  <col style="width: auto" />
                 </colgroup>
                 <tbody>
                   <tr>
@@ -236,8 +241,8 @@
                           <span class="blind">보안 키패드 열기</span>
                         </button>
                       </div> -->
-
-                      <input type="password" class="input size-lg wSize-smMd" placeholder="숫자4자리" title="">
+                      <!-- [수정] 20260908 title 값 추가  -->
+                      <input type="password" class="input size-lg wSize-smMd" placeholder="숫자4자리" title="출금계좌비밀번호, 숫자4자리">
                       <button type="button" class="btn type-line-secondary size-lg">
                         <span class="text">마우스입력</span>
                       </button>
@@ -383,9 +388,11 @@
                         </div>
                       </div>
                       <span>-</span>
-                      <input type="text" class="input phone size-lg" title="" size="4" value="1234">
+                      <!-- [수정] 20260908 title 값 추가  -->
+                      <input type="text" class="input phone size-lg" title="전화번호 중간자리" size="4" value="1234">
                       <span>-</span>
-                      <input type="text" class="input phone size-lg" title="" size="4" value="5678">
+                      <!-- [수정] 20260908 title 값 추가  -->
+                      <input type="text" class="input phone size-lg" title="전화번호 마지막자리" size="4" value="5678">
                     </td>
                     <th scope="row">이동전화번호</th>
                     <td>
@@ -409,9 +416,11 @@
                         </div>
                       </div>
                       <span>-</span>
-                      <input type="text" class="input phone size-lg" title="" size="4" value="1234">
+                      <!-- [수정] 20260908 title 값 추가  -->
+                      <input type="text" class="input phone size-lg" title="이동전화번호 중간자리" size="4" value="1234">
                       <span>-</span>
-                      <input type="text" class="input phone size-lg" title="" size="4" value="5678">
+                      <!-- [수정] 20260908 title 값 추가  -->
+                      <input type="text" class="input phone size-lg" title="이동전화번호 마지막자리" size="4" value="5678">
                     </td>
                   </tr>
                 </tbody>
