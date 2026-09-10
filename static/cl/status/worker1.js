@@ -39,13 +39,13 @@ module.exports = {
         title: "판매기업-매매계약내역조회",
         status: "검수중",
         worker: "변혜선",
-        note: "09/04 col width 값 추가<br/>09/04 title 값 추가<br/>09/04 th scope 추가"
+        note: "09/04 col width 값 추가<br/>09/04 title 값 추가<br/>09/04 th scope 추가<br/>09/10 col width style 수정<br/>09/10 title 값 수정"
     },
     "CIBB2B010301002M": {
         title: "매매계약내역조회 상세",
         status: "검수중",
         worker: "변혜선",
-        note: "09/04 col width 값 수정<br/>09/04 th scope 추가"
+        note: "09/04 col width 값 수정<br/>09/04 th scope 추가<br/>09/10 col width style 수정"
     },
     "CIBB2B010302001M": {
         title: "추심의뢰대상내역조회입력",
@@ -57,49 +57,49 @@ module.exports = {
         title: "추심의뢰대상내역등록",
         status: "검수중",
         worker: "변혜선",
-        note: "09/04 col width 값 수정"
+        note: "09/04 col width 값 수정<br/>09/10 col width style 수정"
     },
     "CIBB2B010302003M": {
         title: "추심의뢰대상등록 실행확인",
         status: "검수중",
         worker: "변혜선",
-        note: "09/04 col width 값 수정<br/>09/04 title 값 추가"
+        note: "09/04 col width 값 수정<br/>09/04 title 값 추가<br/>09/10 col width style 수정<br/>09/10 col width 값 추가<br/>09/10 title 값 수정"
     },
     "CIBB2B010302004M": {
         title: "추심의뢰대상등록 처리확인",
         status: "검수중",
         worker: "변혜선",
-        note: "09/04 col width 값 수정"
+        note: "09/04 col width 값 수정<br/>09/10 col width style 수정"
     },
     "CIBB2B010303005M": {
         title: "결제진행내역-조건입력",
         status: "검수중",
         worker: "변혜선",
-        note: "09/04 col width 값 수정"
+        note: "09/04 col width 값 수정<br/>09/10 col width style 수정<br/>09/10 title 값 추가<br/>09/10 복합테이블 headers-id 적용<br/>09/10 th scope 추가"
     },
     "CIBB2B010205000P": {
         title: "(팝업) 매매계약 상세조회",
         status: "검수중",
         worker: "변혜선",
-        note: "주석확인-[dev] : 20260824 td 에 클래스 text-right 추가<br/>09/03 col width 값 수정<br/>09/03 th scope 추가"
+        note: "주석확인-[dev] : 20260824 td 에 클래스 text-right 추가<br/>09/03 col width 값 수정<br/>09/03 th scope 추가<br/>09/10 col width style 수정"
     },
     "CIBB2B010303002M": {
         title: "추심의뢰대상내역조회",
         status: "검수중",
         worker: "변혜선",
-        note: "09/04 col width 값 수정"
+        note: "09/04 col width 값 수정<br/>09/10 col width style 수정"
     },
     "CIBB2B010303003M": {
         title: "추심의뢰대상내역조회",
         status: "검수중",
         worker: "변혜선",
-        note: "09/04 col width 값 수정<br/>09/04 title 값 추가"
+        note: "09/04 col width 값 수정<br/>09/04 title 값 추가<br/>09/10 col width style 수정<br/>09/10 col width 값 추가<br/>09/10 title 값 수정"
     },
     "CIBB2B010303004M": {
         title: "추심의뢰대상내역조회",
         status: "검수중",
         worker: "변혜선",
-        note: "09/04 col width 값 수정"
+        note: "09/04 col width 값 수정<br/>09/10 col width style 수정"
     },
     "CIBB2B040200000P": {
         title: "추심의뢰대상내역조회",
@@ -111,13 +111,13 @@ module.exports = {
         title: "거래수수료징수내역-조건입력",
         status: "검수중",
         worker: "변혜선",
-        note: "09/04 col width 값 수정<br/>09/04 title 값 추가"
+        note: "09/04 col width 값 수정<br/>09/04 title 값 추가<br/>09/10 col width style 수정<br/>09/10 title 값 수정<br/>09/10 복합테이블 headers-id 적용<br/>09/10 th scope 추가<br/>09/10 금액 text-right 클래스 추가"
     },
     "CIBB2B010306001M": {
         title: "거래수수료집계내역-조건입력",
         status: "검수중",
         worker: "변혜선",
-        note: "09/04 col width 값 수정<br/>09/04 title 값 추가<br/>09/04 th scope 추가"
+        note: "09/04 col width 값 수정<br/>09/04 title 값 추가<br/>09/04 th scope 추가<br/>09/10 col width style 수정<br/>09/10 title 값 수정"
     },
     "CIBB2B010307001M": {
         title: "통지서비스 신청/해지",
@@ -129,55 +129,55 @@ module.exports = {
         title: "통지서비스 신청/해지",
         status: "검수중",
         worker: "변혜선",
-        note: "09/04 col width 값 수정<br/>09/04 title 값 추가"
+        note: "09/04 col width 값 수정<br/>09/04 title 값 추가<br/>09/10 col width style 수정<br/>09/10 title 값 수정"
     },
     "CIBB2B010307003M": {
         title: "통지서비스 신청/해지",
         status: "검수중",
         worker: "변혜선",
-        note: "09/04 col width 값 수정"
+        note: "09/04 col width 값 수정<br/>09/10 col width style 수정"
     },
     "CIBB2B010307004M": {
         title: "통지서비스 신청/해지",
         status: "검수중",
         worker: "변혜선",
-        note: "09/04 col width 값 수정"
+        note: "09/04 col width 값 수정<br/>09/10 col width style 수정"
     },
     "CIBB2B010307005M": {
         title: "통지서비스 신청/해지",
         status: "검수중",
         worker: "변혜선",
-        note: "09/04 col width 값 수정<br/>09/04 title 값 추가"
+        note: "09/04 col width 값 수정<br/>09/04 title 값 추가<br/>09/10 col width style 수정"
     },
     "CIBB2B010307006M": {
         title: "통지서비스 신청/해지",
         status: "검수중",
         worker: "변혜선",
-        note: "09/04 col width 값 수정"
+        note: "09/04 col width 값 수정<br/>09/10 col width style 수정"
     },
     "CIBB2B010307007M": {
         title: "통지서비스 신청/해지",
         status: "검수중",
         worker: "변혜선",
-        note: "09/04 col width 값 수정"
+        note: "09/04 col width 값 수정<br/>09/10 col width style 수정"
     },
     "CIBB2B010307008M": {
         title: "통지서비스 신청/해지",
         status: "검수중",
         worker: "변혜선",
-        note: "09/04 col width 값 수정"
+        note: "09/04 col width 값 수정<br/>09/10 col width style 수정"
     },
     "CIBB2B010307009M": {
         title: "통지서비스 신청/해지",
         status: "검수중",
         worker: "변혜선",
-        note: "09/04 col width 값 수정"
+        note: "09/04 col width 값 수정<br/>09/10 col width style 수정"
     },
     "CIBB2B010303001M": {
         title: "추심의뢰등록내역조회",
         status: "검수중",
         worker: "변혜선",
-        note: "09/04 col width 값 추가<br/>09/04 title 값 추가"
+        note: "09/04 col width 값 추가<br/>09/04 title 값 추가<br/>09/10 col width style 수정<br/>09/10 복합테이블 headers-id 적용"
     },
     "CIBNQ020202000M": {
         title: "신청정보 입력",
@@ -201,7 +201,7 @@ module.exports = {
         title: "이자납입_이자납입 확인",
         status: "검수중",
         worker: "변혜선",
-        note: "09/07 col width 값 추가"
+        note: "09/07 col width 값 추가<br/>09/10 title 값 수정"
     },
     "CIBLON020105000M": {
         title: "이자납입_이자납입 결재요청 완료",
@@ -267,7 +267,7 @@ module.exports = {
         title: "이체 결과확인 - 다건",
         status: "검수중",
         worker: "변혜선",
-        note: "09/03 col width 값 추가<br/>09/03 간격 클래스 수정"
+        note: "09/03 col width 값 추가<br/>09/03 간격 클래스 수정<br/>09/09 col width style 수정"
     },
     "CIBTRN010109000P": {
         title: "수협은행계산기",
@@ -279,25 +279,25 @@ module.exports = {
         title: "자주쓰는 입금계좌 등록",
         status: "검수중",
         worker: "변혜선",
-        note: "09/03 col width 값 수정"
+        note: "09/03 col width 값 수정<br/>09/09 col width style 수정"
     },
     "CIBTRN010114000P": {
         title: "이체확인증 인쇄",
         status: "검수중",
         worker: "변혜선",
-        note: "09/03 col width 값 수정"
+        note: "09/03 col width 값 수정<br/>09/09 col width style 수정"
     },
     "CIBTRN010115000P": {
         title: "이메일 발송",
         status: "검수중",
         worker: "변혜선",
-        note: "09/03 col width 값 수정"
+        note: "09/03 col width 값 수정<br/>09/09 col width style 수정"
     },
     "CIBTRN010116000P": {
         title: "FAX 발송",
         status: "검수중",
         worker: "변혜선",
-        note: "09/03 col width 값 수정<br/>09/03 title 값 추가"
+        note: "09/03 col width 값 수정<br/>09/03 title 값 추가<br/>09/09 col width style 수정<br/>09/09 title 값 수정"
     },
     "CIBFPD020101001T": {
         title: "[팝업]공시자료 변경내역_적용약관",
@@ -315,7 +315,7 @@ module.exports = {
         title: "은행상품공시이용메뉴얼",
         status: "검수중",
         worker: "변혜선",
-        note: "09/04 col width 값 추가<br/>09/04 th scope 추가"
+        note: ""
     },
     "CIBFPD020100000M": {
         title: "공시실_예금상품_입출금",

@@ -34,9 +34,10 @@
                   결제진행내역 테이블
                 </caption>
                 <!-- [수정] 20260904 col width 값 수정  -->
+                <!-- [수정] 20260910 col width style 수정  -->
                 <colgroup>
-                  <col width="160px">
-                  <col class="auto">
+                  <col style="width: 160px" />
+                  <col style="width: auto" />
                 </colgroup>
                 <tbody>
                   <tr>
@@ -178,13 +179,16 @@
                     <th scope="row"><label for="구매기업 사업자번호">구매기업 사업자번호</label></th>
                     <td>
                       <div class="tbl-flex">
-                        <input type="text" class="input wSize-smMd size-lg" id="구매기업 사업자번호1" aria-label="사업자번호 첫 번째 4자리"
+                        <!-- [수정] 20260910 title 값 추가  -->
+                        <input type="text" class="input wSize-smMd size-lg" id="구매기업 사업자번호1" title="구매기업 사업자번호 첫 3자리" aria-label="사업자번호 첫 번째 4자리"
                           maxlength="4" value="1234">
                         <span>-</span>
-                        <input type="text" class="input wSize-smMd size-lg" id="구매기업 사업자번호2" aria-label="사업자번호 두 번째 4자리"
+                        <!-- [수정] 20260910 title 값 추가  -->
+                        <input type="text" class="input wSize-smMd size-lg" id="구매기업 사업자번호2" title="구매기업 사업자번호 중간 2자리" aria-label="사업자번호 두 번째 4자리"
                           maxlength="4" value="1234">
                         <span>-</span>
-                        <input type="text" class="input wSize-smMd size-lg" id="구매기업 사업자번호3" aria-label="사업자번호 세 번째 4자리"
+                        <!-- [수정] 20260910 title 값 추가  -->
+                        <input type="text" class="input wSize-smMd size-lg" id="구매기업 사업자번호3" title="구매기업 사업자번호 마지막 5자리" aria-label="사업자번호 세 번째 4자리"
                           maxlength="4" value="5678">
                         <button type="button" class="btn type-line-secondary size-lg">
                           <span class="text">자주쓰는 사업자번호</span>
@@ -221,83 +225,87 @@
                   <col />
                   <col />
                 </colgroup>
+                <!-- [수정] 20260910 복합테이블 headers-id 적용  -->
+                <!-- [수정] 20260910 th scope 추가 -->
                 <thead>
                   <tr>
-                    <th rowspan="2">순번</th>
-                    <th>매매계약번호</th>
-                    <th>구매기업명</th>
-                    <th>매매계약일</th>
-                    <th>추심의뢰일</th>
-                    <th>결제일</th>
-                    <th>매매계약상태</th>
-                    <th rowspan="2">매매계약상세</th>
-                    <th rowspan="2">추심의뢰상세</th>
+                    <th id="col_1" scope="col" rowspan="2">순번</th>
+                    <th id="col_2" scope="col">매매계약번호</th>
+                    <th id="col_3" scope="col">구매기업명</th>
+                    <th id="col_4" scope="col">매매계약일</th>
+                    <th id="col_5" scope="col">추심의뢰일</th>
+                    <th id="col_6" scope="col">결제일</th>
+                    <th id="col_7" scope="col">매매계약상태</th>
+                    <th id="col_8" scope="col" rowspan="2">매매계약상세</th>
+                    <th id="col_9" scope="col" rowspan="2">추심의뢰상세</th>
                   </tr>
                   <tr>
-                    <th>추심의뢰번호</th>
-                    <th>구매기업사업자번호</th>
-                    <th>결제예정일</th>
-                    <th>인수/거절일</th>
-                    <th>결제금액</th>
-                    <th>추심상태</th>
+                    <th id="col_2_1" scope="col">추심의뢰번호</th>
+                    <th id="col_3_1" scope="col">구매기업사업자번호</th>
+                    <th id="col_4_1" scope="col">결제예정일</th>
+                    <th id="col_5_1" scope="col">인수/거절일</th>
+                    <th id="col_6_1" scope="col">결제금액</th>
+                    <th id="col_7_1" scope="col">추심상태</th>
                   </tr>
                 </thead>
+                <!-- //[수정] 20260910 th scope 추가 -->
                 <tbody>
                   <tr>
-                    <td rowspan="2"><span class="typeMd">1</span></td>
-                    <td><span class="typeMd">KF202605261727419B2B</span></td>
-                    <td><span class="typeMd">선창최고문하생</span></td>
-                    <td><span class="typeMd">2026-07-20</span></td>
-                    <td><span class="typeMd">2026-07-20</span></td>
-                    <td><span class="typeMd">2026-07-20</span></td>
-                    <td><span class="typeMd">결제완료</span></td>
-                    <td rowspan="2">
+                    <td id="row_1" rowspan="2"><span class="typeMd">1</span></td>
+                    <td headers="row_1 col_2"><span class="typeMd">KF202605261727419B2B</span></td>
+                    <td headers="row_1 col_3"><span class="typeMd">선창최고문하생</span></td>
+                    <td headers="row_1 col_4"><span class="typeMd">2026-07-20</span></td>
+                    <td headers="row_1 col_5"><span class="typeMd">2026-07-20</span></td>
+                    <td headers="row_1 col_6"><span class="typeMd">2026-07-20</span></td>
+                    <td headers="row_1 col_7"><span class="typeMd">결제완료</span></td>
+                    <td headers="row_1 col_8" rowspan="2">
                       <button type="button" class="btn type-line-neutral size-sm">
                         <span class="text">상세보기</span>
                       </button>
                     </td>
-                    <td rowspan="2">
-                      <button type="button" class="btn type-line-neutral size-sm">
-                        <span class="text">상세보기</span>
-                      </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><span class="typeMd">KF202605261727419B2B</span></td>
-                    <td><span class="typeMd">732-00-00000</span></td>
-                    <td><span class="typeMd">2026-07-20</span></td>
-                    <td><span class="typeMd">2026-07-20</span></td>
-                    <td class="text-right"><span class="typeMd">812,160,000원</span></td>
-                    <td><span class="typeMd">구매자금결제</span></td>
-                  </tr>
-                  <tr>
-                    <td rowspan="2"><span class="typeMd">2</span></td>
-                    <td><span class="typeMd">KF202605261727419B2B</span></td>
-                    <td><span class="typeMd">선창최고문하생</span></td>
-                    <td><span class="typeMd">2026-07-20</span></td>
-                    <td><span class="typeMd">2026-07-20</span></td>
-                    <td><span class="typeMd">2026-07-20</span></td>
-                    <td><span class="typeMd">결제완료</span></td>
-                    <td rowspan="2">
-                      <button type="button" class="btn type-line-neutral size-sm">
-                        <span class="text">상세보기</span>
-                      </button>
-                    </td>
-                    <td rowspan="2">
+                    <td headers="row_1 col_9" rowspan="2">
                       <button type="button" class="btn type-line-neutral size-sm">
                         <span class="text">상세보기</span>
                       </button>
                     </td>
                   </tr>
                   <tr>
-                    <td><span class="typeMd">KF202605261727419B2B</span></td>
-                    <td><span class="typeMd">732-00-00000</span></td>
-                    <td><span class="typeMd">2026-07-20</span></td>
-                    <td><span class="typeMd">2026-07-20</span></td>
-                    <td class="text-right"><span class="typeMd">812,160,000원</span></td>
-                    <td><span class="typeMd">구매자금결제</span></td>
+                    <td headers="row_1 col_2_1"><span class="typeMd">KF202605261727419B2B</span></td>
+                    <td headers="row_1 col_3_1"><span class="typeMd">732-00-00000</span></td>
+                    <td headers="row_1 col_4_1"><span class="typeMd">2026-07-20</span></td>
+                    <td headers="row_1 col_5_1"><span class="typeMd">2026-07-20</span></td>
+                    <td headers="row_1 col_6_1" class="text-right"><span class="typeMd">812,160,000원</span></td>
+                    <td headers="row_1 col_7_1"><span class="typeMd">구매자금결제</span></td>
+                  </tr>
+                  <tr>
+                    <td id="row_2" rowspan="2"><span class="typeMd">2</span></td>
+                    <td headers="row_2 col_2"><span class="typeMd">KF202605261727419B2B</span></td>
+                    <td headers="row_2 col_3"><span class="typeMd">선창최고문하생</span></td>
+                    <td headers="row_2 col_4"><span class="typeMd">2026-07-20</span></td>
+                    <td headers="row_2 col_5"><span class="typeMd">2026-07-20</span></td>
+                    <td headers="row_2 col_6"><span class="typeMd">2026-07-20</span></td>
+                    <td headers="row_2 col_7"><span class="typeMd">결제완료</span></td>
+                    <td headers="row_2 col_8" rowspan="2">
+                      <button type="button" class="btn type-line-neutral size-sm">
+                        <span class="text">상세보기</span>
+                      </button>
+                    </td>
+                    <td headers="row_2 col_9" rowspan="2">
+                      <button type="button" class="btn type-line-neutral size-sm">
+                        <span class="text">상세보기</span>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td headers="row_2 col_2_1"><span class="typeMd">KF202605261727419B2B</span></td>
+                    <td headers="row_2 col_3_1"><span class="typeMd">732-00-00000</span></td>
+                    <td headers="row_2 col_4_1"><span class="typeMd">2026-07-20</span></td>
+                    <td headers="row_2 col_5_1"><span class="typeMd">2026-07-20</span></td>
+                    <td headers="row_2 col_6_1" class="text-right"><span class="typeMd">812,160,000원</span></td>
+                    <td headers="row_2 col_7_1"><span class="typeMd">구매자금결제</span></td>
                   </tr>
                 </tbody>
+                <!-- //[수정] 20260910 복합테이블 headers-id 적용  -->
               </table>
             </div>
             <div class="tbl-area">
@@ -321,27 +329,31 @@
                   <col />
                   <col />
                 </colgroup>
+                <!-- [수정] 20260910 복합테이블 headers-id 적용  -->
+                <!-- [수정] 20260910 th scope 추가 -->
                 <thead>
                   <tr>
-                    <th rowspan="2">순번</th>
-                    <th>매매계약번호</th>
-                    <th>구매기업명</th>
-                    <th>매매계약일</th>
-                    <th>추심의뢰일</th>
-                    <th>결제일</th>
-                    <th>매매계약상태</th>
-                    <th rowspan="2">매매계약상세</th>
-                    <th rowspan="2">추심의뢰상세</th>
+                    <th id="col_1" scope="col" rowspan="2">순번</th>
+                    <th id="col_2" scope="col">매매계약번호</th>
+                    <th id="col_3" scope="col">구매기업명</th>
+                    <th id="col_4" scope="col">매매계약일</th>
+                    <th id="col_5" scope="col">추심의뢰일</th>
+                    <th id="col_6" scope="col">결제일</th>
+                    <th id="col_7" scope="col">매매계약상태</th>
+                    <th id="col_8" scope="col" rowspan="2">매매계약상세</th>
+                    <th id="col_9" scope="col" rowspan="2">추심의뢰상세</th>
                   </tr>
                   <tr>
-                    <th>추심의뢰번호</th>
-                    <th>구매기업사업자번호</th>
-                    <th>결제예정일</th>
-                    <th>인수/거절일</th>
-                    <th>결제금액</th>
-                    <th>추심상태</th>
+                    <th id="col_2_1" scope="col">추심의뢰번호</th>
+                    <th id="col_3_1" scope="col">구매기업사업자번호</th>
+                    <th id="col_4_1" scope="col">결제예정일</th>
+                    <th id="col_5_1" scope="col">인수/거절일</th>
+                    <th id="col_6_1" scope="col">결제금액</th>
+                    <th id="col_7_1" scope="col">추심상태</th>
                   </tr>
                 </thead>
+                <!-- //[수정] 20260910 th scope 추가 -->
+                <!-- //[수정] 20260910 복합테이블 headers-id 적용  -->
 
                 <tbody>
                   <tr>

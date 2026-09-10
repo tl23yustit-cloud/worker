@@ -34,9 +34,10 @@
                   거래수수료징수내역 테이블
                 </caption>
                 <!-- [수정] 20260903 col width 값 수정  -->
+                <!-- [수정] 20260910 col width style 수정  -->
                 <colgroup>
-                  <col width="160px">
-                  <col class="auto">
+                  <col style="width: 160px" />
+                  <col style="width: auto" />
                 </colgroup>
                 <tbody>
                   <tr>
@@ -185,13 +186,16 @@
                     <td>
                       <div class="tbl-flex">
                         <!-- [수정] 20260903 title 값 추가  -->
-                        <input type="text" class="input wSize-smMd size-lg" title="MP 사업자번호 앞자리" size="4" value="">
+                        <!-- [수정] 20260910 title 값 수정  -->
+                        <input type="text" class="input wSize-smMd size-lg" title="MP 사업자번호 앞 3자리" size="4" value="">
                         <span>-</span>
                         <!-- [수정] 20260903 title 값 추가  -->
-                        <input type="text" class="input wSize-smMd size-lg" title="MP 사업자번호 중간자리" size="4" value="">
+                        <!-- [수정] 20260910 title 값 수정  -->
+                        <input type="text" class="input wSize-smMd size-lg" title="MP 사업자번호 중간 2자리" size="4" value="">
                         <span>-</span>
                         <!-- [수정] 20260903 title 값 추가  -->
-                        <input type="text" class="input wSize-smMd size-lg" title="MP 사업자번호 끝자리" size="4" value="">
+                        <!-- [수정] 20260910 title 값 수정  -->
+                        <input type="text" class="input wSize-smMd size-lg" title="MP 사업자번호 마지막 5자리" size="4" value="">
                       </div>
                     </td>
                   </tr>
@@ -222,50 +226,56 @@
                   <col />
                   <col />
                 </colgroup>
+                <!-- [수정] 20260910 복합테이블 headers-id 적용  -->
                 <thead>
                   <tr>
-                    <th rowspan="2">순번</th>
-                    <th>수수료구분</th>
-                    <th>수수료</th>
-                    <th>매매계약일자</th>
-                    <th>판매기업명</th>
-                    <th>MP명</th>
-                    <th>징수일자</th>
-                    <th rowspan="2">상세</th>
+                    <th id="col_1" scope="col" rowspan="2">순번</th>
+                    <th id="col_2" scope="col">수수료구분</th>
+                    <th id="col_3" scope="col">수수료</th>
+                    <th id="col_4" scope="col">매매계약일자</th>
+                    <th id="col_5" scope="col">판매기업명</th>
+                    <th id="col_6" scope="col">MP명</th>
+                    <th id="col_7" scope="col">징수일자</th>
+                    <th id="col_8" scope="col" rowspan="2">상세</th>
                   </tr>
                   <tr>
-                    <th>MP구분</th>
-                    <th>매매계약금액</th>
-                    <th>매매계약번호</th>
-                    <th>판매기업사업자번호</th>
-                    <th>MP사업자번호</th>
-                    <th>수수료징수구분</th>
+                    <th id="col_2_1" scope="col">MP구분</th>
+                    <th id="col_3_1" scope="col">매매계약금액</th>
+                    <th id="col_4_1" scope="col">매매계약번호</th>
+                    <th id="col_5_1" scope="col">판매기업사업자번호</th>
+                    <th id="col_6_1" scope="col">MP사업자번호</th>
+                    <th id="col_7_1" scope="col">수수료징수구분</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td rowspan="2"><span class="typeMd">1</span></td>
-                    <td><span class="typeMd">중계수수료</span></td>
-                    <td class="text-right"><span class="typeMd">115,500</span></td>
-                    <td><span class="typeMd">2026-07-20</td>
-                    <td><span class="typeMd">(고)황중문박인</td>
-                    <td><span class="typeMd">우밤용김돌팡전왕</span></td>
-                    <td><span class="typeMd">2026-07-20</span></td>
-                    <td rowspan="2">
+                    <td id="row_1" rowspan="2"><span class="typeMd">1</span></td>
+                    <td headers="row_1 col_2"><span class="typeMd">중계수수료</span></td>
+                    <td headers="row_1 col_3" class="text-right"><span class="typeMd">115,500</span></td>
+                    <!-- [수정] 20260910 </span> 누락 추가  -->
+                    <td headers="row_1 col_4"><span class="typeMd">2026-07-20</span></td>
+                    <!-- [수정] 20260910 </span> 누락 추가  -->
+                    <td headers="row_1 col_5"><span class="typeMd">(고)황중문박인</span></td>
+                    <td headers="row_1 col_6"><span class="typeMd">우밤용김돌팡전왕</span></td>
+                    <td headers="row_1 col_7"><span class="typeMd">2026-07-20</span></td>
+                    <td headers="row_1 col_8" rowspan="2">
                       <button type="button" class="btn type-line-neutral size-sm">
                         <span class="text">상세보기</span>
                       </button>
                     </td>
                   </tr>
                   <tr>
-                    <td><span class="typeMd">신용보증기금</td>
-                    <td><span class="typeMd">70,000,000원</td>
-                    <td><span class="typeMd">KF202605261727419B2B</span></td>
-                    <td><span class="typeMd">602-81-30804</span></td>
-                    <td><span class="typeMd">219-82-01711</span></td>
-                    <td><span class="typeMd">징수</span></td>
+                    <!-- [수정] 20260910 </span> 누락 추가  -->
+                    <td headers="row_1 col_2_1"><span class="typeMd">신용보증기금</span></td>
+                    <!-- [수정] 20260910 </span> 누락 추가  -->
+                    <td headers="row_1 col_3_1"><span class="typeMd">70,000,000원</span></td>
+                    <td headers="row_1 col_4_1"><span class="typeMd">KF202605261727419B2B</span></td>
+                    <td headers="row_1 col_5_1"><span class="typeMd">602-81-30804</span></td>
+                    <td headers="row_1 col_6_1"><span class="typeMd">219-82-01711</span></td>
+                    <td headers="row_1 col_7_1"><span class="typeMd">징수</span></td>
                   </tr>
                 </tbody>
+                <!-- //[수정] 20260910 복합테이블 headers-id 적용  -->
               </table>
             </div>            
             <nav class="pagination size-md" aria-label="페이지네이션">
