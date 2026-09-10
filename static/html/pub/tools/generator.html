@@ -481,12 +481,20 @@
               group.forEach(hIdx => {
                 const h = headers[hIdx];
                 const c = cells[0][hIdx];
-                const reqSpan = h.required ? `<span class="required">${this.escape(h.text)}</span>` : `<span>${this.escape(h.text)}</span>`;
+                
+                const hasInput = c.items.some(it => it.type === 'input' || it.type === 'combo');
+                const linkId = hasInput ? `input-${Math.random().toString(36).substr(2, 6)}` : null;
+                
+                const textMarkup = linkId 
+                  ? `<label for="${linkId}">${this.escape(h.text)}</label>` 
+                  : this.escape(h.text);
+                  
+                const reqSpan = h.required ? `<span class="required">${textMarkup}</span>` : `<span>${textMarkup}</span>`;
                 tr += `      <th scope="row">\n        ${reqSpan}\n      </th>\n`;
                 
                 const colspan = (group.length === 1 && hasPair) ? ' colspan="3"' : '';
                 const tdClass = h.textRight ? ' class="text-right"' : '';
-                tr += `      <td${colspan}${tdClass}>\n${this.makeCellContent(c, h.text)}\n      </td>\n`;
+                tr += `      <td${colspan}${tdClass}>\n${this.makeCellContent(c, h.text, linkId)}\n      </td>\n`;
               });
               return tr + "    </tr>";
             }).join("");
@@ -561,7 +569,7 @@
           }
         },
 
-        makeCellContent(cell, headerText) {
+        makeCellContent(cell, headerText, linkId = null) {
           let groups = [];
           let currentGroup = [];
           
@@ -576,6 +584,7 @@
           groups.push(currentGroup);
           
           let flexBlocksHtml = [];
+          let isFirstFocusable = true;
           
           groups.forEach((grp, gIdx) => {
             if (grp.length === 0 && groups.length === 1 && !cell.text) return;
@@ -599,7 +608,10 @@
                 const val = it.value ? ` value="${this.escape(it.value)}"` : "";
                 const ariaLabel = headerText ? ` aria-label="${this.escape(headerText)} 입력"` : ` aria-label="입력란"`;
                 
-                grpContent += `          <input type="text" class="input${sz}${w}${err}"${ariaLabel}${ph}${val}${dis}${ro}${req}>\n`;
+                const idAttr = (linkId && isFirstFocusable) ? ` id="${linkId}"` : "";
+                isFirstFocusable = false;
+                
+                grpContent += `          <input type="text"${idAttr} class="input${sz}${w}${err}"${ariaLabel}${ph}${val}${dis}${ro}${req}>\n`;
               } 
               else if (it.type === 'combo') {
                 const w = it.width ? ` ${it.width}` : " wSize-lg";
@@ -609,16 +621,18 @@
                 const optList = it.list ? it.list.split("\n").filter(Boolean) : ["Option01", "Option02"];
                 const ariaLabel = headerText ? ` aria-label="${this.escape(headerText)} 선택"` : ` aria-label="선택 옵션"`;
                 
+                const idAttr = (linkId && isFirstFocusable) ? ` id="${linkId}"` : "";
+                isFirstFocusable = false;
+                
                 grpContent += `          <div class="box-select${w}">\n`;
-                grpContent += `            <button type="button" class="select${sz}${err}" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="${uuid}"${ariaLabel}${dis}>\n`;
+                grpContent += `            <button type="button"${idAttr} class="select${sz}${err}" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="${uuid}"${ariaLabel}${dis}>\n`;
                 grpContent += `              <span class="text">Placeholder Text</span>\n`;
                 grpContent += `              <span class="blind">펼침</span>\n`;
                 grpContent += `            </button>\n`;
                 grpContent += `            <div id="${uuid}" class="box-list-select">\n`;
                 grpContent += `              <ul class="list-select" role="listbox" aria-label="${this.escape(headerText || '옵션 목록')}">\n`;
                 optList.forEach((opt, optIdx) => {
-                  const selectedAttr = optIdx === 0 ? ' aria-selected="true"' : ' aria-selected="false"';
-                  grpContent += `                <li class="item-select" role="option"${selectedAttr}><button class="btn-item-select">${this.escape(opt)}</button></li>\n`;
+                  grpContent += `                <li class="item-select" role="option" aria-selected="false"><span class="btn-item-select">${this.escape(opt)}</span></li>\n`;
                 });
                 grpContent += `              </ul>\n`;
                 grpContent += `            </div>\n`;
