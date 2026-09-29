@@ -13,4 +13,11 @@ module.exports = {
     "CIBCST010202005M": { title: "이메일상담 수정", status: "대기", worker: "김래경", note: "" },
 
     "CIBCST040101007M": { title: "수수료 /한도", status: "대기", worker: "김래경", note: "" },
+    
+    "CIBCST040102001M": { title: "텔레뱅킹", status: "대기", worker: "김래경", note: "" },
+
+    "CIBCST040300001T": { title: "파트너고객우대서비스(수협은행)", status: "대기", worker: "김래경", note: "" },
+
+    "CIBCST040402000M": { title: "대량이체서비스", status: "대기", worker: "김래경", note: "" },
+    "CIBCST040403000M": { title: "비밀번호 관리 유의사항", status: "대기", worker: "김래경", note: "" },
 };
