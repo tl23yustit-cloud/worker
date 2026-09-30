@@ -20,4 +20,6 @@ module.exports = {
 
     "CIBCST040402000M": { title: "대량이체서비스", status: "대기", worker: "김래경", note: "" },
     "CIBCST040403000M": { title: "비밀번호 관리 유의사항", status: "대기", worker: "김래경", note: "" },
+
+    "CIBCST040501001T": { title: "개인정보처리방침(요약)", status: "대기", worker: "김래경", note: "" },
 };
