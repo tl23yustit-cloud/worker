@@ -1,0 +1,445 @@
+/* 자주묻는 질문 */
+.cst-box {
+  padding: var(--spacing3Xl);
+  border-radius: var(--radiusXl);
+  background-color: rgba(75, 106, 149, 0.03);
+}
+
+.cst {
+  .box-search {
+    padding: var(--spacingXl) 288px;
+    margin-bottom: var(--spacingXl);
+    border: 1px solid var(--colorGrayCool200);
+    border-radius: var(--radiusLg);
+    background-color: var(--colorBgSecondary);
+  }
+
+  .box-tab {
+    .list-tab-button.type-outline.case-faq {
+      flex-wrap: wrap;
+
+      .btn-tab {
+        padding: var(--spacingXsSm) var(--spacingXsSm);
+      }
+
+      .item-tab-button {
+        flex: 0 0 calc(calc(100% - 24px) / 7);
+        max-width: calc(calc(100% - 24px) / 7);
+      }
+    }
+  }
+
+  .box-accordion.line {
+    & + .box-accordion.line {
+      margin-top: 10px;
+    }
+
+    .title-cate {
+      padding: 3px 6px;
+      border-radius: 4px;
+      min-width: fit-content;
+      line-height: 14px;
+      color: var(--colorFgPrimary);
+      font-size: 13px;
+      background-color: var(--colorBlue25);
+    }
+  }
+
+  /* 나의 메일 상담 내역 목록 */
+  .list-type-inquiry {
+    li {
+      display: grid;
+      grid-template-columns: 36px auto 49px;
+      column-gap: 32px;
+      padding: 32px;
+      border: 1px solid var(--colorGrayCool100);
+      border-radius: var(--radiusXl);
+
+      & + li {
+        margin-top: 12px;
+      }
+
+      .inquiry-q,
+      .inquiry-status {
+        position: relative;
+
+        span {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+
+      .inquiry-q span {
+        width: 36px;
+        border-radius: 12px;
+        line-height: 36px;
+        color: var(--colorAlphaWhite80);
+        background-color: var(--colorAlphaBlack90);
+        text-align: center;
+      }
+
+      .inquiry-status span {
+        width: 100%;
+
+        &.complete {
+          color: var(--colorFgPrimary);
+        }
+      }
+
+      .chip-input span {
+        color: var(--colorFgPrimary);
+      }
+
+      .inquiry-title {
+        display: block;
+      }
+    }
+  }
+
+  /* 나의 메일 상담 내역 */
+  .detail-type-inquiry {
+    li {
+      display: grid;
+      grid-template-columns: 36px auto 49px;
+      column-gap: var(--sizeBaseSmMd);
+      padding: var(--sizeBaseSmMd);
+
+      .inquiry-q,
+      .inquiry-a {
+        position: relative;
+
+        span {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          width: var(--sizeBaseMd);
+          border-radius: var(--radiusLg);
+          line-height: var(--sizeBaseMd);
+          color: var(--colorAlphaWhite80);
+          text-align: center;
+        }
+      }
+
+      .inquiry-q span {
+        background-color: var(--colorAlphaBlack90);
+      }
+
+      .inquiry-a span {
+        background-color: var(--colorFgPrimary);
+      }
+
+      .chip-input span {
+        color: var(--colorFgPrimary);
+      }
+
+      .inquiry-title {
+        display: block;
+      }
+    }
+  }
+
+  /* 인터넷뱅킹 가입 */
+  .cst-step-wrap {
+    border-radius: var(--radiusXl);
+    background-color: rgba(75, 106, 149, 0.03);
+
+    & > ul {
+      position: relative;
+
+      & > li {
+        padding: 40px 40px 40px 82px;
+        background-position: left 40px center;
+        background-repeat: no-repeat;
+        background-size: 80px;
+      }
+
+      &:before {
+        content: '';
+        position: absolute;
+        left: 58px;
+        top: 53px;
+        width: 1px;
+        height: calc(100% - 112px);
+        border-left: 1px dashed #D6DFED;
+      }
+    }
+
+    .csw-step {
+      display: block;
+      position: relative;
+      margin-bottom: 6px;
+      line-height: 20px;
+      color: var(--colorFgPrimary);
+      font-size: 14px;
+      font-weight: 600;
+
+      &:before {
+        content: '';
+        position: absolute;
+        left: -29px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 10px;
+        height: 10px;
+        border-radius: 100%;
+        background-color: #0F62FD;
+      }
+    }
+
+    .list.type-dotted {
+      margin-top: 12px;
+    }
+
+    .typeLg {
+      color: var(--colorGray900);
+    }
+  }
+
+  .box-area {
+    padding: var(--sizeBaseLg) var(--sizeBaseLg) var(--sizeBaseLg) 152px;
+    border: 1px solid var(--colorGrayCool100);
+    border-radius: var(--radiusXl);
+    width: 100%;
+    background-image: url(../images/cst/icon_pass.png);
+    background-position: left 40px center;
+    background-repeat: no-repeat;
+    background-size: 80px;
+  }
+
+  .secu-pass {
+    display: grid;
+    grid-template-columns: repeat(3, 338px);
+    column-gap: 20px;
+    text-align: center;
+
+    li {
+      padding: 124px var(--sizeBaseLg) var(--sizeBaseSmMd) var(--sizeBaseLg);
+      border-radius: var(--radiusXl);
+      background-position: top 32px center;
+      background-repeat: no-repeat;
+      background-size: 80px 80px;
+      background-color: #F4F8FD;
+
+      &.icn-secu-1 {
+        background-image: url(../images/cst/icon_secu_01.png);
+      }
+      &.icn-secu-2 {
+        background-image: url(../images/cst/icon_secu_02.png);
+      }
+      &.icn-secu-3 {
+        background-image: url(../images/cst/icon_secu_03.png);
+      }
+    }
+  }
+
+  /* 첫방문고객 */
+  .cst-box-wrap {
+    padding: var(--spacing3Xl);
+    border-radius: var(--radiusXl);
+    background-color: rgba(75, 106, 149, 0.03);
+  }
+
+  .certi-step {
+    display: grid;
+    grid-template-columns: repeat(5, 201px);
+    column-gap: 12px;
+
+    li {
+      padding: 96px var(--spacingXl) var(--spacingXl) var(--spacingXl);
+      border: 1px solid var(--colorGrayCool100);
+      border-radius: var(--radiusXl);
+      background-image: url(../images/cst/ico_certi.png);
+      background-position: left 24px top 24px;
+      background-repeat: no-repeat;
+
+      .typeXsBold {
+        color: var(--colorFgPrimary);
+      }
+    }
+  }
+
+  /* 텔레뱅킹 */
+  .telb-box {
+    display: grid;
+    column-gap: 80px;
+    padding: var(--sizeBaseSmMd);
+    border-radius: var(--radiusXl);
+    background-color: var(--colorAlphaWhite80);
+
+    &.grid-2 {
+      grid-template-columns: repeat(2, auto);
+    }
+
+    &.grid-3 {
+      grid-template-columns: repeat(3, calc(36% - 80px));
+      border: 1px solid var(--colorGrayCool100);
+    }
+
+    & > div {
+      position: relative;
+
+      & + div:before {
+        content: '';
+        position: absolute;
+        left: -40px;
+        top: 0;
+        width: 1px;
+        height: 100%;
+        background-color: var(--colorGrayCool50);
+      }
+
+      & > p {
+        padding-left: 36px;
+        background-position: left center;
+        background-repeat: no-repeat;
+        background-size: 28px;
+      }
+
+      &.telb-left > p {
+        background-image: url('../images/cst/icon_call_01.png');
+      }
+
+      &.telb-right > p {
+        background-image: url('../images/cst/icon_call_02.png');
+      }
+
+      &.telb-call {
+        display: flex;
+        justify-content: space-between;
+
+        & > p {
+          padding-left: 22px;
+          line-height: 40px;
+          background-image: url('../images/cst/icon_call_03.png');
+          background-size: 16px;
+        }
+
+        &:last-child > span {
+          line-height: 40px;
+        }
+      }
+    }
+  }
+
+  /* 파트너 고객제도 */
+  &.partner {
+    [class^=list].type-dotted ul li {
+      color: var(--colorAlphaBlack90);
+    }
+  }
+
+  .partner-type {
+    display: grid;
+    grid-template-columns: repeat(3, 338.67px);
+    column-gap: var(--spacingLgXl);
+
+    li {
+      padding: 104px var(--spacing3Xl) var(--spacing4Xl) var(--spacing3Xl);
+      border-radius: var(--radiusXl);
+      background-position: top 47px center;
+      background-repeat: no-repeat;
+      background-size: var(--sizeIconXl);
+      text-align: center;
+
+      &.type-01 {
+        background-image: url('../images/cst/icon_partner_01.png');
+        background-color: var(--colorCyan50);
+      }
+      &.type-02 {
+        background-image: url('../images/cst/icon_partner_02.png');
+        background-color: #F5F3FF;
+      }
+      &.type-03 {
+        background-image: url('../images/cst/icon_partner_03.png');
+        background-color: var(--colorIndigo50);
+      }
+    }
+  }
+
+  .content-wrap {
+    padding: var(--spacingXl);
+    border: 1px solid var(--colorGrayCool100);
+    border-radius: var(--radiusXl);
+  }
+
+  /* 비밀번호 관리 유의 사항 */
+  .step-box li {
+    position: relative;
+    padding: var(--spacing2Xl) var(--spacing2Xl) var(--spacing2Xl) 76px;
+    border-radius: var(--radiusXl);
+    background-color: rgba(75, 106, 149, 0.03);
+
+    & + li {
+      margin-top: var(--radiusXl);
+    }
+
+    .step-count {
+      position: absolute;
+      left: var(--spacing2Xl);
+      top: 50%;
+      transform: translateY(-50%);
+      width: 28px;
+      border-radius: 100%;
+      line-height: 28px;
+      color: var(--colorWhite);
+      background-color: var(--colorBlack);
+      text-align: center;
+    }
+  }
+
+  /* 개인정보처리방침 */
+  .typeH4 {
+    .step-count {
+      display: inline-block;
+      width: 28px;
+      border-radius: 100%;
+      line-height: 28px;
+      color: var(--colorWhite);
+      background-color: var(--colorBlack);
+      text-align: center;
+    }
+
+    em {
+      color: var(--colorFgPrimary);
+    }
+  }
+
+  .box-wrap {
+    display: grid;
+    column-gap: 16px;
+
+    &.grid-2 {
+      grid-template-columns: repeat(2, 520px);
+    }
+
+    &.grid-3 {
+      grid-template-columns: repeat(3, 341.33px);
+    }
+
+    .box-content {
+      padding: 104px var(--spacing2Xl) var(--spacing2Xl) var(--spacing2Xl);
+      border-radius: var(--radiusXl);
+      background-color: rgba(75, 106, 149, 0.03);
+      background-position: left var(--spacing2Xl) top var(--spacing2Xl);
+      background-repeat: no-repeat;
+      background-size: var(--sizeBaseLg);
+
+      em {
+        color: var(--colorFgPrimary);
+      }
+
+      &.type-1 {
+        background-image: url('../images/cst/icon_personal_01.png');
+      }
+      &.type-2 {
+        background-image: url('../images/cst/icon_personal_02.png');
+      }
+      &.type-3 {
+        background-image: url('../images/cst/icon_personal_03.png');
+      }
+    }
+  }
+}
