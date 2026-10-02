@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/cst.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <div id="header">
+        @@include('static/html/pub/layout/skipNavigation.html')
+        @@include('static/html/pub/layout/header_sub.html')
+      </div>
+      <div id="container" class="container">
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="cst">
+              <h2 class="typeH2">비밀번호입력</h2>
+<button type="button" class="btn type-bg-primary size-md btn-modal" data-target="modal-cst"><span class="text">비밀번호입력</span></button>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+
+    <div id="modal-cst" class="modal is-active" data-dim="true" data-backdrop-close="false" data-size="md" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="modal-wrapper">
+        <div class="modal-title"><h4 class="typeH4" id="modal-title">비밀번호입력</h4></div>
+        <div class="modal-slot">
+          <table class="table-type01">
+            <caption>비밀번호 입력</caption>
+            <colgroup><col style="width:160px"/><col/></colgroup>
+            <tbody>
+              <tr><th scope="row"><span class="required">비밀번호</span></th>
+                <td><input type="password" class="input size-lg" title="비밀번호" placeholder="비밀번호 입력" /></td></tr>
+            </tbody>
+          </table>
+          <div class="btn-wrap center"><button type="button" class="btn type-bg-primary size-lg"><span class="text">확인</span></button></div>
+</div>
+      </div>
+    </div>
+
+  </body>
+</html>

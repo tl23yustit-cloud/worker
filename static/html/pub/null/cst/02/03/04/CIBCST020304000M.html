@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/cst.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <div id="header">
+        @@include('static/html/pub/layout/skipNavigation.html')
+        @@include('static/html/pub/layout/header_sub.html')
+      </div>
+      <div id="container" class="container">
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="cst">
+              <h2 class="typeH2">신고 글쓰기</h2>
+
+              
+              <div class="tbl-area">
+                <table class="table-type01 fixed">
+                  <caption>신고 글쓰기 입력</caption>
+                  <colgroup><col style="width:160px"/><col style="width:auto"/></colgroup>
+                  <tbody>
+                    <tr><th scope="row"><span class="required">신고유형</span></th><td><div class="form-box-wrap" role="radiogroup"><span class="form-box"><input type="radio" name="rptType" id="rptType_1" class="form-radio size-md" checked /><label for="rptType_1" class="form-label">홈페이지 도용</label></span><span class="form-box"><input type="radio" name="rptType" id="rptType_2" class="form-radio size-md" /><label for="rptType_2" class="form-label">앱 도용</label></span><span class="form-box"><input type="radio" name="rptType" id="rptType_3" class="form-radio size-md" /><label for="rptType_3" class="form-label">기타</label></span></div></td></tr><tr><th scope="row"><span class="required">발생일</span></th><td><div class="calendar-wrap"><div class="input-box"><input type="text" class="input" title="발생일" placeholder="YYYY-MM-DD" /><button type="button" class="btn"><i class="ico-calendar ico-size-smMd" aria-hidden="true"></i><span class="blind">달력 열기</span></button></div></div></td></tr><tr><th scope="row"><span class="required">내용</span></th><td><textarea class="textarea size-lg" title="신고내용" rows="6"></textarea></td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="btn-wrap center lg-bot"><a href="/static/html/pub/null/cst/00/00/00/CIBCST000000000M.html" class="btn type-line-secondary size-xxl"><span class="text">취소</span></a><a href="/static/html/pub/null/cst/02/03/04/CIBCST020304000M.html" class="btn type-bg-primary size-xxl"><span class="text">다음</span></a></div>
+
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+
+  </body>
+</html>

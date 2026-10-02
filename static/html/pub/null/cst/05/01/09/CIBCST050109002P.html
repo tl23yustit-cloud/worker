@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/cst.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <div id="header">
+        @@include('static/html/pub/layout/skipNavigation.html')
+        @@include('static/html/pub/layout/header_sub.html')
+      </div>
+      <div id="container" class="container">
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="cst">
+              <h2 class="typeH2">약관변경이력</h2>
+<button type="button" class="btn type-bg-primary size-md btn-modal" data-target="modal-cst"><span class="text">약관변경이력</span></button>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+
+    <div id="modal-cst" class="modal is-active" data-dim="true" data-backdrop-close="false" data-size="md" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="modal-wrapper">
+        <div class="modal-title"><h4 class="typeH4" id="modal-title">약관변경이력</h4></div>
+        <div class="modal-slot">
+          <table class="table-type03">
+            <caption>변경이력</caption>
+            <colgroup><col style="width:80px"/><col/><col style="width:120px"/></colgroup>
+            <thead><tr><th>번호</th><th>자료명</th><th>변경일</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td class="text-left">예금거래기본약관</td><td>2026-08-01</td></tr>
+              <tr><td>2</td><td class="text-left">상품설명서</td><td>2026-06-12</td></tr>
+            </tbody>
+          </table>
+</div>
+      </div>
+    </div>
+
+  </body>
+</html>
