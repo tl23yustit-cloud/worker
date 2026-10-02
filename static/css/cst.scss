@@ -6,6 +6,13 @@
 }
 
 .cst {
+  .table-type03 {
+    td.tbl-border-left,
+    th.tbl-border-left {
+      border-left: 1px solid var(--colorBorderTableBase);
+    }
+  }
+
   .box-search {
     padding: var(--spacingXl) 288px;
     margin-bottom: var(--spacingXl);
@@ -102,9 +109,15 @@
   .detail-type-inquiry {
     li {
       display: grid;
-      grid-template-columns: 36px auto 49px;
-      column-gap: var(--sizeBaseSmMd);
-      padding: var(--sizeBaseSmMd);
+      grid-template-columns: 36px minmax(0, 1fr);
+      column-gap: 32px;
+      padding: 32px;
+      border: 1px solid var(--colorGrayCool100);
+      border-radius: var(--radiusXl);
+
+      & + li {
+        margin-top: 12px;
+      }
 
       .inquiry-q,
       .inquiry-a {
@@ -137,6 +150,12 @@
 
       .inquiry-title {
         display: block;
+      }
+
+      .inquiry-date {
+        display: block;
+        margin-top: 24px;
+        color: var(--colorFgSecondary);
       }
     }
   }
