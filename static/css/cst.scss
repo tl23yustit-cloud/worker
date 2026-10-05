@@ -6,6 +6,13 @@
 }
 
 .cst {
+  .table-type03 {
+    td.tbl-border-left,
+    th.tbl-border-left {
+      border-left: 1px solid var(--colorBorderTableBase);
+    }
+  }
+
   .box-search {
     padding: var(--spacingXl) 288px;
     margin-bottom: var(--spacingXl);
@@ -102,9 +109,15 @@
   .detail-type-inquiry {
     li {
       display: grid;
-      grid-template-columns: 36px auto 49px;
-      column-gap: var(--sizeBaseSmMd);
-      padding: var(--sizeBaseSmMd);
+      grid-template-columns: 36px minmax(0, 1fr);
+      column-gap: 32px;
+      padding: 32px;
+      border: 1px solid var(--colorGrayCool100);
+      border-radius: var(--radiusXl);
+
+      & + li {
+        margin-top: 12px;
+      }
 
       .inquiry-q,
       .inquiry-a {
@@ -137,6 +150,12 @@
 
       .inquiry-title {
         display: block;
+      }
+
+      .inquiry-date {
+        display: block;
+        margin-top: 24px;
+        color: var(--colorFgSecondary);
       }
     }
   }
@@ -586,20 +605,7 @@ body:has(.cst) {
     flex: 0 0 var(--sizeBaseSmMd);
     width: var(--sizeBaseSmMd);
     height: var(--sizeBaseSmMd);
-    border-radius: var(--radiusMd);
-    background: var(--colorBlue100);
-
-    &.is-check {
-      background: var(--colorYellow100);
-    }
-
-    &.is-otp {
-      background: var(--colorTeal100);
-    }
-
-    &.is-book {
-      background: var(--colorBlue50);
-    }
+    background: transparent;
   }
 
   .cst-secure-banner {
@@ -635,6 +641,123 @@ body:has(.cst) {
 
   .cst-secure-art {
     flex: 0 0 120px;
+  }
+
+  .cst-useful,
+  .cst-help {
+    margin-top: var(--spacing3Xl);
+    text-align: center;
+
+    .typeH3 {
+      margin: 0;
+    }
+  }
+
+  .cst-useful-lead,
+  .cst-help-lead {
+    margin: var(--spacingSm) 0 var(--spacingXl);
+    color: var(--colorFgSecondary);
+  }
+
+  .cst-useful-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacingLg);
+  }
+
+  .cst-useful-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacingMd);
+    min-height: 148px;
+    padding: var(--spacing2Xl) var(--spacingLg);
+    border: var(--borderWidthUnit1) solid var(--colorBorderSecondary);
+    border-radius: var(--radiusXl);
+    background: var(--colorBgBase);
+
+    .typeMd {
+      font-weight: var(--fontWeightSemibold);
+    }
+  }
+
+  .cst-doc-ico {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--sizeBase3Xl);
+    height: var(--sizeBase3Xl);
+  }
+
+  .cst-help-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacingLg);
+    text-align: left;
+  }
+
+  .cst-help-card {
+    padding: var(--spacingXl);
+    border: var(--borderWidthUnit1) solid var(--colorBorderSecondary);
+    border-radius: var(--radiusXl);
+    background: var(--colorBgBase);
+
+    .typeH5 {
+      display: flex;
+      align-items: center;
+      gap: var(--spacingSm);
+      margin: 0 0 var(--spacingMd);
+    }
+
+    .typeMd,
+    .typeSm {
+      color: var(--colorFgSecondary);
+    }
+
+    .typeMd {
+      margin-bottom: var(--spacingLg);
+    }
+
+    .btn {
+      margin-top: var(--spacingSm);
+    }
+  }
+
+  .cst-help-ico {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 var(--sizeBaseSmMd);
+    width: var(--sizeBaseSmMd);
+    height: var(--sizeBaseSmMd);
+    border-radius: var(--radiusFull);
+
+    &.is-tel {
+      background: var(--colorGreen50, #e8f7ef);
+    }
+
+    &.is-chat {
+      border-radius: var(--radiusMd);
+      background: var(--colorBlue50);
+    }
+  }
+
+  .cst-help-tel {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: var(--spacingXs);
+    margin-bottom: var(--spacingXs);
+    color: var(--colorFgBase);
+    font-size: var(--headingFontSizeH4);
+    font-weight: var(--fontWeightBold);
+    letter-spacing: -0.03em;
+
+    span {
+      color: var(--colorFgSecondary);
+      font-size: var(--contentFontSizeMd);
+      font-weight: var(--fontWeightRegular);
+    }
   }
 
   .cst-tel {
