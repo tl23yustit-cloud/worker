@@ -89,6 +89,14 @@
       .btn-reset:hover {
         background: #fee2e2;
       }
+      .btn-update {
+        background: #eff6ff;
+        color: #2563eb;
+        border: 1px solid #bfdbfe;
+      }
+      .btn-update:hover {
+        background: #dbeafe;
+      }
 
       .status-wrap {
         display: flex;
@@ -345,7 +353,6 @@
         cursor: not-allowed;
       }
 
-      /* 컨테이너를 Grid로 변경하여 0fr <-> 1fr 트랜지션 활용 */
       .pub-body {
         display: grid;
         grid-template-rows: 1fr;
@@ -359,7 +366,6 @@
         opacity: 0;
       }
 
-      /* Grid 행 높이가 0이 될 때 내부 테이블이 삐져나오지 않도록 hidden 처리 */
       .pub-body .table-container {
         overflow: hidden;
       }
@@ -429,7 +435,6 @@
         }
       }
 
-      /* 미리보기 팝업 및 성능 최적화 스타일 */
       #preview-popup {
         display: none;
         position: fixed;
@@ -468,7 +473,11 @@
         />
       </div>
       <div class="toolbar-right">
-        <div id="dev-toolbar-btns">
+        <div id="dev-toolbar-btns" style="display: flex; gap: 8px;">
+          <!-- 💡 브라우저 화면에서 누를 수 있는 수동 리스트 갱신 버튼 -->
+          <button class="action-btn btn-update" onclick="app.updateListFile()">
+            목록 갱신
+          </button>
           <button class="action-btn btn-reset" onclick="app.resetAll()">
             초기화
           </button>
@@ -681,12 +690,15 @@
             const depthB = b.displayDepths.join("/");
 
             if (depthA !== depthB) {
-              return depthA.localeCompare(depthB, "ko-KR");
+              return depthA.localeCompare(depthB, "ko-KR", { numeric: true });
             }
 
-            const titleA = a.title || "";
-            const titleB = b.title || "";
-            return titleA.localeCompare(titleB, "ko-KR");
+            const getNum = (id) => {
+              const onlyNumbers = (id || "").replace(/[^0-9]/g, "");
+              return parseInt(onlyNumbers, 10) || 0;
+            };
+
+            return getNum(a.fileId) - getNum(b.fileId);
           });
 
           utils.renderSummary(visibleData);
@@ -934,6 +946,25 @@
               bindEvents();
             } catch (err) {
               console.error("데이터 로드 실패:", err);
+            }
+          },
+          // 💡 브라우저 화면에서 버튼 클릭 시 백엔드 갱신 API를 호출하여 목록을 동적으로 새로고침합니다.
+          updateListFile: async () => {
+            try {
+              utils.toast("목록을 갱신하는 중입니다...");
+              const res = await fetch("http://localhost:3001/api/update-list");
+              const data = await res.json();
+              if (data.success) {
+                const listRes = await fetch(
+                  "/static/html/pub/list.json?t=" + new Date().getTime(),
+                );
+                rawData = await listRes.json();
+                renderData();
+                utils.toast("퍼블리싱 목록이 성공적으로 갱신되었습니다!");
+              }
+            } catch (err) {
+              console.error("갱신 실패:", err);
+              utils.toast("갱신 실패: 터미널에서 npx gulp updateList를 실행해주세요.");
             }
           },
           toggleSection: (element, key) => {

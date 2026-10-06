@@ -15,7 +15,7 @@ const fg = require("fast-glob");
 // false : 빌드/배포 전용 (git/svn 로그 수집 켜기)
 // ==========================================
 const IS_SVN_MODE = false; 
-const IS_FAST_DEV_MODE = true; // 💡 개발 시에는 git log 조회를 꺼서 속도를 극대화합니다.
+const IS_FAST_DEV_MODE = true; 
 
 function clean(cb) {
     if (fs.existsSync('dist')) {
@@ -82,7 +82,6 @@ function getFileModifiedTime(filePath, stat) {
 
     let modifiedTime = null;
 
-    // 💡 개발 모드이고 빠른 속도가 필요할 때는 무거운 git/svn 명령어를 생략합니다.
     if (!IS_FAST_DEV_MODE) {
         try {
             const relativePath = path.relative(process.cwd(), filePath).replace(/\\/g, '/');
@@ -105,7 +104,6 @@ function getFileModifiedTime(filePath, stat) {
         }
     }
 
-    // 명령어를 안 쓰거나 실패한 경우 파일 시스템 mtime 즉시 사용 (0.1ms 컷)
     if (!modifiedTime) {
         modifiedTime = stat.mtime.toLocaleString("ko-KR");
     }
@@ -176,7 +174,7 @@ function generatePubList(done) {
     if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir, { recursive: true });
     
     fs.writeFileSync(path.join(outputDir, "list.json"), JSON.stringify(list, null, 2));
-    done();
+    if (done) done();
 }
 
 function html() {
@@ -212,19 +210,39 @@ function watchFiles() {
     const browserSync = require('browser-sync').create();
     browserSync.init({ server: { baseDir: './dist', index: 'static/html/pub/index.html' }, port: 3000 });
 
-    // 루트 index.html 감시 추가
     gulp.watch('index.html', gulp.series(html, (done) => { browserSync.reload(); done(); }));
     
-    gulp.watch(['static/html/**/*.html', '!static/html/**/*.md'], gulp.series(generatePubList, html, (done) => { browserSync.reload(); done(); }));
-    gulp.watch('static/html/**/*.md', gulp.series(clearCaches, generatePubList, (done) => { browserSync.reload(); done(); }));
-    gulp.watch('static/cl/status/**/*.js', gulp.series(generatePubList, (done) => { browserSync.reload(); done(); }));
+    // 💡 저장 시 목록(generatePubList) 재생성을 제외하여 속도를 극대화합니다.
+    gulp.watch(['static/html/**/*.html', '!static/html/**/*.md'], gulp.series(html, (done) => { browserSync.reload(); done(); }));
+    gulp.watch('static/html/**/*.md', gulp.series(clearCaches, html, (done) => { browserSync.reload(); done(); }));
+    gulp.watch('static/cl/status/**/*.js', (done) => { browserSync.reload(); done(); });
 
     gulp.watch(['static/css/**/*.scss', 'static/cl/**/*.scss'], gulp.series(styles, (done) => { browserSync.reload(); done(); }));
     gulp.watch(['static/js/**/*', 'static/images/**/*', 'static/css/**/font/**/*', 'static/cl/**/*', '!static/cl/**/*.scss'], gulp.series(copyAssets, (done) => { browserSync.reload(); done(); }));
 }
 
+// 💡 수동 갱신 태스크
+const updateList = gulp.series(clearCaches, generatePubList);
+
+// 개발 서버 시작할 때만 리스트를 1회 생성합니다.
 const dev = gulp.series(clean, clearCaches, generatePubList, gulp.parallel(html, styles, copyAssets), watchFiles);
 const build = gulp.series(clean, clearCaches, generatePubList, html, stylesBuild, copyAssets);
 
 exports.default = dev;
 exports.build = build;
+exports.updateList = updateList;
+
+// 💡 브라우저(UI 버튼)에서 백엔드 없이도 직접 리스트를 갱신할 수 있도록 API 엔드포인트 연동
+const http = require('http');
+http.createServer((req, res) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    if (req.url === '/api/update-list') {
+        generatePubList(() => {
+            res.writeHead(200, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify({ success: true, message: '리스트가 갱신되었습니다.' }));
+        });
+    } else {
+        res.writeHead(404);
+        res.end();
+    }
+}).listen(3001); // 3001번 포트로 갱신 요청 수신 서버 오픈
