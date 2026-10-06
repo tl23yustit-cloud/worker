@@ -22,32 +22,58 @@
           <div class="content">
             @@include('static/html/pub/layout/breadcrumb.html')
             <div class="cst">
-              <h2 class="typeH2">암호불일치 오류</h2>
 
-              <div class="tbl-area">
-                <table class="table-type03">
-                  <caption>암호불일치 오류 목록</caption>
-                  <colgroup><col style="width:80px"/><col/><col style="width:160px"/><col style="width:120px"/></colgroup>
-                  <thead><tr><th>번호</th><th>제목</th><th>등록일</th><th>상태</th></tr></thead>
-                  <tbody>
-                    <tr><td>1</td><td class="text-left">친절하게 안내해 주셨습니다</td><td>2026-09-20</td><td>접수</td></tr>
-                  </tbody>
-                </table>
+              <h2 class="typeH2">은행명칭도용 신고센터</h2>
+              <div class="line-box size-xl">
+                <span class="typeLgSemibold">은행 명칭도용 사기 주의하세요!</span>
+                <p class="typeMd mt-8">건전한 금융거래 및 금융소비자 보호를 위해 은행 명칭을 불법으로 도용하였거나 오인 가능한 광고를 접하시면 가까운 수협은행 영업점 또는 신고센터로 신고하여 주시기 바랍니다.</p>
               </div>
-              
-<nav class="pagination size-md" aria-label="페이지네이션">
-  <button type="button" class="btn-nav first" disabled aria-disabled="true" aria-label="첫 페이지"><span class="blind">첫 페이지</span></button>
-  <button type="button" class="btn-nav prev" disabled aria-disabled="true" aria-label="이전 페이지"><span class="blind">이전 페이지</span></button>
-  <ol class="list-pagination">
-    <li><button type="button" class="btn-page active" aria-current="page" aria-label="1페이지">1</button></li>
-    <li><button type="button" class="btn-page" aria-label="2페이지">2</button></li>
-    <li><button type="button" class="btn-page" aria-label="3페이지">3</button></li>
-  </ol>
-  <button type="button" class="btn-nav next" aria-label="다음 페이지"><span class="blind">다음 페이지</span></button>
-  <button type="button" class="btn-nav last" aria-label="마지막 페이지"><span class="blind">마지막 페이지</span></button>
-</nav>
+              <h4 class="typeH4 mt-24">명의도용 예시</h4>
+              <div class="list type-dotted">
+                <ul>
+                  <li class="typeMd">금융기관 명의를 도용한 불법적인 무단광고</li>
+                  <li class="typeMd">대부업자 등 타금융기관과 연계하여 후순위대출을 광고 또는 중개하는 행위</li>
+                  <li class="typeMd">금융기관의 승인을 받지 않은 무단 광고전단지 배포</li>
+                  <li class="typeMd">금융기관 지점 또는 직원으로 오인소지가 있는 명칭 사용</li>
+                  <li class="typeMd">고객으로부터 부당한 별도의 수수료를 징수</li>
+                </ul>
+              </div>
+              <h4 class="typeH4 mt-24">신고 및 확인방법</h4>
+              <div class="list type-dotted">
+                <ul>
+                  <li class="typeMd">정식으로 등록된 대출모집인인지 확인하는 방법
+                    <ul>
+                      <li class="typeMd">대출모집인 통합조회시스템 : <a href="https://www.loanconsultant.or.kr" target="_blank" rel="noopener noreferrer">www.loanconsultant.or.kr</a></li>
+                    </ul>
+                  </li>
+                  <li class="typeMd">수협은행 신고센터
+                    <ul>
+                      <li class="typeMd">홈페이지 : 수협은행 홈페이지 내 은행명칭도용 신고센터 (<a href="/static/html/pub/cst/02/03/CIBCST020301000M.html">바로가기</a>)</li>
+                      <li class="typeMd">전화 : 02-2240-2998 (공휴일 및 야간 1588-1515)</li>
+                      <li class="typeMd">팩스 : 02-2240-3003</li>
+                      <li class="typeMd">메일 : <a href="mailto:suhyup-bank@suhyup.co.kr">suhyup-bank@suhyup.co.kr</a></li>
+                    </ul>
+                  </li>
+                  <li class="typeMd">금융감독원 신고센터 : 콜센터 1332
+                    <ul>
+                      <li class="typeMd">홈페이지 : <a href="http://s119.fss.or.kr" target="_blank" rel="noopener noreferrer">http://s119.fss.or.kr</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
 
-              <div class="btn-wrap center lg-bot"><a href="/static/html/pub/null/cst/02/01/03/CIBCST020103002M.html" class="btn type-bg-primary size-lg"><span class="text">작성</span></a></div>
+              <div class="cst-error" id="cstErrorMessage">
+                <p class="typeLgSemibold">고객님 죄송합니다.</p>
+                <p class="typeMd mt-8">비밀번호가 불일치합니다.</p>
+                <p class="code typeMd">응답코드 : INVALID_PASSWD</p>
+                <p class="typeMd mt-16">더 궁금하신 사항이 있으시면 아래 고객지원센터로 연락바랍니다.</p>
+                <p class="typeMd">TEL : 1588-1515, 1644-1515(서비스코드 03번)</p>
+                <div class="btn-wrap center mt-16">
+                  <button type="button" class="btn type-bg-primary-tint size-lg" onclick="document.getElementById('cstErrorMessage').remove()">
+                    <span class="text">닫기</span>
+                  </button>
+                </div>
+              </div>
 
             </div>
           </div>
@@ -57,6 +83,5 @@
       <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
     </div>
     <script src="/static/js/ui/cib_ui_common.js"></script>
-
   </body>
 </html>

@@ -1,51 +1,135 @@
 <!doctype html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>수협은행</title>
-    <link rel="stylesheet" href="/static/css/reset.css" />
-    <link rel="stylesheet" href="/static/css/layout.css" />
-    <link rel="stylesheet" href="/static/css/component.css" />
-    <link rel="stylesheet" href="/static/css/common.css" />
-    <link rel="stylesheet" href="/static/css/cst.css" />
-  </head>
-  <body>
-    <div class="wrapper">
-      <div id="header">
-        @@include('static/html/pub/layout/skipNavigation.html')
-        @@include('static/html/pub/layout/header_sub.html')
-      </div>
-      <div id="container" class="container">
-        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
-        <div id="contents">
-          <div class="content">
-            @@include('static/html/pub/layout/breadcrumb.html')
-            <div class="cst">
-<h2 class="typeH2">수수료 한도</h2>
-<div class="cst-panel">
-  <p class="typeLg">인터넷뱅킹 이용 수수료는 무료입니다.</p>
-  <div class="list type-dotted"><ul><li class="typeMd">단, 타행이체시 건당 500원의 수수료만 받습니다</li></ul></div>
-</div>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>수협은행</title>
+		<link rel="stylesheet" href="/static/css/reset.css" />
+		<link rel="stylesheet" href="/static/css/layout.css" />
+		<link rel="stylesheet" href="/static/css/component.css" />
+		<link rel="stylesheet" href="/static/css/common.css" />
+		<link rel="stylesheet" href="/static/css/cst.css" />
+	</head>
 
-<table class="table-type01">
-  <caption>디자인 가이드 샘플 표. 피그마에 디자인 가이드 적용 표시가 있는 자리입니다.</caption>
-  <colgroup><col/><col/><col/><col style="width:140px"/></colgroup>
-  <thead><tr><th scope="col">서비스 내용</th><th scope="col">항목</th><th scope="col">계좌번호</th><th scope="col">등록결과</th></tr></thead>
-  <tbody>
-    <tr><td>국민은행</td><td>입출금</td><td>85250428385735</td><td>성공</td></tr>
-    <tr><td>국민은행</td><td>입출금</td><td>85250428385735</td><td>성공</td></tr>
-    <tr><td>국민은행</td><td>입출금</td><td>85250428385735</td><td>오류 <button type="button" class="btn type-line-neutral size-sm"><span class="text">상세보기</span></button></td></tr>
-  </tbody>
-</table>
-            </div>
-          </div>
-        </div>
-        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
-      </div>
-      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
-    </div>
-    <script src="/static/js/ui/cib_ui_common.js"></script>
+	<body>
+		<div class="wrapper">
+			<div id="header">
+				@@include('static/html/pub/layout/skipNavigation.html')
+				@@include('static/html/pub/layout/header_sub.html')
+			</div>
 
-  </body>
+			<div id="container" class="container">
+				<div id="leftArea">
+					@@include('static/html/pub/layout/leftArea.html')
+				</div>
+				<div id="contents">
+					<div class="content">
+						@@include('static/html/pub/layout/breadcrumb.html')
+						<div class="cst">
+								<h2 class="typeH2">수수료 한도</h2>
+
+								<div class="cst-box">
+										<p class="type2XlSemibold mb-12">인터넷뱅킹 이용 수수료는 무료입니다.</p>
+										<div class="list type-dotted">
+												<ul>
+														<li class="typeLg">단, 타행이체시 건당 500원의 수수료만 받습니다</li>
+												</ul>
+										</div>
+								</div>
+
+								<div class="tbl-area">
+										<table class="table-type03">
+												<caption></caption>
+												<colgroup>
+														<col style="width:20%">
+														<col style="width:20%">
+														<col style="width:20%">
+														<col style="width:20%">
+														<col style="width:20%">
+												</colgroup>
+												<thead>
+														<tr>
+														<th colspan="3" scope="col">구분</th>
+														<th scope="col">1회 이체 한도</th>
+														<th scope="col">1일 이체 한도</th>
+														</tr>
+												</thead>
+												<tbody>
+														<tr>
+																<td rowspan="4">
+																		<span class="typeMd">한도 지정</span>
+																</td>
+																<td rowspan="2">
+																		<span class="typeMd">개인</span>
+																</td>
+																<td>
+																		<span class="typeMd">보안카드</span>
+																</td>
+																<td>
+																		<span class="typeMd">5백만원</span>
+																</td>
+																<td>
+																		<span class="typeMd">1천만원</span>
+																</td>
+														</tr>
+														<tr>
+																<td>
+																		<span class="typeMd">OTP</span>
+																</td>
+																<td>
+																		<span class="typeMd">1억원</span>
+																</td>
+																<td>
+																		<span class="typeMd">5억원</span>
+																</td>
+														</tr>
+														<tr>
+																<td rowspan="2">
+																		<span class="typeMd">법인</span>
+																</td>
+																<td>
+																		<span class="typeMd">보안카드</span>
+																</td>
+																<td>
+																		<span class="typeMd">-</span>
+																</td>
+																<td>
+																		<span class="typeMd">-</span>
+																</td>
+														</tr>
+														<tr>
+																<td>
+																		<span class="typeMd">OTP</span>
+																</td>
+																<td>
+																		<span class="typeMd">10억원</span>
+																</td>
+																<td>
+																		<span class="typeMd">5억원</span>
+																</td>
+														</tr>
+														<tr>
+																<td colspan="3">
+																		<span class="typeMd">한도 미지정</span>
+																</td>
+																<td>
+																		<span class="typeMd">5백만원</span>
+																</td>
+																<td>
+																		<span class="typeMd">1천만원</span>
+																</td>
+														</tr>
+												</tbody>
+										</table>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+				<div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+			</div>
+			<div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+		</div>
+		<script src="/static/js/ui/cib_ui_common.js"></script>
+	</body>
 </html>

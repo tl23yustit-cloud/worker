@@ -22,19 +22,104 @@
           <div class="content">
             @@include('static/html/pub/layout/breadcrumb.html')
             <div class="cst">
-              <h2 class="typeH2">신고 글쓰기</h2>
 
+              <h2 class="typeH2">은행명칭도용 신고 접수하기</h2>
               
               <div class="tbl-area">
+                <h4 class="typeH4">신고자 인적사항</h4>
                 <table class="table-type01 fixed">
-                  <caption>신고 글쓰기 입력</caption>
-                  <colgroup><col style="width:160px"/><col style="width:auto"/></colgroup>
+                  <caption>은행명칭도용 신고 인적사항. 성명, 이메일, 거래영업점, 전화번호, 주소, 비밀번호, 제목은 필수입니다.</caption>
+                  <colgroup>
+                    <col style="width:140px" />
+                    <col style="width:auto" />
+                    <col style="width:140px" />
+                    <col style="width:auto" />
+                  </colgroup>
                   <tbody>
-                    <tr><th scope="row"><span class="required">신고유형</span></th><td><div class="form-box-wrap" role="radiogroup"><span class="form-box"><input type="radio" name="rptType" id="rptType_1" class="form-radio size-md" checked /><label for="rptType_1" class="form-label">홈페이지 도용</label></span><span class="form-box"><input type="radio" name="rptType" id="rptType_2" class="form-radio size-md" /><label for="rptType_2" class="form-label">앱 도용</label></span><span class="form-box"><input type="radio" name="rptType" id="rptType_3" class="form-radio size-md" /><label for="rptType_3" class="form-label">기타</label></span></div></td></tr><tr><th scope="row"><span class="required">발생일</span></th><td><div class="calendar-wrap"><div class="input-box"><input type="text" class="input" title="발생일" placeholder="YYYY-MM-DD" /><button type="button" class="btn"><i class="ico-calendar ico-size-smMd" aria-hidden="true"></i><span class="blind">달력 열기</span></button></div></div></td></tr><tr><th scope="row"><span class="required">내용</span></th><td><textarea class="textarea size-lg" title="신고내용" rows="6"></textarea></td></tr>
+                    <tr>
+                      <th scope="row"><span class="required">성명</span></th>
+                      <td>
+                        <input type="text" class="input size-lg" title="성명" value="테스터"  />
+                      </td>
+                      <th scope="row"><span class="required">이메일</span></th>
+                      <td>
+                        <div class="tbl-flex">
+                          <input type="text" class="input size-lg wSize-sm" title="이메일 아이디" value="" />
+                          <span aria-hidden="true">@</span>
+                          <input type="text" class="input size-lg wSize-sm" title="이메일 도메인" value="" />
+                          <div class="box-select wSize-sm">
+                            <button type="button" class="select size-lg" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="mailDomain" title="이메일주소 선택">
+                              <span class="text">직접입력</span>
+                              <span class="blind">펼침</span>
+                            </button>
+                            <div id="mailDomain" class="box-list-select">
+                              <ul class="list-select" role="listbox" aria-label="이메일주소 선택">
+                                <li class="item-select" role="option" aria-selected="true"><span class="form-box">직접입력</span></li>
+                                <li class="item-select" role="option" aria-selected="false"><span class="form-box">naver.com</span></li>
+                                <li class="item-select" role="option" aria-selected="false"><span class="form-box">gmail.com</span></li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row"><span class="required">거래영업점</span></th>
+                      <td>
+                        <input type="text" class="input size-lg" title="거래영업점" value="e-금융계" />
+                      </td>
+                      <th scope="row"><span class="required">전화번호</span></th>
+                      <td>
+                        <div class="tbl-flex">
+                          <input type="text" class="input size-lg wSize-sm" title="전화번호 앞자리" value="010" maxlength="3" />
+                          <span aria-hidden="true">-</span>
+                          <input type="text" class="input size-lg wSize-sm" title="전화번호 중간자리" value="1111" maxlength="4" />
+                          <span aria-hidden="true">-</span>
+                          <input type="text" class="input size-lg wSize-sm" title="전화번호 끝자리" value="2222" maxlength="4" />
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row"><span class="required">주소</span></th>
+                      <td colspan="3">
+                        <input type="text" class="input size-lg wSize-full" title="주소" value="경상남도 창원시 진해구 진해대로975번길87, 473명 726정 (왕봄고,오봄침감명보서대6파보)"  />
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row"><span class="required">비밀번호</span></th>
+                      <td colspan="3">
+                        <input type="password" class="input size-lg wSize-md" title="비밀번호" maxlength="8" value="" />
+                        <p class="typeSm mt-8">4자리 이상 8자리 이하, 영문/숫자/특수문자를 입력해 주세요.</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row"><span class="required">제목</span></th>
+                      <td colspan="3">
+                        <input type="text" class="input size-lg wSize-full" title="제목" value="" />
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">신고상담 내용</th>
+                      <td colspan="3">
+                        <div class="form-text-area">
+                          <textarea title="신고상담 내용" maxlength="2000"></textarea>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">첨부파일</th>
+                      <td colspan="3">
+                        <input type="file" title="첨부파일" />
+                      </td>
+                    </tr>
                   </tbody>
                 </table>
               </div>
-              <div class="btn-wrap center lg-bot"><a href="/static/html/pub/null/cst/00/00/00/CIBCST000000000M.html" class="btn type-line-secondary size-xxl"><span class="text">취소</span></a><a href="/static/html/pub/null/cst/02/03/04/CIBCST020304000M.html" class="btn type-bg-primary size-xxl"><span class="text">다음</span></a></div>
+
+              <div class="btn-wrap center lg-bot">
+                <a href="/static/html/pub/cst/02/03/CIBCST020301000M.html" class="btn type-bg-primary-tint size-xxl"><span class="text">취소</span></a>
+                <a href="/static/html/pub/null/cst/02/03/05/CIBCST020305000M.html" class="btn type-bg-primary size-xxl"><span class="text">확인</span></a>
+              </div>
 
             </div>
           </div>
@@ -44,6 +129,5 @@
       <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
     </div>
     <script src="/static/js/ui/cib_ui_common.js"></script>
-
   </body>
 </html>
