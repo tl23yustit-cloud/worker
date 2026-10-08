@@ -331,28 +331,6 @@
         font-weight: 500;
       }
 
-      .order-btn {
-        background: rgba(255, 255, 255, 0.1);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        color: #fff;
-        width: 32px;
-        height: 32px;
-        border-radius: 6px;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 12px;
-        transition: background 0.2s;
-      }
-      .order-btn:hover:not(:disabled) {
-        background: rgba(255, 255, 255, 0.25);
-      }
-      .order-btn:disabled {
-        opacity: 0.3;
-        cursor: not-allowed;
-      }
-
       .pub-body {
         display: grid;
         grid-template-rows: 1fr;
@@ -552,7 +530,6 @@
     <script>
       const app = (function () {
         const depthNameMap = {};
-        const STORE_ORDER = "suhyup_group_order";
         const STORE_TOGGLE = "suhyup_group_toggle";
 
         let rawData = [];
@@ -566,6 +543,49 @@
         };
 
         const utils = {
+          compareWbsValue: (left, right) => {
+            const leftValue = String(left || "");
+            const rightValue = String(right || "");
+            const leftParts = leftValue.split(/(\d+)/);
+            const rightParts = rightValue.split(/(\d+)/);
+            const length = Math.max(leftParts.length, rightParts.length);
+
+            for (let i = 0; i < length; i++) {
+              const leftPart = leftParts[i] || "";
+              const rightPart = rightParts[i] || "";
+              const leftNumber = /^\d+$/.test(leftPart);
+              const rightNumber = /^\d+$/.test(rightPart);
+
+              if (leftNumber && rightNumber) {
+                const numberResult = Number(leftPart) - Number(rightPart);
+                if (numberResult !== 0) return numberResult;
+              } else if (leftPart !== rightPart) {
+                const textResult = leftPart.localeCompare(rightPart, "ko-KR");
+                if (textResult !== 0) return textResult;
+              }
+            }
+
+            return 0;
+          },
+          compareDepths: (left, right) => {
+            const length = Math.max(left.length, right.length);
+            for (let i = 0; i < length; i++) {
+              const result = utils.compareWbsValue(left[i], right[i]);
+              if (result !== 0) return result;
+            }
+            return 0;
+          },
+          compareItems: (left, right) => {
+            const depthResult = utils.compareDepths(
+              left.displayDepths,
+              right.displayDepths,
+            );
+            if (depthResult !== 0) return depthResult;
+            return utils.compareWbsValue(
+              left.fileId || left.file,
+              right.fileId || right.file,
+            );
+          },
           highlight: (text, keyword) => {
             if (!keyword || !text) return text || "-";
             const escaped = keyword.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
@@ -685,21 +705,7 @@
             return fields.includes(keyword);
           });
 
-          filtered.sort((a, b) => {
-            const depthA = a.displayDepths.join("/");
-            const depthB = b.displayDepths.join("/");
-
-            if (depthA !== depthB) {
-              return depthA.localeCompare(depthB, "ko-KR", { numeric: true });
-            }
-
-            const getNum = (id) => {
-              const onlyNumbers = (id || "").replace(/[^0-9]/g, "");
-              return parseInt(onlyNumbers, 10) || 0;
-            };
-
-            return getNum(a.fileId) - getNum(b.fileId);
-          });
+          filtered.sort(utils.compareItems);
 
           utils.renderSummary(visibleData);
 
@@ -752,7 +758,7 @@
 
             let html = "";
             Object.keys(groups)
-              .sort()
+              .sort(utils.compareWbsValue)
               .forEach((group) => {
                 html += `<section class="pub-section-normal"><h2>${utils.highlight(group, keyword)}</h2><div style="border: 1px solid #e2e8f0; border-radius: 8px; overflow:hidden;"><table><thead><tr>`;
                 for (let i = 0; i < maxDepth; i++)
@@ -779,15 +785,9 @@
             const groupKeys = [
               ...new Set(data.map((item) => item.displayDepths[0])),
             ];
-            const savedOrder = JSON.parse(localStorage.getItem(STORE_ORDER));
             const toggleState =
               JSON.parse(localStorage.getItem(STORE_TOGGLE)) || {};
-            const orderedGroups = savedOrder
-              ? [
-                  ...savedOrder.filter((g) => groupKeys.includes(g)),
-                  ...groupKeys.filter((g) => !savedOrder.includes(g)),
-                ]
-              : groupKeys;
+            const orderedGroups = groupKeys.sort(utils.compareWbsValue);
 
             let html = "";
             orderedGroups.forEach((groupName, idx) => {
@@ -801,10 +801,7 @@
                 <section class="pub-section-dev ${isCollapsed}" data-group-key="${groupName}">
                   <div class="pub-header" onclick="app.toggleSection(this, '${groupName}')">
                     <div><span>${utils.highlight(groupName, keyword)}</span><span class="count-badge">${groupData.length}</span></div>
-                    <div class="header-right" onclick="event.stopPropagation()">
-                      <button class="order-btn" onclick="app.moveGroup('${groupName}', -1)" ${idx === 0 ? "disabled" : ""}>▲</button>
-                      <button class="order-btn" onclick="app.moveGroup('${groupName}', 1)" ${idx === orderedGroups.length - 1 ? "disabled" : ""}>▼</button>
-                    </div>
+                    <div class="header-right"></div>
                   </div>
                   <div class="pub-body"><div class="table-container"><table><thead><tr>
                     <th width="30%">분류 경로 (Depth)</th><th>화면명</th><th>화면 ID</th><th class="col-status">상태</th><th class="col-date">수정일</th><th class="col-preview">보기</th><th class="col-worker">작업자</th><th width="15%">비고</th>
@@ -979,58 +976,10 @@
               );
             localStorage.setItem(STORE_TOGGLE, JSON.stringify(state));
           },
-          moveGroup: (groupKey, direction) => {
-            const container = document.getElementById("list");
-            const sections = Array.from(container.children);
-            const idx = sections.findIndex(
-              (s) => s.dataset.groupKey === groupKey,
-            );
-            const targetIdx = idx + direction;
-            if (targetIdx < 0 || targetIdx >= sections.length) return;
-
-            const rects = new Map();
-            sections.forEach((s) => rects.set(s, s.getBoundingClientRect()));
-
-            direction === -1
-              ? container.insertBefore(sections[idx], sections[targetIdx])
-              : container.insertBefore(sections[targetIdx], sections[idx]);
-
-            const newSections = Array.from(container.children);
-            newSections.forEach((s) => {
-              const deltaY = rects.get(s).top - s.getBoundingClientRect().top;
-              if (deltaY !== 0) {
-                s.style.transition = "none";
-                s.style.transform = `translateY(${deltaY}px)`;
-                s.offsetHeight;
-                s.style.transition =
-                  "transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1)";
-                s.style.transform = "translateY(0)";
-                const clean = () => {
-                  s.style.transition = "";
-                  s.style.transform = "";
-                  s.removeEventListener("transitionend", clean);
-                };
-                s.addEventListener("transitionend", clean);
-              }
-            });
-
-            newSections.forEach((s, i) => {
-              const btns = s.querySelectorAll(".order-btn");
-              if (btns.length > 0) {
-                btns[0].disabled = i === 0;
-                btns[1].disabled = i === newSections.length - 1;
-              }
-            });
-
-            const order = newSections.map((s) => s.dataset.groupKey);
-            localStorage.setItem(STORE_ORDER, JSON.stringify(order));
-            utils.toast("순서가 자동 저장되었습니다.");
-          },
           resetAll: () => {
             if (
-              confirm("모든 설정(순서 및 아코디언 상태)을 초기화하시겠습니까?")
+              confirm("모든 아코디언 상태를 초기화하시겠습니까?")
             ) {
-              localStorage.removeItem(STORE_ORDER);
               localStorage.removeItem(STORE_TOGGLE);
               location.reload();
             }
