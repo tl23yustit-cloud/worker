@@ -576,11 +576,11 @@
             return 0;
           },
           compareItems: (left, right) => {
-            const depthResult = utils.compareDepths(
-              left.displayDepths,
-              right.displayDepths,
+            const folderResult = utils.compareDepths(
+              left.rawFolders,
+              right.rawFolders,
             );
-            if (depthResult !== 0) return depthResult;
+            if (folderResult !== 0) return folderResult;
             return utils.compareWbsValue(
               left.fileId || left.file,
               right.fileId || right.file,
@@ -758,7 +758,11 @@
 
             let html = "";
             Object.keys(groups)
-              .sort(utils.compareWbsValue)
+              .sort((left, right) => {
+                const leftItem = groups[left][0];
+                const rightItem = groups[right][0];
+                return utils.compareItems(leftItem, rightItem);
+              })
               .forEach((group) => {
                 html += `<section class="pub-section-normal"><h2>${utils.highlight(group, keyword)}</h2><div style="border: 1px solid #e2e8f0; border-radius: 8px; overflow:hidden;"><table><thead><tr>`;
                 for (let i = 0; i < maxDepth; i++)
@@ -787,7 +791,15 @@
             ];
             const toggleState =
               JSON.parse(localStorage.getItem(STORE_TOGGLE)) || {};
-            const orderedGroups = groupKeys.sort(utils.compareWbsValue);
+            const orderedGroups = groupKeys.sort((left, right) => {
+              const leftItem = data.find(
+                (item) => item.displayDepths[0] === left,
+              );
+              const rightItem = data.find(
+                (item) => item.displayDepths[0] === right,
+              );
+              return utils.compareItems(leftItem, rightItem);
+            });
 
             let html = "";
             orderedGroups.forEach((groupName, idx) => {
