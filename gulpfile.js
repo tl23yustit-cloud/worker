@@ -40,12 +40,15 @@ function getDepthsFromMD(htmlFilePath) {
     if (relativeDir === "." || relativeDir === "") return { depths: [], missing: [] };
 
     const parts = relativeDir.split(path.sep);
+    const skipNullWrapper = parts[0] === "null" && parts[1] === "cst";
     let depths = [];
     let missing = []; 
     let currentPath = baseDir;
 
-    for (const part of parts) {
+    for (let index = 0; index < parts.length; index += 1) {
+        const part = parts[index];
         currentPath = path.join(currentPath, part);
+        if (skipNullWrapper && index === 0) continue;
         
         if (mdCache.has(currentPath)) {
             const cached = mdCache.get(currentPath);
