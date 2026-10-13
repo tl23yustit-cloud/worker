@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>수협은행</title>
+  <link rel="stylesheet" href="/static/css/reset.css" />
+  <link rel="stylesheet" href="/static/css/layout.css" />
+  <link rel="stylesheet" href="/static/css/component.css" />
+  <link rel="stylesheet" href="/static/css/common.css" />
+  <link rel="stylesheet" href="/static/css/cst.css" />
+</head>
+<body>
+  <div class="wrapper">
+    <div id="header">
+      @@include('static/html/pub/layout/skipNavigation.html')
+      @@include('static/html/pub/layout/header_sub.html')
+    </div>
+    <div id="container" class="container">
+      <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+      <div id="contents">
+        <div class="content">
+          @@include('static/html/pub/layout/breadcrumb.html')
+          <div class="cst">
+
+<h2 class="typeH2">가계수표분실신고하기</h2>
+<div class="tbl-area">
+  <table class="table-type01 fixed">
+    <caption>가계수표 분실신고</caption>
+    <colgroup><col style="width:180px" /><col /></colgroup>
+    <tbody>
+      <tr><th scope="row"><span class="required">수표번호</span></th><td><input class="input size-lg" title="수표번호" placeholder="입력해주세요" /></td></tr><tr><th scope="row"><span class="required">신고구분</span></th><td><button type="button" class="select size-lg" title="신고구분"><span class="text">실명번호</span></button></td></tr><tr><th scope="row">계좌번호</th><td><input class="input size-lg" title="계좌번호" disabled placeholder="실명번호 선택 시 입력할 수 없습니다" /></td></tr><tr><th scope="row"><span class="required">발행인 실명번호</span></th><td><input class="input size-lg" title="발행인 실명번호" placeholder="입력해주세요" /></td></tr><tr><th scope="row"><span class="required">금액</span></th><td><input class="input size-lg wSize-md" title="금액" placeholder="입력해주세요" /></td></tr><tr><th scope="row"><span class="required">분실일자</span></th><td><input class="input size-lg wSize-md" title="분실일자" value="2026-09-10" /></td></tr><tr><th scope="row"><span class="required">전화번호</span></th><td><div class="tbl-flex"><input class="input size-lg wSize-sm" title="전화번호 앞자리" value="02" /><span aria-hidden="true">-</span><input class="input size-lg wSize-sm" title="전화번호 중간자리" value="1234" /><span aria-hidden="true">-</span><input class="input size-lg wSize-sm" title="전화번호 뒷자리" value="1234" /></div></td></tr>
+    </tbody>
+  </table>
+</div>
+<div class="btn-wrap center lg-bot">
+  <a class="btn type-bg-primary size-xxl" href="/static/html/pub/cst/03/05/03/CIBCST030503000M.html"><span class="text">확인</span></a>
+</div>
+<div class="line-box size-xl"><span class="typeLgSemibold">안내</span><p class="typeMd mt-8">당행에서 발행된 가계수표만 분실신고 하실 수 있습니다. 타행에서 발행된 가계수표는 해당 은행 홈페이지를 이용하시기 바랍니다.</p></div>
+          </div>
+        </div>
+      </div>
+      <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+    </div>
+    <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+  </div>
+  <script src="/static/js/ui/cib_ui_common.js"></script>
+</body>
+</html>
