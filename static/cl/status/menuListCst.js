@@ -54,7 +54,7 @@ module.exports = {
     "CIBCST040300001T": {"title":"파트너 고객제도","status":"개발중","worker":"김래경","note":"[dev] :20261002 고객센터 퍼블"},
     "CIBCST040300002T": {"title":"파트너고객우대서비스(회원수협)","status":"개발중","worker":"김래경","note":"[dev] :20261002 고객센터 퍼블"},
     "CIBCST040401000M": {"title":"증권거래 서비스","status":"개발중","worker":"김래경","note":"[dev] :20261002 고객센터 퍼블"},
-    "CIBCST040402000M": {"title":"비밀번호 관리 유의사항","status":"개발중","worker":"김래경","note":"[dev] :20261002 고객센터 퍼블"},
+    "CIBCST040402000M": {"title":"대량이체서비스","status":"개발중","worker":"김래경","note":"[dev] :20261002 고객센터 퍼블"},
     "CIBCST040403000M": {"title":"비밀번호 관리 유의사항","status":"개발중","worker":"김래경","note":"[dev] :20261002 고객센터 퍼블"},
     "CIBCST040404000M": {"title":"안전 금융거래를 위한 수칙","status":"개발중","worker":"김래경","note":"[dev] :20261002 고객센터 퍼블"},
     "CIBCST040501001T": {"title":"개인정보처리방침(요약)","status":"개발중","worker":"김래경","note":"[dev] :20261002 고객센터 퍼블"},
