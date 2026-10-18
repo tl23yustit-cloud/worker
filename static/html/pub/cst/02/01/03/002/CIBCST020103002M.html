@@ -1,150 +1,115 @@
 <!doctype html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>수협은행</title>
-    <link rel="stylesheet" href="/static/css/reset.css" />
-    <link rel="stylesheet" href="/static/css/layout.css" />
-    <link rel="stylesheet" href="/static/css/component.css" />
-    <link rel="stylesheet" href="/static/css/common.css" />
-    <link rel="stylesheet" href="/static/css/cst.css" />
-  </head>
-  <body>
-    <div class="wrapper">
-      <div id="header">
-        @@include('static/html/pub/layout/skipNavigation.html')
-        @@include('static/html/pub/layout/header_sub.html')
-      </div>
-      <div id="container" class="container">
-        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
-        <div id="contents">
-          <div class="content">
-            @@include('static/html/pub/layout/breadcrumb.html')
-            <div class="cst">
-              <h2 class="typeH2">친절직원 칭찬하기</h2>
-              <div class="tbl-area">
-                <table class="table-type01 fixed">
-                  <caption>친절직원 칭찬하기</caption>
-                  <colgroup>
-                    <col style="width: 160px" />
-                    <col style="width: auto" />
-                  </colgroup>
-                  <tbody>
-                    <tr>
-                      <th scope="row">
-                        <span class="required">이메일</span>
-                      </th>
-                      <td>
-                        <div class="tbl-flex">
-                          <input type="text" class="input size-lg wSize-lg" placeholder="이메일 입력" title="이메일" aria-label="이메일 입력" />
-                          <span aria-hidden="true">@</span>
-                          <div class="box-select wSize-md">
-                            <button type="button" class="select size-lg" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="selectEmailDomain" title="이메일주소 선택">
-                              <span class="text">이메일주소 선택</span>
-                              <span class="blind">펼침</span>
-                            </button>
-                            <div id="selectEmailDomain" class="box-list-select">
-                              <ul class="list-select" role="listbox" aria-label="이메일주소 선택 리스트">
-                                <li class="item-select" role="option" aria-selected="true">
-                                  <span class="form-box">직접입력</span>
-                                </li>
-                                <li class="item-select" role="option" aria-selected="false">
-                                  <span class="form-box">naver.com</span>
-                                </li>
-                                <li class="item-select" role="option" aria-selected="false">
-                                  <span class="form-box">gmail.com</span>
-                                </li>
-                              </ul>
-                            </div>
-                          </div>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">
-                        <span class="required">연락처</span>
-                      </th>
-                      <td>
-                        <div class="tbl-flex">
-                          <div class="box-select wSize-sm">
-                            <button type="button" id="phonePrefixBtn" class="select size-lg" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="selectDropdown01" aria-labelledby="phone-label" aria-describedby="phone-guide">
-                              <span class="text">010</span>
-                            </button>
-                            <div id="selectDropdown01" class="box-list-select">
-                              <ul class="list-select" role="listbox" aria-label="연락처 앞자리 선택">
-                                <li class="item-select" role="option" aria-selected="true" tabindex="0">
-                                  <span class="btn-item-select">010</span>
-                                </li>
-                                <li class="item-select" role="option" aria-selected="false" tabindex="-1">
-                                  <span class="btn-item-select">011</span>
-                                </li>
-                              </ul>
-                            </div>
-                          </div>
-                          <span aria-hidden="true">-</span>
-                          <input type="text" class="input size-lg wSize-sm" value="" maxlength="4" title="연락처 중간자리" aria-labelledby="label-phone" aria-label="연락처 중간자리" aria-required="true" aria-describedby="phone-guide" />
-                          <span aria-hidden="true">-</span>
-                          <input type="text" class="input size-lg wSize-sm" value="" maxlength="4" title="연락처 마지막자리" aria-labelledby="label-phone" aria-label="연락처 마지막자리" aria-required="true" aria-describedby="phone-guide" />
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">
-                        <span class="required">분류</span>
-                      </th>
-                      <td>
-                        <input type="password" id="직원조회" class="input size-lg wSize-smMd" placeholder="직원을 조회해 주세요" aria-label="친적직원" />
-                        <button type="button" class="btn type-line-secondary size-lg">
-                          <span class="text">직원조회</span>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">
-                        <span class="required">제목</span>
-                      </th>
-                      <td>
-                        <input type="text" class="input size-lg" title="제목" placeholder="제목을 입력하세요" />
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">
-                        <span class="required">내용</span>
-                      </th>
-                      <td>
-                        <div class="form-text-area">
-                          <textarea name="" id="" maxlength="200" placeholder="친절직원칭찬 내용을 입력해 주세요" title="칭찬 내용" aria-describedby="TEXTAREACOUNTER01" data-len-init="true"></textarea>
-                          <span id="TEXTAREACOUNTER01" class="box-unit" aria-live="polite">
-                            <span class="blind">현재</span>
-                            <span class="current">0</span>
-                            <span class="blind">글자</span>
-                            <i class="divider">/</i>
-                            <span class="blind">최대</span>
-                            <span class="total">1500</span>
-                            <span class="blind">글자</span>
-                          </span>
-                        </div>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <div class="btn-wrap center lg-bot">
-                <button type="button" class="btn type-bg-primary-tint size-xxl">
-                  <span class="text">취소</span>
-                </button>
-                <button type="button" class="btn type-bg-primary size-xxl">
-                  <span class="text">확인</span>
-                </button>
-              </div>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>수협은행</title>
+        <link rel="stylesheet" href="/static/css/reset.css" />
+        <link rel="stylesheet" href="/static/css/layout.css" />
+        <link rel="stylesheet" href="/static/css/component.css" />
+        <link rel="stylesheet" href="/static/css/common.css" />
+        <link rel="stylesheet" href="/static/css/cst.css" />
+    </head>
+    <body>
+        <div class="wrapper">
+            <div id="header">
+                @@include('static/html/pub/layout/skipNavigation.html')
+                @@include('static/html/pub/layout/header_sub.html')
             </div>
-          </div>
+            <div id="container" class="container">
+                <div id="leftArea">
+                    @@include('static/html/pub/layout/leftArea.html')
+                </div>
+                <div id="contents">
+                    <div class="content">
+                        @@include('static/html/pub/layout/breadcrumb.html')
+                        <div class="cst">
+                            <h2 class="typeH2">친절직원 칭찬하기</h2>
+                            <div class="tbl-area">
+                                <table class="table-type01 fixed">
+                                    <caption>친절직원 칭찬하기</caption>
+                                    <colgroup>
+                                        <col style="width: 160px" />
+                                        <col style="width: auto" />
+                                    </colgroup>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row"><span class="required">이메일</span></th>
+                                            <td>
+                                                <div class="tbl-flex">
+                                                    <input type="text" class="input size-lg wSize-lg" placeholder="이메일 입력" title="이메일" aria-label="이메일 입력" />
+                                                    <span aria-hidden="true">@</span>
+                                                    <div class="box-select wSize-md">
+                                                        <button type="button" class="select size-lg" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="selectEmailDomain" title="이메일주소 선택"><span class="text">이메일주소 선택</span><span class="blind">펼침</span></button>
+                                                        <div id="selectEmailDomain" class="box-list-select">
+                                                            <ul class="list-select" role="listbox" aria-label="이메일주소 선택 리스트">
+                                                                <li class="item-select" role="option" aria-selected="true"><span class="form-box">직접입력</span></li>
+                                                                <li class="item-select" role="option" aria-selected="false"><span class="form-box">naver.com</span></li>
+                                                                <li class="item-select" role="option" aria-selected="false"><span class="form-box">gmail.com</span></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row"><span class="required">연락처</span></th>
+                                            <td>
+                                                <div class="tbl-flex">
+                                                    <div class="box-select wSize-sm">
+                                                        <button type="button" id="phonePrefixBtn" class="select size-lg" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="selectDropdown01" aria-labelledby="phone-label" aria-describedby="phone-guide"><span class="text">010</span></button>
+                                                        <div id="selectDropdown01" class="box-list-select">
+                                                            <ul class="list-select" role="listbox" aria-label="연락처 앞자리 선택">
+                                                                <li class="item-select" role="option" aria-selected="true" tabindex="0"><span class="btn-item-select">010</span></li>
+                                                                <li class="item-select" role="option" aria-selected="false" tabindex="-1"><span class="btn-item-select">011</span></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <span aria-hidden="true">-</span>
+                                                    <input type="text" class="input size-lg wSize-sm" value="" maxlength="4" title="연락처 중간자리" aria-labelledby="label-phone" aria-label="연락처 중간자리" aria-required="true" aria-describedby="phone-guide" />
+                                                    <span aria-hidden="true">-</span>
+                                                    <input type="text" class="input size-lg wSize-sm" value="" maxlength="4" title="연락처 마지막자리" aria-labelledby="label-phone" aria-label="연락처 마지막자리" aria-required="true" aria-describedby="phone-guide" />
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row"><span class="required">분류</span></th>
+                                            <td>
+                                                <input type="password" id="직원조회" class="input size-lg wSize-smMd" placeholder="직원을 조회해 주세요" aria-label="친적직원" />
+                                                <button type="button" class="btn type-line-secondary size-lg"><span class="text">직원조회</span></button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row"><span class="required">제목</span></th>
+                                            <td><input type="text" class="input size-lg" title="제목" placeholder="제목을 입력하세요" /></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row"><span class="required">내용</span></th>
+                                            <td>
+                                                <div class="form-text-area">
+                                                    <textarea name="" id="" maxlength="200" placeholder="친절직원칭찬 내용을 입력해 주세요" title="칭찬 내용" aria-describedby="TEXTAREACOUNTER01" data-len-init="true"></textarea>
+                                                    <span id="TEXTAREACOUNTER01" class="box-unit" aria-live="polite"><span class="blind">현재</span><span class="current">0</span><span class="blind">글자</span><i class="divider">/</i><span class="blind">최대</span><span class="total">1500</span><span class="blind">글자</span></span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="btn-wrap center lg-bot">
+                                <button type="button" class="btn type-bg-primary-tint size-xxl"><span class="text">취소</span></button>
+                                <button type="button" class="btn type-bg-primary size-xxl"><span class="text">확인</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="aside">
+                    @@include('static/html/pub/layout/aside.html')
+                </div>
+            </div>
+            <div id="footer">
+                @@include('static/html/pub/layout/footer.html')
+            </div>
         </div>
-        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
-      </div>
-      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
-    </div>
-    <script src="/static/js/ui/cib_ui_common.js"></script>
-  </body>
+        <script src="/static/js/ui/cib_ui_common.js"></script>
+    </body>
 </html>

@@ -1,57 +1,103 @@
 <!doctype html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>수협은행</title>
-    <link rel="stylesheet" href="/static/css/reset.css" />
-    <link rel="stylesheet" href="/static/css/layout.css" />
-    <link rel="stylesheet" href="/static/css/component.css" />
-    <link rel="stylesheet" href="/static/css/common.css" />
-    <link rel="stylesheet" href="/static/css/cst.css" />
-  </head>
-  <body>
-    <div class="wrapper">
-      <div id="header">
-        @@include('static/html/pub/layout/skipNavigation.html')
-        @@include('static/html/pub/layout/header_sub.html')
-      </div>
-      <div id="container" class="container">
-        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
-        <div id="contents">
-          <div class="content">
-            @@include('static/html/pub/layout/breadcrumb.html')
-            <div class="cst">
-              <h2 class="typeH2">인감/통장분실신고하기</h2>
-              <div class="tbl-area">
-                <table class="table-type01 fixed">
-                  <caption>인감/통장 분실신고</caption>
-                  <colgroup><col style="width: 180px" /><col /></colgroup>
-                  <tbody>
-                    <tr><th scope="row"><span class="required">계좌번호</span></th><td><input class="input size-lg wSize-md" title="계좌번호" /></td></tr><tr><th scope="row"><span class="required">사고구분</span></th><td><button type="button" class="select size-lg" title="사고구분"><span class="text">인감+통장</span></button></td></tr><tr><th scope="row"><span class="required">사고일자</span></th><td><input class="input size-lg wSize-md" title="사고일자" value="2026-09-10" /></td></tr><tr><th scope="row"><span class="required">전화번호</span></th><td><div class="tbl-flex"><input class="input size-lg wSize-sm" title="전화번호 앞자리" value="010" /><span aria-hidden="true">-</span><input class="input size-lg wSize-sm" title="전화번호 중간자리" value="" /><span aria-hidden="true">-</span><input class="input size-lg wSize-sm" title="전화번호 뒷자리" value="" /></div></td></tr><tr><th scope="row"><span class="required">이동전화번호</span></th><td><div class="tbl-flex"><input class="input size-lg wSize-sm" title="전화번호 앞자리" value="010" /><span aria-hidden="true">-</span><input class="input size-lg wSize-sm" title="전화번호 중간자리" value="" /><span aria-hidden="true">-</span><input class="input size-lg wSize-sm" title="전화번호 뒷자리" value="" /></div></td></tr>
-                  </tbody>
-                </table>
-              </div>
-              <div class="btn-wrap center lg-bot">
-                <a class="btn type-bg-primary size-xxl" href="/static/html/pub/cst/03/03/03/CIBCST030303000M.html"><span class="text">확인</span></a>
-              </div>
-              <div class="cst-error" id="cstErrorMessage">
-                <p class="typeLgSemibold">고객님 죄송합니다.</p>
-                <p class="typeMd mt-8">기타 오류 - 필수항목 [계좌번호]의 값이 없습니다.</p>
-                <p class="code typeMd">응답코드 : TRF001</p>
-                <p class="typeMd mt-16">더 궁금하신 사항이 있으시면 아래 고객지원센터로 연락바랍니다.</p>
-                <p class="typeMd">TEL : 1588-1515, 1644-1515(서비스코드 03번)</p>
-                <div class="btn-wrap center mt-16">
-                  <button type="button" class="btn type-bg-primary-tint size-lg" onclick="document.getElementById('cstErrorMessage').remove()"><span class="text">닫기</span></button>
-                </div>
-              </div>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>수협은행</title>
+        <link rel="stylesheet" href="/static/css/reset.css" />
+        <link rel="stylesheet" href="/static/css/layout.css" />
+        <link rel="stylesheet" href="/static/css/component.css" />
+        <link rel="stylesheet" href="/static/css/common.css" />
+        <link rel="stylesheet" href="/static/css/cst.css" />
+    </head>
+    <body>
+        <div class="wrapper">
+            <div id="header">
+                @@include('static/html/pub/layout/skipNavigation.html')
+                @@include('static/html/pub/layout/header_sub.html')
             </div>
-          </div>
+            <div id="container" class="container">
+                <div id="leftArea">
+                    @@include('static/html/pub/layout/leftArea.html')
+                </div>
+                <div id="contents">
+                    <div class="content">
+                        @@include('static/html/pub/layout/breadcrumb.html')
+                        <div class="cst">
+                            <h2 class="typeH2">인감/통장분실신고하기</h2>
+                            <div class="tbl-area">
+                                <table class="table-type01 fixed">
+                                    <caption>인감/통장 분실신고</caption>
+                                    <colgroup>
+                                        <col style="width: 180px" />
+                                        <col />
+                                    </colgroup>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row"><span class="required">계좌번호</span></th>
+                                            <td><input class="input size-lg wSize-md" title="계좌번호" /></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row"><span class="required">사고구분</span></th>
+                                            <td>
+                                                <button type="button" class="select size-lg" title="사고구분"><span class="text">인감+통장</span></button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row"><span class="required">사고일자</span></th>
+                                            <td><input class="input size-lg wSize-md" title="사고일자" value="2026-09-10" /></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row"><span class="required">전화번호</span></th>
+                                            <td>
+                                                <div class="tbl-flex">
+                                                    <input class="input size-lg wSize-sm" title="전화번호 앞자리" value="010" />
+                                                    <span aria-hidden="true">-</span>
+                                                    <input class="input size-lg wSize-sm" title="전화번호 중간자리" value="" />
+                                                    <span aria-hidden="true">-</span>
+                                                    <input class="input size-lg wSize-sm" title="전화번호 뒷자리" value="" />
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row"><span class="required">이동전화번호</span></th>
+                                            <td>
+                                                <div class="tbl-flex">
+                                                    <input class="input size-lg wSize-sm" title="전화번호 앞자리" value="010" />
+                                                    <span aria-hidden="true">-</span>
+                                                    <input class="input size-lg wSize-sm" title="전화번호 중간자리" value="" />
+                                                    <span aria-hidden="true">-</span>
+                                                    <input class="input size-lg wSize-sm" title="전화번호 뒷자리" value="" />
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="btn-wrap center lg-bot">
+                                <button class="btn type-bg-primary size-xxl" type="button"><span class="text">확인</span></button>
+                            </div>
+                            <div class="cst-error" id="cstErrorMessage">
+                                <p class="typeLgSemibold">고객님 죄송합니다.</p>
+                                <p class="typeMd mt-8">기타 오류 - 필수항목 [계좌번호]의 값이 없습니다.</p>
+                                <p class="code typeMd">응답코드 : TRF001</p>
+                                <p class="typeMd mt-16">더 궁금하신 사항이 있으시면 아래 고객지원센터로 연락바랍니다.</p>
+                                <p class="typeMd">TEL : 1588-1515, 1644-1515(서비스코드 03번)</p>
+                                <div class="btn-wrap center mt-16">
+                                    <button type="button" class="btn type-bg-primary-tint size-lg"><span class="text">닫기</span></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="aside">
+                    @@include('static/html/pub/layout/aside.html')
+                </div>
+            </div>
+            <div id="footer">
+                @@include('static/html/pub/layout/footer.html')
+            </div>
         </div>
-        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
-      </div>
-      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
-    </div>
-    <script src="/static/js/ui/cib_ui_common.js"></script>
-  </body>
+        <script src="/static/js/ui/cib_ui_common.js"></script>
+    </body>
 </html>
