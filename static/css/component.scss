@@ -2695,10 +2695,21 @@ input[type=password] {
 	.group-button {
 		display: flex;
 		align-items: center;
+		gap: var(--spacing2Xs);
 		position: absolute;
 		top: 50%;
 		right: var(--spacingSm);
 		transform: translateY(-50%);
+	}
+
+	.btn-delete {
+		display: none;
+		width: var(--sizeBaseSmMd);
+		height: var(--sizeBaseSmMd);
+		border: 0;
+		background: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M3.52876 3.52876C3.78911 3.26841 4.21122 3.26841 4.47157 3.52876L8.00016 7.05736L11.5288 3.52876C11.7891 3.26841 12.2112 3.26841 12.4716 3.52876C12.7319 3.78911 12.7319 4.21122 12.4716 4.47157L8.94297 8.00016L12.4716 11.5288C12.7319 11.7891 12.7319 12.2112 12.4716 12.4716C12.2112 12.7319 11.7891 12.7319 11.5288 12.4716L8.00016 8.94297L4.47157 12.4716C4.21122 12.7319 3.78911 12.7319 3.52876 12.4716C3.26841 12.2112 3.26841 11.7891 3.52876 11.5288L7.05736 8.00016L3.52876 4.47157C3.26841 4.21122 3.26841 3.78911 3.52876 3.52876Z' fill='%23343F54'/%3E%3C/svg%3E") no-repeat center center;
+		background-size: var(--sizeIconSm);
+		cursor: pointer;
 	}
 
 	.btn-search {
@@ -2717,7 +2728,13 @@ input[type=password] {
 
 	&.size-xl {
 		.input {
-			padding: calc(var(--spacingMd) + var(--borderWidthUnit1)) calc(var(--spacing3Xl) - var(--borderWidthUnit1)) calc(var(--spacingMd) + var(--borderWidthUnit1)) calc(var(--spacingLg) - var(--borderWidthUnit1));
+			padding: calc(var(--spacingMd) + var(--borderWidthUnit1)) calc(var(--spacing5Xl) - var(--borderWidthUnit1)) calc(var(--spacingMd) + var(--borderWidthUnit1)) calc(var(--spacingLg) - var(--borderWidthUnit1));
+		}
+
+		.btn-delete {
+			width: var(--sizeBaseLg);
+			height: var(--sizeBaseLg);
+			background-size: var(--sizeIconMd);
 		}
 
 		.btn-search {
