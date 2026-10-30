@@ -1,0 +1,465 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>이자조회 &gt; 조회 &gt; 대출 &gt; 뱅킹관리 | 수협은행</title>
+  <link rel="stylesheet" href="/static/css/reset.css" />
+  <link rel="stylesheet" href="/static/css/layout.css" />
+  <link rel="stylesheet" href="/static/css/component.css" />
+  <link rel="stylesheet" href="/static/css/common.css" />
+  <link rel="stylesheet" href="/static/css/bop.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <div id="header">
+      @@include('static/html/pub/layout/skipNavigation.html')
+      @@include('static/html/pub/layout/header_sub.html')
+    </div>
+
+    <div id="container" class="container">
+      <div id="leftArea">
+        @@include('static/html/pub/layout/leftArea.html')
+      </div>
+      <div id="contents">
+        <div class="content">
+          @@include('static/html/pub/layout/breadcrumb.html')
+          <div class="bop">
+            <h2 class="typeH2">우대금리 실적조회</h2>
+            <div class="box-hidden-area">
+              <div class="tbl-area">
+                <div class="typeH6">기본정보</div>
+                <table class="table-type01">
+                  <caption>
+                    고객명, 대출계좌번호, 상품명, 약정이자, 연체이자,
+                    이자계산시작일, 미납수수료, 연체시작일, 납입할총이자, 납입
+                    후 다음이자납입일로 구성된 기본정보 테이블
+                  </caption>
+                  <!-- [수정] 20260907 col width 값 수정  -->
+                  <colgroup>
+                    <col style="width: 160px" />
+                    <col style="width: auto" />
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="row">예금주명</th>
+                      <td colspan="3">
+                        <span class="typeMd">기업운전일반자금대출</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">대출잔액</th>
+                      <td colspan="3" class="text-right">
+                        <span class="typeMd">100,000,000원</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">계좌번호</th>
+                      <td colspan="3">
+                        <span class="typeMd">0000-0000-0000</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">현재금리</th>
+                      <td colspan="3">
+                        <span class="typeMd">4.29 % (기준금리 : 2.22 %, 가산금리 : 2.07 %)</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">실적조회기간</th>
+                      <td colspan="3">
+                        <span class="typeMd">2026-04-01 ~ 2026-04-23</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">금리반영일</th>
+                      <td colspan="3">
+                        <span class="typeMd">2026-06월 이자내는 날</span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!--[dev] 디자인미확정-->
+              <div class="tit-wrap">
+                <div class="typeH4">우대금리 확인하기</div>
+                <div class="typeSm">2026년 05월 07일 16시 50분 27초</div>
+              </div>
+              <div class="line-box size-xl">
+                <div class="typeLgSemibold">실적 충족현황</div>
+                <div class="rate-range" data-min="0.1" data-max="1.0" data-value="0.9" data-unit="%">
+                  <div class="rate-range-graph">
+                    <div class="rate-range-track"></div>
+                    <div class="rate-range-active"></div>
+                    <div class="rate-range-current">
+                      <div class="rate-range-tooltip">
+                        <span class="typeXsSemibold"></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="rate-range-labels">
+                    <span class="typeXsSemibold">0.1%</span>
+                    <span class="typeXsSemibold">최대우대금리 1.0%</span>
+                  </div>
+                </div>
+              </div>
+              <div class="list type-dotted mt-8">
+                <ul>
+                  <li class="typeMd">
+                    이번 달 실적은 07월에 이자납일일에 반영됩니다.
+                  </li>
+                  <li class="typeMd">
+                    항목별 충족한 금리합계가 최대 우대금리를 초과 하는 경우
+                    최대 우대금리를 적용합니다.
+                  </li>
+                </ul>
+              </div>
+              <div class="tit-wrap">
+                <div class="typeH4">실적 항목 확인하기</div>
+              </div>
+              <div class="accor-wrap">
+                <div class="box-accordion line">
+                  <div class="box-item-list">
+                    <div class="box-title">
+                      <span class="badge-light size-md type-blue">
+                        <span class="blind">충족</span>
+                        <span class="text">충족</span>
+                      </span>
+                      <span class="title typeLg">입출금 통장 평균 잔액 0.5%</span>
+                    </div>
+                    <button type="button" class="btn-accordion" aria-expanded="false"
+                      aria-controls="accordionContent01">
+                      <i class="ico-arrow" aria-hidden="true"></i>
+                      <span class="blind">상세내용 열기</span>
+                    </button>
+                  </div>
+                  <div id="accordionContent01" class="content-accordion">
+                    <div class="line-box size-lgXl balance-alert">
+                      <div class="typeLgMedium">이번달 평균잔액<span class="color-fg-primary">500,000원</span> </div>
+                      <button type="button" class="btn type-line-neutral size-md">
+                        <span class="text">평균 잔액 조회하기</span>
+                      </button>
+                    </div>
+                    <div class="bg-box size-4xl2xlxl">
+                      <div class="rate-range type-amount" data-min="100000" data-max="1000000" data-value="300000"
+                        data-unit="원">
+                        <div class="rate-range-graph">
+                          <div class="rate-range-track"></div>
+                          <div class="rate-range-active"></div>
+
+                          <div class="rate-range-current">
+                            <div class="rate-range-tooltip bg-black">
+                              <span class="typeXsSemibold"></span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="rate-range-labels">
+                          <span class="typeXsSemibold">0%</span>
+                          <span class="typeXsSemibold">0.2%</span>
+                          <span class="typeXsSemibold">0.3%</span>
+                          <span class="typeXsSemibold">0.5%</span>
+                        </div>
+                      </div>
+                      <div class="text-wrap">
+                        <div class="typeLgBold">이번달 내에 <span class="color-fg-primary">5만원 이상 더 이용시</span> 금리 우대를 받을 수
+                          있어요!</div>
+                      </div>
+                    </div>
+                    <div class="typeLgSemibold mt-10">실적기준</div>
+                    <div class="list type-dotted">
+                      <ul>
+                        <li class="typeMd color-fg-base">1구간 : 0.2%우대, 2구간 : 0.3%우대, 3구간 : 0.5%우대</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="box-accordion line">
+                  <div class="box-item-list">
+                    <div class="box-title">
+                      <span class="badge-light size-md type-blue">
+                        <span class="blind">충족</span>
+                        <span class="text">충족</span>
+                      </span>
+                      <span class="title typeLg">총 수신 평균 잔액 0.4 %</span>
+                    </div>
+                    <button type="button" class="btn-accordion" aria-expanded="false"
+                      aria-controls="accordionContent01">
+                      <i class="ico-arrow" aria-hidden="true"></i>
+                      <span class="blind">상세내용 열기</span>
+                    </button>
+                  </div>
+                  <div id="accordionContent01" class="content-accordion">
+                    <div class="line-box size-lgXl balance-alert">
+                      <div class="typeLgMedium">이번달 평균잔액<span class="color-fg-primary">500,000원</span> </div>
+                      <button type="button" class="btn type-line-neutral size-md">
+                        <span class="text">평균 잔액 조회하기</span>
+                      </button>
+                    </div>
+
+                    <div class="bg-box size-4xl2xlxl">
+                      <div class="rate-range type-amount" data-min="100000" data-max="1000000" data-value="600000"
+                        data-unit="원">
+                        <div class="rate-range-graph">
+                          <div class="rate-range-track"></div>
+                          <div class="rate-range-active"></div>
+
+                          <div class="rate-range-current">
+                            <div class="rate-range-tooltip bg-black">
+                              <span class="typeXsSemibold"></span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="rate-range-labels">
+                          <span class="typeXsSemibold">0%</span>
+                          <span class="typeXsSemibold">0.2%</span>
+                          <span class="typeXsSemibold">0.3%</span>
+                          <span class="typeXsSemibold">0.5%</span>
+                        </div>
+                      </div>
+                      <div class="text-wrap">
+                        <div class="typeLgBold">이번달 내에 <span class="color-fg-primary">5만원 이상 더 이용시</span> 금리 우대를 받을 수
+                          있어요!</div>
+                      </div>
+                    </div>
+                    <div class="typeLgSemibold mt-10 mb-2">실적기준</div>
+                    <div class="list type-dotted">
+                      <ul>
+                        <li class="typeMd color-fg-base">1구간 : 0.2%우대, 2구간 : 0.3%우대, 3구간 : 0.5%우대</li>
+                      </ul>
+                    </div>
+                    <div class="drop-box">
+                      <button type="button" class="drop-box-toggle">
+                        <span class="typeMdMedium">카드이용실적 확인<i class="ico line ico-size-sm ico-chevron-down"
+                            aria-hidden="true"></i></span>
+                      </button>
+                      <div class="drop-box-content">
+                        <div class="drop-box-inner">
+                          <div class="tbl-area">
+                            <div class="typeH6">실적인정금액 상세내용</div>
+                            <table class="table-type03">
+                              <caption>
+                                실적인정금액 상세내용 테이블
+                              </caption>
+                              <colgroup>
+                                <col>
+                                <col>
+                                <col>
+                              </colgroup>
+                              <thead>
+                                <tr>
+                                  <th>선택</th>
+                                  <th>실행번호</th>
+                                  <th>신규일</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>
+                                    <span class="typeMd">2026-05-18</span>
+                                  </td>
+                                  <td>
+                                    <span class="typeMd">2026-05-18</span>
+                                  </td>
+                                  <td class="text-right">
+                                    <span class="typeMd">100,000,000</span>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                          <nav class="pagination size-md" aria-label="페이지네이션">
+                            <button type="button" class="btn-nav first" disabled="" aria-disabled="true"
+                              aria-label="첫 페이지">
+                              <span class="blind">첫 페이지</span>
+                            </button>
+                            <button type="button" class="btn-nav prev" disabled="" aria-disabled="true"
+                              aria-label="이전 페이지">
+                              <span class="blind">이전 페이지</span>
+                            </button>
+
+                            <ol class="list-pagination">
+                              <li>
+                                <button type="button" class="btn-page active" aria-current="page" aria-label="1페이지">
+                                  1
+                                </button>
+                              </li>
+                              <li>
+                                <button type="button" class="btn-page" aria-label="2페이지">
+                                  2
+                                </button>
+                              </li>
+                              <li>
+                                <button type="button" class="btn-page" aria-label="3페이지">
+                                  3
+                                </button>
+                              </li>
+                              <li>
+                                <button type="button" class="btn-page" aria-label="4페이지">
+                                  4
+                                </button>
+                              </li>
+                              <li>
+                                <button type="button" class="btn-page" aria-label="5페이지">
+                                  5
+                                </button>
+                              </li>
+                            </ol>
+
+                            <button type="button" class="btn-nav next" aria-label="다음 페이지">
+                              <span class="blind">다음 페이지</span>
+                            </button>
+                            <button type="button" class="btn-nav last" aria-label="마지막 페이지">
+                              <span class="blind">마지막 페이지</span>
+                            </button>
+                          </nav>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="box-accordion line">
+                  <div class="box-item-list">
+                    <div class="box-title">
+                      <span class="badge-light size-md type-orange">
+                        <span class="blind">미충족</span>
+                        <span class="text">미충족</span>
+                      </span>
+
+                      <span class="title typeLg">수협카드 이용실적 0.4%</span>
+                    </div>
+                    <button type="button" class="btn-accordion" aria-expanded="false"
+                      aria-controls="accordionContent01">
+                      <i class="ico-arrow" aria-hidden="true"></i>
+                      <span class="blind">상세내용 열기</span>
+                    </button>
+                  </div>
+                  <div id="accordionContent01" class="content-accordion">
+                    <div class="line-box size-lgXl balance-alert">
+                      <div class="typeLgMedium">이번달 평균잔액<span class="color-fg-primary">500,000원</span> </div>
+                      <button type="button" class="btn type-line-neutral size-md">
+                        <span class="text">평균 잔액 조회하기</span>
+                      </button>
+                    </div>
+                    <div class="bg-box size-4xl2xlxl">
+                      <div class="rate-range type-amount" data-min="100000" data-max="1000000" data-value="1000000"
+                        data-unit="원">
+                        <div class="rate-range-graph">
+                          <div class="rate-range-track"></div>
+                          <div class="rate-range-active"></div>
+
+                          <div class="rate-range-current">
+                            <div class="rate-range-tooltip bg-black">
+                              <span class="typeXsSemibold"></span>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="rate-range-labels">
+                          <span class="typeXsSemibold">0%</span>
+                          <span class="typeXsSemibold">0.2%</span>
+                          <span class="typeXsSemibold">0.3%</span>
+                          <span class="typeXsSemibold">0.5%</span>
+                        </div>
+                      </div>
+                      <div class="text-wrap">
+                        <div class="typeLgBold">이번달 내에 <span class="color-fg-primary">5만원 이상 더 이용시</span> 금리 우대를 받을 수
+                          있어요!</div>
+                      </div>
+                    </div>
+                    <div class="typeLgSemibold mt-10">실적기준</div>
+                    <div class="list type-dotted">
+                      <ul>
+                        <li class="typeMd color-fg-base">1구간 : 0.2%우대, 2구간 : 0.3%우대, 3구간 : 0.5%우대</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="box-accordion line">
+                  <div class="box-item-list">
+                    <div class="box-title">
+                      <span class="badge-light size-md type-orange">
+                        <span class="blind">미충족</span>
+                        <span class="text">미충족</span>
+                      </span>
+
+                      <span class="title typeLg">4대보험/아파트관리비 자동이체 0.15%</span>
+                    </div>
+                    <button type="button" class="btn-accordion" aria-expanded="false"
+                      aria-controls="accordionContent01">
+                      <i class="ico-arrow" aria-hidden="true"></i>
+                      <span class="blind">상세내용 열기</span>
+                    </button>
+                  </div>
+                  <div id="accordionContent01" class="content-accordion">
+                    <div class="bg-box size-4xl2xlxl">
+                      <div class="text-wrap in-ico">
+                        <i class="ico laon ico-size-5xl ico-laon-warning" aria-hidden="true"></i>
+                        <div class="typeLgBold">이번달 4대보험/아파트 관리비 자동이체 내역이 없습니다.</div>
+                        <div class="typeLgBold color-fg-primary">자동이체를 신청하시면 우대금리를 받으실 수 있습니다.</div>
+                        <button type="button" class="btn type-line-neutral size-md">
+                          <span class="text">아파트자동이체 신청</span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="box-accordion line">
+                  <div class="box-item-list">
+                    <div class="box-title">
+                      <span class="badge-light size-md type-blue">
+                        <span class="blind">충족</span>
+                        <span class="text">충족</span>
+                      </span>
+
+                      <span class="title typeLg">마케팅 동의 0.05%</span>
+                    </div>
+                    <button type="button" class="btn-accordion" aria-expanded="false"
+                      aria-controls="accordionContent01">
+                      <i class="ico-arrow" aria-hidden="true"></i>
+                      <span class="blind">상세내용 열기</span>
+                    </button>
+                  </div>
+                  <div id="accordionContent01" class="content-accordion">
+                    <div class="bg-box size-4xl2xlxl">
+                      <div class="text-wrap in-ico">
+                        <i class="ico laon ico-size-5xl ico-laon-success" aria-hidden="true"></i>
+                        <div class="typeLgBold"><span class="color-fg-primary">마케팅 동의</span>가 확인되었습니다.</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--//[dev] 디자인미확정-->
+            </div>
+            <div class="line-box size-xl mt-48">
+              <span class="typeLgSemibold">이용안내</span>
+              <div class="list type-dotted">
+                <ul>
+                  <li class="typeMd">
+                    입출금계좌 평균 잔액, 총수신 평균 잔액은 전일 기준이며 잔액 변동 시 최종실적에서 차감될 수 있습니다.
+                  </li>
+                  <li class="typeMd">
+                    조회일 이후 실적 취소시 해당 실적이 최종실적에서 차감될 수 있습니다.
+                  </li>
+                  <li class="typeMd">
+                    실적충족여부와 관계없이 연체 시 부수거래우대금리 적용 제외돌 수 있습니다.
+                  </li>
+                  <li class="typeMd">
+                    회원수협의 부수거래 실적은 제외합니다.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+    </div>
+    <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+  </div>
+  <script src="/static/js/ui/cib_ui_common.js"></script>
+</body>
+
+</html>

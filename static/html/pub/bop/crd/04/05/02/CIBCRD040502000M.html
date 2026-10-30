@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/bop.css" />
+</head>
+
+<body>
+    <div class="wrapper">
+        <div id="header">
+            @@include('static/html/pub/layout/skipNavigation.html')
+            @@include('static/html/pub/layout/header_sub.html')
+        </div>
+
+        <div id="container" class="container">
+            <div id="leftArea">
+                @@include('static/html/pub/layout/leftArea.html')
+            </div>
+            <div id="contents">
+                <div class="content">
+                    @@include('static/html/pub/layout/breadcrumb.html')
+                    <div class="bop">
+                        <h2 class="typeH2">이용대금명세조회</h2>
+                        <div class="tbl-area">
+                            <div class="tbl-head">
+                                <div class="left-area">
+                                    <h4 class="typeH4">명세서 요약조회</h4>
+                                </div>
+                                <div class="right-area"></div>
+                            </div>
+
+                            <table class="table-type01">
+                                <caption></caption>
+                                <colgroup>
+                                    <col style="width: 160px">
+                                    <col style="width: 368px">
+                                    <col style="width: 160px">
+                                    <col style="width: 368px">
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">
+                                            <span>결제은행</span>
+                                        </th>
+                                        <td>
+                                            <span class="typeMd">수협</span>
+                                        </td>
+                                        <th scope="row">
+                                            <span>결제계좌</span>
+                                        </th>
+                                        <td>
+                                            <span class="typeMd">356-12-34****</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">
+                                            <span>결제일</span>
+                                        </th>
+                                        <td colspan="3">
+                                            <span class="typeMd">2026-07-20</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">
+                                            <span>청구방법</span>
+                                        </th>
+                                        <td>
+                                            <span class="typeMd">우편</span>
+                                        </td>
+                                        <th scope="row">
+                                            <span>청구지</span>
+                                        </th>
+                                        <td>
+                                            <span class="typeMd">사업장</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">
+                                            <span>청구금액(원)</span>
+                                        </th>
+                                        <td colspan="3" class="text-right">
+                                            <span class="typeMd">2,417,506</span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- 수정중입니다  -->
+
+                        <!-- //수정중입니다  -->
+
+                        <!--  -->
+                        <!--  -->
+                        <!--  -->
+                        <!--  -->
+
+                        <div class="tbl-area">
+                            <div class="tbl-head">
+                                <div class="left-area">
+                                    <h4 class="typeH4">카드 이용금액</h4>
+                                </div>
+                                <div class="right-area"></div>
+                            </div>
+
+                            <table class="table-type01">
+                                <caption></caption>
+                                <colgroup>
+                                    <col style="width: 160px">
+                                    <col style="width: 368px">
+                                    <col style="width: auto">
+                                </colgroup>
+                                <tbody>
+
+                                    <tr>
+                                        <th scope="rowgroup" rowspan="8" id="card-current">
+                                            <span>당월</span>
+                                        </th>
+                                        <th scope="row" class="left-line" id="card-lump">
+                                            <span>일시불</span>
+                                        </th>
+
+                                        <td colspan="3" class="text-right" headers="card-current card-lump">
+                                            <span class="typeMd">2,417,506 원</span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+
+                                        <th scope="row" class="left-line" id="card-intallment">
+                                            <span>할부</span>
+                                        </th>
+
+                                        <td colspan="3" class="text-right" headers="card-current card-intallment">
+                                            <span class="typeMd">0 원</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+
+                                        <th scope="row" class="left-line" id="card-short-loan">
+                                            <span>단기카드대출(현금서비스)
+                                            </span>
+                                        </th>
+
+                                        <td colspan="3" class="text-right" headers="card-current card-short-loan">
+                                            <span class="typeMd">0 원</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+
+                                        <th scope="row" class="left-line" id="card-overseas">
+                                            <span>해외이용</span>
+                                        </th>
+
+                                        <td colspan="3" class="text-right" headers="card-current card-overseas">
+                                            <span class="typeMd">0 원</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+
+                                        <th scope="row" class="left-line" id="card-revolving">
+                                            <span>리볼빙</span>
+                                        </th>
+
+                                        <td colspan="3" class="text-right" headers="card-current card-revolving">
+                                            <span class="typeMd">0 원</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+
+                                        <th scope="row" class="left-line" id="card-long-loan">
+                                            <span>장기카드대출(카드론)</span>
+                                        </th>
+
+                                        <td colspan="3" class="text-right" headers="card-current card-long-loan">
+                                            <span class="typeMd">0 원</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+
+                                        <th scope="row" class="left-line" id="card-anunal-fee">
+                                            <span>연회비/SMS</span>
+                                        </th>
+
+                                        <td colspan="3" class="text-right" headers="card-current card-anunal-fee">
+                                            <span class="typeMd">0 원</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+
+                                        <th scope="row" class="left-line" id="card-check">
+                                            <span>체크(기출금)</span>
+                                        </th>
+
+                                        <td colspan="3" class="text-right" headers="card-current card-check">
+                                            <span class="typeMd">0 원</span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+
+                                        <th scope="row" colspan="2">
+                                            <span>총납부금액</span>
+                                        </th>
+
+                                        <td colspan="3" class="text-right">
+                                            <span class="typeMd">2,417,506 원</span>
+                                        </td>
+                                    </tr>
+
+
+
+
+                                </tbody>
+                            </table>
+                        </div>
+
+
+
+
+                        <!--  -->
+                        <!--  -->
+                        <!--  -->
+                        <!--  -->
+                        <!--  -->
+
+                        <div class="tbl-area">
+                            <div class="tbl-head">
+                                <div class="left-area">
+                                    <h4 class="typeH4">포인트 내역</h4>
+                                </div>
+                                <div class="right-area"></div>
+                            </div>
+                            <table class="table-type03">
+                                <caption>포인트명, 잔여 누계포인트, 익월 소멸 예정포인트, 익익월 소멸 예정포인트에 대한 구성 테이블입니다.</caption>
+                                <colgroup>
+                                    <col style="width: auto">
+                                    <col style="width: auto">
+                                    <col style="width: auto">
+                                    <col style="width: auto">
+                                </colgroup>
+                                <thead>
+                                    <tr>
+                                        <th scope="col"><span>포인트명</span></th>
+                                        <th scope="col"><span>잔여 누계포인트</span></th>
+                                        <th scope="col"><span>익월 소멸 예정포인트</span></th>
+                                        <th scope="col"><span>익익월 소멸 예정포인트</span></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <span class="typeMd">휴매직포인트</span>
+                                        </td>
+                                        <td class="text-right">
+                                            <span class="typeMd">345,475</span>
+                                        </td>
+                                        <td class="text-right">
+                                            <span class="typeMd">5,989</span>
+                                        </td>
+                                        <td class="text-right">
+                                            <span class="typeMd">21,070</span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+
+                        <!--  -->
+                        <div class="tbl-area">
+                            <div class="tbl-head">
+                                <h4 class="typeH4">카드별 이용금액</h4>
+                            </div>
+                            <div class="wrap-board-grid">
+                                <!-- [dev] 그리드 -->
+                                <div class="board-grid">
+                                    <!-- [dev] 그리드 컨텐츠 영역 : 작업 시 삭제-->
+                                    <i style="
+                        display: block;
+                        border: var(--borderWidthMd) solid
+                          var(--colorBorderBase);
+                        border-radius: var(--radiusMd);
+                        padding: var(--spacing2Xl);
+                      ">임시 그리드 영역</i>
+                                    <!-- //[dev] 그리드 컨텐츠 영역 : 작업 시 삭제 -->
+                                </div>
+                                <!-- //[dev] 그리드 -->
+                            </div>
+                        </div>
+
+                        <div class="btn-wrap center sm-mid">
+                            <button type="button" class="btn type-line-neutral size-xxl">
+                                <span class="text">이전</span>
+                            </button>
+                            <button type="button" class="btn type-bg-primary size-xxl">
+                                <span class="text">상세내역 조회</span>
+                            </button>
+                        </div>
+
+                        <div class="line-box size-xl mt-48">
+                            <span class="typeLgSemibold">이용안내</span>
+                            <div class="list type-dotted">
+                                <ul>
+                                    <li class="typeMd">
+                                        이용대금명세서는 최근 2년이내 청구된 내역이 조회 가능합니다.
+
+                                    </li>
+                                    <li class="typeMd">
+                                        고객님의 결제일별 이용주기에 맞춰 당행에 접수된 기준으로 이용대금명세서가 작성됩니다.
+                                    </li>
+                                    <li class="typeMd">
+                                        이용대금명세서 작성 후 취소된 내역은 결제금액에서 차감되고 다음달 명세서에 반영될 수 있습니다.
+
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+        </div>
+        <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+</body>
+
+</html>

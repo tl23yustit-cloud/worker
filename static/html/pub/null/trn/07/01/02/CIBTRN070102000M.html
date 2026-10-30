@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/aut.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
+
+      <div id="container" class="container">
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="aut">
+              <h2 class="typeH2">자금반환등록</h2>
+
+              <div class="tbl-area">
+                <h4 class="typeH4">자금청구내역</h4>
+                <table class="table-type03">
+                  <caption></caption>
+                  <colgroup>
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th scope="col"><span>청구일자</span></th>
+                      <th scope="col"><span>입금일자</span></th>
+                      <th scope="col"><span>대상계좌번호</span></th>
+                      <th scope="col"><span>청구기관</span></th>
+                      <th scope="col"><span>반환대상금액</span></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <span class="typeMd">2026-08-10</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">2026-06-10</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">1111-0000-0000</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">-</span>
+                      </td>
+                      <td class="text-right">
+                        <span class="typeMd">1,000,000 원</span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="tbl-area">
+                <table class="table-type01">
+                  <caption></caption>
+                  <colgroup>
+                    <col style="width: 160px" />
+                    <col style="width: auto" />
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="row">
+                        <span>반환동의 여부</span>
+                      </th>
+                      <td>
+                        <div class="form-box-wrap" role="radiogroup" aria-label="반환동의 여부">
+                          <span class="form-box">
+                            <input type="radio" name="radio_comp-mpnll6" id="radio_comp-mpnll6_01" class="form-radio size-md" checked="" />
+                            <label for="radio_comp-mpnll6_01" class="form-label">반환에 동의합니다.</label>
+                          </span>
+                          <span class="form-box">
+                            <input type="radio" name="radio_comp-mpnll6" id="radio_comp-mpnll6_02" class="form-radio size-md" />
+                            <label for="radio_comp-mpnll6_02" class="form-label">반환에 동의하지 않습니다.</label>
+                          </span>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <th scope="row">
+                        <span>거부사유코드</span>
+                      </th>
+                      <td>
+                        <div class="tbl-flex">
+                          <div class="box-select wSize-lg">
+                            <button type="button" class="select size-lg" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="selectDropdown01" aria-labelledby="label-account" aria-required="true">
+                              <span class="text">고객거부 </span>
+                              <span class="blind">펼침</span>
+                            </button>
+                            <div id="selectDropdown01" class="box-list-select">
+                              <ul class="list-select" role="listbox" aria-label="거부사유코드 선택 리스트">
+                                <li class="item-select" role="group" aria-selected="true">
+                                  <span class="btn-item-select"> 고객거부 </span>
+                                </li>
+                                <li class="item-select" role="group" aria-selected="false">
+                                  <span class="btn-item-select">법적제한계좌(압류계좌)</span>
+                                </li>
+                                <li class="item-select" role="group" aria-selected="false">
+                                  <span class="btn-item-select">법적제한계좌(지급정지계좌)</span>
+                                </li>
+                                <li class="item-select" role="group" aria-selected="false">
+                                  <span class="btn-item-select">특이계좌(청약계좌)</span>
+                                </li>
+                                <li class="item-select" role="group" aria-selected="false">
+                                  <span class="btn-item-select">특이계좌(사망자계좌)</span>
+                                </li>
+                                <li class="item-select" role="group" aria-selected="false">
+                                  <span class="btn-item-select">특이계좌(해약계좌)</span>
+                                </li>
+                                <li class="item-select" role="group" aria-selected="false">
+                                  <span class="btn-item-select">특이계좌(가상계좌)</span>
+                                </li>
+                                <li class="item-select" role="group" aria-selected="false">
+                                  <span class="btn-item-select">특이계좌(미사용 법인계좌)</span>
+                                </li>
+                                <li class="item-select" role="group" aria-selected="false">
+                                  <span class="btn-item-select">개별반환(개인고객 직접반환)</span>
+                                </li>
+                                <li class="item-select" role="group" aria-selected="false">
+                                  <span class="btn-item-select">개별반환(이용기관 반환)</span>
+                                </li>
+                                <li class="item-select" role="group" aria-selected="false">
+                                  <span class="btn-item-select">기타</span>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span><label for="input-7of94w">거부사유</label></span>
+                      </th>
+                      <td>
+                        <div class="clear-type wSize-full">
+                          <input type="text" id="input-7of94w" class="input size-lg" aria-label="거부사유 입력" placeholder="거부사유를 입력해 주세요" />
+                          <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                            <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                            <span class="blind">닫기</span>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="btn-wrap center lg-bot">
+                <button type="button" class="btn type-bg-primary-tint size-xxl">
+                  <span class="text">취소</span>
+                </button>
+                <button type="button" class="btn type-bg-primary size-xxl">
+                  <span class="text">확인</span>
+                </button>
+                <!-- [dev] 결제 -->
+                <button type="button" class="btn type-bg-primary size-xxl">
+                  <span class="text">결제요청</span>
+                </button>
+                <button type="button" class="btn type-bg-primary size-xxl">
+                  <span class="text">승인요청</span>
+                </button>
+                <!--// [dev] 결제 -->
+              </div>
+
+              <div class="line-box size-xl mt-48">
+                <span class="typeLgSemibold">이용안내</span>
+                <div class="list type-dotted">
+                  <ul>
+                    <li class="typeMd">착오송금이란, 송금인의 착오로 인해 송금금액, 수취 금융회사 또는 수취인 계좌번호를 잘못 입력하여 다른 계좌로 이체된 거래입니다.</li>
+                    <li class="typeMd">자금청구내역을 확인하시고 반환하실 거래를 선택하시면 반환등록화면으로 전환됩니다.</li>
+                    <li class="typeMd"><span class="color-fg-error">착오송금의 반환을 거부할 경우 송금인으로부터 부당이득반환소송 등 법적 조치를 받을 수 있으며, 착오로 입금된 돈을 인출하여 사용할 경우 형사상 횡령죄에 해당할 수 있습니다.</span></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
+</html>

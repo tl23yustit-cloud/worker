@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/van.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">
+        @@include('static/html/pub/layout/skipNavigation.html')
+        @@include('static/html/pub/layout/header_sub.html')
+      </div>
+
+      <div id="container" class="container">
+        <div id="leftArea">
+          @@include('static/html/pub/layout/leftArea.html')
+        </div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="van">
+              <h2 class="typeH2">수수료 월집계 조회</h2>
+              <div class="tbl-area">
+                <table class="table-type01">
+                  <caption></caption>
+                  <colgroup>
+                    <col style="width: 160px" />
+                    <col style="width: auto" />
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="row">
+                        <span>기준년월 </span>
+                      </th>
+                      <td>
+                        <div class="tbl-column">
+                          <div class="calendar-wrap">
+                            <div class="input-box">
+                              <input
+                                type="text"
+                                class="input"
+                                placeholder="조회 시작일"
+                                aria-label="조회 시작일"
+                                value="2026-01-06"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span>업체코드</span>
+                      </th>
+                      <td>
+                        <div class="box-select wSize-lg">
+                          <button
+                            type="button"
+                            class="select size-lg"
+                            role="combobox"
+                            aria-expanded="false"
+                            aria-haspopup="listbox"
+                            aria-controls="selectDropdown01"
+                            aria-labelledby="label-account"
+                            aria-required="true"
+                          >
+                            <span class="text">DOZN003-우리상사 </span>
+                            <span class="blind">목록 열기</span>
+                          </button>
+                          <div id="selectDropdown01" class="box-list-select">
+                            <ul
+                              class="list-select"
+                              role="listbox"
+                              aria-label="업체코드 선택 리스트"
+                            >
+                              <li
+                                class="item-select"
+                                role="group"
+                                aria-selected="true"
+                              >
+                                <span class="btn-item-select">
+                                  DOZN003-우리상사
+                                </span>
+                              </li>
+                              <li
+                                class="item-select"
+                                role="group"
+                                aria-selected="false"
+                              >
+                                <span class="btn-item-select">1</span>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="btn-wrap center sm-mid">
+                <button type="button" class="btn type-bg-neutral size-xl">
+                  <span class="text">조회</span>
+                </button>
+              </div>
+
+              <div class="tbl-area">
+                <h4 class="typeH4  mb-12">조회결과</h4>
+                <div class="tbl-head">
+                  <div class="left-area">
+                    <span class="typeSm">총</span
+                    ><span class="count typeSmSemibold">999</span>
+                  </div>
+                  <div class="right-area">
+                    <span class="typeSm">(단위 : 건/원) </span>
+                  </div>
+                </div>
+
+                <table class="table-type03">
+                  <caption>
+                    번호, 대상년월, 서비스종류, 의뢰건, 정상건, 불능건, 수수료,
+                    수수료결제계좌에 대한 구성 테이블입니다.
+                  </caption>
+                  <colgroup>
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th scope="col" rowspan="2"><span>번호</span></th>
+                      <th scope="col" rowspan="2"><span>대상년월</span></th>
+                      <th scope="col" rowspan="2"><span>서비스종류</span></th>
+                      <th scope="colgroup" colspan="3">
+                        <span>이용건수</span>
+                      </th>
+                      <th scope="col" rowspan="2"><span>수수료</span></th>
+                      <th scope="col" rowspan="2">
+                        <span>수수료결제계좌</span>
+                      </th>
+                    </tr>
+                    <tr>
+                      <th scope="col"><span>의뢰건</span></th>
+                      <th scope="col"><span>정상건</span></th>
+                      <th scope="col"><span>불능건</span></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <span class="typeMd">1</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">2026-07</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">실시간 계좌성명조회</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">2,000</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">1,900</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">100</span>
+                      </td>
+                      <td class="text-right">
+                        <span class="typeMd">7,000</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">0000-0000-0000</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="col" class="noradius tbl-border-right" colspan="3">합계</th>
+                      <td>3,000</td>
+                      <td>2,800</td>
+                      <td>200</td>
+                      <td class="text-right">10,000</td>
+                      <td ></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <nav class="pagination size-md" aria-label="페이지네이션">
+                <button
+                  type="button"
+                  class="btn-nav first"
+                  disabled=""
+                  aria-disabled="true"
+                  aria-label="첫 페이지"
+                >
+                  <span class="blind">첫 페이지</span>
+                </button>
+                <button
+                  type="button"
+                  class="btn-nav prev"
+                  disabled=""
+                  aria-disabled="true"
+                  aria-label="이전 페이지"
+                >
+                  <span class="blind">이전 페이지</span>
+                </button>
+
+                <ol class="list-pagination">
+                  <li>
+                    <button
+                      type="button"
+                      class="btn-page active"
+                      aria-current="page"
+                      aria-label="1페이지"
+                      title="현재 페이지"
+                    >
+                      1
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button" class="btn-page" aria-label="2페이지">
+                      2
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button" class="btn-page" aria-label="3페이지">
+                      3
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button" class="btn-page" aria-label="4페이지">
+                      4
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button" class="btn-page" aria-label="5페이지">
+                      5
+                    </button>
+                  </li>
+                </ol>
+
+                <button
+                  type="button"
+                  class="btn-nav next"
+                  aria-label="다음 페이지"
+                >
+                  <span class="blind">다음 페이지</span>
+                </button>
+                <button
+                  type="button"
+                  class="btn-nav last"
+                  aria-label="마지막 페이지"
+                >
+                  <span class="blind">마지막 페이지</span>
+                </button>
+              </nav>
+              <div class="btn-wrap center lg-bot">
+                <button type="button" class="btn type-line-neutral size-xxl">
+                  <span class="text">파일저장</span>
+                </button>
+                <button type="button" class="btn type-line-neutral size-xxl">
+                  <span class="text">영수증발급</span>
+                </button>
+              </div>
+              <div class="line-box size-xl mt-48">
+                <span class="typeLgSemibold">이용안내</span>
+                <div class="list type-dotted">
+                  <ul>
+                    <li class="typeMd">
+                      업체 코드별로 수수료를 조회하실 수 있는 화면입니다
+                    </li>
+                    <li class="typeMd">
+                      2011년 10월부터 월별로 조회하실 수 있습니다.
+                    </li>
+                    <li class="typeMd">
+                      매월 1일은 전월 수수료 산출작업으로 조회가 지연될 수
+                      있습니다.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
+</html>
+<script></script>

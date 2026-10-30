@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/van.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
+
+      <div id="container" class="container">
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="van">
+              <h2 class="typeH2">발급내역 조회</h2>
+
+              <div class="tbl-area">
+                <table class="table-type01">
+                  <caption></caption>
+                  <colgroup>
+                    <col style="width: 160px" />
+                    <col style="width: auto" />
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="row">
+                        <span>발급일자</span>
+                      </th>
+                      <td>
+                        <span class="typeMd">2026-07-14</span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- 테이블 -->
+
+              <div class="tbl-area">
+                <div class="tbl-head">
+                  <div class="left-area"><span class="typeSm">총</span><span class="typeSmSemibold"> 11</span><span class="typeSm">건</span></div>
+                </div>
+                <table class="table-type03">
+                  <caption></caption>
+                  <colgroup>
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th scope="col"><span>번호</span></th>
+                      <th scope="col"><span>가상계좌번호</span></th>
+                      <th scope="col"><span>수취인명</span></th>
+                      <th scope="col">
+                        <span>사용기간<br />(시작일/종료일) </span>
+                      </th>
+
+                      <th scope="col"><span>금액설정</span></th>
+                      <th scope="col"><span>통화코드</span></th>
+                      <th scope="col"><span>휴대폰번호</span></th>
+                      <th scope="col"><span>SMS발송요청</span></th>
+                      <th scope="col"><span>등록</span></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <span class="typeMd">1</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">000-00-000000000</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">가나다(홍길동)</span>
+                      </td>
+                      <td>
+                        <span class="typeMd"
+                          >2026-07-22<br />
+                          2026-07-31
+                        </span>
+                      </td>
+                      <td class="text-right">
+                        <span class="typeMd">100,000</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">KRW</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">010-0000-0000</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">N </span>
+                      </td>
+                      <td>
+                        <button type="button" class="btn type-line-neutral size-sm">
+                          <span class="text">계좌정보등록</span>
+                        </button>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        <span class="typeMd">2</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">000-00-000000000</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">가나다(김수림)</span>
+                      </td>
+                      <td>
+                        <span class="typeMd"
+                          >2026-07-22<br />
+                          2026-07-31
+                        </span>
+                      </td>
+                      <td class="text-right">
+                        <span class="typeMd">100,000</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">KRW</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">010-0000-0000</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">N </span>
+                      </td>
+                      <td>
+                        <button type="button" class="btn type-line-neutral size-sm">
+                          <span class="text">계좌정보등록</span>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <nav class="pagination size-md" aria-label="페이지네이션">
+                <button type="button" class="btn-nav first" disabled="" aria-disabled="true" aria-label="첫 페이지">
+                  <span class="blind">첫 페이지</span>
+                </button>
+                <button type="button" class="btn-nav prev" disabled="" aria-disabled="true" aria-label="이전 페이지">
+                  <span class="blind">이전 페이지</span>
+                </button>
+
+                <ol class="list-pagination">
+                  <li>
+                    <button type="button" class="btn-page active" aria-current="page" title="현재 페이지">1</button>
+                  </li>
+                  <li>
+                    <button type="button" class="btn-page" aria-label="2페이지">2</button>
+                  </li>
+                  <li>
+                    <button type="button" class="btn-page" aria-label="3페이지">3</button>
+                  </li>
+                  <li>
+                    <button type="button" class="btn-page" aria-label="4페이지">4</button>
+                  </li>
+                  <li>
+                    <button type="button" class="btn-page" aria-label="5페이지">5</button>
+                  </li>
+                </ol>
+
+                <button type="button" class="btn-nav next" aria-label="다음 페이지">
+                  <span class="blind">다음 페이지</span>
+                </button>
+                <button type="button" class="btn-nav last" aria-label="마지막 페이지">
+                  <span class="blind">마지막 페이지</span>
+                </button>
+              </nav>
+
+              <!-- 버튼 -->
+              <div class="btn-wrap center lg-bot">
+                <button type="button" class="btn type-line-neutral size-xl">
+                  <span class="text">파일저장</span>
+                </button>
+              </div>
+
+              <div class="line-box size-xl mt-48">
+                <span class="typeLgSemibold">이용안내</span>
+                <div class="list type-dotted">
+                  <ul>
+                    <li class="typeMd">가상계좌를 건별로 등록할 수 있습니다.</li>
+                    <li class="typeMd">기존에 등록되어 있는 계좌별 조건을 확인할 수 있으며 ‘계좌정보등록’을 클릭 하시면 수정이 가능합니다.</li>
+                    <li class="typeMd">파일저장을 클릭하시면 발급된 가상계좌 전체를 다운 받으실 수 있습니다.</li>
+                    <li class="typeMd">대량가상계좌 조건 설정을 하시려면 파일을 PC에 저장 후 계좌정보등록(대량) 바로가기에서 설정하실 수 있습니다.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
+</html>

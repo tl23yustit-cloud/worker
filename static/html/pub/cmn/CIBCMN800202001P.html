@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/cmn.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">
+        @@include('static/html/pub/layout/skipNavigation.html')
+        @@include('static/html/pub/layout/header_sub.html')
+      </div>
+
+      <div id="container" class="container">
+        <div id="leftArea">
+          @@include('static/html/pub/layout/leftArea.html')
+        </div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="cmn">
+              <button
+                type="button"
+                class="btn type-bg-primary size-md btn-modal"
+                data-target="modal-01"
+              >
+                <span class="text">모달버튼</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <div
+      id="modal-01"
+      class="modal is-active"
+      data-dim="true"
+      data-backdrop-close="false"
+      data-alert="true"
+      data-size="sm"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modal-title"
+      aria-describedby="modal-desc"
+    >
+      <div class="modal-wrapper">
+        <div class="modal-title" id="modal-title">
+          <h4 class="typeH4">스크래핑</h4>
+        </div>
+        <div id="modal-desc" class="blind">스크래핑 모달</div>
+        <div class="modal-slot">
+          <div class="scraping-wrapper">
+            <div class="box-animation-page" aria-hidden="true">
+              <i class="ico-page01" aria-hidden="true"></i>
+              <i class="ico-page02" aria-hidden="true"></i>
+              <i class="ico-page03" aria-hidden="true">
+                <i class="ico-auth-sh ico-size-md" aria-hidden="true"></i>
+                <i class="ico-logo-sh" aria-hidden="true"></i>
+                <i class="ico-skeleton-paragraph01" aria-hidden="true"></i>
+                <i class="ico-skeleton-paragraph02" aria-hidden="true"></i>
+              </i>
+            </div>
+            <div class="scraping-text">
+              <p class="main-text">잠시만 기다려 주세요</p>
+              <p class="sub-text">
+                네트워크 상태에 따라 최대 2분 정도 소요될 수 있어요
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <button type="button" class="ico btn-close" aria-label="모달 닫기">
+          <i class="ico-close ico-size-smMd" aria-hidden="true"></i>
+          <span class="blind">닫기</span>
+        </button>
+      </div>
+    </div>
+
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
+</html>

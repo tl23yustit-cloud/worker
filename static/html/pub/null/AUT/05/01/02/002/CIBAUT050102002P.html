@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>수협은행</title>
+  <link rel="stylesheet" href="/static/css/reset.css" />
+  <link rel="stylesheet" href="/static/css/layout.css" />
+  <link rel="stylesheet" href="/static/css/component.css" />
+  <link rel="stylesheet" href="/static/css/common.css" />
+  <link rel="stylesheet" href="/static/css/aut.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <div id="header">
+      @@include('static/html/pub/layout/skipNavigation.html')
+      @@include('static/html/pub/layout/header_sub.html')
+    </div>
+
+    <div id="container" class="container">
+      <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+      <div id="contents">
+        <div class="content">
+          @@include('static/html/pub/layout/breadcrumb.html')
+          <div class="aut">
+            <button type="button" class="btn type-bg-primary size-md btn-modal" data-target="modal-05">
+              <span class="text">외환 해외송금 입력안내</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+    </div>
+    <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+  </div>
+  <div id="modal-05" class="modal" data-dim="true" data-backdrop-close="false" data-alert="false" data-size="sm"
+    role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc">
+    <div class="modal-wrapper">
+      <div class="modal-title">
+        <h4 class="typeH4">알림</h4>
+      </div>
+      <div class="modal-slot">
+        <div class="result-box">
+          <div class="result-banner">
+            <div class="inner-img type-warning"></div>
+            <div class="result-message">
+              <h4 class="typeH4 color-blueMd">
+                고객님 죄송합니다.<br />
+                인증서 정보가 존재하지 않습니다. 인증서를 다시 발급받으시기 바랍니다.
+              </h4>
+              <div class="result-deco-box">
+                <p class="typeLgMedium color-fg-error">오류코드 : E_NOT_FOUND</p>
+                <p class="typeMd color-fg-tertiary">고객지원센터 1588-1515, 1644-1515(서비스코드 03번)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer flex items-center justify-center gap-8">
+        <button type="button" class="btn type-bg-primary size-lg">
+          <span class="text">확인</span>
+        </button>
+      </div>
+      <button type="button" class="ico btn-close" aria-label="모달 닫기">
+        <i class="ico-close ico-size-smMd" aria-hidden="true"></i>
+        <span class="blind">닫기</span>
+      </button>
+    </div>
+  </div>
+  <script src="/static/js/ui/cib_ui_common.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>뱅킹업무 &gt; 예금/신탁 &gt; 예금 &gt; 해지계좌조회 &gt; 2단계</title>
+  <link rel="stylesheet" href="/static/css/reset.css" />
+  <link rel="stylesheet" href="/static/css/layout.css" />
+  <link rel="stylesheet" href="/static/css/component.css" />
+  <link rel="stylesheet" href="/static/css/common.css" />
+  <link rel="stylesheet" href="/static/css/fin.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <div id="header">
+      @@include('static/html/pub/layout/skipNavigation.html')
+      @@include('static/html/pub/layout/header_sub.html')
+    </div>
+
+    <div id="container" class="container">
+      <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+      <div id="contents">
+        <div class="content">
+          @@include('static/html/pub/layout/breadcrumb.html')
+          <div class="fin">
+            <h2 class="typeH2">
+              펀드 신규가입
+              <div class="box-steps">
+                <ol class="list-steps">
+                  <!-- 
+												[dev] 상태값 class 안내
+												class="item-steps" 기본 숫자 표기
+												class="item-steps passed" 완료
+												class="item-steps current" 현재
+											 -->
+                  <li class="item-steps passed">
+                    <span class="blind">1</span>
+                    <i class="icon" aria-hidden="true">1</i>
+                    <span class="text">약관동의</span>
+                  </li>
+                  <li class="item-steps passed">
+                    <span class="blind">2</span>
+                    <i class="icon" aria-hidden="true">2</i>
+                    <span class="text">정보입력</span>
+                  </li>
+                  <li class="item-steps passed">
+                    <span class="blind">3</span>
+                    <i class="icon" aria-hidden="true">3</i>
+                    <span class="text">정보확인</span>
+                  </li>
+                  <li class="item-steps current" aria-current="step">
+                    <span class="blind">4</span>
+                    <i class="icon" aria-hidden="true">4</i>
+                    <span class="text">가입완료</span>
+                  </li>
+                </ol>
+              </div>
+            </h2>
+            
+            <!-- 완료박스(s) -->
+            <div class="prototype-view">
+              <div class="result-box">
+                <div class="result-banner">
+                  <div class="inner-img"></div>
+                  <div class="result-message">
+                    <h4 class="typeH4 color-blueMd">
+                      상품가입이 완료되었습니다.
+                    </h4>
+                  </div>
+                </div>
+              </div>
+            </div> 
+            <!-- 완료박스(e) -->
+
+            <!-- 하단 버튼영역(s) -->
+            <div class="btn-wrap center lg-bot">
+              <button type="button" class="btn type-bg-primary size-xxl">
+                <span class="text">확인</span>
+              </button>
+            </div>
+            <!-- 하단 버튼영역(e) -->
+
+            <!-- 이용안내(s) -->
+            <div class="line-box size-xl mt-48">
+              <span class="typeLgSemibold">이용안내</span>
+              <div class="list type-dotted">
+                <ul>
+                  <li class="typeMd">
+                    인터넷뱅킹으로 개설한 예금계좌 또는 출금계좌가 신규예금 해지전에 이수관되어 계좌번호가 변경된 경우는 인터넷뱅킹을 이용한 거래(입금, 이자지급, 해지, 중도해지 등)를 하실 수 없고 영업점에서만 거래가 가능합니다.
+                  </li>
+                  <li class="typeMd">
+                    제공된 계약서류는 <a href="#none" target="_blank" rel="noopener noreferrer">개인 &gt; 금융서비스 &gt; 계약서류관리</a>에서 상시조회 가능합니다.
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <!-- 이용안내(e) -->
+          </div>
+        </div>
+      </div>
+      <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+    </div>
+    <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+  </div>
+  <script src="/static/js/ui/cib_ui_common.js"></script>
+</body>
+
+</html>

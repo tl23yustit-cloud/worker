@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/trn.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
+
+      <div id="container" class="container">
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="trn">
+              <h2 class="typeH2">자동이체출금내역조회</h2>
+
+              <div class="tbl-area">
+                <table class="table-type01">
+                  <caption></caption>
+                  <colgroup>
+                    <col />
+                    <col />
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="row">
+                        <span><label for="input-ody26c">업무구분 </label></span>
+                      </th>
+                      <td>
+                        <div class="box-select wSize-md">
+                          <button type="button" class="select size-lg" role="combobox" aria-expanded="true" aria-haspopup="listbox" aria-controls="selectDropdown04" aria-labelledby="label-account" aria-required="true">
+                            <span class="text">계좌간이체</span>
+                            <span class="blind">펼침</span>
+                          </button>
+                          <div id="selectDropdown04" class="box-list-select">
+                            <ul class="list-select" role="listbox" aria-label="업무구분 선택 리스트">
+                              <li class="item-select selected" role="group" aria-selected="true">
+                                <span class="btn-item-select">계좌간이체</span>
+                              </li>
+                              <li class="item-select" role="group" aria-selected="false">
+                                <span class="btn-item-select">아파트관리비</span>
+                              </li>
+                              <li class="item-select" role="group" aria-selected="false">
+                                <span class="btn-item-select">지로/CMS</span>
+                              </li>
+                              <li class="item-select" role="group" aria-selected="false">
+                                <span class="btn-item-select">펌뱅킹</span>
+                              </li>
+                              <li class="item-select" role="group" aria-selected="false">
+                                <span class="btn-item-select">공제(보험료) 이체</span>
+                              </li>
+                              <li class="item-select" role="group" aria-selected="false">
+                                <span class="btn-item-select">환율자동전환</span>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <th scope="row">
+                        <span><label for="input-ody26a">출금계좌번호 </label></span>
+                      </th>
+                      <td>
+                        <div class="tbl-flex">
+                          <div class="box-select wSize-md">
+                            <button type="button" class="select size-lg" role="combobox" aria-expanded="true" aria-haspopup="listbox" aria-controls="selectDropdown05" aria-labelledby="label-account" aria-required="true">
+                              <span class="text">선택해주세요</span>
+                              <span class="blind">펼침</span>
+                            </button>
+                            <div id="selectDropdown05" class="box-list-select">
+                              <ul class="list-select" role="listbox" aria-label="출금계좌번호 선택 리스트">
+                                <li class="item-select selected" role="group" aria-selected="true">
+                                  <span class="btn-item-select"> 0100-0000-0000(보통예금) </span>
+                                </li>
+                                <li class="item-select" role="group" aria-selected="false">
+                                  <span class="btn-item-select">조회된 계좌가 없습니다</span>
+                                </li>
+                                <li class="item-select" role="group" aria-selected="false">
+                                  <span class="btn-item-select">1</span>
+                                </li>
+                                <li class="item-select" role="group" aria-selected="false">
+                                  <span class="btn-item-select">2</span>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div class="box-select wSize-md">
+                            <button type="button" class="select size-lg" role="combobox" aria-expanded="true" aria-haspopup="listbox" aria-controls="selectDropdown08" aria-labelledby="label-account" aria-required="true">
+                              <span class="text">선택해주세요</span>
+                              <span class="blind">펼침</span>
+                            </button>
+                            <div id="selectDropdown08" class="box-list-select">
+                              <ul class="list-select" role="listbox" aria-label="계좌 선택 리스트">
+                                <li class="item-select selected" role="group" aria-selected="true">
+                                  <span class="btn-item-select"> 0100-0000-0000(보통예금) </span>
+                                </li>
+                                <li class="item-select" role="group" aria-selected="false">
+                                  <span class="btn-item-select">조회된 계좌가 없습니다</span>
+                                </li>
+                                <li class="item-select" role="group" aria-selected="false">
+                                  <span class="btn-item-select">1</span>
+                                </li>
+                                <li class="item-select" role="group" aria-selected="false">
+                                  <span class="btn-item-select">2</span>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span>조회기간 </span>
+                      </th>
+                      <td>
+                        <div class="tbl-column">
+                          <div class="radio-group">
+                            <span class="form-box">
+                              <input type="radio" name="SampleRadio0302_01" id="SampleRadio0302_01" class="radio-btn" checked="" />
+                              <label for="SampleRadio0302_01" class="form-label">1주일</label>
+                              <input type="radio" name="SampleRadio0302_01" id="SampleRadio0302_02" class="radio-btn" 77="" />
+                              <label for="SampleRadio0302_02" class="form-label">1개월</label>
+                              <input type="radio" name="SampleRadio0302_01" id="SampleRadio0302_03" class="radio-btn" />
+                              <label for="SampleRadio0302_03" class="form-label">3개월</label>
+                              <input type="radio" name="SampleRadio0302_01" id="SampleRadio0302_04" class="radio-btn" />
+                              <label for="SampleRadio0302_04" class="form-label">6개월</label>
+                            </span>
+                          </div>
+                          <div class="calendar-wrap">
+                            <div class="input-box">
+                              <input type="text" class="input" placeholder="이쳬예약일" title="" aria-label="이쳬예약일" value="2026-01-06" />
+                              <button type="button" class="btn">
+                                <i class="ico-calendar ico-size-smMd" aria-hidden="true"></i>
+                                <span class="blind">날짜 열기</span>
+                              </button>
+                            </div>
+                            ~
+                            <div class="input-box">
+                              <input type="text" class="input" placeholder="이쳬예약일" title="" aria-label="이쳬예약일" value="2026-01-06" />
+                              <button type="button" class="btn">
+                                <i class="ico-calendar ico-size-smMd" aria-hidden="true"></i>
+                                <span class="blind">날짜 열기</span>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- 버튼 영역시작 -->
+              <div class="btn-wrap center lg-bot">
+                <button type="button" class="btn type-bg-primary size-xxl">
+                  <span class="text">확인</span>
+                </button>
+              </div>
+
+              <!-- 이용안내 -->
+              <div class="line-box size-xl mt-48">
+                <span class="typeLgSemibold">이용안내</span>
+                <div class="list type-dotted">
+                  <ul>
+                    <li class="typeMd">지로이체 서비스는 고객님이 신청하신 지로이체 등록내역에 기초하여, 해당업체에서 요청하는 결제일에 입출금이 자유로운 통장에서 결제금액을 자동으로 출금하여 지로요금납부를 대행하는 서비스입니다.</li>
+                    <li class="typeMd">납부자이체 서비스는 고객님이 지정하신 납입일의 전영업일에 매달 입출금이 자유로운 통장에서 출금하여 납입일에 타행의 수취계좌로 입금시켜 드리는 서비스입니다.</li>
+                    <li class="typeMd">타행자동이체서비스는 이체일 당일에 출금하여 타은행계좌로 입금처리 해주는 서비스입니다.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
+</html>
+<script></script>

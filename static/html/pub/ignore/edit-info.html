@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/fin.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <div id="header">
+      @@include('static/html/pub/layout/skipNavigation.html')
+      @@include('static/html/pub/layout/header_sub.html')
+    </div>
+
+    <div id="container" class="container">
+      <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+      <div id="contents">
+        <div class="content">
+          @@include('static/html/pub/layout/breadcrumb.html')
+          <div class="fin">
+            <h2 class="typeH2">고객정보 조회/변경</h2>
+            <div class="tbl-area">
+              <h4 class="typeH4">기본정보</h4>
+              <table class="table-type01">
+                <caption>
+                  기본정보
+                </caption>
+                <colgroup>
+                  <col>
+                  <col>
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th scope="row">
+                      <span class="required">성명(한글)</span>
+                    </th>
+                    <td>
+                      <p class="typeMd">김수협</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">성명(영문)</th>
+                    <td class="flex items-center gap-10">
+                      <input type="text" class="input enName" title="성명(영문)" value="Kim Su Hyup">
+                      <span class="desc typeSm">* 여권에 표시된 영문 성명과 동일하게
+                        입력해주세요</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">생년월일</th>
+                    <td><span class="typeMd">010901</span></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">휴대폰번호</th>
+                    <td><span class="typeMd">010-1234-5678</span></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">이메일</th>
+                    <td>
+                      <input type="text" class="input email" title="이메일" value="e.gkdfdfdf@syhyup-bank.com">
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">자택전화</th>
+                    <td class="flex items-center gap-8">
+                      <!-- <select name="" id="" class="select phone">
+                                <option>02</option>
+                              </select> -->
+                      <div class="box-select phone">
+                        <button type="button" class="select" role="combobox" aria-expanded="false"
+                          aria-haspopup="listbox" aria-controls="selectDropdown01">
+                          <span class="text">선택</span>
+                          <span class="blind">펼침</span>
+                        </button>
+                        <div id="selectDropdown01" class="box-list-select">
+                          <ul class="list-select" role="listbox" aria-label="선택 항목 리스트">
+                            <li class="item-select" role="group" aria-label="선택 항목 리스트">
+                              <span class="form-box">
+                                02
+                              </span>
+                            </li>
+                            <li class="item-select" role="group" aria-label="선택 항목 리스트">
+                              <span class="form-box">
+                                032
+                              </span>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <span>-</span>
+                      <input type="text" class="input phone" title="" size="4" value="1234">
+                      <span>-</span>
+                      <input type="text" class="input phone" title="" size="4" value="5678">
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <span class="required">자택주소</span>
+                    </th>
+                    <td class="flex flex-column gap-8">
+                      <div class="flex items-center gap-6">
+                        <input type="text" class="input zip" title="우편번호" value="04375" readonly="">
+                        <button type="button" class="btn type-line-secondary size-md">
+                          <span class="text">우편번호 찾기</span>
+                        </button>
+                      </div>
+                      <div class="flex items-center gap-16">
+                        <div class="flex items-center gap-6">
+                          <input type="text" class="input adr1" title="주소1" value="서울특별시 용산구 백범로99길" readonly="">
+                          <button type="button" class="btn type-line-secondary size-md">
+                            <span class="text">초기화</span>
+                          </button>
+                        </div>
+                        <input type="text" class="input" placeholder="상세주소" title="상세주소">
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="tbl-area">
+              <h4 class="typeH4">직장정보</h4>
+              <table class="table-type01">
+                <caption>
+                  직장정보
+                </caption>
+                <colgroup>
+                  <col>
+                  <col>
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th scope="row">
+                      <span>급여소득자</span>
+                    </th>
+                    <td>
+                      <div class="flex items-center gap-16">
+                        <div class="flex items-center gap-6">
+                          <div class="box-select size-md">
+                            <button type="button" class="select size-xl" role="combobox" aria-expanded="false"
+                              aria-haspopup="listbox" aria-controls="selectDropdown01">
+                              <span class="text">급여소득자</span>
+                              <span class="blind">펼침</span>
+                            </button>
+                            <div id="selectDropdown01" class="box-list-select">
+                              <ul class="list-select" role="listbox" aria-label="선택 항목 리스트">
+                                <li class="item-select" role="group" aria-label="선택 항목 리스트">
+                                  <span class="form-box">
+                                    1
+                                  </span>
+                                </li>
+                                <li class="item-select" role="group" aria-label="선택 항목 리스트">
+                                  <span class="form-box">
+                                    1
+                                  </span>
+                                </li>
+                                <li class="item-select" role="group" aria-label="선택 항목 리스트">
+                                  <span class="form-box">
+                                    1
+                                  </span>
+                                </li>
+                                <li class="item-select" role="group" aria-label="선택 항목 리스트">
+                                  <span class="form-box">
+                                    1
+                                  </span>
+                                </li>
+                                <li class="item-select" role="group" aria-label="선택 항목 리스트">
+                                  <span class="form-box">
+                                    1
+                                  </span>
+                                </li>
+                                <li class="item-select" role="group" aria-label="선택 항목 리스트">
+                                  <span class="form-box">
+                                    1
+                                  </span>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                          <button type="button" class="btn type-line-secondary size-md">
+                            <span class="text">선택</span>
+                          </button>
+                        </div>
+                        <input type="text" class="input size-md" title="성명(영문)" value="Kim Su Hyup">
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">직장명</th>
+                    <td class="flex items-center">
+                      <input type="text" class="input size-md" title="성명(영문)" value="Kim Su Hyup">
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">부서명</th>
+                    <td><input type="text" class="input size-md" title="성명(영문)" value="Kim Su Hyup"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">직위</th>
+                    <td><input type="text" class="input size-md" title="성명(영문)" value="Kim Su Hyup"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">휴대폰번호</th>
+                    <td><span class="typeMd">010-1234-5678</span></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">이메일</th>
+                    <td>
+                      <input type="text" class="input email" title="이메일" value="e.gkdfdfdf@syhyup-bank.com">
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <span class="required">직장주소</span>
+                    </th>
+                    <td class="flex flex-column gap-8">
+                      <div class="flex items-center gap-6">
+                        <input type="text" class="input zip" title="우편번호" value="04375" readonly="">
+                        <button type="button" class="btn type-line-secondary size-md">
+                          <span class="text">우편번호 찾기</span>
+                        </button>
+                      </div>
+                      <div class="flex items-center gap-16">
+                        <div class="flex items-center gap-6">
+                          <input type="text" class="input adr1" title="주소1" value="서울특별시 용산구 백범로99길" readonly="">
+                          <button type="button" class="btn type-line-secondary size-md">
+                            <span class="text">초기화</span>
+                          </button>
+                        </div>
+                        <input type="text" class="input" placeholder="상세주소" title="상세주소">
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">직장전화번호</th>
+                    <td class="flex items-center gap-8">
+                      <!-- <select name="" id="" class="select phone">
+                                <option>02</option>
+                              </select> -->
+                      <div class="box-select phone">
+                        <button type="button" class="select" role="combobox" aria-expanded="false"
+                          aria-haspopup="listbox" aria-controls="selectDropdown01">
+                          <span class="text">선택</span>
+                          <span class="blind">펼침</span>
+                        </button>
+                        <div id="selectDropdown01" class="box-list-select">
+                          <ul class="list-select" role="listbox" aria-label="선택 항목 리스트">
+                            <li class="item-select" role="group" aria-label="선택 항목 리스트">
+                              <span class="form-box">
+                                02
+                              </span>
+                            </li>
+                            <li class="item-select" role="group" aria-label="선택 항목 리스트">
+                              <span class="form-box">
+                                032
+                              </span>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <span>-</span>
+                      <input type="text" class="input phone" title="" size="4" value="1234">
+                      <span>-</span>
+                      <input type="text" class="input phone" title="" size="4" value="5678">
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="btn-wrap center">
+              <button type="button" class="btn type-line-neutral size-xl">
+                <span class="text">취소</span>
+              </button>
+              <button type="button" class="btn type-bg-primary size-xl">
+                <span class="text">확인</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+    </div>
+    <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+  </div>
+  <script src="/static/js/ui/cib_ui_common.js"></script>
+</body>
+
+</html>

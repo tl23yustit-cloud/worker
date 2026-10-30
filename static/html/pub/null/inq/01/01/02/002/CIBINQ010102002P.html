@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>수협은행</title>
+  <link rel="stylesheet" href="/static/css/reset.css" />
+  <link rel="stylesheet" href="/static/css/layout.css" />
+  <link rel="stylesheet" href="/static/css/component.css" />
+  <link rel="stylesheet" href="/static/css/common.css" />
+  <link rel="stylesheet" href="/static/css/inq.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <div id="header">
+      @@include('static/html/pub/layout/skipNavigation.html')
+      @@include('static/html/pub/layout/header_sub.html')
+    </div>
+
+    <div id="container" class="container">
+      <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+      <div id="contents">
+        <div class="content">
+          @@include('static/html/pub/layout/breadcrumb.html')
+          <div class="inq">
+            <button type="button" class="btn type-bg-primary size-md btn-modal" data-target="modal-05">
+              <span class="text">카드선택 확인</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+    </div>
+    <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+  </div>
+  <script src="/static/js/ui/cib_ui_common.js"></script>
+  <div id="modal-05" class="modal" data-dim="true" data-backdrop-close="false" data-alert="false" data-size="sm"
+    role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc">
+    <div class="modal-wrapper">
+      <div class="modal-title">
+        <h4 class="typeH4">금융거래 정보제공 동의 안내</h4>
+      </div>
+      <div class="modal-slot">
+        <p class="typeLg text-center">수협은행 오픈뱅킹 서비스를 <br />이용해주셔서 감사합니다. <br />
+          금융실명법에 의거 고객님의 오픈뱅킹 이용 및 <br />금융거래 정보제공 동의시점으로부터 <br />매 1년마다 동의사실을 재확인합니다.
+        </p>
+        <p class="typeMd text-center">(금액이 없거나 마이너스 발생할 수 있습니다.)</p>
+      </div>
+      <div class="modal-footer flex items-center justify-center gap-8">
+        <!--[dev]:20261029 버튼 삭제 및 버튼텍스트 수정-->
+        <button type="button" class="btn type-bg-primary size-lg">
+          <span class="text">재동의</span>
+        </button>
+         <!--//[dev]:20261029 버튼 삭제 및 버튼텍스트 수정-->
+      </div>
+      <button type="button" class="ico btn-close" aria-label="모달 닫기">
+        <i class="ico-close ico-size-smMd" aria-hidden="true"></i>
+        <span class="blind">닫기</span>
+      </button>
+    </div>
+  </div>
+</body>
+
+</html>

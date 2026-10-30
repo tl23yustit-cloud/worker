@@ -1,0 +1,254 @@
+<!-- 1.2v -->
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/bmg.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
+
+      <div id="container" class="container">
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="bmg">
+              <h2 class="typeH2">결재진행내역</h2>
+              <div class="approval-detail-container">
+                <h4 class="typeH4">결재 상세조회</h4>
+                <div class="approval-detail-wrapper">
+                  <aside class="approval-sidebar">
+                    <div class="sidebar-header">
+                      <h5 class="typeH5">거래종류 <span class="count">4</span></h5>
+                    </div>
+                    <!-- for dev) css has 를사용해서 퍼블단에서 간단하게 해주고싶었지만 브라우저 버전호환이슈로 is-active 로 강조표시 부탁드립니다.  -->
+                    <!-- for dev) approval-group-item -> 아이템 감싸는 몸통 부분  여기 is-active 쓰면 파란색 색변경됨 -->
+                    <!-- for dev) sub-item 버튼에 is-active 붙히면 체크박스 파란색 변경 -->
+                    <div class="approval-scroll">
+                      <div class="approval-group-item is-active">
+                        <div class="group-name">이체(다건)</div>
+                        <ul class="sub-item-list">
+                          <li>
+                            <button class="sub-item is-active">
+                              <i class="ico line ico-size-smMd" aria-hidden="true"></i>
+                              <span class="button-text">1/4</span>
+                            </button>
+                          </li>
+                          <li>
+                            <button class="sub-item">
+                              <i class="ico line ico-size-smMd" aria-hidden="true"></i>
+                              <span class="button-text">2/4</span>
+                            </button>
+                          </li>
+                          <li>
+                            <button class="sub-item">
+                              <i class="ico line ico-size-smMd" aria-hidden="true"></i>
+                              <span class="button-text">3/4</span>
+                            </button>
+                          </li>
+                          <li>
+                            <button class="sub-item">
+                              <i class="ico line ico-size-smMd" aria-hidden="true"></i>
+                              <span class="button-text">4/4</span>
+                            </button>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="approval-group-item">
+                        <button class="sub-item">
+                          <i class="ico line ico-size-smMd" aria-hidden="true"></i>
+                          <span class="button-text">이체</span>
+                        </button>
+                      </div>
+                      <div class="approval-group-item">
+                        <button class="sub-item">
+                          <i class="ico line ico-size-smMd" aria-hidden="true"></i>
+                          <span class="button-text">지로요금납부</span>
+                        </button>
+                      </div>
+                      <div class="approval-group-item">
+                        <button class="sub-item">
+                          <i class="ico line ico-size-smMd" aria-hidden="true"></i>
+                          <span class="button-text">더미데이터</span>
+                        </button>
+                      </div>
+                      <div class="approval-group-item">
+                        <button class="sub-item">
+                          <i class="ico line ico-size-smMd" aria-hidden="true"></i>
+                          <span class="button-text">더미데이터</span>
+                        </button>
+                      </div>
+                      <div class="approval-group-item is-active">
+                        <button class="sub-item is-active">
+                          <i class="ico line ico-size-smMd" aria-hidden="true"></i>
+                          <span class="button-text">긴글 더미데이터긴글 더미데이터긴글 더미데이터</span>
+                        </button>
+                      </div>
+                    </div>
+                  </aside>
+                  <section class="approval-content">
+                    <div class="tbl-area">
+                      <div class="tbl-head">
+                        <div class="left-area">
+                          <h5 class="typeH5">거래상세내용</h5>
+                        </div>
+                        <div class="right-area">
+                          <button type="button" class="btn type-line-secondary size-sm">
+                            <span class="text">진행조회</span>
+                          </button>
+                        </div>
+                      </div>
+                      <table class="table-type01">
+                        <caption>
+                          거래일자, 거래시간, 출금계좌번호, 출금계좌예금주, 이체금액, 수수료, CMS코드, 보내는분 통장표시내용, 입금계좌예금주, 받는분 통장표시내용, 입금은행, 입금계좌번호, 결재상태 , 반려사유 에 대한 구성 테이블입니다.
+                        </caption>
+                        <colgroup>
+                          <col style="width: 160px" />
+                          <col style="width: 368px" />
+                          <col style="width: 160px" />
+                          <col style="width: 368px" />
+                        </colgroup>
+                        <tbody>
+                          <tr>
+                            <th scope="row">
+                              <span>거래일자</span>
+                            </th>
+                            <td>
+                              <span class="typeMd">2026-07-24</span>
+                            </td>
+                            <th scope="row">
+                              <span>거래시간</span>
+                            </th>
+                            <td>
+                              <span class="typeMd">08:52:55</span>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th scope="row">
+                              <span>출금계좌번호</span>
+                            </th>
+                            <td>
+                              <span class="typeMd">1030-1081-3908</span>
+                            </td>
+                            <th scope="row">
+                              <span>출금계좌예금주</span>
+                            </th>
+                            <td>
+                              <span class="typeMd">충먹서(방콕상회)</span>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th scope="row">
+                              <span>이체금액</span>
+                            </th>
+                            <td class="text-right">
+                              <span class="typeMd">50,000 원</span>
+                            </td>
+                            <th scope="row">
+                              <span>수수료</span>
+                            </th>
+                            <td class="text-right">
+                              <span class="typeMd">1,000 원</span>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th scope="row">
+                              <span>CMS코드</span>
+                            </th>
+                            <td></td>
+                            <th scope="row">
+                              <span>보내는분 통장표시내용</span>
+                            </th>
+                            <td>
+                              <span class="typeMd">추자락</span>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th scope="row">
+                              <span>입금계좌예금주</span>
+                            </th>
+                            <td>
+                              <span class="typeMd">추자락</span>
+                            </td>
+                            <th scope="row">
+                              <span>받는분 통장표시내용</span>
+                            </th>
+                            <td>
+                              <span class="typeMd">충먹서(방콕상회)</span>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th scope="row">
+                              <span>입금은행</span>
+                            </th>
+                            <td>
+                              <span class="typeMd">국민은행</span>
+                            </td>
+                            <th scope="row">
+                              <span>입금계좌번호</span>
+                            </th>
+                            <td>
+                              <span class="typeMd">43050101368675</span>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th scope="row">
+                              <span>결재상태</span>
+                            </th>
+                            <td>
+                              <span class="typeMd">반려</span>
+                            </td>
+                            <th scope="row">
+                              <span>반려사유</span>
+                            </th>
+                            <td>
+                              <span class="typeMd">반려사유 노출</span>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div class="text-wrap">
+                      <div class="typeLgMedium">위 결재건의 상세내용을 확인합니다.</div>
+                      <div class="btn-wrap center lg-bot">
+                        <button type="button" class="btn type-bg-neutral size-lg">
+                          <span class="text">확인</span>
+                        </button>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+              </div>
+              <div class="btn-wrap center lg-bot">
+                <button type="button" class="btn type-line-neutral size-xxl">
+                  <span class="text">목록으로 이동 </span>
+                </button>
+              </div>
+              <div class="line-box size-xl mt-48">
+                <span class="typeLgSemibold">이용안내</span>
+                <div class="list type-dotted">
+                  <ul>
+                    <li class="typeMd">최종 결재가 완료된 거래의 상세내용을 확인할 수 있습니다.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
+</html>
+<script></script>

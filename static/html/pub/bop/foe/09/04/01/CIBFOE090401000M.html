@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>수협은행</title>
+  <link rel="stylesheet" href="/static/css/reset.css" />
+  <link rel="stylesheet" href="/static/css/layout.css" />
+  <link rel="stylesheet" href="/static/css/component.css" />
+  <link rel="stylesheet" href="/static/css/common.css" />
+  <link rel="stylesheet" href="/static/css/bop.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <div id="header">
+      @@include('static/html/pub/layout/skipNavigation.html')
+      @@include('static/html/pub/layout/header_sub.html')
+    </div>
+
+    <div id="container" class="container">
+      <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+      <div id="contents">
+        <div class="content">
+          @@include('static/html/pub/layout/breadcrumb.html')
+          <div class="bop">
+            <h2 class="typeH2">
+              개설내역
+            </h2>
+            <div class="tbl-area">
+              <div class="tbl-head">
+                <h4 class="typeH4">
+                  <span class="text">상세안내</span>
+                </h4>
+              </div>
+              <table class="table-type01">
+                <caption>
+                  상세안내 테이블
+                </caption>
+                <!-- [수정] 20260907 col width 값 수정  -->
+                <colgroup>
+                  <col style="width: 160px" />
+                  <col style="width: 368px" />
+                  <col style="width: 160px" />
+                  <col style="width: 368px" />
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th scope="row">계좌번호</th>
+                    <td>
+                      <span class="typeMd">LN00000000</span>
+                    </td>
+                    <th scope="row">통화</th>
+                    <td>
+                      <span class="typeMd">USD</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <table class="table-type01">
+                <caption>
+                  상세안내 테이블
+                </caption>
+                <!-- [수정] 20260907 col width 값 수정  -->
+                <colgroup>
+                  <col style="width: 160px" />
+                  <col style="width: 368px" />
+                  <col style="width: 160px" />
+                  <col style="width: 368px" />
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th scope="row">개설일</th>
+                    <td>
+                      <span class="typeMd">YYYY-MM-DD</span>
+                    </td>
+                    <th scope="row">유효기일</th>
+                    <td>
+                      <span class="typeMd">YYYY-MM-DD</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">개설원화금액</th>
+                    <td class="text-right">
+                      <span class="typeMd">1,000,000원</span>
+                    </td>
+                    <th scope="row">개설외화금액</th>
+                    <td class="text-right">
+                      <span class="typeMd">USD 10.00</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">원화잔액</th>
+                    <td class="text-right">
+                      <span class="typeMd">1,000원</span>
+                    </td>
+                    <th scope="row">외화잔액</th>
+                    <td class="text-right">
+                      <span class="typeMd">USD 10.00</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">외화보증금잔액</th>
+                    <td class="text-right">
+                      <span class="typeMd">USD 10.00</span>
+                    </td>
+                    <th scope="row">원화보증금잔액</th>
+                    <td class="text-right">
+                      <span class="typeMd">1,000원</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">상품명</th>
+                    <td colspan="3">
+                      <span class="typeMd">상품명 노출</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <!--[dev]:텍스트수정 TERM CHAGE 최종일->TERM CHARGE 최종일 -->
+                    <th scope="row">TERM CHARGE 최종일 </th>
+                    <!--//[dev]:텍스트수정 TERM CHAGE 최종일->TERM CHARGE 최종일 -->
+                    <td>
+                      <span class="typeMd">YYYY-MM-DD</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="btn-wrap center sm-mid">
+              <button type="button" class="btn type-bg-neutral size-xl">
+                <span class="text">확인</span>
+              </button>
+            </div>
+            <div class="tbl-area">
+
+              <div class="tbl-head">
+                <div class="left-area">
+                  <h4 class="typeH4">
+                    <!--[dev]:텍스트 수정 결재대상내역->결제대상내역-->
+                    <span class="text">결제대상내역</span>
+                    <!--//[dev]:텍스트 수정 결재대상내역->결제대상내역-->
+                  </h4>
+                </div>
+                <div class="right-area">
+                  <span class="color-fg-secondary typeMd">조회기준일시 YYYY-MM-DD 00:00:00</span>
+                </div>
+              </div>
+              <div class="wScroll">
+                <table class="table-type03">
+                  <caption>
+                    결재대상내역 테이블
+                  </caption>
+                  <colgroup>
+                    <col>
+                    <col>
+                    <col>
+                    <col>
+                    <col>
+                  </colgroup>
+                  <thead>
+                    <!-- [수정] 20260907 th scope 추가 -->
+                    <tr>
+                      <th scope="col">결제일</th>
+                      <th scope="col">결재구분</th>
+                      <!--[dev]:20261028 공통 col table th 금액단위표시(원)-->
+                      <th scope="col">결제금액(원)</th>
+                      <th scope="col">외화보증금지급액(원)</th>
+                      <!--//[dev]:20261028 공통 col table th 금액단위표시(원)-->
+                      <th scope="col">원화보증금지급액(원)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><span class="typeMd">2026-07-20</span></td>
+                      <td><span class="typeMd">-</span></td>
+                      <td class="text-right"><span class="typeMd">1,000.00</span></td>
+                      <td class="text-right"><span class="typeMd">1,000.00</span></td>
+                      <td class="text-right"><span class="typeMd">1,000</span></td>
+                    </tr>
+                    <tr>
+                      <td><span class="typeMd">2026-07-20</span></td>
+                      <td><span class="typeMd">-</span></td>
+                      <td class="text-right"><span class="typeMd">1,000.00</span></td>
+                      <td class="text-right"><span class="typeMd">1,000.00</span></td>
+                      <td class="text-right"><span class="typeMd">1,000</span></td>
+                    </tr>
+                    <tr>
+                      <td><span class="typeMd">2026-07-20</span></td>
+                      <td><span class="typeMd">-</span></td>
+                      <td class="text-right"><span class="typeMd">1,000.00</span></td>
+                      <td class="text-right"><span class="typeMd">1,000.00</span></td>
+                      <td class="text-right"><span class="typeMd">1,000</span></td>
+                    </tr>
+                    <tr>
+                      <td><span class="typeMd">2026-07-20</span></td>
+                      <td><span class="typeMd">-</span></td>
+                      <td class="text-right"><span class="typeMd">1,000.00</span></td>
+                      <td class="text-right"><span class="typeMd">1,000.00</span></td>
+                      <td class="text-right"><span class="typeMd">1,000</span></td>
+                    </tr>
+                    <tr>
+                      <td><span class="typeMd">2026-07-20</span></td>
+                      <td><span class="typeMd">-</span></td>
+                      <td class="text-right"><span class="typeMd">1,000.00</span></td>
+                      <td class="text-right"><span class="typeMd">1,000.00</span></td>
+                      <td class="text-right"><span class="typeMd">1,000</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <nav class="pagination size-md" aria-label="페이지네이션">
+              <button type="button" class="btn-nav first" disabled="" aria-disabled="true" aria-label="첫 페이지">
+                <span class="blind">첫 페이지</span>
+              </button>
+              <button type="button" class="btn-nav prev" disabled="" aria-disabled="true" aria-label="이전 페이지">
+                <span class="blind">이전 페이지</span>
+              </button>
+
+              <ol class="list-pagination">
+                <li>
+                  <button type="button" class="btn-page active" aria-current="page" aria-label="1페이지">
+                    1
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="btn-page" aria-label="2페이지">
+                    2
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="btn-page" aria-label="3페이지">
+                    3
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="btn-page" aria-label="4페이지">
+                    4
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="btn-page" aria-label="5페이지">
+                    5
+                  </button>
+                </li>
+              </ol>
+
+              <button type="button" class="btn-nav next" aria-label="다음 페이지">
+                <span class="blind">다음 페이지</span>
+              </button>
+              <button type="button" class="btn-nav last" aria-label="마지막 페이지">
+                <span class="blind">마지막 페이지</span>
+              </button>
+            </nav>
+          </div>
+        </div>
+      </div>
+      <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+    </div>
+
+    <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+  </div>
+  <script src="/static/js/ui/cib_ui_common.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,388 @@
+<!-- CIBUMG021100000M.html -->
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>수협은행</title>
+  <link rel="stylesheet" href="/static/css/reset.css" />
+  <link rel="stylesheet" href="/static/css/layout.css" />
+  <link rel="stylesheet" href="/static/css/component.css" />
+  <link rel="stylesheet" href="/static/css/common.css" />
+  <link rel="stylesheet" href="/static/css/bmg.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <div id="header">
+      @@include('static/html/pub/layout/skipNavigation.html')
+      @@include('static/html/pub/layout/header_sub.html')
+    </div>
+
+    <div id="container" class="container">
+      <div id="leftArea">
+        @@include('static/html/pub/layout/leftArea.html')
+      </div>
+      <div id="contents">
+        <div class="content">
+          @@include('static/html/pub/layout/breadcrumb.html')
+          <div class="bmg">
+            <h2 class="typeH2">사용자 등록</h2>
+            <div class="flex justify-between mb-12">
+              <h4 class="typeH4">사용자 정보 등록</h4>
+              <button type="button" class="btn type-line-neutral size-md">
+                <span class="text">사용자정보 등록 이용가이드 다운로드</span>
+                <i class="ico line ico-size-sm ico-download" aria-hidden="true"></i>
+              </button>
+            </div>
+            <!-- 약관 동의 영역 -->
+            <div class="terms-box">
+              <div class="terms">
+                <div class="flex items-center justify-center h-100">
+                  약관 영역노출
+                </div>
+              </div>
+
+              <fieldset class="form-box-wrap">
+                <legend class="sr-only">
+                  사용자 정보 등록 약관 동의 여부
+                </legend>
+
+                <span class="form-box">
+                  <input type="radio" name="termsAgree" id="termsAgreeNo" class="form-radio size-md" />
+                  <label for="termsAgreeNo" class="form-label">동의하지 않음</label>
+                </span>
+
+                <span class="form-box">
+                  <input type="radio" name="termsAgree" id="termsAgreeYes" class="form-radio size-md" />
+                  <label for="termsAgreeYes" class="form-label">동의함</label>
+                </span>
+              </fieldset>
+            </div>
+
+            <div class="tbl-area">
+              <div class="tbl-head">
+                <div class="left-area">
+                  <h4 class="typeH4">권한복사 대상 사용자정보</h4>
+                </div>
+              </div>
+              <table class="table-type01">
+                <caption>
+                  권한복사 대상 사용자정보 (사용자ID, 사용자명, 부서명, 직위,
+                  사용자구분, 휴대전화번호, 1회 이체한도, 1일 이체한도) 확인
+                  표
+                </caption>
+                <!-- [수정] 20260907 col width 값 수정  -->
+                <colgroup>
+                  <col style="width: 160px" />
+                  <col style="width: 368px" />
+                  <col style="width: 160px" />
+                  <col style="width: 368px" />
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th scope="row">사용자ID</th>
+                    <td><span class="typeMd">SUHYUP0001</span></td>
+                    <th scope="row">사용자명</th>
+                    <td><span class="typeMd">김일반</span></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">부서명</th>
+                    <td><span class="typeMd">자금부</span></td>
+                    <th scope="row">직위</th>
+                    <td><span class="typeMd">부장</span></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">사용자구분</th>
+                    <td><span class="typeMd">일반사용자</span></td>
+                    <th scope="row">휴대전화번호</th>
+                    <td><span class="typeMd">010-1234-5678</span></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">1회 이체한도</th>
+                    <!-- [수정] 20260907 금액 text-right 클래스 추가  -->
+                    <td class="text-right"><span class="typeMd">1,000,000,000 원</span></td>
+                    <th scope="row">1일 이체한도</th>
+                    <!-- [수정] 20260907 금액 text-right 클래스 추가  -->
+                    <td class="text-right"><span class="typeMd">5,000,000,000 원</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="tbl-area">
+              <div class="tbl-head">
+                <div class="left-area">
+                  <h4 class="typeH4">사용자 기본정보 등록</h4>
+                </div>
+              </div>
+              <table class="table-type01">
+                <caption>
+                  사용자 기본정보 등록 입력 폼 (사용자ID, 사용자명, 부서명,
+                  직위, 휴대전화번호 항목 입력)
+                </caption>
+                <colgroup>
+                  <col style="width: 160px" />
+                  <col style="width: auto" />
+                </colgroup>
+                <tbody>
+                  <!-- 사용자ID -->
+                  <tr>
+                    <th scope="row">
+                      <label for="userIdInput"><span class="required">사용자ID</span></label>
+                    </th>
+                    <td>
+                      <div class="tbl-flex">
+                        <!-- [수정] 20260907 title 값 추가  -->
+                        <input type="text" id="userIdInput" class="input size-lg wSize-md" value="SUHYUP001"
+                          title="사용자ID" placeholder="아이디를 입력해주세요" aria-required="true" />
+                        <button type="button" class="btn type-line-secondary size-lg">
+                          <span class="text">중복확인</span>
+                        </button>
+                      </div>
+                      <p class="input-guide-text">
+                        5~10자리 영문, 숫자를 혼용하여 입력해 주세요.
+                      </p>
+                    </td>
+                  </tr>
+
+                  <!-- 사용자명 -->
+                  <tr>
+                    <th scope="row">
+                      <label for="userNameInput"><span class="required">사용자명</span></label>
+                    </th>
+                    <td>
+                      <!-- [수정] 20260907 title 값 추가  -->
+                      <input type="text" id="userNameInput" class="input size-lg wSize-md" value="김수협" title="사용자명"
+                        placeholder="사용자명을 입력해주세요" aria-required="true" />
+                      <p class="input-guide-text">
+                        동명이인은 구분하여 입력해주세요.
+                      </p>
+                    </td>
+                  </tr>
+
+                  <!-- 부서명 -->
+                  <tr>
+                    <th scope="row">
+                      <label for="userDeptInput">부서명</label>
+                    </th>
+                    <td>
+                      <!-- [수정] 20260907 title 값 추가  -->
+                      <input type="text" id="userDeptInput" class="input size-lg wSize-md" value="" title="부서명"
+                        placeholder="부서명을 입력해주세요" />
+                    </td>
+                  </tr>
+
+                  <!-- 직위 -->
+                  <tr>
+                    <th scope="row">
+                      <label for="userPositionInput">직위</label>
+                    </th>
+                    <td>
+                      <!-- [수정] 20260907 title 값 추가  -->
+                      <input type="text" id="userPositionInput" class="input size-lg wSize-md" value="" title="직위"
+                        placeholder="직위를 입력해주세요" />
+                    </td>
+                  </tr>
+
+                  <!-- 휴대전화번호 -->
+                  <tr>
+                    <th scope="row">
+                      <span class="required">휴대전화번호</span>
+                    </th>
+                    <td>
+                      <div class="tbl-flex">
+                        <!-- 국번 셀렉트 박스 등 필요 구조 -->
+                        <!-- [수정] 20260907 title 값 수정  -->
+                        <input type="text" class="input size-lg wSize-sm" value="010" maxlength="3" title="휴대전화번호 앞자리"
+                          aria-required="true" />
+                        <span aria-hidden="true">-</span>
+                        <!-- [수정] 20260907 title 값 수정  -->
+                        <input type="text" class="input size-lg wSize-sm" value="" maxlength="4" title="휴대전화번호 중간자리"
+                          aria-required="true" />
+                        <span aria-hidden="true">-</span>
+                        <!-- [수정] 20260907 title 값 수정  -->
+                        <!-- [수정] 20260910 title 값 수정  -->
+                        <input type="text" class="input size-lg wSize-sm" value="" maxlength="4" title="휴대전화번호 마지막자리"
+                          aria-required="true" />
+                      </div>
+                      <p class="input-guide-text">
+                        PUSH알림 수신을 위해 정확히 입력해 주세요.
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="tbl-area">
+              <div class="tbl-head">
+                <div class="left-area">
+                  <h4 class="typeH4">이체한도 및 OTP등록</h4>
+                </div>
+              </div>
+              <table class="table-type01">
+                <caption>
+                  이체한도 및 OTP등록 정보 입력 폼 (1회 이체한도, 1일
+                  이체한도, OTP종류, OTP PIN 비밀번호 및 확인 항목 입력)
+                </caption>
+                <!-- [수정] 20260907 col width 값 수정  -->
+                <colgroup>
+                  <col style="width: 160px" />
+                  <col style="width: auto" />
+                </colgroup>
+                <tbody>
+                  <!-- 1회 이체한도 -->
+                  <tr>
+                    <th scope="row">
+                      <label for="limitOnceInput"><span class="required">1회 이체한도</span></label>
+                    </th>
+                    <td>
+                      <div class="tbl-flex">
+                        <!-- [수정] 20260907 title 값 추가  -->
+                        <input type="text" id="limitOnceInput" class="input size-lg wSize-md" title="1회 이체한도"
+                          placeholder="이체금액을 입력하세요" aria-required="true" />
+                        <button type="button" class="btn type-line-secondary size-lg">
+                          <span class="text">최대</span>
+                        </button>
+                      </div>
+                      <p class="input-guide-text">
+                        최대 한도 100,000,000원(일억원)
+                      </p>
+                    </td>
+                  </tr>
+
+                  <!-- 1일 이체한도 -->
+                  <tr>
+                    <th scope="row">
+                      <label for="limitDailyInput"><span class="required">1일 이체한도</span></label>
+                    </th>
+                    <td>
+                      <div class="tbl-flex">
+                        <!-- [수정] 20260907 title 값 추가  -->
+                        <input type="text" id="limitDailyInput" class="input size-lg wSize-md" title="1일 이체한도"
+                          placeholder="이체금액을 입력하세요" aria-required="true" />
+                        <button type="button" class="btn type-line-secondary size-lg">
+                          <span class="text">최대</span>
+                        </button>
+                      </div>
+                      <p class="input-guide-text">
+                        최대 한도 100,000,000원(일억원)
+                      </p>
+                    </td>
+                  </tr>
+
+                  <!-- OTP종류 -->
+                  <tr>
+                    <th scope="row">OTP종류</th>
+                    <td>
+                      <fieldset class="form-box-wrap" style="border: 0; padding: 0; margin: 0">
+                        <legend class="sr-only">OTP종류 선택</legend>
+                        <span class="form-box">
+                          <input type="radio" name="otpType" id="otpType01" class="form-radio size-md" />
+                          <label for="otpType01" class="form-label">SH기업 디지털OTP(모바일,브라우저)</label>
+                        </span>
+                        <span class="form-box">
+                          <input type="radio" name="otpType" id="otpType02" class="form-radio size-md" checked />
+                          <label for="otpType02" class="form-label">타행OTP</label>
+                        </span>
+                      </fieldset>
+                    </td>
+                  </tr>
+
+                  <!-- OTP PIN (비밀번호) -->
+                  <tr>
+                    <th scope="row">
+                      <label for="otpPinInput">OTP PIN<br />(비밀번호)</label>
+                    </th>
+                    <td>
+                      <div class="tbl-flex">
+                        <!-- [수정] 20260907 title 값 추가  -->
+                        <input type="password" id="otpPinInput" class="input size-lg wSize-smMd"
+                          title="OTP PIN (비밀번호), 숫자6자리" placeholder="숫자6자리" maxlength="6" aria-required="true" />
+                        <button type="button" class="btn type-line-secondary size-lg">
+                          <span class="text">마우스입력</span>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <!-- OTP PIN (비밀번호 확인) -->
+                  <tr>
+                    <th scope="row">
+                      <label for="otpPinConfirmInput">OTP PIN<br />(비밀번호 확인)</label>
+                    </th>
+                    <td>
+                      <div class="tbl-flex">
+                        <!-- [수정] 20260907 title 값 추가  -->
+                        <input type="password" id="otpPinConfirmInput" class="input size-lg wSize-smMd"
+                          title="OTP PIN (비밀번호 확인), 숫자6자리" placeholder="숫자6자리" maxlength="6" aria-required="true" />
+                        <button type="button" class="btn type-line-secondary size-lg">
+                          <span class="text">마우스입력</span>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- 하단 버튼 영역 -->
+            <div class="btn-wrap center lg-bot" style="margin-top: 32px">
+              <button type="button" class="btn type-bg-primary-tint size-xxl">
+                <span class="text">취소</span>
+              </button>
+              <button type="button" class="btn type-bg-primary size-xxl">
+                <span class="text">승인요청</span>
+              </button>
+            </div>
+            <div class="line-box size-xl mt-48">
+              <span class="typeLgSemibold">이용안내</span>
+              <div class="list type-dotted">
+                <ul>
+                  <li class="typeMd">
+                    사용자의 권한복사를 위한 기본정보를 등록하는 화면입니다.
+                  </li>
+                  <li class="typeMd">
+                    일반사용자는 기본정보, 이체한도, OTP를 등록하는
+                    화면입니다.
+                  </li>
+                  <li class="typeMd">
+                    결재사용자는 기본정보, 결재비밀번호를 등록하는 화면입니다.
+                  </li>
+                  <li class="typeMd">
+                    결재사용자의 1회/1일 이체한도는 0원이며, 중간결재 및
+                    조회성 메뉴만 이용이 가능합니다.
+                  </li>
+                  <li class="typeMd">
+                    결재사용자의 초기결재비밀번호는 6자리(첫글자 영문)입니다.
+                  </li>
+                  <li class="typeMd">
+                    결재사용자의 초기결재비밀번호는 중간결재자 결재 처리 시
+                    입력하는 비밀번호입니다.
+                  </li>
+                  <li class="typeMd">
+                    이미 등록된 사용자의 계좌/카드권한을 복사 할 수 있습니다.
+                  </li>
+                  <li class="typeMd">
+                    사용자ID, 초기결재비밀번호(결재사용자)는 해당 사용자의
+                    인증서 발급 시 필요한 정보이므로 반드시 기억하시기
+                    바랍니다.
+                  </li>
+                  <li class="typeMd">
+                    휴대폰번호 등록을 위한 아래의 [필수 개인(신용)정보
+                    수집·이용 동의서] 내용을 읽어보신 후 동의함에 체크해
+                    주세요.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+    </div>
+    <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+  </div>
+  <script src="/static/js/ui/cib_ui_common.js"></script>
+</body>
+
+</html>

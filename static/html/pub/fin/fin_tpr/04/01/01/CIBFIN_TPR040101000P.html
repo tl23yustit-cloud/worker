@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>수협은행</title>
+  <link rel="stylesheet" href="/static/css/reset.css" />
+  <link rel="stylesheet" href="/static/css/layout.css" />
+  <link rel="stylesheet" href="/static/css/component.css" />
+  <link rel="stylesheet" href="/static/css/common.css" />
+  <link rel="stylesheet" href="/static/css/fin.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <div id="header">
+      @@include('static/html/pub/layout/skipNavigation.html')
+      @@include('static/html/pub/layout/header_sub.html')
+    </div>
+
+    <div id="container" class="container">
+      <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+      <div id="contents">
+        <div class="content">
+          @@include('static/html/pub/layout/breadcrumb.html')
+          <div class="fin">
+            <button type="button" class="btn type-bg-primary size-md btn-modal" data-target="modal-16">
+              <span class="text">기준가변동추이표</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+    </div>
+    <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+  </div>
+  <script src="/static/js/ui/cib_ui_common.js"></script>
+  <div id="modal-16" class="modal is-active" data-dim="true" data-backdrop-close="false" data-alert="true"
+    data-size="md" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc">
+    <div class="modal-wrapper">
+      <div class="modal-title">
+        <h4 class="typeH4">기준가변동추이표</h4>
+      </div>
+      <div class="modal-slot">
+        <div id="modal-desc">
+          <div class="tbl-area">
+            <div class="wScroll">
+              <table class="table-type03">
+                <caption>
+                  자주쓰는송금계좌 테이블
+                </caption>
+                <colgroup>
+                  <col>
+                  <col>
+                  <col>
+                </colgroup>
+                <thead>
+                  <!-- [수정] 20260904 th scope 추가 -->
+                  <tr>
+                    <th scope="col">날짜</th>
+                    <th scope="col">기준가격</th>
+                    <th scope="col">전일대비</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="typeMd">YYYY-MM-DD</span></td>
+                    <td class="text-right"><span class="typeMd">2,007.13</span></td>
+                    <td><span class="typeMd red-arrow">1.99</span></td>
+                  </tr>
+                  <tr>
+                    <td><span class="typeMd">YYYY-MM-DD</span></td>
+                    <td class="text-right"><span class="typeMd">2,007.13</span></td>
+                    <td><span class="typeMd blue-arrow">0.50</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button type="button" class="ico btn-close" aria-label="모달 닫기">
+        <i class="ico-close ico-size-smMd" aria-hidden="true"></i>
+        <span class="blind">닫기</span>
+      </button>
+    </div>
+  </div>
+</body>
+
+</html>

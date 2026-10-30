@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>수협은행</title>
+  <link rel="stylesheet" href="/static/css/reset.css" />
+  <link rel="stylesheet" href="/static/css/layout.css" />
+  <link rel="stylesheet" href="/static/css/component.css" />
+  <link rel="stylesheet" href="/static/css/common.css" />
+  <link rel="stylesheet" href="/static/css/aut.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <div id="header">
+      @@include('static/html/pub/layout/skipNavigation.html')
+      @@include('static/html/pub/layout/header_sub.html')
+    </div>
+
+    <div id="container" class="container">
+      <div id="leftArea">
+        @@include('static/html/pub/layout/leftArea.html')
+      </div>
+      <div id="contents">
+        <div class="content">
+          @@include('static/html/pub/layout/breadcrumb.html')
+          <div class="aut">
+            <h2 class="typeH2">
+              공동인증서 조회
+              <div class="box-steps">
+                <ol class="list-steps">
+                  <!-- 
+			[dev] 상태값 class 안내
+			class="item-steps" 기본 숫자 표기
+			class="item-steps passed" 완료
+			class="item-steps current" 현재
+			-->
+                  <li class="item-steps current" aria-current="step">
+                    <i class="icon" aria-hidden="true">1</i>
+                    <!--로그인 시 "인증서 선택"으로 타이틀 변경 -->
+                    <span class="text">인증서 선택 / 사용자 정보 입력</span>
+                    <!--//로그인 시 "인증서 선택"으로 타이틀 변경-->
+                  </li>
+                  <li class="item-steps">
+                    <i class="icon" aria-hidden="true">2</i>
+                    <span class="text">조회결과</span>
+                  </li>
+                </ol>
+              </div>
+            </h2>
+            <!--사용자 정보 입력-->
+            <div class="box-lined-icon-text">
+              <div class="wrap-ico">
+                <i class="ico laon ico-laon-warning" aria-hidden="true"></i>
+              </div>
+              <div class="message">
+                <b class="type2XlSemibold">
+                  고객님 죄송합니다.
+                </b>
+                <span class="typeLg">
+                  인증서 정보가 존재하지 않습니다. 인증서를 다시 발급받으시기 바랍니다. <br>
+                  응답코드 : E_NOT_FOUND
+                </span>
+                <span class="typeLg">
+                  더 궁금하신 사항이 있으시면 아래 고객지원센터로 연락바랍니다<br>
+                  TEL: 1588-1515, 1644-1515(서비스코드 03번)
+                </span>
+              </div>
+              <button type="button" class="btn type-ico-ghost size-lg btn-close">
+                <i class="ico line ico-size-smMd ico-close" aria-hidden="true"></i>
+                <span class="blind">닫기</span>
+              </button>
+            </div>
+            <!--//사용자 정보 입력-->
+            <div class="tbl-area">
+              <div class="tbl-head">
+                <div class="left-area">
+                  <h4 class="typeH4">인증계좌번호</h4>
+                </div>
+                <div class="right-area">
+                  <span class="required typeMd">필수 항목</span>
+                </div>
+              </div>
+              <table class="table-type01">
+                <caption>
+                  계좌번호, 계좌비밀번호에 대한 구성 테이블입니다.
+                </caption>
+                <colgroup>
+                  <col style="width: 160px" />
+                  <col style="width: auto" />
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th scope="row">
+                      <span class="required">인증서 종류</span>
+                    </th>
+                    <td>
+                      <div class="form-box-wrap" role="radiogroup" aria-label="인증서 종류">
+                        <span class="form-box">
+                          <input type="radio" name="searchType" id="searchType_01" class="form-radio size-md"
+                            checked="">
+                          <label for="searchType_01" class="form-label">인증서(범용인증서+은행보험용)</label>
+                        </span>
+                        <span class="form-box">
+                          <input type="radio" name="searchType" id="searchType_02" class="form-radio size-md">
+                          <label for="searchType_02" class="form-label">용도제한용 기업인증서</label>
+                        </span>
+                        <span class="form-box">
+                          <input type="radio" name="searchType" id="searchType_03" class="form-radio size-md">
+                          <label for="searchType_03" class="form-label">전자세금융인증서</label>
+                        </span>
+                        <span class="form-box">
+                          <input type="radio" name="searchType" id="searchType_04" class="form-radio size-md">
+                          <label for="searchType_04" class="form-label">전자거래범용 기업(코스콤 SignKorea)</label>
+                        </span>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <!--비로그인 시 노출-->
+            <div class="tbl-area">
+              <div class="tbl-head">
+                <div class="left-area">
+                  <h4 class="typeH4">사용자 정보</h4>
+                </div>
+                <div class="right-area">
+                  <span class="required typeMd">필수 항목</span>
+                </div>
+              </div>
+              <table class="table-type01">
+                <caption>
+                  계좌번호, 계좌비밀번호에 대한 구성 테이블입니다.
+                </caption>
+                <colgroup>
+                  <col style="width: 160px" />
+                  <col style="width: auto" />
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th>
+                      <span class="required">사용자 ID</span>
+                    </th>
+                    <td colspan="3">
+                      <div class="tbl-flex">
+                        <input type="text" id="userDeptInput" class="input size-lg wSize-md" value=""
+                          placeholder="인터넷뱅킹 사용자 ID입력" aria-label="사용자 ID">
+                        <button type="button" class="btn type-line-secondary size-lg">
+                          <span class="text">ID조회</span>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <span class="required">사업자등록번호</span>
+                    </th>
+                    <td>
+                      <div class="tbl-flex">
+                        <input type="text" class="input size-lg wSize-sm" value="" maxlength="3"
+                          aria-label="사업자등록번호 중간자리" aria-required="true">
+                        <span aria-hidden="true">-</span>
+                        <input type="text" class="input size-lg wSize-sm" value="" maxlength="2"
+                          aria-label="사업자등록번호 중간자리" aria-required="true">
+                        <span aria-hidden="true">-</span>
+                        <input type="text" class="input size-lg wSize-sm" value="" maxlength="5"
+                          aria-label="사업자등록번호 뒷자리" aria-required="true">
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <!--//비로그인 시 노출-->
+            <div class="btn-wrap center lg-bot">
+              <button type="button" class="btn type-bg-primary-tint size-xxl">
+                <span class="text">취소</span>
+              </button>
+              <button type="button" class="btn type-bg-primary size-xxl">
+                <span class="text">다음</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+    </div>
+    <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+  </div>
+
+  <script src="/static/js/ui/cib_ui_common.js"></script>
+</body>
+
+</html>

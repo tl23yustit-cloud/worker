@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/bmg.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
+
+      <div id="container" class="container">
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="bmg">
+              <h2 class="typeH2">초기 페이지 설정</h2>
+
+              <div class="bg-box size-xl">
+                <p class="typeLg">로그인 후 보여지는 초기 메뉴를 선택해 주세요.</p>
+              </div>
+
+              <div class="tbl-area">
+                <table class="table-type05">
+                  <caption>
+                    신용카드 상품 용어 구분과 정의
+                  </caption>
+                  <colgroup>
+                    <col style="width: 22%" />
+                    <col style="width: 22%" />
+                    <col style="width: auto" />
+                  </colgroup>
+
+                  <tbody>
+                    <tr>
+                      <th id="th-1-1" class="noradius02" scope="col">조회</th>
+                      <th id="th-1-2" scope="col" headers="th-1-1">예금조회</th>
+                      <td headers="th-1-1">
+                        <!-- radiogroup에 aria-labelledby -->
+                        <div class="form-box-wrap" role="radiogroup" aria-label="예금조회">
+                          <span class="form-box">
+                            <input type="radio" name="radio_comp-ylu3zs" id="radio_comp-ylu3zs_01" class="form-radio size-md" checked="" />
+                            <label for="radio_comp-ylu3zs_01" class="form-label">예금신탁보유계좌조회</label>
+                          </span>
+                          <span class="form-box">
+                            <input type="radio" name="radio_comp-ylu3zs" id="radio_comp-ylu3zs_02" class="form-radio size-md" />
+                            <label for="radio_comp-ylu3zs_02" class="form-label">출금계좌조회</label>
+                          </span>
+                          <span class="form-box">
+                            <input type="radio" name="radio_comp-ylu3zs" id="radio_comp-ylu3zs_03" class="form-radio size-md" />
+                            <label for="radio_comp-ylu3zs_03" class="form-label">잔액조회</label>
+                          </span>
+                          <span class="form-box">
+                            <input type="radio" name="radio_comp-ylu3zs" id="radio_comp-ylu3zs_04" class="form-radio size-md" />
+                            <label for="radio_comp-ylu3zs_04" class="form-label">거래내역조회</label>
+                          </span>
+                          <span class="form-box">
+                            <input type="radio" name="radio_comp-ylu3zs" id="radio_comp-ylu3zs_05" class="form-radio size-md" />
+                            <label for="radio_comp-ylu3zs_05" class="form-label">이체내역조회</label>
+                          </span>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <th rowspan="2" class="noradius03" id="th-2-1" scope="rowgroup" headers="th-1-1">이체</th>
+                      <th id="th-2-2" scope="row" headers="th-1-2 th-2-1">당행/타행이체</th>
+                      <td headers="th-2-1">
+                        <div class="form-box-wrap" role="radiogroup" aria-label="당행/타행이체">
+                          <span class="form-box">
+                            <input type="radio" name="radio_comp-yndp0l" id="radio_comp-yndp0l_01" class="form-radio size-md" checked="" />
+                            <label for="radio_comp-yndp0l_01" class="form-label">이체</label>
+                          </span>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th id="th-3-2" scope="row" class="allnoradius" headers="th-1-2 th-2-1">대량이체</th>
+                      <td headers="th-2-1">
+                        <!-- radiogroup에 aria-labelledby -->
+                        <div class="form-box-wrap" role="radiogroup" aria-label="대량이체">
+                          <span class="form-box">
+                            <input type="radio" name="radio_comp-jtqg7v" id="radio_comp-jtqg7v_01" class="form-radio size-md" checked="" />
+                            <label for="radio_comp-jtqg7v_01" class="form-label">대량이체등록</label>
+                          </span>
+                          <span class="form-box">
+                            <input type="radio" name="radio_comp-jtqg7v" id="radio_comp-jtqg7v_02" class="form-radio size-md" />
+                            <label for="radio_comp-jtqg7v_02" class="form-label">대략이체실행</label>
+                          </span>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="btn-wrap center lg-bot">
+                <button type="button" class="btn type-bg-primary size-xxl">
+                  <span class="text">등록</span>
+                </button>
+              </div>
+
+              <div class="line-box size-xl mt-48">
+                <span class="typeLgSemibold">이용안내</span>
+                <div class="list type-dotted">
+                  <ul>
+                    <li class="typeMd">[뱅킹관리 > My정보 > 고객권한관리 > 초기페이지 설정]을 통해 로그인 후 보여지는 기업뱅킹 서비스화면을 설정 또는 설정해제 하실 수 있습니다.</li>
+                    <li class="typeMd">고객님이 설정하신 초기 페이지(로그인 후 보여지는 기업뱅킹 초기화면) 정보가 없는 경우에는 기업뱅킹 로그인 후 보여지는 서비스 화면은 [예금조회>출금계좌조회]입니다.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
+</html>

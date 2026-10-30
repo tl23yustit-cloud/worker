@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="/static/css/lon.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
+
+      <div id="container" class="container">
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="lon">
+              <h2 class="typeH2">
+                국민주택채권 오매입 환급신청
+
+                <div class="box-steps">
+                  <ol class="list-steps">
+                    <li class="item-steps passed" aria-current="step">
+                      <span class="blind">1</span>
+                      <i class="icon" aria-hidden="true">1</i>
+                    </li>
+                    <li class="item-steps passed" aria-current="step">
+                      <span class="blind">2</span>
+                      <i class="icon" aria-hidden="true">2</i>
+                    </li>
+                    <li class="item-steps current">
+                      <i class="icon" aria-hidden="true">3</i>
+                      <span class="text">신청정보 입력 및 확인</span>
+                    </li>
+
+                    <li class="item-steps">
+                      <i class="icon" aria-hidden="true">4</i>
+                      <span class="text">4</span>
+                    </li>
+                  </ol>
+                </div>
+              </h2>
+
+              <div class="tbl-area">
+                <h4 class="typeH4">채권정보 입력</h4>
+                <table class="table-type01">
+                  <caption></caption>
+                  <colgroup>
+                    <col style="width: 160px" />
+                    <col style="width: auto" />
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="row">
+                        <span class="required">발행기관</span>
+                      </th>
+                      <td>
+                        <div class="box-select wSize-md">
+                          <button type="button" class="select size-lg" role="combobox" aria-expanded="true" aria-haspopup="listbox" aria-controls="selectDropdown01">
+                            <span class="text">선택하세요</span>
+                            <span class="blind">펼침</span>
+                          </button>
+                          <div id="selectDropdown01" class="box-list-select">
+                            <ul class="list-select" role="listbox" aria-label="선택 항목 리스트">
+                              <li class="item-select" role="option" aria-selected="true">
+                                <span class="form-box">기업은행</span>
+                              </li>
+                              <li class="item-select" role="option" aria-selected="false">
+                                <span class="form-box">국민은행</span>
+                              </li>
+                              <li class="item-select" role="option" aria-selected="false">
+                                <span class="form-box">농협은행</span>
+                              </li>
+                              <li class="item-select" role="option" aria-selected="false">
+                                <span class="form-box">우리은행</span>
+                              </li>
+                              <li class="item-select" role="option" aria-selected="false">
+                                <span class="form-box">신한은행</span>
+                              </li>
+                              <li class="item-select" role="option" aria-selected="false">
+                                <span class="form-box">대구은행</span>
+                              </li>
+                              <li class="item-select" role="option" aria-selected="false">
+                                <span class="form-box">부산은행</span>
+                              </li>
+                              <li class="item-select" role="option" aria-selected="false">
+                                <span class="form-box">하나은행</span>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span class="required">채권발행번호</span>
+                      </th>
+                      <td>
+                        <div class="tbl-column">
+                          <div class="tbl-flex">
+                            <div class="wSize-md">
+                              <input type="text" class="input size-lg wSize-md" placeholder="14자리 숫자" title="채권발행번호" value="" />
+                            </div>
+                          </div>
+                          <div class="tbl-flex">
+                            <div class="list type-dotted">
+                              <ul>
+                                <li class="typeSm">채권을 매입한 금융기관 홈페이지 및 주택도시기금 홈페이지를 통해 채권매입내역을 확인 후 채권발행번호를 입력하세요.</li>
+                                <li class="typeSm">채권발행번호를 모르시는 경우 영업점으로 방문하여 신청해 주시기 바랍니다.</li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span class="required">근저당권 등기접수일</span>
+                      </th>
+                      <td>
+                        <div class="input-box">
+                          <input type="text" class="input" placeholder="근저당권 등기접수일" title="" aria-label="근저당권 등기접수일" value="2026-01-06" />
+                          <button type="button" class="btn">
+                            <i class="ico-calendar ico-size-smMd" aria-hidden="true"></i>
+                            <span class="blind">날짜 열기</span>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span class="required">근저당권 설정금액</span>
+                      </th>
+                      <td><input type="text" class="input wSize-md size-lg" placeholder="숫자만 입력하세요" title="" /></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="btn-wrap center lg-bot flex gap-8">
+                <button type="button" class="btn type-bg-primary-tint size-xxl">
+                  <span class="text">이전</span>
+                </button>
+                <button type="button" class="btn type-bg-primary size-xxl">
+                  <span class="text">다음</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+    <script src="/static/js/ui/swiper.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/cms.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">
+        @@include('static/html/pub/layout/skipNavigation.html')
+        @@include('static/html/pub/layout/header_sub.html')
+      </div>
+
+      <div id="container" class="container">
+        <div id="leftArea">
+          @@include('static/html/pub/layout/leftArea.html')
+        </div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="cms">
+              <button
+                type="button"
+                class="btn type-bg-primary size-md btn-modal"
+                data-target="modal-01"
+              >
+                <span class="text">모달 버튼</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+    <div
+      id="modal-01"
+      class="modal is-active"
+      data-dim="true"
+      data-backdrop-close="false"
+      data-alert="true"
+      data-size="md"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modal-title"
+      aria-describedby="modal-desc"
+    >
+      <!-- class cms적용하기(타이틀 아래로 조회성테이블 나올때 12px 여백 벌어짐해결위해서) -->
+      <div class="modal-wrapper cms">
+        <div class="modal-title">
+          <h4 class="typeH4">인증서등록</h4>
+        </div>
+        <div class="modal-slot">
+          <div id="modal-desc">
+            <div class="tbl-area js-check-table">
+              <div class="tbl-head">
+                <div class="box-steps">
+                  <ol class="list-steps">
+                    <li class="item-steps passed" aria-current="step">
+                      <i class="icon" aria-hidden="true">1</i>
+                      <span class="text">금융기관선택</span>
+                    </li>
+                    <li class="item-steps current">
+                      <i class="icon" aria-hidden="true">2</i>
+                      <span class="text">인증서선택</span>
+                    </li>
+                  </ol>
+                </div>
+              </div>
+              <table class="table-type03 mt-0">
+                <caption>
+                  구분, 인증서명, 발급자, 만료일 정보를 제공합니다.
+                </caption>
+                <colgroup>
+                  <col width="44px" />
+                  <col width="100px" />
+                  <col width="*" />
+                  <col width="160px" />
+                  <col width="120" />
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th scope="col">선택</th>
+                    <th scope="col">구분</th>
+                    <th scope="col">인증서명</th>
+                    <th scope="col">발급자</th>
+                    <th scope="col">만료일</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <tr>
+                    <td>
+                      <span class="form-box">
+                        <input
+                          type="radio"
+                          name="searchTypeA"
+                          id="searchTypeA_01"
+                          class="form-radio size-md"
+                        />
+                        <label for="searchTypeA_01" class="blind"></label>
+                      </span>
+                    </td>
+                    <td><span class="typeMd">본사</span></td>
+                    <td class="ellipsis">
+                      <span class="typeMd">김기원-27968377</span>
+                    </td>
+                    <td class="ellipsis">
+                      <span class="typeMd">SignKorea CA4</span>
+                    </td>
+                    <td><span class="typeMd">2026-09-15</span></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span class="form-box">
+                        <input
+                          type="radio"
+                          name="searchTypeA"
+                          id="searchTypeA_01"
+                          class="form-radio size-md"
+                        />
+                        <label for="searchTypeA_01" class="blind"></label>
+                      </span>
+                    </td>
+                    <td><span class="typeMd">강남지점</span></td>
+                    <td class="ellipsis">
+                      <span class="typeMd"
+                        >웹케시글로벌(KBTEST)000046138013B013594971</span
+                      >
+                    </td>
+                    <td class="ellipsis">
+                      <span class="typeMd">yessignCA Class3</span>
+                    </td>
+                    <td><span class="typeMd">2026-09-15</span></td>
+                  </tr>
+                  <tr>
+                    <td colspan="5">
+                      <div class="empty-page">
+                        <i class="ico-info" aria-hidden="true"></i>
+                        <div class="typeLg">등록할 인증서가 없습니다.</div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer flex items-center justify-center gap-8">
+          <button
+            type="button"
+            class="btn type-bg-primary-tint size-lg btn-close"
+          >
+            <span class="text">취소</span>
+          </button>
+          <button type="button" class="btn type-bg-primary size-lg">
+            <span class="text">저장</span>
+          </button>
+        </div>
+        <button type="button" class="ico btn-close" aria-label="모달 닫기">
+          <i class="ico-close ico-size-smMd" aria-hidden="true"></i>
+          <span class="blind">닫기</span>
+        </button>
+      </div>
+    </div>
+  </body>
+</html>

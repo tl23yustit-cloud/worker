@@ -1,0 +1,1690 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>뱅킹업무 &gt; 예금/신탁 &gt; 신탁 &gt; 기준가/수익률 조회 &gt; 기간별수익율 | 수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/dob.css" />
+</head>
+
+<body>
+    <div class="wrapper">
+        <div id="header">
+            @@include('static/html/pub/layout/skipNavigation.html')
+            @@include('static/html/pub/layout/header_sub.html')
+        </div>
+        <div id="container" class="container">
+            <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+            <div id="contents">
+                <div class="content">
+                    @@include('static/html/pub/layout/breadcrumb.html')
+                    <div class="dob">
+                        <h2 class="typeH2">
+                            기준가/수익률조회
+                        </h2>
+
+                        <div class="box-tab">
+
+                            <div class="tab-head">
+                                <div class="left-area">
+                                    <h4 class="typeH4">메뉴권한</h4>
+                                </div>
+                                <div class="right-area">
+                                    <button type="button" class="btn type-line-neutral size-md">
+                                        <span class="text">메뉴권한 등록 이용가이드 다운로드</span>
+                                        <i class="ico line ico-size-smMd ico-download" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <ul class="list-tab-button type-outline" role="tablist" aria-label="탭 이름">
+                                <li class="item-tab-button">
+                                    <button type="button" class="btn-tab  active" title="선택됨" id="tabBtnTypeOutline01"
+                                        role="tab" aria-selected="true" aria-controls="tabPanelTypeOutline01">
+                                        <span class="text">신탁기준가격1</span>
+                                    </button>
+                                </li>
+                                <li class="item-tab-button">
+                                    <button type="button" class="btn-tab" id="tabBtnTypeOutline02" role="tab"
+                                        aria-selected="false" aria-controls="tabPanelTypeOutline02">
+                                        <span class="text">신탁배당률</span>
+                                    </button>
+                                </li>
+                                <li class="item-tab-button">
+                                    <button type="button" class="btn-tab" id="tabBtnTypeOutline03" role="tab"
+                                        aria-selected="false" aria-controls="tabPanelTypeOutline03">
+                                        <span class="text">기간별수익율</span>
+                                    </button>
+                                </li>
+                            </ul>
+
+                            <div class="box-tab-content active" id="tabPanelTypeOutline01" role="tabpanel"
+                                aria-labelledby="tabBtnTypeOutline01" style="display: block;">
+                                탭01 내용
+
+                            </div>
+
+                            <div class="box-tab-content" id="tabPanelTypeOutline02" role="tabpanel"
+                                aria-labelledby="tabBtnTypeOutline02" style="display: none;">
+                                탭02 내용
+                            </div>
+
+                            <div class="box-tab-content " id="tabPanelTypeOutline03" role="tabpanel"
+                                aria-labelledby="tabBtnTypeOutline03" style="display: none;">
+                                탭 03 내용
+
+                            </div>
+
+                        </div>
+
+                        <div class="box-tab">
+                            <ul class="list-tab-button type-chip size-lg" role="tablist" aria-label="계좌 조회 구분">
+                                <li class="item-tab-button">
+                                    <button type="button" class="btn-tab active" title="선택됨" id="tabBtnBank" role="tab"
+                                        aria-selected="true" aria-controls="tabPanelBank">
+                                        <span class="text">은행</span>
+                                    </button>
+                                </li>
+                                <li class="item-tab-button">
+                                    <button type="button" class="btn-tab" id="tabBtnSecBnk" role="tab"
+                                        aria-selected="false" aria-controls="tabPanelSecBnk">
+                                        <span class="text">제2금융권</span>
+                                    </button>
+                                </li>
+                                <li class="item-tab-button">
+                                    <button type="button" class="btn-tab" id="tabBtnSecurities" role="tab"
+                                        aria-selected="false" aria-controls="tabPanelSecurities">
+                                        <span class="text">증권사</span>
+                                    </button>
+                                </li>
+                            </ul>
+
+                            <div class="box-tab-content active" id="tabPanelBank" role="tabpanel"
+                                aria-labelledby="tabBtnBank" style="display: block">
+                                탭01
+                            </div>
+
+                            <div class="box-tab-content" id="tabPanelSecBnk" role="tabpanel"
+                                aria-labelledby="tabBtnSecBnk" style="display: none">
+                                <h3 class="blind">제2금융권 계좌 조회</h3>
+                                <div class="table-type01-empty mt-16" style="padding: 40px 0; text-align: center">
+                                    <p class="typeLg">제2금융권</p>
+                                </div>
+                            </div>
+
+                            <div class="box-tab-content" id="tabPanelSecurities" role="tabpanel"
+                                aria-labelledby="tabBtnSecurities" style="display: none">
+                                <h3 class="blind">증권사 계좌 조회</h3>
+                                <div class="table-type01-empty mt-16" style="padding: 40px 0; text-align: center">
+                                    <p class="typeLg">증권사</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tbl-area">
+                            <div class="tbl-head">
+                                <div class="right-area">
+                                    <div class="box-select wSize-md">
+                                        <button type="button" class="select size-lg" role="combobox"
+                                            aria-expanded="false" aria-haspopup="listbox"
+                                            aria-controls="selectDropdown01">
+                                            <span class="text">기준년월 2025년 12월</span>
+                                            <span class="blind">펼침</span>
+                                        </button>
+                                        <div id="selectDropdown01" class="box-list-select">
+                                            <ul class="list-select" role="listbox" aria-label="선택 항목 리스트">
+                                                <li class="item-select" role="option" aria-selected="true">
+                                                    <span class="form-box">기준년월 2025년 12월</span>
+                                                </li>
+                                                <li class="item-select" role="option" aria-selected="false">
+                                                    <span class="form-box">기준년월 2025년 9월</span>
+                                                </li>
+                                                <li class="item-select" role="option" aria-selected="false">
+                                                    <span class="form-box">기준년월 2025년 6월</span>
+                                                </li>
+                                                <li class="item-select" role="option" aria-selected="false">
+                                                    <span class="form-box">기준년월 2025년 3월</span>
+                                                </li>
+                                                <li class="item-select" role="option" aria-selected="false">
+                                                    <span class="form-box">기준년월 2024년 12월</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <table class="table-type01">
+                                <caption>예금주명, 대출잔액, 계좌번호, 현재금리, 실적조회기간, 금리반영일에 대한 구성 테이블입니다.</caption>
+
+                                <colgroup>
+                                    <col style="width: 160px">
+                                    <col style="width: auto">
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">예금주명</th>
+                                        <td colspan="3">
+                                            <span class="typeMd">기업운전일반자금대출</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">대출잔액</th>
+                                        <td colspan="3" class="text-right">
+                                            <span class="typeMd">100,000,000원</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">계좌번호</th>
+                                        <td colspan="3">
+                                            <span class="typeMd">0000-0000-0000</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">현재금리</th>
+                                        <td colspan="3">
+                                            <span class="typeMd">4.29 % (기준금리 : 2.22 %, 가산금리 : 2.07 %)</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">실적조회기간</th>
+                                        <td colspan="3">
+                                            <span class="typeMd">2026-04-01 ~ 2026-04-23</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row"><label for="senderAddr">주소</label></th>
+                                        <td>
+                                            <div class="tbl-column">
+                                                <button type="button"
+                                                    class="btn type-line-secondary size-lg">주소검색</button>
+                                                <div class="wSize-full">
+                                                    <input type="text" id="senderAddr" class="input size-lg"
+                                                        value="Seoul gangbuk-gu sandamro-gil, 00-00, 1, Korea"
+                                                        title="주소" readonly="">
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row"><label for="senderAddr">주소</label></th>
+                                        <td>
+                                            <div class="tbl-column">
+                                                <button type="button"
+                                                    class="btn type-line-secondary size-lg">주소입력</button>
+                                                <div class="wSize-full">
+                                                    <input type="text" id="senderAddr" class="input size-lg" title="주소"
+                                                        value="" readonly="">
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">
+                                            <span class="required">자택주소</span>
+                                        </th>
+                                        <td class="flex flex-column gap-8">
+                                            <div class="flex items-center gap-6">
+                                                <input type="text" class="input zip" title="우편번호" value="04375"
+                                                    readonly="">
+                                                <button type="button" class="btn type-line-secondary size-md">
+                                                    <span class="text">우편번호 찾기</span>
+                                                </button>
+                                            </div>
+                                            <div class="flex items-center gap-16">
+                                                <div class="flex items-center gap-6">
+                                                    <input type="text" class="input adr1" title="주소1"
+                                                        value="서울특별시 용산구 백범로99길" readonly="">
+                                                    <button type="button" class="btn type-line-secondary size-md">
+                                                        <span class="text">초기화</span>
+                                                    </button>
+                                                </div>
+                                                <input type="text" class="input" placeholder="상세주소" title="상세주소">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">
+                                            <span class="required">직장주소</span>
+                                        </th>
+                                        <td class="flex flex-column gap-8">
+                                            <div class="flex items-center gap-6">
+                                                <input type="text" class="input zip" title="우편번호" value="04375"
+                                                    readonly="">
+                                                <button type="button" class="btn type-line-secondary size-md">
+                                                    <span class="text">우편번호 찾기</span>
+                                                </button>
+                                            </div>
+                                            <div class="flex items-center gap-16">
+                                                <div class="flex items-center gap-6">
+                                                    <input type="text" class="input adr1" title="주소1"
+                                                        value="서울특별시 용산구 백범로99길" readonly="">
+                                                    <button type="button" class="btn type-line-secondary size-md">
+                                                        <span class="text">초기화</span>
+                                                    </button>
+                                                </div>
+                                                <input type="text" class="input" placeholder="상세주소" title="상세주소">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">
+                                            <span class="typeMdSemibold">상세주소</span>
+                                        </th>
+                                        <td>
+                                            <span class="typeMd">
+                                                <input type="text" class="input size-lg" placeholder="" title="상세주소"
+                                                    value="">
+                                                <span class="typeSm color-fg-secondary">
+                                                    상세주소는 영문, 숫자 50자 이내로 입력하세요.
+                                                </span>
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">
+                                            <span class="typeMdSemibold">기본주소</span>
+                                        </th>
+                                        <td>
+                                            <span class="typeMd">
+                                                <input type="text" class="input size-lg" title="기본주소"
+                                                    value="Seoul Eunpyeon-gu Jinheug-ro 11-gil" readonly>
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">주소</th>
+                                        <td>
+                                            <span class="typeMd">(12345)서울 송파구 오금로 62</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">수취인주소</th>
+                                        <td>
+                                            <span class="typeMd">BANKCO MUNNICIPAL DE ROSARIO</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">사업자 주소</th>
+                                        <td>
+                                            <span class="typeMd">경기도 양평균 강하면 강남로 717(면판화)</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">송금인주소</th>
+                                        <td>
+                                            <span class="typeMd">BANKCO MUNNICIPAL DE ROSARIO</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">은행주소</th>
+                                        <td>
+                                            <span class="typeMd">BANKCO MUNNICIPAL DE ROSARIO</span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <th scope="row"><label for="senderCity">도시</label></th>
+                                        <td>
+                                            <div class="wSize-full">
+                                                <input type="text" id="senderCity" class="input size-lg"
+                                                    placeholder="입력해주세요" title="도시" aria-required="true">
+
+                                                <p class="input-guide-text">Ex) SEOUL(공백포함 영문 30자 이내로 입력하세요)</p>
+
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+
+                        <div class="list type-text mt-16 pb-12">
+                            <ul>
+                                <li class="typeLg">
+                                    펀드 편입형 등 일부 상품성 신탁의 경우 신탁 보수 외에 편입된 상품(예: 펀드) 자체의 보수가 징수되어 총보수가 상기 신탁 보수보다 더 높을 수
+                                    있습니다.
+                                </li>
+                                <li class="typeLg">
+                                    계약에 따라 성과보수가 부과되는 경우가 있으므로, 계약서 등을 확인하시기 바랍니다.
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="list type-num">
+                            <ul>
+                                <li class="typeMd">
+                                    상품성신탁 : 퇴직연금신탁 및 신탁형ISA를 제외한 개인투자자를 대상으로 하여 판매하는 특정금전신탁
+                                </li>
+                                <li class="typeMd">
+                                    주식형 : ETF, 상장 수익증권, 리츠 등을 편입한 신탁
+                                </li>
+                                <li class="typeMd">
+                                    ELT : ELS, DLS, ELB, DLB 등 파생결합증권을 편입한 신탁
+                                </li>
+                                <li class="typeMd">채권형 : 국채, 지방채, 통안채, 특수채, 회사채, 사모사채, 기업어음 등을 편입한 신탁</li>
+                                <li class="typeMd">펀드편입형 : ETF, 상장수익증권을 제외한 펀드를 편입한 신탁</li>
+                                <li class="typeMd">예금형 : 정기예금등을 편입한 신탁</li>
+                                <li class="typeMd">기타 : 상기2~6에 해당되지 않은 상품을 편입하는 신탁</li>
+                                <li class="typeMd">선취보수형 : 신탁 계약 설정시 등에 신탁재산에서 차감하는 보수(ex. 신탁원본 x 보수율(%))</li>
+                                <li class="typeMd">평잔보수형 : 신탁계��� 체결 후 계약서에서 정한 방법 또는 신탁 해지시 차감하는 신탁보수를 연율로 표시(ex. 신탁평잔
+                                    x 보수율(%))</li>
+                            </ul>
+                        </div>
+
+                        <div class="tbl-area">
+                            <div class="tbl-head">
+                                <div class="right-area">
+                                    <div class="board-header flex gap-8 justify-end">
+                                        <div class="box-select wSize-120">
+                                            <button type="button" class="select size-lg" role="combobox"
+                                                aria-expanded="false" aria-haspopup="listbox"
+                                                aria-controls="selectDropdown01" id="btnSelectType" title="제목">
+                                                <span class="text">제목</span>
+                                                <span class="blind">펼침</span>
+                                            </button>
+                                            <div id="selectDropdown01" class="box-list-select">
+                                                <ul class="list-select" role="listbox" aria-label="검색 타입 리스트">
+                                                    <li class="item-select" role="option" aria-selected="true">
+                                                        <span class="form-box">제목</span>
+                                                    </li>
+                                                    <li class="item-select" role="option" aria-selected="false">
+                                                        <span class="form-box">내용</span>
+                                                    </li>
+                                                    <li class="item-select" role="option" aria-selected="false">
+                                                        <span class="form-box">작성자</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="box-input-search wSize-md">
+                                            <input type="search" class="input" placeholder="키워드를 입력하세요" title="키워드 검색">
+                                            <div class="group-button">
+                                                <button type="button" class="btn-search">
+                                                    <span class="blind">검색</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <table class="table-type01">
+                                <caption>예금주명, 대출잔액, 계좌번호, 현재금리, 실적조회기간, 금리반영일에 대한 구성 테이블입니다.</caption>
+
+                                <colgroup>
+                                    <col style="width: 160px">
+                                    <col style="width: auto">
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">예금주명</th>
+                                        <td class="color-resolving">
+                                            <span class="typeMd">기업운전일반자금대출</span>
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">대출잔액</th>
+                                        <td class="text-right">
+                                            <span class="typeMd">100,000,000원</span>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+
+                        </div>
+
+                        <div class="tbl-area">
+                            <div class="tbl-head">
+                                <div class="left-area">
+                                    <h4 class="typeH4">
+                                        <span class="text">우대금리</span>
+                                    </h4>
+                                </div>
+                                <div class="right-area">
+                                    <span class="color-fg-secondary typeMd">기준일자 : YYYY년 MM월 DD일</span>
+                                </div>
+                            </div>
+                            <div class="wScroll">
+                                <table class="table-type03">
+                                    <caption>우대항목, 우대금리(%)에 대한 구성 테이블입니다.</caption>
+                                    <colgroup>
+                                        <col>
+                                        <col>
+                                    </colgroup>
+                                    <thead>
+
+                                        <tr>
+                                            <th scope="col">우대항목</th>
+                                            <th scope="col">우대금리(%)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="text-left"><span class="typeMd">① 신규 시 받은 거래우대금리</span></td>
+                                            <td><span class="typeMd">0.01</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-left"><span class="typeMd">② 봉사활동 또는 상품홍보</span></td>
+                                            <td><span class="typeMd">0.01</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-left"><span class="typeMd">③ 입출금통장 최초 신규</span></td>
+                                            <td><span class="typeMd">0.01</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-left">
+                                                <span class="typeMd">④ 자동이체출금실적</span>
+                                                <div class="list type-reference mt-6">
+                                                    <ul>
+                                                        <li class="typeMd">
+                                                            현재 총 6개월중 3개월 충족하였습니다.
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                            <td><span class="typeMd">0.01</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="tbl-area">
+                            <div class="tbl-head">
+                                <div class="right-area">
+                                    <div class="box-select wSize-md">
+                                        <button type="button" class="select size-lg" role="combobox"
+                                            aria-expanded="false" aria-haspopup="listbox"
+                                            aria-controls="selectDropdown01">
+                                            <span class="text">기준년월 2025년 12월</span>
+                                            <span class="blind">펼침</span>
+                                        </button>
+                                        <div id="selectDropdown01" class="box-list-select">
+                                            <ul class="list-select" role="listbox" aria-label="선택 항목 리스트">
+                                                <li class="item-select" role="option" aria-selected="true">
+                                                    <span class="form-box">기준년월 2025년 12월</span>
+                                                </li>
+                                                <li class="item-select" role="option" aria-selected="false">
+                                                    <span class="form-box">기준년월 2025년 9월</span>
+                                                </li>
+                                                <li class="item-select" role="option" aria-selected="false">
+                                                    <span class="form-box">기준년월 2025년 6월</span>
+                                                </li>
+                                                <li class="item-select" role="option" aria-selected="false">
+                                                    <span class="form-box">기준년월 2025년 3월</span>
+                                                </li>
+                                                <li class="item-select" role="option" aria-selected="false">
+                                                    <span class="form-box">기준년월 2024년 12월</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <table class="table-type01">
+                                <caption>예금주명, 대출잔액, 계좌번호, 현재금리, 실적조회기간, 금리반영일에 대한 구성 테이블입니다.</caption>
+
+                                <colgroup>
+                                    <col style="width: 160px">
+                                    <col style="width: auto">
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">예금주명</th>
+                                        <td colspan="3">
+                                            <span class="typeMd">기업운전일반자금대출</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">대출잔액</th>
+                                        <td colspan="3" class="text-right">
+                                            <span class="typeMd">100,000,000원</span>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+
+                        </div>
+
+                        <div class="tbl-area">
+                            <div class="tbl-head">
+                                <div class="right-area flex items-center gap-4">
+                                    <span class="color-fg-secondary typeMd">조회기간 : <span>YYYY-MM-DD ~
+                                            YYYY-MM-DD</span></span>
+                                    <button type="button" class="btn type-ico size-md">
+                                        <i class="ico line ico-size-sm ico-download" aria-hidden="true"></i>
+                                        <span class="blind">다운로드</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <table class="table-type01">
+                                <caption>예금주명, 대출잔액, 계좌번호, 현재금리, 실적조회기간, 금리반영일에 대한 구성 테이블입니다.</caption>
+
+                                <colgroup>
+                                    <col style="width: 160px">
+                                    <col style="width: auto">
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">예금주명</th>
+                                        <td colspan="3">
+                                            <span class="typeMd">기업운전일반자금대출</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">대출잔액</th>
+                                        <td colspan="3" class="text-right">
+                                            <span class="typeMd">100,000,000원</span>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+
+                        </div>
+
+                        <div class="tbl-area">
+                            <div class="tbl-head">
+                                <div class="left-area">
+
+                                    <h4 class="typeH4">증명서 발급계좌 선택</h4>
+                                </div>
+                                <div class="right-area typeMd flex gap-2">
+                                    <span class="color-fg-error" aria-hidden="*">*</span>표시는
+                                    필수 입력값입니다.
+                                </div>
+                            </div>
+
+                            <table class="table-type01">
+                                <caption>예금주명, 대출잔액에 대한 구성 테이블입니다.</caption>
+
+                                <colgroup>
+                                    <col style="width: 160px">
+                                    <col style="width: auto">
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">예금주명</th>
+                                        <td colspan="3">
+                                            <span class="typeMd">기업운전일반자금대출</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">대출잔액</th>
+                                        <td colspan="3" class="text-right">
+                                            <span class="typeMd">100,000,000원</span>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+
+                            <p class="typeMd color-fg-secondary mt-12">
+                                ※ 보유하신 입출금 계좌 중 증명서/확인증 발급받을 계좌를 최대
+                                20개까지 선택할 수 있습니다.
+                            </p>
+
+                        </div>
+
+                        <div class="tbl-area">
+                            <div class="tbl-head">
+                                <div class="left-area">
+                                    <span class="typeSm">총</span><span class="typeSmSemibold"> 30</span><span
+                                        class="typeSm">건</span>
+                                </div>
+                                <div class="right-area">
+                                    <span class="color-fg-secondary typeMd">기준일자 : YYYY년 MM월 DD일</span>
+                                </div>
+                            </div>
+                            <table class="table-type03">
+                                <caption></caption>
+                                <colgroup>
+                                    <col style="width: auto">
+                                    <col style="width: auto">
+                                    <col style="width: auto">
+                                    <col style="width: auto">
+                                    <col style="width: auto">
+                                </colgroup>
+                                <thead>
+                                    <tr>
+                                        <th scope="col"><span>선택</span></th>
+                                        <th scope="col"><span>지사명</span></th>
+                                        <th scope="col"><span>고객번호조회</span></th>
+                                        <th scope="col"><span>납부금액(원)</span></th>
+                                        <th scope="col"><span>납부기한</span></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <span class="form-box">
+                                                <input type="checkbox" name="accountSelect" id="account_01"
+                                                    class="form-checkbox size-md" checked="">
+                                                <label for="account_01" class="blind">기업자유 계좌 선택</label>
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <span class="typeMd">KT</span>
+                                        </td>
+                                        <td>
+                                            <span class="typeMd">000000000000000</span>
+                                        </td>
+                                        <td class="text-right">
+                                            <span class="typeMd">1,000</span>
+                                        </td>
+                                        <td>
+                                            <span class="typeMd">2026-02-11</span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="tbl-area">
+                            <div class="tbl-head">
+                                <div class="left-area">
+                                    <h4 class="typeH4">송금정보</h4>
+                                </div>
+                                <div class="right-area">
+                                    <span class="required typeMd">표로 표시된 항목은 필수로 입력하셔야 합니다.</span>
+                                </div>
+                            </div>
+
+                            <table class="table-type01">
+                                <caption>예금주명, 대출잔액에 대한 구성 테이블입니다.</caption>
+
+                                <colgroup>
+                                    <col style="width: 160px">
+                                    <col style="width: auto">
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">예금주명</th>
+                                        <td colspan="3">
+                                            <span class="typeMd">기업운전일반자금대출</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">대출잔액</th>
+                                        <td colspan="3" class="text-right">
+                                            <span class="typeMd">100,000,000원</span>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+
+                            <p class="typeMd color-fg-secondary mt-12">
+                                ※ 보유하신 입출금 계좌 중 증명서/확인증 발급받을 계좌를 최대
+                                20개까지 선택할 수 있습니다.
+                            </p>
+
+                        </div>
+
+                        <div class="tbl-area">
+                            <div class="tbl-head">
+                                <div class="left-area">
+                                    <h4 class="typeH4">송금정보</h4>
+                                </div>
+                                <div class="right-area">
+                                    <span class="color-fg-secondary typeMd">기준일자 : YYYY년 MM월 DD일</span>
+                                </div>
+                            </div>
+
+                            <table class="table-type01">
+                                <caption>예금주명, 대출잔액에 대한 구성 테이블입니다.</caption>
+
+                                <colgroup>
+                                    <col style="width: 160px">
+                                    <col style="width: auto">
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">예금주명</th>
+                                        <td colspan="3">
+                                            <span class="typeMd">기업운전일반자금대출</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">대출잔액</th>
+                                        <td colspan="3" class="text-right">
+                                            <span class="typeMd">100,000,000원</span>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+
+                            <p class="typeMd color-fg-secondary mt-12">
+                                ※ 보유하신 입출금 계좌 중 증명서/확인증 발급받을 계좌를 최대
+                                20개까지 선택할 수 있습니다.
+                            </p>
+
+                        </div>
+
+                        <div class="tbl-area">
+                            <div class="tbl-head">
+
+                                <h6 class="typeH6">조회조건</h6>
+                                <div class="right-area">
+                                    <button type="button" class="btn type-line-neutral size-md mr-8">
+                                        <span class="text">카드결제일 안내</span>
+                                    </button>
+                                    <span class="required typeMd">필수 항목</span>
+                                </div>
+
+                            </div>
+
+                            <table class="table-type01">
+                                <caption>예금주명, 대출잔액에 대한 구성 테이블입니다.</caption>
+
+                                <colgroup>
+                                    <col style="width: 160px">
+                                    <col style="width: auto">
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">예금주명</th>
+                                        <td colspan="3">
+                                            <span class="typeMd">기업운전일반자금대출</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">대출잔액</th>
+                                        <td colspan="3" class="text-right">
+                                            <span class="typeMd">100,000,000원</span>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+
+                            <p class="typeMd color-fg-secondary mt-12">
+                                ※ 보유하신 입출금 계좌 중 증명서/확인증 발급받을 계좌를 최대
+                                20개까지 선택할 수 있습니다.
+                            </p>
+
+                        </div>
+
+                        <div class="tbl-area">
+                            <div class="tbl-head">
+                                <div class="left-area">
+                                    <h4 class="typeH4">사용자정보</h4>
+                                </div>
+                                <div class="right-area">
+                                    <button type="button" class="btn type-line-neutral size-md">
+                                        <span class="text">사용자정보 수정</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <table class="table-type01">
+                                <caption>예금주명, 대출잔액에 대한 구성 테이블입니다.</caption>
+
+                                <colgroup>
+                                    <col style="width: 160px">
+                                    <col style="width: auto">
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">예금주명</th>
+                                        <td colspan="3">
+                                            <span class="typeMd">기업운전일반자금대출</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">대출잔액</th>
+                                        <td colspan="3" class="text-right">
+                                            <span class="typeMd">100,000,000원</span>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+
+                            <div class="list type-star mt-12">
+                                <ul>
+                                    <li class="typeMd">본 처리 결과는 변경 가능성이 있어 거래증빙으로 사용할 수 없습니다.</li>
+                                </ul>
+                            </div>
+
+                        </div>
+
+                        <div class="tbl-area">
+                            <div class="tbl-head">
+                                <div class="left-area">
+
+                                    <h4 class="typeH4">증명서 발급계좌 선택</h4>
+                                </div>
+                                <div class="right-area">
+                                    <button type="button" class="btn type-line-neutral size-md">
+                                        <span class="text">메뉴권한 등록 이용가이드 다운로드</span>
+                                        <i class="ico line ico-size-smMd ico-download" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <table class="table-type01">
+                                <caption>예금주명, 대출잔액에 대한 구성 테이블입니다.</caption>
+
+                                <colgroup>
+                                    <col style="width: 160px">
+                                    <col style="width: auto">
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">예금주명</th>
+                                        <td colspan="3">
+                                            <span class="typeMd">기업운전일반자금대출</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">대출잔액</th>
+                                        <td colspan="3" class="text-right">
+                                            <span class="typeMd">100,000,000원</span>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+
+                            <p class="typeMd color-fg-secondary mt-12">
+                                ※ 보유하신 입출금 계좌 중 증명서/확인증 발급받을 계좌를 최대
+                                20개까지 선택할 수 있습니다.
+                            </p>
+
+                        </div>
+
+                        <div class="tbl-area">
+                            <div class="tbl-head">
+                                <div class="left-area">
+
+                                    <h4 class="typeH4">증명서 발급계좌 선택</h4>
+                                </div>
+                                <div class="right-area">
+                                    <button type="button" class="btn type-line-neutral size-lg">
+                                        <span class="text">상세 조회</span>
+                                        <i class="ico line ico-size-smMd ico-copy" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <table class="table-type01">
+                                <caption>예금주명, 대출잔액에 대한 구성 테이블입니다.</caption>
+
+                                <colgroup>
+                                    <col style="width: 160px">
+                                    <col style="width: auto">
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">예금주명</th>
+                                        <td colspan="3">
+                                            <span class="typeMd">기업운전일반자금대출</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">대출잔액</th>
+                                        <td colspan="3" class="text-right">
+                                            <span class="typeMd">100,000,000원</span>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+
+                            <p class="typeMd color-fg-secondary mt-12">
+                                ※ 보유하신 입출금 계좌 중 증명서/확인증 발급받을 계좌를 최대
+                                20개까지 선택할 수 있습니다.
+                            </p>
+
+                        </div>
+
+                        <div class="tbl-area">
+                            <div class="tbl-head">
+                                <div class="left-area">
+
+                                    <h4 class="typeH4">증명서 발급계좌 선택</h4>
+                                </div>
+                                <div class="right-area typeMd flex gap-2">
+                                    <span class="color-fg-error" aria-hidden="*">*</span>표시는
+                                    필수 입력값입니다.
+                                </div>
+                            </div>
+
+                            <table class="table-type01">
+                                <caption>예금주명, 대출잔액에 대한 구성 테이블입니다.</caption>
+
+                                <colgroup>
+                                    <col style="width: 160px">
+                                    <col style="width: auto">
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">예금주명</th>
+                                        <td colspan="3">
+                                            <span class="typeMd">기업운전일반자금대출</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">대출잔액</th>
+                                        <td colspan="3" class="text-right">
+                                            <span class="typeMd">100,000,000원</span>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+
+                            <p class="typeMd color-fg-secondary mt-12">
+                                ※ 보유하신 입출금 계좌 중 증명서/확인증 발급받을 계좌를 최대
+                                20개까지 선택할 수 있습니다.
+                            </p>
+
+                        </div>
+
+                        <div class="tbl-area">
+                            <div class="tbl-head">
+                                <div class="left-area">
+                                    <h4 class="typeH4">
+                                        <span class="text">정상계좌</span>
+                                    </h4>
+                                </div>
+                                <div class="right-area">
+                                    <button type="button" class="btn type-bg-neutral-tint size-md">
+                                        <span class="text">해지계죄 조회</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <table class="table-type01">
+                                <caption>예금주명, 대출잔액에 대한 구성 테이블입니다.</caption>
+
+                                <colgroup>
+                                    <col style="width: 160px">
+                                    <col style="width: auto">
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">예금주명</th>
+                                        <td colspan="3">
+                                            <span class="typeMd">기업운전일반자금대출</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">대출잔액</th>
+                                        <td colspan="3" class="text-right">
+                                            <span class="typeMd">100,000,000원</span>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+
+                            <p class="typeMd color-fg-secondary mt-12">
+                                ※ 보유하신 입출금 계좌 중 증명서/확인증 발급받을 계좌를 최대
+                                20개까지 선택할 수 있습니다.
+                            </p>
+
+                        </div>
+
+                        <div class="tbl-area">
+                            <div class="tbl-head">
+                                <div class="left-area">
+                                    <div class="list type-reference">
+                                        <ul>
+                                            <li class="typeMd">목록중에서 해당되는 송금계좌번호를 클릭하세요.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="right-area flex items-center gap-4">
+                                    <span class="color-fg-secondary typeMd">조회기준일시 : <span>YYYY-MM-DD
+                                            00:00:00</span></span>
+                                </div>
+                            </div>
+
+                            <table class="table-type01">
+                                <caption>예금주명, 대출잔액에 대한 구성 테이블입니다.</caption>
+
+                                <colgroup>
+                                    <col style="width: 160px">
+                                    <col style="width: auto">
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">예금주명</th>
+                                        <td colspan="3">
+                                            <span class="typeMd">기업운전일반자금대출</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">대출잔액</th>
+                                        <td colspan="3" class="text-right">
+                                            <span class="typeMd">100,000,000원</span>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+
+                            <p class="typeMd color-fg-secondary mt-12">
+                                ※ 보유하신 입출금 계좌 중 증명서/확인증 발급받을 계좌를 최대
+                                20개까지 선택할 수 있습니다.
+                            </p>
+
+                        </div>
+
+                        <div class="tbl-area">
+                            <div class="tbl-head">
+                                <div class="right-area flex items-center gap-6">
+                                    <span class="typeMd">국가선택</span>
+                                    <div class="box-input-search">
+
+                                        <input type="search" class="input" placeholder="국가명을 입력하세요" title="국가검색, 국가명">
+
+                                        <div class="group-button">
+                                            <button type="button" class="btn-search">
+                                                <span class="blind">검색</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <table class="table-type01">
+                                <caption>예금주명, 대출잔액에 대한 구성 테이블입니다.</caption>
+
+                                <colgroup>
+                                    <col style="width: 160px">
+                                    <col style="width: auto">
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">예금주명</th>
+                                        <td colspan="3">
+                                            <span class="typeMd">기업운전일반자금대출</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">대출잔액</th>
+                                        <td colspan="3" class="text-right">
+                                            <span class="typeMd">100,000,000원</span>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+
+                            <p class="typeMd color-fg-secondary mt-12">
+                                ※ 보유하신 입출금 계좌 중 증명서/확인증 발급받을 계좌를 최대
+                                20개까지 선택할 수 있습니다.
+                            </p>
+
+                        </div>
+
+                        <div class="tbl-area">
+                            <div class="tbl-head">
+                                <div class="right-area">
+                                    <div class="box-input-search">
+                                        <input type="search" class="input" placeholder="상품명을 입력하세요" title="">
+                                        <div class="group-button">
+                                            <button type="button" class="btn-search">
+                                                <span class="blind">검색</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <table class="table-type01">
+                                <caption>예금주명, 대출잔액, 계좌번호, 현재금리, 실적조회기간, 금리반영일에 대한 구성 테이블입니다.</caption>
+
+                                <colgroup>
+                                    <col style="width: 160px">
+                                    <col style="width: auto">
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">예금주명</th>
+                                        <td colspan="3">
+                                            <span class="typeMd">기업운전일반자금대출</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">대출잔액</th>
+                                        <td colspan="3" class="text-right">
+                                            <span class="typeMd">100,000,000원</span>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+
+                        </div>
+
+                        <p class="typeMd etc mt-16 "><span class="required ">*</span>
+                            종신형연금은 생명보험회사만 판매
+                        </p>
+
+                        <div class="list type-dotted mt-16">
+                            <ul>
+                                <li class="typeMd">
+                                    연간 연금소득금액(의료목적 또는 부득이한 사유의 인출, 국민연금 등은 제외)이 1,200만원을 초과하는 경우에는 소득이
+                                    발생한 다음 연도에 종합소득 신고를 해야 합니다.
+                                </li>
+                                <li class="typeMd">
+                                    위 세제 관련된 사항은 관련 세법 개정 등에 따라 변경될 수 있습니다.
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="box-tab-content" id="tabPanelTypeOutline02" role="tabpanel"
+                            aria-labelledby="tabBtnTypeOutline02" style="display: none;">
+
+                            <div class="bg-box top-box size-xl">
+                                <div class="bg-text-wrap">
+                                    <p class="type2XlSemibold">은행별 비교공시 한 눈에 비교하기</p>
+                                    <p class="typeLg">
+                                        전국은행연합회 홈페이지에서 연금저축신탁 수익률&amp;수수료율을 확인할 수 있습니다.
+                                    </p>
+                                </div>
+                                <button type="button" class="btn type-bg-primary size-xl mt-8">
+                                    <span class="text">바로가기</span>
+                                </button>
+                            </div>
+
+                            <div class="list type-star">
+                                <ul>
+                                    <li class="typeMd">
+                                        납입원금(설정액) 잔액 : 작성기준일(또는 각 연도말) 현재 각 상품별 납입원금(설정액) 잔액
+                                    </li>
+                                    <li class="typeMd">
+                                        적립금(평가금액) : 작성기준일(또는 각 연도말) 현재 각 상품별 적립금(평가금액)
+                                    </li>
+                                    <li class="typeMd">
+                                        소급 1년 수익률 : 작성기준일로부터 역산하여 1년이 되는 기간의 수익률(해당 기간의 월 수익률을 기하평균하여 ‘월평균 수익률’을 산출한 뒤
+                                        이를 연환산하여 산출)
+                                    </li>
+                                    <li class="typeMd">
+                                        연 수익률 : 월 수익률을 기하평균하여 ‘월평균 수익률’을 산출한 뒤 이를 연환산한 값
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="list type-bar mt-6">
+                                <ul>
+                                    <li class="typeMd">
+                                        월 수익률(r) = [{당월말 적립금(순자산가액 또는 책임준비금) - 전월말 적립금(순자산가액 또는 책임준비금) + 당월 해지액 - 당월
+                                        납입액} ÷ 당월말 납입원금
+                                        잔액(누계)]
+                                    </li>
+                                    <li class="typeMd">
+                                        월평균 수익률 : 월 수익률을 기하평균하여 산출한 값(={(1+r1)(1+r2).........(1+r12)} ^ (1/12) - 1)
+                                    </li>
+                                    <li class="typeMd">
+                                        연 수익률 = 월평균 수익률 X 12
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="list type-star mt-6">
+                                <ul>
+                                    <li class="typeMd">
+                                        비교지수 수익률 : 해당 상품과 투자 비교대상이 되는 상품의 수익률
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="list type-bar mt-6">
+                                <ul>
+                                    <li class="typeMd">
+                                        (신탁) 과거 1년, 2년, 3년 기간의 초일(1.1일)을 기준일로 하여 ‘저축은행중앙회’가 공시하고 있는 12개월 만기의 “저축은행 정기예금
+                                        평균금리”
+                                    </li>
+                                    <li class="typeMd">
+                                        (보험) 과거 1년, 2년, 3년 기간의 초일(1.1일)을 기준일로 하여 ‘저축은행중앙회’가 공시하고 있는 12개월 만기의 “저축은행 정기예금
+                                        평균금리”
+                                    </li>
+                                    <li class="typeMd">
+                                        (펀드) “자산운용보고서”상의 ‘벤치마크 수익률’에 따라 자산운용사가 산정한 수익률
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="list type-star mt-6">
+                                <ul>
+                                    <li class="typeMd">
+                                        연 수수료율 : 월 수수료율을 기하평균하여 ‘월평균 수수료율’을 산출한 뒤 이를 연환산한 값
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="list type-bar mt-6">
+                                <ul>
+                                    <li class="typeMd">
+                                        월 수수료율(f) = 월 수수료 금액 ÷ 당월말 납입원금 잔액
+                                    </li>
+                                    <li class="typeMd">
+                                        월평균 수수료율 : 월 수수료율을 기하평균하여 산출한 값(={(1+f1)(1+f2)..........(1+f12)} ^ (1/12) - 1)
+                                    </li>
+                                    <li class="typeMd">
+                                        연 수수료율 = 월평균 수수료율 X 12
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="list type-star mt-6">
+                                <ul>
+                                    <li class="typeMd">
+                                        연평균 수익률 : 연 수익률을 일정기간(3, 5, 7, 10년)별로 기하평균하여 산출한 값
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="list type-bar mt-6">
+                                <ul>
+                                    <li class="typeMd">
+                                        산식 = {(1+R1)(1+R2)..........(1+Rn)} ^ (1/n) - 1 R=연 수익률
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="list type-star mt-6">
+                                <ul>
+                                    <li class="typeMd">
+                                        연평균 수수료율 : 연 수수료율을 일정기간(3, 5, 7, 10년)별로 기하평균하여 산출한 값
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="list type-bar mt-6">
+                                <ul>
+                                    <li class="typeMd">
+                                        산식 = {(1+F1)(1+F2)..........(1+Fn)} ^ (1/n) - 1 F=연 수수료율
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="certificate-preview">
+                            <h4 class="typeH4">증명서 미리보기</h4>
+                            <ul class="certificate-list">
+                                <li class="certificate-item">
+                                    <div class="title">금융거래 확인서</div>
+                                    <button type="button" class="btn type-line-primary size-md"
+                                        aria-label="금융거래 확인서 미리보기">
+                                        <span class="text">미리보기 </span>
+                                    </button>
+                                </li>
+                                <li class="certificate-item">
+                                    <div class="title">잔액잔고 증명서(국문)</div>
+                                    <button type="button" class="btn type-line-primary size-md"
+                                        aria-label="잔액잔고 증명서(국문) 미리보기">
+                                        <i class="ico line ico-size-sm ico-check type2" aria-hidden="true"></i>
+                                        <span class="text">미리보기 </span>
+                                    </button>
+                                </li>
+                                <li class="certificate-item">
+                                    <div class="title">부채증명서</div>
+                                    <button type="button" class="btn type-line-primary size-md" aria-label="부채증명서 미리보기">
+                                        <span class="text">미리보기 </span>
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="tbl-area">
+                            <div class="table-header flex items-center justify-between">
+                                <div class="left-area flex items-center">
+                                    <span class="typeSm">총<span class="typeSmSemibold">00</span></span>
+                                </div>
+                            </div>
+                            <table class="table-type03">
+                                <caption>구분, 예금별명, 계좌번호, 잔액, 최종거래일에 대한 구성 테이블입니다.</caption>
+                                <colgroup>
+                                    <col width="120px">
+                                    <col width="80px">
+                                    <col width="80px">
+                                    <col width="75px">
+                                    <col width="75px">
+                                </colgroup>
+                                <thead>
+
+                                    <tr>
+                                        <th scope="col">구분</th>
+                                        <th scope="col">예금별명</th>
+                                        <th scope="col">계좌번호</th>
+                                        <th scope="col">잔액</th>
+                                        <th scope="col">최종거래일</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td colspan="5">
+                                            <div class="empty-page">
+                                                <i class="ico-info" aria-hidden="true"></i>
+                                                <div class="typeMd">조회하신 거래내역이 없습니다.</div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="list type-dotted mt-16">
+                            <ul>
+                                <li class="typeMd">
+                                    장기 미거래로 비활성화 상태이나 고객에게 청구권이 있으며, 고객님의 지급 요청 시 원금과 이자를 지급합니다.
+                                </li>
+                                <li class="typeMd">
+                                    소멸시효가 완성된 예금이나 고객의 지급 청구가 잇는 경우 청구 건에 대하여 해당 금액을 지급합니다.
+                                </li>
+                                <li class="typeMd">
+                                    신분증을 지참하시고 가까운 영업점을 방문하여 문의하시기 바랍니다. 감사합니다.
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="list type-reference mt-4 mb-4">
+                            <ul>
+                                <li class="typeMd">
+                                    휴면성예금의 범위 : 2010년 ~ 212년까지 잡수익 편입한 요구불예금(잡이익 처리 후 5년 미경과 요구불예금)
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="list type-dotted mt-16">
+                            <ul>
+                                <li class="typeMd">
+                                    휴먼예금관리재단에 출연된 상태이나 고개에게 청구권이 있으며, 고객님의 지급요청시 원금과 이자를 지급합니다.
+                                </li>
+                                <li class="typeMd">
+                                    소멸시효가 완성된 예금으로 휴먼예금관리재단의 설립 등에 관한 법률에 따라 휴먼예금관리재단에 출연되었으며 고객께서 지급을 요청하시는 경우 해당금액을
+                                    지급합니다.
+                                </li>
+                                <li class="typeMd">
+                                    신분증을 지참하시고 가까운 영업점을 방문하여 문의하시기 바랍니다. 감사합니다.
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="list type-reference mt-4 mb-4">
+                            <ul>
+                                <li class="typeMd">
+                                    휴면성예금의 범위 : 2010년 ~ 재단에출연한 요구불예금(재단출현 후 5년 미경과 요구불예금)
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="list type-dotted mt-16">
+                            <ul>
+                                <li class="typeMd">
+                                    은행보유분 휴면성예금 : 장기 미거래로 비활성화 상태이나 고객에게 청구권이 있으며, 고객님의 지급 요청시 원금과 이자를 지급합니다.
+                                </li>
+                                <li class="typeMd">
+                                    은행보유분 휴면예금 : 소멸시효가 완성된 예끔이나 고객의 지급 청구가 있는 경우 청구 건에 대하여 해당 금액을 지급합니다.
+                                </li>
+                                <li class="typeMd">
+                                    미소금유재단 출연분 휴면성예금 : 휴면예금관리재단에 출연된 상태이나 고객에게 청구권이 있으며, 고객님의 지급 요청시 원금과 이자를 지급합니다.
+                                </li>
+                                <li class="typeMd">
+                                    미소금융재단 출연분 휴면예금 : 소멸시효가 완성된 예금으로 휴면예금관리재단의 설립 등에 관한 법률에 따라 휴면예금관리재단에 출연되었으며 고객깨서 지급을
+                                    요청하시는
+                                    <br>경우 해당금액을 지급합니다.
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="list type-reference mt-4 mb-4">
+                            <ul>
+                                <li class="typeMd">
+                                    신분증을 지참하시고 가까운 영업점을 방문하여 문의하시기 바랍니다. 감사합니다.
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="wrap-board-grid">
+
+                            <div class="box-grid-utility flex items-center justify-between">
+                                <div class="box-left flex items-center gap-8">
+                                    <span class="total typeMd">총 <span class="num">$n$</span></span>
+                                    <div class="box-select wSize-md">
+                                        <button type="button" class="select size-lg" role="combobox"
+                                            aria-expanded="false" aria-haspopup="listbox"
+                                            aria-controls="selectDropdown06">
+                                            <span class="text">10개씩 보기</span>
+                                            <span class="blind">펼침</span>
+                                        </button>
+                                        <div id="selectDropdown06" class="box-list-select">
+                                            <ul class="list-select" role="listbox" aria-label="선택 항목 리스트">
+                                                <li class="item-select" role="option" aria-selected="true">
+                                                    <span class="form-box">5개씩 보기</span>
+                                                </li>
+                                                <li class="item-select" role="option" aria-selected="false">
+                                                    <span class="form-box">10개씩 보기</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="box-right flex items-center gap-8">
+                                    <button type="button" class="btn type-ico size-lg">
+                                        <i class="ico line ico-size-smMd ico-download" aria-hidden="true"></i>
+                                        <span class="blind">다운로드</span>
+                                    </button>
+                                    <button type="button" class="btn type-ico size-lg">
+                                        <i class="ico line ico-size-smMd ico-printer" aria-hidden="true"></i>
+                                        <span class="blind">인쇄</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="board-grid">
+
+                                <i
+                                    style="display:block;border:var(--borderWidthMd) solid var(--colorBorderBase);border-radius:var(--radiusMd);padding:var(--spacing2Xl);">임시
+                                    그리드 영역</i>
+
+                            </div>
+
+                        </div>
+
+                        <div class="tbl-head">
+                            <div class="right-area">
+                                <div class="box-input-search">
+                                    <input type="search" class="input" placeholder="상품명을 입력하세요" title="">
+                                    <div class="group-button">
+                                        <button type="button" class="btn-search">
+                                            <span class="blind">검색</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="table-type02">
+                            <table>
+                                <caption>
+                                    입출금 테이블
+                                </caption>
+                                <colgroup>
+                                    <col width="396px">
+                                    <col width="280px">
+                                    <col width="200px">
+                                    <col width="60px">
+                                    <col width="100px">
+                                </colgroup>
+                                <thead>
+                                    <tr>
+                                        <th>상품명</th>
+                                        <th>적용약관</th>
+                                        <th>상품설명서</th>
+                                        <th>상품설명서</th>
+                                        <th>공시자료 변경내역</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div class="product-wrap">
+                                                <h4 class="typeH4">Sh모두행복愛기업적금</h4>
+                                                <div class="tbl-label-wrap">
+                                                    <span class="badge-light size-md type-cyan">
+                                                        <span class="blind">판매중
+                                                        </span>
+                                                        <span class="text">판매중</span>
+                                                    </span>
+                                                    <span class="badge-light size-md type-fuchsia">
+                                                        <span class="blind">예금자보호
+                                                        </span>
+                                                        <span class="text">예금자보호</span>
+                                                    </span>
+                                                    <span class="badge-light size-md type-blue">
+                                                        <span class="blind">인터넷가입가능
+                                                        </span>
+                                                        <span class="text">인터넷가입가능</span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="text-left">
+                                            <div class="tbl-ico-wrap">
+                                                <button class="btn ico-pdf-red" aria-label="예금기본거래약관 pdf 파일 다운로드"><i
+                                                        class="ico file ico-size-sm ico-pdf02"
+                                                        aria-hidden="true"></i><span
+                                                        class="typeMd text-left">예금기본거래약관</span></button>
+                                                <button class="btn ico-pdf-red"
+                                                    aria-label="Sh해양플라스틱Zero! 법인입출금통장약관 pdf 파일 다운로드"><i
+                                                        class="ico file ico-size-sm ico-pdf02"
+                                                        aria-hidden="true"></i><span class="typeMd">Sh해양플라스틱Zero!
+                                                        법인입출금통장약관</span></button>
+                                                <button class="btn ico-pdf-red"
+                                                    aria-label="Sh VIP 기업예금(매일전액이체형) 약관 pdf 파일 다운로드"><i
+                                                        class="ico file ico-size-sm ico-pdf02"
+                                                        aria-hidden="true"></i><span class="typeMd">Sh VIP
+                                                        기업예금(매일전액이체형) 약관</span></button>
+                                            </div>
+                                        </td>
+                                        <td class="text-left">
+                                            <div class="tbl-ico-wrap">
+                                                <button class="btn ico-pdf-red"
+                                                    aria-label="Sh VIP 기업예금 (매일전액이체형) 상품설명서 pdf 파일 다운로드"><i
+                                                        class="ico file ico-size-sm ico-pdf02"
+                                                        aria-hidden="true"></i><span class="typeMd text-left">Sh
+                                                        VIP 기업예금 (매일전액이체형)
+                                                        상품설명서</span></button>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="box-tooltip tail-top-start">
+                                                <button type="button" class="btn type-line-primary size-sm"
+                                                    aria-describedby="tooltipBoxTop0101">
+                                                    <span class="text">미처리</span>
+                                                </button>
+                                                <div id="tooltipBoxTop0101" class="layer-tooltip" role="tooltip"
+                                                    aria-hidden="true">
+                                                    <div class="content-tooltip">
+                                                        <span class="text">처리오류 메세지 에러메시지가 노출됩니다.</span>
+                                                    </div>
+                                                    <button type="button" class="btn-close">
+                                                        <i class="ico-close ico-size-sm" aria-hidden="true"></i>
+                                                        <span class="blind">툴팁 닫기</span>
+                                                    </button>
+                                                    <i class="ico-tail-tooltip" aria-hidden="true"></i>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="flex justify-center items-stretch">
+                                                <button type="button" class="btn type-line-neutral size-sm">
+                                                    <span class="text">내역보기</span>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="product-wrap">
+                                                <h4 class="typeH4">일반정기예금(기업)</h4>
+                                                <div class="tbl-label-wrap">
+                                                    <span class="badge-light size-md type-cyan">
+                                                        <span class="blind">판매중
+                                                        </span>
+                                                        <span class="text">판매중</span>
+                                                    </span>
+                                                    <span class="badge-light size-md type-fuchsia">
+                                                        <span class="blind">예금자보호
+                                                        </span>
+                                                        <span class="text">예금자보호</span>
+                                                    </span>
+                                                    <span class="badge-light size-md type-blue">
+                                                        <span class="blind">인터넷가입가능
+                                                        </span>
+                                                        <span class="text">인터넷가입가능</span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="text-left">
+                                            <div class="tbl-ico-wrap">
+                                                <button class="btn ico-pdf-red" aria-label="예금기본거래약관 pdf 파일 다운로드"><i
+                                                        class="ico file ico-size-sm ico-pdf02"
+                                                        aria-hidden="true"></i><span
+                                                        class="typeMd text-left">예금기본거래약관</span></button>
+                                            </div>
+                                        </td>
+                                        <td class="text-left">
+                                            <div class="tbl-ico-wrap">
+                                                <button class="btn ico-pdf-red"
+                                                    aria-label="Sh VIP 기업예금 (매일전액이체형) pdf 파일 다운로드"><i
+                                                        class="ico file ico-size-sm ico-pdf02"
+                                                        aria-hidden="true"></i><span class="typeMd text-left">Sh VIP
+                                                        기업예금 (매일전액이체형)</span></button>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="box-tooltip tail-top-start">
+                                                <button type="button" class="btn type-line-primary size-sm"
+                                                    aria-describedby="tooltipBoxTop0101">
+                                                    <span class="text">미처리</span>
+                                                </button>
+                                                <div id="tooltipBoxTop0101" class="layer-tooltip" role="tooltip"
+                                                    aria-hidden="true">
+                                                    <div class="content-tooltip">
+                                                        <span class="text">처리오류 메세지 에러메시지가 노출됩니다.</span>
+                                                    </div>
+                                                    <button type="button" class="btn-close">
+                                                        <i class="ico-close ico-size-sm" aria-hidden="true"></i>
+                                                        <span class="blind">툴팁 닫기</span>
+                                                    </button>
+                                                    <i class="ico-tail-tooltip" aria-hidden="true"></i>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="flex justify-center items-stretch">
+                                                <button type="button" class="btn type-line-neutral size-sm">
+                                                    <span class="text">내역보기</span>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+        </div>
+        <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+</body>
+
+</html>

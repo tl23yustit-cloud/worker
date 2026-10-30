@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>수협은행</title>
+  <link rel="stylesheet" href="/static/css/reset.css" />
+  <link rel="stylesheet" href="/static/css/layout.css" />
+  <link rel="stylesheet" href="/static/css/component.css" />
+  <link rel="stylesheet" href="/static/css/common.css" />
+  <link rel="stylesheet" href="/static/css/bop.scss" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <div id="header">
+      @@include('static/html/pub/layout/skipNavigation.html')
+      @@include('static/html/pub/layout/header_sub.html')
+    </div>
+
+    <div id="container" class="container">
+      <div id="leftArea">
+        @@include('static/html/pub/layout/leftArea.html')
+      </div>
+      <div id="contents">
+        <div class="content">
+          @@include('static/html/pub/layout/breadcrumb.html')
+          <div class="bop">
+            <h2 class="typeH2">맞춤형채무조정(소상공인119PLUS)
+              <div class="box-steps">
+                <ol class="list-steps">
+                  <!-- 
+												[dev] 상태값 class 안내
+												class="item-steps" 기본 숫자 표기
+												class="item-steps passed" 완료
+												class="item-steps current" 현재
+											 -->
+                  <li class="item-steps passed">
+                    <span class="blind">완료된 단계</span>
+                    <i class="icon" aria-hidden="true">1</i>
+                    <span class="text">채무조정 대출조회</span>
+                  </li>
+                  <li class="item-steps passed">
+                    <span class="blind">완료된 단계</span>
+                    <i class="icon" aria-hidden="true">2</i>
+                    <span class="text">채무조정 대출확인</span>
+                  </li>
+
+                  <li class="item-steps current" aria-current="step">
+                    <span class="blind">발급완료</span>
+                    <i class="icon" aria-hidden="true">3</i>
+                    <span class="text">채무조정 신청 완료</span>
+                  </li>
+                </ol>
+              </div>
+            </h2>
+            <div class="result-box">
+              <div class="result-banner">
+                <div class="inner-img"></div>
+                <div class="result-message">
+                  <h4 class="typeH4 color-blueMd">
+                    맞춤형채무조정 신청이 완료되었습니다.
+                  </h4>
+                </div>
+              </div>
+            </div>
+            <div class="tbl-area">
+              <h4 class="typeH4">신청정보</h4>
+              <table class="table-type01">
+                <caption>인증서 종류, 수수료 출금계좌, 등록일에 대한 구성 테이블입니다.</caption>
+                <colgroup>
+                  <col style="width: 160px">
+                  <col style="width: auto">
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th scope="row">계좌번호</th>
+                    <td>
+                      <span class="typeMd">0000-0000-0000</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">상품명</th>
+                    <td>
+                      <span class="typeMd">기업운전일반자금대출 (순수일반자금)</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">대출잔액</th>
+                    <td class="text-right">
+                      <span class="typeMd">100,000,000 원</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">관리영업점</th>
+                    <td>
+                      <span class="typeMd">역삼종합금융본부</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="list type-dotted mt-12">
+                <ul>
+                  <li class="typeMd">
+                    영업점에서 맞춤형 채무조정 신청내역을 검토 후 연락을 드릴예정입니다.
+                  </li>
+                  <li class="typeMd">요청 완료된 계좌 중 조정이 될 수 있습니다. (추가적인 증빙서류 요청이 있을 수 있습니다.)</li>
+                </ul>
+              </div>
+            </div>
+            <div class="btn-wrap lg-bot">
+              <button type="button" class="btn type-bg-primary size-xxl">
+                <span class="text">확인</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+  </div>
+  <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+  </div>
+  <script src="/static/js/ui/cib_ui_common.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/fin.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
+
+      <div id="container" class="container">
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="fin">
+              <button type="button" class="btn type-bg-primary size-md btn-modal" data-target="modal-01">
+                <span class="text">모달버튼</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <div id="modal-01" class="modal is-active" data-dim="true" data-backdrop-close="false" data-alert="true" data-size="sm" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc">
+      <div class="modal-wrapper">
+        <div class="modal-title" id="modal-title">
+          <h4 class="typeH4">상품 중요설명 이해 확인 안내</h4>
+        </div>
+        <div id="modal-desc" class="blind">상품 중요설명 이해 확인 안내 모달입니다.</div>
+        <div class="modal-slot">
+          <div class="modal-desc">
+            <div class="list-lg-wrap">
+              <h5 class="typeH5">꼭 확인하세요!</h5>
+
+              <!-- [dev] 내용수정 20261026 -->
+              <div class="list type-dotted mt-14">
+                <ul>
+                  <li class="typeMd">위의 내용을 충분히 이해하고 확인하였으며, 가입 진행에 동의합니다.</li>
+                  <li class="typeMd">
+                    <strong class="color-resolving"><span class="color-fg-secondary">%고객명%님께서</span> 설명을 제대로 이해하지 못한 상태에서 상품 중요설명을 이해했다는 확인을 하신 경우, 추후 권리구제가 어려울 수 있습니다.</strong>
+                  </li>
+                </ul>
+              </div>
+              <!-- //[dev] 내용수정 20261026 -->
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer flex items-center justify-center gap-8">
+          <button type="button" class="btn type-bg-primary size-lg">
+            <span class="text">확인</span>
+          </button>
+        </div>
+        <button type="button" class="ico btn-close" aria-label="모달 닫기">
+          <i class="ico-close ico-size-smMd" aria-hidden="true"></i>
+          <span class="blind">닫기</span>
+        </button>
+      </div>
+    </div>
+
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
+</html>

@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
+
+      <div id="container" class="container">
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="van">
+              <button type="button" class="btn type-bg-primary size-md btn-modal" data-target="modal-01">
+                <span class="text">모달 버튼</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+    <div id="modal-01" class="modal is-active" data-dim="true" data-backdrop-close="false" data-alert="true" data-size="sm" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc">
+      <div class="modal-wrapper">
+        <div class="modal-title" id="modal-title">
+          <h4 class="typeH4">수협은행 계산기</h4>
+        </div>
+        <div class="modal-slot">
+          <div class="calc">
+            <div class="calc-display" aria-live="polite" aria-atomic="true">1234567678.0</div>
+            <div class="calc-keypad">
+              <!-- 1열 -->
+              <!-- 지우기 아이콘 파일반입후 추가 -->
+              <button type="button" class="btn-backspace" aria-label="한 글자 지우기">⌫</button>
+              <button type="button" class="btn-gray">CE</button>
+              <button type="button" class="btn-gray">C</button>
+              <button type="button" class="btn-gray" aria-label="부호 전환">+/-</button>
+              <button type="button" class="btn-gray" aria-label="제곱근">sqrt</button>
+              <!-- 2열 -->
+              <button type="button" class="btn-blue" aria-label="메모리 클리어">MC</button>
+              <button type="button" class="btn-num">7</button>
+              <button type="button" class="btn-num">8</button>
+              <button type="button" class="btn-num">9</button>
+              <button type="button" class="btn-gray" aria-label="나누기">/</button>
+              <button type="button" class="btn-gray" aria-label="퍼센트">%</button>
+
+              <!-- 3열 -->
+              <button type="button" class="btn-blue" aria-label="메모리 읽기">MR</button>
+              <button type="button" class="btn-num">4</button>
+              <button type="button" class="btn-num">5</button>
+              <button type="button" class="btn-num">6</button>
+              <button type="button" class="btn-gray" aria-label="곱하기">*</button>
+              <button type="button" class="btn-gray" aria-label="역수">1/X</button>
+              <!-- 4열 -->
+              <button type="button" class="btn-blue" aria-label="메모리 읽기">MS</button>
+              <button type="button" class="btn-num">1</button>
+              <button type="button" class="btn-num">2</button>
+              <button type="button" class="btn-num">3</button>
+              <button type="button" class="btn-gray" aria-label="빼기">-</button>
+              <button type="button" class="btn-equal" aria-label="계산하기">=</button>
+
+              <!-- 5열 -->
+              <button type="button" class="btn-blue" aria-label="메모리 더하기">M+</button>
+              <button type="button" class="btn-num btn-zero">0</button>
+              <button type="button" class="btn-num" aria-label="소수점">.</button>
+              <button type="button" class="btn-gray" aria-label="더하기">+</button>
+              <!-- 6열 -->
+            </div>
+          </div>
+        </div>
+        <button type="button" class="ico btn-close" aria-label="모달 닫기">
+          <i class="ico-close ico-size-smMd" aria-hidden="true"></i>
+          <span class="blind">닫기</span>
+        </button>
+      </div>
+    </div>
+  </body>
+</html>

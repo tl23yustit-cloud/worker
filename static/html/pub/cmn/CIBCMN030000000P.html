@@ -1,0 +1,690 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/cmn.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
+
+      <div id="container" class="container">
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="cmn">
+              <h2 class="typeH2">대 타이틀</h2>
+              <div class="tbl-area">
+                <h4 class="typeH4">보안매체 입력</h4>
+                <table class="table-type01">
+                  <caption>
+                    OTP에 대한 구성 테이블입니다.
+                  </caption>
+                  <colgroup>
+                    <col />
+                    <col />
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="row">
+                        이체비밀번호
+                      </th>
+                      <td>
+                        <div class="tbl-flex">
+                          <div class="clear-type">
+                            <input type="password" id="이체비밀번호" class="input size-lg wSize-md" value="" placeholder="이체비밀번호" aria-label="이체비밀번호" />
+                            <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                              <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                              <span class="blind">닫기</span>
+                            </button>
+                          </div>
+                          <button class="btn-mouse-keypad">
+                            <!-- 키패드 활성화시 is-active 클래스 추가 -->
+                            <i class="ico ico-size-smMd" aria-hidden="true"></i>
+                            <span class="blind">마우스 입력 열기</span>
+                          </button>
+                          <button class="btn-mouse-keypad is-active">
+                            <!-- 키패드 비활성화시 is-active 클래스 삭제 -->
+                            <i class="ico ico-size-smMd" aria-hidden="true"></i>
+                            <span class="blind">마우스 입력 닫기</span>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row" rowspan="2">
+                        <label for="OPN번호">OPN번호</label>
+                      </th>
+                      <td>
+                        <div class="form-box">
+                          <button type="button" class="btn type-line-secondary size-lg">
+                            <span class="text">조회</span>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="tbl-flex">
+                          <div class="span-wrap">
+                            <span class="typeMd">5</span>
+                            <span class="typeMd">2</span>
+                            <span class="typeMd">9</span>
+                            <span class="typeMd">1</span>
+                          </div>
+                          <div class="form-box">
+                            <button type="button" class="btn type-line-secondary size-lg">
+                              <span class="text">다시조회</span>
+                            </button>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row" rowspan="2" class="noradius01">
+                        <label for="OTP">OTP </label>
+                      </th>
+                      <td>
+                        <div class="otp-text-wrap">
+                          <input type="password" id="OTP" class="input wSize-md size-lg" placeholder="숫자 6자리" title="OTP 숫자 6자리" aria-label="OTP 숫자 6자리" />
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="typeMd mb-16">Time OTP카드 비밀번호 입력 예시</div>
+                        <div class="otp-noti">
+                          <div class="otp-noti-inner">
+                            <div class="list type-dotted">
+                              <ul>
+                                <li class="typeMd">이용일자에 관계없이 OTP응답번호 입력 오류가 연속하여 10회 누적될 경우 서비스가 제한됩니다.</li>
+                                <li class="typeMd">OTP응답번호는 모든 항목을 입력하신 후 마지막으로 입력하시기 바랍니다.</li>
+                                <li class="typeMd">OTP는 정당한 전자금융거래시에만 사용하셔야 하며 응답번호를 발생시킨 후 가급적 즉시 입력하시기 바랍니다.</li>
+                              </ul>
+                            </div>
+                            <div class="list type-reference">
+                              <ul>
+                                <li class="typeMd">본 화면은 이해를 돕기 위한 입력 예시 참조화면 입니다. 고객님께서 보유하신 카드의 해당 번호를 입력해 주시기 바랍니다.</li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="btn-wrap center lg-bot">
+                <button type="button" class="btn type-bg-primary size-xxl">
+                  <span class="text">이체</span>
+                </button>
+              </div>
+              <div class="line-box size-xl mt-48">
+                <span class="typeLgSemibold">이용안내</span>
+                <div class="list type-dotted">
+                  <ul>
+                    <li class="typeMd">입력하신 정보는 본인 확인용으로만 사용됩니다.</li>
+                    <li class="typeMd">계좌비밀번호 오류 3회 초과시 서비스가 제한됩니다.</li>
+                    <li class="typeMd">영업점에 방문하셔서 계좌 비밀번호 오류 횟수를 삭제하거나 변경하신 후 이용하실 수 있습니다.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    @@include('static/html/pub/layout/fullmenu.html')
+    <!-- <div class="cmn full-menu" id="fullMenu" hidden>
+      <button type="button" class="btn-full-menu-close" area-label="전체메뉴닫기">닫기</button>
+      <div class="box-tab">
+        <ul class="list-tab-button type-outline case-faq" role="tablist" aria-label="탭 이름">
+          <li class="item-tab-button">
+            <button type="button" class="btn-tab active" id="tabBtnTypeOutline03" title="선택됨" id="tabBtnTypeOutline01" role="tab" aria-selected="false" aria-controls="tabPanelTypeOutline01">
+              <span class="text">조회</span>
+            </button>
+          </li>
+          <li class="item-tab-button">
+            <button type="button" class="btn-tab" id="tabBtnTypeOutline02" role="tab" aria-selected="false" aria-controls="tabPanelTypeOutline02">
+              <span class="text">이체</span>
+            </button>
+          </li>
+          <li class="item-tab-button">
+            <button type="button" class="btn-tab" role="tab" aria-selected="true" aria-controls="tabPanelTypeOutline03">
+              <span class="text">대출</span>
+            </button>
+          </li>
+          <li class="item-tab-button">
+            <button type="button" class="btn-tab" role="tab" aria-selected="true" aria-controls="tabPanelTypeOutline03">
+              <span class="text">외환</span>
+            </button>
+          </li>
+          <li class="item-tab-button">
+            <button type="button" class="btn-tab" role="tab" aria-selected="true" aria-controls="tabPanelTypeOutline03">
+              <span class="text">펀드/신탁</span>
+            </button>
+          </li>
+          <li class="item-tab-button">
+            <button type="button" class="btn-tab" role="tab" aria-selected="true" aria-controls="tabPanelTypeOutline03">
+              <span class="text">공과금</span>
+            </button>
+          </li>
+          <li class="item-tab-button">
+            <button type="button" class="btn-tab" role="tab" aria-selected="true" aria-controls="tabPanelTypeOutline03">
+              <span class="text">금융서비스</span>
+            </button>
+          </li>
+          <li class="item-tab-button">
+            <button type="button" class="btn-tab" role="tab" aria-selected="true" aria-controls="tabPanelTypeOutline03">
+              <span class="text">카드</span>
+            </button>
+          </li>
+          <li class="item-tab-button">
+            <button type="button" class="btn-tab" role="tab" aria-selected="true" aria-controls="tabPanelTypeOutline03">
+              <span class="text">B2B전자결제</span>
+            </button>
+          </li>
+          <li class="item-tab-button">
+            <button type="button" class="btn-tab" role="tab" aria-selected="true" aria-controls="tabPanelTypeOutline03">
+              <span class="text">My정보</span>
+            </button>
+          </li>
+          <li class="item-tab-button">
+            <button type="button" class="btn-tab" role="tab" aria-selected="true" aria-controls="tabPanelTypeOutline03">
+              <span class="text">보안</span>
+            </button>
+          </li>
+          <li class="item-tab-button">
+            <button type="button" class="btn-tab" role="tab" aria-selected="true" aria-controls="tabPanelTypeOutline03">
+              <span class="text">알림</span>
+            </button>
+          </li>
+          <li class="item-tab-button">
+            <button type="button" class="btn-tab" role="tab" aria-selected="true" aria-controls="tabPanelTypeOutline03">
+              <span class="text">자금관리</span>
+            </button>
+          </li>
+          <li class="item-tab-button">
+            <button type="button" class="btn-tab" role="tab" aria-selected="true" aria-controls="tabPanelTypeOutline03">
+              <span class="text">인증센터</span>
+            </button>
+          </li>
+        </ul>
+
+        <div class="box-tab-content active" id="tabPanelTypeOutline01" role="tabpanel" aria-labelledby="tabBtnTypeOutline01" style="display: block">
+          <div class="mega-inner">
+            <div class="menu-group">
+              <div class="menu-inner">
+                <h6 class="typeH6"><a href="javascript:;">예금조회</a></h6>
+                <ul>
+                  <li class="menu-item" data-count="1">
+                    <button type="button" class="menu-toggle typeMdMedium" aria-expanded="false">모든보유계좌조회</button>
+                  </li>
+                  <li class="menu-item has-depth" data-count="2">
+                    <button type="button" class="menu-toggle typeMdMedium" aria-expanded="false">예금/신탁계좌조회</button>
+                    <ul class="depth-list">
+                      <li class="list-bar">
+                        <a href="javascript:;" class="typeSm">모든보유계좌조회</a>
+                      </li>
+                      <li>
+                        <a href="javascript:;" class="typeSm">모든보유계좌조회</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="menu-item has-depth" data-count="3">
+                    <button type="button" class="menu-toggle typeMdMedium" aria-expanded="false">출금계좌조회</button>
+                    <ul class="depth-list">
+                      <li class="list-bar">
+                        <a href="javascript:;" class="typeSm">모든보유계좌조회</a>
+                      </li>
+                      <li>
+                        <a href="javascript:;" class="typeSm">모든보유계좌조회</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="javascript:;" class="typeMdMedium">출금계좌조회</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="menu-inner">
+                <h6 class="typeH6"><a href="javascript:;">예금조회</a></h6>
+                <ul>
+                  <li class="menu-item" data-count="1">
+                    <button type="button" class="menu-toggle typeMdMedium" aria-expanded="false">모든보유계좌조회</button>
+                  </li>
+                  <li class="menu-item has-depth" data-count="2">
+                    <button type="button" class="menu-toggle typeMdMedium" aria-expanded="false">예금/신탁계좌조회</button>
+                    <ul class="depth-list">
+                      <li class="list-bar">
+                        <a href="javascript:;" class="typeSm">모든보유계좌조회</a>
+                      </li>
+                      <li>
+                        <a href="javascript:;" class="typeSm">모든보유계좌조회</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="menu-item has-depth" data-count="3">
+                    <button type="button" class="menu-toggle typeMdMedium" aria-expanded="false">출금계좌조회</button>
+                    <ul class="depth-list">
+                      <li class="list-bar">
+                        <a href="javascript:;" class="typeSm">모든보유계좌조회</a>
+                      </li>
+                      <li>
+                        <a href="javascript:;" class="typeSm">모든보유계좌조회</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="javascript:;" class="typeMdMedium">출금계좌조회</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="menu-group">
+              <div class="menu-inner">
+                <h6 class="typeH6">
+                  <a href="javascript:;">우대금리예상조회</a>
+                </h6>
+              </div>
+              <div class="menu-inner">
+                <h6 class="typeH6"><a href="javascript:;">예금조회</a></h6>
+                <ul>
+                  <li class="menu-item" data-count="1">
+                    <button type="button" class="menu-toggle typeMdMedium" aria-expanded="false">모든보유계좌조회</button>
+                  </li>
+                  <li class="menu-item has-depth" data-count="2">
+                    <button type="button" class="menu-toggle typeMdMedium" aria-expanded="false">예금/신탁계좌조회</button>
+                    <ul class="depth-list">
+                      <li class="list-bar">
+                        <a href="javascript:;" class="typeSm">모든보유계좌조회</a>
+                      </li>
+                      <li>
+                        <a href="javascript:;" class="typeSm">모든보유계좌조회</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="menu-item has-depth" data-count="3">
+                    <button type="button" class="menu-toggle typeMdMedium" aria-expanded="false">출금계좌조회</button>
+                    <ul class="depth-list">
+                      <li class="list-bar">
+                        <a href="javascript:;" class="typeSm">모든보유계좌조회</a>
+                      </li>
+                      <li>
+                        <a href="javascript:;" class="typeSm">모든보유계좌조회</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="javascript:;" class="typeMdMedium">출금계좌조회</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="menu-group">
+              <div class="menu-inner">
+                <h6 class="typeH6"><a href="javascript:;">예금조회</a></h6>
+                <ul>
+                  <li class="menu-item" data-count="1">
+                    <button type="button" class="menu-toggle typeMdMedium" aria-expanded="false">모든보유계좌조회</button>
+                  </li>
+                  <li class="menu-item has-depth" data-count="2">
+                    <button type="button" class="menu-toggle typeMdMedium" aria-expanded="false">예금/신탁계좌조회</button>
+                    <ul class="depth-list">
+                      <li class="list-bar">
+                        <a href="javascript:;" class="typeSm">모든보유계좌조회</a>
+                      </li>
+                      <li>
+                        <a href="javascript:;" class="typeSm">모든보유계좌조회</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="menu-item has-depth" data-count="3">
+                    <button type="button" class="menu-toggle typeMdMedium" aria-expanded="false">출금계좌조회</button>
+                    <ul class="depth-list">
+                      <li class="list-bar">
+                        <a href="javascript:;" class="typeSm">모든보유계좌조회</a>
+                      </li>
+                      <li>
+                        <a href="javascript:;" class="typeSm">모든보유계좌조회</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="javascript:;" class="typeMdMedium">출금계좌조회</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="menu-inner">
+                <h6 class="typeH6"><a href="javascript:;">예금조회</a></h6>
+                <ul>
+                  <li class="menu-item" data-count="1">
+                    <button type="button" class="menu-toggle typeMdMedium" aria-expanded="false">모든보유계좌조회</button>
+                  </li>
+                  <li class="menu-item has-depth" data-count="2">
+                    <button type="button" class="menu-toggle typeMdMedium" aria-expanded="false">예금/신탁계좌조회</button>
+                    <ul class="depth-list">
+                      <li class="list-bar">
+                        <a href="javascript:;" class="typeSm">모든보유계좌조회</a>
+                      </li>
+                      <li>
+                        <a href="javascript:;" class="typeSm">모든보유계좌조회</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="menu-item has-depth" data-count="3">
+                    <button type="button" class="menu-toggle typeMdMedium" aria-expanded="false">출금계좌조회</button>
+                    <ul class="depth-list">
+                      <li class="list-bar">
+                        <a href="javascript:;" class="typeSm">모든보유계좌조회</a>
+                      </li>
+                      <li>
+                        <a href="javascript:;" class="typeSm">모든보유계좌조회</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="javascript:;" class="typeMdMedium">출금계좌조회</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="menu-group">
+              <div class="menu-inner">
+                <h6 class="typeH6"><a href="javascript:;">예금조회</a></h6>
+                <ul>
+                  <li class="menu-item" data-count="1">
+                    <button type="button" class="menu-toggle typeMdMedium" aria-expanded="false">모든보유계좌조회</button>
+                  </li>
+                  <li class="menu-item has-depth" data-count="2">
+                    <button type="button" class="menu-toggle typeMdMedium" aria-expanded="false">예금/신탁계좌조회</button>
+                    <ul class="depth-list">
+                      <li class="list-bar">
+                        <a href="javascript:;" class="typeSm">모든보유계좌조회</a>
+                      </li>
+                      <li>
+                        <a href="javascript:;" class="typeSm">모든보유계좌조회</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="menu-item has-depth" data-count="3">
+                    <button type="button" class="menu-toggle typeMdMedium" aria-expanded="false">출금계좌조회</button>
+                    <ul class="depth-list">
+                      <li class="list-bar">
+                        <a href="javascript:;" class="typeSm">모든보유계좌조회</a>
+                      </li>
+                      <li>
+                        <a href="javascript:;" class="typeSm">모든보유계좌조회</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="javascript:;" class="typeMdMedium">출금계좌조회</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="menu-inner">
+                <h6 class="typeH6"><a href="javascript:;">예금조회</a></h6>
+                <ul>
+                  <li class="menu-item" data-count="1">
+                    <button type="button" class="menu-toggle typeMdMedium" aria-expanded="false">모든보유계좌조회</button>
+                  </li>
+                  <li class="menu-item has-depth" data-count="2">
+                    <button type="button" class="menu-toggle typeMdMedium" aria-expanded="false">예금/신탁계좌조회</button>
+                    <ul class="depth-list">
+                      <li class="list-bar">
+                        <a href="javascript:;" class="typeSm">모든보유계좌조회</a>
+                      </li>
+                      <li>
+                        <a href="javascript:;" class="typeSm">모든보유계좌조회</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="menu-item has-depth" data-count="3">
+                    <button type="button" class="menu-toggle typeMdMedium" aria-expanded="false">출금계좌조회</button>
+                    <ul class="depth-list">
+                      <li class="list-bar">
+                        <a href="javascript:;" class="typeSm">모든보유계좌조회</a>
+                      </li>
+                      <li>
+                        <a href="javascript:;" class="typeSm">모든보유계좌조회</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="javascript:;" class="typeMdMedium">출금계좌조회</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="menu-group">
+              <div class="menu-inner">
+                <h6 class="typeH6"><a href="javascript:;">예금조회</a></h6>
+                <ul>
+                  <li class="menu-item" data-count="1">
+                    <button type="button" class="menu-toggle typeMdMedium" aria-expanded="false">모든보유계좌조회</button>
+                  </li>
+                  <li class="menu-item has-depth" data-count="2">
+                    <button type="button" class="menu-toggle typeMdMedium" aria-expanded="false">예금/신탁계좌조회</button>
+                    <ul class="depth-list">
+                      <li class="list-bar">
+                        <a href="javascript:;" class="typeSm">모든보유계좌조회</a>
+                      </li>
+                      <li>
+                        <a href="javascript:;" class="typeSm">모든보유계좌조회</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="menu-item has-depth" data-count="3">
+                    <button type="button" class="menu-toggle typeMdMedium" aria-expanded="false">출금계좌조회</button>
+                    <ul class="depth-list">
+                      <li class="list-bar">
+                        <a href="javascript:;" class="typeSm">모든보유계좌조회</a>
+                      </li>
+                      <li>
+                        <a href="javascript:;" class="typeSm">모든보유계좌조회</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="javascript:;" class="typeMdMedium">출금계좌조회</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="menu-inner">
+                <h6 class="typeH6"><a href="javascript:;">예금조회</a></h6>
+                <ul>
+                  <li class="menu-item" data-count="1">
+                    <button type="button" class="menu-toggle typeMdMedium" aria-expanded="false">모든보유계좌조회</button>
+                  </li>
+                  <li class="menu-item has-depth" data-count="2">
+                    <button type="button" class="menu-toggle typeMdMedium" aria-expanded="false">예금/신탁계좌조회</button>
+                    <ul class="depth-list">
+                      <li class="list-bar">
+                        <a href="javascript:;" class="typeSm">모든보유계좌조회</a>
+                      </li>
+                      <li>
+                        <a href="javascript:;" class="typeSm">모든보유계좌조회</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="menu-item has-depth" data-count="3">
+                    <button type="button" class="menu-toggle typeMdMedium" aria-expanded="false">출금계좌조회</button>
+                    <ul class="depth-list">
+                      <li class="list-bar">
+                        <a href="javascript:;" class="typeSm">모든보유계좌조회</a>
+                      </li>
+                      <li>
+                        <a href="javascript:;" class="typeSm">모든보유계좌조회</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="javascript:;" class="typeMdMedium">출금계좌조회</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="box-tab-content" id="tabPanelTypeOutline02" role="tabpanel" aria-labelledby="tabBtnTypeOutline02" style="display: none">
+          <h3 class="blind">휴대폰인증서 사용 탭</h3>
+          <div class="step-grid-box">
+            <h4 class="typeH4">인증서 저장 순서</h4>
+            <ul class="step-grid-items columns-4">
+              <li class="grid-item">
+                <i class="ico etc ico-size-xl ico-document-01" aria-hidden="true"></i>
+                <div class="text-area">
+                  <span class="step">STEP 01</span>
+                  <div class="title">[PC] ‘인증서 저장하기’ 버튼 클릭</div>
+                </div>
+              </li>
+              <li class="grid-item">
+                <i class="ico etc ico-size-xl ico-fold-01" aria-hidden="true"></i>
+                <div class="text-area">
+                  <span class="step">STEP 02</span>
+                  <div class="title">[PC] 저장매체로 휴대폰 선택</div>
+                </div>
+              </li>
+              <li class="grid-item">
+                <i class="ico etc ico-size-xl ico-clock-01 type3" aria-hidden="true"></i>
+                <div class="text-area">
+                  <span class="step">STEP 03</span>
+                  <div class="title">[PC] 휴대폰번호 입력</div>
+                </div>
+              </li>
+              <li class="grid-item">
+                <i class="ico etc ico-size-xl ico-document-check" aria-hidden="true"></i>
+                <div class="text-area">
+                  <span class="step">STEP 04</span>
+                  <div class="title">[PC] 휴대폰에서 SMS수신(Ubikey 메뉴 실행)</div>
+                </div>
+              </li>
+              <li class="grid-item">
+                <i class="ico etc ico-size-xl ico-document-01" aria-hidden="true"></i>
+                <div class="text-area">
+                  <span class="step">STEP 05</span>
+                  <div class="title">인터넷뱅킹 로그인</div>
+                </div>
+              </li>
+              <li class="grid-item">
+                <i class="ico etc ico-size-xl ico-fold-01 type1" aria-hidden="true"></i>
+                <div class="text-area">
+                  <span class="step">STEP 06</span>
+                  <div class="title">[PC] 휴대폰 인증번호 를 PC에 입력</div>
+                </div>
+              </li>
+              <li class="grid-item">
+                <i class="ico etc ico-size-xl ico-clock-01 type1" aria-hidden="true"></i>
+                <div class="text-area">
+                  <span class="step">STEP 07</span>
+                  <div class="title">[PC] 인증서 PC전송 성공</div>
+                </div>
+              </li>
+              <li class="grid-item">
+                <i class="ico etc ico-size-xl ico-document-check type1" aria-hidden="true"></i>
+                <div class="text-area">
+                  <span class="step">STEP 08</span>
+                  <div class="title">인터넷뱅킹 로그인</div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="line-box size-xl mt-48">
+            <span class="typeLgSemibold">이용안내</span>
+            <div class="list type-dotted">
+              <ul>
+                <li class="typeMd">PC → 휴대폰으로 무선인터넷을 통하여 인증서를 저장합니다.</li>
+                <li class="typeMd">휴대폰을 이용한 편리하고, 안전한 인증서 관리! 휴대폰인증서 서비스로 시작하세요.</li>
+                <li class="typeMd">인증서는 안전한 방법으로 이동됩니다. (휴대폰 인증번호를 이용한 휴대폰사용자 본인확인, PC와 휴대폰간의 End-to-End 암호화)</li>
+                <li class="typeMd">휴대폰에 설치된 휴대폰에 저장된 인증서 관리 프로그램(VM 혹은 APP)을 삭제하시거나 새로 다운로드를 받은 경우, 저장된 인증서가 삭제됩니다.<br />이 경우 PC → 휴대폰으로 인증서를 다시 저장 하셔야 합니다.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="box-tab-content" id="tabPanelTypeOutline03" role="tabpanel" aria-labelledby="tabBtnTypeOutline03">
+          <h3 class="blind">인증서 관리 탭</h3>
+          <div class="info-text-wrap">
+            <div class="info-text-inner">
+              <div class="typeH4">휴대폰에 저장된 인증서 조회 / 삭제 방법</div>
+              <div class="list type-dotted">
+                <ul>
+                  <li class="typeLg">휴대폰에 저장된 인증서 관리 프로그램(VM 혹은 APP)에서 휴대폰인증서 서비스 UBIkey를 실행</li>
+                  <li class="typeLg">서비스 메뉴항목 중 인증서 보기/삭제를 선택</li>
+                  <li class="typeLg">저장된 인증서 목록이 나타나며 삭제를 원하는 항목을 선택하고 삭제 버튼을 선택</li>
+                </ul>
+              </div>
+              <div class="list type-star">
+                <ul>
+                  <li class="typeLg">휴대폰인증서비스를 계속 이용하시려면 기간이 만료된 인증서나 재발급 동의 사유로 사용 불가한 인증서는 삭제하고 유효한 인증서를 다시 휴대폰에 저장하셔야 합니다.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="info-text-wrap">
+            <div class="info-text-inner">
+              <div class="typeH4">휴대폰에 저장된 UBIkey 찾는법</div>
+              <h5 class="typeH5 color-fg-primary mb-12">스마트폰 이용고객</h5>
+              <div class="list type-dotted mb-12">
+                <ul>
+                  <li class="typeLg">휴대폰에서 다운로드 받은 UBIkey APP 실행</li>
+                </ul>
+              </div>
+              <h5 class="typeH5 color-fg-primary mb-12">피쳐폰 이용고객</h5>
+              <div class="list type-dotted">
+                <ul>
+                  <li class="typeLgSemibold">피쳐폰 SKT 이용고객</li>
+                </ul>
+              </div>
+              <div class="list type-spacing">
+                <ul>
+                  <li class="typeMd">휴대폰에서 Nate 선택 > (m)playon(마법사보관함) 선택 > 휴대폰인증서서비스(UBlkey)</li>
+                </ul>
+              </div>
+              <div class="list type-dotted">
+                <ul>
+                  <li class="typeLgSemibold">피쳐폰 KT 이용고객</li>
+                </ul>
+              </div>
+              <div class="list type-spacing">
+                <ul>
+                  <li class="typeMd">휴대폰에서 multipack/Show 선택 > 다운로드센터/ 다운로드팩 선택 > 휴대폰인증서서비스(UBlkey)</li>
+                </ul>
+              </div>
+              <div class="list type-dotted">
+                <ul>
+                  <li class="typeLgSemibold">피쳐폰 LG U+ 이용고객</li>
+                </ul>
+              </div>
+              <div class="list type-spacing">
+                <ul>
+                  <li class="typeMd">휴대폰에서 ez-i/LG U+ 선택 > DownTown 선택 > 휴대폰인증서서비스(UBlkey)</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="line-box size-xl mt-48">
+            <span class="typeLgSemibold">이용안내</span>
+            <div class="list type-dotted">
+              <ul>
+                <li class="typeMd">휴대폰에 설치된 휴대폰에 저장된 인증서 관리 프로그램(VM 혹은 APP)을 삭제하시거나 새로 다운로드를 받은 경우, 저장된 인증서가 삭제됩니다.<br />이 경우 PC → 휴대폰으로 인증서를 다시 저장 하셔야 합니다.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
+</html>
+<script></script>

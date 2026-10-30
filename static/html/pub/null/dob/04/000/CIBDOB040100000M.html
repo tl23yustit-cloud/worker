@@ -1,0 +1,208 @@
+<!-- 주석확인 -->
+<!-- 1.07v -->
+
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/dob.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
+
+      <div id="container" class="container">
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="dob">
+              <h2 class="typeH2">
+                증명서 일괄 발급 신청
+                <div class="box-steps">
+                  <ol class="list-steps">
+                    <li class="item-steps current" aria-current="step">
+                      <span class="blind">신청정보입력</span>
+                      <i class="icon" aria-hidden="true">1</i>
+                      <span class="text">신청정보입력</span>
+                    </li>
+                    <li class="item-steps">
+                      <i class="icon" aria-hidden="true">2</i>
+                      <span class="text">2</span>
+                    </li>
+                    <li class="item-steps">
+                      <i class="icon" aria-hidden="true">3</i>
+                      <span class="text">3</span>
+                    </li>
+                    <li class="item-steps">
+                      <i class="icon" aria-hidden="true">4</i>
+                      <span class="text">4</span>
+                    </li>
+                  </ol>
+                </div>
+              </h2>
+              
+              <div class="tbl-area">
+                <h4 class="typeH4">01.회원을 선택해주세요</h4>
+                <table class="table-type01">
+                  <caption>
+                    기관선택 대한 구성 테이블입니다.
+                  </caption>
+                  <colgroup>
+                    <col style="width: 160px" />
+                    <col style="width: auto" />
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="row">
+                        <span>기관선택</span>
+                      </th>
+                      <td>
+                        <div class="tbl-column">
+                          <div class="tbl-flex">
+                            <div class="form-box-wrap" role="radiogroup" aria-label="기관선택">
+                              <span class="form-box">
+                                <input type="radio" name="radio1" id="radio_1" class="form-radio size-md" />
+                                <label for="radio_1" class="form-label">수협은행</label>
+                              </span>
+                              <span class="form-box">
+                                <input type="radio" name="radio1" id="radio_2" class="form-radio size-md" />
+                                <label for="radio_2" class="form-label">회원수협</label>
+                              </span>
+                            </div>
+                          </div>
+                          <div class="tbl-flex">
+                            <div class="box-select wSize-md">
+                              <button type="button" id="input-eguav1" class="select size-lg" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="comp-vd5uek" aria-label="조합선택 선택">
+                                <span class="text">군산시 조합</span>
+                                <span class="blind">펼침</span>
+                              </button>
+                              <div id="comp-vd5uek" class="box-list-select">
+                                <ul class="list-select" role="listbox" aria-label="조합선택">
+                                  <li class="item-select" role="option" aria-selected="false"><span class="btn-item-select">Option01</span></li>
+                                  <li class="item-select" role="option" aria-selected="false"><span class="btn-item-select">Option02</span></li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="mt-48">
+                <h4 class="typeH4 mb-12">02.어떤 증명서/확인증을 발급해드릴까요?</h4>
+                <span class="form-box">
+                  <input type="checkbox" name="" id="comp-cg9808" title="모든 증명서/확인증을 발급합니다." class="form-checkbox size-lg" />
+                  <label for="comp-cg9808" class="form-label"><span class="typeLgSemibold">모든 증명서/확인증을 발급합니다.</span></label>
+                </span>
+                <ul class="certificate-list-wrapper">
+                  <li>
+                    <div class="certificate-top">
+                      <span class="form-box">
+                        <input type="checkbox" name="" title="잔액잔고증명서(국문) 선택" id="comp-rt632242512h3" class="form-checkbox size-lg" />
+                      </span>
+
+                      <div class="certificate-name">
+                        <label for="comp-rt632242512h3" class="typeMdSemibold">잔액잔고증명서(국문)</label>
+                        <span class="account-count">12계좌</span>
+                      </div>
+                    </div>
+                    <div class="certificate-price">
+                      <span class="typeMd color-fg-secondary">수수료(건당)</span>
+                      <span class="typeMdSemibold">1,000원</span>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="certificate-top">
+                      <span class="form-box">
+                        <input type="checkbox" name=""  title="금융거래확인서 선택" id="comp-rt63h532553" class="form-checkbox size-lg" />
+                      </span>
+                      <div class="certificate-name">
+                        <label for="comp-rt63h532553" class="typeMdSemibold">금융거래확인서</label>
+                        <span class="account-count">12계좌</span>
+                      </div>
+                    </div>
+                    <div class="certificate-price">
+                      <span class="typeMd color-fg-secondary">수수료(건당)</span>
+                      <span class="typeMdSemibold">1,000원</span>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="certificate-top">
+                      <span class="form-box">
+                        <input type="checkbox" name=""  title="부채증명서 선택" id="comp-rt632424444h3" class="form-checkbox size-lg" />
+                      </span>
+                      <div class="certificate-name">
+                        <label for="comp-rt632424444h3" class="typeMdSemibold">부채증명서</label>
+                        <span class="account-count">12계좌</span>
+                      </div>
+                    </div>
+                    <div class="certificate-price">
+                      <span class="typeMd color-fg-secondary">수수료(건당)</span>
+                      <span class="typeMdSemibold">1,000원</span>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="certificate-top">
+                      <span class="form-box">
+                        <input type="checkbox" name=""  title="원천징수영수증 선택" id="comp-rt623233h3" class="form-checkbox size-lg" />
+                      </span>
+                      <div class="certificate-name">
+                        <label for="comp-rt623233h3" class="typeMdSemibold">원천징수영수증</label>
+                        <span class="account-count">12계좌</span>
+                      </div>
+                    </div>
+                    <div class="certificate-price">
+                      <span class="typeMd color-fg-secondary">수수료(건당)</span>
+                      <span class="typeMdSemibold">1,000원</span>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="certificate-top">
+                      <span class="form-box">
+                        <input type="checkbox" name=""  title="대출이자납입증명서 선택" id="comp-rt63245235h3" class="form-checkbox size-lg" />
+                      </span>
+                      <div class="certificate-name">
+                        <label for="comp-rt63245235h3" class="typeMdSemibold">대출이자납입증명서</label>
+                        <span class="account-count">12계좌</span>
+                      </div>
+                    </div>
+                    <div class="certificate-price">
+                      <span class="typeMd color-fg-secondary">수수료(건당)</span>
+                      <span class="typeMdSemibold">1,000원</span>
+                    </div>
+                  </li>
+                </ul>
+                <div class="list type-dotted">
+                  <ul>
+                    <li class="typeMd">일부 증명서/확인증은 대상 계좌를 선택하셔야 발급 받을 수 있습니다.</li>
+                    <li class="typeMd">수수료가 발생하는 경우는 계좌별로 부과되며, 예금잔액증명서는 5계좌당 1,000원씩 부과됩니다.</li>
+                    <li class="typeMd">예금잔액 증명증명서는 외화계좌를 통화단위로 선택할 수 있으며, 그에 따라 수수료가 부과됩니다</li>
+                    <li class="typeMd">회원수협은 수수료 무료입니다.</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="btn-wrap center lg-bot">
+                <button type="button" class="btn type-bg-primary size-xxl">
+                  <span class="text">확인</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
+</html>

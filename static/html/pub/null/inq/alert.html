@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>수협은행</title>
+  <link rel="stylesheet" href="/static/css/reset.css" />
+  <link rel="stylesheet" href="/static/css/layout.css" />
+  <link rel="stylesheet" href="/static/css/component.css" />
+  <link rel="stylesheet" href="/static/css/common.css" />
+  <link rel="stylesheet" href="/static/css/bop.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <div id="header">
+      @@include('static/html/pub/layout/skipNavigation.html')
+      @@include('static/html/pub/layout/header_sub.html')
+    </div>
+
+    <div id="container" class="container">
+      <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+      <div id="contents">
+        <div class="content">
+          @@include('static/html/pub/layout/breadcrumb.html')
+          <div class="inq">
+            <h4 class="typeH">거래내역파일신청</h4>
+            <button type="button" class="btn type-bg-primary size-md btn-modal" data-target="alert-confirm">
+              <span class="text">확인필요</span>
+            </button>
+            <button type="button" class="btn type-bg-primary size-md btn-modal" data-target="alert-application">
+              <span class="text">신청가능</span>
+            </button>
+            <button type="button" class="btn type-bg-primary size-md btn-modal" data-target="alert-cancel">
+              <span class="text">취소</span>
+            </button>
+            <button type="button" class="btn type-bg-primary size-md btn-modal" data-target="alert-year5">
+              <span class="text">5년까지</span>
+            </button>
+            <button type="button" class="btn type-bg-primary size-md btn-modal" data-target="alert-year10">
+              <span class="text">10년까지</span>
+            </button>
+            <button type="button" class="btn type-bg-primary size-md btn-modal" data-target="alert-register">
+              <span class="text">접수</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+    </div>
+    <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+  </div>
+  <script src="/static/js/ui/cib_ui_common.js"></script>
+  <div id="alert-confirm" class="alert" data-dim="true" role="alertdialog" aria-modal="true" aria-labelledby="modal-title"
+    aria-describedby="modal-desc" data-backdrop-close="false">
+    <div class="alert-wrapper">
+      <div class="alert-title">
+        <h4 class="typeLgSemibold">확인필요</h4>
+      </div>
+      <p class="alert-desc">신청을 취소하시겠습니까?</p>
+      <div class="alert-footer flex">
+        <button type="button" class="btn type-line-neutral size-lg btn-close">
+          <span class="text">취소</span>
+        </button>
+        <button type="button" class="btn type-bg-primary size-lg">
+          <span class="text">확인</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div id="alert-application" class="alert" data-dim="true" role="alertdialog" aria-modal="true" aria-labelledby="modal-title"
+    aria-describedby="modal-desc" data-backdrop-close="false">
+    <div class="alert-wrapper">
+      <p class="alert-desc">신청은 최대 10건까지만 가능합니다.</p>
+      <div class="alert-footer flex">
+        <button type="button" class="btn type-bg-primary size-lg">
+          <span class="text">확인</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div id="alert-cancel" class="alert" data-dim="true" role="alertdialog" aria-modal="true" aria-labelledby="modal-title"
+    aria-describedby="modal-desc" data-backdrop-close="false">
+    <div class="alert-wrapper">
+      <p class="alert-desc">취소되었습니다.</p>
+      <div class="alert-footer flex">
+        <button type="button" class="btn type-bg-primary size-lg">
+          <span class="text">확인</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div id="alert-year5" class="alert" data-dim="true" role="alertdialog" aria-modal="true" aria-labelledby="modal-title"
+    aria-describedby="modal-desc" data-backdrop-close="false">
+    <div class="alert-wrapper">
+      <p class="alert-desc">최대 5년까지 조회하실 수 있습니다.</p>
+      <div class="alert-footer flex">
+        <button type="button" class="btn type-bg-primary size-lg">
+          <span class="text">확인</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div id="alert-year10" class="alert" data-dim="true" role="alertdialog" aria-modal="true" aria-labelledby="modal-title"
+    aria-describedby="modal-desc" data-backdrop-close="false">
+    <div class="alert-wrapper">
+      <p class="alert-desc">최대 10년까지 조회하실 수 있습니다.</p>
+      <div class="alert-footer flex">
+        <button type="button" class="btn type-bg-primary size-lg">
+          <span class="text">확인</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div id="alert-register" class="alert" data-dim="true" role="alertdialog" aria-modal="true" aria-labelledby="modal-title"
+    aria-describedby="modal-desc" data-backdrop-close="false">
+    <div class="alert-wrapper">
+      <p class="alert-desc">신청이 접수되었습니다.</p>
+      <div class="alert-footer flex">
+        <button type="button" class="btn type-bg-primary size-lg">
+          <span class="text">확인</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

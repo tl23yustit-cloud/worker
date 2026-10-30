@@ -1,0 +1,96 @@
+<!-- CIBFOE040103001P.html -->
+<!-- pdf영역 디자인 가이드 필요 -->
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/foe.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
+
+      <div id="container" class="container">
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="foe">
+              <button type="button" class="btn type-bg-primary size-md btn-modal" data-target="modal-01">
+                <span class="text">모달 버튼</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+
+    <!-- 모달 팝업 영역 -->
+    <div id="modal-01" class="modal is-active" data-dim="true" data-backdrop-close="false" data-alert="true" data-size="sm" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc">
+      <div class="modal-wrapper">
+        <div class="modal-title" id="modal-title">
+          <h4 class="typeH4">외화거래이용약관</h4>
+        </div>
+        <div class="modal-slot" id="modal-desc">
+          <div class="modal-desc">
+            <!-- 1. 송금한도 섹션 -->
+            <!--[dev]:20261027 리스트스타일변경-->
+            <div class="list-lg-wrap">
+              <h6 class="typeH6">송금한도</h6>
+              <div class="list type-bar mt-12">
+                <ul>
+                  <li class="typeLg">동일 송금인이 동일 수취계좌로의 송금은 1일 2회, 월 5회 초과 시 비대면 해외송금이 제한 됩니다.</li>
+                  <li class="typeLg">건당 미화 1만불, 1일 미화 1만불, 연간 미화 5만불 상당액 이해</li>
+                </ul>
+              </div>
+            </div>
+            <!--//[dev]:20261027 리스트스타일변경-->
+            <!-- 2. 수수료 및 환율우대 섹션 -->
+             <!--[dev]:20261027 리스트스타일변경-->
+            <div class="list-lg-wrap">
+              <h6 class="typeH6">수수료 및 환율우대</h6>
+              <div class="list type-bar mt-12">
+                <ul>
+                  <li class="typeLg">송금금액 5천불 이하 : 송금수수료 3천원</li>
+                  <li class="typeLg">송금금액 5천불 초과 : 송금수수료 5천원</li>
+                  <li class="typeLg">전신료 : 8천원</li>
+                  <li class="typeLg">환율우대 : 60%</li>
+                  <li class="typeLg">중개수수료(사후수수료)는 수취인부담(IBEN)으로만 가능하며 송금액에서 차감되어 지급됩니다.</li>
+                </ul>
+              </div>
+            </div>
+            <!--//[dev]:20261027 리스트스타일변경-->
+            <!-- 3. 이용안내 -->
+            <div class="line-box size-xl mt-24">
+              <span class="typeLgSemibold">이용안내</span>
+              <div class="list type-dotted">
+                <ul>
+                  <li class="typeMd">26.1.1 부터 한국은행 해외송금통합관리시스템 시행에 따라 전 금융권 통합 연간 미화환산 10만불 한도 내에서만 무증빙 송금이 가능합니다.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button type="button" class="ico btn-close" aria-label="모달 닫기">
+          <i class="ico-close ico-size-smMd" aria-hidden="true"></i>
+          <span class="blind">닫기</span>
+        </button>
+        <div class="modal-footer flex items-center justify-center gap-8">
+          <button type="button" class="btn type-bg-primary size-lg">
+            <span class="text">확인</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

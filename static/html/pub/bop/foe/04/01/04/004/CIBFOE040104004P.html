@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>수협은행</title>
+  <link rel="stylesheet" href="/static/css/reset.css" />
+  <link rel="stylesheet" href="/static/css/layout.css" />
+  <link rel="stylesheet" href="/static/css/component.css" />
+  <link rel="stylesheet" href="/static/css/common.css" />
+  <link rel="stylesheet" href="/static/css/bop.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <div id="header">
+      @@include('static/html/pub/layout/skipNavigation.html')
+      @@include('static/html/pub/layout/header_sub.html')
+    </div>
+
+    <div id="container" class="container">
+      <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+      <div id="contents">
+        <div class="content">
+          @@include('static/html/pub/layout/breadcrumb.html')
+          <div class="bop">
+            <button type="button" class="btn type-bg-primary size-md btn-modal" data-target="modal-16">
+              <span class="text">자주쓰는송금계좌</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+    </div>
+    <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+  </div>
+  <script src="/static/js/ui/cib_ui_common.js"></script>
+  <div id="modal-16" class="modal is-active" data-dim="true" data-backdrop-close="false" data-alert="true"
+    data-size="md" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc">
+    <div class="modal-wrapper">
+      <div class="modal-title">
+        <h4 class="typeH4">자주쓰는송금계좌</h4>
+      </div>
+      <div class="modal-slot">
+        <div id="modal-desc">
+          <div class="tbl-area">
+            <div class="tbl-head">
+              <div class="left-area">
+                <div class="list type-reference">
+                  <ul>
+                    <li class="typeMd">목록중에서 해당되는 송금계좌번호를 클릭하세요.</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="right-area flex items-center gap-4">
+                <span class="color-fg-secondary typeMd">조회기준일시 : <span>YYYY-MM-DD 00:00:00</span></span>
+              </div>
+            </div>
+            <div class="wScroll">
+              <table class="table-type03">
+                <caption>
+                  자주쓰는송금계좌 테이블
+                </caption>
+                <!-- [수정] 20260908 col 수정  -->
+                <colgroup>
+                  <col>
+                  <col>
+                  <col width:="300px">
+                </colgroup>
+                <thead>
+                  <!-- [수정] 20260908 th scope 추가 -->
+                  <tr>
+                    <th scope="col">수취은행명</th>
+                    <th scope="col">수취은행(SWIFT BIC)</th>
+                    <th scope="col">수취인계좌번호</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="typeMd">BANKCO MUNNICIPAL DE ROSARIO</span></td>
+                    <td><span class="typeMd">BANKCO MUNNICIPAL DE ROSARIO(CTBAALUT)</span></td>
+                    <td>
+                      <a href="javascript:;" class="btn-link type-neutral"><span class="text">0000000</span></a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><span class="typeMd">BANKCO MUNNICIPAL DE ROSARIO</span></td>
+                    <td><span class="typeMd">BANKCO MUNNICIPAL DE ROSARIO(CTBAALUT)</span></td>
+                    <td>
+                      <a href="javascript:;" class="btn-link type-neutral"><span class="text">0000000</span></a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <nav class="pagination size-md" aria-label="페이지네이션">
+              <button type="button" class="btn-nav first" disabled="" aria-disabled="true" aria-label="첫 페이지">
+                <span class="blind">첫 페이지</span>
+              </button>
+              <button type="button" class="btn-nav prev" disabled="" aria-disabled="true" aria-label="이전 페이지">
+                <span class="blind">이전 페이지</span>
+              </button>
+
+              <ol class="list-pagination">
+                <li>
+                  <button type="button" class="btn-page active" aria-current="page" aria-label="1페이지">
+                    1
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="btn-page" aria-label="2페이지">
+                    2
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="btn-page" aria-label="3페이지">
+                    3
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="btn-page" aria-label="4페이지">
+                    4
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="btn-page" aria-label="5페이지">
+                    5
+                  </button>
+                </li>
+              </ol>
+
+              <button type="button" class="btn-nav next" aria-label="다음 페이지">
+                <span class="blind">다음 페이지</span>
+              </button>
+              <button type="button" class="btn-nav last" aria-label="마지막 페이지">
+                <span class="blind">마지막 페이지</span>
+              </button>
+            </nav>
+          </div>
+        </div>
+      </div>
+      <button type="button" class="ico btn-close" aria-label="모달 닫기">
+        <i class="ico-close ico-size-smMd" aria-hidden="true"></i>
+        <span class="blind">닫기</span>
+      </button>
+    </div>
+  </div>
+</body>
+
+</html>

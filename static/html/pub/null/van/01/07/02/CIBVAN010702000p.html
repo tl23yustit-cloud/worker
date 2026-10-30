@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/van.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
+
+      <div id="container" class="container">
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="van">
+              <button type="button" class="btn type-bg-primary size-md btn-modal" data-target="modal-16">
+                <span class="text">가상계좌 이용수수료 청구서</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+    <div id="modal-16" class="modal is-active" data-dim="true" data-backdrop-close="false" data-alert="true" data-size="md" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc">
+      <div class="modal-wrapper">
+        <div class="modal-title">
+          <h4 class="typeH4">가상계좌 이용수수료 청구서</h4>
+        </div>
+        <div class="modal-slot">
+          <div id="modal-desc">
+            <div class="tbl-area">
+              <div class="tbl-head">
+                <h6 class="typeH6">청구서</h6>
+              </div>
+              <table class="table-type01">
+                <caption></caption>
+                <colgroup>
+                  <col style="width: 160px" />
+                  <col style="width: auto" />
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th scope="row">
+                      <span>대상년월</span>
+                    </th>
+                    <td>
+                      <span class="typeMd">2026년 07월</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <span>출금예정일</span>
+                    </th>
+                    <td>
+                      <span class="typeMd">2026년 08월 11일</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <span>기관명(기관코드)</span>
+                    </th>
+                    <td>
+                      <span class="typeMd">0000-0000-0000</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <span>출금계좌 예금주</span>
+                    </th>
+                    <td>
+                      <span class="typeMd">(주)가나다상사</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <span>출금통장 표시내용</span>
+                    </th>
+                    <td>
+                      <span class="typeMd">수수료출금</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <span>수수료 부과 대상 건수</span>
+                    </th>
+                    <td>
+                      <span class="typeMd">4</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <span>수수료 금액</span>
+                    </th>
+                    <td class="text-right">
+                      <span class="typeMd">480원</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <p class="typeLg text-center mt-12">
+              본 회의 가상계좌 이용수수료를 위와 같이 청구하오니 납부하여 주시기 바랍니다.<br />
+              2026년 08월 04일
+            </p>
+            <div class="copy-bb-seal">
+              <div class="seal-logo">
+                <img src="/static/images/common/img_logo_x3.png" alt="수협은행 로고" />
+              </div>
+              <div class="seal-img">
+                <img src="/static/images/common/img_seal_x3.png" alt="수협은행 직인" />
+              </div>
+            </div>
+
+            <div class="line-box size-xl">
+              <span class="typeLgSemibold">이용안내</span>
+              <div class="list type-dotted">
+                <ul>
+                  <li class="typeMd">본 확인증은 변경 가능성이 있어 거래증빙으로 사용할 수 없습니다.</li>
+                  <li class="typeMd">본 자료로 인해 귀하의 금융정보가 노출될 수 있으니 유의하시기 바랍니다.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer flex items-center justify-center gap-8">
+          <button type="button" class="btn type-line-primary size-lg">
+            <span class="text">인쇄</span>
+          </button>
+          <button type="button" class="btn type-bg-primary size-lg">
+            <span class="text">닫기</span>
+          </button>
+        </div>
+        <button type="button" class="ico btn-close" aria-label="모달 닫기">
+          <i class="ico-close ico-size-smMd" aria-hidden="true"></i>
+          <span class="blind">닫기</span>
+        </button>
+      </div>
+    </div>
+  </body>
+</html>

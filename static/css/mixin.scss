@@ -1,0 +1,26 @@
+// Typograph
+@mixin typeH($level) {
+    font-size: var(--headingFontSizeH#{$level});
+    font-weight: var(--fontWeightBold);
+    line-height: var(--headingLineHeightH#{$level});
+}
+@mixin typeContent($size, $weight: 'Regular', $line-height) {
+    font-size: var(--contentFontSize#{$size});
+    font-weight: var(--fontWeight#{$weight});
+	line-height: var(--contentLineHeight#{$line-height});
+}
+// 말줄임
+@mixin textEllipsis($lines: 1) {
+    @if $lines == 1 {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    } @else {
+        // 2줄 이상 e.g. textEllipsis(2)
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: $lines;
+        word-break: break-all; 
+    }
+}

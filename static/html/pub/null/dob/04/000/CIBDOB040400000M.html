@@ -1,0 +1,202 @@
+<!-- 1.07v -->
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/dob.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
+
+      <div id="container" class="container">
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="dob">
+              <h2 class="typeH2">
+                증명서 일괄 발급 신청
+                <div class="box-steps">
+                  <ol class="list-steps">
+                    <li class="item-steps passed">
+                      <span class="blind">1단계 증명서 구분</span>
+                      <i class="icon" aria-hidden="true">1</i>
+                      <span class="text">1단계</span>
+                    </li>
+                    <li class="item-steps passed">
+                      <span class="blind">2</span>
+                      <i class="icon" aria-hidden="true">2</i>
+                      <span class="text">2</span>
+                    </li>
+                    <li class="item-steps current" aria-current="step">
+                      <span class="blind">수수료납부 및 전자서명 </span>
+                      <i class="icon" aria-hidden="true">3</i>
+                      <span class="text">수수료납부 및 전자서명 </span>
+                    </li>
+                    <li class="item-steps">
+                      <span class="blind">4</span>
+                      <i class="icon" aria-hidden="true">4</i>
+                      <span class="text">4</span>
+                    </li>
+                  </ol>
+                </div>
+              </h2>
+              <div class="tbl-area">
+                <div class="tbl-head">
+                  <div class="left-area">
+                    <h4 class="typeH4">수수료 납부</h4>
+                  </div>
+                  <div class="right-area">
+                    <span class="required typeMd">필수 항목</span>
+                  </div>
+                </div>
+                <table class="table-type01">
+                  <caption></caption>
+                  <!-- [수정] 20260904 col width 값 추가  -->
+                  <colgroup>
+                    <col style="width: 160px" />
+                    <col style="width: auto" />
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="row">
+                        <span class="required"><span class="blind">필수</span>출금계좌번호</span>
+                      </th>
+                      <td colspan="3">
+                        <div class="tbl-flex">
+                          <div class="box-select wSize-lg">
+                            <button type="button" class="select size-lg" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="selectDropdown01" title="출금계좌번호">
+                              <span class="text">선택하세요</span>
+                              <span class="blind">펼침</span>
+                            </button>
+                            <div id="selectDropdown01" class="box-list-select">
+                              <ul class="list-select" role="listbox" aria-label="선택 항목 리스트">
+                                <li class="item-select" role="group">
+                                  <button type="button" class="btn-item-select">0000-0000-0000 (기업운전일반자금대출)</button>
+                                </li>
+                                <li class="item-select" role="group">
+                                  <button type="button" class="btn-item-select">가능한 계좌가 없습니다.</button>
+                                </li>
+                                <li class="item-select" role="group">
+                                  <button type="button" class="btn-item-select">직접입력</button>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="account-balance-info bottom">
+                          <ul>
+                            <li class="info-item highlight">
+                              <span class="typeSm">잔액<strong class="typeMdBold">372,383</strong></span>
+                            </li>
+                          </ul>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <th scope="row">
+                        <span class="required">계좌비밀번호</span>
+                      </th>
+                      <td colspan="3">
+                        <div class="tbl-flex">
+                          <div class="input-box">
+                            <input type="password" class="input" placeholder="숫자 4자리" aria-label="계좌비밀번호" />
+                            <button type="button" class="btn">
+                              <span class="blind">보안 키패드 열기</span>
+                            </button>
+                          </div>
+                          <button class="btn-mouse-keypad">
+                            <!-- 키패드 활성화시 is-active 클래스 추가 -->
+                            <i class="ico ico-size-smMd" aria-hidden="true"></i>
+                            <span class="blind">마우스 입력 열기</span>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="tbl-area">
+                <h4 class="typeH4">보안매체 입력</h4>
+                <table class="table-type01">
+                  <caption>
+                    OTP에 대한 구성 테이블입니다.
+                  </caption>
+                  <colgroup>
+                    <col />
+                    <col />
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="row" rowspan="2" class="noradius">
+                        <label for="OTP">OTP </label>
+                      </th>
+                      <td>
+                        <div class="tbl-flex">
+                          <div class="otp-text-wrap">
+                            <div class="clear-type">
+                              <input type="password" class="input size-lg wSize-md" placeholder="숫자 6자리" title="OTP 숫자 6자리" aria-label="OTP 숫자 6자리" />
+                              <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                                <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                                <span class="blind">닫기</span>
+                              </button>
+                            </div>
+                          </div>
+                          <button class="btn-mouse-keypad">
+                            <!-- 키패드 활성화시 is-active 클래스 추가 -->
+                            <i class="ico ico-size-smMd" aria-hidden="true"></i>
+                            <span class="blind">마우스 입력 열기</span>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="typeMd mb-16">Time OTP카드 비밀번호 입력 예시</div>
+                        <div class="otp-noti">
+                          <div class="otp-noti-inner">
+                            <div class="list type-dotted">
+                              <ul>
+                                <li class="typeMd">이용일자에 관계없이 OTP응답번호 입력 오류가 연속하여 10회 누적될 경우 서비스가 제한됩니다.</li>
+                                <li class="typeMd">OTP응답번호는 모든 항목을 입력하신 후 마지막으로 입력하시기 바랍니다.</li>
+                                <li class="typeMd">OTP는 정당한 전자금융거래시에만 사용하셔야 하며 응답번호를 발생시킨 후 가급적 즉시 입력하시기 바랍니다.</li>
+                              </ul>
+                            </div>
+                            <div class="list type-reference">
+                              <ul>
+                                <li class="typeMd">본 화면은 이해를 돕기 위한 입력 예시 참조화면 입니다. 고객님께서 보유하신 카드의 해당 번호를 입력해 주시기 바랍니다.</li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!-- 하단 확인 버튼 영역 -->
+              <div class="btn-wrap center lg-bot">
+                <button type="button" class="btn type-bg-primary size-xxl">
+                  <span class="text">다음</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
+</html>

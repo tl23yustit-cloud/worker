@@ -1,0 +1,272 @@
+<!-- CIBTRN010112000P.html -->
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>수협은행</title>
+  <link rel="stylesheet" href="/static/css/reset.css" />
+  <link rel="stylesheet" href="/static/css/layout.css" />
+  <link rel="stylesheet" href="/static/css/component.css" />
+  <link rel="stylesheet" href="/static/css/common.css" />
+  <link rel="stylesheet" href="/static/css/inq.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <div id="header">
+      @@include('static/html/pub/layout/skipNavigation.html')
+      @@include('static/html/pub/layout/header_sub.html')
+    </div>
+
+    <div id="container" class="container">
+      <div id="leftArea">
+        @@include('static/html/pub/layout/leftArea.html')
+      </div>
+      <div id="contents">
+        <div class="content">
+          @@include('static/html/pub/layout/breadcrumb.html')
+          <div class="inq">
+            <button type="button" class="btn type-bg-primary size-md btn-modal" data-target="modal-01">
+              <span class="text">모달 버튼</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+    </div>
+    <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+  </div>
+  <script src="/static/js/ui/cib_ui_common.js"></script>
+
+  <!-- 모달 팝업 영역 -->
+  <div id="modal-01" class="modal is-active" data-dim="true" data-backdrop-close="false" data-alert="true"
+    data-size="sm" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc">
+    <div class="modal-wrapper">
+      <div class="modal-title" id="modal-title">
+        <h4 class="typeH4">계좌상세조회</h4>
+      </div>
+      <div class="modal-slot" id="modal-desc">
+        <div class="modal-desc">
+          <div class="tbl-area">
+            <h6 class="typeH6">입출금이 자유로운 계좌 조회</h6>
+            <table class="table-type01">
+              <caption>
+                계좌번호, 수수료로 구성된 표
+              </caption>
+              <colgroup>
+                <col style="width: 160px" />
+                <col style="width: 200px" />
+                <col style="width: 160px" />
+                <col style="width: 200px" />
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th scope="row">고객명</th>
+                  <td colspan="3">
+                    <span class="typeMd">김수협</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">계좌번호</th>
+                  <td colspan="3">
+                    <span class="typeMd">1234-0000-0000</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">상품종류</th>
+                  <td colspan="3">
+                    <span class="typeMd">샐러리맨리치예금(저축예금)</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">계좌상태</th>
+                  <td>
+                    <span class="typeMd">활동</span>
+                  </td>
+                  <th scope="row">신규일</th>
+                  <td>
+                    <span class="typeMd">2024-12-01</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">최종거래일</th>
+                  <td>
+                    <span class="typeMd">2024-12-01</span>
+                  </td>
+                  <th scope="row">잔액</th>
+                  <td class="text-right">
+                    <span class="typeMd">100,000,000 원</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">지급가능금액</th>
+                  <td class="text-right">
+                    <span class="typeMd">100,000,000 원</span>
+                  </td>
+                  <th scope="row">미결제타점권</th>
+                  <td>
+                    <span class="typeMd">000000</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="tbl-area">
+            <h6 class="typeH6">대출정보</h6>
+            <table class="table-type01">
+              <caption>
+                계좌번호, 정보로 구성된 표
+              </caption>
+              <colgroup>
+                <col style="width: 160px" />
+                <col style="width: 200px" />
+                <col style="width: 160px" />
+                <col style="width: 200px" />
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th scope="row">대출승인금액</th>
+                  <td class="text-right">
+                    <span class="typeMd">10,000,000원</span>
+                  </td>
+                  <th scope="row">대출약정일자</th>
+                  <td>
+                    <span class="typeMd">2024-12-01</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">대출이율</th>
+                  <!--[dev]:20261020 정렬변경으로 class="text-right" 제거-->
+                  <td colspan="3">
+                    <span class="typeMd">(기준금리: 2.5 %, 가산금리: 0.5 %)</span>
+                  </td>
+                  <!--//[dev]:20261020 정렬변경으로 class="text-right" 제거-->
+                </tr>
+                <tr>
+                  <th scope="row">대출이자</th>
+                  <td class="text-right">
+                    <span class="typeMd">10,000,000원</span>
+                  </td>
+                  <th scope="row">미원가이자</th>
+                  <td class="text-right">
+                    <span class="typeMd">10,000,000원</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">대출만기일</th>
+                  <!--[dev]:20261020 정렬변경으로 class="text-right" 제거-->
+                  <td colspan="3">
+                    <span class="typeMd">2024-12-01</span>
+                  </td>
+                  <!--//[dev]:20261020 정렬변경으로 class="text-right" 제거-->
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="tbl-area">
+            <h6 class="typeH6">사고정보</h6>
+            <table class="table-type01">
+              <caption>
+                계좌번호, 정보로 구성된 표
+              </caption>
+              <colgroup>
+                <col style="width: 160px" />
+                <col style="width: 200px" />
+                <col style="width: 160px" />
+                <col style="width: 200px" />
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th scope="row">사고등록내역유무</th>
+                  <td>
+                    <div class="tbl-flex">
+                      <span class="typeMd">유</span>
+                      <button type="button" class="btn type-line-neutral size-sm">
+                        <span class="text">내역조회</span>
+                      </button>
+                    </div>
+                  </td>
+                  <th scope="row">사고신고등록일</th>
+                  <td>
+                    <span class="typeMd">2024-12-01</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">사고신고등록점</th>
+                  <td>
+                    <span class="typeMd">잠실새나라점</span>
+                  </td>
+                  <th scope="row">사고신고내용</th>
+                  <td>
+                    <span class="typeMd">사고가났어요</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="bank-box">
+            <h6 class="typeH6">예금자보호안내</h6>
+            <div class="line-box size-xl">
+              <!--예금자 보호 안내 문구 case-->
+              <span class="typeLg">
+                이 개인종합자산관리계좌(ISA)는 예금자보호법에 따라 예금보호 대상으로 운용되는 금융상품에 한하여 1인당 “1억원까지“(운용되는 금융상품 판매회사별
+                보호상품 합산) 보호됩니다.
+              </span>
+              <!--//예금자 보호 안내 문구 case-->
+              <!--예금자보호대상이 아닌 경우 case-->
+              <span class="typeLg">
+                이 금융상품은 예금자보호법에 따라 보호되지 않습니다.
+              </span>
+              <!--//예금자보호대상이 아닌 경우 case-->
+              <!--노후보장정기예금(퇴직연금[DC/IRP]) Case-->
+              <span class="typeLg">
+                예금보호 대상 금융상품으로 운용되는 적립금에 한하여 다른 보호상품과는 별도로 1억원까지(운용회사 별 합산) 예금자보호
+              </span>
+              <!--//노후보장정기예금(퇴직연금[DC/IRP]) Case-->
+              <!--ISA, ISA정기예금 Case-->
+              <span class="typeLg">
+                이 개인종합자산관리계좌(ISA)는 예금자보호법에 따라 예금 보호 대상으로 운용되는 금융상품에 한하여 1인당 "1억원까지"(운용되는 금융상품 판매회사별 보호상품 합산) 보호됩니다.
+              </span>
+              <!--//ISA, ISA정기예금 Case-->
+              <!--가계금전신탁, 기업금전신탁 Case-->
+              <span class="typeLg">
+                예금자보호법 상 보호상품 아님('96. 4. 30 이전 입금 분에 한해 예금자보호)
+              </span>
+              <!--//가계금전신탁, 기업금전신탁 Case-->
+              <!--적립식목적신탁 Case-->
+              <span class="typeLg">
+                예금자보호법 상 보호상품 아님('96. 4. 30 이전 개설 분에 한해 예금자보호)
+              </span>
+              <!--//적립식목적신탁 Case-->
+              <!--예금신탁보유계좌 Case-->
+              <span class="typeLg">
+                이 연금저축은 예금자보호법에 따라 다른 보호상품과는 별도로 1인당 "1억원까지"(본 금융회사의 여타 보호대상 연금저축과 합산) 보호됩니다.
+              </span>
+              <!--//예금신탁보유계좌 Case-->
+              <!--예금자보호(조합) Case -->
+              <span class="typeLg">
+                이 예금은 「수산업협동조합의 부실예방 및 구조개선에 관함 법률」에 의해 1인당 보호대상 예금의 원금과 소정의 이자를 합하여 최고 1억원까지 보호되며, 1억원 초과금액에 대해서는 보호되지
+                않습니다.(보호한도는 각 수협별 적용, 동일 수협 본점 및 지점 예금합산)
+              </span>
+              <!--//예금자보호(조합) Case -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer flex items-center justify-center gap-8">
+        <button type="button" class="btn type-bg-primary size-lg">
+          <span class="text">인쇄</span>
+        </button>
+      </div>
+      <button type="button" class="ico btn-close" aria-label="모달 닫기">
+        <i class="ico-close ico-size-smMd" aria-hidden="true"></i>
+        <span class="blind">닫기</span>
+      </button>
+    </div>
+  </div>
+</body>
+
+</html>

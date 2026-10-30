@@ -1,0 +1,639 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/bop.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
+
+      <div id="container" class="container">
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="bop">
+              <button type="button" class="btn type-bg-primary size-md btn-modal" data-target="modal-16">
+                <span class="text">우편번호 검색</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+
+    <div id="modal-16" class="modal is-active" data-dim="true" data-backdrop-close="false" data-alert="true" data-size="sm" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc">
+      <div class="modal-wrapper">
+        <div class="modal-title">
+          <h4 id="modal-title" class="typeH4">우편번호 검색</h4>
+        </div>
+        <div id="modal-desc" class="blind">우편번호 검색 모달입니다.</div>
+        <div class="modal-slot">
+          <p class="typeLgMedium mb-16">주소를 검색하고 아래에서 해당되는 주소지를 선택하세요.</p>
+          <div class="zip-code-box">
+            <div class="box-tab">
+              <ul class="list-tab-button type-outline" role="tablist" aria-label="탭 이름">
+                <li class="item-tab-button">
+                  <button type="button" class="btn-tab" id="tabBtnTypeOutline01" role="tab" aria-selected="false" aria-controls="tabPanelTypeOutline01">
+                    <span class="text">도로명주소</span>
+                  </button>
+                </li>
+                <li class="item-tab-button">
+                  <button type="button" class="btn-tab active" title="선택됨" id="tabBtnTypeOutline02" role="tab" aria-selected="true" aria-controls="tabPanelTypeOutline02">
+                    <span class="text">지번주소</span>
+                  </button>
+                </li>
+              </ul>
+              <div class="box-tab-content" id="tabPanelTypeOutline01" role="tabpanel" aria-labelledby="tabBtnTypeOutline01">
+                <h3 class="blind">도로명주소 탭</h3>
+                <div class="accordion-wrapper">
+                  <div class="box-accordion line">
+                    <div class="box-item-list">
+                      <div class="box-title">
+                        <span class="badge badge-light size-md type-neutral">
+                          <span class="text">Step 01</span>
+                        </span>
+                        <span class="title typeLg">기본주소 입력 선택</span>
+                      </div>
+                      <button type="button" class="btn-accordion" aria-expanded="false" aria-controls="accordionContent01">
+                        <i class="ico-arrow" aria-hidden="true"></i>
+                        <span class="blind">상세내용 열기</span>
+                      </button>
+                    </div>
+                    <div id="accordionContent01" class="content-accordion">
+                      <div class="address-box">
+                        <div class="form-row">
+                          <dl>
+                            <dt>시/도</dt>
+                            <dd>
+                              <button type="button" id="input-tmnlhr" class="select size-lg" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="comp-4k8lp6" aria-label="항목 1 선택">
+                                <span class="text">서울특별시</span>
+                                <span class="blind">펼침</span>
+                              </button>
+                            </dd>
+                          </dl>
+                          <dl>
+                            <dt>시/군/구</dt>
+                            <dd>
+                              <button type="button" id="input-tmnlhr" class="select size-lg" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="comp-4k8lp6" aria-label="항목 1 선택">
+                                <span class="text">강남구</span>
+                                <span class="blind">펼침</span>
+                              </button>
+                            </dd>
+                          </dl>
+                        </div>
+                        <div class="form-row">
+                          <dl>
+                            <dt>도로명</dt>
+                            <dd>
+                              <div class="clear-type">
+                                <input type="text" class="input size-lg wSize-full" placeholder="입력해주세요" title="도로명" aria-label="도로명" />
+                                <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                                  <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                                  <span class="blind">닫기</span>
+                                </button>
+                              </div>
+                            </dd>
+                          </dl>
+                        </div>
+                        <div class="form-row">
+                          <dl>
+                            <dt>건물번호</dt>
+                            <dd>
+                              <div class="clear-type">
+                                <input type="text" class="input size-lg wSize-full" placeholder="입력해주세요" title="건물번호" aria-label="건물번호" />
+                                <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                                  <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                                  <span class="blind">닫기</span>
+                                </button>
+                              </div>
+                            </dd>
+                          </dl>
+                          <dl>
+                            <dt>건물명</dt>
+                            <dd>
+                              <div class="clear-type">
+                                <input type="text" class="input size-lg wSize-full" placeholder="입력해주세요" title="건물명" aria-label="건물명" />
+                                <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                                  <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                                  <span class="blind">닫기</span>
+                                </button>
+                              </div>
+                            </dd>
+                          </dl>
+                        </div>
+                      </div>
+                      <div class="list type-dotted mt-4">
+                        <ul>
+                          <li class="typeSm">찾으실 도로명을 입력하세요. 예)거탄진로, 공룡로, 진홍로 11길</li>
+                        </ul>
+                      </div>
+                      <div class="btn-wrap center mt-16 mb-24">
+                        <button type="button" class="btn type-line-neutral size-md">
+                          <span class="text">초기화</span>
+                        </button>
+                        <button type="button" class="btn type-bg-neutral size-md">
+                          <span class="text">조회</span>
+                        </button>
+                      </div>
+                      <div class="form-box-wrap" role="radiogroup" aria-label="조회구분">
+                        <ul class="address-list">
+                          <li>
+                            <span class="form-box">
+                              <input type="radio" name="radio_comp-x3lzpi" id="radio_comp-x3lzpi_01" class="form-radio size-md" checked="" />
+                              <label for="radio_comp-x3lzpi_01" class="form-label"><span class="zip">(00000)</span>서울특별시 강남구 양재대로 39길 7 </label>
+                            </span>
+                          </li>
+                          <li>
+                            <span class="form-box">
+                              <input type="radio" name="radio_comp-x3lzpi" id="radio_comp-x3lzpi_02" class="form-radio size-md" />
+                              <label for="radio_comp-x3lzpi_02" class="form-label"><span class="zip">(00000)</span>서울특별시 강남구 양재대로 39길 7 </label>
+                            </span>
+                          </li>
+                          <li>
+                            <span class="form-box">
+                              <input type="radio" name="radio_comp-x3lzpi" id="radio_comp-x3lzpi_03" class="form-radio size-md" />
+                              <label for="radio_comp-x3lzpi_03" class="form-label"><span class="zip">(00000)</span>서울특별시 강남구 양재대로 39길 7 </label>
+                            </span>
+                          </li>
+                        </ul>
+                        <div class="flex items-center justify-center gap-8 mt-16">
+                          <button type="button" class="btn type-bg-primary size-md">
+                            <span class="text">선택</span>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="box-accordion line">
+                    <div class="box-item-list">
+                      <div class="box-title">
+                        <span class="badge badge-light size-md type-neutral">
+                          <span class="text">Step 02</span>
+                        </span>
+                        <span class="title typeLg">상세주소 입력정보 확인</span>
+                      </div>
+                      <button type="button" class="btn-accordion" aria-expanded="false" aria-controls="accordionContent02">
+                        <i class="ico-arrow" aria-hidden="true"></i>
+                        <span class="blind">상세내용 열기</span>
+                      </button>
+                    </div>
+                    <div id="accordionContent02" class="content-accordion">
+                      <div class="tbl-area">
+                        <table class="table-type01">
+                          <caption>
+                            기본주소, 건물번호, 건물명, 상세주소에 대한 구성 테이블입니다.
+                          </caption>
+                          <colgroup>
+                            <col style="width: 120px" />
+                            <col style="width: auto" />
+                          </colgroup>
+                          <tbody>
+                            <tr>
+                              <th scope="row" class="w-120">
+                                <span>기본주소</span>
+                              </th>
+                              <td>
+                                <div class="tbl-flex">
+                                  <input type="text" id="input-ysuxal" title="기본주소1" value="06343" class="input size-lg wSize-sm" aria-label="기본주소1" readonly />
+                                  <input type="text" id="input-ysux2al" title="기본주소2" value="서울특별시 강남구 양재대로 37길" class="input size-lg wSize-sm flex-1" aria-label="기본주소2" readonly />
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <th scope="row" class="w-120">
+                                <span>건물번호</span>
+                              </th>
+                              <td>
+                                <input type="text" id="input-ysux2al" title="건물번호" value="7" class="input size-lg wSize-full" aria-label="건물번호" readonly />
+                              </td>
+                            </tr>
+                            <tr>
+                              <th scope="row" class="w-120">
+                                <span>건물명</span>
+                              </th>
+                              <td><input type="text" id="input-ysux2al" title="건물명" value="블루미어 1차" class="input size-lg wSize-full" aria-label="건물명" readonly /></td>
+                            </tr>
+                            <tr>
+                              <th scope="row" class="w-120">
+                                <span>상세주소</span>
+                              </th>
+                              <td>
+                                <div class="tbl-flex">
+                                  <div class="clear-type wSize-full">
+                                    <input type="text" class="input size-lg wSize-full" title="상세주소" aria-label="상세주소" />
+                                    <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                                      <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                                      <span class="blind">닫기</span>
+                                    </button>
+                                  </div>
+                                </div>
+                                <div class="list mt-6">
+                                  <ul>
+                                    <li class="typeSm color-fg-secondary">예) "000동 000호", "00-00번지"</li>
+                                  </ul>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="btn-wrap center mt-16">
+                        <button type="button" class="btn type-bg-neutral size-md">
+                          <span class="text">주소검증</span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="box-accordion line">
+                    <div class="box-item-list">
+                      <div class="box-title">
+                        <span class="badge badge-light size-md type-neutral">
+                          <span class="text">Step 03</span>
+                        </span>
+                        <span class="title typeLg">주소선택(사이트에서 사용하실 주소를 선택하세요.)</span>
+                      </div>
+                      <button type="button" class="btn-accordion" aria-expanded="false" aria-controls="accordionContent03">
+                        <i class="ico-arrow" aria-hidden="true"></i>
+                        <span class="blind">상세내용 열기</span>
+                      </button>
+                    </div>
+                    <div id="accordionContent03" class="content-accordion">
+                      <div class="select-adress">
+                        <div class="empty-page">
+                          <i class="ico-info"></i>
+                          <div class="typeMd">입력새길에 1:1 새길매칭성공</div>
+                          <div class="typeMd error">상세주소 입력 오류입니다.</div>
+                        </div>
+                        <div class="tbl-area">
+                          <table class="table-type01">
+                            <caption>
+                              입력주소, 표준화 지번주소, 표준화 도로명 주소에 대한 구성 테이블입니다.
+                            </caption>
+                            <colgroup>
+                              <col style="width: 120px" />
+                              <col style="width: auto" />
+                            </colgroup>
+                            <tbody>
+                              <tr>
+                                <th scope="row" class="w-120">
+                                  <span
+                                    ><span class="form-box">
+                                      <input type="radio" name="주소선택" id="SampleRadio0201" class="form-radio" />
+                                      <label for="SampleRadio0201" class="form-label">입력주소</label>
+                                    </span></span
+                                  >
+                                </th>
+                                <td>
+                                  <div class="tbl-column">
+                                    <div class="tbl-flex">
+                                      <input type="text" id="input-wlfdvh" class="input size-lg wSize-sm" aria-label="우편번호" readonly value="06343" />
+                                    </div>
+                                    <div class="tbl-flex wSize-full">
+                                      <input type="text" id="input-wlfdvdh" class="input size-lg flex-1" aria-label="주소1" readonly value="서울특별시 강남구 양재대로 37길" />
+                                    </div>
+                                    <div class="tbl-flex wSize-full">
+                                      <input type="text" id="input-wlfdv2dh" class="input size-lg flex-1" aria-label="주소2" readonly value="5 123-123" />
+                                    </div>
+                                  </div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <th scope="row" class="w-120">
+                                  <span
+                                    ><span class="form-box">
+                                      <input type="radio" name="주소선택" id="SampleRadio02021" class="form-radio" />
+                                      <label for="SampleRadio02021" class="form-label">표준화 <br />지번주소</label>
+                                    </span></span
+                                  >
+                                </th>
+                                <td>
+                                  <div class="tbl-column">
+                                    <div class="tbl-flex">
+                                      <input type="text" id="input-w54lfdvh" class="input size-lg wSize-sm" aria-label="우편번호" readonly value="06343" />
+                                    </div>
+                                    <div class="tbl-flex wSize-full">
+                                      <input type="text" id="input-wlf1dvdh" class="input size-lg flex-1" aria-label="주소1" readonly value="서울특별시 강남구 양재대로 37길" />
+                                    </div>
+                                    <div class="tbl-flex wSize-full">
+                                      <input type="text" id="input-wlfd2v2dh" class="input size-lg flex-1" aria-label="주소2" readonly value="5 123-123" />
+                                    </div>
+                                  </div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <th scope="row" class="w-120">
+                                  <span
+                                    ><span class="form-box">
+                                      <input type="radio" name="주소선택" id="SampleRadio020212" class="form-radio" />
+                                      <label for="SampleRadio020212" class="form-label"
+                                        >표준화<br />
+                                        도로명 주소</label
+                                      >
+                                    </span></span
+                                  >
+                                </th>
+                                <td>
+                                  <div class="tbl-column">
+                                    <div class="tbl-flex">
+                                      <input type="text" id="input-wlf2dvh" class="input size-lg wSize-sm" aria-label="우편번호" readonly value="06343" />
+                                    </div>
+                                    <div class="tbl-flex wSize-full">
+                                      <input type="text" id="input-wlfd51vdh" class="input size-lg flex-1" aria-label="주소1" readonly value="서울특별시 강남구 양재대로 37길" />
+                                    </div>
+                                    <div class="tbl-flex wSize-full">
+                                      <input type="text" id="input-wlfdv152dh" class="input size-lg flex-1" aria-label="주소2" readonly value="5 123-123" />
+                                    </div>
+                                  </div>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="box-tab-content active" id="tabPanelTypeOutline02" role="tabpanel" aria-labelledby="tabBtnTypeOutline02" style="display: none">
+                <h3 class="blind">지번주소 탭</h3>
+                <div class="accor dion-wrapper">
+                  <div class="box-accordion line">
+                    <div class="box-item-list">
+                      <div class="box-title">
+                        <span class="badge badge-light size-md type-neutral">
+                          <span class="text">Step 01</span>
+                        </span>
+                        <span class="title typeLg">기본주소 입력 선택</span>
+                      </div>
+                      <button type="button" class="btn-accordion" aria-expanded="false" aria-controls="accordionContent04">
+                        <i class="ico-arrow" aria-hidden="true"></i>
+                        <span class="blind">상세내용 열기</span>
+                      </button>
+                    </div>
+                    <div id="accordionContent04" class="content-accordion">
+                      <div class="address-box">
+                        <div class="form-row">
+                          <dl>
+                            <dt>읍/면/동</dt>
+                            <dd>
+                              <div class="clear-type">
+                                <input type="text" class="input size-lg wSize-full" placeholder="입력해주세요" title="읍/면/동" aria-label="읍/면/동" />
+                                <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                                  <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                                  <span class="blind">닫기</span>
+                                </button>
+                              </div>
+                            </dd>
+                          </dl>
+                        </div>
+                      </div>
+                      <div class="list type-dotted mt-4">
+                        <ul>
+                          <li class="typeSm">찾으실 읍/면/동을 입력하세요. 예)금정동, 송산명, 신령읍</li>
+                        </ul>
+                      </div>
+                      <div class="btn-wrap center mt-16 mb-24">
+                        <button type="button" class="btn type-line-neutral size-md">
+                          <span class="text">초기화</span>
+                        </button>
+                        <button type="button" class="btn type-bg-neutral size-md">
+                          <span class="text">조회</span>
+                        </button>
+                      </div>
+                      <div class="form-box-wrap" role="radiogroup" aria-label="조회구분">
+                        <ul class="address-list">
+                          <li>
+                            <span class="form-box">
+                              <input type="radio" name="radio_comp-x3lzpi" id="radio_comp-x3lzpi_01" class="form-radio size-md" checked="" />
+                              <label for="radio_comp-x3lzpi_01" class="form-label"><span class="zip">(00000)</span>서울특별시 강남구 양재대로 39길 7 </label>
+                            </span>
+                          </li>
+                          <li>
+                            <span class="form-box">
+                              <input type="radio" name="radio_comp-x3lzpi" id="radio_comp-x3lzpi_02" class="form-radio size-md" />
+                              <label for="radio_comp-x3lzpi_02" class="form-label"><span class="zip">(00000)</span>서울특별시 강남구 양재대로 39길 7 </label>
+                            </span>
+                          </li>
+                          <li>
+                            <span class="form-box">
+                              <input type="radio" name="radio_comp-x3lzpi" id="radio_comp-x3lzpi_03" class="form-radio size-md" />
+                              <label for="radio_comp-x3lzpi_03" class="form-label"><span class="zip">(00000)</span>서울특별시 강남구 양재대로 39길 7 </label>
+                            </span>
+                          </li>
+                        </ul>
+                        <div class="flex items-center justify-center gap-8 mt-16">
+                          <button type="button" class="btn type-bg-primary size-md">
+                            <span class="text">선택</span>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="box-accordion line">
+                    <div class="box-item-list">
+                      <div class="box-title">
+                        <span class="badge badge-light size-md type-neutral">
+                          <span class="text">Step 02</span>
+                        </span>
+                        <span class="title typeLg">상세주소 입력정보 확인</span>
+                      </div>
+                      <button type="button" class="btn-accordion" aria-expanded="false" aria-controls="accordionContent05">
+                        <i class="ico-arrow" aria-hidden="true"></i>
+                        <span class="blind">상세내용 열기</span>
+                      </button>
+                    </div>
+                    <div id="accordionContent05" class="content-accordion">
+                      <div class="tbl-area">
+                        <table class="table-type01">
+                          <caption>
+                            기본주소 상세주소에 대한 구성 테이블입니다.
+                          </caption>
+                          <colgroup>
+                            <col style="width: 120px" />
+                            <col style="width: auto" />
+                          </colgroup>
+                          <tbody>
+                            <tr>
+                              <th scope="row" class="w-120">
+                                <span>기본주소</span>
+                              </th>
+                              <td>
+                                <div class="tbl-flex">
+                                  <input type="text" id="input-ysuxal" title="기본주소1" value="06343" class="input size-lg wSize-sm" aria-label="기본주소1" readonly />
+                                  <input type="text" id="input-ysux2al" title="기본주소2" value="서울특별시 강남구 양재대로 37길" class="input size-lg wSize-sm flex-1" aria-label="기본주소2" readonly />
+                                </div>
+                              </td>
+                            </tr>
+
+                            <tr>
+                              <th scope="row" class="w-120">
+                                <span>상세주소</span>
+                              </th>
+                              <td>
+                                <div class="tbl-flex">
+                                  <div class="clear-type wSize-full">
+                                    <input type="text" class="input size-lg wSize-full" title="상세주소" aria-label="상세주소" />
+                                    <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                                      <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                                      <span class="blind">닫기</span>
+                                    </button>
+                                  </div>
+                                </div>
+                                <div class="list mt-6">
+                                  <ul>
+                                    <li class="typeSm color-fg-secondary">예) "000동 000호", "00-00번지"</li>
+                                  </ul>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="btn-wrap center mt-16">
+                        <button type="button" class="btn type-bg-neutral size-md">
+                          <span class="text">주소검증</span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="box-accordion line">
+                    <div class="box-item-list">
+                      <div class="box-title">
+                        <span class="badge badge-light size-md type-neutral">
+                          <span class="text">Step 03</span>
+                        </span>
+                        <span class="title typeLg">주소선택(사이트에서 사용하실 주소를 선택하세요.)</span>
+                      </div>
+                      <button type="button" class="btn-accordion" aria-expanded="false" aria-controls="accordionContent06">
+                        <i class="ico-arrow" aria-hidden="true"></i>
+                        <span class="blind">상세내용 열기</span>
+                      </button>
+                    </div>
+                    <div id="accordionContent06" class="content-accordion">
+                      <div class="select-adress">
+                        <div class="empty-page">
+                          <i class="ico-info"></i>
+                          <div class="typeMd">입력새길에 1:1 새길매칭성공</div>
+                          <div class="typeMd error">상세주소 입력 오류입니다.</div>
+                        </div>
+                        <div class="tbl-area">
+                          <table class="table-type01">
+                            <caption>
+                              입력주소, 표준화 지번주소, 표준화 도로명 주소에 대한 구성 테이블입니다.
+                            </caption>
+                            <colgroup>
+                              <col style="width: 120px" />
+                              <col style="width: auto" />
+                            </colgroup>
+                            <tbody>
+                              <tr>
+                                <th scope="row" class="w-120">
+                                  <span
+                                    ><span class="form-box">
+                                      <input type="radio" name="주소선택" id="SampleRadio0201" class="form-radio" />
+                                      <label for="SampleRadio0201" class="form-label">입력주소</label>
+                                    </span></span
+                                  >
+                                </th>
+                                <td>
+                                  <div class="tbl-column">
+                                    <div class="tbl-flex">
+                                      <input type="text" id="input-wlfdvh" class="input size-lg wSize-sm" aria-label="우편번호" readonly value="06343" />
+                                    </div>
+                                    <div class="tbl-flex wSize-full">
+                                      <input type="text" id="input-wlfdvdh" class="input size-lg flex-1" aria-label="주소1" readonly value="서울특별시 강남구 양재대로 37길" />
+                                    </div>
+                                    <div class="tbl-flex wSize-full">
+                                      <input type="text" id="input-wlfdv2dh" class="input size-lg flex-1" aria-label="주소2" readonly value="5 123-123" />
+                                    </div>
+                                  </div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <th scope="row" class="w-120">
+                                  <span
+                                    ><span class="form-box">
+                                      <input type="radio" name="주소선택" id="SampleRadio02021" class="form-radio" />
+                                      <label for="SampleRadio02021" class="form-label">표준화 <br />지번주소</label>
+                                    </span></span
+                                  >
+                                </th>
+                                <td>
+                                  <div class="tbl-column">
+                                    <div class="tbl-flex">
+                                      <input type="text" id="input-w54lfdvh" class="input size-lg wSize-sm" aria-label="우편번호" readonly value="06343" />
+                                    </div>
+                                    <div class="tbl-flex wSize-full">
+                                      <input type="text" id="input-wlf1dvdh" class="input size-lg flex-1" aria-label="주소1" readonly value="서울특별시 강남구 양재대로 37길" />
+                                    </div>
+                                    <div class="tbl-flex wSize-full">
+                                      <input type="text" id="input-wlfd2v2dh" class="input size-lg flex-1" aria-label="주소2" readonly value="5 123-123" />
+                                    </div>
+                                  </div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <th scope="row" class="w-120">
+                                  <span
+                                    ><span class="form-box">
+                                      <input type="radio" name="주소선택" id="SampleRadio020212" class="form-radio" />
+                                      <label for="SampleRadio020212" class="form-label"
+                                        >표준화<br />
+                                        도로명 주소</label
+                                      >
+                                    </span></span
+                                  >
+                                </th>
+                                <td>
+                                  <div class="tbl-column">
+                                    <div class="tbl-flex">
+                                      <input type="text" id="input-wlf2dvh" class="input size-lg wSize-sm" aria-label="우편번호" readonly value="06343" />
+                                    </div>
+                                    <div class="tbl-flex wSize-full">
+                                      <input type="text" id="input-wlfd51vdh" class="input size-lg flex-1" aria-label="주소1" readonly value="서울특별시 강남구 양재대로 37길" />
+                                    </div>
+                                    <div class="tbl-flex wSize-full">
+                                      <input type="text" id="input-wlfdv152dh" class="input size-lg flex-1" aria-label="주소2" readonly value="5 123-123" />
+                                    </div>
+                                  </div>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer flex items-center justify-center gap-8">
+          <button type="button" class="btn type-bg-primary-tint size-lg btn-close">
+            <span class="text">취소</span>
+          </button>
+          <button type="button" class="btn type-bg-primary size-lg">
+            <span class="text">선택주소 사용</span>
+          </button>
+        </div>
+        <button type="button" class="ico btn-close" aria-label="모달 닫기">
+          <i class="ico-close ico-size-smMd" aria-hidden="true"></i>
+          <span class="blind">닫기</span>
+        </button>
+      </div>
+    </div>
+  </body>
+</html>

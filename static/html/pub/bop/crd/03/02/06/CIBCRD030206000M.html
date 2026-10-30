@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/crd.css" />
+</head>
+
+<body>
+    <div class="wrapper">
+        <div id="header">
+            @@include('static/html/pub/layout/skipNavigation.html')
+            @@include('static/html/pub/layout/header_sub.html')
+        </div>
+
+        <div id="container" class="container">
+            <div id="leftArea">
+                @@include('static/html/pub/layout/leftArea.html')
+            </div>
+            <div id="contents">
+                <div class="content">
+                    @@include('static/html/pub/layout/breadcrumb.html')
+                    <div class="crd">
+                        <h2 class="typeH2">
+                            이용한도변경
+                            <div class="box-steps">
+                                <ol class="list-steps">
+                                    <li class="item-steps current" aria-current="step">
+                                        <span class="blind">정보입력</span>
+                                        <i class="icon" aria-hidden="true">1</i>
+                                        <span class="text">정보입력</span>
+                                    </li>
+                                    <li class="item-steps">
+                                        <i class="icon" aria-hidden="true">2</i>
+                                        <span class="text">2</span>
+                                    </li>
+                                    <li class="item-steps">
+                                        <i class="icon" aria-hidden="true">3</i>
+                                        <span class="text">3</span>
+                                    </li>
+                                </ol>
+                            </div>
+                        </h2>
+
+                        <div class="tbl-area">
+                            <div class="tbl-head">
+                                <div class="right-area">
+                                    <span class="required typeMd">필수 항목</span>
+                                </div>
+                            </div>
+                            <table class="table-type01">
+                                <caption></caption>
+                                <colgroup>
+                                    <col style="width: 160px" />
+                                    <col style="width: auto" />
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">
+                                            <span class="required">조회구분</span>
+                                        </th>
+                                        <td>
+                                            <div class="form-box-wrap" role="radiogroup" aria-label="조회구분">
+                                                <span class="form-box">
+                                                    <input type="radio" name="searchTypeB" id="searchTypeB_02"
+                                                        class="form-radio size-md">
+                                                    <label for="searchTypeB_02" class="form-label">사업자한도</label>
+                                                </span>
+                                                <span class="form-box">
+                                                    <input type="radio" name="searchTypeB" id="searchTypeB_03"
+                                                        class="form-radio size-md">
+                                                    <label for="searchTypeB_03" class="form-label">사업장한도</label>
+                                                </span>
+                                                <span class="form-box">
+                                                    <input type="radio" name="searchTypeB" id="searchTypeB_04"
+                                                        class="form-radio size-md" checked="">
+                                                    <label for="searchTypeB_04" class="form-label">카드한도</label>
+                                                </span>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <th scope="row">
+                                            <span class="required">카드유형</span>
+                                        </th>
+                                        <td>
+                                            <div class="box-select wSize-md">
+                                                <button type="button" class="select size-lg" role="combobox"
+                                                    aria-expanded="true" aria-haspopup="listbox"
+                                                    aria-controls="selectDropdownTypeA" title="카드유형 선택">
+                                                    <span class="text">카드유형을 선택하세요</span>
+                                                    <span class="blind">펼침</span>
+                                                </button>
+                                                <div id="selectDropdownTypeA" class="box-list-select">
+                                                    <ul class="list-select" role="listbox" aria-label="카드유형 선택 항목 리스트">
+                                                        <li class="item-select" role="option" aria-selected="true">
+                                                            <span class="btn-item-select">
+                                                                신용카드
+                                                            </span>
+                                                        </li>
+                                                        <li class="item-select" role="option" aria-selected="false">
+                                                            <span class="btn-item-select">
+                                                                체크카드
+                                                            </span>
+                                                        </li>
+
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <th scope="row">카드상품명</th>
+                                        <td>
+                                            <div class="box-select wSize-md is-open">
+                                                <button type="button" class="select size-lg " role="combobox"
+                                                    aria-expanded="true" aria-haspopup="listbox"
+                                                    aria-controls="cardProductDropdownTypeA" title="카드상품명 선택">
+                                                    <span class="text">카드상품명을 선택하세요</span>
+                                                    <span class="blind">접힘</span>
+                                                </button>
+                                                <div id="cardProductDropdownTypeA" class="box-list-select">
+                                                    <ul class="list-select" role="listbox" aria-label="카드상품명 선택 항목 리스트">
+                                                        <li class="item-select" role="option" aria-selected="false">
+                                                            <span class="btn-item-select">
+                                                                전체
+                                                            </span>
+                                                        </li>
+                                                        <li class="item-select" role="option" aria-selected="false">
+                                                            <span class="btn-item-select">
+                                                                1
+                                                            </span>
+                                                        </li>
+                                                        <li class="item-select" role="option" aria-selected="false">
+                                                            <span class="btn-item-select">
+                                                                2
+                                                            </span>
+                                                        </li>
+                                                        <li class="item-select" role="option" aria-selected="false">
+                                                            <span class="btn-item-select">
+                                                                3
+                                                            </span>
+                                                        </li>
+                                                        <li class="item-select" role="option" aria-selected="false">
+                                                            <span class="btn-item-select">
+                                                                4
+                                                            </span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+
+
+
+
+
+                                    <tr>
+                                        <th scope="row">
+                                            <span><label for="cardLastNumA">카드번호 뒷4자리</label></span>
+                                        </th>
+                                        <td>
+                                            <div class="input-box wSize-md">
+                                                <input type="password" id="cardLastNumA" class="input"
+                                                    placeholder="카드번호 뒷4자리를 입력하세요." aria-label="카드번호 뒷4자리">
+                                                <button type="button" class="btn">
+                                                    <i class="ico-keypad ico-size-smMd"></i>
+                                                    <span class="blind">보안 키패드 열기</span>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="btn-wrap center sm-mid">
+                        <button type="button" class="btn type-line-neutral size-xxl">
+                            <span class="text">초기화</span>
+                        </button>
+                        <button type="button" class="btn type-bg-primary size-xxl">
+                            <span class="text">조회</span>
+                        </button>
+                    </div>
+
+                    <div class="tbl-area">
+                        <h4 class="typeH4">조회결과</h4>
+                        <table class="table-type03">
+                            <caption></caption>
+                            <colgroup>
+                                <col style="width: 80px">
+                                <col style="width: 80px">
+                                <col style="width: auto">
+                                <col style="width: auto">
+                                <col style="width: auto">
+                                <col style="width: auto">
+                                <col style="width: auto">
+                                <col style="width: auto">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th scope="col">
+                                        <span><span class="form-box">
+                                                <input type="checkbox" name="전체선택" id="comp-ao11vy"
+                                                    class="form-checkbox size-lg"> </span></span>
+                                    </th>
+                                    <th scope="col"><span>NO</span></th>
+                                    <th scope="col"><span>사업장명 </span></th>
+                                    <th scope="col"><span>카드유형 </span></th>
+                                    <th scope="col"><span>카드상품명 </span></th>
+                                    <th scope="col"><span>카드번호 </span></th>
+                                    <th scope="col"><span>월한도</span></th>
+                                    <th scope="col"><span>1일한도</span></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <span class="form-box">
+                                            <input type="checkbox" name="" id="comp-ao11vy"
+                                                class="form-checkbox size-lg">
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <span class="typeMd">1</span>
+                                    </td>
+                                    <td>
+                                        <span class="typeMd">사업장 A</span>
+                                    </td>
+                                    <td>
+                                        <span class="typeMd">체크</span>
+                                    </td>
+                                    <td>
+                                        <span class="typeMd">Feel VISA 특별카드</span>
+                                    </td>
+                                    <td>
+                                        <span class="typeMd">1234-56**-****-3456</span>
+                                    </td>
+                                    <td class="text-right">
+                                        <span class="typeMd">50,000,000 원</span>
+                                    </td>
+                                    <td class="text-right">
+                                        <span class="typeMd">15,000,000 원</span>
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <span class="form-box">
+                                            <input type="checkbox" name="" id="comp-ebavvg"
+                                                class="form-checkbox size-lg">
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <span class="typeMd">2</span>
+                                    </td>
+                                    <td>
+                                        <span class="typeMd">사업장 B</span>
+                                    </td>
+                                    <td>
+                                        <span class="typeMd">체크</span>
+                                    </td>
+                                    <td>
+                                        <span class="typeMd">Feel VISA 특별카드</span>
+                                    </td>
+                                    <td>
+                                        <span class="typeMd">1234-56**-****-3456
+                                        </span>
+                                    </td>
+                                    <td class="text-right">
+                                        <span class="typeMd">20,000,000 원</span>
+                                    </td>
+                                    <td class="text-right">
+                                        <span class="typeMd">15,000,000 원</span>
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                    <div class="btn-wrap center lg-bot">
+                        <button type="button" class="btn type-bg-primary size-xxl">
+                            <span class="text">한도변경</span>
+                        </button>
+                    </div>
+
+                    <div class="line-box size-xl mt-48">
+                        <span class="typeLgSemibold">이용안내</span>
+                        <div class="list type-dotted">
+                            <ul>
+                                <li class="typeMd">
+                                    법인/개인사업자 사업자한도 증액은 보증인 동의, 서류 제출 후 영업점 심사를 통해 한도 변경이 됩니다.
+                                </li>
+                                <li class="typeMd">
+                                    법인/개인사업자 사업자한도 감액, 사업장한도과 카드한도 증액/감액은 서류 제출없이 정해진 한도 내 변경 가능합니다.
+                                </li>
+                                <li class="typeMd">
+                                    사업장한도와 카드한도는 서류제출 및 영업점 방문 없이 정해진 한도 내 증액/감액 변경 가능합니다.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+    </div>
+    <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+</body>
+
+</html>

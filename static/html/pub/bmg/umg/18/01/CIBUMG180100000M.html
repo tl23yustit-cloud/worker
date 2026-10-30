@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>결재이력조회 &gt; 사용자관리 &gt; 뱅킹관리 | 수협은행</title>
+	<link rel="stylesheet" href="/static/css/reset.css" />
+	<link rel="stylesheet" href="/static/css/layout.css" />
+	<link rel="stylesheet" href="/static/css/component.css" />
+	<link rel="stylesheet" href="/static/css/common.css" />
+	<link rel="stylesheet" href="/static/css/bmg.css" />
+</head>
+
+<body>
+	<div class="wrapper">
+		<div id="header">
+			@@include('static/html/pub/layout/skipNavigation.html')
+			@@include('static/html/pub/layout/header_sub.html')
+		</div>
+
+		<div id="container" class="container">
+			<div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+			<div id="contents">
+				<div class="content">
+					@@include('static/html/pub/layout/breadcrumb.html')
+					<div class="bmg">
+						<h2 class="typeH2">
+							결재이력조회
+						</h2>
+						<div class="tbl-area">
+							<table class="table-type01">
+								<caption>
+									기안자ID(기안자명), 최종결재/승인/반려자ID(최종결재/승인/반려자명), 거래종류, 결재(승인)상태, 긴급결재여부, 조회기간(기안일 기준),
+									조회기간(최종결재/승인/반려일 기준)으로 구분된 조회 테이블
+								</caption>
+								<!-- [수정] 20260907 col width 값 추가  -->
+								<colgroup>
+									<col style="width: 160px" />
+									<col style="width: 368px" />
+									<col style="width: 160px" />
+									<col style="width: 368px" />
+								</colgroup>
+								<tbody>
+									<tr>
+										<th scope="row">
+											<span>기안자ID (기안자명)</span>
+										</th>
+										<td>
+											<div class="box-select">
+												<button type="button" class="select size-lg" role="combobox"
+													aria-expanded="false" aria-haspopup="listbox"
+													aria-controls="selectDropdown01" title="기안자ID (기안자명)">
+													<span class="text">선택하세요</span>
+													<span class="blind">펼침</span>
+												</button>
+												<div id="selectDropdown01" class="box-list-select">
+													<ul class="list-select" role="listbox" aria-label="선택 항목 리스트">
+														<li class="item-select" role="group">
+															<button type="button" class="btn-item-select">
+																전체
+															</button>
+														</li>
+														<li class="item-select" role="group">
+															<button type="button" class="btn-item-select">
+																사용자ID 01
+															</button>
+														</li>
+														<li class="item-select" role="group">
+															<button type="button" class="btn-item-select">
+																사용자ID 02
+															</button>
+														</li>
+														<li class="item-select" role="group">
+															<button type="button" class="btn-item-select">
+																사용자ID 03
+															</button>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</td>
+										<th scope="row">
+											<span>최종결재 / 승인 / 반려자ID<br>(최종결재 / 승인 / 반려자명)</span>
+										</th>
+										<td>
+											<div class="box-select">
+												<button type="button" class="select size-lg" role="combobox"
+													aria-expanded="false" aria-haspopup="listbox"
+													aria-controls="selectDropdown02"
+													title="최종결재 / 승인 / 반려자ID (최종결재 / 승인 / 반려자명) 선택">
+													<span class="text">선택하세요</span>
+													<span class="blind">펼침</span>
+												</button>
+												<div id="selectDropdown02" class="box-list-select">
+													<ul class="list-select" role="listbox" aria-label="선택 항목 리스트">
+														<li class="item-select" role="group">
+															<button type="button" class="btn-item-select">
+																전체
+															</button>
+														</li>
+														<li class="item-select" role="group">
+															<button type="button" class="btn-item-select">
+																사용자ID 01
+															</button>
+														</li>
+														<li class="item-select" role="group">
+															<button type="button" class="btn-item-select">
+																사용자ID 02
+															</button>
+														</li>
+														<li class="item-select" role="group">
+															<button type="button" class="btn-item-select">
+																사용자ID 03
+															</button>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<th scope="row">
+											<span>거래종류</span>
+										</th>
+										<td>
+											<div class="box-select">
+												<button type="button" class="select size-lg" role="combobox"
+													aria-expanded="false" aria-haspopup="listbox"
+													aria-controls="selectDropdown03" title="거래종류 선택">
+													<span class="text">선택하세요</span>
+													<span class="blind">펼침</span>
+												</button>
+												<div id="selectDropdown03" class="box-list-select">
+													<ul class="list-select" role="listbox" aria-label="선택 항목 리스트">
+														<li class="item-select" role="group">
+															<button type="button" class="btn-item-select">
+																전체
+															</button>
+														</li>
+														<li class="item-select" role="group">
+															<button type="button" class="btn-item-select">
+																이체
+															</button>
+														</li>
+														<li class="item-select" role="group">
+															<button type="button" class="btn-item-select">
+																뱅킹업무
+															</button>
+														</li>
+														<li class="item-select" role="group">
+															<button type="button" class="btn-item-select">
+																B2B전자결제
+															</button>
+														</li>
+														<li class="item-select" role="group">
+															<button type="button" class="btn-item-select">
+																뱅킹관리 노출
+															</button>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</td>
+										<th scope="row">
+											<span>결재(승인)상태</span>
+										</th>
+										<td>
+											<div class="box-select">
+												<button type="button" class="select size-lg" role="combobox"
+													aria-expanded="false" aria-haspopup="listbox"
+													aria-controls="selectDropdown04" title="결재(승인)상태 선택">
+													<span class="text">선택하세요</span>
+													<span class="blind">펼침</span>
+												</button>
+												<div id="selectDropdown04" class="box-list-select">
+													<ul class="list-select" role="listbox" aria-label="선택 항목 리스트">
+														<li class="item-select" role="group">
+															<button type="button" class="btn-item-select">
+																전체
+															</button>
+														</li>
+														<li class="item-select" role="group">
+															<button type="button" class="btn-item-select">
+																결재진행
+															</button>
+														</li>
+														<li class="item-select" role="group">
+															<button type="button" class="btn-item-select">
+																견제자승인진행
+															</button>
+														</li>
+														<li class="item-select" role="group">
+															<button type="button" class="btn-item-select">
+																결재완료
+															</button>
+														</li>
+														<li class="item-select" role="group">
+															<button type="button" class="btn-item-select">
+																견제자승인완료
+															</button>
+														</li>
+														<li class="item-select" role="group">
+															<button type="button" class="btn-item-select">
+																결재반려
+															</button>
+														</li>
+														<li class="item-select" role="group">
+															<button type="button" class="btn-item-select">
+																견제자승인반려
+															</button>
+														</li>
+														<li class="item-select" role="group">
+															<button type="button" class="btn-item-select">
+																결재요청취소
+															</button>
+														</li>
+														<li class="item-select" role="group">
+															<button type="button" class="btn-item-select">
+																견제자승인요청취소
+															</button>
+														</li>
+														<li class="item-select" role="group">
+															<button type="button" class="btn-item-select">
+																지연취소
+															</button>
+														</li>
+														<li class="item-select" role="group">
+															<button type="button" class="btn-item-select">
+																전산오류 노출
+															</button>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<th scope="row">
+											<span>긴급결재여부</span>
+										</th>
+										<td colspan="3">
+											<div class="box-select wSize-lg">
+												<button type="button" class="select size-lg" role="combobox"
+													aria-expanded="false" aria-haspopup="listbox"
+													aria-controls="selectDropdown05" title="긴급결재여부 선택">
+													<span class="text">선택하세요</span>
+													<span class="blind">펼침</span>
+												</button>
+												<div id="selectDropdown05" class="box-list-select">
+													<ul class="list-select" role="listbox" aria-label="선택 항목 리스트">
+														<li class="item-select" role="group">
+															<button type="button" class="btn-item-select">
+																전체
+															</button>
+														</li>
+														<li class="item-select" role="group">
+															<button type="button" class="btn-item-select">
+																Y
+															</button>
+														</li>
+														<li class="item-select" role="group">
+															<button type="button" class="btn-item-select">
+																N
+															</button>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<th scope="row">
+											<span>조회기간 <br>(기안일 기준)</span>
+										</th>
+										<td>
+											<div class="calendar-wrap wsize-full">
+												<div class="input-box">
+													<input type="text" class="input" placeholder="조회기간 시작일" title=""
+														aria-label="조회기간 시작일" value="2026-01-06">
+													<button type="button" class="btn">
+														<i class="ico-calendar ico-size-smMd" aria-hidden="true"></i>
+														<span class="blind">날짜 열기</span>
+													</button>
+												</div>
+												~
+												<div class="input-box">
+													<input type="text" class="input" placeholder="조회기간 마지막일" title=""
+														aria-label="조회기간 마지막일" value="2026-01-06">
+													<button type="button" class="btn">
+														<i class="ico-calendar ico-size-smMd" aria-hidden="true"></i>
+														<span class="blind">날짜 열기</span>
+													</button>
+												</div>
+											</div>
+										</td>
+										<th scope="row">
+											<span>조회기간 <br>(최종결재 / 승인 / 반려일 기준)</span>
+										</th>
+										<td>
+											<div class="calendar-wrap">
+												<div class="input-box">
+													<input type="text" class="input" placeholder="조회기간 시작일" title=""
+														aria-label="조회기간 마지막일" value="2026-01-06">
+													<button type="button" class="btn">
+														<i class="ico-calendar ico-size-smMd" aria-hidden="true"></i>
+														<span class="blind">날짜 열기</span>
+													</button>
+												</div>
+												~
+												<div class="input-box">
+													<input type="text" class="input" placeholder="조회기간 마지막일" title=""
+														aria-label="조회기간 마지막일" value="2026-01-06">
+													<button type="button" class="btn">
+														<i class="ico-calendar ico-size-smMd" aria-hidden="true"></i>
+														<span class="blind">날짜 열기</span>
+													</button>
+												</div>
+											</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="btn-wrap center sm-mid">
+							<button type="button" class="btn type-bg-neutral size-xl">
+								<span class="text">조회</span>
+							</button>
+						</div>
+						<div class="wrap-board-grid">
+							<!-- [dev] 임시 grid utility 불필요 시 삭제 -->
+							<div class="box-grid-utility flex items-center justify-between">
+								<div class="box-left flex items-center gap-8">
+									<span class="total typeMd">총 <span class="num">$n$</span></span>
+									<div class="box-select wSize-md">
+										<button type="button" class="select size-lg" role="combobox"
+											aria-expanded="false" aria-haspopup="listbox"
+											aria-controls="selectDropdown06">
+											<span class="text">10개씩 보기</span>
+											<span class="blind">펼침</span>
+										</button>
+										<div id="selectDropdown06" class="box-list-select">
+											<ul class="list-select" role="listbox" aria-label="선택 항목 리스트">
+												<li class="item-select" role="group">
+													<button type="button" class="btn-item-select"> 5개씩 보기 </button>
+												</li>
+												<li class="item-select" role="group">
+													<button type="button" class="btn-item-select"> 10개씩 보기 </button>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="box-right flex items-center gap-8">
+									<button type="button" class="btn type-ico size-lg">
+										<i class="ico line ico-size-smMd ico-download" aria-hidden="true"></i>
+										<span class="blind">다운로드</span>
+									</button>
+									<button type="button" class="btn type-ico size-lg">
+										<i class="ico line ico-size-smMd ico-printer" aria-hidden="true"></i>
+										<span class="blind">인쇄</span>
+									</button>
+								</div>
+							</div>
+							<!-- [dev] 그리드 -->
+							<div class="board-grid">
+								<!-- [dev] 그리드 컨텐츠 영역 : 작업 시 삭제-->
+								<i
+									style="display:block;border:var(--borderWidthMd) solid var(--colorBorderBase);border-radius:var(--radiusMd);padding:var(--spacing2Xl);">임시
+									그리드 영역</i>
+								<!-- //[dev] 그리드 컨텐츠 영역 : 작업 시 삭제 -->
+							</div>
+							<!-- //[dev] 그리드 -->
+						</div>
+						<div class="line-box size-xl">
+							<span class="typeLgSemibold">이용안내</span>
+							<div class="list type-dotted">
+								<ul>
+									<li class="typeMd">
+										전체 사용자의 결재이력 및 승인이력을 조회하실 수 있습니다.
+									</li>
+									<li class="typeMd">
+										결재상세내용은 결재함 메뉴를 이용해주세요.
+									</li>
+									<li class="typeMd">
+										조회기간을 1개월 단위로 조회가능합니다.
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+		</div>
+		<div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+	</div>
+	<script src="/static/js/ui/cib_ui_common.js"></script>
+</body>
+
+</html>
+<script>
+
+</script>

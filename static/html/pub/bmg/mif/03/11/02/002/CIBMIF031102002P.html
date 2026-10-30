@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>수협은행</title>
+  <link rel="stylesheet" href="/static/css/reset.css" />
+  <link rel="stylesheet" href="/static/css/layout.css" />
+  <link rel="stylesheet" href="/static/css/component.css" />
+  <link rel="stylesheet" href="/static/css/common.css" />
+  <link rel="stylesheet" href="/static/css/fpd.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <div id="header">
+      @@include('static/html/pub/layout/skipNavigation.html')
+      @@include('static/html/pub/layout/header_sub.html')
+    </div>
+
+    <div id="container" class="container">
+      <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+      <div id="contents">
+        <div class="content">
+          @@include('static/html/pub/layout/breadcrumb.html')
+          <div class="fpd">
+            <button type="button" class="btn type-bg-primary size-lg btn-modal" data-target="modal-16">
+              <span class="text">팝업버튼</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+    </div>
+    <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+  </div>
+  <script src="/static/js/ui/cib_ui_common.js"></script>
+
+  <div id="modal-16" class="modal is-active" data-dim="true" data-backdrop-close="false" data-alert="true"
+    data-size="sm" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc">
+    <div class="modal-wrapper">
+      <div class="modal-title">
+        <h4 class="typeH4" id="modal-title">통장사본</h4>
+      </div>
+      <div class="modal-slot">
+        <div id="modal-desc">
+          <div class="box-tab">
+            <ul class="list-tab-button type-chip size-md" role="tablist" aria-label="공시자료 탭">
+              <li class="item-tab-button">
+                <button type="button" class="btn-tab active" title="선택됨" id="tabBtnTypeHighlightFull01" role="tab"
+                  aria-selected="true" aria-controls="tabPanelTypeHighlightFull01">
+                  <span class="text">국문</span>
+                </button>
+              </li>
+              <li class="item-tab-button">
+                <button type="button" class="btn-tab" id="tabBtnTypeHighlightFull02" role="tab" aria-selected="false"
+                  aria-controls="tabPanelTypeHighlightFull02">
+                  <span class="text">영문</span>
+                </button>
+              </li>
+            </ul>
+            <div class="box-tab-content autoH active" id="tabPanelTypeHighlightFull01" role="tabpanel"
+              aria-labelledby="tabBtnTypeHighlightFull01" style="display: block;">
+              <div class="bg-box size-2xlxl">
+                <h4 class="typeH4">김수협<p class="typeMd color-fg-secondary">(방콕상회)</p>
+                </h4>
+                <ul class="copy-bb-inner">
+                  <li>
+                    <span class="typeMd">상품종류</span>
+                    <span class="typeMdMedium">Sh사랑해사장님통장(스페셜플러스예금)</span>
+                  </li>
+                  <li>
+                    <span class="typeMd">계좌번호</span>
+                    <span class="typeMdMedium">1234-1234-1234</span>
+                  </li>
+                  <li>
+                    <span class="typeMd">계좌관리점</span>
+                    <span class="typeMdMedium">용산역지점 (02-789-9017)</span>
+                  </li>
+                </ul>
+                <p class="typeMd">Sh수협은행을 이용해주셔서 대단히 감사합니다.</p>
+              </div>
+              <div class="copy-bb-seal">
+                <div class="seal-logo">
+                  <img src="/static/images/common/img_logo_x3.png" alt="수협은행 로고" />
+                </div>
+                <div class="seal-img">
+                  <img src="/static/images/common/img_seal_x3.png" alt="수협은행 직인" />
+                </div>
+              </div>
+              <div class="list type-dotted">
+                <ul>
+                  <li class="typeMd">본 사본은 계좌관리점의 본인 계좌번호 확인용이며, 어떠한 용도의 증명서로도 사용하실 수 없습니다.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="box-tab-content autoH" id="tabPanelTypeHighlightFull02" role="tabpanel"
+              aria-labelledby="tabBtnTypeHighlightFull02" style="display: none;">
+              <div class="bg-box size-2xlxl">
+                <h4 class="typeH4">kimshyup<p class="typeMd color-fg-secondary">(store)</p>
+                </h4>
+                <ul class="copy-bb-inner">
+                  <li>
+                    <span class="typeMd">type of deposit</span>
+                    <span class="typeMdMedium">savings deposit</span>
+                  </li>
+                  <li>
+                    <span class="typeMd">account num</span>
+                    <span class="typeMdMedium">1234-1234-1234</span>
+                  </li>
+                  <li>
+                    <span class="typeMd">branch</span>
+                    <span class="typeMdMedium">Yongsanyeok Branch (02-789-9017)</span>
+                  </li>
+                  <li>
+                    <span class="typeMd">Opening Date</span>
+                    <span class="typeMdMedium">2021-08-04</span>
+                  </li>
+                </ul>
+                <p class="typeMd">Sh수협은행을 이용해주셔서 대단히 감사합니다.</p>
+              </div>
+              <div class="copy-bb-seal">
+                <div class="seal-logo">
+                  <img src="/static/images/common/img_logo_x3.png" alt="수협은행 로고" />
+                </div>
+                <div class="seal-img">
+                  <img src="/static/images/common/img_seal_x3.png" alt="수협은행 직인" />
+                </div>
+              </div>
+              <div class="list type-dotted">
+                <ul>
+                  <li class="typeMd">This is only for your reference to view an account number, it is not an official document for any types of certificates.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer flex items-center justify-center gap-6">
+        <button type="button" class="btn type-bg-primary size-lg">
+          <span class="text">인쇄</span>
+        </button>
+      </div>
+      <button type="button" class="ico btn-close" aria-label="모달 닫기">
+        <i class="ico-close ico-size-smMd" aria-hidden="true"></i>
+        <span class="blind">닫기</span>
+      </button>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/cms.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">
+        @@include('static/html/pub/layout/skipNavigation.html')
+        @@include('static/html/pub/layout/header_sub.html')
+      </div>
+
+      <div id="container" class="container">
+        <div id="leftArea">
+          @@include('static/html/pub/layout/leftArea.html')
+        </div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="cms">
+              <button
+                type="button"
+                class="btn type-bg-primary size-md btn-modal"
+                data-target="modal-01"
+              >
+                <span class="text">모달 버튼</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+    <div
+      id="modal-01"
+      class="modal is-active"
+      data-dim="true"
+      data-backdrop-close="false"
+      data-alert="true"
+      data-size="md"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modal-title"
+      aria-describedby="modal-desc"
+    >
+      <div class="modal-wrapper cms">
+        <div class="modal-title">
+          <h4 class="typeH4">예적금 조회 결과 상세</h4>
+        </div>
+        <div class="modal-slot">
+          <div id="modal-desc">
+            <div class="tbl-area">
+              <table class="table-type01 mt-0">
+                <caption>
+                  사업장, 은행, 상품종류, 계좌번호, 계좌별칭, 현재잔액, 약정액,
+                  신규일, 만기일, 이율, 월납입액, 계좌번호확장, 최종거래일,
+                  최종정보조회일시에 대한 구성 테이블입니다.
+                </caption>
+                <colgroup>
+                  <col width="160px" />
+                  <col width="272px" />
+                  <col width="160px" />
+                  <col width="*" />
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th scope="row">사업장</th>
+                    <td colspan="3">
+                      <span class="typeMd">웹케시씨엔에스㈜</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">은행</th>
+                    <td colspan="3">
+                      <span class="typeMd">광주은행</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">상품종류</th>
+                    <td colspan="3">
+                      <span class="typeMd">장기저축A</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">계좌번호</th>
+                    <td>
+                      <span class="typeMd">1117020804112</span>
+                    </td>
+                    <th scope="row">현재잔액(원)</th>
+                    <td class="text-right">
+                      <span class="typeMd">18,000,000</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">계좌별칭</th>
+                    <td>
+                      <span class="typeMd">적금1</span>
+                    </td>
+                    <th scope="row">약정액(원)</th>
+                    <td class="text-right">
+                      <span class="typeMd">18,000,000</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">신규일</th>
+                    <td>
+                      <span class="typeMd">2024-07-04</span>
+                    </td>
+                    <th scope="row">이율</th>
+                    <td class="text-right">
+                      <span class="typeMd">3.4%</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">만기일</th>
+                    <td>
+                      <span class="typeMd">2028-03-03</span>
+                    </td>
+                    <th scope="row">월납입액</th>
+                    <td class="text-right">
+                      <span class="typeMd">23,500</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">계좌번호확장</th>
+                    <td colspan="3">
+                      <span class="typeMd"></span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">최종거래일</th>
+                    <td colspan="3">
+                      <span class="typeMd"></span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">최종정보조회일시</th>
+                    <td colspan="3">
+                      <span class="typeMd">2026-08-11 12:23:02</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer flex items-center justify-center gap-8">
+          <button type="button" class="btn type-bg-primary size-lg">
+            <span class="text">확인</span>
+          </button>
+        </div>
+        <button type="button" class="ico btn-close" aria-label="모달 닫기">
+          <i class="ico-close ico-size-smMd" aria-hidden="true"></i>
+          <span class="blind">닫기</span>
+        </button>
+      </div>
+    </div>
+  </body>
+</html>

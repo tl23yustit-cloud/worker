@@ -1,0 +1,117 @@
+<!-- [dev]20261023 기획 페이지 누락 CIBFND010102003M -->
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/bop.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
+
+      <div id="container" class="container">
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="bop">
+              <h2 class="typeH2">
+                펀드계좌해지
+              </h2>
+              <div class="tbl-area">
+                <table class="table-type01">
+                  <caption>
+                    예금주명, 계좌번호, 상품종류, 계좌상태에 대한 구성 테이블입니다.
+                  </caption>
+                  <colgroup>
+                    <col width="160px" />
+                    <col width="auto" />
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="row">펀드명</th>
+                      <td>
+                        <span class="typeMd">미래에셋한국헬스케어증권자투자신탁1호(주식)A-e </span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">계좌번호</th>
+                      <td>
+                        <span class="typeMd">0000-0000-0000 </span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th><span>계좌비밀번호</span></th>
+                      <td>
+                        <div class="tbl-flex">
+                          <div class="clear-type">
+                            <input type="password" id="계좌비밀번호" class="input size-lg wSize-md" value="" placeholder="4자리 입력" aria-label="계좌비밀번호">
+                            <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                              <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                              <span class="blind">닫기</span>
+                            </button>
+                          </div>
+                          <button class="btn-mouse-keypad">
+                            <!-- 키패드 활성화시 is-active 클래스 추가 -->
+                            <i class="ico ico-size-smMd" aria-hidden="true"></i>
+                            <span class="blind">마우스 입력 열기</span>
+                          </button>
+                          <button class="btn-mouse-keypad is-active">
+                            <!-- 키패드 비활성화시 is-active 클래스 삭제 -->
+                            <i class="ico ico-size-smMd" aria-hidden="true"></i>
+                            <span class="blind">마우스 입력 닫기</span>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                
+              </div>
+              <div class="tbl-area">
+                <!--tbl-area로 감싸고 안에 필요한 테이블 넣어주세요.-->
+                <!-- [dev] (공통)OTP인증 ui CIBCMN340101001M-->
+                <div class="wrap-board-grid">
+                  <div class="board-grid">
+                    <!-- [dev] (공통)OTP인증 ui CIBCMN340101001M 영역 : 작업 시 삭제-->
+                    <i style="display: block; border: var(--borderWidthMd) solid var(--colorBorderBase); border-radius: var(--radiusMd); padding: var(--spacing2Xl)">(공통)OTP인증 ui CIBCMN340101001M</i>
+                    <!-- //[dev] (공통)OTP인증 ui CIBCMN340101001M 영역 : 작업 시 삭제 -->
+                  </div>
+                </div>
+                <!-- //[dev] (공통)OTP인증 ui CIBCMN340101001M -->
+                <!--//tbl-area로 감싸고 안에 필요한 테이블 넣어주세요.-->
+              </div>
+              <div class="btn-wrap center lg-bot">
+                <button type="button" class="btn type-bg-primary-tint size-xxl">
+                  <span class="text">취소</span>
+                </button>
+                <button type="button" class="btn type-bg-primary size-xxl">
+                  <span class="text">펀드해지</span>
+                </button>
+                <button type="button" class="btn type-bg-primary size-xxl">
+                  <span class="text">승인요청</span>
+                </button>
+                <button type="button" class="btn type-bg-primary size-xxl">
+                  <span class="text">결재요청</span>
+                </button>
+                <button type="button" class="btn type-bg-primary size-xxl">
+                  <span class="text">결제</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
+</html>

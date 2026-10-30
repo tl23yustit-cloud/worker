@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>B2B전자결제 &gt; B2B기업구매자금대출 &gt; 구매기업 &gt; 거래수수료징수내역 &gt; 조회입력 및 결과 | 수협은행</title>
+  <link rel="stylesheet" href="/static/css/reset.css" />
+  <link rel="stylesheet" href="/static/css/layout.css" />
+  <link rel="stylesheet" href="/static/css/component.css" />
+  <link rel="stylesheet" href="/static/css/common.css" />
+  <link rel="stylesheet" href="/static/css/b2b.scss" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <div id="header">
+      @@include('static/html/pub/layout/skipNavigation.html')
+      @@include('static/html/pub/layout/header_sub.html')
+    </div>
+
+    <div id="container" class="container">
+      <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+      <div id="contents">
+        <div class="content">
+          @@include('static/html/pub/layout/breadcrumb.html')
+          <div class="b2b">
+            <h2 class="typeH2">
+              거래수수료징수내역
+            </h2>
+            <div class="tbl-area">
+              <table class="table-type01">
+                <caption>
+                  거래수수료징수내역 테이블
+                </caption>
+                <!-- [수정] 20260903 col width 값 수정  -->
+                <!-- [수정] 20260910 col width style 수정  -->
+                <colgroup>
+                  <col style="width: 160px" />
+                  <col style="width: auto" />
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th scope="row">조회구분</th>
+                    <td>
+                      <div class="form-box-wrap" role="radiogroup">
+                        <span class="form-box">
+                          <input type="radio" name="searchType" id="searchType_01" title="조회구분"
+                            class="form-radio size-md" checked />
+                          <label for="searchType_01" class="form-label">발행일자</label>
+                        </span>
+                        <span class="form-box">
+                          <input type="radio" name="searchType" id="searchType_02" title="조회구분"
+                            class="form-radio size-md" />
+                          <label for="searchType_02" class="form-label">징수일자</label>
+                        </span>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">조회기간</th>
+                    <td>
+                      <div class="tbl-column">
+                        <div class="radio-group" role="radiogroup">
+                          <span class="form-box">
+                            <input type="radio" name="searchPeriod" title="조회기간" id="period_01" class="radio-btn"
+                              checked />
+                            <label for="period_01" class="form-label">당일</label>
+                            <input type="radio" name="searchPeriod" title="조회기간" id="period_02" class="radio-btn" />
+                            <label for="period_02" class="form-label">전일</label>
+                            <input type="radio" name="searchPeriod" title="조회기간" id="period_03" class="radio-btn" />
+                            <label for="period_03" class="form-label">3일전</label>
+                            <input type="radio" name="searchPeriod" title="조회기간" id="period_04" class="radio-btn" />
+                            <label for="period_04" class="form-label">1주일전</label>
+                            <input type="radio" name="searchPeriod" title="조회기간" id="period_05" class="radio-btn" />
+                            <label for="period_05" class="form-label">1달전</label>
+                            <input type="radio" name="searchPeriod" title="조회기간" id="period_06" class="radio-btn" />
+                            <label for="period_06" class="form-label">3달전</label>
+                            <input type="radio" name="searchPeriod" title="조회기간" id="period_07" class="radio-btn" />
+                            <label for="period_07" class="form-label">6달전</label>
+                            <input type="radio" name="searchPeriod" title="조회기간" id="period_08" class="radio-btn" />
+                            <label for="period_08" class="form-label">1년전</label>
+                          </span>
+                        </div>
+                        <div class="calendar-wrap">
+                          <div class="input-box">
+                            <input type="text" class="input" placeholder="조회 시작일" aria-label="조회 시작일"
+                              value="2026-01-06" />
+                            <button type="button" class="btn">
+                              <i class="ico-calendar ico-size-smMd" aria-hidden="true"></i>
+                              <span class="blind">조회 시작일 달력 열기</span>
+                            </button>
+                          </div>
+
+                          <span aria-hidden="true">~</span>
+                          <div class="input-box">
+                            <input type="text" class="input" placeholder="조회 종료일" aria-label="조회 종료일"
+                              value="2026-01-06" />
+                            <button type="button" class="btn">
+                              <i class="ico-calendar ico-size-smMd" aria-hidden="true"></i>
+                              <span class="blind">조회 종료일 달력 열기</span>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <label for="추심의뢰번호">수수료징수구분</label>
+                    </th>
+                    <td>
+                      <div class="box-select wSize-smMd">
+                        <button type="button" class="select size-lg" role="combobox" aria-expanded="false"
+                          aria-haspopup="listbox" aria-controls="selectDropdown01" title="수수료징수구분">
+                          <span class="text">전체</span>
+                          <span class="blind">펼침</span>
+                        </button>
+                        <div id="selectDropdown01" class="box-list-select">
+                          <ul class="list-select" role="listbox" aria-label="선택 항목 리스트">
+                            <li class="item-select" role="group">
+                              <button type="button" class="btn-item-select">
+                                전체
+                              </button>
+                            </li>
+                            <li class="item-select" role="group">
+                              <button type="button" class="btn-item-select">
+                                01
+                              </button>
+                            </li>
+                            <li class="item-select" role="group">
+                              <button type="button" class="btn-item-select">
+                                02
+                              </button>
+                            </li>
+                            <li class="item-select" role="group">
+                              <button type="button" class="btn-item-select">
+                                03
+                              </button>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <label for="추심의뢰번호">수수료구분</label>
+                    </th>
+                    <td>
+                      <div class="box-select wSize-smMd">
+                        <button type="button" class="select size-lg" role="combobox" aria-expanded="false"
+                          aria-haspopup="listbox" aria-controls="selectDropdown01" title="수수료구분">
+                          <span class="text">전체</span>
+                          <span class="blind">펼침</span>
+                        </button>
+                        <div id="selectDropdown01" class="box-list-select">
+                          <ul class="list-select" role="listbox" aria-label="선택 항목 리스트">
+                            <li class="item-select" role="group">
+                              <button type="button" class="btn-item-select">
+                                전체
+                              </button>
+                            </li>
+                            <li class="item-select" role="group">
+                              <button type="button" class="btn-item-select">
+                                01
+                              </button>
+                            </li>
+                            <li class="item-select" role="group">
+                              <button type="button" class="btn-item-select">
+                                02
+                              </button>
+                            </li>
+                            <li class="item-select" role="group">
+                              <button type="button" class="btn-item-select">
+                                03
+                              </button>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">MP 사업자번호</th>
+                    <td>
+                      <div class="tbl-flex">
+                        <!-- [수정] 20260903 title 값 추가  -->
+                        <!-- [수정] 20260910 title 값 수정  -->
+                        <input type="text" class="input wSize-smMd size-lg" title="MP 사업자번호 앞 3자리" size="4" value="">
+                        <span>-</span>
+                        <!-- [수정] 20260903 title 값 추가  -->
+                        <!-- [수정] 20260910 title 값 수정  -->
+                        <input type="text" class="input wSize-smMd size-lg" title="MP 사업자번호 중간 2자리" size="4" value="">
+                        <span>-</span>
+                        <!-- [수정] 20260903 title 값 추가  -->
+                        <!-- [수정] 20260910 title 값 수정  -->
+                        <input type="text" class="input wSize-smMd size-lg" title="MP 사업자번호 마지막 5자리" size="4" value="">
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="btn-wrap center lg-mid">
+              <button type="button" class="btn type-bg-primary size-xxl">
+                <span class="text">확인</span>
+              </button>
+            </div>
+            <div class="tbl-area">
+              <div class="table-header flex items-center justify-between">
+                <div class="left-area flex items-center">
+                  <span class="typeSm">총</span><span class="typeSmSemibold"> 30</span><span class="typeSm">건</span>
+                </div>
+              </div>
+              <table class="table-type03">
+                <caption>
+                  거래수수료징수내역 조회 테이블
+                </caption>
+                <colgroup>
+                  <col />
+                  <col />
+                  <col />
+                  <col />
+                  <col />
+                  <col />
+                  <col />
+                </colgroup>
+                <!-- [수정] 20260910 복합테이블 headers-id 적용  -->
+                <thead>
+                  <tr>
+                    <th id="col_1" scope="col" rowspan="2">순번</th>
+                    <th id="col_2" scope="col">수수료구분</th>
+                    <th id="col_3" scope="col">수수료</th>
+                    <th id="col_4" scope="col">매매계약일자</th>
+                    <th id="col_5" scope="col">판매기업명</th>
+                    <th id="col_6" scope="col">MP명</th>
+                    <th id="col_7" scope="col">징수일자</th>
+                    <th id="col_8" scope="col" rowspan="2">상세</th>
+                  </tr>
+                  <tr>
+                    <th id="col_2_1" scope="col">MP구분</th>
+                    <th id="col_3_1" scope="col">매매계약금액</th>
+                    <th id="col_4_1" scope="col">매매계약번호</th>
+                    <th id="col_5_1" scope="col">판매기업사업자번호</th>
+                    <th id="col_6_1" scope="col">MP사업자번호</th>
+                    <th id="col_7_1" scope="col">수수료징수구분</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td id="row_1" rowspan="2"><span class="typeMd">1</span></td>
+                    <td headers="row_1 col_2"><span class="typeMd">중계수수료</span></td>
+                    <td headers="row_1 col_3" class="text-right"><span class="typeMd">115,500</span></td>
+                    <!-- [수정] 20260910 </span> 누락 추가  -->
+                    <td headers="row_1 col_4"><span class="typeMd">2026-07-20</span></td>
+                    <!-- [수정] 20260910 </span> 누락 추가  -->
+                    <td headers="row_1 col_5"><span class="typeMd">(고)황중문박인</span></td>
+                    <td headers="row_1 col_6"><span class="typeMd">우밤용김돌팡전왕</span></td>
+                    <td headers="row_1 col_7"><span class="typeMd">2026-07-20</span></td>
+                    <td headers="row_1 col_8" rowspan="2">
+                      <button type="button" class="btn type-line-neutral size-sm">
+                        <span class="text">상세보기</span>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <!-- [수정] 20260910 </span> 누락 추가  -->
+                    <!-- [dev] 20260929  class="tbl-border-left" 추가 -->
+                    <td headers="row_1 col_2_1" class="tbl-border-left"><span class="typeMd">신용보증기금</span></td>
+                    <!-- //[dev] 20260929  class="tbl-border-left" 추가 -->
+                    <!-- [수정] 20260910 </span> 누락 추가  -->
+                    <!-- [dev] 20260929  class="text-right" 추가 -->
+                    <td headers="row_1 col_3_1" class="text-right"><span class="typeMd">70,000,000원</span></td>
+                    <!-- //[dev] 20260929  class="text-right" 추가 -->
+                    <td headers="row_1 col_4_1"><span class="typeMd">KF202605261727419B2B</span></td>
+                    <td headers="row_1 col_5_1"><span class="typeMd">602-81-30804</span></td>
+                    <td headers="row_1 col_6_1"><span class="typeMd">219-82-01711</span></td>
+                    <td headers="row_1 col_7_1"><span class="typeMd">징수</span></td>
+                  </tr>
+                </tbody>
+                <!-- //[수정] 20260910 복합테이블 headers-id 적용  -->
+              </table>
+            </div>
+            <nav class="pagination size-md" aria-label="페이지네이션">
+              <button type="button" class="btn-nav first" disabled="" aria-disabled="true" aria-label="첫 페이지">
+                <span class="blind">첫 페이지</span>
+              </button>
+              <button type="button" class="btn-nav prev" disabled="" aria-disabled="true" aria-label="이전 페이지">
+                <span class="blind">이전 페이지</span>
+              </button>
+
+              <ol class="list-pagination">
+                <li>
+                  <button type="button" class="btn-page active" aria-current="page" aria-label="1페이지">
+                    1
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="btn-page" aria-label="2페이지">
+                    2
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="btn-page" aria-label="3페이지">
+                    3
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="btn-page" aria-label="4페이지">
+                    4
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="btn-page" aria-label="5페이지">
+                    5
+                  </button>
+                </li>
+              </ol>
+
+              <button type="button" class="btn-nav next" aria-label="다음 페이지">
+                <span class="blind">다음 페이지</span>
+              </button>
+              <button type="button" class="btn-nav last" aria-label="마지막 페이지">
+                <span class="blind">마지막 페이지</span>
+              </button>
+            </nav>
+            <div class="btn-wrap center lg-mid">
+              <button type="button" class="btn type-line-neutral size-xl">
+                <span class="text">파일저장</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+</body>
+
+</html>
+<script>
+
+</script>

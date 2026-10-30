@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/cms.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">
+        @@include('static/html/pub/layout/skipNavigation.html')
+        @@include('static/html/pub/layout/header_sub.html')
+      </div>
+
+      <div id="container" class="container">
+        <div id="leftArea">
+          @@include('static/html/pub/layout/leftArea.html')
+        </div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="cms">
+              <h2 class="typeH2">계좌관리</h2>
+              <div class="tbl-area">
+                <table class="table-type01">
+                  <caption>
+                    사업장, 금융사, 집금계좌여부 정보를 제공합니다.
+                  </caption>
+                  <colgroup>
+                    <col width="160px" />
+                    <col width="367px" />
+                    <col width="160px" />
+                    <col width="*" />
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="row">사업장</th>
+                      <td colspan="3">
+                        <div class="box-select wSize-lg">
+                          <button
+                            type="button"
+                            class="select size-lg"
+                            role="combobox"
+                            aria-expanded="false"
+                            aria-haspopup="listbox"
+                            aria-controls="selectDropdown01"
+                          >
+                            <span class="text">전체</span>
+                            <span class="blind">펼침</span>
+                          </button>
+                          <div id="selectDropdown01" class="box-list-select">
+                            <ul
+                              class="list-select"
+                              role="listbox"
+                              aria-label="선택 항목 리스트"
+                            >
+                              <li
+                                class="item-select"
+                                role="group"
+                                aria-label="선택 항목 리스트"
+                              >
+                                <button class="btn-item-select">전체</button>
+                              </li>
+                              <li
+                                class="item-select"
+                                role="group"
+                                aria-label="선택 항목 리스트"
+                              >
+                                <button class="btn-item-select">1</button>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">금융사</th>
+                      <td>
+                        <div class="box-select wSize-full">
+                          <button
+                            type="button"
+                            class="select size-lg"
+                            role="combobox"
+                            aria-expanded="false"
+                            aria-haspopup="listbox"
+                            aria-controls="selectDropdown01"
+                          >
+                            <span class="text">전체</span>
+                            <span class="blind">펼침</span>
+                          </button>
+                          <div id="selectDropdown01" class="box-list-select">
+                            <ul
+                              class="list-select"
+                              role="listbox"
+                              aria-label="선택 항목 리스트"
+                            >
+                              <li
+                                class="item-select"
+                                role="group"
+                                aria-label="선택 항목 리스트"
+                              >
+                                <button class="btn-item-select">전체</button>
+                              </li>
+                              <li
+                                class="item-select"
+                                role="group"
+                                aria-label="선택 항목 리스트"
+                              >
+                                <button class="btn-item-select">1</button>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </td>
+                      <th scope="row">집금계좌여부</th>
+                      <td>
+                        <div class="box-select wSize-md">
+                          <button
+                            type="button"
+                            class="select size-lg"
+                            role="combobox"
+                            aria-expanded="false"
+                            aria-haspopup="listbox"
+                            aria-controls="selectDropdown01"
+                          >
+                            <span class="text">전체</span>
+                            <span class="blind">펼침</span>
+                          </button>
+                          <div id="selectDropdown01" class="box-list-select">
+                            <ul
+                              class="list-select"
+                              role="listbox"
+                              aria-label="선택 항목 리스트"
+                            >
+                              <li
+                                class="item-select"
+                                role="group"
+                                aria-label="선택 항목 리스트"
+                              >
+                                <button class="btn-item-select">전체</button>
+                              </li>
+                              <li
+                                class="item-select"
+                                role="group"
+                                aria-label="선택 항목 리스트"
+                              >
+                                <button class="btn-item-select">모계좌</button>
+                              </li>
+                              <li
+                                class="item-select"
+                                role="group"
+                                aria-label="선택 항목 리스트"
+                              >
+                                <button class="btn-item-select">자계좌</button>
+                              </li>
+                              <li
+                                class="item-select"
+                                role="group"
+                                aria-label="선택 항목 리스트"
+                              >
+                                <button class="btn-item-select">
+                                  사용안함
+                                </button>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="btn-wrap center sm-mid">
+                <button type="button" class="btn type-line-neutral size-xl">
+                  <span class="text">초기화</span>
+                </button>
+                <button type="button" class="btn type-bg-neutral size-xl">
+                  <span class="text">조회</span>
+                </button>
+              </div>
+              <div class="tbl-area js-check-table">
+                <h4 class="typeH4 mb-12">조회결과</h4>
+                <div class="tbl-head">
+                  <div class="left-area flex items-center">
+                    <span class="typeSm">총 <span class="num">$n$</span></span>
+                  </div>
+                </div>
+                <table class="table-type03">
+                  <caption>
+                    사업장, 금융사, 계좌종류, 계좌번호, 집금계좌, 계좌별칭, 수정
+                    정보를 제공합니다.
+                  </caption>
+                  <colgroup>
+                    <col width="44px" />
+                    <col width="150px" />
+                    <col width="150px" />
+                    <col width="150px" />
+                    <col width="150px" />
+                    <col width="150px" />
+                    <col width="*" />
+                    <col width="88px" />
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th scope="col">
+                        <span class="form-box">
+                          <input
+                            type="checkbox"
+                            class="form-checkbox check-all"
+                            id="all"
+                          />
+                          <label for="all" class="form-label blind"></label>
+                        </span>
+                      </th>
+                      <th scope="col">사업장</th>
+                      <th scope="col">금융사</th>
+                      <th scope="col">계좌종류</th>
+                      <th scope="col">계좌번호</th>
+                      <th scope="col">집금계좌</th>
+                      <th scope="col">계좌별칭</th>
+                      <th scope="col">수정</th>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                    <tr>
+                      <td>
+                        <span class="form-box">
+                          <input
+                            type="checkbox"
+                            id="chk1"
+                            class="form-checkbox"
+                          />
+                          <label for="chk1" class="blind"></label>
+                        </span>
+                      </td>
+                      <td><span class="typeMd">강남지점</span></td>
+                      <td><span class="typeMd">농협</span></td>
+                      <td><span class="typeMd">수시입출</span></td>
+                      <td><span class="typeMd">3010000598441</span></td>
+                      <td><span class="typeMd">자계좌</span></td>
+                      <td><span class="typeMd">집금계좌</span></td>
+                      <td>
+                        <button
+                          type="button"
+                          class="btn type-line-neutral size-sm"
+                        >
+                          <span class="text">수정</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span class="form-box">
+                          <input
+                            type="checkbox"
+                            id="chk3"
+                            class="form-checkbox"
+                          />
+                          <label for="chk3" class="blind"></label>
+                        </span>
+                      </td>
+                      <td><span class="typeMd">강남지점</span></td>
+                      <td><span class="typeMd">농협</span></td>
+                      <td><span class="typeMd">수시입출</span></td>
+                      <td><span class="typeMd">1107021915600</span></td>
+                      <td><span class="typeMd">자계좌</span></td>
+                      <td><span class="typeMd">집금계좌</span></td>
+                      <td>
+                        <button
+                          type="button"
+                          class="btn type-line-neutral size-sm"
+                        >
+                          <span class="text">수정</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colspan="8">
+                        <div class="empty-page">
+                          <i class="ico-info" aria-hidden="true"></i>
+                          <div class="typeLg">조회 결과가 없습니다.</div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <nav class="pagination size-md" aria-label="페이지네이션">
+                <button
+                  type="button"
+                  class="btn-nav first"
+                  disabled=""
+                  aria-disabled="true"
+                  aria-label="첫 페이지"
+                >
+                  <span class="blind">첫 페이지</span>
+                </button>
+                <button
+                  type="button"
+                  class="btn-nav prev"
+                  disabled=""
+                  aria-disabled="true"
+                  aria-label="이전 페이지"
+                >
+                  <span class="blind">이전 페이지</span>
+                </button>
+
+                <ol class="list-pagination">
+                  <li>
+                    <button
+                      type="button"
+                      class="btn-page active"
+                      aria-current="page"
+                      aria-label="1페이지"
+                    >
+                      1
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button" class="btn-page" aria-label="2페이지">
+                      2
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button" class="btn-page" aria-label="3페이지">
+                      3
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button" class="btn-page" aria-label="4페이지">
+                      4
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button" class="btn-page" aria-label="5페이지">
+                      5
+                    </button>
+                  </li>
+                </ol>
+
+                <button
+                  type="button"
+                  class="btn-nav next"
+                  aria-label="다음 페이지"
+                >
+                  <span class="blind">다음 페이지</span>
+                </button>
+                <button
+                  type="button"
+                  class="btn-nav last"
+                  aria-label="마지막 페이지"
+                >
+                  <span class="blind">마지막 페이지</span>
+                </button>
+              </nav>
+              <div class="btn-wrap center lg-bot">
+                <button type="button" class="btn type-bg-primary-tint size-xxl">
+                  <span class="text">삭제</span>
+                </button>
+                <button type="button" class="btn type-bg-primary size-xxl">
+                  <span class="text">저장</span>
+                </button>
+              </div>
+              <div class="line-box size-xl mt-48">
+                <span class="typeLgSemibold">이용안내</span>
+                <div class="list type-dotted">
+                  <ul>
+                    <li class="typeMd">
+                      계좌 관리는 사업장관리 메뉴에서 1개 이상의 사업장을
+                      저장하고, 인증서를 저장하셔야 사용 가능합니다.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
+</html>
+<script></script>

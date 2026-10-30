@@ -1,0 +1,222 @@
+<!-- 화면설계서 1.0수정 -->
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/van.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">
+        @@include('static/html/pub/layout/skipNavigation.html')
+        @@include('static/html/pub/layout/header_sub.html')
+      </div>
+
+      <div id="container" class="container">
+        <div id="leftArea">
+          @@include('static/html/pub/layout/leftArea.html')
+        </div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="van">
+              <h2 class="typeH2">
+                다른은행 계좌등록
+                <div class="box-steps">
+                  <ol class="list-steps">
+                    <li class="item-steps passed">
+                      <span class="blind">1</span>
+                      <i class="icon" aria-hidden="true">1</i>
+                    </li>
+                    <li class="item-steps current" aria-current="step">
+                      <span class="blind">2</span>
+                      <i class="icon" aria-hidden="true">2</i>
+                      <span class="text">게좌선택</span>
+                    </li>
+                    <li class="item-steps">
+                      <span class="blind">3</span>
+                      <i class="icon" aria-hidden="true">3</i>
+                      <span class="text">3</span>
+                    </li>
+                  </ol>
+                </div>
+              </h2>
+              <div class="tbl-area">
+                <div class="tbl-head">
+                  <div class="left-area">
+                    <h4 class="typeH4">계좌등록 방법</h4>
+                  </div>
+                  <div class="right-area">
+                    <button type="button" class="btn type-line-neutral size-lg">
+                      <span class="text"> 파일찾기 </span>
+                    </button>
+                    <button type="button" class="btn type-line-neutral size-lg">
+                      <span class="text"> 샘플파일 다운로드 </span>
+                    </button>
+                  </div>
+                </div>
+                <div class="list type-dotted mt-12">
+                  <ul>
+                    <li class="typeMd">
+                      수협은행에서 이용하실 다른 금융기관의 계좌 정보를
+                      등록해주세요.
+                    </li>
+                    <li class="typeMd">
+                      다른 금융기관에서 오픈뱅킹용 조회대상 계좌로 등록된 계좌만
+                      이용가능합니다.
+                    </li>
+                  </ul>
+                </div>
+                <table class="table-type03">
+                  <caption>
+                    은행/증권사, 계좌번호, 회차번호, 삭제에 대한 구성
+                    테이블입니다.
+                  </caption>
+                  <colgroup>
+                    <col style="width: 358px" />
+                    <col style="width: 358px" />
+                    <col style="width: 240px" />
+                    <col style="width: 100px" />
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th scope="col"><span>은행/증권사</span></th>
+                      <th scope="col"><span>계좌번호</span></th>
+                      <th scope="col">
+                        <span
+                          >회차번호
+                          <div class="box-tooltip tail-top-start">
+                            <button
+                              type="button"
+                              class="btn type-ghost-neutral size-Xs"
+                              aria-describedby="tooltipBoxTop0101"
+                            >
+                              <i
+                                class="ico line ico-size-sm ico-help-circle colorFgNetral"
+                                aria-hidden="true"
+                              ></i>
+                              <span class="blind">회차번호 툴팁 열기</span>
+                            </button>
+
+                            <div
+                              id="tooltipBoxTop0101"
+                              class="layer-tooltip size-244"
+                              role="tooltip"
+                              aria-hidden="true"
+                            >
+                              <div class="content-tooltip whitespace-normal">
+                                <span class="text"
+                                  >KB국민은행과 산업은행은 조회에 필요한 경우
+                                  입력(해당 은행 확인)
+                                </span>
+                              </div>
+                              <button type="button" class="btn-close">
+                                <i
+                                  class="ico-close ico-size-sm"
+                                  aria-hidden="true"
+                                ></i>
+                                <span class="blind">툴팁 닫기</span>
+                              </button>
+                              <i
+                                class="ico-tail-tooltip"
+                                aria-hidden="true"
+                              ></i>
+                            </div></div
+                        ></span>
+                      </th>
+                      <th scope="col"><span>삭제</span></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <div class="box-select">
+                          <button
+                            type="button"
+                            class="select size-lg"
+                            role="combobox"
+                            aria-expanded="false"
+                            aria-haspopup="listbox"
+                            aria-controls="comp-3h3qxg"
+                            aria-label="은행/증권사 선택"
+                            disabled
+                          >
+                            <span class="text">KB국민은행</span>
+                            <span class="blind">펼침</span>
+                          </button>
+                          <div id="comp-3h3qxg" class="box-list-select">
+                            <ul
+                              class="list-select"
+                              role="listbox"
+                              aria-label="은행/증권사"
+                            >
+                              <li
+                                class="item-select"
+                                role="option"
+                                aria-selected="false"
+                              >
+                                <span class="btn-item-select">KB국민은행</span>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <input
+                          type="text"
+                          class="input size-lg"
+                          aria-label="계좌번호 입력"
+                          placeholder=""
+                          value="01250052"
+                          readonly
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="text"
+                          class="input size-lg"
+                          aria-label="회차번호 입력"
+                          placeholder=""
+                          readonly
+                        />
+                      </td>
+                      <td>
+                        <button
+                          type="button"
+                          class="btn type-line-neutral size-sm"
+                        >
+                          <span class="text">삭제</span>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="mt-12 flex justify-end">
+                <button type="button" class="btn type-line-primary size-lg">
+                  <span class="text">계좌번호 추가</span>
+                </button>
+              </div>
+              <div class="btn-wrap center lg-bot">
+                <button type="button" class="btn type-bg-primary size-xxl">
+                  <span class="text">다음</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
+</html>

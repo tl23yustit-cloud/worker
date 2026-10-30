@@ -1,0 +1,145 @@
+<!-- CIBTRN010202000M.html -->
+<!-- 이체 > 계좌이체 > 예약이체 등록내역조회/취소 -->
+<!-- 등록 취소를 위한 계좌비밀번호 입력 및 OTP인증 화면 -->
+<!-- otp 영역 디자인 미지정 -->
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/trn.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
+
+      <div id="container" class="container">
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="trn">
+              <h2 class="typeH2">예약이체 등록내역조회/취소</h2>
+              <div class="tbl-area">
+                <table class="table-type01">
+                  <caption>
+                    예약이체 상세 정보(출금계좌번호, 이체금액, 예약등록일, 예약일시, 예약번호, 계좌비밀번호) 확인 및 입력 표
+                  </caption>
+                  <!-- [수정] 20260902 col width 값 수정 -->
+                  <!-- [수정] 20260909 col width style 수정  -->
+                  <colgroup>
+                    <col style="width: 160px" />
+                    <col style="width: 368px" />
+                    <col style="width: 160px" />
+                    <col style="width: 368px" />
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="row">
+                        <span>출금계좌번호</span>
+                      </th>
+                      <td>
+                        <span class="typeMd">1000-0000-0000</span>
+                      </td>
+                      <th scope="row">
+                        <span>이체금액</span>
+                      </th>
+                      <td class="text-right">
+                        <span class="typeMd">1,000,000,000원</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span>예약등록일</span>
+                      </th>
+                      <td>
+                        <span class="typeMd">2026-07-23</span>
+                      </td>
+                      <th scope="row">
+                        <!--[dev]:20261026 텍스트수정-->
+                        <span>이체지정일</span>
+                        <!--//[dev]:20261026 텍스트수정-->
+                      </th>
+                      <td>
+                        <span class="typeMd">2026-07-23 12:00</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span>예약번호</span>
+                      </th>
+                      <td colspan="3">
+                        <span class="typeMd">1231</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">계좌비밀번호</th>
+                      <td colspan="3" class="flex items-center gap-6">
+                        <div class="tbl-flex">
+                          <div class="clear-type">
+                            <input type="password" id="계좌비밀번호입력" class="input size-lg wSize-md" value="" placeholder="숫자4자리" aria-label="계좌비밀번호입력" />
+                            <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                              <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                              <span class="blind">닫기</span>
+                            </button>
+                          </div>
+                          <button class="btn-mouse-keypad">
+                            <!-- 키패드 활성화시 is-active 클래스 추가  -->
+                            <i class="ico ico-size-smMd" aria-hidden="true"></i>
+                            <span class="blind">마우스 입력 열기</span>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!-- [dev] 공통 otp영역 추가 20261022 -->
+              <div class="tbl-area">
+                <!--tbl-area로 감싸고 안에 필요한 테이블 넣어주세요.-->
+                <!-- [dev] (공통)OTP인증 ui CIBCMN340101001M-->
+                <div class="wrap-board-grid">
+                  <div class="board-grid">
+                    <!-- [dev] (공통)OTP인증 ui CIBCMN340101001M 영역 : 작업 시 삭제-->
+                    <i style="display: block; border: var(--borderWidthMd) solid var(--colorBorderBase); border-radius: var(--radiusMd); padding: var(--spacing2Xl)">(공통)OTP인증 ui CIBCMN340101001M</i>
+                    <!-- //[dev] (공통)OTP인증 ui CIBCMN340101001M 영역 : 작업 시 삭제 -->
+                  </div>
+                </div>
+                <!-- //[dev] (공통)OTP인증 ui CIBCMN340101001M -->
+                <!--//tbl-area로 감싸고 안에 필요한 테이블 넣어주세요.-->
+              </div>
+              <!-- //[dev] 공통 otp영역 추가 20261022 -->
+
+              <!-- [dev] 버튼 수정및 버튼 추가 20261022 -->
+
+              <div class="btn-wrap center lg-bot">
+                <button type="button" class="btn type-bg-primary-tint size-xxl">
+                  <span class="text">취소</span>
+                </button>
+                <button type="button" class="btn type-bg-primary size-xxl">
+                  <span class="text">확인</span>
+                </button>
+                <button type="button" class="btn type-bg-primary size-xxl">
+                  <span class="text">결제요청</span>
+                </button>
+                <button type="button" class="btn type-bg-primary size-xxl">
+                  <span class="text">승인요청</span>
+                </button>
+              </div>
+              <!-- //[dev] 버튼 수정및 버튼 추가 20261022 -->
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
+</html>

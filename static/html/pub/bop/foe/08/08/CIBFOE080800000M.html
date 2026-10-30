@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/bop.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
+
+      <div id="container" class="container">
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="bop">
+              <h2 class="typeH2">LG발행사실조회</h2>
+              <table class="table-type01">
+                <caption>
+                  LG발행사실조회
+                </caption>
+                <colgroup>
+                  <col style="width: 160px" />
+                  <col style="width: auto" />
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th scope="row">신용장번호</th>
+                    <td>
+                      <div class="clear-type">
+                        <input type="text" id="userDeptInput" class="input size-lg wSize-md" value="" placeholder="신용장번호를 입력하세요" aria-label="신용장번호" />
+                        <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                          <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                          <span class="blind">닫기</span>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">LG발급일자</th>
+                    <td>
+                      <div class="clear-type">
+                        <input type="text" id="userDeptInput" class="input size-lg wSize-md" value="" placeholder="LG발급일자를 입력하세요" aria-label="LG발급일자" />
+                        <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                          <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                          <span class="blind">닫기</span>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="btn-wrap center sm-mid">
+                <button type="button" class="btn type-bg-neutral size-xl">
+                  <span class="text">조회</span>
+                </button>
+              </div>
+              <div class="tbl-area">
+                <div class="tbl-head">
+                  <div class="right-area"><span class="typeMd">조회기간 : 2026-06-14 ~ 2026-06-14</span></div>
+                </div>
+                <table class="table-type03 mt-8">
+                  <caption>
+                    내역조회
+                  </caption>
+                  <colgroup>
+                    <col style="width: 160px" />
+                    <col style="width: 160px" />
+                    <col style="width: 160px" />
+                    <col style="width: 200px" />
+                    <col style="width: 100px" />
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th scope="col">신용장번호</th>
+                      <th scope="col">LG회차</th>
+                      <th scope="col">통화</th>
+                      <th scope="col">금액</th>
+                      <th scope="col">상세조회</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><span class="typeMd">M000000000000</span></td>
+                      <td><span class="typeMd">YYYY-MM-DD</span></td>
+                      <td><span class="typeMd">USD</span></td>
+                      <td class="text-right"><span class="typeMd">1,000,000 원</span></td>
+                      <td>
+                        <button type="button" class="btn type-line-neutral size-sm">
+                          <span class="text">상세조회</span>
+                          <!--[dev]:20261028 table btn blind텍스트 추가-->
+                          <span class="blind">M000000000000 상세조회</span>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <nav class="pagination size-md" aria-label="페이지네이션">
+                <button type="button" class="btn-nav first" disabled="" aria-disabled="true" aria-label="첫 페이지">
+                  <span class="blind">첫 페이지</span>
+                </button>
+                <button type="button" class="btn-nav prev" disabled="" aria-disabled="true" aria-label="이전 페이지">
+                  <span class="blind">이전 페이지</span>
+                </button>
+
+                <ol class="list-pagination">
+                  <li>
+                    <button type="button" class="btn-page active" aria-current="page" title="현재 페이지">1</button>
+                  </li>
+                  <li>
+                    <button type="button" class="btn-page" aria-label="2페이지">2</button>
+                  </li>
+                  <li>
+                    <button type="button" class="btn-page" aria-label="3페이지">3</button>
+                  </li>
+                  <li>
+                    <button type="button" class="btn-page" aria-label="4페이지">4</button>
+                  </li>
+                  <li>
+                    <button type="button" class="btn-page" aria-label="5페이지">5</button>
+                  </li>
+                </ol>
+
+                <button type="button" class="btn-nav next" aria-label="다음 페이지">
+                  <span class="blind">다음 페이지</span>
+                </button>
+                <button type="button" class="btn-nav last" aria-label="마지막 페이지">
+                  <span class="blind">마지막 페이지</span>
+                </button>
+              </nav>
+
+              <div class="line-box size-xl mt-48">
+                <span class="typeLgSemibold">이용안내</span>
+                <div class="list type-dotted">
+                  <ul>
+                    <li class="typeMd">별도로 영업점을 방문할 필요없이 발급한 수입화물선취보증서(;G)발급사실을 실시간으로 확인하실 수 있습니다.</li>
+                    <li class="typeMd">해당 항목을 입력 후 조회버튼을 클릭하세요.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
+</html>

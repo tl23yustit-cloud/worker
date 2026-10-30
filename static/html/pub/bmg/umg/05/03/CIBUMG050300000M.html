@@ -1,0 +1,249 @@
+<!-- CIBUMG080100000M -->
+<!-- 뱅킹관리 > 사용자관리 -->
+<!-- 그리드 영역 보완필요 -->
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>사용자관리 &gt; 사용자관리 &gt; 뱅킹관리 | 수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/bmg.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">
+        @@include('static/html/pub/layout/skipNavigation.html')
+        @@include('static/html/pub/layout/header_sub.html')
+      </div>
+
+      <div id="container" class="container">
+        <div id="leftArea">
+          @@include('static/html/pub/layout/leftArea.html')
+        </div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="bmg">
+              <h2 class="typeH2">사용자별 OTP관리</h2>
+              <div class="tbl-area">
+                <table class="table-type01">
+                  <caption>
+                    사용자명, 사용자ID, 부서명, 직위, OTP종류, OTP일련번호,
+                    OTP상태, OTP등록일자에 대한 구성 테이블입니다.
+                  </caption>
+                  <colgroup>
+                    <col style="width: 160px" />
+                    <col style="width: 368px" />
+                    <col style="width: 160px" />
+                    <col style="width: 368px" />
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="row">
+                        <span>사용자명</span>
+                      </th>
+                      <td>
+                        <span class="typeMd">김일반</span>
+                      </td>
+                      <th scope="row">
+                        <span>사용자ID</span>
+                      </th>
+                      <td>
+                        <span class="typeMd">SUHYUP0001</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span>부서명</span>
+                      </th>
+                      <td>
+                        <span class="typeMd">자금부</span>
+                      </td>
+                      <th scope="row">
+                        <span>직위</span>
+                      </th>
+                      <td>
+                        <span class="typeMd">부장</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span>OTP종류</span>
+                      </th>
+                      <td>
+                        <span class="typeMd"
+                          >타행OTP((001) 한국정보인증(주))</span
+                        >
+                      </td>
+                      <th scope="row">
+                        <span>OTP일련번호</span>
+                      </th>
+                      <td>
+                        <span class="typeMd">3242086252</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span>OTP상태</span>
+                      </th>
+                      <td>
+                        <span class="typeMd">정지</span>
+                      </td>
+                      <th scope="row">
+                        <span>OTP등록일자</span>
+                      </th>
+                      <td>
+                        <span class="typeMd">2026-06-01</span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="tbl-area">
+                <div class="tbl-head">
+                  <div class="left-area">
+                    <h4 class="typeH4">OTP변경</h4>
+                  </div>
+                </div>
+                <table class="table-type01">
+                  <caption>
+                    OTP종류, OTP PIN(비밀번호), OTP PIN(비밀번호 확인)에 대한
+                    구성 테이블입니다.
+                  </caption>
+                  <colgroup>
+                    <col style="width: 20%" />
+                    <col style="width: 80%" />
+                  </colgroup>
+                  <tbody>
+                    <!-- OTP종류 -->
+                    <tr>
+                      <th scope="row">OTP종류</th>
+                      <td>
+                        <fieldset
+                          class="form-box-wrap"
+                          style="border: 0; padding: 0; margin: 0"
+                        >
+                          <legend class="sr-only">OTP종류 선택</legend>
+                          <span class="form-box">
+                            <input
+                              type="radio"
+                              name="otpType"
+                              id="otpType01"
+                              class="form-radio size-md"
+                            />
+                            <label for="otpType01" class="form-label"
+                              >SH기업 디지털OTP(모바일,브라우저)</label
+                            >
+                          </span>
+                          <span class="form-box">
+                            <input
+                              type="radio"
+                              name="otpType"
+                              id="otpType02"
+                              class="form-radio size-md"
+                              checked
+                            />
+                            <label for="otpType02" class="form-label"
+                              >타행OTP</label
+                            >
+                          </span>
+                        </fieldset>
+                      </td>
+                    </tr>
+
+                    <!-- OTP PIN (비밀번호) -->
+                    <tr>
+                      <th scope="row">
+                        <label for="otpPinInput">OTP PIN<br />(비밀번호)</label>
+                      </th>
+                      <td>
+                        <div class="tbl-flex">
+                          <input
+                            type="password"
+                            id="otpPinInput"
+                            class="input size-lg wSize-smMd"
+                            placeholder="숫자6자리"
+                            maxlength="6"
+                            aria-required="true"
+                          />
+                          <button
+                            type="button"
+                            class="btn type-line-secondary size-lg"
+                          >
+                            <span class="text">마우스입력</span>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <!-- OTP PIN (비밀번호 확인) -->
+                    <tr>
+                      <th scope="row">
+                        <label for="otpPinConfirmInput"
+                          >OTP PIN<br />(비밀번호 확인)</label
+                        >
+                      </th>
+                      <td>
+                        <div class="tbl-flex">
+                          <input
+                            type="password"
+                            id="otpPinConfirmInput"
+                            class="input size-lg wSize-smMd"
+                            placeholder="숫자6자리"
+                            maxlength="6"
+                            aria-required="true"
+                          />
+                          <button
+                            type="button"
+                            class="btn type-line-secondary size-lg"
+                          >
+                            <span class="text">마우스입력</span>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="btn-wrap center lg-bot">
+                <button type="button" class="btn type-bg-primary-tint size-xxl">
+                  <span class="text">취소</span>
+                </button>
+                <button type="button" class="btn type-bg-primary size-xxl">
+                  <span class="text">수정</span>
+                </button>
+              </div>
+
+              <div class="line-box size-xl mt-48">
+                <span class="typeLgSemibold">이용안내</span>
+                <div class="list type-dotted">
+                  <ul>
+                    <li class="typeMd">
+                      사용자의 OTP등록내역을 조회하고 관리하는 메뉴입니다
+                    </li>
+                    <li class="typeMd">
+                      한번 등록된 Sh기업 디지털OTP는 재등록 및 변경이
+                      불가능합니다.
+                    </li>
+                    <li class="typeMd">
+                      Sh기업 디지털OTP로 변경하시려면 변경 버튼을 선택하세요.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
+</html>
+<script></script>

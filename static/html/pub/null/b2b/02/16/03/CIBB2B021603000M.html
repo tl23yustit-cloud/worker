@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>B2B전자결제 &gt; 전자어음 &gt; 이용할인신청 | 수협은행</title>
+  <link rel="stylesheet" href="/static/css/reset.css" />
+  <link rel="stylesheet" href="/static/css/layout.css" />
+  <link rel="stylesheet" href="/static/css/component.css" />
+  <link rel="stylesheet" href="/static/css/common.css" />
+  <link rel="stylesheet" href="/static/css/b2b.scss" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <div id="header">
+      @@include('static/html/pub/layout/skipNavigation.html')
+      @@include('static/html/pub/layout/header_sub.html')
+    </div>
+
+    <div id="container" class="container">
+      <div id="leftArea">
+        @@include('static/html/pub/layout/leftArea.html')
+      </div>
+      <div id="contents">
+        <div class="content">
+          @@include('static/html/pub/layout/breadcrumb.html')
+          <div class="b2b">
+            <h2 class="typeH2">어음할인신청</h2>
+            <!--기존otp영역(공통ui 적용시 삭제 아니라면 이 opt사용)-->
+            <div class="tbl-area">
+              <div class="tbl-head">
+                <div class="left-area">
+                  <h6 class="typeH6">OTP 비밀번호 입력</h6>
+                </div>
+              </div>
+              <table class="table-type01">
+                <caption>
+                  OTP 입력 테이블
+                </caption>
+                <!-- [수정] 20260903 col width 값 추가  -->
+                <!-- [수정] 20260910 col width style 수정  -->
+                <colgroup>
+                  <col style="width:160px">
+                  <col style="width:auto">
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th scope="row" rowspan="2" class="noradius">
+                      <label for="OTP">OTP </label>
+                    </th>
+                    <td>
+                      <div class="otp-text-wrap">
+                        <!-- [수정] 20260903 title 값 추가  -->
+                        <!-- [수정] 20260910 title 값 수정  -->
+                        <input type="password" id="OTP" class="input wSize-smMd size-lg" placeholder="숫자 6자리"
+                          title="OTP, 숫자 6자리" aria-label="숫자 6자리" />
+                        <div class="typeMd">
+                          OTP 만료 기한이 <span>14</span>일 남았습니다.
+                          <span>(2026-04-30)</span>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="otp-noti">
+                        <div class="list type-dotted">
+                          <ul>
+                            <li class="typeMd">
+                              OTP에 생성된 숫자 6자리를 입력하세요
+                            </li>
+                            <li class="typeMd">
+                              OTP는 1분마다 새로운 비밀번호가 생성됩니다
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <!--//기존otp영역(공통ui 적용시 삭제 아니라면 이 opt사용)-->
+            <div class="tbl-area">
+              <!--tbl-area로 감싸고 안에 필요한 테이블 넣어주세요.-->
+              <!-- [dev] (공통)OTP인증 ui CIBCMN340101001M-->
+              <div class="wrap-board-grid">               
+                <div class="board-grid">
+                  <!-- [dev] (공통)OTP인증 ui CIBCMN340101001M 영역 : 작업 시 삭제-->
+                  <i style="
+                            display: block;
+                            border: var(--borderWidthMd) solid
+                              var(--colorBorderBase);
+                            border-radius: var(--radiusMd);
+                            padding: var(--spacing2Xl);
+                          ">(공통)OTP인증 ui CIBCMN340101001M</i>
+                  <!-- //[dev] (공통)OTP인증 ui CIBCMN340101001M 영역 : 작업 시 삭제 -->
+                </div>                
+              </div>
+              <!-- //[dev] (공통)OTP인증 ui CIBCMN340101001M -->
+              <!--//tbl-area로 감싸고 안에 필요한 테이블 넣어주세요.-->
+            </div>
+            <div class="btn-wrap center lg-bot">
+              <button type="button" class="btn type-bg-primary size-xxl">
+                <span class="text">확인</span>
+              </button>
+            </div>
+            <!-- 이용안내 영역 -->
+            <div class="line-box size-xl mt-48">
+              <span class="typeLgSemibold">이용안내</span>
+              <div class="list type-dotted">
+                <ul>
+                  <li class="typeMd">
+                    수협에서 발급해드린 OTP 화면에 표시된 번호를 입력해주세요.
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <!-- // 이용안내 영역 -->
+          </div>
+        </div>
+      </div>
+      <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+    </div>
+    <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+  </div>
+  <script src="/static/js/ui/cib_ui_common.js"></script>
+</body>
+
+</html>

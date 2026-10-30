@@ -1,0 +1,284 @@
+<!-- 1.08v -->
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/dob.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
+
+      <div id="container" class="container">
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="dob">
+              <h2 class="typeH2">
+                발급 신청
+                <div class="box-steps">
+                  <ol class="list-steps">
+                    <li class="item-steps current" aria-current="step">
+                      <span class="blind">증명서구분</span>
+                      <i class="icon" aria-hidden="true">1</i>
+                      <span class="text">증명서구분</span>
+                    </li>
+                    <li class="item-steps">
+                      <i class="icon" aria-hidden="true">2</i>
+                      <span class="text">2</span>
+                    </li>
+                    <li class="item-steps">
+                      <i class="icon" aria-hidden="true">3</i>
+                      <span class="text">3</span>
+                    </li>
+                    <li class="item-steps">
+                      <i class="icon" aria-hidden="true">4</i>
+                      <span class="text">4</span>
+                    </li>
+                  </ol>
+                </div>
+              </h2>
+              <div class="tbl-area">
+                <div class="tbl-head">
+                  <div class="left-area"><h4 class="typeH4">증명서 구분 선택</h4></div>
+                  <div class="right-area">
+                    <span class="required typeMd">필수 항목</span>
+                  </div>
+                </div>
+                <table class="table-type01 fixed">
+                  <caption>
+                    회원구분, 언어선택, 발급기준일, 조합선택 항목이 포함된 증명서 구분 선택 테이블
+                  </caption>
+                  <!-- [수정] 20260904 col width 값 수정  -->
+                  <colgroup>
+                    <col style="width: 160px" />
+                    <col style="width: auto" />
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="row">
+                        <span>회원구분</span>
+                      </th>
+                      <td colspan="3">
+                        <div class="tbl-flex">
+                          <div class="form-box-wrap" role="radiogroup" aria-labelledby="label-member-type">
+                            <span class="form-box">
+                              <input type="radio" name="memberType" id="memberType_01" class="form-radio size-md" checked />
+                              <label for="memberType_01" class="form-label">은행</label>
+                            </span>
+                            <span class="form-box">
+                              <input type="radio" name="memberType" id="memberType_02" class="form-radio size-md" />
+                              <label for="memberType_02" class="form-label">회원수협</label>
+                            </span>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span>언어선택</span>
+                      </th>
+                      <td colspan="3">
+                        <div class="tbl-flex">
+                          <div class="form-box-wrap" role="radiogroup" aria-labelledby="label-lang-select">
+                            <span class="form-box">
+                              <input type="radio" name="langSelect" id="langSelect_01" class="form-radio size-md" checked />
+                              <label for="langSelect_01" class="form-label">한글</label>
+                            </span>
+                            <span class="form-box">
+                              <input type="radio" name="langSelect" id="langSelect_02" class="form-radio size-md" />
+                              <label for="langSelect_02" class="form-label">영문</label>
+                            </span>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span class="required" id="label-issue-date">발급기준일</span>
+                      </th>
+                      <td colspan="3">
+                        <div class="calendar-wrap">
+                          <div class="input-box">
+                            <input type="text" class="input" placeholder="발급기준일" title="발급기준일 입력" aria-label="발급기준일 입력" value="2026-08-20" />
+                            <button type="button" class="btn">
+                              <i class="ico-calendar ico-size-smMd" aria-hidden="true"></i>
+                              <span class="blind">발급기준일 달력 열기</span>
+                            </button>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span>조합선택</span>
+                      </th>
+                      <td colspan="3">
+                        <div class="box-select wSize-md">
+                          <button type="button" class="select size-lg" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="selectUnion" aria-labelledby="label-union-select">
+                            <span class="text">군산시 조합</span>
+                            <span class="blind">펼침</span>
+                          </button>
+                          <div id="selectUnion" class="box-list-select">
+                            <ul class="list-select" role="listbox" aria-label="조합선택 리스트">
+                              <li class="item-select" role="option" aria-selected="true">
+                                <span class="form-box">군산시 조합</span>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="tbl-area">
+                <h4 class="typeH4">증명서 발급계좌 선택</h4>
+                <table class="table-type03">
+                  <caption>
+                    증명서 발급계좌 선택, No, 상품명, 계좌번호에 대한 구성 테이블입니다.
+                  </caption>
+                  <colgroup>
+                    <col style="width: 48px" />
+                    <col style="width: 48px" />
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th scope="col"><span>선택</span></th>
+                      <th scope="col"><span>No</span></th>
+                      <th scope="col"><span>상품명</span></th>
+                      <th scope="col"><span>계좌번호</span></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <span class="form-box">
+                          <input type="checkbox" name="" title="계좌번호 1234-56**-**** 선택" id="comp-kaiqzu" class="form-checkbox size-lg" />
+                        </span>
+                      </td>
+                      <td>
+                        <span class="typeMd">1</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">보통예탁금</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">1234-56</span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="list type-dotted mt-12">
+                <ul>
+                  <li class="typeMd">보유하신 입출금 계좌 중 증명서/확인증 발급받을 계좌를 최대 20개까자 선택 할 수 있습니다.</li>
+                </ul>
+              </div>
+
+              <h4 class="typeH4 mt-48 mb-12">해지계좌</h4>
+              <div class="cancel-account-accordion">
+                <div class="box-accordion line">
+                  <div class="box-item-list">
+                    <div class="box-title">
+                      <span class="title typeLg">해지계좌번호 입력</span>
+                    </div>
+                    <button type="button" class="btn-accordion" aria-expanded="false" aria-controls="accordionContent01">
+                      <i class="ico-arrow" aria-hidden="true"></i>
+                      <span class="blind">상세내용 열기</span>
+                    </button>
+                  </div>
+                  <div id="accordionContent01" class="content-accordion">
+                    <div class="cancel-account-wrapper">
+                      <input type="text" class="input size-lg wSize-lg" aria-label="해지계좌번호" placeholder="- 없이 입력" />
+                      <button type="button" class="btn type-line-secondary size-lg">
+                        <span class="text">추가</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="box-accordion line">
+                  <div class="box-item-list">
+                    <div class="box-title">
+                      <span class="title typeLg">해지계좌번호 입력</span>
+                    </div>
+                    <button type="button" class="btn-accordion" aria-expanded="false" aria-controls="accordionContent02">
+                      <i class="ico-arrow" aria-hidden="true"></i>
+                      <span class="blind">상세내용 열기</span>
+                    </button>
+                  </div>
+                  <div id="accordionContent02" class="content-accordion">
+                    <div class="cancel-account-wrapper">
+                      <input type="text" class="input size-lg wSize-lg" aria-label="해지계좌번호" placeholder="- 없이 입력" />
+                      <button type="button" class="btn type-line-secondary size-lg">
+                        <span class="text">추가</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="list type-dotted mt-12">
+                <ul>
+                  <li class="typeMd">보유 계좌 조회 후 입력하시기 바랍니다.</li>
+                  <li class="typeMd">해지된 계좌는 직접 입력하신 후 선택하여 주시기 바랍니다.</li>
+                  <li class="typeMd">해지된 계좌는 해지일 까지 만 증명서 발급이 가능하므로, “조회-해지계좌조회”메뉴에서 해지일자를 확인하시기 바랍니다.</li>
+                </ul>
+              </div>
+              <div class="line-box size-xl mt-48">
+                <span class="typeLgSemibold">이용안내</span>
+                <div class="list type-dotted">
+                  <ul>
+                    <li class="typeMd">잔액잔고증명서란? : 발급기준일자의 최종 잔액으로 고객님의 예금 등에 대한 증명서를 발급하는 거래입니다.</li>
+                    <li class="typeMd">대상고객 : 수협은행/수협회원 고객</li>
+                    <li class="typeMd">대상계좌 : 예금, 신탁, 집합투자증권 계좌</li>
+                    <li class="typeMd">
+                      발급제한사례
+                      <div class="list type-bar">
+                        <ul>
+                          <li class="typeSm">발급신청 당일자로 발급선택시 (과거 일자 기준으로만 발급 가능)</li>
+                          <li class="typeSm">발급일 현재 해지된 계좌</li>
+                          <li class="typeSm">실명 미확인 계좌</li>
+                          <li class="typeSm">영문 고객명 미 등록 고객이 영문잔액증명서 발급시</li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="typeMd">
+                      발급수수료 : 건당 1,000 원 (발급회차, 언어별로 수수료가 부과되어 고객님의 계좌에서 출금됩니다. 단, 수협은행 파트너 고객은 수수료 면제)
+                      <div class="list type-bar">
+                        <ul>
+                          <li class="typeSm">동일 계좌에 대해 재출력을 원하실 경우 상단의 "잔액잔고증명서 재출력"을 이용해주시기 바랍니다.</li>
+                          <li class="typeSm">발급회차마다, (언어변경 포함) 건당 수수료가 부과되어 고객님의 계좌에서 출금됩니다.<br />(예시:0010-XXXX-0000 계좌선택후 1회 발급시 1000원 출금, 동일 계좌 재발급 신청시 1000원씩 추가 출금)</li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="typeMd">재발급 서비스 : 발급신청 당일에 한해 횟수 제한없이 재출력 가능 : 서류함>증명서발급>신청내역 조회</li>
+                    <li class="typeMd">유의사항 : 잔액증명서 발급시 (가)압류, 질권, 관련 대출 등 인출제한 내용이 표시되어 발급됩니다.<br />잔액증명서 발급신청을 완료한 경우 발급 취소가 불가하므로 유의하여 주시기 바랍니다.<br />1회 최대 20계좌(5장)까지 선택 발급 가능합니다.</li>
+                  </ul>
+                </div>
+              </div>
+              <!-- 하단 확인 버튼 영역 -->
+              <div class="btn-wrap center lg-bot">
+                <button type="button" class="btn type-bg-primary size-xxl">
+                  <span class="text">다음</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
+</html>

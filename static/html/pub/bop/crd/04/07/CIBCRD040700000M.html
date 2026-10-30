@@ -1,0 +1,478 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/crd.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
+
+      <div id="container" class="container">
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="crd">
+              <h2 class="typeH2">부가가치세/종합소득세용 카드이용내역 조회</h2>
+
+              <div class="tbl-area">
+                <div class="tbl-head">
+                  <div class="right-area">
+                    <span class="required typeMd">필수 항목</span>
+                  </div>
+                </div>
+                <table class="table-type01">
+                  <caption></caption>
+                  <colgroup>
+                    <col style="width: 160px" />
+                    <col style="width: auto" />
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="row">
+                        <span class="required">조회기간 구분</span>
+                      </th>
+                      <td>
+                        <div class="form-box-wrap" role="radiogroup">
+                          <span class="form-box">
+                            <input type="radio" name="searchPeriodType" id="searchType_023" title="조회기간 구분" class="form-radio size-md" checked="" />
+                            <label for="searchType_023" class="form-label">분기</label>
+                          </span>
+                          <span class="form-box">
+                            <input type="radio" name="searchPeriodType" id="searchType_033" title="조회기간 구분" class="form-radio size-md" />
+                            <label for="searchType_033" class="form-label">일자별</label>
+                          </span>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <th scope="row">
+                        <span class="required">분기별 조회기간</span>
+                      </th>
+                      <td>
+                        <div class="tbl-flex">
+                          <div class="flex gap-4 items-center">
+                            <div class="box-select wSize-sm">
+                              <button type="button" class="select size-lg" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="selectDropdown01" aria-required="true">
+                                <span class="text">2026</span>
+                                <span class="blind">펼침</span>
+                              </button>
+                              <div id="selectDropdown01" class="box-list-select">
+                                <ul class="list-select" role="listbox" aria-label="년도선택 항목 리스트">
+                                  <li class="item-select" role="option" aria-selected="true">
+                                    <span class="form-box">2026</span>
+                                  </li>
+                                  <li class="item-select" role="option" aria-selected="false">
+                                    <span class="form-box">1</span>
+                                  </li>
+                                  <li class="item-select" role="option" aria-selected="false">
+                                    <span class="form-box">1</span>
+                                  </li>
+                                  <li class="item-select" role="option" aria-selected="false">
+                                    <span class="form-box">1</span>
+                                  </li>
+                                  <li class="item-select" role="option" aria-selected="false">
+                                    <span class="form-box">1</span>
+                                  </li>
+                                  <li class="item-select" role="option" aria-selected="false">
+                                    <span class="form-box">1</span>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                            <span class="typeMd">년</span>
+                          </div>
+
+                          <div class="flex gap-4 items-center">
+                            <div class="box-select size-lg">
+                              <button type="button" id="input-dwihbt" class="select size-lg" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="comp-a8h9e8" aria-label="시작시간">
+                                <span class="text">09</span>
+                                <span class="blind">펼침</span>
+                              </button>
+                              <div id="comp-a8h9e8" class="box-list-select">
+                                <ul class="list-select" role="listbox" aria-label="분기 선택">
+                                  <li class="item-select" role="option" aria-selected="false">
+                                    <span class="btn-item-select">01</span>
+                                  </li>
+                                  <li class="item-select" role="option" aria-selected="false">
+                                    <span class="btn-item-select">02</span>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                            <span class="typeMd">분기</span>
+                          </div>
+                          ~
+
+                          <div class="flex gap-4 items-center">
+                            <div class="box-select wSize-sm">
+                              <button type="button" class="select size-lg" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="selectDropdown01" aria-required="true">
+                                <span class="text">2026</span>
+                                <span class="blind">펼침</span>
+                              </button>
+                              <div id="selectDropdown01" class="box-list-select">
+                                <ul class="list-select" role="listbox" aria-label="년도선택 항목 리스트">
+                                  <li class="item-select" role="option" aria-selected="true">
+                                    <span class="form-box">2026</span>
+                                  </li>
+                                  <li class="item-select" role="option" aria-selected="false">
+                                    <span class="form-box">1</span>
+                                  </li>
+                                  <li class="item-select" role="option" aria-selected="false">
+                                    <span class="form-box">1</span>
+                                  </li>
+                                  <li class="item-select" role="option" aria-selected="false">
+                                    <span class="form-box">1</span>
+                                  </li>
+                                  <li class="item-select" role="option" aria-selected="false">
+                                    <span class="form-box">1</span>
+                                  </li>
+                                  <li class="item-select" role="option" aria-selected="false">
+                                    <span class="form-box">1</span>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                            <span class="typeMd">년</span>
+                          </div>
+
+                          <div class="flex gap-4 items-center">
+                            <div class="box-select size-lg">
+                              <button type="button" id="input-dwihbt" class="select size-lg" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="comp-a8h9e8" aria-label="시작시간">
+                                <span class="text">09</span>
+                                <span class="blind">펼침</span>
+                              </button>
+                              <div id="comp-a8h9e8" class="box-list-select">
+                                <ul class="list-select" role="listbox" aria-label="분기 선택">
+                                  <li class="item-select" role="option" aria-selected="false">
+                                    <span class="btn-item-select">01</span>
+                                  </li>
+                                  <li class="item-select" role="option" aria-selected="false">
+                                    <span class="btn-item-select">02</span>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                            <span class="typeMd">분기</span>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="tbl-area">
+                <div class="tbl-head">
+                  <div class="right-area">
+                    <span class="required typeMd">필수 항목</span>
+                  </div>
+                </div>
+                <table class="table-type01">
+                  <caption></caption>
+                  <colgroup>
+                    <col style="width: 160px" />
+                    <col style="width: auto" />
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="row">
+                        <span class="required">조회기간 구분</span>
+                      </th>
+                      <td>
+                        <div class="form-box-wrap" role="radiogroup">
+                          <span class="form-box">
+                            <input type="radio" name="searchPeriodType1" id="searchType_0233" title="조회기간 구분" class="form-radio size-md" />
+                            <label for="searchType_023" class="form-label">분기</label>
+                          </span>
+                          <span class="form-box">
+                            <input type="radio" name="searchPeriodType1" id="searchType_0333" title="조회기간 구분" class="form-radio size-md" checked="" />
+                            <label for="searchType_033" class="form-label">일자별</label>
+                          </span>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <th scope="row">
+                        <span class="required">분기별 조회기간</span>
+                      </th>
+                      <td>
+                        <div class="tbl-column">
+                          <div class="radio-group" role="radiogroup" aria-label="조회기간">
+                            <span class="form-box">
+                              <input type="radio" name="searchPeriod" id="period_01" class="radio-btn" checked="" />
+                              <label for="period_01" class="form-label">당일</label>
+                            </span>
+                            <span class="form-box">
+                              <input type="radio" name="searchPeriod" id="period_02" class="radio-btn" />
+                              <label for="period_02" class="form-label">1개월</label>
+                            </span>
+                            <span class="form-box">
+                              <input type="radio" name="searchPeriod" id="period_03" class="radio-btn" />
+                              <label for="period_03" class="form-label">3개월</label>
+                            </span>
+                            <span class="form-box">
+                              <input type="radio" name="searchPeriod" id="period_04" class="radio-btn" />
+                              <label for="period_04" class="form-label">6개월</label>
+                            </span>
+                            <span class="form-box">
+                              <input type="radio" name="searchPeriod" id="period_05" class="radio-btn" />
+                              <label for="period_05" class="form-label">1년</label>
+                            </span>
+                          </div>
+
+                          <div class="calendar-wrap">
+                            <!-- 날짜 입력 영역 -->
+                            <div class="input-box">
+                              <input type="text" class="input" placeholder="조회 시작일" aria-label="조회 시작일" value="2026-01-06" />
+                              <button type="button" class="btn">
+                                <i class="ico-calendar ico-size-smMd" aria-hidden="true"></i>
+                                <span class="blind">조회 시작일 달력 열기</span>
+                              </button>
+                            </div>
+                            <span aria-hidden="true">~</span>
+                            <div class="input-box">
+                              <input type="text" class="input" placeholder="조회 종료일" aria-label="조회 종료일" value="2026-01-06" />
+                              <button type="button" class="btn">
+                                <i class="ico-calendar ico-size-smMd" aria-hidden="true"></i>
+                                <span class="blind">조회 종료일 달력 열기</span>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="btn-wrap center sm-mid">
+                <button type="button" class="btn type-bg-neutral size-xl">
+                  <span class="text">조회</span>
+                </button>
+              </div>
+
+              <div class="tbl-area">
+                <table class="table-type03">
+                  <caption></caption>
+                  <colgroup>
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th scope="col"><span>No</span></th>
+                      <th scope="col"><span>매출일자</span></th>
+                      <th scope="col"><span>카드번호</span></th>
+                      <th scope="col"><span>가맹점명</span></th>
+                      <th scope="col"><span>가맹점 사업자번호</span></th>
+                      <th scope="col"><span>매출금액(원)</span></th>
+                      <th scope="col"><span>할부개월수</span></th>
+                      <th scope="col"><span>부가가치세(원)</span></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <span class="typeMd">1</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">2026-01-07</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">1239-12**-****-4458</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">서일석유㈜</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">123-45-6****</span>
+                      </td>
+                      <td class="text-right">
+                        <span class="typeMd">10</span>
+                      </td>
+                      <td></td>
+                      <td class="text-right">
+                        <span class="typeMd">0</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span class="typeMd">1</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">2026-01-07</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">1239-12**-****-4458</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">서일석유㈜</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">123-45-6****</span>
+                      </td>
+                      <td class="text-right">
+                        <span class="typeMd">10</span>
+                      </td>
+                      <td></td>
+                      <td class="text-right">
+                        <span class="typeMd">0</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span class="typeMd">1</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">2026-01-07</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">1239-12**-****-4458</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">서일석유㈜</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">123-45-6****</span>
+                      </td>
+                      <td class="text-right">
+                        <span class="typeMd">10</span>
+                      </td>
+                      <td></td>
+                      <td class="text-right">
+                        <span class="typeMd">0</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span class="typeMd">1</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">2026-01-07</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">1239-12**-****-4458</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">서일석유㈜</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">123-45-6****</span>
+                      </td>
+                      <td class="text-right">
+                        <span class="typeMd">10</span>
+                      </td>
+                      <td></td>
+                      <td class="text-right">
+                        <span class="typeMd">0</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span class="typeMd">1</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">2026-01-07</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">1239-12**-****-4458</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">서일석유㈜</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">123-45-6****</span>
+                      </td>
+                      <td class="text-right">
+                        <span class="typeMd">10</span>
+                      </td>
+                      <td></td>
+                      <td class="text-right">
+                        <span class="typeMd">0</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span class="typeMd">1</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">2026-01-07</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">1239-12**-****-4458</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">서일석유㈜</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">123-45-6****</span>
+                      </td>
+                      <td class="text-right">
+                        <span class="typeMd">10</span>
+                      </td>
+                      <td></td>
+                      <td class="text-right">
+                        <span class="typeMd">0</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th colspan="6" scope="row">
+                        <span class="typeMd">합계</span>
+                      </th>
+
+                      <td colspan="2" class="text-right">
+                        <span class="typeMd">21,624,043 원 </span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="btn-wrap center sm-mid">
+                <button type="button" class="btn type-line-neutral size-xxl">
+                  <span class="text">EXCEL 파일저장</span>
+                </button>
+                <button type="button" class="btn type-bg-primary size-xxl">
+                  <span class="text">FAX 발송</span>
+                </button>
+              </div>
+
+              <div class="line-box size-xl mt-48">
+                <span class="typeLgSemibold">이용안내</span>
+                <div class="list type-dotted">
+                  <ul>
+                    <li class="typeMd">고객님께서 조회하신 조건으로 부가가치세 또는 종합소득세용 카드이용내역을 조회하실 수 있습니다.</li>
+                    <li class="typeMd">해당 조회결과는 신용판매매출만 출력이 가능합니다. (해외매출/현금서비스/캐시백 제외, 가족카드 이용내역 제외)</li>
+                    <li class="typeMd">2016년 1월 1일 이전데이터 조회는 BC사에 문의해주시기 바랍니다.</li>
+                    <li class="typeMd">초회기간은 최대 5년까지 조회가능합니다.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
+</html>

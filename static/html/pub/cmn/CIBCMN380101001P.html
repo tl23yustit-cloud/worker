@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/cmn.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
+
+      <div id="container" class="container">
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="bop">
+              <button type="button" class="btn type-bg-primary size-md btn-modal" data-target="modal-16">
+                <span class="text">오류안내</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+    <div id="modal-16" class="modal is-active" data-dim="true" data-backdrop-close="false" data-alert="true" data-size="sm" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc">
+      <div class="modal-wrapper">
+        <div class="modal-title">
+          <h4 class="typeH4">오류안내</h4>
+        </div>
+        <div class="modal-slot">
+          <div id="modal-desc">
+            <div class="result-box">
+              <div class="result-banner">
+                <div class="inner-img type-warning"></div>
+                <!--[dev]20261029 ui변경-->
+                <div class="result-message">
+                  <div class="text-bg-box">
+                    <span class="typeMd">고객정보 등록 후 1년 경과되었습니다.<br />등록된 고객정보를 확인하여 주시기 바랍니다. </span>
+                    <button type="button" class="btn type-line-secondary size-sm">
+                      <span class="text">바로가기 </span>
+                    </button>
+                  </div>
+                  <div class="text-bg-box">
+                    <span class="typeMd"><em class="color-fg-primary">&최만장&</em>님의 OTP유효기간이 만료되어 사용이 불가하오니 <br />가까운 영업점을 방문하시어 갱신발급 받으시길 바랍니다. </span>
+                    <button type="button" class="btn type-line-secondary size-sm">
+                      <span class="text">바로가기 </span>
+                    </button>
+                  </div>
+                </div>
+                <!--//[dev]20261029 ui변경-->
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer flex items-center justify-between gap-8">
+          <div class="period-check-wrap">
+            <span class="form-box">
+              <input type="radio" name="SampleRadio" id="SampleRadio0203" class="form-radio-checkType" />
+              <label for="SampleRadio0203" class="form-label">오늘 하루</label>
+            </span>
+            <span class="typeMd">이 창을 열지 않음</span>
+          </div>
+          <!--[dev]20261029 버튼 삭제-->
+          <!-- <button type="button" class="btn type-bg-primary size-lg">
+          <span class="text">바로가기</span>
+        </button> -->
+          <!--//[dev]20261029 버튼 삭제-->
+        </div>
+        <button type="button" class="ico btn-close" aria-label="모달 닫기">
+          <i class="ico-close ico-size-smMd" aria-hidden="true"></i>
+          <span class="blind">닫기</span>
+        </button>
+      </div>
+    </div>
+  </body>
+</html>

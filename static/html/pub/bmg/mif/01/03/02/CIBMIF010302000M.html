@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/bmg.css" />
+</head>
+
+<body>
+    <div class="wrapper">
+        <div id="header">
+            @@include('static/html/pub/layout/skipNavigation.html')
+            @@include('static/html/pub/layout/header_sub.html')
+        </div>
+
+        <div id="container" class="container">
+            <div id="leftArea">
+                @@include('static/html/pub/layout/leftArea.html')
+            </div>
+            <div id="contents">
+                <div class="content">
+                    @@include('static/html/pub/layout/breadcrumb.html')
+                    <div class="bmg">
+                        <h2 class="typeH2">부재등록</h2>
+
+
+                        <div class="tbl-area">
+                            <h4 class="typeH4">사용자 기본 정보</h4>
+
+                            <!-- [dev] 일반사용자일 경우 -->
+                            <table class="table-type01">
+                                <caption></caption>
+                                <colgroup>
+                                    <col style="width: 160px">
+                                    <col style="width: 368px">
+                                    <col style="width: 160px">
+                                    <col style="width: 368px">
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">
+                                            <span>사용자ID</span>
+                                        </th>
+                                        <td>
+                                            <span class="typeMd">SUHYUP0001</span>
+                                        </td>
+                                        <th scope="row">
+                                            <span>사용자명</span>
+                                        </th>
+                                        <td>
+                                            <span class="typeMd">김일반</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">
+                                            <span>부서명</span>
+                                        </th>
+                                        <td>
+                                            <span class="typeMd">자금부</span>
+                                        </td>
+                                        <th scope="row">
+                                            <span>직위</span>
+                                        </th>
+                                        <td>
+                                            <span class="typeMd">부장</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">
+                                            <span>1회 이체한도</span>
+                                        </th>
+                                        <td class="text-right">
+                                            <span class="typeMd">1,000,000,000 원</span>
+                                        </td>
+                                        <th scope="row">
+                                            <span>1일 이체한도</span>
+                                        </th>
+                                        <td class="text-right">
+                                            <span class="typeMd">5,000,000,000 원</span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <!-- //[dev] 일반사용자일 경우 -->
+
+
+                            <!-- [dev] 결재사용자일 경우  -->
+                            <table class="table-type01">
+                                <caption></caption>
+                                <colgroup>
+                                    <col style="width: 160px">
+                                    <col style="width: 368px">
+                                    <col style="width: 160px">
+                                    <col style="width: 368px">
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">
+                                            <span>사용자ID</span>
+                                        </th>
+                                        <td>
+                                            <span class="typeMd">SUHYUP0001</span>
+                                        </td>
+                                        <th scope="row">
+                                            <span>사용자명</span>
+                                        </th>
+                                        <td>
+                                            <span class="typeMd">김일반</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">
+                                            <span>부서명</span>
+                                        </th>
+                                        <td>
+                                            <span class="typeMd">자금부</span>
+                                        </td>
+                                        <th scope="row">
+                                            <span>직위</span>
+                                        </th>
+                                        <td>
+                                            <span class="typeMd">부장</span>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                            <!-- //[dev] 결재사용자일 경우  -->
+                        </div>
+
+
+
+                        <div class="tbl-area">
+                            <h4 class="typeH4">결재선 정보</h4>
+
+
+                            <div class="box-grid-utility flex items-center justify-between">
+                                <div class="box-left flex items-center gap-8">
+                                    <span class="total typeMd">총 <span class="num">$n$</span></span>
+                                    <div class="box-select wSize-md">
+                                        <button type="button" class="select size-lg" role="combobox"
+                                            aria-expanded="false" aria-haspopup="listbox"
+                                            aria-controls="selectDropdown06">
+                                            <span class="text">10개씩 보기</span>
+                                            <span class="blind">펼침</span>
+                                        </button>
+                                        <div id="selectDropdown06" class="box-list-select">
+                                            <ul class="list-select" role="listbox" aria-label="선택 항목 리스트">
+                                                <li class="item-select" role="group">
+                                                    <button type="button" class="btn-item-select"> 5개씩 보기 </button>
+                                                </li>
+                                                <li class="item-select" role="group">
+                                                    <button type="button" class="btn-item-select"> 10개씩 보기 </button>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                            <table class="table-type03">
+                                <caption>결재업무, 결재선위치, 진행결재수, 필수결재여부, 알림권한, 결재선 확인에 대한 구성 테이블입니다.</caption>
+                                <colgroup>
+                                    <col style="width: auto">
+                                    <col style="width: auto">
+                                    <col style="width: auto">
+                                    <col style="width: auto">
+                                    <col style="width: auto">
+                                    <col style="width: auto">
+                                </colgroup>
+                                <thead>
+                                    <tr>
+                                        <th scope="col"><span>결재업무</span></th>
+                                        <th scope="col"><span>결재선위치</span></th>
+                                        <th scope="col"><span>진행결재수</span></th>
+                                        <th scope="col"><span>필수결재여부</span></th>
+                                        <th scope="col"><span>알림권한</span></th>
+                                        <th scope="col"><span>결재선 확인</span></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <span class="typeMd">이체</span>
+                                        </td>
+                                        <td>
+                                            <span class="typeMd">기안자</span>
+                                        </td>
+                                        <td>
+                                            <span class="typeMd">3</span>
+                                        </td>
+                                        <td>
+                                            <span class="typeMd">Y</span>
+                                        </td>
+                                        <td>
+                                            <span class="typeMd">X</span>
+                                        </td>
+                                        <td>
+
+                                            <button type="button" class="btn type-line-primary size-sm">
+                                                <span class="text">결재선 확인</span>
+                                            </button>
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="typeMd">공과금</span>
+                                        </td>
+                                        <td>
+                                            <span class="typeMd">기안자</span>
+                                        </td>
+                                        <td>
+                                            <span class="typeMd">0</span>
+                                        </td>
+                                        <td>
+                                            <span class="typeMd">N</span>
+                                        </td>
+                                        <td>
+                                            <span class="typeMd">O</span>
+                                        </td>
+                                        <td>
+                                            <button type="button" class="btn type-line-primary size-sm">
+                                                <span class="text">결재선 확인</span>
+                                            </button>
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="typeMd">B2B전자결제</span>
+                                        </td>
+                                        <td>
+                                            <span class="typeMd">3단계(최종결재자)</span>
+                                        </td>
+                                        <td>
+                                            <span class="typeMd">1</span>
+                                        </td>
+                                        <td>
+                                            <span class="typeMd">N</span>
+                                        </td>
+                                        <td>
+                                            <span class="typeMd">O</span>
+                                        </td>
+                                        <td>
+
+                                            <button type="button" class="btn type-line-primary size-sm">
+                                                <span class="text">결재선 확인</span>
+                                            </button>
+
+
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+
+                        <div class="tbl-area">
+                            <h4 class="typeH4">대리자 목록</h4>
+
+
+
+                            <table class="table-type03">
+                                <caption></caption>
+                                <colgroup>
+                                    <col style="width: auto">
+                                    <col style="width: auto">
+                                    <col style="width: auto">
+                                    <col style="width: auto">
+                                    <col style="width: auto">
+                                    <col style="width: auto">
+                                    <col style="width: auto">
+                                    <col style="width: auto">
+                                    <col style="width: auto">
+
+                                </colgroup>
+                                <thead>
+                                    <tr>
+                                        <th scope="col"><span></span></th>
+                                        <th scope="col"><span>No</span></th>
+                                        <th scope="col"><span>사용자ID </span></th>
+                                        <th scope="col"><span>사용자명</span></th>
+                                        <th scope="col"><span>부서명</span></th>
+                                        <th scope="col"><span>직위</span></th>
+                                        <th scope="col"><span>사용자구분 </span></th>
+                                        <th scope="col"><span>1회 이체한도(원) </span></th>
+                                        <th scope="col"><span>1일 이체한도(원) </span></th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <span class="form-box">
+                                                <input type="radio" name="라디오" id="SampleRadio0302"
+                                                    class="form-radio size-lg" aria-label="대리자 선택">
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <span class="typeMd">1</span>
+                                        </td>
+                                        <td>
+                                            <span class="typeMd">SUHYUP002</span>
+                                        </td>
+                                        <td>
+                                            <span class="typeMd">김수협</span>
+                                        </td>
+                                        <td>
+                                            <span class="typeMd">기획팀</span>
+                                        </td>
+                                        <td>
+                                            <span class="typeMd">과장</span>
+                                        </td>
+                                        <td>
+                                            <span class="typeMd">일반사용자</span>
+                                        </td>
+                                        <td class="text-right">
+                                            <span class="typeMd">1,000,000,000</span>
+                                        </td>
+                                        <td class="text-right">
+                                            <span class="typeMd">5,000,000,000</span>
+                                        </td>
+
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <span class="form-box">
+                                                <input type="radio" name="라디오" id="SampleRadio0303"
+                                                    class="form-radio size-lg" aria-label="대리자 선택">
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <span class="typeMd">2</span>
+                                        </td>
+                                        <td>
+                                            <span class="typeMd">SUHYUP004</span>
+                                        </td>
+                                        <td>
+                                            <span class="typeMd">박수협</span>
+                                        </td>
+                                        <td>
+                                            <span class="typeMd">마케팅팀</span>
+                                        </td>
+                                        <td>
+                                            <span class="typeMd">과장</span>
+                                        </td>
+                                        <td>
+                                            <span class="typeMd">일반사용자</span>
+                                        </td>
+                                        <td class="text-right">
+                                            <span class="typeMd">500,000,000</span>
+                                        </td>
+                                        <td class="text-right">
+                                            <span class="typeMd">1,000,000,000</span>
+                                        </td>
+
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+
+
+
+
+                        <div class="btn-wrap center lg-bot" style="margin-top: 32px">
+                            <button type="button" class="btn type-bg-primary-tint size-xxl">
+                                <span class="text">취소</span>
+                            </button>
+                            <button type="button" class="btn type-bg-primary size-xxl">
+                                <span class="text">부재등록 결재요청
+                                </span>
+                            </button>
+                        </div>
+
+
+
+                        <!-- 이용안내 -->
+                        <div class="line-box size-xl mt-48">
+                            <span class="typeLgSemibold">이용안내</span>
+                            <div class="list type-dotted">
+                                <ul>
+                                    <li class="typeMd">
+                                        부재설정을 한 경우, 결재선에서 제외됩니다.
+                                    </li>
+                                    <li class="typeMd">
+                                        필수결재자의 경우 반드시 대리결재자를 등록해야 합니다.
+                                    </li>
+                                    <li class="typeMd">
+                                        대리결재자 등록 전 거래는 해당 사용자에게 결재요청되며, 대리결재자 등록 후 기안에 한해서 대리결재자가 결재처리 할 수 있습니다.
+                                    </li>
+                                    <li class="typeMd">
+                                        대리결재 등록 시 일반사용자의 경우 일반사용자, 결재사용자의 경우 결재사용자만 가능합니다.
+                                    </li>
+                                    <li class="typeMd">
+                                        대리결재자 등록 시 다른 사용자의 대리결재자로 등록되어 있거나, 부재설정 중인 사용자와 동일한 결재선에 존재할 경우 등록이 불가합니다.
+
+                                    </li>
+                                    <li class="typeMd">
+                                        부재설정 또는 대리결재자 해제 이전의 거래는 이전 대리결재자에게 결재요청되며, 해제 이후의 기안에 한해서 해당 결재자에게 결재 요청 됩니다.
+                                    </li>
+                                    <li class="typeMd">
+                                        부재해제와 동시에 대리결재자가 해제 되며, 해당 사용자의 모든 결재선이 부재설정 이전의 상태로 됩니다.
+                                    </li>
+                                    <li class="typeMd">
+                                        기안이 진행 중인 건이 있을 경우에는 부재설정이 불가합니다.
+
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+    </div>
+    <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+</body>
+
+</html>

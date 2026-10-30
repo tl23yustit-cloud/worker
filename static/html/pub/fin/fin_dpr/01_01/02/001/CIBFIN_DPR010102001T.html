@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/fin.css" />
+</head>
+
+<body>
+    <div class="wrapper">
+        <div id="header">
+            @@include('static/html/pub/layout/skipNavigation.html')
+            @@include('static/html/pub/layout/header_sub.html')
+        </div>
+        <div id="container" class="container">
+            <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+            <div id="contents">
+                <div class="content">
+                    @@include('static/html/pub/layout/breadcrumb.html')
+                    <div class="fin">
+                     
+                        <div class="box-tab">
+                            <ul class="list-tab-button type-outline" role="tablist" aria-label="탭 이름">
+                                <li class="item-tab-button">
+                                    <button type="button" class="btn-tab" id="tabBtnTypeOutline01" role="tab"
+                                        aria-selected="true" aria-controls="tabPanelTypeOutline01">
+                                        <span class="text">상품안내</span>
+                                    </button>
+                                </li>
+                                <li class="item-tab-button">
+                                    <button type="button" class="btn-tab active" title="선택됨" id="tabBtnTypeOutline02"
+                                        role="tab" aria-selected="false" aria-controls="tabPanelTypeOutline02">
+                                        <span class="text">오늘의 금리보기</span>
+                                    </button>
+                                </li>
+                                <li class="item-tab-button">
+                                    <button type="button" class="btn-tab" id="tabBtnTypeOutline03"
+                                        role="tab" aria-selected="false" aria-controls="tabPanelTypeOutline03">
+                                        <span class="text">유의사항</span>
+                                    </button>
+                                </li>
+                            </ul>
+                            <div class="box-tab-content" id="tabPanelTypeOutline01" role="tabpanel"
+                                aria-labelledby="tabBtnTypeOutline01" style="display:none;">
+                                상품안내
+                            </div>
+                            <div class="box-tab-content  active" id="tabPanelTypeOutline02" role="tabpanel"
+                                aria-labelledby="tabBtnTypeOutline02" style="display: block;">
+                                
+                                <div class="list-lg-wrap">
+                                    <h4 class="typeH4">기본이율</h4>
+
+                                    <div class="list type-dotted mt-20">
+                                        <ul>
+                                            <li class="typeLg">
+                                                가입일 현재 영업점 및 수협은행 홈페이지에 고시된 통화 및 예치기간별 외화정기예금 이율 적용
+
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="list-lg-wrap">
+                                    <h4 class="typeH4">중도해지이율</h4>
+
+                                    <div class="list type-dotted mt-20">
+                                        <ul>
+                                            <li class="typeLg">
+                                               예치기간에 따른 중도해지이율 적용
+                                            </li>
+                                            <li class="typeLg">
+                                               7일미만 : 무이자
+                                            </li>
+                                            <li class="typeLg">
+                                               7일이상~1개월미만 : 가입시 약정금리의 1/10
+                                            </li>
+                                            <li class="typeLg">
+                                               1개월이상~3개월미만 : 가입시 약정금리의 3/10
+                                            </li>
+                                            <li class="typeLg">
+                                               3개월이상~6개월미만 : 가입시 약정금리의 4/10
+                                            </li>
+                                            <li class="typeLg">
+                                               6개월이상~11개월미만 : 가입시 약정금리의 5/10
+                                            </li>
+                                            <li class="typeLg">
+                                               11개월 이상 : 가입시 약정금리의 7/10
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="list-lg-wrap">
+                                    <h4 class="typeH4">만기후이율</h4>
+
+                                    <div class="list type-dotted mt-20">
+                                        <ul>
+                                            <li class="typeLg">
+                                                만기 후 1년까지는 약정이율의 3/10, 만기 후 1년 초과시 외화보통예금 이율 적용
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <!-- 테이블 -->
+                                 <div class="tbl-area">
+                                    <table class="table-type01">
+                                        <caption>금리조회기준일, 거주기에 대한 구성 테이블입니다.</caption>
+                                        <colgroup>
+                                        <col style="width: 160px"><col style="width: auto">
+                                        </colgroup>
+                                        <tbody>
+                                       
+                                        
+                                        <tr>
+                                        <th scope="row"><label for="조회일자">금리조회기준일 </label></th>
+                                        <td>
+                                            <div class="tbl-column">
+                                                <div class="calendar-wrap">
+                                                    <div class="input-box">
+                                                        <input type="text" class="input" placeholder="금리조회기준일" title="조회일자" aria-label="금리조회기준일" value="2026-01-06">
+                                                        <button type="button" class="btn">
+                                                            <i class="ico-calendar ico-size-smMd" aria-hidden="true"></i>
+                                                            <span class="blind">금리조회기준일 달력 열기</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                        
+                                        <tr>
+                                        <th scope="row">
+                                            <span>거주기</span>
+                                        </th>
+                                       <td>
+                                        
+                                            <div class="form-box-wrap" role="radiogroup" aria-label="거주기">
+                                                <span class="form-box">
+                                                <input type="radio" name="radio_comp-fqjhpw" id="radio_comp-fqjhpw_01" class="form-radio size-md" checked="">
+                                                <label for="radio_comp-fqjhpw_01" class="form-label">거주자</label>
+                                                </span>
+                                                <span class="form-box">
+                                                <input type="radio" name="radio_comp-fqjhpw" id="radio_comp-fqjhpw_02" class="form-radio size-md">
+                                                <label for="radio_comp-fqjhpw_02" class="form-label">비거주자</label>
+                                                </span>
+                                            </div>
+                                        </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                    </div>
+
+
+                                    <!-- 버튼 -->
+                                     <div class="btn-wrap center sm-mid">
+                                        <button type="button" class="btn type-bg-neutral size-xl">
+                                            <span class="text">조회</span>
+                                        </button>
+                                        </div>
+
+
+                                    <!-- 테이블 -->
+
+                                    <div class="tbl-area">
+                                        <table class="table-type03">
+                                            <caption>통화, 7일이하, 7일 초과~1개월 이하, 1개월 초과~2개월 이하, 2개월 초과~3개월 이하, 3개월 초과~6개월 이하, 6개월 초과~12개월 이하에 대한 구성 테이블입니다.</caption>
+                                            <colgroup>
+                                            <col style="width: auto">
+                                            <col style="width: auto">
+                                            <col style="width: auto">
+                                            <col style="width: auto">
+                                            <col style="width: auto">
+                                            <col style="width: auto">
+                                            <col style="width: auto">
+                                            </colgroup>
+                                            <thead>
+                                            <tr>
+                                            <th scope="col"><span>통화</span></th>
+                                            <th scope="col"><span>7일이하</span></th>
+                                            <th scope="col"><span>7일 초과~1개월 이하</span></th>
+                                            <th scope="col"><span>1개월 초과~2개월 이하</span></th>
+                                            <th scope="col"><span>2개월 초과~3개월 이하</span></th>
+                                            <th scope="col"><span>3개월 초과~6개월 이하</span></th>
+                                            <th scope="col"><span>6개월 초과~12개월 이하</span></th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                           <tr>
+                                                <td colspan="9">
+                                                <div class="empty-page">
+                                                    <i class="ico-info" aria-hidden="true"></i>
+                                                    <div class="typeLg">지정하신 일자가 비영업일이거나 해당 고시정보가 아직 등록되지 않았습니다.</div>
+                                                </div>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                               
+                       
+
+
+
+
+                                <h6 class="typeH6 mt-48">예금자보호안내</h6>
+                                <div class="bank_box mt-6 mb-48">
+
+
+                                    <div class="prodect-finance-noti">
+                                        <span class="typeLg">
+                                           이 예금은 「수산업협동조합의 부실예방 및 구조개선에 관한 법률」에 의해 1인당 보호대상 예금의 원금과 소정의 이자를 합하여 최고 1억원까지 보호되며, 1억원 초과금액에 대해서는 보호되지 않습니다. (보호한도는 각 수협별 적용, 동일 수협 본점 및 지점 예금합산)
+
+                                        </span>
+                                    </div>
+                                </div>
+                                <ul>
+                                    <li><span class="typeMd">준법감시인 심의필 상제 2026-0630호 (2026-03-25 기준)</span></li>
+                                    <li><span class="typeMd">유효기간 : 2026-03-25~2027-03-24</span></li>
+                                </ul>
+                            </div>
+
+                            <div class="box-tab-content" id="tabPanelTypeOutline03" role="tabpanel"
+                                aria-labelledby="tabBtnTypeOutline03" style="display:none;">
+                                유의사항
+                            </div>
+                        </div>
+                       
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+      
+    </div>
+    <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+    </div>
+    <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="/static/css/trn.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
+
+      <div id="container" class="container">
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="trn">
+              <!-- [dev] 문구수정 20261022 -->
+              <h2 class="typeH2">
+                10억초과 타행이체
+                <!--// [dev] 문구수정 20261022 -->
+
+                <div class="box-steps">
+                  <ol class="list-steps">
+                    <li class="item-steps passed">
+                      <i class="icon" aria-hidden="true">1</i>
+                      <span class="text">정보입력</span>
+                    </li>
+                    <li class="item-steps current" aria-current="step">
+                      <span class="blind">정보화면</span>
+                      <i class="icon" aria-hidden="true">2</i>
+                      <span class="text">정보화면</span>
+                    </li>
+                    <li class="item-steps">
+                      <i class="icon" aria-hidden="true">3</i>
+                      <span class="text">3</span>
+                    </li>
+                  </ol>
+                </div>
+              </h2>
+              <div class="tbl-head">
+                <h4 class="typeH4">출금계좌</h4>
+              </div>
+              <div class="withdrawal-section">
+                <div class="card-top-content">
+                  <div class="flex gap-16">
+                    <div class="flex justify-center items-center">
+                      <i class="bank-007 circle ico-size-2xl" aria-hidden="true"></i>
+                    </div>
+                    <div class="flex flex-column">
+                      <span class="type2XlMedium">Sh평생주거래우대통장</span>
+                      <div class="flex items-center gap-8">
+                        <span class="typeLgMedium">1010-12454-123</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="tbl-area">
+                <h4 class="typeH4">입금정보</h4>
+                <!-- [dev] 내용수정 및 추가 20261022 -->
+                <div class="total-container">
+                  <div class="total-summary-box renew">
+                    <div class="top-item">
+                      <div class="left-con">
+                        <div class="total">전체 <strong>2건</strong></div>
+                        <dl>
+                          <dt>정상처리</dt>
+                          <dd><span class="color-fg-primary">1</span>건</dd>
+                        </dl>
+                        <dl>
+                          <dt>에러처리</dt>
+                          <dd><span class="color-fg-error">1</span>건</dd>
+                        </dl>
+                      </div>
+                      <dl>
+                        <dt class="total-money">총 이체금액</dt>
+                        <dd><span class="color-fg-primary">20,030,000,000 </span>원</dd>
+                      </dl>
+                    </div>
+
+                    <div class="total-summay-box-under">
+                      <dl>
+                        <dt><i class="ico etc ico-size-sm ico-coin" aria-hidden="true"></i>총 수수료</dt>
+                        <dd>1,000<span> 원</span></dd>
+                      </dl>
+                    </div>
+                  </div>
+                  <!-- [dev] 내용수정 및 추가 20261022 -->
+
+                  <table class="table-type03">
+                    <caption>
+                      입금정보 테이블
+                    </caption>
+                    <colgroup>
+                      <col />
+                      <col />
+                      <col />
+                    </colgroup>
+                    <thead>
+                      <!-- [수정] 20260903 th scope 추가 -->
+                      <tr>
+                        <th scope="col">입금계좌(받는 분)</th>
+                        <th scope="col">이체금액</th>
+                        <th scope="col">수수료</th>
+                      </tr>
+                    </thead>
+
+                    <tbody>
+                      <tr>
+                        <td>
+                          <div class="ico-bank-wrap"><i class="bank-004 circle ico-size-md"></i>국민은행 0010-0000-0000 (타고조)</div>
+                        </td>
+                        <td class="text-right">10,000,000,000원</td>
+                        <td class="text-right">500원</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="ico-bank-wrap"><i class="bank-004 circle ico-size-md" aria-hidden="true"></i>국민은행 0010-0000-0000 (타고조)</div>
+                        </td>
+                        <td class="text-right">10,000,000,000원</td>
+                        <td class="text-right">500원</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <!-- [dev] 내용추가20261022 -->
+              <div class="list type-reference mt-12">
+                <ul>
+                  <li class="typeMd">보내는분 통장 표시내용 : 100억 이상 거액이체 | 받는분 통장표시내용 : 받는분 내용입니다.</li>
+                </ul>
+              </div>
+              <!-- //[dev] 내용추가20261022 -->
+
+              <!-- [dev] otp공통영역 추가 20261022 -->
+              <div class="tbl-area">
+                <!--tbl-area로 감싸고 안에 필요한 테이블 넣어주세요.-->
+                <!-- [dev] (공통)OTP인증 ui CIBCMN340101001M-->
+                <div class="wrap-board-grid">
+                  <div class="board-grid">
+                    <!-- [dev] (공통)OTP인증 ui CIBCMN340101001M 영역 : 작업 시 삭제-->
+                    <i style="display: block; border: var(--borderWidthMd) solid var(--colorBorderBase); border-radius: var(--radiusMd); padding: var(--spacing2Xl)">(공통)OTP인증 ui CIBCMN340101001M</i>
+                    <!-- //[dev] (공통)OTP인증 ui CIBCMN340101001M 영역 : 작업 시 삭제 -->
+                  </div>
+                </div>
+                <!-- //[dev] (공통)OTP인증 ui CIBCMN340101001M -->
+                <!--//tbl-area로 감싸고 안에 필요한 테이블 넣어주세요.-->
+              </div>
+
+              <!-- [dev] otp공통영역 추가 20261022 -->
+
+              <div class="btn-wrap center lg-bot">
+                <button type="button" class="btn type-bg-primary-tint size-xxl">
+                  <span class="text">취소</span>
+                </button>
+                <button type="button" class="btn type-bg-primary size-xxl">
+                  <span class="text">이체</span>
+                </button>
+                <!-- [dev] 버튼 추가 20261022 -->
+                <button type="button" class="btn type-bg-primary size-xxl">
+                  <span class="text">결제요청</span>
+                </button>
+                <button type="button" class="btn type-bg-primary size-xxl">
+                  <span class="text">승인요청</span>
+                </button>
+                <!--// [dev] 버튼 추가 20261022 -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
+</html>

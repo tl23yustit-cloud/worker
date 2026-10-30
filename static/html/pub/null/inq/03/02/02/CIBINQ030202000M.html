@@ -1,0 +1,108 @@
+<!-- CIBINQ030202000M.html -->
+<!-- 조회 > 조회 > 수표/어음조회 > 가계앞수표조회 -->
+<!-- 디자인 미확정 -->
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/inq.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
+
+      <div id="container" class="container">
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="inq">
+              <!--[dev]:20261026텍스트 수정-->
+              <h2 class="typeH2">가계수표조회</h2>
+              <!--//[dev]:20261026텍스트 수정-->
+              <div class="tbl-area">
+                <h4 class="typeH4">조회결과</h4>
+                <table class="table-type01">
+                  <caption>
+                    수표시작번호, 수표매수 정보 제공 테이블
+                  </caption>
+                  <colgroup>
+                    <col style="width: 160px" />
+                    <col style="width: 368px" />
+                    <col style="width: 160px" />
+                    <col style="width: 368px" />
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="row">수표시작번호</th>
+                      <td>
+                        <span class="typeMd">1000-0000-0000</span>
+                      </td>
+                      <th scope="row">수표매수</th>
+                      <!--[dev]:20261020 텍스트 정렬로  class="text-right" 삭제-->
+                      <td>
+                        <span class="typeMd">1 매</span>
+                      </td>
+                      <!--//[dev]:20261020 텍스트 정렬로  class="text-right" 삭제-->
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="tbl-area">
+                <!--[dev]:20261026텍스트 수정-->
+                <h4 class="typeH4">사고신고</h4>
+                <!--//[dev]:20261026텍스트 수정-->
+                <table class="table-type03">
+                  <caption>
+                    수표번호, 구분, 신고일시, 내용 정보 제공 테이블
+                  </caption>
+                  <colgroup>
+                    <col />
+                    <col />
+                    <col />
+                    <col />
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th scope="col">수표번호</th>
+                      <th scope="col">구분</th>
+                      <th scope="col">신고일시</th>
+                      <th scope="col">내용</th>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                    <tr>
+                      <td>85295929</td>
+                      <td>자기앞</td>
+                      <td>2026-07-10 15:30</td>
+                      <td>분실</td>
+                    </tr>
+                    <tr>
+                      <td colspan="4">
+                        <div class="empty-page">
+                          <i class="ico-info" aria-hidden="true"></i>
+                          <div class="typeMd">조회하신 거래내역이 없습니다.</div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
+</html>

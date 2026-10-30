@@ -1,0 +1,192 @@
+<!-- CIBFOE040102001P -->
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/bop.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
+
+      <div id="container" class="container">
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="bop">
+              <button type="button" class="btn type-bg-primary size-md btn-modal" data-target="modal-16">
+                <span class="text">영문주소검색</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+
+    <div id="modal-16" class="modal is-active" data-dim="true" data-backdrop-close="false" data-alert="true" data-size="sm" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc">
+      <div class="modal-wrapper">
+        <div class="modal-title">
+          <h4 id="modal-title" class="typeH4">영문주소검색</h4>
+        </div>
+        <div class="modal-slot">
+          <div id="modal-desc">
+            <div class="address-box">
+              <div class="step-1">
+                <div class="title"><span class="color-fg-primary">STEP 01</span> 주소를 검색하고 아래에서 해당되는 주소지를 선택하세요.</div>
+                <div class="search-box">
+                  <div class="search-box-top">
+                    <div class="clear-type">
+                      <input type="text" class="input size-lg" placeholder="도로명주소를 입력해주세요" aria-label="도로명주소 입력" value="" />
+                      <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                        <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                        <span class="blind">닫기</span>
+                      </button>
+                    </div>
+                    <div class="clear-type">
+                      <input type="text" class="input size-lg" placeholder="건물번호를 입력하세요" aria-label="건물번호 입력" value="" />
+                      <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                        <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                        <span class="blind">닫기</span>
+                      </button>
+                    </div>
+
+                    <button type="button" class="btn type-bg-neutral size-lg">
+                      <span class="text">검색</span>
+                    </button>
+                  </div>
+
+                  <div class="search-box-bottom">
+                    <ul class="address-list">
+                      <li>
+                        <span class="form-box">
+                          <input type="radio" name="addressRadioGroup" id="SampleRadio0201" class="form-radio" />
+                          <label for="SampleRadio0201" class="form-label"> (00000) 서울특별시 은평구 진흥로 11길 4-10 </label>
+                        </span>
+                      </li>
+                      <li>
+                        <span class="form-box">
+                          <input type="radio" name="addressRadioGroup" id="SampleRadio0202" class="form-radio" />
+                          <label for="SampleRadio0202" class="form-label"> (00000) 서울특별시 은평구 진흥로 11길 4-10 </label>
+                        </span>
+                      </li>
+                      <li>
+                        <span class="form-box">
+                          <input type="radio" name="addressRadioGroup" id="SampleRadio0203" class="form-radio" />
+                          <label for="SampleRadio0203" class="form-label"> (00000) 서울특별시 은평구 진흥로 11길 4-10 </label>
+                        </span>
+                      </li>
+                      <li>
+                        <span class="form-box">
+                          <input type="radio" name="addressRadioGroup" id="SampleRadio0204" class="form-radio" />
+                          <label for="SampleRadio0204" class="form-label"> (00000) 서울특별시 은평구 진흥로 11길 4-10 </label>
+                        </span>
+                      </li>
+                      <li>
+                        <span class="form-box">
+                          <input type="radio" name="addressRadioGroup" id="SampleRadio0205" class="form-radio" />
+                          <label for="SampleRadio0205" class="form-label"> (00000) 서울특별시 은평구 진흥로 11길 4-10 </label>
+                        </span>
+                      </li>
+                      <li>
+                        <span class="form-box">
+                          <input type="radio" name="addressRadioGroup" id="SampleRadio0206" class="form-radio" />
+                          <label for="SampleRadio0206" class="form-label"> (00000) 서울특별시 은평구 진흥로 11길 4-10 </label>
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="empty-box">
+                  <p class="typeMd color-fg-secondary text-center">검색하실 주소의 도로명을 입력하세요.<br />예) 거탄지로, 공룡로, 진홍로11길</p>
+                </div>
+              </div>
+              <div class="step-2">
+                <div class="title"><span class="color-fg-primary">STEP 02</span> 나머지 상세주소를 입력하고, 선택한 주소를 검증하세요.</div>
+                <div class="tbl-area">
+                  <table class="table-type01">
+                    <caption>
+                      영문주소 상세 및 기본주소 입력
+                    </caption>
+                    <!-- [수정] 20260907 col width 값 추가  -->
+                    <colgroup>
+                      <col style="width: 160px" />
+                      <col style="width: auto" />
+                    </colgroup>
+                    <tbody>
+                      <tr>
+                        <th scope="row">
+                          <span class="typeMdSemibold">상세주소</span>
+                        </th>
+                        <td>
+                          <span class="typeMd">
+                            <div class="clear-type wSize-full">
+                              <input type="text" class="input size-lg" placeholder="" aria-label="상세주소" value="" />
+                              <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                                <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                                <span class="blind">닫기</span>
+                              </button>
+                            </div>
+
+                            <span class="typeSm color-fg-secondary"> 상세주소는 영문, 숫자 50자 이내로 입력하세요. </span>
+                          </span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">
+                          <span class="typeMdSemibold">기본주소</span>
+                        </th>
+                        <td>
+                          <span class="typeMd">
+                            <input type="text" class="input size-lg" title="기본주소" value="Seoul Eunpyeon-gu Jinheug-ro 11-gil" readonly />
+                          </span>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div class="list type-dotted mt-12">
+                    <ul>
+                      <li class="typeMd">확인버튼을 누르면 입력하신 주소로 검증합니다.</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="btn-wrap center mt-8 mb-24">
+                  <button type="button" class="btn type-bg-primary size-md">
+                    <span class="text">확인 </span>
+                  </button>
+                </div>
+              </div>
+              <div class="step-3">
+                <div class="title"><span class="color-fg-primary">STEP 03</span> 검증된 주소를 확인하세요.</div>
+                <input type="text" class="input size-lg" placeholder="" title="검증된 주소 확인" readonly value="Seoul Eunpyeon-gu Jinheug-ro 11-gil 04-10, 100(Daejo-dong). Korea" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer flex items-center justify-center gap-8">
+          <button type="button" class="btn type-bg-primary-tint size-lg btn-close">
+            <span class="text">취소</span>
+          </button>
+          <button type="button" class="btn type-bg-primary size-lg">
+            <span class="text">주소사용</span>
+          </button>
+        </div>
+        <button type="button" class="ico btn-close" aria-label="모달 닫기">
+          <i class="ico-close ico-size-smMd" aria-hidden="true"></i>
+          <span class="blind">닫기</span>
+        </button>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>수협은행</title>
+  <link rel="stylesheet" href="/static/css/reset.css" />
+  <link rel="stylesheet" href="/static/css/layout.css" />
+  <link rel="stylesheet" href="/static/css/component.css" />
+  <link rel="stylesheet" href="/static/css/common.css" />
+  <link rel="stylesheet" href="/static/css/inq.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <div id="header">
+      @@include('static/html/pub/layout/skipNavigation.html')
+      @@include('static/html/pub/layout/header_sub.html')
+    </div>
+
+    <div id="container" class="container">
+      <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+      <div id="contents">
+        <div class="content">
+          @@include('static/html/pub/layout/breadcrumb.html')
+          <div class="inq">
+            <h2 class="typeH2">
+              자주쓰는송금계좌관리
+            </h2>
+            <div class="box-tab">
+              <ul class="list-tab-button type-outline" role="tablist" aria-label="탭 이름">
+                <li class="item-tab-button">
+                  <button type="button" class="btn-tab" title="선택됨" id="tabBtnTypeOutline01" role="tab"
+                    aria-selected="true" aria-controls="tabPanelTypeOutline01">
+                    <span class="text">국내외화이체</span>
+                  </button>
+                </li>
+                <li class="item-tab-button">
+                  <button type="button" class="btn-tab active" title="선택됨" id="tabBtnTypeOutline02" role="tab"
+                    aria-selected="false" aria-controls="tabPanelTypeOutline02">
+                    <span class="text">해외송금</span>
+                  </button>
+                </li>
+              </ul>
+              <div class="box-tab-content" id="tabPanelTypeOutline01" role="tabpanel"
+                aria-labelledby="tabBtnTypeOutline01" style="display: none;">
+                <h3 class="blind">Tab Content01</h3>
+                Tab 본문 01
+              </div>
+              <div class="box-tab-content active" id="tabPanelTypeOutline02" role="tabpanel"
+                aria-labelledby="tabBtnTypeOutline02" style="display: block;">
+                <!--[dev]:디자인수정에 따른 마크업수정-->
+                <div class="bg-box size-xl mt-48">
+                  <p class="typeLg">
+                    송금 시 매번 긴 영문 이름과 복잡한 계좌를 입력하는 번거로움을 줄이기 위해 자주쓰는 계좌를 미리 등록해 놓으시면 해외 송금을 이용하실 때 편리하게 입력하실 수 있습니다.
+                  </p>
+                  <button type="button" class="btn type-bg-primary size-lg mt-8">
+                    <span class="text">자주쓰는 계좌등록</span>
+                    <i class="ico line ico-size-sm ico-edit color-fg-lightSolid" aria-hidden="true"></i>
+                  </button>
+                </div>
+                <!--//[dev]:디자인수정에 따른 마크업수정-->
+                <div class="tbl-area">
+                  <div class="tbl-head">
+                    <div class="left-area flex items-center">
+                      <span class="typeSm">총</span><span class="typeSmSemibold"> 30</span>
+                    </div>
+                  </div>
+                  <table class="table-type03">
+                    <caption>
+                      자주쓰는송금계좌관리
+                    </caption>
+                    <colgroup>
+                      <col width="141px" />
+                      <col width="80px" />
+                      <col width="141px" />
+                      <col width="141px" />
+                      <col width="auto" />
+                      <col width="141px" />
+                    </colgroup>
+                    <thead>
+                      <!-- [수정] 20260908 th scope 추가 -->
+                      <tr>
+                        <th scope="col">수취인성명</th>
+                        <th scope="col">소재지</th>
+                        <th scope="col">수취은행명(SWIFT BIC)</th>
+                        <th scope="col">수취인계좌번호</th>
+                        <th scope="col">메모</th>
+                        <th scope="col">삭제</th>
+                      </tr>
+                    </thead>
+
+                    <tbody>
+                      <tr>
+                        <td><span class="typeMd">HONG GIL IO</span></td>
+                        <td><span class="typeMd">미국</span></td>
+                        <td><span class="typeMd">BANKCO MUNNICIPAL DE ROSARIO</span></td>
+                        <td><span class="typeMd">00000000000</span></td>
+                        <td class="text-left"><span class="typeMd">매달 보내는 유학비용</span></td>
+                        <td>
+                          <button type="button" class="btn type-line-neutral size-sm">
+                            <span class="text">삭제</span>
+                            <!--[dev]:20261028 table btn blind텍스트 추가-->
+                            <span class="blind">수취인계좌번호 삭제</span>
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><span class="typeMd">HONG GIL IO</span></td>
+                        <td><span class="typeMd">미국</span></td>
+                        <td><span class="typeMd">BANKCO MUNNICIPAL DE ROSARIO</span></td>
+                        <td><span class="typeMd">00000000000</span></td>
+                        <td class="text-left"><span class="typeMd">매달 보내는 유학비용</span></td>
+                        <td>
+                          <button type="button" class="btn type-line-neutral size-sm">
+                            <span class="text">삭제</span>
+                            <!--[dev]:20261028 table btn blind텍스트 추가-->
+                            <span class="blind">수취인계좌번호 삭제</span>
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><span class="typeMd">HONG GIL IO</span></td>
+                        <td><span class="typeMd">미국</span></td>
+                        <td><span class="typeMd">BANKCO MUNNICIPAL DE ROSARIO</span></td>
+                        <td><span class="typeMd">00000000000</span></td>
+                        <td class="text-left"><span class="typeMd">매달 보내는 유학비용</span></td>
+                        <td>
+                          <button type="button" class="btn type-line-neutral size-sm">
+                            <span class="text">삭제</span>
+                            <!--[dev]:20261028 table btn blind텍스트 추가-->
+                            <span class="blind">수취인계좌번호 삭제</span>
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><span class="typeMd">HONG GIL IO</span></td>
+                        <td><span class="typeMd">미국</span></td>
+                        <td><span class="typeMd">BANKCO MUNNICIPAL DE ROSARIO</span></td>
+                        <td><span class="typeMd">00000000000</span></td>
+                        <td class="text-left"><span class="typeMd">매달 보내는 유학비용</span></td>
+                        <td>
+                          <button type="button" class="btn type-line-neutral size-sm">
+                            <span class="text">삭제</span>
+                            <!--[dev]:20261028 table btn blind텍스트 추가-->
+                            <span class="blind">수취인계좌번호 삭제</span>
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <nav class="pagination size-md" aria-label="페이지네이션">
+                  <button type="button" class="btn-nav first" disabled="" aria-disabled="true" aria-label="첫 페이지">
+                    <span class="blind">첫 페이지</span>
+                  </button>
+                  <button type="button" class="btn-nav prev" disabled="" aria-disabled="true" aria-label="이전 페이지">
+                    <span class="blind">이전 페이지</span>
+                  </button>
+
+                  <ol class="list-pagination">
+                    <li>
+                      <button type="button" class="btn-page active" aria-current="page" aria-label="1페이지">
+                        1
+                      </button>
+                    </li>
+                    <li>
+                      <button type="button" class="btn-page" aria-label="2페이지">
+                        2
+                      </button>
+                    </li>
+                    <li>
+                      <button type="button" class="btn-page" aria-label="3페이지">
+                        3
+                      </button>
+                    </li>
+                    <li>
+                      <button type="button" class="btn-page" aria-label="4페이지">
+                        4
+                      </button>
+                    </li>
+                    <li>
+                      <button type="button" class="btn-page" aria-label="5페이지">
+                        5
+                      </button>
+                    </li>
+                  </ol>
+
+                  <button type="button" class="btn-nav next" aria-label="다음 페이지">
+                    <span class="blind">다음 페이지</span>
+                  </button>
+                  <button type="button" class="btn-nav last" aria-label="마지막 페이지">
+                    <span class="blind">마지막 페이지</span>
+                  </button>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+    </div>
+    <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+  </div>
+  <script src="/static/js/ui/cib_ui_common.js"></script>
+</body>
+
+</html>
+<script>
+
+</script>

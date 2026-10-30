@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/van.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">
+        @@include('static/html/pub/layout/skipNavigation.html')
+        @@include('static/html/pub/layout/header_sub.html')
+      </div>
+
+      <div id="container" class="container">
+        <div id="leftArea">
+          @@include('static/html/pub/layout/leftArea.html')
+        </div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="van">
+              <h2 class="typeH2">업체계좌 조회</h2>
+              <div class="tbl-area">
+                <table class="table-type01">
+                  <caption>
+                    업체코드에 대한 구성 테이블입니다.
+                  </caption>
+                  <colgroup>
+                    <col style="width: 160px" />
+                    <col style="width: auto" />
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="row">
+                        <span><label for="input-ody26c">업체코드</label></span>
+                      </th>
+                      <td>
+                        <div class="box-select wSize-lg">
+                          <button
+                            type="button"
+                            class="select size-lg"
+                            role="combobox"
+                            aria-expanded="false"
+                            aria-haspopup="listbox"
+                            aria-controls="selectDropdown01"
+                            aria-labelledby="label-account"
+                            aria-required="true"
+                          >
+                            <span class="text">DOZN003-우리상사 </span>
+                            <span class="blind">목록 열기</span>
+                          </button>
+                          <div id="selectDropdown01" class="box-list-select">
+                            <ul
+                              class="list-select"
+                              role="listbox"
+                              aria-label="업체코드 선택 리스트"
+                            >
+                              <li
+                                class="item-select"
+                                role="group"
+                                aria-selected="true"
+                              >
+                                <span class="btn-item-select">
+                                  DOZN003-우리상사
+                                </span>
+                              </li>
+                              <li
+                                class="item-select"
+                                role="group"
+                                aria-selected="false"
+                              >
+                                <span class="btn-item-select">1</span>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="btn-wrap center sm-mid">
+                <button type="button" class="btn type-bg-neutral size-xl">
+                  <span class="text">조회</span>
+                </button>
+              </div>
+
+              <div class="tbl-area">
+                <h4 class="typeH4  mb-12">조회결과</h4>
+                <div class="table-header flex items-center justify-between">
+                  <div class="total flex gap-4">
+                    <span class="typeSm">총</span
+                    ><span class="count typeSmSemibold">999</span>
+                  </div>
+                </div>
+                <table class="table-type03">
+                  <caption>
+                    번호, 업무명, 등록상태, 등록일자, 해지날자에 대한 구성
+                    테이블입니다.
+                  </caption>
+                  <colgroup>
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th scope="col"><span>번호</span></th>
+                      <th scope="col"><span>업무명</span></th>
+                      <th scope="col"><span>등록상태</span></th>
+                      <th scope="col"><span>등록일자</span></th>
+                      <th scope="col"><span>해지날자</span></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <span class="typeMd">1</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">실시간 계좌성명조회</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">등록</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">2021-01-14</span>
+                      </td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <nav class="pagination size-md" aria-label="페이지네이션">
+                <button
+                  type="button"
+                  class="btn-nav first"
+                  disabled=""
+                  aria-disabled="true"
+                  aria-label="첫 페이지"
+                >
+                  <span class="blind">첫 페이지</span>
+                </button>
+                <button
+                  type="button"
+                  class="btn-nav prev"
+                  disabled=""
+                  aria-disabled="true"
+                  aria-label="이전 페이지"
+                >
+                  <span class="blind">이전 페이지</span>
+                </button>
+
+                <ol class="list-pagination">
+                  <li>
+                    <button
+                      type="button"
+                      class="btn-page active"
+                      aria-current="page"
+                      aria-label="1페이지"
+                      title="현재 페이지"
+                    >
+                      1
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button" class="btn-page" aria-label="2페이지">
+                      2
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button" class="btn-page" aria-label="3페이지">
+                      3
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button" class="btn-page" aria-label="4페이지">
+                      4
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button" class="btn-page" aria-label="5페이지">
+                      5
+                    </button>
+                  </li>
+                </ol>
+
+                <button
+                  type="button"
+                  class="btn-nav next"
+                  aria-label="다음 페이지"
+                >
+                  <span class="blind">다음 페이지</span>
+                </button>
+                <button
+                  type="button"
+                  class="btn-nav last"
+                  aria-label="마지막 페이지"
+                >
+                  <span class="blind">마지막 페이지</span>
+                </button>
+              </nav>
+              <div class="btn-wrap center lg-bot">
+                  <button type="button" class="btn type-line-neutral size-xxl">
+                    <span class="text">파일저장</span>
+                  </button>
+                </div>
+              <div class="line-box size-xl mt-48">
+                <span class="typeLgSemibold">이용안내</span>
+                <div class="list type-dotted">
+                  <ul>
+                    <li class="typeMd">
+                      펌뱅킹 업무 모계좌를 조회하실 수 있는 화면입니다.
+                    </li>
+                    <li class="typeMd">
+                      업무 모계좌 등록은 영업점으로 문의바랍니다.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
+</html>
+<script></script>

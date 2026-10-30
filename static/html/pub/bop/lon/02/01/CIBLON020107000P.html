@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>수협은행</title>
+  <link rel="stylesheet" href="/static/css/reset.css" />
+  <link rel="stylesheet" href="/static/css/layout.css" />
+  <link rel="stylesheet" href="/static/css/component.css" />
+  <link rel="stylesheet" href="/static/css/common.css" />
+  <link rel="stylesheet" href="/static/css/bop.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <div id="header">
+      @@include('static/html/pub/layout/skipNavigation.html')
+      @@include('static/html/pub/layout/header_sub.html')
+    </div>
+
+    <div id="container" class="container">
+      <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+      <div id="contents">
+        <div class="content">
+          @@include('static/html/pub/layout/breadcrumb.html')
+          <div class="bop">
+            <button type="button" class="btn type-bg-primary size-md btn-modal" data-target="modal-16">
+              <span class="text">원금상환_이체확인증</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+    </div>
+    <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+  </div>
+  <script src="/static/js/ui/cib_ui_common.js"></script>
+  <div id="modal-16" class="modal is-active" data-dim="true" data-backdrop-close="false" data-alert="true"
+    data-size="xs" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc">
+    <div class="modal-wrapper">
+      <div class="modal-title">
+        <h4 class="typeH4">이체확인증(원금상환)</h4>
+      </div>
+      <div class="modal-slot">
+        <div id="modal-desc">
+          <div class="tbl-area">
+            <table class="table-type01">
+              <caption>
+                대출기간연장신청 조회
+              </caption>
+              <!-- [수정] 20260907 col width 값 추가  -->
+              <colgroup>
+                <col style="width: 160px" />
+                <col style="width: auto" />
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th scope="row">출금계좌예금주</th>
+                  <td>
+                    <span class="typeMd">한영물류</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">출금계좌번호</th>
+                  <td>
+                    <span class="typeMd">000-0000000-00-000</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">대출계좌번호</th>
+                  <td>
+                    <span class="typeMd">000-0000000-00-000</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">실행번호</th>
+                  <td>
+                    <span class="typeMd">0001</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">약정이자</th>
+                  <td class="text-right">
+                    <span class="typeMd">50,000원</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">연체이자</th>
+                  <td class="text-right">
+                    <span class="typeMd">50,000원</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">미납수수료</th>
+                  <td class="text-right">
+                    <span class="typeMd">10,000원</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">이자납입금액</th>
+                  <td class="text-right">
+                    <span class="typeMd">110,000원</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">최종이자납입일</th>
+                  <td>
+                    <span class="typeMd">2026-08-12</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer flex items-center justify-center gap-8">
+        <button type="button" class="btn ico-line-rounded">
+          <i class="ico-fax ico-size-smMd"></i>
+          <span class="text">인쇄하기</span>
+          <span class="blind">팩스</span>
+        </button>
+      </div>
+      <button type="button" class="ico btn-close" aria-label="모달 닫기">
+        <i class="ico-close ico-size-smMd" aria-hidden="true"></i>
+        <span class="blind">닫기</span>
+      </button>
+    </div>
+  </div>
+</body>
+
+</html>

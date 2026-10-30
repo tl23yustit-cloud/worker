@@ -1,0 +1,729 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/bmg.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">
+        @@include('static/html/pub/layout/skipNavigation.html')
+        @@include('static/html/pub/layout/header_sub.html')
+      </div>
+
+      <div id="container" class="container">
+        <div id="leftArea">
+          @@include('static/html/pub/layout/leftArea.html')
+        </div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="bmg">
+              <h2 class="typeH2">이지셋업</h2>
+
+              <div class="flex justify-between mb-12">
+                <h4 class="typeH4">사용자 정보 등록</h4>
+                <button type="button" class="btn type-line-neutral size-md">
+                  <span class="text">이지셋업 이용가이드 다운로드 </span>
+                  <i
+                    class="ico line ico-size-sm ico-download"
+                    aria-hidden="true"
+                  ></i>
+                </button>
+              </div>
+
+              <!-- 약관 동의 영역 -->
+              <div class="terms-box">
+                <div class="terms">
+                  <div class="flex items-center justify-center h-100">
+                    약관 영역노출
+                  </div>
+                </div>
+
+                <fieldset class="form-box-wrap">
+                  <legend class="sr-only">
+                    사용자 정보 등록 약관 동의 여부
+                  </legend>
+
+                  <span class="form-box">
+                    <input
+                      type="radio"
+                      name="termsAgree"
+                      id="termsAgreeNo"
+                      class="form-radio size-md"
+                    />
+                    <label for="termsAgreeNo" class="form-label"
+                      >동의하지 않음</label
+                    >
+                  </span>
+
+                  <span class="form-box">
+                    <input
+                      type="radio"
+                      name="termsAgree"
+                      id="termsAgreeYes"
+                      class="form-radio size-md"
+                    />
+                    <label for="termsAgreeYes" class="form-label">동의함</label>
+                  </span>
+                </fieldset>
+              </div>
+
+              <!-- 1. 사용자 기본정보 등록 테이블 -->
+              <div class="tbl-area">
+                <div class="tbl-head">
+                  <div class="left-area">
+                    <h4 class="typeH4">사용자 기본정보 등록</h4>
+                  </div>
+                  <div class="right-area">
+                    <button type="button" class="btn type-line-neutral size-md">
+                      <span class="text">계좌/카드 권한복사</span>
+                    </button>
+                  </div>
+                </div>
+                <table class="table-type01">
+                  <caption>
+                    사용자 기본정보 등록 입력 폼 (사용자구분, 사용자ID,
+                    사용자명, 부서명, 직위, 휴대전화번호 항목 입력)
+                  </caption>
+                  <colgroup>
+                    <col style="width: 20%" />
+                    <col style="width: 80%" />
+                  </colgroup>
+                  <tbody>
+                    <!-- 사용자구분 -->
+                    <tr>
+                      <th scope="row">사용자구분</th>
+                      <td>
+                        <div class="tbl-flex">
+                          <fieldset
+                            class="form-box-wrap"
+                            style="border: 0; padding: 0; margin: 0"
+                          >
+                            <legend class="sr-only">사용자구분 선택</legend>
+                            <span class="form-box">
+                              <input
+                                type="radio"
+                                name="userType"
+                                id="userType01"
+                                class="form-radio size-md"
+                              />
+                              <label for="userType01" class="form-label"
+                                >일반사용자</label
+                              >
+                            </span>
+                            <span class="form-box">
+                              <input
+                                type="radio"
+                                name="userType"
+                                id="userType02"
+                                class="form-radio size-md"
+                                checked
+                              />
+                              <label for="userType02" class="form-label"
+                                >결재사용자</label
+                              >
+                            </span>
+                          </fieldset>
+                          <button
+                            type="button"
+                            class="btn type-line-secondary size-lg btn-modal"
+                            data-target="modal-01"
+                          >
+                            <span class="text">사용자 구분 확인</span>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <!-- 사용자 ID -->
+                    <tr>
+                      <th scope="row">
+                        <label for="userIdInput"
+                          ><span class="required">사용자ID</span></label
+                        >
+                      </th>
+                      <td>
+                        <div class="tbl-flex">
+                          <input
+                            type="text"
+                            id="userIdInput"
+                            class="input size-lg wSize-md"
+                            value="SUHYUP001"
+                            placeholder="아이디를 입력해주세요"
+                            aria-required="true"
+                          />
+                          <button
+                            type="button"
+                            class="btn type-line-secondary size-lg"
+                          >
+                            <span class="text">중복확인</span>
+                          </button>
+                        </div>
+                        <p class="input-guide-text">
+                          5~10자리 영문, 숫자를 혼용하여 입력해 주세요.
+                        </p>
+                      </td>
+                    </tr>
+
+                    <!-- 사용자명 -->
+                    <tr>
+                      <th scope="row">
+                        <label for="userNameInput"
+                          ><span class="required">사용자명</span></label
+                        >
+                      </th>
+                      <td>
+                        <input
+                          type="text"
+                          id="userNameInput"
+                          class="input size-lg wSize-md"
+                          value="김수협"
+                          placeholder="사용자명을 입력해주세요"
+                          aria-required="true"
+                          error
+                        />
+                        <p class="input-guide-text">
+                          동명이인은 구분하여 입력해주세요.
+                        </p>
+                      </td>
+                    </tr>
+
+                    <!-- 부서명 -->
+                    <tr>
+                      <th scope="row">
+                        <label for="userDeptInput">부서명</label>
+                      </th>
+                      <td>
+                        <input
+                          type="text"
+                          id="userDeptInput"
+                          class="input size-lg wSize-md is-error"
+                          value="영업팀"
+                          placeholder="부서명을 입력해주세요"
+                        />
+                        <p class="input-guide-text error">
+                          Helper text goes here.
+                        </p>
+                      </td>
+                    </tr>
+
+                    <!-- 직위 -->
+                    <tr>
+                      <th scope="row">
+                        <label for="userPositionInput">직위</label>
+                      </th>
+                      <td>
+                        <input
+                          type="text"
+                          id="userPositionInput"
+                          class="input size-lg wSize-md"
+                          value="과장"
+                          placeholder="직위를 입력해주세요"
+                        />
+                      </td>
+                    </tr>
+
+                    <!-- 휴대전화번호 -->
+                    <tr>
+                      <th scope="row">
+                        <span class="required">휴대전화번호</span>
+                      </th>
+                      <td>
+                        <div class="tbl-flex">
+                          <!-- aria-labelledby와 aria-describedby 연결 -->
+                          <div class="box-select wSize-sm">
+                            <button
+                              type="button"
+                              id="phonePrefixBtn"
+                              class="select size-lg"
+                              role="combobox"
+                              aria-expanded="false"
+                              aria-haspopup="listbox"
+                              aria-controls="selectDropdown01"
+                              aria-labelledby="phone-label"
+                              aria-required="true"
+                            >
+                              <span class="text">010</span>
+                            </button>
+                            <div id="selectDropdown01" class="box-list-select">
+                              <ul
+                                class="list-select"
+                                role="listbox"
+                                aria-label="휴대전화번호 앞자리 선택"
+                              >
+                                <li
+                                  class="item-select"
+                                  role="option"
+                                  aria-selected="true"
+                                  tabindex="0"
+                                >
+                                  <span class="btn-item-select">010</span>
+                                </li>
+                                <li
+                                  class="item-select"
+                                  role="option"
+                                  aria-selected="false"
+                                  tabindex="-1"
+                                >
+                                  <span class="btn-item-select">011</span>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                          <span aria-hidden="true">-</span>
+                          <input
+                            type="text"
+                            class="input size-lg wSize-sm"
+                            value=""
+                            maxlength="4"
+                            aria-label="휴대전화번호 중간자리"
+                            aria-required="true"
+                          />
+                          <span aria-hidden="true">-</span>
+                          <input
+                            type="text"
+                            class="input size-lg wSize-sm"
+                            value=""
+                            maxlength="4"
+                            aria-label="휴대전화번호 뒷자리"
+                            aria-required="true"
+                          />
+                        </div>
+                        <p class="input-guide-text">
+                          PUSH알림 수신을 위해 정확히 입력해 주세요.
+                        </p>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- 2. 이체한도 및 OTP등록 테이블 -->
+              <div class="tbl-area">
+                <div class="tbl-head">
+                  <div class="left-area">
+                    <h4 class="typeH4">이체한도 및 OTP등록</h4>
+                  </div>
+                </div>
+                <table class="table-type01">
+                  <caption>
+                    이체한도 및 OTP등록 정보 입력 폼 (1회 이체한도, 1일
+                    이체한도, OTP종류, OTP PIN 비밀번호 및 확인 항목 입력)
+                  </caption>
+                  <colgroup>
+                    <col style="width: 20%" />
+                    <col style="width: 80%" />
+                  </colgroup>
+                  <tbody>
+                    <!-- 1회 이체한도 -->
+                    <tr>
+                      <th scope="row">
+                        <label for="limitOnceInput"
+                          ><span class="required">1회 이체한도</span></label
+                        >
+                      </th>
+                      <td>
+                        <div class="tbl-flex">
+                          <input
+                            type="text"
+                            id="limitOnceInput"
+                            class="input size-lg wSize-md"
+                            placeholder="이체금액을 입력하세요"
+                            aria-required="true"
+                          />
+                          <button
+                            type="button"
+                            class="btn type-line-secondary size-lg"
+                          >
+                            <span class="text">최대</span>
+                          </button>
+                        </div>
+                        <p class="input-guide-text">
+                          최대 한도 100,000,000원(일억원)
+                        </p>
+                      </td>
+                    </tr>
+
+                    <!-- 1일 이체한도 -->
+                    <tr>
+                      <th scope="row">
+                        <label for="limitDailyInput"
+                          ><span class="required">1일 이체한도</span></label
+                        >
+                      </th>
+                      <td>
+                        <div class="tbl-flex">
+                          <input
+                            class="input size-lg wSize-md"
+                            placeholder="이체금액을 입력하세요"
+                            aria-required="true"
+                          />
+                          <button
+                            type="button"
+                            class="btn type-line-secondary size-lg"
+                          >
+                            <span class="text">최대</span>
+                          </button>
+                        </div>
+                        <p class="input-guide-text">
+                          최대 한도 100,000,000원(일억원)
+                        </p>
+                      </td>
+                    </tr>
+
+                    <!-- OTP종류 -->
+                    <tr>
+                      <th scope="row">OTP종류</th>
+                      <td>
+                        <fieldset
+                          class="form-box-wrap"
+                          style="border: 0; padding: 0; margin: 0"
+                        >
+                          <legend class="sr-only">OTP종류 선택</legend>
+                          <span class="form-box">
+                            <input
+                              type="radio"
+                              name="otpType"
+                              id="otpType01"
+                              class="form-radio size-md"
+                            />
+                            <label for="otpType01" class="form-label"
+                              >SH기업 디지털OTP(모바일,브라우저)</label
+                            >
+                          </span>
+                          <span class="form-box">
+                            <input
+                              type="radio"
+                              name="otpType"
+                              id="otpType02"
+                              class="form-radio size-md"
+                              checked
+                            />
+                            <label for="otpType02" class="form-label"
+                              >타행OTP</label
+                            >
+                          </span>
+                        </fieldset>
+                      </td>
+                    </tr>
+
+                    <!-- OTP PIN (비밀번호) -->
+                    <tr>
+                      <th scope="row">
+                        <label for="otpPinInput">OTP PIN<br />(비밀번호)</label>
+                      </th>
+                      <td>
+                        <div class="tbl-flex">
+                          <input
+                            type="password"
+                            id="otpPinInput"
+                            class="input size-lg wSize-smMd"
+                            placeholder="숫자6자리"
+                            maxlength="6"
+                            aria-required="true"
+                          />
+                          <button
+                            type="button"
+                            class="btn type-line-secondary size-lg"
+                          >
+                            <span class="text">마우스입력</span>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <!-- OTP PIN (비밀번호 확인) -->
+                    <tr>
+                      <th scope="row">
+                        <label for="otpPinConfirmInput"
+                          >OTP PIN<br />(비밀번호 확인)</label
+                        >
+                      </th>
+                      <td>
+                        <div class="tbl-flex">
+                          <input
+                            type="password"
+                            id="otpPinConfirmInput"
+                            class="input size-lg wSize-smMd"
+                            placeholder="숫자6자리"
+                            maxlength="6"
+                            aria-required="true"
+                          />
+                          <button
+                            type="button"
+                            class="btn type-line-secondary size-lg"
+                          >
+                            <span class="text">마우스입력</span>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <h4 class="typeH4 mt-48">계좌/카드 권한복사 대상자 정보</h4>
+              <div class="copy-target-box">
+                <div class="user-id">
+                  <h3 class="typeH3">김수협</h3>
+                  <span class="type3XlMedium">SUHYUP001</span>
+                </div>
+                <div class="user-level">
+                  <span class="user-level-item">일반사용자</span>
+                  <span class="user-level-item">디자인팀</span>
+                  <span class="user-level-item">차장</span>
+                </div>
+                <ul class="user-detail-list">
+                  <li class="user-detail-item">
+                    <dl>
+                      <dt>
+                        <i
+                          class="ico etc ico-size-md ico-passbook"
+                          aria-hidden="true"
+                        ></i>
+                        <span class="typeLgMedium">계좌출금권한</span>
+                      </dt>
+                      <dd>
+                        <span class="type2XlSemibold">5개</span>
+                      </dd>
+                    </dl>
+                  </li>
+                  <li class="user-detail-item">
+                    <dl>
+                      <dt>
+                        <i
+                          class="ico etc ico-size-md ico-magnifier-won"
+                          aria-hidden="true"
+                        ></i>
+                        <span class="typeLgMedium">계좌조회권한</span>
+                      </dt>
+                      <dd>
+                        <span class="type2XlSemibold">5개</span>
+                      </dd>
+                    </dl>
+                  </li>
+                  <li class="user-detail-item">
+                    <dl>
+                      <dt>
+                        <i
+                          class="ico etc ico-size-md ico-card"
+                          aria-hidden="true"
+                        ></i>
+                        <span class="typeLgMedium">카드조회권한</span>
+                      </dt>
+                      <dd>
+                        <span class="type2XlSemibold">5개</span>
+                      </dd>
+                    </dl>
+                  </li>
+                </ul>
+              </div>
+              <div class="btn-wrap center lg-bot">
+                <button type="button" class="btn type-bg-primary-tint size-xxl">
+                  <span class="text">취소</span>
+                </button>
+                <button type="button" class="btn type-bg-primary size-xxl">
+                  <span class="text">승인요청</span>
+                </button>
+              </div>
+              <div class="line-box size-xl mt-48">
+                <span class="typeLgSemibold">이용안내</span>
+                <div class="list type-dotted">
+                  <ul>
+                    <li class="typeMd">
+                      일반사용자는 기본정보, 이체한도, OTP를 등록하는
+                      화면입니다.
+                    </li>
+                    <li class="typeMd">
+                      결재사용자는 기본정보, 결재비밀번호를 등록하는 화면입니다.
+                    </li>
+                    <li class="typeMd">
+                      결재사용자의 1회/1일 이체한도는 0원이며, 중간결재 및
+                      조회성 메뉴만 이용이 가능합니다.
+                    </li>
+                    <li class="typeMd">
+                      결재사용자의 초기결재비밀번호는 6자리(첫글자 영문)입니다.
+                    </li>
+                    <li class="typeMd">
+                      결재사용자의 초기결재비밀번호는 중간결재자 결재 처리 시
+                      입력하는 비밀번호입니다.
+                    </li>
+                    <li class="typeMd">
+                      이미 등록된 사용자의 계좌/카드권한을 복사 할 수 있습니다.
+                    </li>
+                    <li class="typeMd">
+                      사용자ID, 초기결재비밀번호(결재사용자)는 해당 사용자의
+                      인증서 발급 시 필요한 정보이므로 반드시 기억하시기
+                      바랍니다.
+                    </li>
+                    <li class="typeMd">
+                      휴대폰번호 등록을 위한 아래의 [필수 개인(신용)정보
+                      수집·이용 동의서] 내용을 읽어보신 후 동의함에 체크해
+                      주세요.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+
+    <div
+      id="modal-01"
+      class="modal"
+      data-dim="true"
+      data-backdrop-close="false"
+      data-alert="false"
+      data-size="lg"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modal-title"
+      aria-describedby="modal-desc"
+    >
+      <div class="modal-wrapper">
+        <div class="modal-title" id="modal-title">
+          <h4 class="typeH4">사용자 구분 확인</h4>
+        </div>
+        <div class="modal-slot">
+          <div class="class-check-wrapper">
+            <div class="class-check-card">
+              <i class="ico etc ico-user" aria-hidden="true"></i>
+              <div class="class-title">일반사용자</div>
+              <div class="class-desc">
+                관리자의 통제하에 업무를 수행하며, 권한과<br />
+                본인확인 수단을 관리자가 부여합니다
+              </div>
+              <div class="class-items-wrapper">
+                <ul class="class-items-list">
+                  <li class="class-item">
+                    <i
+                      class="ico line ico-size-sm ico-check2"
+                      aria-hidden="true"
+                    ></i>
+                    <p>계좌 권한-조회/출금</p>
+                  </li>
+                  <li class="class-item">
+                    <i
+                      class="ico line ico-size-sm ico-check2"
+                      aria-hidden="true"
+                    ></i>
+                    <p>카드 권한-조회</p>
+                  </li>
+                  <li class="class-item">
+                    <i
+                      class="ico line ico-size-sm ico-check2"
+                      aria-hidden="true"
+                    ></i>
+                    <p>업무 권한-조회</p>
+                  </li>
+                  <li class="class-item">
+                    <i
+                      class="ico line ico-size-sm ico-check2"
+                      aria-hidden="true"
+                    ></i>
+                    <p>결재 권한-단독/중간/최종 결재</p>
+                  </li>
+                </ul>
+                <ul class="class-items-list">
+                  <li class="class-item">
+                    <i
+                      class="ico line ico-size-sm ico-check2"
+                      aria-hidden="true"
+                    ></i>
+                    <p>OTP 보유-필수</p>
+                  </li>
+                  <li class="class-item">
+                    <i
+                      class="ico line ico-size-sm ico-check2"
+                      aria-hidden="true"
+                    ></i>
+                    <p>인증서-유료 또는 무료</p>
+                    <p class="desc-text">수협은행 용도제한용</p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="class-check-card">
+              <i class="ico etc ico-user type2" aria-hidden="true"></i>
+              <div class="class-title">결재사용자</div>
+              <div class="class-desc">
+                결재사용자는 관리자의 통제하에 업무를 수행하며,<br />
+                아래의 권한을 관리자가 부여합니다
+              </div>
+              <div class="class-items-wrapper">
+                <ul class="class-items-list">
+                  <li class="class-item">
+                    <i
+                      class="ico line ico-size-sm ico-check2"
+                      aria-hidden="true"
+                    ></i>
+                    <p>계좌 권한-조회/출금</p>
+                  </li>
+                  <li class="class-item">
+                    <i
+                      class="ico line ico-size-sm ico-check2"
+                      aria-hidden="true"
+                    ></i>
+                    <p>카드 권한-조회</p>
+                  </li>
+                  <li class="class-item">
+                    <i
+                      class="ico line ico-size-sm ico-check2"
+                      aria-hidden="true"
+                    ></i>
+                    <p>업무 권한-조회</p>
+                  </li>
+                  <li class="class-item">
+                    <i
+                      class="ico line ico-size-sm ico-check2"
+                      aria-hidden="true"
+                    ></i>
+                    <p>결재 권한-중간 결재</p>
+                  </li>
+                </ul>
+                <ul class="class-items-list">
+                  <li class="class-item">
+                    <i
+                      class="ico line ico-size-sm ico-check2"
+                      aria-hidden="true"
+                    ></i>
+                    <p>OTP-보유불가능</p>
+                  </li>
+                  <li class="class-item">
+                    <i
+                      class="ico line ico-size-sm ico-check2"
+                      aria-hidden="true"
+                    ></i>
+                    <p>인증서-무료</p>
+                    <p class="desc-text">수협은행 용도제한용</p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer flex items-center justify-center gap-8">
+          <button type="button" class="btn type-bg-primary size-xl btn-close">
+            <span class="text">닫기</span>
+          </button>
+        </div>
+        <button type="button" class="ico btn-close" aria-label="모달 닫기">
+          <i class="ico-close ico-size-smMd" aria-hidden="true"></i>
+          <span class="blind">닫기</span>
+        </button>
+      </div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
+</html>

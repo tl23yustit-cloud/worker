@@ -1,0 +1,288 @@
+<!-- CIBFOE100100000M -->
+<!-- 뱅킹관리 > 외환 > 외화수표조회 -->
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>뱅킹관리 &gt; 외환 &gt; 외화수표조회 | 수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/foe.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
+
+      <div id="container" class="container">
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="foe">
+              <h2 class="typeH2">외화수표조회</h2>
+
+              <!-- 조회 조건 영역 (케이스 1: 접수일 선택 시) -->
+              <div class="tbl-area">
+                <table class="table-type01">
+                  <caption>
+                    외화수표조회 조건 입력 테이블 (접수일 기준)
+                  </caption>
+                  <!-- [수정] 20260907 col width 값 수정  -->
+                  <colgroup>
+                    <col style="width: 160px" />
+                    <col style="width: auto" />
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="row">처리구분</th>
+                      <td>
+                        <!--[dev]:20261029 aria-label 추가-->
+                        <div class="form-box-wrap" aria-label="처리구분">
+                          <!--//[dev]:20261029 role aria-label 추가-->
+                          <span class="form-box">
+                            <input type="radio" name="processType" id="processType01" class="form-radio size-md" checked />
+                            <label for="processType01" class="form-label">접수일</label>
+                          </span>
+                          <span class="form-box">
+                            <input type="radio" name="processType" id="processType02" class="form-radio size-md" />
+                            <label for="processType02" class="form-label">매입번호</label>
+                          </span>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">조회기간</th>
+                      <td>
+                        <div class="tbl-column">
+                          <!--[dev]:20261029 role aria-label 추가-->
+                          <div class="radio-group" role="radiogroup" aria-label="조회기간">
+                            <span class="form-box">
+                              <input type="radio" name="dateType" id="dateType01" class="radio-btn" checked />
+                              <label for="dateType01" class="form-label">당일</label>
+                              <input type="radio" name="dateType" id="dateType02" class="radio-btn" />
+                              <label for="dateType02" class="form-label">1주일</label>
+                              <input type="radio" name="dateType" id="dateType03" class="radio-btn" />
+                              <label for="dateType03" class="form-label">1개월</label>
+                              <input type="radio" name="dateType" id="dateType04" class="radio-btn" />
+                              <label for="dateType04" class="form-label">3개월</label>
+                              <input type="radio" name="dateType" id="dateType05" class="radio-btn" />
+                              <label for="dateType05" class="form-label">6개월</label>
+                              <input type="radio" name="dateType" id="dateType06" class="radio-btn" />
+                              <label for="dateType06" class="form-label">12개월</label>
+                            </span>
+                          </div>
+                          <div class="calendar-wrap">
+                            <div class="input-box">
+                              <input type="text" class="input" title="조회시작일" value="2026-10-01" />
+                              <button type="button" class="btn">
+                                <i class="ico-calendar ico-size-smMd" aria-hidden="true"></i>
+                                <span class="blind">날짜 열기</span>
+                              </button>
+                            </div>
+                            ~
+                            <div class="input-box">
+                              <input type="text" class="input" title="조회종료일" value="2026-10-30" />
+                              <button type="button" class="btn">
+                                <i class="ico-calendar ico-size-smMd" aria-hidden="true"></i>
+                                <span class="blind">날짜 열기</span>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- 조회 조건 영역 (케이스 2: 매입번호 선택 시) -->
+              <div class="tbl-area">
+                <table class="table-type01">
+                  <caption>
+                    외화수표조회 조건 입력 테이블 (매입번호 기준)
+                  </caption>
+                  <!-- [수정] 20260907 col width 값 수정  -->
+                  <colgroup>
+                    <col style="width: 160px" />
+                    <col style="width: auto" />
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="row">처리구분</th>
+                      <td>
+                        <!--[dev]:20261029 aria-label추가 -->
+                        <div class="form-box-wrap" aria-label="처리구분">
+                          <span class="form-box">
+                            <input type="radio" name="processTypeAlt" id="processTypeAlt01" class="form-radio size-md" />
+                            <label for="processTypeAlt01" class="form-label">접수일</label>
+                          </span>
+                          <span class="form-box">
+                            <input type="radio" name="processTypeAlt" id="processTypeAlt02" class="form-radio size-md" checked />
+                            <label for="processTypeAlt02" class="form-label">매입번호</label>
+                          </span>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">매입번호</th>
+                      <td>
+                        <div class="clear-type">
+                          <input type="text" class="input wSize-md size-lg" placeholder="매입번호를 입력하세요." aria-label="매입번호" />
+                          <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                            <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                            <span class="blind">닫기</span>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- 조회 버튼 영역 -->
+              <div class="btn-wrap center sm-mid">
+                <button type="button" class="btn type-bg-neutral size-xl">
+                  <span class="text">조회</span>
+                </button>
+              </div>
+
+              <!-- 기본정보 영역 -->
+              <div class="tbl-area">
+                <div class="tbl-head">
+                  <div class="left-area">
+                    <h4 class="typeH4">기본정보</h4>
+                  </div>
+                </div>
+                <table class="table-type01">
+                  <caption>
+                    주민(사업자)번호, 고객명 정보 테이블
+                  </caption>
+                  <!-- [수정] 20260907 col width 값 수정  -->
+                  <colgroup>
+                    <col style="width: 160px" />
+                    <col style="width: 368px" />
+                    <col style="width: 160px" />
+                    <col style="width: 368px" />
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="row">주민(사업자)번호</th>
+                      <td>
+                        <span class="typeMd">000-00-00000</span>
+                      </td>
+                      <th scope="row">고객명</th>
+                      <td>
+                        <span class="typeMd">홍길동 주식회사</span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- 내역조회 영역 -->
+              <div class="tbl-area">
+                <div class="tbl-head">
+                  <div class="left-area">
+                    <h4 class="typeH4">내역조회</h4>
+                  </div>
+                  <div class="right-area">
+                    <!--[dev]:20261029 class color-fg-secondary 추가-->
+                    <span class="color-fg-secondary typeSm">조회기간 : YYYY-MM-DD~YYYY-MM-DD</span>
+                  </div>
+                </div>
+                <table class="table-type03">
+                  <caption>
+                    외화수표조회 내역 목록 (매입번호, 매입일, 만기일, 통화, 매입금액, 미결제금액, 적요, 종류 정보 제공)
+                  </caption>
+                  <colgroup>
+                    <col style="width: 20%" />
+                    <col style="width: 20%" />
+                    <col style="width: 20%" />
+                    <col style="width: 25%" />
+                    <col style="width: 15%" />
+                  </colgroup>
+                  <!-- [수정] 20260907 2단 복합테이블 headers-id 적용  -->
+                  <thead>
+                    <tr>
+                      <th id="col_1" scope="col" rowspan="2">매입번호</th>
+                      <th id="col_2" scope="col">매입일</th>
+                      <th id="col_3" scope="col">통화</th>
+                      <!--[dev]:20261028 공통 col table th 금액단위표시(원)-->
+                      <th id="col_4" scope="col">미결제금액(원)</th>
+                      <!--//[dev]:20261028 공통 col table th 금액단위표시(원)-->
+                      <th id="col_5" scope="col" rowspan="2">종류</th>
+                    </tr>
+                    <tr>
+                      <th id="col_2_1" scope="col">만기일</th>
+                      <!--[dev]:20261028 공통 col table th 금액단위표시(원)-->
+                      <th id="col_3_1" scope="col">매입금액(원)</th>
+                      <!--//[dev]:20261028 공통 col table th 금액단위표시(원)-->
+                      <th id="col_4_1" scope="col">적요</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td id="row_1" rowspan="2">BB003313000047</td>
+                      <td headers="row_1 col_2">YYYY-MM-DD</td>
+                      <td headers="row_1 col_3">USD</td>
+                      <td headers="row_1 col_4" class="text-right">1,000.00</td>
+                      <td headers="row_1 col_5" rowspan="2">개인수표</td>
+                    </tr>
+                    <tr>
+                      <td headers="row_1 col_2_1" class="tbl-border-left">YYYY-MM-DD</td>
+                      <td headers="row_1 col_3_1" class="text-right">1,000.00</td>
+                      <td headers="row_1 col_4_1">추심</td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <!-- 페이지네이션 -->
+                <nav class="pagination size-md" aria-label="페이지네이션">
+                  <button type="button" class="btn-nav first" disabled aria-disabled="true" aria-label="첫 페이지">
+                    <span class="blind">첫 페이지</span>
+                  </button>
+                  <button type="button" class="btn-nav prev" disabled aria-disabled="true" aria-label="이전 페이지">
+                    <span class="blind">이전 페이지</span>
+                  </button>
+
+                  <ol class="list-pagination">
+                    <li>
+                      <button type="button" class="btn-page active" aria-current="page" aria-label="1페이지">1</button>
+                    </li>
+                    <li>
+                      <button type="button" class="btn-page" aria-label="2페이지">2</button>
+                    </li>
+                    <li>
+                      <button type="button" class="btn-page" aria-label="3페이지">3</button>
+                    </li>
+                    <li>
+                      <button type="button" class="btn-page" aria-label="4페이지">4</button>
+                    </li>
+                    <li>
+                      <button type="button" class="btn-page" aria-label="5페이지">5</button>
+                    </li>
+                  </ol>
+
+                  <button type="button" class="btn-nav next" aria-label="다음 페이지">
+                    <span class="blind">다음 페이지</span>
+                  </button>
+                  <button type="button" class="btn-nav last" aria-label="마지막 페이지">
+                    <span class="blind">마지막 페이지</span>
+                  </button>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
+</html>
+<script></script>

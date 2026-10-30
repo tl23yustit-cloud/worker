@@ -1,0 +1,121 @@
+<!-- 1.03v -->
+
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/van.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
+
+      <div id="container" class="container">
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="van">
+              <button type="button" class="btn type-bg-primary size-md btn-modal" data-target="modal-01">
+                <span class="text">모달 버튼</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+    <div id="modal-01" class="modal is-active" data-dim="true" data-backdrop-close="false" data-alert="true" data-size="md" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc">
+      <div class="modal-wrapper">
+        <div class="modal-title" id="modal-title">
+          <h4 class="typeH4">자주쓰는 입금계좌 등록</h4>
+        </div>
+        <div class="modal-slot">
+          <div class="bg-box line size-lgXl">
+            <div class="typeLg text-center">자주 사용하시는 계좌를 등록해주세요.</div>
+          </div>
+          <div class="tbl-area">
+            <table class="table-type01">
+              <caption>
+                은행명, 계좌번호, 메모에 대한 구성 테이블입니다.
+              </caption>
+              <colgroup>
+                <col style="width: 160px" />
+                <col style="width: auto" />
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th scope="row">
+                    <span>은행명</span>
+                  </th>
+                  <td>
+                    <div class="box-select wSize-md">
+                      <button type="button" id="input-fg9g9p" class="select size-lg" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="comp-d62lph" aria-label="은행명 선택">
+                        <span class="text">수협은행</span>
+                        <span class="blind">펼침</span>
+                      </button>
+                      <div id="comp-d62lph" class="box-list-select">
+                        <ul class="list-select" role="listbox" aria-label="은행명">
+                          <li class="item-select" role="option" aria-selected="false"><span class="btn-item-select">Option01</span></li>
+                          <li class="item-select" role="option" aria-selected="false"><span class="btn-item-select">Option02</span></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <span>계좌번호</span>
+                  </th>
+                  <td>
+                    <div class="clear-type">
+                      <input type="text" id="input-434wib" class="input size-lg wSize-md" aria-label="계좌번호 입력" placeholder="숫자만 입력하세요" />
+
+                      <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                        <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                        <span class="blind">닫기</span>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <span>메모</span>
+                  </th>
+                  <td>
+                    <div class="clear-type wSize-full">
+                      <input type="text" id="input-yoc2dy" class="input size-lg" aria-label="메모 입력" placeholder="메모를 입력하세요" />
+
+                      <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                        <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                        <span class="blind">닫기</span>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="modal-footer flex items-center justify-center gap-8">
+          <button type="button" class="btn type-bg-primary size-lg">
+            <span class="text">확인</span>
+          </button>
+        </div>
+        <button type="button" class="ico btn-close" aria-label="모달 닫기">
+          <i class="ico-close ico-size-smMd" aria-hidden="true"></i>
+          <span class="blind">닫기</span>
+        </button>
+      </div>
+    </div>
+  </body>
+</html>

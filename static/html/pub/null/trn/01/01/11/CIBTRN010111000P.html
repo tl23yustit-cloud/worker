@@ -1,0 +1,308 @@
+<!-- CIBTRN010110000P.html -->
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/bop.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
+
+      <div id="container" class="container">
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="bop">
+              <button type="button" class="btn type-bg-primary size-md btn-modal" data-target="modal-01">
+                <span class="text">모달 버튼</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+
+    <!-- 모달 팝업 영역 -->
+    <div id="modal-01" class="modal is-active" data-dim="true" data-backdrop-close="false" data-alert="true" data-size="sm" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc">
+      <div class="modal-wrapper">
+        <div class="modal-title" id="modal-title">
+          <h4 class="typeH4">채우기</h4>
+        </div>
+        <div class="modal-slot" id="modal-desc">
+          <!-- 상단 고정 계좌 정보 -->
+          <div class="account-info-box">
+            <div class="account-top-content">
+              <div class="account-logo">
+                <i class="bank-007 circle ico-size-md" aria-hidden="true"></i>
+              </div>
+              <div class="account-info">
+                <dl>
+                  <dt><span class="typeLgSemibold">헤이(Hey)정기예금</span></dt>
+                  <dd>
+                    <div>
+                      <div class="box-select">
+                        <button type="button" class="select" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="selectDropdown01">
+                          <span class="text">Sh수협은행 0405-1182-3345</span>
+                          <span class="blind">펼침</span>
+                        </button>
+                        <div id="selectDropdown01" class="box-list-select">
+                          <ul class="list-select" role="listbox" aria-label="선택 항목 리스트">
+                            <li class="item-select" role="group" aria-selected="true">
+                              <button class="btn-item-select">Sh수협은행 0405-1182-3345</button>
+                            </li>
+                            <li class="item-select" role="group">
+                              <button class="btn-item-select">Sh수협은행 0405-1182-3346</button>
+                            </li>
+                            <li class="item-select" role="group">
+                              <button class="btn-item-select">Sh수협은행 0405-1182-3347</button>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <span class="typeMdMedium">계좌잔액</span>
+                      <span class="typeLgSemibold">85,119,800,000,000원</span>
+                    </div>
+                  </dd>
+                </dl>
+              </div>
+            </div>
+            <dl class="account-bottom-content">
+              <dt class="flex items-center gap-4">
+                <i class="ico etc ico-size-sm ico-coin" aria-hidden="true"></i>
+                <span class="typeMdMedium">입금받을 총 금액</span>
+              </dt>
+              <dd>
+                <span class="typeXlBold color-fg-primary">85,119,800,000,000원</span>
+              </dd>
+            </dl>
+          </div>
+          <div class="mb-8">
+            <span class="form-box">
+              <input type="checkbox" name="" id="SampleCheckbox0301" class="form-checkbox size-lg check-all" />
+              <label for="SampleCheckbox0301" class="form-label">전체선택</label>
+            </span>
+          </div>
+          <div>
+            <!-- 아코디언 1 -->
+            <div class="box-accordion account-accordion line is-open">
+              <div class="box-item-list">
+                <div class="box-title">
+                  <span class="form-box">
+                    <input type="checkbox" name="" id="SampleCheckbox0301" class="form-checkbox size-md" aria-controls="accordionContent01" aria-expanded="true" checked />
+                    <div class="account-info">
+                      <div>
+                        <div class="typeLgSemibold">헤이(Hey)정기예금</div>
+                        <div class="typeMdMedium color-fg-secondary">
+                          <div class="flex"><span>Sh수협은행</span><span>0450-1182-3345</span></div>
+                        </div>
+                      </div>
+                      <span class="won">85,119,800,000,000원</span>
+                    </div>
+                  </span>
+                </div>
+                <button type="button" class="btn-accordion" aria-expanded="true" aria-controls="accordionContent01">
+                  <i class="ico-arrow" aria-hidden="true"></i>
+                  <span class="blind">상세내용 닫기</span>
+                </button>
+              </div>
+              <div id="accordionContent01" class="content-accordion">
+                <!--[dev]:20261020 웹접근성 공통으로 input에 aria-label 추가-->
+                <div class="input-group">
+                  <div class="tbl-flex">
+                    <div class="clear-type">
+                      <label for="input-amount-03" class="typeSmMedium">이체할 금액</label>
+                      <input type="text" id="input-amount-03" class="input wSize-md size-lg" value="" placeholder="입력해주세요" aria-label="이체할 금액" />
+                      <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                        <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                        <span class="blind">닫기</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="input-group">
+                  <div class="tbl-flex">
+                    <div class="clear-type">
+                      <label for="input-my-memo-03" class="typeSmMedium">내 통장 표시</label>
+                      <input type="text" id="input-my-memo-03" class="input wSize-md size-lg" value="" placeholder="입력해주세요" aria-label="내 통장 표시" />
+                      <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                        <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                        <span class="blind">닫기</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="input-group">
+                  <div class="tbl-flex">
+                    <div class="clear-type">
+                      <label for="input-target-memo-03" class="typeSmMedium">받는분통장표시</label>
+                      <input type="text" id="input-target-memo-03" class="input wSize-md size-lg" value="" placeholder="입력해주세요" aria-label="받는분통장표시" />
+                      <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                        <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                        <span class="blind">닫기</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <!--//[dev]:20261020 웹접근성 공통으로 input에 aria-label 추가-->
+              </div>
+            </div>
+
+            <!-- 아코디언 2 -->
+            <div class="box-accordion account-accordion line">
+              <div class="box-item-list">
+                <div class="box-title">
+                  <span class="form-box">
+                    <input type="checkbox" name="" id="SampleCheckbox0302" class="form-checkbox size-md" aria-controls="accordionContent02" aria-expanded="false" />
+                    <div class="account-info">
+                      <div>
+                        <div class="typeLgSemibold">Sh보고싶다!주거래자유예금</div>
+                        <div class="typeMdMedium color-fg-secondary">
+                          <div class="flex"><span>Sh수협은행</span><span>0450-2233-4455</span></div>
+                        </div>
+                      </div>
+                      <span class="won">10,000,000원</span>
+                    </div>
+                  </span>
+                </div>
+                <button type="button" class="btn-accordion" aria-expanded="false" aria-controls="accordionContent02">
+                  <i class="ico-arrow" aria-hidden="true"></i>
+                  <span class="blind">상세내용 열기</span>
+                </button>
+              </div>
+              <div id="accordionContent02" class="content-accordion">
+                <!--[dev]:20261020 웹접근성 공통으로 input에 aria-label 추가-->
+                <div class="input-group">
+                  <div class="tbl-flex">
+                    <div class="clear-type">
+                      <label for="input-amount-03" class="typeSmMedium">이체할 금액</label>
+                      <input type="text" id="input-amount-03" class="input wSize-md size-lg" value="" placeholder="입력해주세요" aria-label="이체할 금액" />
+                      <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                        <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                        <span class="blind">닫기</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="input-group">
+                  <div class="tbl-flex">
+                    <div class="clear-type">
+                      <label for="input-my-memo-03" class="typeSmMedium">내 통장 표시</label>
+                      <input type="text" id="input-my-memo-03" class="input wSize-md size-lg" value="" placeholder="입력해주세요" aria-label="내 통장 표시" />
+                      <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                        <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                        <span class="blind">닫기</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="input-group">
+                  <div class="tbl-flex">
+                    <div class="clear-type">
+                      <label for="input-target-memo-03" class="typeSmMedium">받는분통장표시</label>
+                      <input type="text" id="input-target-memo-03" class="input wSize-md size-lg" value="" placeholder="입력해주세요" aria-label="받는분통장표시" />
+                      <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                        <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                        <span class="blind">닫기</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <!--//[dev]:20261020 웹접근성 공통으로 input에 aria-label 추가-->
+              </div>
+            </div>
+
+            <!-- 아코디언 3 -->
+            <div class="box-accordion account-accordion line">
+              <div class="box-item-list">
+                <div class="box-title">
+                  <span class="form-box">
+                    <input type="checkbox" name="" id="SampleCheckbox0303" class="form-checkbox size-md" aria-controls="accordionContent03" aria-expanded="false" />
+                    <div class="account-info">
+                      <div>
+                        <div class="typeLgSemibold">Sh해양플러스자유적금</div>
+                        <div class="typeMdMedium color-fg-secondary">
+                          <div class="flex"><span>Sh수협은행</span><span>0450-9988-7766</span></div>
+                        </div>
+                      </div>
+                      <span class="won">5,000,000원</span>
+                    </div>
+                  </span>
+                </div>
+                <button type="button" class="btn-accordion" aria-expanded="false" aria-controls="accordionContent03">
+                  <i class="ico-arrow" aria-hidden="true"></i>
+                  <span class="blind">상세내용 열기</span>
+                </button>
+              </div>
+              <div id="accordionContent03" class="content-accordion">
+                <!--[dev]:20261020 웹접근성 공통으로 input에 aria-label 추가-->
+                <div class="input-group">
+                  <div class="tbl-flex">
+                    <div class="clear-type">
+                      <label for="input-amount-03" class="typeSmMedium">이체할 금액</label>
+                      <input type="text" id="input-amount-03" class="input wSize-md size-lg" value="" placeholder="입력해주세요" aria-label="이체할 금액" />
+                      <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                        <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                        <span class="blind">닫기</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="input-group">
+                  <div class="tbl-flex">
+                    <div class="clear-type">
+                      <label for="input-my-memo-03" class="typeSmMedium">내 통장 표시</label>
+                      <input type="text" id="input-my-memo-03" class="input wSize-md size-lg" value="" placeholder="입력해주세요" aria-label="내 통장 표시" />
+                      <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                        <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                        <span class="blind">닫기</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="input-group">
+                  <div class="tbl-flex">
+                    <div class="clear-type">
+                      <label for="input-target-memo-03" class="typeSmMedium">받는분통장표시</label>
+                      <input type="text" id="input-target-memo-03" class="input wSize-md size-lg" value="" placeholder="입력해주세요" aria-label="받는분통장표시" />
+                      <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                        <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                        <span class="blind">닫기</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <!--//[dev]:20261020 웹접근성 공통으로 input에 aria-label 추가-->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer flex items-center justify-center gap-8">
+          <button type="button" class="btn type-bg-primary size-lg">
+            <!--[dev]:20261020 버튼텍스트 수정-->
+            <span class="text">채우기</span>
+            <!--//[dev]:20261020 버튼텍스트 수정-->
+          </button>
+        </div>
+        <button type="button" class="ico btn-close" aria-label="모달 닫기">
+          <i class="ico-close ico-size-smMd" aria-hidden="true"></i>
+          <span class="blind">닫기</span>
+        </button>
+      </div>
+    </div>
+  </body>
+</html>

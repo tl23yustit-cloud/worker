@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/fin.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">
+        @@include('static/html/pub/layout/skipNavigation.html')
+        @@include('static/html/pub/layout/header_sub.html')
+      </div>
+
+      <div id="container" class="container">
+        <div id="leftArea">
+          @@include('static/html/pub/layout/leftArea.html')
+        </div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="fin">
+              <button
+                type="button"
+                class="btn type-bg-primary size-md btn-modal"
+                data-target="modal-01"
+              >
+                <span class="text">모달버튼</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <div
+      id="modal-01"
+      class="modal is-active"
+      data-dim="true"
+      data-backdrop-close="false"
+      data-alert="true"
+      data-size="sm"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modal-title"
+      aria-describedby="modal-desc"
+    >
+      <div class="modal-wrapper">
+        <div class="modal-title" id="modal-title">
+          <h4 class="typeH4">투자자 구분 안내</h4>
+        </div>
+        <div id="modal-desc" class="blind">투자자 구분 안내 모달입니다.</div>
+        <div class="modal-slot">
+            <div class="modal-desc">
+              <div class="list type-dotted">
+                  <ul>
+                      <li class="typeMd color-resolving">
+                          “전문투자자”란 집합투자증권에 관한 전문성 또는 소유자산 규모 등을 비추어 집합투자증권 매매에 따른 위험감수 능력이 있는 금융소비자를 말합니다.
+                      </li>
+                      <li class="typeMd color-resolving">
+                        전문금융소비자로 펀드가입을 원하시는 경우 전문 투자자 확인증을 지참하시어 영업점을 방문해 주시기 바랍니다.
+                      </li>
+                  </ul>
+              </div>
+            </div>
+        </div>
+
+        <div class="modal-footer flex items-center justify-center gap-8">
+          <button type="button" class="btn type-bg-primary size-lg">
+            <span class="text">확인</span>
+          </button>
+        </div>
+        <button type="button" class="ico btn-close" aria-label="모달 닫기">
+          <i class="ico-close ico-size-smMd" aria-hidden="true"></i>
+          <span class="blind">닫기</span>
+        </button>
+      </div>
+    </div>
+
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
+</html>

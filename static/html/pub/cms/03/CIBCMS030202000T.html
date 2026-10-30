@@ -1,0 +1,485 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/cms.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">
+        @@include('static/html/pub/layout/skipNavigation.html')
+        @@include('static/html/pub/layout/header_sub.html')
+      </div>
+
+      <div id="container" class="container">
+        <div id="leftArea">
+          @@include('static/html/pub/layout/leftArea.html')
+        </div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="cms">
+              <h2 class="typeH2">집금실행</h2>
+              <div class="box-tab">
+                <ul
+                  class="list-tab-button type-outline"
+                  role="tablist"
+                  aria-label="탭 이름"
+                >
+                  <li class="item-tab-button">
+                    <button
+                      type="button"
+                      class="btn-tab"
+                      id="tabBtnTypeOutline01"
+                      role="tab"
+                      aria-selected="false"
+                      aria-controls="tabPanelTypeOutline01"
+                    >
+                      <span class="text">집금등록</span>
+                    </button>
+                  </li>
+                  <li class="item-tab-button">
+                    <button
+                      type="button"
+                      class="btn-tab active"
+                      title="선택됨"
+                      id="tabBtnTypeOutline02"
+                      role="tab"
+                      aria-selected="true"
+                      aria-controls="tabPanelTypeOutline02"
+                    >
+                      <span class="text">집금실행/ 취소</span>
+                    </button>
+                  </li>
+                </ul>
+
+                <div
+                  class="box-tab-content active"
+                  id="tabPanelTypeOutline01"
+                  role="tabpanel"
+                  aria-labelledby="tabBtnTypeOutline01"
+                  style="display: blick"
+                >
+                  <div class="tbl-area">
+                    <table class="table-type01">
+                      <caption>
+                        집금업무, 집금등록상태, 조회기간 정보를 제공합니다.
+                      </caption>
+                      <colgroup>
+                        <col width="160px" />
+                        <col width="367px" />
+                        <col width="160px" />
+                        <col width="*" />
+                      </colgroup>
+                      <tbody>
+                        <tr>
+                          <th scope="row">집금업무</th>
+                          <td>
+                            <div class="box-select wSize-full">
+                              <button
+                                type="button"
+                                class="select size-lg work-select"
+                                role="combobox"
+                                aria-expanded="false"
+                                aria-haspopup="listbox"
+                                aria-controls="selectDropdown01"
+                              >
+                                <span class="text">전체</span>
+                                <span class="blind">펼침</span>
+                              </button>
+                              <div
+                                id="selectDropdown01"
+                                class="box-list-select"
+                              >
+                                <ul
+                                  class="list-select"
+                                  role="listbox"
+                                  aria-label="선택 항목 리스트"
+                                >
+                                  <li
+                                    class="item-select"
+                                    role="group"
+                                    aria-label="선택 항목 리스트"
+                                  >
+                                    <button class="btn-item-select">
+                                      전체
+                                    </button>
+                                  </li>
+                                  <li
+                                    class="item-select"
+                                    role="group"
+                                    aria-label="선택 항목 리스트"
+                                  >
+                                    <button class="btn-item-select">1</button>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                          </td>
+                          <th scope="row">집금등록상태</th>
+                          <td>
+                            <div class="box-select wSize-full">
+                              <button
+                                type="button"
+                                class="select size-lg work-select"
+                                role="combobox"
+                                aria-expanded="false"
+                                aria-haspopup="listbox"
+                                aria-controls="selectDropdown01"
+                              >
+                                <span class="text">전체</span>
+                                <span class="blind">펼침</span>
+                              </button>
+                              <div
+                                id="selectDropdown01"
+                                class="box-list-select"
+                              >
+                                <ul
+                                  class="list-select"
+                                  role="listbox"
+                                  aria-label="선택 항목 리스트"
+                                >
+                                  <li
+                                    class="item-select"
+                                    role="group"
+                                    aria-label="선택 항목 리스트"
+                                  >
+                                    <button class="btn-item-select">
+                                      전체
+                                    </button>
+                                  </li>
+                                  <li
+                                    class="item-select"
+                                    role="group"
+                                    aria-label="선택 항목 리스트"
+                                  >
+                                    <button class="btn-item-select">1</button>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th scope="row">조회기간</th>
+                          <td colspan="3">
+                            <div class="tbl-column">
+                              <div class="calendar-wrap">
+                                <div class="input-box">
+                                  <input
+                                    type="text"
+                                    class="input"
+                                    placeholder="이쳬예약일"
+                                    title=""
+                                    aria-label="이쳬예약일"
+                                    value="2026-01-06"
+                                  />
+                                  <button type="button" class="btn">
+                                    <i
+                                      class="ico-calendar ico-size-smMd"
+                                      aria-hidden="true"
+                                    ></i>
+                                    <span class="blind">날짜 열기</span>
+                                  </button>
+                                </div>
+                                ~
+                                <div class="input-box">
+                                  <input
+                                    type="text"
+                                    class="input"
+                                    placeholder="이쳬예약일"
+                                    title=""
+                                    aria-label="이쳬예약일"
+                                    value="2026-01-06"
+                                  />
+                                  <button type="button" class="btn">
+                                    <i
+                                      class="ico-calendar ico-size-smMd"
+                                      aria-hidden="true"
+                                    ></i>
+                                    <span class="blind">날짜 열기</span>
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="btn-wrap center sm-mid">
+                    <button type="button" class="btn type-line-neutral size-xl">
+                      <span class="text">초기화</span>
+                    </button>
+                    <button type="button" class="btn type-bg-neutral size-xl">
+                      <span class="text">조회</span>
+                    </button>
+                  </div>
+                  <div class="tbl-area">
+                    <h4 class="typeH4 mb-12">집금업무내역</h4>
+                    <div class="tbl-head">
+                      <div class="left-area flex items-center gap-8">
+                        <span class="typeSm"
+                          >총 <span class="num">$n$</span></span
+                        >
+                      </div>
+                    </div>
+                    <div class="wScroll">
+                      <table class="table-type03">
+                        <caption>
+                          집금등록일, 집금등록시각, 집금업무명, 사업장,
+                          집금모계좌, 총건수, 집금실행금액, 예상수수료건수,
+                          예상수수료, 상태, 더보기 정보를 제공합니다.
+                        </caption>
+                        <colgroup>
+                          <col width="44px" />
+                          <col width="120px" />
+                          <col width="120px" />
+                          <col width="140px" />
+                          <col width="120px" />
+                          <col width="150px" />
+                          <col width="80px" />
+                          <col width="150px" />
+                          <col width="120px" />
+                          <col width="150px" />
+                          <col width="100px" />
+                          <col width="100px" />
+                        </colgroup>
+                        <thead>
+                          <tr>
+                            <th scope="col">
+                              <span class="form-box">
+                                <input
+                                  type="checkbox"
+                                  class="form-checkbox check-all"
+                                  id="all"
+                                />
+                                <label for="all" class="blind"></label>
+                              </span>
+                            </th>
+                            <th scope="col">집금등록일</th>
+                            <th scope="col">집금등록시각</th>
+                            <th scope="col">집금업무명</th>
+                            <th scope="col">사업장</th>
+                            <th scope="col">집금모계좌</th>
+                            <th scope="col">총건수</th>
+                            <th scope="col">집금실행금액(원)</th>
+                            <th scope="col">예상수수료건수</th>
+                            <th scope="col">예상수수료(원)</th>
+                            <th scope="col">상태</th>
+                            <th scope="col">더보기</th>
+                          </tr>
+                        </thead>
+
+                        <tbody>
+                          <tr>
+                            <td>
+                              <span class="form-box">
+                                <input
+                                  type="checkbox"
+                                  id="chk1"
+                                  class="form-checkbox"
+                                />
+                                <label for="chk1" class="blind"></label>
+                              </span>
+                            </td>
+                            <td>
+                              <span class="typeMd">2026-06-16</span>
+                            </td>
+                            <td><span class="typeMd">13:57:20</span></td>
+                            <td><span class="typeMd">자금집금2</span></td>
+                            <td><span class="typeMd">강남지점</span></td>
+                            <td><span class="typeMd">1107011111</span></td>
+                            <td><span class="typeMd">3</span></td>
+                            <td class="text-right">
+                              <span class="typeMd">134,900</span>
+                            </td>
+                            <td><span class="typeMd">1</span></td>
+                            <td class="text-right">
+                              <span class="typeMd">900</span>
+                            </td>
+                            <td><span class="typeMd">집금대기</span></td>
+                            <td>
+                              <button
+                                type="button"
+                                class="btn type-line-neutral size-sm"
+                              >
+                                <span class="text">더보기</span>
+                              </button>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <span class="form-box">
+                                <input
+                                  type="checkbox"
+                                  id="chk1"
+                                  class="form-checkbox"
+                                />
+                                <label for="chk1" class="blind"></label>
+                              </span>
+                            </td>
+                            <td>
+                              <span class="typeMd">2026-06-16</span>
+                            </td>
+                            <td><span class="typeMd">13:57:20</span></td>
+                            <td><span class="typeMd">자금집금2</span></td>
+                            <td><span class="typeMd">강남지점</span></td>
+                            <td><span class="typeMd">1107011111</span></td>
+                            <td><span class="typeMd">3</span></td>
+                            <td class="text-right">
+                              <span class="typeMd">134,900</span>
+                            </td>
+                            <td><span class="typeMd">1</span></td>
+                            <td class="text-right">
+                              <span class="typeMd">900</span>
+                            </td>
+                            <td><span class="typeMd">집금대기</span></td>
+                            <td>
+                              <button
+                                type="button"
+                                class="btn type-line-neutral size-sm"
+                              >
+                                <span class="text">더보기</span>
+                              </button>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td colspan="12">
+                              <div class="empty-page">
+                                <i class="ico-info" aria-hidden="true"></i>
+                                <div class="typeLg">조회 결과가 없습니다.</div>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <nav class="pagination size-md" aria-label="페이지네이션">
+                    <button
+                      type="button"
+                      class="btn-nav first"
+                      disabled=""
+                      aria-disabled="true"
+                      aria-label="첫 페이지"
+                    >
+                      <span class="blind">첫 페이지</span>
+                    </button>
+                    <button
+                      type="button"
+                      class="btn-nav prev"
+                      disabled=""
+                      aria-disabled="true"
+                      aria-label="이전 페이지"
+                    >
+                      <span class="blind">이전 페이지</span>
+                    </button>
+
+                    <ol class="list-pagination">
+                      <li>
+                        <button
+                          type="button"
+                          class="btn-page active"
+                          aria-current="page"
+                          aria-label="1페이지"
+                        >
+                          1
+                        </button>
+                      </li>
+                      <li>
+                        <button
+                          type="button"
+                          class="btn-page"
+                          aria-label="2페이지"
+                        >
+                          2
+                        </button>
+                      </li>
+                      <li>
+                        <button
+                          type="button"
+                          class="btn-page"
+                          aria-label="3페이지"
+                        >
+                          3
+                        </button>
+                      </li>
+                      <li>
+                        <button
+                          type="button"
+                          class="btn-page"
+                          aria-label="4페이지"
+                        >
+                          4
+                        </button>
+                      </li>
+                      <li>
+                        <button
+                          type="button"
+                          class="btn-page"
+                          aria-label="5페이지"
+                        >
+                          5
+                        </button>
+                      </li>
+                    </ol>
+
+                    <button
+                      type="button"
+                      class="btn-nav next"
+                      aria-label="다음 페이지"
+                    >
+                      <span class="blind">다음 페이지</span>
+                    </button>
+                    <button
+                      type="button"
+                      class="btn-nav last"
+                      aria-label="마지막 페이지"
+                    >
+                      <span class="blind">마지막 페이지</span>
+                    </button>
+                  </nav>
+                  <div class="btn-wrap center lg-bot">
+                    <button
+                      type="button"
+                      class="btn type-bg-primary-tint size-xxl"
+                    >
+                      <span class="text">집금취소</span>
+                    </button>
+                    <button type="button" class="btn type-bg-primary size-xxl">
+                      <span class="text">집금실행</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+    <script>
+      const workSelect = document.querySelector(".work-select");
+      const accountRow = document.querySelector(".account-row");
+
+      workSelect.addEventListener("change", function () {
+        if (this.value) {
+          accountRow.classList.remove("is-hidden");
+        } else {
+          accountRow.classList.add("is-hidden");
+        }
+      });
+    </script>
+  </body>
+</html>
+<script></script>

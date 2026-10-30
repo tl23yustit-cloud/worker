@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>뱅킹업무 &gt; 예금/신탁 &gt; 예금 &gt; 해지계좌조회 &gt; 2단계</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/bop.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
+
+      <div id="container" class="container">
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="bop">
+              <h2 class="typeH2">
+                예금/적금계좌해지
+                <div class="box-steps">
+                  <ol class="list-steps">
+                    <!-- 
+												[dev] 상태값 class 안내
+												class="item-steps" 기본 숫자 표기
+												class="item-steps passed" 완료
+												class="item-steps current" 현재
+											 -->
+                    <li class="item-steps current" aria-current="step">
+                      <i class="icon" aria-hidden="true">1</i>
+                      <span class="text">정보입력</span>
+                    </li>
+                    <li class="item-steps">
+                      <i class="icon" aria-hidden="true">2</i>
+                      <span class="text">정보확인</span>
+                    </li>
+                    <li class="item-steps">
+                      <i class="icon" aria-hidden="true">3</i>
+                      <span class="text">해지완료</span>
+                    </li>
+                  </ol>
+                </div>
+              </h2>
+              <div class="tbl-area">
+                <table class="table-type01">
+                  <caption>
+                    입출금계좌해지 테이블
+                  </caption>
+                  <colgroup>
+                    <col width="160px" />
+                    <col width="auto" />
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="row">상품명</th>
+                      <td>
+                        <span class="typeMd">Sh모두행복海기업적금</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">해지계좌번호</th>
+                      <td>
+                        <span class="typeMd">1111-1111-1111</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">신규일</th>
+                      <td>
+                        <span class="typeMd">2012-03-02</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">만기일</th>
+                      <td>
+                        <span class="typeMd">2012-03-02</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">납입금액</th>
+                      <td class="text-right"><span class="typeMd">125,031원</span></td>
+                    </tr>
+                    <!--쿠폰있는경우 해당금액표기-->
+                    <tr>
+                      <th scope="row">쿠폰금액</th>
+                      <td class="text-right"><span class="typeMd">125,031원</span></td>
+                    </tr>
+                    <!--//쿠폰있는경우 해당금액표기-->
+                  </tbody>
+                </table>
+              </div>
+              <div class="tbl-area">
+                <table class="table-type01">
+                  <caption>
+                    입출금계좌해지 테이블
+                  </caption>
+                  <colgroup>
+                    <col width="160px" />
+                    <col width="auto" />
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="row">일부해지횟수</th>
+                      <td>
+                        <span class="typeMd">1</span>
+                      </td>
+                    </tr>
+                    <!--일부 해지가 가능한 경우,해지금액 입력 및 전액해지 선택 가능-->
+                    <tr>
+                      <th scope="row">해지금액</th>
+                      <td>
+                        <div class="tbl-column02">
+                          <div class="tbl-flex">
+                            <input type="text" id="userDeptInput" class="input size-lg wSize-md" value="" placeholder="입력해주세요" aria-label="해지금액" />
+                            <span class="form-box">
+                              <input type="checkbox" name="" id="SampleCheckbox0201" class="form-checkbox" />
+                              <label for="SampleCheckbox0201" class="form-label">전액해지</label>
+                            </span>
+                          </div>
+                          <div class="list type-star">
+                            <ul>
+                              <li class="typeSm">일부해지 후 예금잔액은 최소 $10,000$ 만원 이상이어야 해지가 가능합니다.</li>
+                            </ul>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <!--//일부 해지가 가능한 경우,해지금액 입력 및 전액해지 선택 가능-->
+                    <!--전액해지만 가능한 경우, 해지금액 수정 불가-->
+                    <tr>
+                      <th scope="row">해지금액</th>
+                      <td>
+                        <input type="text" id="charge" class="input size-lg wSize-md" value="125,031원" readonly="" aria-label="납입금액" title="납입금액" />
+                      </td>
+                    </tr>
+                    <!--//전액해지만 가능한 경우, 해지금액 수정 불가-->
+                    <tr>
+                      <th scope="row">해지계좌비밀번호</th>
+                      <td>
+                        <div class="tbl-flex">
+                          <input type="password" id="otpPinConfirmInput" class="input size-lg wSize-smMd" placeholder="숫자 4자리" maxlength="6" aria-required="true" aria-label="해지계좌비밀번호 숫자 4자리" />
+                          <button type="button" class="btn type-line-secondary size-lg">
+                            <span class="text">마우스입력</span>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th><span>입금계좌번호</span></th>
+                      <td colspan="3">
+                        <span class="typeMd">1000-2000-4000</span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="btn-wrap center lg-bot">
+                <button type="button" class="btn type-bg-primary size-xxl">
+                  <span class="text">다음</span>
+                </button>
+              </div>
+              <div class="line-box size-xl mt-48">
+                <span class="typeLgSemibold">이용안내</span>
+                <div class="list type-dotted">
+                  <ul>
+                    <li class="typeMd">
+                      해지불가계좌
+                      <div class="list type-num02">
+                        <ul>
+                          <li class="typeMd">2021년 3월 25일 이전 영업점에서 신규한 예금/적금계좌(2021년 3월 25일 이후 영업점에서 신규한 계좌 중 ‘비대면 해지 제한’이 등록된 예금/적금계좌)</li>
+                          <li class="typeMd">(수협은행) 주택청약예금, 주택청약부금, ISA정기예금, 노후보장정기예금, Sh장병내일준비적금, 사랑해보증정기예금, 양도성예금증서, 표지어음, 환매조건부채권 등 (회원수협) 농어가목돈마련저축, 장학적금, 꿈나무미래적금</li>
+                          <li class="typeMd">미성년자 예금, 비거주자 예금, 피후견인예금, 비밀번호 미등록계좌, 질권설정, 압류, 사고신고 등의 해지 불가 사유가 있는 계좌</li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="typeMd">‘비대면 해지 제한’과 ‘만기자동해지’가 동시에 등록된 계좌의 경우 만기일에 자동으로 해지 처리됩니다.</li>
+                    <li class="typeMd">비대면 해지를 원치 않는 고객님께서는 영업점에 방문하시어 ‘비대면 해지 제한’을 신청하시기 바랍니다.(영업점 가입 상품만 해당)</li>
+                    <li class="typeMd">기본금리중도해지, 특별중도해지가 가능한 상품의 경우 반드시 영업점에 방문하여 증빙서류 제출 후 중도해지 하여야 합니다.</li>
+                    <li class="typeMd">
+                      보이스피싱이 의심되는 경우 청약통장 해지 절차를 즉시 중단하시기 바랍니다.
+                      <div class="list type-bar">
+                        <ul>
+                          <li class="typeMd">검찰, 경찰, 금감원, 은행, 대출상담원이라고 밝힌 상대방의 지시에 따라 해지 절차를 진행하는 경우 등.</li>
+                        </ul>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="list type-reference">
+                  <ul>
+                    <li class="typeMd">위 사항에 해당하는 경우 현재 사용 중인 휴대전화가 악성앱 등에 노출되어 신고전화가 보이스피싱범에게 연결될 수 있으므로, 다른 기기로 112(경찰) 또는 1332(금융감독원)에 신고하시기 바랍니다.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
+</html>

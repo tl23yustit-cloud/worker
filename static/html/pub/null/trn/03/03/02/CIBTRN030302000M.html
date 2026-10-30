@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/trn.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
+
+      <div id="container" class="container">
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="trn">
+              <h2 class="typeH2">대량이체 결과조회</h2>
+              <div class="tbl-area">
+                <table class="table-type01">
+                  <caption>
+                    거래번호, 출금계좌번호, 거래일자, 출금요청등록금액, 예약일자에 대한 구성 테이블입니다.
+                  </caption>
+                  <colgroup>
+                    <col style="width: 160px" />
+                    <col style="width: 368px" />
+                    <col style="width: 160px" />
+                    <col style="width: 368px" />
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="row">
+                        <span>거래번호</span>
+                      </th>
+                      <td>
+                        <span class="typeMd">1000-0000-0000</span>
+                      </td>
+                      <th scope="row">
+                        <span>거래일자</span>
+                      </th>
+                      <td>
+                        <span class="typeMd">2026-06-15</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span>출금계좌번호</span>
+                      </th>
+                      <td>
+                        <span class="typeMd">1000-0000-0000</span>
+                      </td>
+                      <th scope="row">
+                        <span>출금요청등록금액</span>
+                      </th>
+                      <td class="text-right">
+                        <span class="typeMd">1,000,000,000원</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span>예약일자</span>
+                      </th>
+                      <td colspan="3">
+                        <span class="typeMd">-</span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!--  -->
+
+              <div class="table-type02 type-status-summary">
+                <table class="inq-result-list">
+                  <caption>
+                    대량이체 처리결과 요약
+                  </caption>
+                  <colgroup>
+                    <col style="width: 33.3%" />
+                    <col style="width: 33.3%" />
+                    <col style="width: 33.4%" />
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <div class="result-total-wrap">
+                          <span class="typeMdSemibold flex items-center gap-8">
+                            <i class="ico solid ico-size-sm ico-clock02" aria-hidden="true"></i>
+                            정상
+                          </span>
+                          <div class="result-total">
+                            <strong class="type2XlBold">90건</strong>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="result-total-wrap">
+                          <span class="typeMdSemibold flex items-center gap-8">
+                            <i class="ico solid ico-size-sm ico-clock02 type2" aria-hidden="true"></i>
+                            진행중
+                          </span>
+                          <div class="result-total">
+                            <strong class="type2XlBold">0건</strong>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="result-total-wrap">
+                          <span class="typeMdSemibold flex items-center gap-8">
+                            <i class="ico etc ico-size-sm ico-exclamation-mark" aria-hidden="true"></i>
+
+                            오류
+                          </span>
+                          <div class="result-total">
+                            <strong class="type2XlBold">10건</strong>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colspan="3">
+                        <div class="flex justify-between items-center">
+                          <span class="typeMd">총이체수수료 <strong class="typeLg">0원</strong></span>
+                          <span class="typeLg">총 이체금액 <strong class="type2XlSemibold pl-6">2,548,756,893원</strong></span>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!--  -->
+
+              <div class="flex flex-column mt-48">
+                <div class="tbl-head">
+                  <h4 class="typeH4">오류재처리 정보</h4>
+                </div>
+
+                <!-- [dev] 2·3차 데이터 없을 때 : 선택 기능 없음 -->
+                <div class="radio-container-box">
+                  <div class="flex flex-column mb-24">
+                    <p class="typeH4">선택하시면 해당 재처리 내역을 아래 표에서 확인하실 수 있습니다</p>
+                    <p class="typeLg color-fg-context-base">대량이체 재처리는 당일 거래에 한해 별도의 등록, 결재 과정 없이 최대 3회까지 가능합니다</p>
+                  </div>
+
+                  <div class="radio-group type-retry-select" role="radiogroup" aria-label="재처리 내역">
+                    <span class="form-box">
+                      <input type="radio" name="retryNoData" id="retryNoData01" class="radio-btn" checked disabled />
+                      <label for="retryNoData01" class="form-label">
+                        <span class="result-total-wrap">
+                          <span class="typeLgMedium">재처리 1차</span>
+                          <span class="result-total">
+                            <strong class="type2XlBold">3건</strong>
+                          </span>
+                        </span>
+                      </label>
+                    </span>
+                    <span class="form-box">
+                      <input type="radio" name="retryNoData" id="retryNoData02" class="radio-btn" disabled />
+                      <label for="retryNoData02" class="form-label">
+                        <span class="typeLgMedium color-fg-secondary">재처리가능</span>
+                      </label>
+                    </span>
+                    <span class="form-box">
+                      <input type="radio" name="retryNoData" id="retryNoData03" class="radio-btn" disabled />
+                      <label for="retryNoData03" class="form-label">
+                        <span class="typeLgMedium color-fg-secondary">재처리가능</span>
+                      </label>
+                    </span>
+                  </div>
+                </div>
+                <!-- //[dev] 2·3차 데이터 없을 때 : 선택 기능 없음 -->
+              </div>
+
+              <div class="flex flex-column mt-48">
+                <div class="tbl-head">
+                  <h4 class="typeH4">오류재처리 정보</h4>
+                </div>
+
+                <!-- [dev] 1·2차·최종 데이터 있을 때 : 선택 기능 있음 -->
+                <div class="radio-container-box">
+                  <div class="flex flex-column mb-24">
+                    <p class="typeH4">선택하시면 해당 재처리 내역을 아래 표에서 확인하실 수 있습니다</p>
+                    <p class="typeLg color-fg-context-base">대량이체 재처리는 당일 거래에 한해 별도의 등록, 결재 과정 없이 최대 3회까지 가능합니다</p>
+                  </div>
+
+                  <div class="radio-group type-retry-select" role="radiogroup" aria-label="재처리 내역 선택">
+                    <span class="form-box">
+                      <input type="radio" name="retryHasData" id="retryHasData01" class="radio-btn" checked />
+                      <label for="retryHasData01" class="form-label">
+                        <span class="result-total-wrap">
+                          <span class="typeLgMedium">재처리 1차</span>
+                          <span class="result-total">
+                            <strong class="type2XlBold">3건</strong>
+                          </span>
+                        </span>
+                      </label>
+                    </span>
+                    <span class="form-box">
+                      <input type="radio" name="retryHasData" id="retryHasData02" class="radio-btn" />
+                      <label for="retryHasData02" class="form-label">
+                        <span class="result-total-wrap">
+                          <span class="typeLgMedium">재처리 2차</span>
+                          <span class="result-total">
+                            <strong class="type2XlBold">3건</strong>
+                          </span>
+                        </span>
+                      </label>
+                    </span>
+                    <span class="form-box">
+                      <input type="radio" name="retryHasData" id="retryHasData03" class="radio-btn" />
+                      <label for="retryHasData03" class="form-label">
+                        <span class="result-total-wrap">
+                          <span class="typeLgMedium">최종</span>
+                          <span class="result-total">
+                            <strong class="type2XlBold">1건</strong>
+                          </span>
+                        </span>
+                      </label>
+                    </span>
+                  </div>
+                </div>
+                <!-- //[dev] 1·2차·최종 데이터 있을 때 : 선택 기능 있음 -->
+              </div>
+
+              <div class="flex flex-column mt-48">
+                <div class="tbl-head">
+                  <h4 class="typeH4">오류재처리 정보</h4>
+                </div>
+
+                <div class="radio-container-box">
+                  <div class="flex justify-between items-center">
+                    <div class="flex flex-column">
+                      <p class="typeH4">대량이체 중 10건의 오류가 발생했습니다</p>
+                      <p class="typeLg color-fg-context-base">총 3회까지 재처리가 가능 합니다</p>
+                    </div>
+
+                    <button type="button" class="btn type-bg-neutral size-lg">
+                      <span class="text">이체 재처리</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="tbl-area mt-48">
+                <div class="tbl-head">
+                  <h4 class="typeH4">대량이체처리정보</h4>
+                </div>
+                <table class="table-type01">
+                  <caption></caption>
+                  <colgroup>
+                    <col style="width: 160px" />
+                    <col style="width: auto" />
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="row">조회구분</th>
+                      <td>
+                        <div class="form-box-wrap">
+                          <span class="form-box">
+                            <input type="radio" name="SampleRadio0302" id="SampleRadio0302" class="form-radio size-md" checked="" />
+                            <label for="SampleRadio0302" class="form-label">전체</label>
+                          </span>
+                          <span class="form-box">
+                            <input type="radio" name="SampleRadio0302" id="SampleRadio0303" class="form-radio size-md" />
+                            <label for="SampleRadio0303" class="form-label">정상처리</label>
+                          </span>
+                          <span class="form-box">
+                            <input type="radio" name="SampleRadio0302" id="SampleRadio0304" class="form-radio size-md" />
+                            <label for="SampleRadio0304" class="form-label">취소 처리중</label>
+                          </span>
+                          <span class="form-box">
+                            <input type="radio" name="SampleRadio0302" id="SampleRadio0305" class="form-radio size-md" />
+                            <label for="SampleRadio0305" class="form-label">취소완료</label>
+                          </span>
+                          <span class="form-box">
+                            <input type="radio" name="SampleRadio0302" id="SampleRadio0306" class="form-radio size-md" />
+                            <label for="SampleRadio0306" class="form-label">처리중</label>
+                          </span>
+                          <span class="form-box">
+                            <input type="radio" name="SampleRadio0302" id="SampleRadio0307" class="form-radio size-md" />
+                            <label for="SampleRadio0307" class="form-label">처리완료</label>
+                          </span>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <div class="board-grid">
+                  <!-- [dev] 그리드 컨텐츠 영역 : 작업 시 삭제-->
+                  <i style="display: block; border: var(--borderWidthMd) solid var(--colorBorderBase); border-radius: var(--radiusMd); padding: var(--spacing2Xl)">임시 그리드 영역</i>
+                  <!-- //[dev] 그리드 컨텐츠 영역 : 작업 시 삭제 -->
+                  <div id="accScrollWrapper0">
+                    <div id="generalSheetDiv"></div>
+                  </div>
+                </div>
+
+                <nav class="pagination size-md mb-64" aria-label="페이지네이션">
+                  <button type="button" class="btn-nav first" disabled="" aria-disabled="true" aria-label="첫 페이지">
+                    <span class="blind">첫 페이지</span>
+                  </button>
+                  <button type="button" class="btn-nav prev" disabled="" aria-disabled="true" aria-label="이전 페이지">
+                    <span class="blind">이전 페이지</span>
+                  </button>
+
+                  <ol class="list-pagination">
+                    <li>
+                      <button type="button" class="btn-page active" aria-current="page" aria-label="1페이지">1</button>
+                    </li>
+                    <li>
+                      <button type="button" class="btn-page" aria-label="2페이지">2</button>
+                    </li>
+                    <li>
+                      <button type="button" class="btn-page" aria-label="3페이지">3</button>
+                    </li>
+                    <li>
+                      <button type="button" class="btn-page" aria-label="4페이지">4</button>
+                    </li>
+                    <li>
+                      <button type="button" class="btn-page" aria-label="5페이지">5</button>
+                    </li>
+                  </ol>
+
+                  <button type="button" class="btn-nav next" aria-label="다음 페이지">
+                    <span class="blind">다음 페이지</span>
+                  </button>
+                  <button type="button" class="btn-nav last" aria-label="마지막 페이지">
+                    <span class="blind">마지막 페이지</span>
+                  </button>
+                </nav>
+              </div>
+
+              <!-- 버튼영역 -->
+              <div class="btn-wrap center lg-mid">
+                <button type="button" class="btn type-line-neutral size-xl">
+                  <span class="text">다건 이체확인증 인쇄</span>
+                </button>
+                <button type="button" class="btn type-line-neutral size-xl">
+                  <span class="text">이체확인증 인쇄</span>
+                </button>
+                <button type="button" class="btn type-line-neutral size-xl">
+                  <span class="text">파일저장</span>
+                </button>
+              </div>
+
+              <div class="btn-wrap center lg-bot">
+                <button type="button" class="btn type-line-neutral size-xxl">
+                  <span class="text">이체재처리</span>
+                </button>
+                <button type="button" class="btn type-bg-primary size-xxl">
+                  <span class="text">확인</span>
+                </button>
+              </div>
+
+              <div class="line-box size-xl mt-48">
+                <span class="typeLgSemibold">이용안내</span>
+                <div class="list type-dotted">
+                  <ul>
+                    <li class="typeMd">이체 재처리 관련 안내문구 추가</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
+</html>

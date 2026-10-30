@@ -1,0 +1,150 @@
+<!-- 화면설계서 1.05v 반영 -->
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/van.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
+
+      <div id="container" class="container">
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="van">
+              <h2 class="typeH2">
+                다른은행 계좌등록
+                <div class="box-steps">
+                  <ol class="list-steps">
+                    <li class="item-steps passed">
+                      <span class="blind">1</span>
+                      <i class="icon" aria-hidden="true">1</i>
+                    </li>
+                    <li class="item-steps current" aria-current="step">
+                      <span class="blind">2</span>
+                      <i class="icon" aria-hidden="true">2</i>
+                      <span class="text">게좌선택</span>
+                    </li>
+                    <li class="item-steps">
+                      <span class="blind">3</span>
+                      <i class="icon" aria-hidden="true">3</i>
+                      <span class="text">3</span>
+                    </li>
+                  </ol>
+                </div>
+              </h2>
+              <div class="tbl-area">
+                <div class="tbl-head">
+                  <div class="left-area">
+                    <h4 class="typeH4">계좌번호 직접 입력</h4>
+                  </div>
+                  <div class="right-area">
+                    <button type="button" class="btn type-line-neutral size-lg">
+                      <span class="text"> 계좌번호 한번에 불러오기 </span>
+                    </button>
+                  </div>
+                </div>
+                <table class="table-type03">
+                  <caption>
+                    구분, 은행/증권사, 계좌번호에 대한 구성 테이블입니다.
+                  </caption>
+                  <colgroup>
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                    <col style="width: 80px" />
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th scope="col"><span>은행/증권사</span></th>
+                      <th scope="col"><span>계좌번호</span></th>
+                      <th scope="col"><span>삭제</span></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <div class="box-select wSize-full">
+                          <button type="button" class="select size-lg" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="comp-k1h5ux" aria-label="은행/증권사 선택">
+                            <span class="text">선택해주세요</span>
+                            <span class="blind">펼침</span>
+                          </button>
+                          <div id="comp-k1h5ux" class="box-list-select">
+                            <ul class="list-select" role="listbox" aria-label="은행/증권사">
+                              <li class="item-select" role="option" aria-selected="true">
+                                <button class="btn-item-select">Option01</button>
+                              </li>
+                              <li class="item-select" role="option" aria-selected="false">
+                                <button class="btn-item-select">Option02</button>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="clear-type wSize-full">
+                          <input type="text" class="input size-lg" aria-label="계좌번호 입력" placeholder="계좌번호를-없이 입력하세요" />
+                          <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                            <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                            <span class="blind">닫기</span>
+                          </button>
+                        </div>
+                      </td>
+                      <td>
+                        <button type="button" class="btn type-line-neutral size-md">
+                          <span class="text">삭제</span>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!-- <div class="list type-dotted mt-12">
+                <ul>
+                  <li class="typeMd">
+                    이체 업무는 수시 입출금계좌만 가능합니다.
+                  </li>
+                </ul>
+              </div> -->
+              <div class="flex justify-end mt-12">
+                <button type="button" class="btn type-line-primary size-lg">
+                  <span class="text"> 계좌번호추가 </span>
+                </button>
+              </div>
+
+              <div class="btn-wrap center lg-bot">
+                <button type="button" class="btn type-bg-primary size-xxl">
+                  <span class="text">다음</span>
+                </button>
+              </div>
+              <div class="line-box size-xl mt-48">
+                <span class="typeLgSemibold">이용안내</span>
+                <div class="list type-dotted">
+                  <ul>
+                    <li class="typeMd">입출금, 예적금, 펀드, 증권사 계좌만 등록할 수 있습니다.</li>
+                    <li class="typeMd">오픈뱅킹으로 다른 은행 계좌는 50개까지 등록 가능합니다.</li>
+                    <li class="typeMd">출금한도는 전자금융 이용한도와 별도로 오픈뱅킹 이용 금융기관 합산 1일 1천만원입니다.</li>
+                    <li class="typeMd">비활동성 계좌(거래중지계좌)는 등록할 수 없습니다.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
+</html>

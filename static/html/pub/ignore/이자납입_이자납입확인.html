@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>수협은행</title>
+  <link rel="stylesheet" href="/static/css/reset.css" />
+  <link rel="stylesheet" href="/static/css/layout.css" />
+  <link rel="stylesheet" href="/static/css/component.css" />
+  <link rel="stylesheet" href="/static/css/common.css" />
+  <link rel="stylesheet" href="/static/css/bop.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <div id="header">
+      @@include('static/html/pub/layout/skipNavigation.html')
+      @@include('static/html/pub/layout/header_sub.html')
+    </div>
+
+    <div id="container" class="container">
+      <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+      <div id="contents">
+        <div class="content">
+          @@include('static/html/pub/layout/breadcrumb.html')
+          <div class="bop">
+            <h2 class="typeH2">
+              이자납입
+              <div class="box-steps">
+                <ol class="list-steps">
+                  <!-- 
+												[dev] 상태값 class 안내
+												class="item-steps" 기본 숫자 표기
+												class="item-steps passed" 완료
+												class="item-steps current" 현재
+											 -->
+                  <li class="item-steps passed" aria-current="step">
+                    <span class="blind">완료된 단계</span>
+                    <i class="icon" aria-hidden="true">1</i>
+                    <span class="text">계좌조회</span>
+                  </li>
+                  <li class="item-steps passed">
+                    <i class="icon" aria-hidden="true">2</i>
+                    <span class="text">계좌선택</span>
+                  </li>
+                  <li class="item-steps current">
+                    <i class="icon" aria-hidden="true">3</i>
+                    <span class="text">정보확인 및 인증</span>
+                  </li>
+                  <li class="item-steps">
+                    <i class="icon" aria-hidden="true">4</i>
+                    <span class="text">결제 요청 완료</span>
+                  </li>
+                </ol>
+              </div>
+            </h2>
+            <div class="tbl-area">
+              <table class="table-type01">
+                <caption>
+                  이자납입
+                </caption>
+                <colgroup>
+                  <col />
+                  <col />
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th scope="row">
+                      <span>대출고객명</span>
+                    </th>
+                    <td>
+                      <span class="typeMd">홍길동</span>
+                    </td>
+                    <th scope="row">
+                      <span>대출계좌번호</span>
+                    </th>
+                    <td>
+                      <span class="typeMd">000-0000000-00-000</span>
+                    </td>
+                  </tr>
+                  <th scope="row">
+                    <span>상품종류</span>
+                  </th>
+                  <td colspan="3">
+                    <span class="typeMd">기업운전일반자금대출 (순수일반자금)</span>
+                  </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <span>신규일</span>
+                    </th>
+                    <td>
+                      <span class="typeMd">2026-06-01</span>
+                    </td>
+                    <th scope="row">
+                      <span>만기일</span>
+                    </th>
+                    <td>
+                      <span class="typeMd">2026-06-01</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <span>최초대출액</span>
+                    </th>
+                    <td class="text-right">
+                      <span class="typeMd">100,000,000원</span>
+                    </td>
+                    <th scope="row">
+                      <span>대출잔액</span>
+                    </th>
+                    <td class="text-right">
+                      <span class="typeMd">50,000,000원</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <span>약정이자</span>
+                    </th>
+                    <td class="text-right">
+                      <span class="typeMd">10,000,000원</span>
+                    </td>
+                    <th scope="row">
+                      <span>이자계산시작일</span>
+                    </th>
+                    <td>
+                      <span class="typeMd">2026-06-01</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <span>연체이자</span>
+                    </th>
+                    <td class="text-right">
+                      <span class="typeMd">50,000원</span>
+                    </td>
+                    <th scope="row">
+                      <span>이자계산종료일</span>
+                    </th>
+                    <td>
+                      <span class="typeMd">2036-06-01</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <span>미납수수료</span>
+                    </th>
+                    <td class="text-right">
+                      <span class="typeMd">10,000원</span>
+                    </td>
+                    <th scope="row">
+                      <span>연체시작일</span>
+                    </th>
+                    <td>
+                      <span class="typeMd">2036-08-01</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <span>이자납입금액</span>
+                    </th>
+                    <td class="text-right">
+                      <span class="typeMd">110,000원</span>
+                    </td>
+                    <th scope="row">
+                      <span>최종이자납입일</span>
+                    </th>
+                    <td>
+                      <span class="typeMd">2036-07-17</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <span>이자납입방법</span>
+                    </th>
+                    <td>
+                      <span class="typeMd">이자납입일 이전납부</span>
+                    </td>
+                    <th scope="row">
+                      <span>다음이자납입일</span>
+                    </th>
+                    <td>
+                      <span class="typeMd">2036-08-18</span>
+                    </td>
+                  </tr>            
+                </tbody>
+              </table>
+              <table class="table-type01">
+                <caption>
+                  OTP
+                </caption>
+                <colgroup>
+                  <col />
+                  <col />
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th scope="row" rowspan="2">
+                      <span>OTP</span>
+                    </th>
+                    <td>
+                      <div class="otp-text-wrap">
+                        <input type="password" class="input wSize-smMd size-lg" placeholder="숫자 6자리" title=""
+                          aria-label="숫자 6자리">
+                        <div class="typeMd">OTP 만료 기한이 <span>14</span>일 남았습니다. <span>(2026-04-30)</span></div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="otp-noti">
+                        <div class="list type-dotted">
+                          <ul>
+                            <li class="typeMd">
+                              OTP에 생성된 숫자 6자리를 입력하세요
+                            </li>
+                            <li class="typeMd">
+                              OTP는 1분마다 새로운 비밀번호가 생성됩니다
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="btn-wrap center">
+              <button type="button" class="btn type-line-neutral size-xxl">
+                <span class="text">취소</span>
+              </button>
+              <button type="button" class="btn type-bg-primary size-xxl">
+                <span class="text">상환</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+    </div>
+    <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+  </div>
+  <script src="/static/js/ui/cib_ui_common.js"></script>
+</body>
+
+</html>

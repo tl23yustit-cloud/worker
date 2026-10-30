@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>수협은행</title>
+  <link rel="stylesheet" href="/static/css/reset.css" />
+  <link rel="stylesheet" href="/static/css/layout.css" />
+  <link rel="stylesheet" href="/static/css/component.css" />
+  <link rel="stylesheet" href="/static/css/common.css" />
+  <link rel="stylesheet" href="/static/css/bmg.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <div id="header">
+      @@include('static/html/pub/layout/skipNavigation.html')
+      @@include('static/html/pub/layout/header_sub.html')
+    </div>
+
+    <div id="container" class="container">
+      <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+      <div id="contents">
+        <div class="content">
+          @@include('static/html/pub/layout/breadcrumb.html')
+          <div class="bmg">
+            <button type="button" class="btn type-bg-primary size-lg btn-modal" data-target="modal-16">
+              <span class="text">계좌그룹관리</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+    </div>
+    <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+  </div>
+  <script src="/static/js/ui/cib_ui_common.js"></script>
+
+  <div id="modal-16" class="modal is-active" data-dim="true" data-backdrop-close="false" data-alert="true"
+    data-size="sm" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc">
+    <div class="modal-wrapper">
+      <div class="modal-title">
+        <h4 class="typeH4" id="modal-title">계좌그룹관리</h4>
+      </div>
+      <div class="modal-slot">
+        <div id="modal-desc">
+          <div class="box-tab">
+            <ul class="list-tab-button type-chip size-md" role="tablist" aria-label="공시자료 탭">
+              <li class="item-tab-button">
+                <button type="button" class="btn-tab" id="tabBtnTypeHighlightFull01" role="tab"
+                  aria-selected="true" aria-controls="tabPanelTypeHighlightFull01">
+                  <span class="text">계좌그룹관리</span>
+                </button>
+              </li>
+              <li class="item-tab-button">
+                <button type="button" class="btn-tab active" title="선택됨" id="tabBtnTypeHighlightFull02" role="tab" aria-selected="false"
+                  aria-controls="tabPanelTypeHighlightFull02">
+                  <span class="text">그룹별 계좌순서 관리</span>
+                </button>
+              </li>
+            </ul>
+            <div class="box-tab-content autoH" id="tabPanelTypeHighlightFull01" role="tabpanel"
+              aria-labelledby="tabBtnTypeHighlightFull01" style="display: none;">
+              <table class="table-type01">
+                <caption>은행명, 계좌번호, 예금주명, 그룹에 대한 구성 테이블입니다.</caption>
+                <colgroup>
+                  <col style="width: 160px">
+                  <col style="width: auto">
+                </colgroup>
+                <tbody>
+
+                  <tr>
+                    <th scope="row">
+                      <span>계좌그룹명</span>
+                    </th>
+                    <td colspan="3">
+                      <div class="tbl-flex">
+                        <input type="text" id="userDeptInput" class="input size-lg wSize-md" value=""
+                          placeholder="계좌그룹명을 입력해주세요" aria-label="계좌그룹명">
+                        <button type="button" class="btn type-line-neutral size-lg">
+                          <span class="text">그룹추가</span>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="change-order-wrap">
+                <div class="change-order-btn-wrap">
+                  <span class="typeLg">그룹순서 변경</span>
+                  <button class="change-order-btn">
+                    <i class="ico line ico-size-sm ico-chevron-down" aria-hidden="true"></i>
+                    <span class="blind">그룹순서 변경 버튼 위로</span>
+                  </button>
+                  <button class="change-order-btn">
+                    <i class="ico line ico-size-sm ico-chevron-up" aria-hidden="true"></i>
+                    <span class="blind">그룹순서 변경 버튼 아래로</span>
+                  </button>
+                </div>
+                <div class="change-order-list">
+                  <ul>
+                    <li class="typeLgSemibold active">기본그룹</li>
+                    <li class="typeLgSemibold">수협은행그룹</li>
+                    <li class="typeLgSemibold">수협은행그룹</li>
+                  </ul>
+                </div>
+                <div class="change-order-bbtn">
+                  <button type="button" class="btn type-line-neutral size-lg">
+                    <span class="text">그룹추가</span>
+                  </button>
+                  <button type="button" class="btn type-line-neutral size-lg">
+                    <span class="text">그룹추가</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="box-tab-content autoH active" id="tabPanelTypeHighlightFull02" role="tabpanel"
+              aria-labelledby="tabBtnTypeHighlightFull02" style="display: block;">
+              <table class="table-type01">
+                <caption>은행명, 계좌번호, 예금주명, 그룹에 대한 구성 테이블입니다.</caption>
+                <colgroup>
+                  <col style="width: 160px">
+                  <col style="width: auto">
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th scope="row">
+                      <span>그룹선택</span>
+                    </th>
+                    <td colspan="3">
+                      <div class="box-select wSize-lg">
+                        <button type="button" class="select size-lg" role="combobox" aria-expanded="false"
+                          aria-haspopup="listbox" aria-controls="selectDropdown01" aria-labelledby="label-account"
+                          aria-required="true">
+                          <span class="text">전체</span>
+                          <span class="blind">목록 열기</span>
+                        </button>
+                        <div id="selectDropdown01" class="box-list-select">
+                          <ul class="list-select" role="listbox" aria-label="그룹선택 선택 리스트">
+                            <li class="item-select" role="group" aria-selected="true">
+                              <span class="btn-item-select">
+                               2730020409614 [문다채]</span>
+                            </li>
+                            <li class="item-select" role="group" aria-selected="false">
+                              <span class="btn-item-select">1</span>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="change-order-wrap">
+                <div class="change-order-btn-wrap">
+                  <span class="typeLg">그룹순서 변경</span>
+                  <button class="change-order-btn">
+                    <i class="ico line ico-size-sm ico-chevron-down" aria-hidden="true"></i>
+                    <span class="blind">그룹순서 변경 버튼 위로</span>
+                  </button>
+                  <button class="change-order-btn">
+                    <i class="ico line ico-size-sm ico-chevron-up" aria-hidden="true"></i>
+                    <span class="blind">그룹순서 변경 버튼 아래로</span>
+                  </button>
+                </div>
+                <div class="change-order-list">
+                  <ul>
+                    <li class="typeLgSemibold active">기본그룹</li>
+                    <li class="typeLgSemibold">수협은행그룹</li>
+                    <li class="typeLgSemibold">수협은행그룹</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="line-box size-xl mt-24">
+              <span class="typeLgSemibold">이용안내</span>
+              <div class="list type-dotted">
+                <ul>
+                  <li class="typeMd">자주쓰는 그룹의 순서를 조정할 수 있습니다. </li>
+                  <li class="typeMd">계좌그룹을 추가 및 삭제할 수 있지만 기본 그룹은 삭제가 불가능합니다. </li>
+                  <li class="typeMd">계좌그룹명을 클릭하여 선택된 그룹명을 수정 및 삭제할 수 있습니다. </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer flex items-center justify-center gap-6">
+        <button type="button" class="btn type-bg-primary-tint size-lg">
+          <span class="text">취소</span>
+        </button>
+        <button type="button" class="btn type-bg-primary size-lg">
+          <span class="text">저장</span>
+        </button>
+      </div>
+      <button type="button" class="ico btn-close" aria-label="모달 닫기">
+        <i class="ico-close ico-size-smMd" aria-hidden="true"></i>
+        <span class="blind">닫기</span>
+      </button>
+    </div>
+  </div>
+</body>
+
+</html>

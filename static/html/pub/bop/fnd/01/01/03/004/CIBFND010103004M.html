@@ -1,0 +1,144 @@
+<!-- [dev]20261023 기획 페이지 누락 CIBFND010102003M -->
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/bop.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
+
+      <div id="container" class="container">
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="bop">
+              <h2 class="typeH2">
+                펀드매입신청
+                <div class="box-steps">
+                  <ol class="list-steps">
+                    <!-- 
+												[dev] 상태값 class 안내
+												class="item-steps" 기본 숫자 표기
+												class="item-steps passed" 완료
+												class="item-steps current" 현재
+											 -->
+                    <li class="item-steps passed">
+                      <span class="blind">완료된 단계</span>
+                      <i class="icon" aria-hidden="true">1</i>
+                      <span class="text">정보입력</span>
+                    </li>
+                    <li class="item-steps passed">
+                      <span class="blind">완료된 단계</span>
+                      <i class="icon" aria-hidden="true">2</i>
+                      <span class="text">정보확인</span>
+                    </li>
+                    <li class="item-steps current" aria-current="step">
+                      <i class="icon" aria-hidden="true">3</i>
+                      <span class="text">신청완료</span>
+                    </li>
+                  </ol>
+                </div>
+              </h2>
+              <div class="result-box">
+                <div class="result-banner">
+                  <div class="inner-img"></div>
+                  <div class="result-message">
+                    <h4 class="typeH4 color-blueMd">펀드 환매 신청이 완료되었습니다. </h4>
+                    <span class="typeMd">본 처리결과는 변경 가능성이 있어 거래증빙으로 사용할 수 없으며, 약관상 정한 환매수수료 부과기간내 환매 시 수수료가 부과될 수 있습니다.</span>
+                  </div>
+                </div>
+              </div>
+              <div class="tbl-area">
+                <h4 class="typeH4">환매 계좌정보</h4>
+                <table class="table-type01">
+                  <caption>
+                    예금주명, 계좌번호, 상품종류, 계좌상태에 대한 구성 테이블입니다.
+                  </caption>
+                  <colgroup>
+                    <col width="160px" />
+                    <col width="auto" />
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="row">펀드명</th>
+                      <td>
+                        <span class="typeMd">미래에셋한국헬스케어증권자투자신탁1호(주식)A-e </span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">계좌번호</th>
+                      <td>
+                        <span class="typeMd">0000-0000-0000 </span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <table class="table-type01">
+                  <caption>
+                    예금주명, 계좌번호, 상품종류, 계좌상태에 대한 구성 테이블입니다.
+                  </caption>
+                  <colgroup>
+                    <col width="160px" />
+                    <col width="auto" />
+                    <col width="160px" />
+                    <col width="auto" />
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="row">환매방법</th>
+                      <td>
+                        <span class="typeMd">좌수환매</span>
+                      </td>
+                      <th scope="row">환매신청금액(좌)</th>
+                      <td>
+                        <span class="typeMd">10 좌</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">당일기준가격</th>
+                      <td class="text-right">
+                        <span class="typeMd">1,555.00 원</span>
+                      </td>
+                      <th scope="row">입금계좌번호</th>
+                      <td>
+                        <span class="typeMd">0000-0000-0000 (보통예금)</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">환매대금지급일</th>
+                      <td>
+                        <span class="typeMd">YYYY-MM-DD</span>
+                      </td>
+                      <th scope="row">환매기준가적용일</th>
+                      <td>
+                        <span class="typeMd">YYYY-MM-DD</span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="btn-wrap center lg-bot">
+                <button type="button" class="btn type-bg-primary size-xxl">
+                  <span class="text">추가환매</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
+</html>

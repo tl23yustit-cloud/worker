@@ -1,0 +1,119 @@
+<!-- for dev) 9월10일 디자인 가이드 반영 테이블 간격 및 글자 정렬 , 이용안내 위치 변경 (실수)-->
+
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>수협은행</title>
+  <link rel="stylesheet" href="/static/css/reset.css" />
+  <link rel="stylesheet" href="/static/css/layout.css" />
+  <link rel="stylesheet" href="/static/css/component.css" />
+  <link rel="stylesheet" href="/static/css/common.css" />
+  <link rel="stylesheet" href="/static/css/aut.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <div id="header">
+      @@include('static/html/pub/layout/skipNavigation.html')
+      @@include('static/html/pub/layout/header_sub.html')
+    </div>
+
+    <div id="container" class="container">
+      <div id="leftArea">
+        @@include('static/html/pub/layout/leftArea.html')
+      </div>
+      <div id="contents">
+        <div class="content">
+          @@include('static/html/pub/layout/breadcrumb.html')
+          <div class="aut">
+            <h2 class="typeH2">
+              금융인증서 발급/재발급
+              <div class="box-steps">
+                <ol class="list-steps">
+                  <!-- 
+												[dev] 상태값 class 안내
+												class="item-steps" 기본 숫자 표기
+												class="item-steps passed" 완료
+												class="item-steps current" 현재
+											 -->
+                  <li class="item-steps passed">
+                    <i class="icon" aria-hidden="true">1</i>
+                    <!--로그인 시 "인증서 선택"으로 타이틀 변경 -->
+                    <span class="text">인증서 선택 / 사용자 정보 입력</span>
+                    <!--//로그인 시 "인증서 선택"으로 타이틀 변경-->
+                  </li>
+                  <li class="item-steps passed">
+                    <span class="blind">완료된 단계</span>
+                    <i class="icon" aria-hidden="true">2</i>
+                    <span class="text">약관동의</span>
+                  </li>
+                  <li class="item-steps passed">
+                    <span class="blind">완료된 단계</span>
+                    <i class="icon" aria-hidden="true">3</i>
+                    <span class="text">보안매체/계좌정보 입력</span>
+                  </li>
+                  <li class="item-steps passed">
+                    <span class="blind">완료된 단계</span>
+                    <i class="icon" aria-hidden="true">4</i>
+                    <span class="text">고객정보 입력</span>
+                  </li>
+                  <li class="item-steps current" aria-current="step">
+                    <i class="icon" aria-hidden="true">5</i>
+                    <span class="text">인증서 발급 신청</span>
+                  </li>
+                  <li class="item-steps">
+                    <i class="icon" aria-hidden="true">6</i>
+                    <span class="text">인증서 발급완료</span>
+                  </li>
+                </ol>
+              </div>
+            </h2>
+            <h4 class="typeH4">인증서 발급신청</h4>
+            <div class="list type-dotted mt-24 color-resolving">
+              <ul>
+                <li class="typeMd">
+                  재발급 수수료 : 무료 
+                </li>
+              </ul>
+            </div>
+            <div class="list type-dotted">
+              <ul>
+                <li class="typeMd">
+                  고객님께서는 공동인증서 발급수수료를 이미 납부하셨으므로
+                  수수료 없이 인증서를 발급받으실 수 있습니다.
+                </li>
+                <li class="typeMd">
+                  고객님께서는 인증서 재발급 대상입니다. 기 발급한 인증서의
+                  유효기간 내에 무료로 재발급 받으실 수 있습니다.
+                </li>
+              </ul>
+            </div>
+            <div class="text-wrap">
+              <div class="typeLgMedium">
+                아래의 '인증서 발급' 버튼을 눌러
+                <strong class="color-fg-primary">금융인증서 발급 신청을 해주세요.</strong>
+              </div>
+            </div>
+            <div class="btn-wrap center lg-bot">
+              <button type="button" class="btn type-bg-primary-tint size-xxl">
+                <span class="text">취소</span>
+              </button>
+              <button type="button" class="btn type-bg-primary size-xxl">
+                <span class="text">인증서 발급</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+    </div>
+    <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+  </div>
+
+  <script src="/static/js/ui/cib_ui_common.js"></script>
+</body>
+
+</html>

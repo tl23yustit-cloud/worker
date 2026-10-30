@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="/static/css/trn.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
+
+      <div id="container" class="container">
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="trn">
+              <h2 class="typeH2">
+                이체
+                <div class="box-steps">
+                  <ol class="list-steps">
+                    <li class="item-steps passed">
+                      <span class="blind">완료된 단계</span>
+                      <i class="icon" aria-hidden="true">1</i>
+                      <span class="text">정보입력</span>
+                    </li>
+                    <li class="item-steps current" aria-current="step">
+                      <i class="icon" aria-hidden="true">2</i>
+                      <!--[dev]:20261026텍스트 수정-->
+                      <span class="text">정보확인</span>
+                      <!--//[dev]:20261026텍스트 수정-->
+                    </li>
+                    <li class="item-steps">
+                      <i class="icon" aria-hidden="true">3</i>
+                      <span class="text">3</span>
+                    </li>
+                  </ol>
+                </div>
+              </h2>
+              <div class="tbl-head">
+                <h4 class="typeH4">출금계좌</h4>
+              </div>
+              <div class="withdrawal-section">
+                <div class="card-top-content">
+                  <div class="flex gap-16">
+                    <div class="flex justify-center items-center">
+                      <i class="bank-007 circle ico-size-2xl" aria-hidden="true"></i>
+                    </div>
+                    <div class="flex flex-column">
+                      <span class="type2XlMedium">Sh평생주거래우대통장</span>
+                      <div class="flex items-center gap-8">
+                        <span class="typeLgMedium">1010-12454-123</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="tbl-area">
+                <h4 class="typeH4">입금정보</h4>
+                <div class="total-summary-box">
+                  <div class="total">총 <strong>999 건</strong></div>
+                  <dl>
+                    <dt>총 이체금액</dt>
+                    <dd><span class="color-fg-primary">20,000,000,000</span>원</dd>
+                  </dl>
+                </div>
+                <table class="table-type03">
+                  <caption>
+                    입금정보 테이블
+                  </caption>
+                  <colgroup>
+                    <col />
+                    <col />
+                    <col />
+                    <col />
+                    <col />
+                  </colgroup>
+                  <thead>
+                    <!-- [수정] 20260903 th scope 추가 -->
+                    <tr>
+                      <th scope="col">입금계좌(받는 분)</th>
+                      <th scope="col">이체금액</th>
+                      <th scope="col">수수료</th>
+                      <th scope="col">지연여부</th>
+                      <th scope="col">통장표시내용(내통장/받는분)</th>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                    <tr>
+                      <td>
+                        <div class="ico-bank-wrap"><i class="bank-004 circle ico-size-md"></i>국민은행 0010-0000-0000 (타고조)</div>
+                      </td>
+                      <td class="text-right">10,000,000,000원</td>
+                      <td class="text-right">500원</td>
+                      <td>지연</td>
+                      <td>타고조 / 최만장</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="ico-bank-wrap"><i class="bank-004 circle ico-size-md" aria-hidden="true"></i>국민은행 0010-0000-0000 (타고조)</div>
+                      </td>
+                      <td class="text-right">10,000,000,000원</td>
+                      <td class="text-right">500원</td>
+                      <td>지연</td>
+                      <td>타고조 / 최만장</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- [dev]opt 공통영역 추가 20261022 -->
+
+              <div class="tbl-area">
+                <!--tbl-area로 감싸고 안에 필요한 테이블 넣어주세요.-->
+                <!-- [dev] (공통)OTP인증 ui CIBCMN340101001M-->
+                <div class="wrap-board-grid">
+                  <div class="board-grid">
+                    <!-- [dev] (공통)OTP인증 ui CIBCMN340101001M 영역 : 작업 시 삭제-->
+                    <i style="display: block; border: var(--borderWidthMd) solid var(--colorBorderBase); border-radius: var(--radiusMd); padding: var(--spacing2Xl)">(공통)OTP인증 ui CIBCMN340101001M</i>
+                    <!-- //[dev] (공통)OTP인증 ui CIBCMN340101001M 영역 : 작업 시 삭제 -->
+                  </div>
+                </div>
+                <!-- //[dev] (공통)OTP인증 ui CIBCMN340101001M -->
+                <!--//tbl-area로 감싸고 안에 필요한 테이블 넣어주세요.-->
+              </div>
+              <!-- //[dev]opt 공통영역 추가 20261022 -->
+
+              <div class="list type-dotted mt-16">
+                <ul>
+                  <li class="typeMd">고객님이 입력하신 이체정보입니다. 최종거래 전에 입금은행 계좌번호와 이체금액, 받는분 성함을 다시한번 확인 후 이체하여 주시기 바랍니다.</li>
+                  <!-- [dev] 문구수정 20261022 -->
+                  <li class="typeMd">지연이체 가입 시 0시부터 18시 30분까지는 정하신 지연시간으로 이체가 처리됩니다.</li>
+                  <li class="typeMd">단, 지연예외계좌, 본인소유의 수협계좌, 시간 외, 휴일, 즉시이체 가능한도 내에서는 즉시이체 됩니다.</li>
+                  <!-- //[dev] 문구수정 20261022 -->
+
+                  <li class="typeMd">실제 이체를 원하시면 아래의 이체버튼을, 취소를 원하시면 취소버튼을 눌러주세요.</li>
+                  <li class="typeMd">결제요청을 원하시면 아래의 결재요청버튼을, 취소를 원하시면 취소버튼을 선택하십시오</li>
+                </ul>
+              </div>
+              <div class="btn-wrap center lg-bot">
+                <button type="button" class="btn type-bg-primary-tint size-xxl">
+                  <span class="text">취소</span>
+                </button>
+                <button type="button" class="btn type-bg-primary size-xxl">
+                  <span class="text">이체</span>
+                </button>
+                <!-- [dev]버튼 추가 20261022 -->
+                <button type="button" class="btn type-bg-primary size-xxl">
+                  <span class="text">결재요청</span>
+                </button>
+                <button type="button" class="btn type-bg-primary size-xxl">
+                  <span class="text">승인요청</span>
+                </button>
+                <!-- //[dev]버튼 추가 20261022 -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+    <script src="/static/js/ui/swiper.min.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var swiperInstances = {};
+
+        var swiperContainers = document.querySelectorAll(".card-swiper-container");
+
+        swiperContainers.forEach(function (container, index) {
+          var prevBtn = container.querySelector(".btn-slide-prev");
+          var nextBtn = container.querySelector(".btn-slide-next");
+
+          var cardSwiper = new Swiper(container, {
+            slidesPerView: "auto",
+            slidesPerGroup: 3,
+            spaceBetween: 12,
+            observer: true,
+            observeParents: true,
+            allowTouchMove: true,
+            speed: 300,
+            watchOverflow: false,
+            preventClicks: true,
+            preventClicksPropagation: true,
+
+            navigation: {
+              nextEl: nextBtn,
+              prevEl: prevBtn,
+            },
+
+            on: {
+              init: function () {
+                updateDisabledAttribute(this, prevBtn, nextBtn);
+              },
+              slideChange: function () {
+                updateDisabledAttribute(this, prevBtn, nextBtn);
+              },
+            },
+          });
+
+          swiperInstances[index] = cardSwiper;
+
+          var cardButtons = container.querySelectorAll(".account-card-container");
+          cardButtons.forEach(function (btn) {
+            btn.addEventListener("click", function () {
+              cardButtons.forEach(function (otherBtn) {
+                otherBtn.classList.remove("selected");
+                otherBtn.setAttribute("aria-pressed", "false");
+              });
+              this.classList.add("selected");
+              this.setAttribute("aria-pressed", "true");
+            });
+          });
+
+          function updateDisabledAttribute(swiperInstance, prev, next) {
+            if (!prev || !next) return;
+
+            var prevIcon = prev.querySelector("i");
+            var nextIcon = next.querySelector("i");
+
+            if (swiperInstance.isBeginning) {
+              prev.setAttribute("disabled", "true");
+              if (prevIcon && !prevIcon.classList.contains("color-fg-disabled")) {
+                prevIcon.classList.add("color-fg-disabled");
+              }
+            } else {
+              prev.removeAttribute("disabled");
+              if (prevIcon) {
+                prevIcon.classList.remove("color-fg-disabled");
+              }
+            }
+
+            if (swiperInstance.isEnd) {
+              next.setAttribute("disabled", "true");
+              if (nextIcon && !nextIcon.classList.contains("color-fg-disabled")) {
+                nextIcon.classList.add("color-fg-disabled");
+              }
+            } else {
+              next.removeAttribute("disabled");
+              if (nextIcon) {
+                nextIcon.classList.remove("color-fg-disabled");
+              }
+            }
+          }
+        });
+
+        var tabButtons = document.querySelectorAll(".list-tab-button .btn-tab");
+        var tabContents = document.querySelectorAll(".box-card-wrapper .box-tab-content");
+
+        tabButtons.forEach(function (btn, index) {
+          btn.addEventListener("click", function () {
+            // 모든 탭 버튼 비활성화 및 선택 해제
+            tabButtons.forEach(function (b) {
+              b.classList.remove("active");
+              b.setAttribute("aria-selected", "false");
+              b.removeAttribute("title");
+            });
+
+            // 현재 클릭한 탭 활성화
+            this.classList.add("active");
+            this.setAttribute("aria-selected", "true");
+            this.setAttribute("title", "선택됨");
+
+            // 모든 탭 콘텐츠 숨기기
+            tabContents.forEach(function (content) {
+              content.classList.remove("active");
+              content.style.display = "none";
+            });
+
+            // 대응하는 탭 콘텐츠 보이기
+            var targetId = this.getAttribute("aria-controls");
+            var targetContent = document.getElementById(targetId);
+            if (targetContent) {
+              targetContent.classList.add("active");
+              targetContent.style.display = "block";
+
+              var currentSwiperContainer = targetContent.querySelector(".card-swiper-container");
+              if (currentSwiperContainer && currentSwiperContainer.swiper) {
+                currentSwiperContainer.swiper.update();
+                currentSwiperContainer.swiper.slideTo(0, 0);
+              }
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

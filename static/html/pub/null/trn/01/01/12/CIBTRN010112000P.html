@@ -1,0 +1,132 @@
+<!-- CIBTRN010112000P.html -->
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/bop.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
+
+      <div id="container" class="container">
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="bop">
+              <button type="button" class="btn type-bg-primary size-md btn-modal" data-target="modal-01">
+                <span class="text">모달 버튼</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+
+    <!-- 모달 팝업 영역 -->
+    <div id="modal-01" class="modal is-active" data-dim="true" data-backdrop-close="false" data-alert="true" data-size="sm" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc">
+      <div class="modal-wrapper">
+        <div class="modal-title" id="modal-title">
+          <h4 class="typeH4">채우기</h4>
+        </div>
+        <div class="modal-slot" id="modal-desc">
+          <div class="modal-desc">
+            <div class="result-box">
+              <div class="result-banner">
+                <div class="inner-img"></div>
+                <div class="result-message">
+                  <h4 class="typeH6 color-blueMd">채우기가 완료 되었습니다</h4>
+                </div>
+              </div>
+            </div>
+            <div class="tbl-area">
+              <div class="typeH6">입금계좌</div>
+              <table class="table-type01">
+                <caption></caption>
+                <!-- [수정] 20260903 col width 값 수정  -->
+                <!-- [수정] 20260909 col width style 수정  -->
+                <colgroup>
+                  <col style="width: 160px" />
+                  <col style="width: auto" />
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th scope="row">계좌번호</th>
+                    <td>
+                      <span class="typeMd">수협은행 010901-000-000</span>
+                    </td>
+                  </tr>
+                  <!-- [dev] 추가 20261021-->
+                  <tr>
+                    <th scope="row">채우기 후 잔액</th>
+                    <td class="text-right">
+                      <span class="typeMd">10,000,000 원 </span>
+                    </td>
+                  </tr>
+                  <!-- //[dev] 추가 20261021-->
+                  <tr>
+                    <th scope="row">수수료</th>
+                    <td class="text-right">
+                      <span class="typeMdSemibold">0원</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="tbl-area">
+              <div class="typeH6">출금계좌</div>
+              <table class="table-type01">
+                <caption>
+                  계좌번호, 정보로 구성된 표
+                </caption>
+                <!-- [수정] 20260903 col width 값 수정  -->
+                <!-- [수정] 20260909 col width style 수정  -->
+                <colgroup>
+                  <col style="width: 160px" />
+                  <col style="width: auto" />
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th scope="row">계좌번호</th>
+                    <td>
+                      <span class="typeMd">수협은행 010901-000-000</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">이체금액</th>
+                    <td class="text-right">
+                      <span class="typeMdSemibold">10,000,000원</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer flex items-center justify-center gap-8">
+          <button type="button" class="btn type-bg-primary size-lg">
+            <span class="text">확인</span>
+          </button>
+        </div>
+        <!-- [dev] 추가 20261021-->
+        <button type="button" class="ico btn-close" aria-label="모달 닫기">
+          <i class="ico-close ico-size-smMd" aria-hidden="true"></i>
+          <span class="blind">닫기</span>
+        </button>
+        <!--// [dev] 추가 20261021-->
+      </div>
+    </div>
+  </body>
+</html>

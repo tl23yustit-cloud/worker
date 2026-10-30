@@ -1,0 +1,782 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/foe.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
+
+      <div id="container" class="container">
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="foe">
+              <h2 class="typeH2">수입신용장개설/조회</h2>
+              <div class="tbl-area">
+                <div class="tbl-head">
+                  <div class="left-area"><h4 class="typeH4">수입신용장 발행신청 정보입력</h4></div>
+                  <div class="right-area">
+                    <span class="required typeMd">표로 표시된 항목은 필수로 입력하셔야 합니다.</span>
+                  </div>
+                </div>
+                <table class="table-type01">
+                  <caption>
+                    거래내역파일신청
+                  </caption>
+                  <colgroup>
+                    <col style="width: 160px" />
+                    <col style="width: auto" />
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="row" colspan="2" id="th-01"><span class="required">개설영업점</span></th>
+                      <td headers="th-01">
+                        <div class="tbl-flex">
+                          <div class="clear-type">
+                            <input type="text" id="userDeptInput" class="input size-lg wSize-md" value="" placeholder="개설영업점을 입력해주세요" aria-label="개설영업점" />
+                            <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                              <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                              <span class="blind">닫기</span>
+                            </button>
+                          </div>
+                          <button type="button" class="btn type-line-secondary size-lg">
+                            <span class="text">기존/저장정보 불러오기</span>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row" rowspan="2" class="tbl-border-right" id="th-02">희망통지은행 (Advising Bank)</th>
+                      <th scope="row" id="th-02-01">BIC</th>
+                      <td headers="th-02 th-02-01">
+                        <div class="tbl-flex">
+                          <div class="box-input-search wSize-md">
+                            <input type="search" class="input" placeholder="BIC 코드를 검색하세요." aria-label="BIC 코드" value="" />
+                            <div class="group-button">
+                              <button class="btn-search" type="button"><span class="blind">검색</span></button>
+                            </div>
+                          </div>
+                          <button type="button" class="btn type-line-secondary size-lg">
+                            <span class="text">검색</span>
+                          </button>
+                          <button type="button" class="btn type-line-secondary size-lg">
+                            <span class="text">직접입력</span>
+                          </button>
+                        </div>
+                        <div class="list type-reference mt-8">
+                          <ul>
+                            <li class="typeMd color-fg-primary">SWIFT BIC CODE 가 검색이 안 될 경우 ‘직접입력‘ 버튼을 클릭하여 은행행명 및 주소 칸에 코드를 기재해 주세요.</li>
+                            <li class="typeMd color-fg-primary">통지은행 지정은 선택항목이며, 별도로 지정하지 않는 경우 은행에서 통지은행을 지정합니다.</li>
+                            <li class="typeMd color-fg-primary">BIC코드 입력 후 ‘검색’ 버튼을 클릭하면 아래의 ‘은행 및 주소’ 가 조회됩니다. (은행 명 및 주소를 수정하길 원하시면 ‘직접입력‘ 버튼을 클릭하세요.</li>
+                          </ul>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row" id="th-02-02">은행명 및 주소</th>
+                      <td headers="th-02 th-02-02">
+                        <div class="tbl-column">
+                          <input type="text" id="input-amount-01" class="input wSize-full size-lg" value="HANMIBANK" aria-label="은행명 및 주소" readonly />
+                          <input type="text" id="input-amount-01" class="input wSize-full size-lg" value="HANMIBANK" aria-label="은행명 및 주소" readonly />
+                          <input type="text" id="input-amount-01" class="input wSize-full size-lg" value="LOS ANGELES" aria-label="은행명 및 주소" readonly />
+                          <input type="text" id="input-amount-01" class="input wSize-full size-lg" value="0000 ZMEMDMFLSLD DMDM" aria-label="은행명 및 주소" readonly />
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row" colspan="2" id="th-03"><span class="required">40A : 양도가능여부(Transfer)</span></th>
+                      <td headers="th-03">
+                        <div class="form-box-wrap" role="radiogroup" aria-label="40A : 양도가능여부(Transfer)">
+                          <span class="form-box">
+                            <input type="radio" name="searchType" id="searchType_01" class="form-radio size-md" checked="" />
+                            <label for="searchType_01" class="form-label">YES</label>
+                          </span>
+                          <span class="form-box">
+                            <input type="radio" name="searchType" id="searchType_02" class="form-radio size-md" />
+                            <label for="searchType_02" class="form-label">NO</label>
+                          </span>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row" colspan="2" id="th-05"><span class="required">31D : 유효기일(Data of Expire)</span></th>
+                      <td headers="th-05">
+                        <div class="calendar-wrap">
+                          <!-- 날짜 입력 영역 -->
+                          <div class="input-box">
+                            <input type="text" class="input" placeholder="31D : 유효기일(Data of Expire)" aria-label="31D : 유효기일(Data of Expire)" value="2026-01-06" />
+                            <button type="button" class="btn">
+                              <i class="ico-calendar ico-size-smMd" aria-hidden="true"></i>
+                              <span class="blind">31D : 유효기일(Data of Expire) 달력 열기</span>
+                            </button>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row" colspan="2" id="th-06"><span class="required">31D : 유효기일장소(Data of Expire)</span></th>
+                      <td headers="th-06">
+                        <div class="tbl-flex">
+                          <div class="form-box-wrap" role="radiogroup" aria-label="31D : 유효기일장소(Data of Expire)">
+                            <span class="form-box">
+                              <input type="radio" name="searchType1" id="searchType_011" class="form-radio size-md" checked="" />
+                              <label for="searchType_01" class="form-label">At negotiation bank</label>
+                            </span>
+                            <span class="form-box">
+                              <input type="radio" name="searchType1" id="searchType_021" class="form-radio size-md" />
+                              <label for="searchType_02" class="form-label">Other</label>
+                            </span>
+                          </div>
+                          <div class="clear-type">
+                            <input type="text" id="userDeptInput" class="input size-lg wSize-md" value="" placeholder="31D : 유효기일장소(Data of Expire)을 입력해주세요" aria-label="31D : 유효기일장소(Data of Expire)" />
+                            <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                              <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                              <span class="blind">닫기</span>
+                            </button>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <table class="table-type01">
+                  <caption>
+                    거래내역파일신청
+                  </caption>
+                  <colgroup>
+                    <col style="width: 160px" />
+                    <col style="width: auto" />
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="row"><span class="required">50 : 개설의뢰인(Applicant)</span></th>
+                      <td>
+                        <div class="tbl-column">
+                          <div class="clear-type wSize-full">
+                            <input type="text" id="userDeptInput" class="input size-lg" value="Hong gil dong" placeholder="50 : 개설의뢰인(Applicant)을 입력해주세요" aria-label="50 : 개설의뢰인(Applicant)" />
+                            <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                              <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                              <span class="blind">닫기</span>
+                            </button>
+                          </div>
+                          <div class="clear-type wSize-full">
+                            <input type="text" id="userDeptInput" class="input size-lg" value="" placeholder="50 : 개설의뢰인(Applicant)을 입력해주세요" aria-label="50 : 개설의뢰인(Applicant)" />
+                            <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                              <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                              <span class="blind">닫기</span>
+                            </button>
+                          </div>
+                          <div class="clear-type wSize-full">
+                            <input type="text" id="userDeptInput" class="input size-lg" value="" placeholder="50 : 개설의뢰인(Applicant)을 입력해주세요" aria-label="50 : 개설의뢰인(Applicant)" />
+                            <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                              <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                              <span class="blind">닫기</span>
+                            </button>
+                          </div>
+                          <div class="clear-type wSize-full">
+                            <input type="text" id="userDeptInput" class="input size-lg" value="" placeholder="50 : 개설의뢰인(Applicant)을 입력해주세요" aria-label="50 : 개설의뢰인(Applicant)" />
+                            <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                              <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                              <span class="blind">닫기</span>
+                            </button>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row"><span class="required">59 : 수익자(Beneficiary)</span></th>
+                      <td>
+                        <div class="tbl-column">
+                          <div class="clear-type wSize-full">
+                            <input type="text" id="userDeptInput" class="input size-lg" value="Hong gil dong" placeholder="59 : 수익자(Beneficiary)" aria-label="59 : 수익자(Beneficiary)" />
+                            <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                              <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                              <span class="blind">닫기</span>
+                            </button>
+                          </div>
+                          <div class="clear-type wSize-full">
+                            <input type="text" id="userDeptInput" class="input size-lg" value="" placeholder="59 : 수익자(Beneficiary)" aria-label="59 : 수익자(Beneficiary)" />
+                            <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                              <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                              <span class="blind">닫기</span>
+                            </button>
+                          </div>
+                          <div class="clear-type wSize-full">
+                            <input type="text" id="userDeptInput" class="input size-lg" value="" placeholder="59 : 수익자(Beneficiary)" aria-label="59 : 수익자(Beneficiary)" />
+                            <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                              <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                              <span class="blind">닫기</span>
+                            </button>
+                          </div>
+                          <div class="clear-type wSize-full">
+                            <input type="text" id="userDeptInput" class="input size-lg" value="" placeholder="59 : 수익자(Beneficiary)" aria-label="59 : 수익자(Beneficiary)" />
+                            <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                              <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                              <span class="blind">닫기</span>
+                            </button>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row"><span class="required">32B : 통화및금액(Currency/Amount)</span></th>
+                      <td>
+                        <div class="tbl-flex02">
+                          <div class="box-select wSize-lg">
+                            <button type="button" class="select size-lg" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="selectDropdown01" aria-labelledby="label-account" aria-required="true">
+                              <span class="text">통화를 선택하세요</span>
+                              <span class="blind">목록 열기</span>
+                            </button>
+                            <div id="selectDropdown01" class="box-list-select">
+                              <ul class="list-select" role="listbox" aria-label="32B : 통화및금액(Currency/Amount) 선택 리스트">
+                                <li class="item-select" role="group" aria-selected="true">
+                                  <span class="btn-item-select">32B : 통화및금액(Currency/Amount)</span>
+                                </li>
+                                <li class="item-select" role="group" aria-selected="false">
+                                  <span class="btn-item-select">1</span>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div class="tbl-flex02">
+                            <span class="typeMd">Amount : </span>
+                            <div class="clear-type">
+                              <input type="text" id="userDeptInput" class="input size-lg wSize-md" value="" placeholder="32B : 통화및금액(Currency/Amount) 점 앞자리" aria-label="32B : 통화및금액(Currency/Amount) 점 앞자리" />
+                              <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                                <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                                <span class="blind">닫기</span>
+                              </button>
+                            </div>
+                            <span class="typeMd">.</span>
+                            <div class="clear-type">
+                              <input type="text" id="userDeptInput" class="input size-lg wSize-sm" value="" placeholder="32B : 통화및금액(Currency/Amount) 점 뒷자리" aria-label="32B : 통화및금액(Currency/Amount) 점 뒷자리" />
+                              <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                                <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                                <span class="blind">닫기</span>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                        <p class="input-guide-text02 color-fg-primary">Ex) 미화 1,000 불인 경우 : USD 선택 후 1,000과 00으로 분리</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row"><span>39A : 과부족 허용범위 (Percentage Credit Amount Tolerance)</span></th>
+                      <td>
+                        <div class="tbl-flex02">
+                          <span class="typeMd">(+)상한비율</span>
+                          <div class="clear-type">
+                            <input type="text" id="userDeptInput" class="input size-lg wSize-md" value="" placeholder="(+)상한비율을 입력해주세요" aria-label="32B : 통화및금액(Currency/Amount) (+)상한비율" />
+                            <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                              <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                              <span class="blind">닫기</span>
+                            </button>
+                          </div>
+                          <span class="typeMd">%</span>
+                          <span class="typeMd">(-)하한비율</span>
+                          <div class="clear-type">
+                            <input type="text" id="userDeptInput" class="input size-lg wSize-md" value="" placeholder="(-)하한비율을 입력해주세요" aria-label="32B : 통화및금액(Currency/Amount) (-)하한비율" />
+                            <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                              <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                              <span class="blind">닫기</span>
+                            </button>
+                          </div>
+                          <span class="typeMd">%</span>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row"><span class="required">41D : 신용장 사용가능 은행 (Available with)</span></th>
+                      <td>
+                        <div class="tbl-flex">
+                          <div class="form-box-wrap" role="radiogroup" aria-label="31D : 유효기일장소(Data of Expire)">
+                            <span class="form-box">
+                              <input type="radio" name="searchType12" id="searchType_0112" class="form-radio size-md" checked="" />
+                              <label for="searchType_012" class="form-label">Any Bank</label>
+                            </span>
+                            <span class="form-box">
+                              <input type="radio" name="searchType12" id="searchType_0212" class="form-radio size-md" />
+                              <label for="searchType_022" class="form-label">Other</label>
+                            </span>
+                          </div>
+                          <div class="clear-type">
+                            <input type="text" id="userDeptInput" class="input size-lg wSize-md" value="" placeholder="41D : 신용장 사용가능 은행 (Available with)을 입력해주세요" aria-label="41D : 신용장 사용가능 은행 (Available with)" />
+                            <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                              <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                              <span class="blind">닫기</span>
+                            </button>
+                          </div>
+                          <button type="button" class="btn type-line-secondary size-lg">
+                            <span class="text">검색</span>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row" rowspan="4"><span class="required">42C : 어음만기(Drafts)</span></th>
+                      <td>
+                        <div class="tbl-flex">
+                          <div class="form-box-wrap" role="radiogroup" aria-label="31D : 유효기일장소(Data of Expire)">
+                            <span class="form-box">
+                              <input type="radio" name="searchType13" id="searchType_0113" class="form-radio size-md" checked="" />
+                              <label for="searchType_013" class="form-label">Sight</label>
+                            </span>
+                            <span class="form-box">
+                              <input type="radio" name="searchType13" id="searchType_0213" class="form-radio size-md" />
+                              <label for="searchType_023" class="form-label">Usance</label>
+                            </span>
+                          </div>
+                          <div class="clear-type">
+                            <input type="text" id="userDeptInput" class="input size-lg wSize-md" value="" placeholder="41D : 신용장 사용가능 은행 (Available with)을 입력해주세요" aria-label="41D : 신용장 사용가능 은행 (Available with)" />
+                            <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                              <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                              <span class="blind">닫기</span>
+                            </button>
+                          </div>
+                          <span class="typeMd">Days</span>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="tbl-flex">
+                          <span class="typeMd">Usance 조건 : </span>
+                          <div class="form-box-wrap" role="radiogroup" aria-label="31D : 유효기일장소(Data of Expire)">
+                            <span class="form-box">
+                              <input type="radio" name="searchType14" id="searchType_0114" class="form-radio size-md" checked="" />
+                              <label for="searchType_014" class="form-label">All Sight</label>
+                            </span>
+                            <span class="form-box">
+                              <input type="radio" name="searchType14" id="searchType_0214" class="form-radio size-md" />
+                              <label for="searchType_024" class="form-label">From B/L Date</label>
+                            </span>
+                            <span class="form-box">
+                              <input type="radio" name="searchType14" id="searchType_0214" class="form-radio size-md" />
+                              <label for="searchType_024" class="form-label">After B/L Date</label>
+                            </span>
+                            <span class="form-box">
+                              <input type="radio" name="searchType14" id="searchType_0214" class="form-radio size-md" />
+                              <label for="searchType_024" class="form-label">Other</label>
+                            </span>
+                          </div>
+                          <div class="clear-type">
+                            <input type="text" id="userDeptInput" class="input size-lg wSize-md" value="" placeholder="41D : 신용장 사용가능 은행 (Available with)을 입력해주세요" aria-label="41D : 신용장 사용가능 은행 (Available with)" />
+                            <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                              <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                              <span class="blind">닫기</span>
+                            </button>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="tbl-flex">
+                          <span class="typeMd">Usance 종류 : </span>
+                          <div class="form-box-wrap" role="radiogroup" aria-label="31D : 유효기일장소(Data of Expire)">
+                            <span class="form-box">
+                              <input type="radio" name="searchType15" id="searchType_0115" class="form-radio size-md" checked="" />
+                              <label for="searchType_015" class="form-label">Banker's</label>
+                            </span>
+                            <span class="form-box">
+                              <input type="radio" name="searchType15" id="searchType_0215" class="form-radio size-md" />
+                              <label for="searchType_025" class="form-label">Shipper's</label>
+                            </span>
+                            <span class="form-box">
+                              <input type="radio" name="searchType15" id="searchType_0215" class="form-radio size-md" />
+                              <label for="searchType_025" class="form-label">Domestic</label>
+                            </span>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="tbl-flex">
+                          <div class="form-box-wrap" role="radiogroup" aria-label="31D : 유효기일장소(Data of Expire)">
+                            <span class="form-box">
+                              <input type="radio" name="searchType16" id="searchType_0116" class="form-radio size-md" checked="" />
+                              <label for="searchType_016" class="form-label">Allowed</label>
+                            </span>
+                            <span class="form-box">
+                              <input type="radio" name="searchType16" id="searchType_0216" class="form-radio size-md" />
+                              <label for="searchType_026" class="form-label">Not-Allowed</label>
+                            </span>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row"><span class="required">43T : 환적(Transshipments)</span></th>
+                      <td>
+                        <div class="tbl-flex">
+                          <div class="form-box-wrap" role="radiogroup" aria-label="31D : 유효기일장소(Data of Expire)">
+                            <span class="form-box">
+                              <input type="radio" name="searchType17" id="searchType_0117" class="form-radio size-md" checked="" />
+                              <label for="searchType_017" class="form-label">Allowed</label>
+                            </span>
+                            <span class="form-box">
+                              <input type="radio" name="searchType17" id="searchType_0217" class="form-radio size-md" />
+                              <label for="searchType_027" class="form-label">Not-Allowed</label>
+                            </span>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="box-accordion">
+                <div class="box-item-list">
+                  <div class="box-title">
+                    <span class="title typeH4">운송정보</span>
+                  </div>
+                  <button type="button" class="btn-accordion" aria-expanded="false" aria-controls="accordionContent01">
+                    <i class="ico-arrow" aria-hidden="true"></i>
+                    <span class="blind">상세내용 열기</span>
+                  </button>
+                </div>
+                <div id="accordionContent01" class="content-accordion">
+                  <table class="table-type01">
+                    <caption>
+                      거래내역파일신청
+                    </caption>
+                    <colgroup>
+                      <col style="width: 160px" />
+                      <col style="width: auto" />
+                    </colgroup>
+                    <tbody>
+                      <tr>
+                        <th scope="row"><span class="required">43T : 환적(Transshipments)</span></th>
+                        <td>
+                          <div class="tbl-flex">
+                            <div class="form-box-wrap" role="radiogroup" aria-label="31D : 유효기일장소(Data of Expire)">
+                              <span class="form-box">
+                                <input type="radio" name="searchType18" id="searchType_0118" class="form-radio size-md" checked="" />
+                                <label for="searchType_018" class="form-label">Port</label>
+                              </span>
+                              <span class="form-box">
+                                <input type="radio" name="searchType18" id="searchType_0218" class="form-radio size-md" />
+                                <label for="searchType_018" class="form-label">Airport</label>
+                              </span>
+                              <span class="form-box">
+                                <input type="radio" name="searchType18" id="searchType_0218" class="form-radio size-md" />
+                                <label for="searchType_018" class="form-label">Combined</label>
+                              </span>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><span class="required">출발지(Loading(Shipment from))</span></th>
+                        <td>
+                          <div class="tbl-flex">
+                            <span class="typeMd">44E : 선착항(Port of Loading / Airport of Departure)</span>
+                            <div class="clear-type wSize-full">
+                              <input type="text" id="userDeptInput" class="input size-lg" value="" placeholder="출발지(Loading(Shipment from))을 입력해주세요" aria-label="출발지(Loading(Shipment from))" />
+                              <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                                <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                                <span class="blind">닫기</span>
+                              </button>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><span class="required">도착지(Discharging(Shipment to))</span></th>
+                        <td>
+                          <div class="tbl-flex">
+                            <span class="typeMd">44F : 도착항(Port of Discharge / Airport of Destination)</span>
+                            <div class="clear-type wSize-full">
+                              <input type="text" id="userDeptInput" class="input size-lg" value="" placeholder="도착지(Discharging(Shipment to))을 입력해주세요" aria-label="도착지(Discharging(Shipment to))" />
+                              <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                                <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                                <span class="blind">닫기</span>
+                              </button>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><span class="required">44C : 선적기일(Latest Date of Shipment)</span></th>
+                        <td>
+                          <div class="calendar-wrap">
+                            <!-- 날짜 입력 영역 -->
+                            <div class="input-box">
+                              <input type="text" class="input" placeholder="44C : 선적기일(Latest Date of Shipment)" aria-label="44C : 선적기일(Latest Date of Shipment)" value="2026-01-06" />
+                              <button type="button" class="btn">
+                                <i class="ico-calendar ico-size-smMd" aria-hidden="true"></i>
+                                <span class="blind">44C : 선적기일(Latest Date of Shipment) 달력 열기</span>
+                              </button>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="box-accordion">
+                <div class="box-item-list">
+                  <div class="box-title">
+                    <span class="title typeH4">운송정보</span>
+                  </div>
+                  <button type="button" class="btn-accordion" aria-expanded="false" aria-controls="accordionContent01">
+                    <i class="ico-arrow" aria-hidden="true"></i>
+                    <span class="blind">상세내용 열기</span>
+                  </button>
+                </div>
+                <div id="accordionContent01" class="content-accordion">
+                  <table class="table-type01">
+                    <caption>
+                      거래내역파일신청
+                    </caption>
+                    <colgroup>
+                      <col style="width: 160px" />
+                      <col style="width: auto" />
+                    </colgroup>
+                    <tbody>
+                      <tr>
+                        <th scope="row"><span class="required">가격조건 및 장소(Terms of Price and Place)</span></th>
+                        <td>
+                          <div class="tbl-flex">
+                            <div class="box-select wSize-lg">
+                              <button type="button" class="select size-lg" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="selectDropdown01" aria-labelledby="label-account" aria-required="true">
+                                <span class="text">선택하세요</span>
+                                <span class="blind">목록 열기</span>
+                              </button>
+                              <div id="selectDropdown01" class="box-list-select">
+                                <ul class="list-select" role="listbox" aria-label="가격조건 및 장소(Terms of Price and Place) 선택 리스트">
+                                  <li class="item-select" role="group" aria-selected="true">
+                                    <span class="btn-item-select">가격</span>
+                                  </li>
+                                  <li class="item-select" role="group" aria-selected="false">
+                                    <span class="btn-item-select">1</span>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                            <div class="clear-type">
+                              <input type="text" id="userDeptInput" class="input size-lg wSize-md" value="" placeholder="지역명을 입력하세요." aria-label="가격조건 및 장소(Terms of Price and Place)" />
+                              <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                                <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                                <span class="blind">닫기</span>
+                              </button>
+                            </div>
+                          </div>
+                          <div class="list type-reference mt-8">
+                            <ul>
+                              <li class="typeMd color-fg-primary">가격조건을 선택하고 지역명을 입력하세요. Ex) FOB 선적항, CFR/CIF 도착항</li>
+                            </ul>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><span>H.S코드(H.S Code)</span></th>
+                        <td>
+                          <div class="tbl-flex">
+                            <div class="clear-type">
+                              <input type="text" id="userDeptInput" class="input size-lg wSize-md" value="" placeholder="10자리 입력(숫자만 입력)" aria-label="H.S코드(H.S Code)" />
+                              <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                                <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                                <span class="blind">닫기</span>
+                              </button>
+                            </div>
+                            <div class="tbl-flex">
+                              <span class="typeMd">전문에 표시</span>
+                              <div class="form-box-wrap" role="radiogroup" aria-label="31D : 유효기일장소(Data of Expire)">
+                                <span class="form-box">
+                                  <input type="radio" name="searchType19" id="searchType_0119" class="form-radio size-md" checked="" />
+                                  <label for="searchType_019" class="form-label">YES</label>
+                                </span>
+                                <span class="form-box">
+                                  <input type="radio" name="searchType19" id="searchType_0219" class="form-radio size-md" />
+                                  <label for="searchType_029" class="form-label">NO</label>
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><span>원산지(Country of Origin)</span></th>
+                        <td>
+                          <div class="box-select wSize-lg">
+                            <button type="button" class="select size-lg" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="selectDropdown01" aria-labelledby="label-account" aria-required="true">
+                              <span class="text">선택하세요</span>
+                              <span class="blind">목록 열기</span>
+                            </button>
+                            <div id="selectDropdown01" class="box-list-select">
+                              <ul class="list-select" role="listbox" aria-label="원산지(Country of Origin) 선택 리스트">
+                                <li class="item-select" role="group" aria-selected="true">
+                                  <span class="btn-item-select">가격</span>
+                                </li>
+                                <li class="item-select" role="group" aria-selected="false">
+                                  <span class="btn-item-select">1</span>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                  <div class="tbl-area">
+                    <div class="tbl-head">
+                      <div class="left-area">
+                        <h4 class="typeH4">Description of Goods/Services</h4>
+                      </div>
+                      <div class="right-area">
+                        <div class="list type-reference mt-8">
+                          <ul>
+                            <li class="typeMd color-fg-primary">가격조건을 선택하고 지역명을 입력하세요. Ex) FOB 선적항, CFR/CIF 도착항</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-text-area">
+                      <textarea name="" id="" maxlength="200" placeholder="상세 상품 명세 정보가 있는 경우 해당 정보를 입력하세요." aria-label="Description of Goods/Services" aria-describedby="TEXTAREACOUNTER01" data-len-init="true"></textarea>
+                      <span id="TEXTAREACOUNTER01" class="box-unit" aria-live="polite">
+                        <span class="blind">현재</span>
+                        <span class="current">0</span>
+                        <span class="blind">글자</span>
+                        <i class="divider">/</i>
+                        <span class="blind">최대</span>
+                        <span class="total">200</span>
+                        <span class="blind">글자</span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="btn-wrap center sm-mid">
+                <button type="button" class="btn type-bg-neutral size-xl">
+                  <span class="text">조회</span>
+                </button>
+              </div>
+              <div class="tbl-area">
+                <table class="table-type03">
+                  <caption>
+                    거래일시, 거래내용, 출금, 입금, 잔액(원), 방법에 대한 구성 테이블입니다.
+                  </caption>
+                  <colgroup>
+                    <col style="width: 64px" />
+                    <col style="width: 64px" />
+                    <col style="width: 64px" />
+                    <col style="width: 140px" />
+                    <col style="width: 140px" />
+                    <col style="width: 200px" />
+                    <col style="width: 64px" />
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th scope="col" rowspan="2" id="th-01">선택</th>
+                      <th scope="col" rowspan="2" id="th-02">거래구분</th>
+                      <th scope="col" rowspan="2" id="th-03">수입신청번호</th>
+                      <th scope="col" id="th-04">신청일자</th>
+                      <th scope="col" id="th-05">통화</th>
+                      <th scope="col" id="th-06">
+                        통지은행<br />
+                        (BIC CODE)
+                      </th>
+                      <th scope="col" rowspan="2" id="th-07">상태</th>
+                    </tr>
+                    <tr>
+                      <th scope="col" id="th-02-04">유효기일</th>
+                      <th scope="col" id="th-02-05">금액(원)</th>
+                      <th scope="col" id="th-02-06">수익자</th>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                    <tr>
+                      <td rowspan="2" headers="th-01">
+                        <input type="radio" name="SampleRadio0302" id="SampleRadio0302" class="form-radio size-md" title="선택" archecked="" />
+                      </td>
+                      <td rowspan="2" headers="th-02"><span class="typeMd">개설</span></td>
+                      <td rowspan="2" headers="th-03"><span class="typeMd">IS0000000000</span></td>
+                      <td headers="th-04"><span class="typeMd">YYYY-MM-DD</span></td>
+                      <td headers="th-05"><span class="typeMd">USD</span></td>
+                      <td headers="th-06"><span class="typeMd">ANKCO MUNNICIPAL</span></td>
+                      <td rowspan="2" headers="th-07"><span class="typeMd">신청등록</span></td>
+                    </tr>
+                    <tr>
+                      <td class="tbl-border-left" headers="th-02-04"><span class="typeMd">YYYY-MM-DD</span></td>
+                      <td class="text-right" headers="th-02-05"><span class="typeMd">100,000,000</span></td>
+                      <td><span class="typeMd" headers="th-02-06">ANKCO MUNNICIPAL DE ROSARIO</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <nav class="pagination size-md" aria-label="페이지네이션">
+                <button type="button" class="btn-nav first" disabled="" aria-disabled="true" aria-label="첫 페이지">
+                  <span class="blind">첫 페이지</span>
+                </button>
+                <button type="button" class="btn-nav prev" disabled="" aria-disabled="true" aria-label="이전 페이지">
+                  <span class="blind">이전 페이지</span>
+                </button>
+
+                <ol class="list-pagination">
+                  <li>
+                    <button type="button" class="btn-page active" aria-current="page" aria-label="1페이지" title="현재 페이지">1</button>
+                  </li>
+                  <li>
+                    <button type="button" class="btn-page" aria-label="2페이지">2</button>
+                  </li>
+                  <li>
+                    <button type="button" class="btn-page" aria-label="3페이지">3</button>
+                  </li>
+                  <li>
+                    <button type="button" class="btn-page" aria-label="4페이지">4</button>
+                  </li>
+                  <li>
+                    <button type="button" class="btn-page" aria-label="5페이지">5</button>
+                  </li>
+                </ol>
+
+                <button type="button" class="btn-nav next" aria-label="다음 페이지">
+                  <span class="blind">다음 페이지</span>
+                </button>
+                <button type="button" class="btn-nav last" aria-label="마지막 페이지">
+                  <span class="blind">마지막 페이지</span>
+                </button>
+              </nav>
+              <div class="btn-wrap center lg-bot">
+                <button type="button" class="btn type-bg-primary size-xxl">
+                  <span class="text">상세조회</span>
+                </button>
+              </div>
+              <div class="line-box size-xl mt-48">
+                <span class="typeLgSemibold">이용안내</span>
+                <div class="list type-dotted">
+                  <ul>
+                    <li class="typeMd">거래가능시간 : 평일 9시~16시까지 신청등록가능(신청서 작성은 연중무휴 24시간 가능)</li>
+                    <li class="typeMd">수입신용장을 개설 신청하는 업무로, 수수료출금 및 해외전문발송은 은행에서 신청서 검토 후 실제 거래가 완료되는 시점에 처리됩니다.</li>
+                    <li class="typeMd">개설신청 중 작성한 내용이 사라지지 않도록 ‘임시저장‘ 버튼을 클릭하여 주세요.</li>
+                    <li class="typeMd">수입계약서, 인보이스 및 보험증권 등 개설에 필요한 서류는 비대면에서는 신청시에 서류제출하오니 미리 서류를 준비한 후 신청해주시기 바랍니다.</li>
+                    <li class="typeMd">미국,UN,EU등이 정한 경제제재 대상 또는 국가(북한, 이란 등)와의 교역과 관련된 경우 신용장 개설이 거절될 수 있습니다.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
+</html>
+<script></script>

@@ -1,0 +1,434 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/bmg.css" />
+</head>
+
+<body>
+    <div class="wrapper">
+        <div id="header">
+            @@include('static/html/pub/layout/skipNavigation.html')
+            @@include('static/html/pub/layout/header_sub.html')
+        </div>
+
+        <div id="container" class="container">
+            <div id="leftArea">
+                @@include('static/html/pub/layout/leftArea.html')
+            </div>
+            <div id="contents">
+                <div class="content">
+                    @@include('static/html/pub/layout/breadcrumb.html')
+                    <div class="bmg">
+                        <h2 class="typeH2">재발급신청</h2>
+                        <div class="tbl-area">
+                            <div class="tbl-head">
+                                <h4 class="typeH4">사업자 선택</h4>
+                            </div>
+                            <!--  -->
+
+                            <!--  -->
+                            <div class="box-select wSize-lg">
+                                <button type="button" class="select size-lg" role="combobox" aria-expanded="false"
+                                    aria-haspopup="listbox" aria-controls="selectDropdown07"
+                                    aria-labelledby="label-account" aria-required="true">
+                                    <span class="text">플립커뮤니케이션즈 123-12-12345</span>
+                                    <span class="blind">목록 열기</span>
+                                </button>
+                                <div id="selectDropdown07" class="box-list-select">
+                                    <ul class="list-select" role="listbox" aria-label="사업자 선택 리스트">
+                                        <li class="item-select" role="group" aria-selected="true">
+                                            <span class="btn-item-select">
+                                                플립커뮤니케이션즈 123-12-12345
+                                            </span>
+                                        </li>
+                                        <li class="item-select" role="group" aria-selected="false">
+                                            <span class="btn-item-select">1</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <table class="table-type01">
+                                <caption></caption>
+                                <colgroup>
+                                    <col style="width: 160px">
+                                    <col style="width: auto">
+                                </colgroup>
+                                <tbody>
+
+                                    <tr>
+                                        <th scope="row">
+                                            <span class="required">조회구분</span>
+                                        </th>
+                                        <td>
+                                            <div class="form-box-wrap" role="radiogroup" aria-label="조회구분">
+                                                <span class="form-box">
+                                                    <input type="radio" name="searchType2" id="searchType_01_1"
+                                                        class="form-radio size-md" checked="">
+                                                    <label for="searchType_01" class="form-label">사업장</label>
+                                                </span>
+                                                <span class="form-box">
+                                                    <input type="radio" name="searchType2" id="searchType2_02"
+                                                        class="form-radio size-md">
+                                                    <label for="searchType2_02" class="form-label">카드</label>
+                                                </span>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <th scope="row">
+                                            <label for="businessNameInputA">사업장명</label>
+                                        </th>
+                                        <td>
+
+                                            <button type="button" class="btn type-line-secondary size-lg">
+                                                <span class="text">사업장명 선택</span>
+                                            </button>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <th scope="row">
+                                            <span><label for="input-ody26c">카드유형</label></span>
+                                        </th>
+                                        <td>
+                                            <div class="box-select wSize-md">
+                                                <button type="button" class="select size-lg" role="combobox"
+                                                    aria-expanded="false" aria-haspopup="listbox"
+                                                    aria-controls="selectDropdown01" aria-labelledby="label-account"
+                                                    aria-required="true">
+                                                    <span class="text">신용카드 </span>
+                                                    <span class="blind">목록 열기</span>
+                                                </button>
+                                                <div id="selectDropdown01" class="box-list-select">
+                                                    <ul class="list-select" role="listbox" aria-label="카드유형 선택 리스트">
+                                                        <li class="item-select" role="group" aria-selected="true">
+                                                            <span class="btn-item-select">
+                                                                신용카드
+                                                            </span>
+                                                        </li>
+                                                        <li class="item-select" role="group" aria-selected="false">
+                                                            <span class="btn-item-select">1</span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <!-- [dev] 카드 : 카드유형(신용 비활성화), 상품명 선택, 카드번호 뒷자리 입력 -->
+                                    <tr>
+                                        <th scope="row">
+                                            <span><label for="input-ody26a">카드상품명</label></span>
+                                        </th>
+                                        <td>
+                                            <div class="box-select wSize-md">
+                                                <button type="button" class="select size-lg" role="combobox"
+                                                    aria-expanded="false" aria-haspopup="listbox"
+                                                    aria-controls="selectDropdown02" aria-labelledby="label-account"
+                                                    aria-required="true">
+                                                    <span class="text">선택하세요 </span>
+                                                    <span class="blind">목록 열기</span>
+                                                </button>
+                                                <div id="selectDropdown02" class="box-list-select">
+                                                    <ul class="list-select" role="listbox" aria-label="카드상품명 선택 리스트">
+                                                        <li class="item-select" role="group" aria-selected="true">
+                                                            <span class="btn-item-select">
+                                                                1
+                                                            </span>
+                                                        </li>
+                                                        <li class="item-select" role="group" aria-selected="false">
+                                                            <span class="btn-item-select">2</span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <!--// [dev] 카드 : 카드유형(신용 비활성화), 상품명 선택, 카드번호 뒷자리 입력 -->
+
+                                    <tr>
+                                        <th scope="row">
+                                            <span class="required"><label for="cardLastNumA">카드번호 뒷4자리</label></span>
+                                        </th>
+                                        <td>
+                                            <div class="input-box wSize-md">
+                                                <input type="password" id="cardLastNumA" class="input"
+                                                    placeholder="카드번호 뒷4자리를 입력하세요." aria-label="카드번호 뒷4자리">
+                                                <button type="button" class="btn">
+                                                    <i class="ico-keypad ico-size-smMd"></i>
+                                                    <span class="blind">보안 키패드 열기</span>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+
+                                </tbody>
+                            </table>
+                        </div>
+
+
+
+                        <div class="btn-wrap center sm-mid">
+                            <button type="button" class="btn type-line-neutral size-xl">
+                                <span class="text">초기화</span>
+                            </button>
+                            <button type="button" class="btn type-bg-neutral size-xl">
+                                <span class="text">조회</span>
+                            </button>
+                        </div>
+
+
+                        <!--  -->
+                        <div class="tbl-area">
+                            <h4 class="typeH4">카드선택</h4>
+                            <div class="box-grid-utility flex items-center justify-between">
+                                <div class="box-left flex items-center gap-8">
+                                    <span class="total typeMd">총 <span class="num">45건</span></span>
+
+                                    <div class="box-select wSize-md">
+                                        <button type="button" class="select size-lg" role="combobox"
+                                            aria-expanded="false" aria-haspopup="listbox"
+                                            aria-controls="selectDropdown06">
+                                            <span class="text">10개씩 보기</span>
+                                            <span class="blind">펼침</span>
+                                        </button>
+                                        <div id="selectDropdown06" class="box-list-select">
+                                            <ul class="list-select" role="listbox" aria-label="선택 항목 리스트">
+                                                <li class="item-select" role="group">
+                                                    <button type="button" class="btn-item-select">
+                                                        5개씩 보기
+                                                    </button>
+                                                </li>
+                                                <li class="item-select" role="group">
+                                                    <button type="button" class="btn-item-select">
+                                                        10개씩 보기
+                                                    </button>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <table class="table-type03">
+                                <caption></caption>
+                                <colgroup>
+                                    <col style="width: auto">
+                                    <col style="width: auto">
+                                    <col style="width: auto">
+                                    <col style="width: auto">
+                                    <col style="width: auto">
+                                    <col style="width: auto">
+                                    <col style="width: auto">
+                                </colgroup>
+                                <thead>
+                                    <tr>
+                                        <th scope="col"><span>No</span></th>
+                                        <th scope="col"><span>유형</span></th>
+                                        <th scope="col"><span>사업장명</span></th>
+                                        <th scope="col"><span>카드상품명</span></th>
+                                        <th scope="col"><span>카드번호</span></th>
+                                        <th scope="col"><span>유효기간 (월/년)</span></th>
+                                        <th scope="col"><span>상세보기</span></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <span class="typeMd">1</span>
+                                        </td>
+                                        <td>
+                                            <span class="typeMd">신용</span>
+                                        </td>
+                                        <td>
+                                            <span class="typeMd">플립커뮤니케이션즈</span>
+                                        </td>
+                                        <td>
+                                            <span class="typeMd">슈퍼프라임신용카드</span>
+                                        </td>
+                                        <td>
+                                            <span class="typeMd">1239-****-****-4451</span>
+                                        </td>
+                                        <td>
+                                            <span class="typeMd">12/28</span>
+                                        </td>
+                                        <td>
+                                            <button type="button" class="btn type-line-neutral size-sm">
+                                                <span class="text">재발급</span>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="typeMd">1</span>
+                                        </td>
+                                        <td>
+                                            <span class="typeMd">신용</span>
+                                        </td>
+                                        <td>
+                                            <span class="typeMd">플립커뮤니케이션즈</span>
+                                        </td>
+                                        <td>
+                                            <span class="typeMd">슈퍼프라임신용카드</span>
+                                        </td>
+                                        <td>
+                                            <span class="typeMd">1239-****-****-4451</span>
+                                        </td>
+                                        <td>
+                                            <span class="typeMd">12/28</span>
+                                        </td>
+                                        <td>
+                                            <button type="button" class="btn type-line-neutral size-sm">
+                                                <span class="text">재발급</span>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="typeMd">1</span>
+                                        </td>
+                                        <td>
+                                            <span class="typeMd">신용</span>
+                                        </td>
+                                        <td>
+                                            <span class="typeMd">플립커뮤니케이션즈</span>
+                                        </td>
+                                        <td>
+                                            <span class="typeMd">슈퍼프라임신용카드</span>
+                                        </td>
+                                        <td>
+                                            <span class="typeMd">1239-****-****-4451</span>
+                                        </td>
+                                        <td>
+                                            <span class="typeMd">12/28</span>
+                                        </td>
+                                        <td>
+                                            <button type="button" class="btn type-line-neutral size-sm">
+                                                <span class="text">재발급</span>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="typeMd">1</span>
+                                        </td>
+                                        <td>
+                                            <span class="typeMd">신용</span>
+                                        </td>
+                                        <td>
+                                            <span class="typeMd">플립커뮤니케이션즈</span>
+                                        </td>
+                                        <td>
+                                            <span class="typeMd">슈퍼프라임신용카드</span>
+                                        </td>
+                                        <td>
+                                            <span class="typeMd">1239-****-****-4451</span>
+                                        </td>
+                                        <td>
+                                            <span class="typeMd">12/28</span>
+                                        </td>
+                                        <td>
+                                            <button type="button" class="btn type-line-neutral size-sm">
+                                                <span class="text">재발급</span>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                <tr>
+                                    <td colspan="7">
+                                        <div class="empty-page">
+                                            <i class="ico-info" aria-hidden="true"></i>
+                                            <div class="typeMd">신청 가능한 카드가 없습니다.
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <nav class="pagination size-md" aria-label="페이지네이션">
+                            <button type="button" class="btn-nav first" disabled="" aria-disabled="true"
+                                aria-label="첫 페이지">
+                                <span class="blind">첫 페이지</span>
+                            </button>
+                            <button type="button" class="btn-nav prev" disabled="" aria-disabled="true"
+                                aria-label="이전 페이지">
+                                <span class="blind">이전 페이지</span>
+                            </button>
+
+                            <ol class="list-pagination">
+                                <li>
+                                    <button type="button" class="btn-page active" aria-current="page" aria-label="1페이지"
+                                        title="현재 페이지">
+                                        1
+                                    </button>
+                                </li>
+                                <li>
+                                    <button type="button" class="btn-page" aria-label="2페이지">
+                                        2
+                                    </button>
+                                </li>
+                                <li>
+                                    <button type="button" class="btn-page" aria-label="3페이지">
+                                        3
+                                    </button>
+                                </li>
+                                <li>
+                                    <button type="button" class="btn-page" aria-label="4페이지">
+                                        4
+                                    </button>
+                                </li>
+                                <li>
+                                    <button type="button" class="btn-page" aria-label="5페이지">
+                                        5
+                                    </button>
+                                </li>
+                            </ol>
+
+                            <button type="button" class="btn-nav next" aria-label="다음 페이지">
+                                <span class="blind">다음 페이지</span>
+                            </button>
+                            <button type="button" class="btn-nav last" aria-label="마지막 페이지">
+                                <span class="blind">마지막 페이지</span>
+                            </button>
+                        </nav>
+
+                        <!--  -->
+                        <div class="line-box size-xl mt-48">
+                            <span class="typeLgSemibold">이용안내</span>
+                            <div class="list type-dotted">
+                                <ul>
+                                    <li class="typeMd">
+                                        관리자만 조회할 수 있는 화면입니다.
+                                    </li>
+                                    <li class="typeMd">
+                                        조회조건을 통해 카드목록을 확인하고 선택한 카드를 재발급 신청할 수 있습니다.
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+        </div>
+        <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+</body>
+
+</html>
+<script></script>

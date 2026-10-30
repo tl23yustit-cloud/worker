@@ -1,0 +1,405 @@
+<!-- 1.03v -->
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/van.css" />
+  </head>
+
+  <body>
+    <div class="popup">
+      <div class="van">
+        <h2 class="typeH2">출하대금 정산시스템 로그인</h2>
+        <div class="box-tab">
+          <ul class="list-tab-button type-outline" role="tablist" aria-label="탭 이름">
+            <li class="item-tab-button">
+              <button type="button" class="btn-tab active" title="선택됨" id="tabBtnTypeOutline01" role="tab" aria-selected="true" aria-controls="tabPanelTypeOutline01">
+                <span class="text">출하대금정산금 이체 </span>
+              </button>
+            </li>
+            <li class="item-tab-button">
+              <button type="button" class="btn-tab" id="tabBtnTypeOutline02" role="tab" aria-selected="false" aria-controls="tabPanelTypeOutline02">
+                <span class="text">거래내역조회 </span>
+              </button>
+            </li>
+          </ul>
+          <div class="box-tab-content active" id="tabPanelTypeOutline01" role="tabpanel" aria-labelledby="tabBtnTypeOutline01">
+            <h3 class="blind">출하대금정산금 이체 탭</h3>
+            <div class="tbl-area">
+              <h4 class="typeH4">출금정보</h4>
+              <table class="table-type01">
+                <caption>
+                  출금계좌번호, 출금계좌비밀번호, 보내는 분 통장표시내용, 전화번호에 대한 구성 테이블입니다.
+                </caption>
+                <colgroup>
+                  <col style="width: 160px" />
+                  <col style="width: auto" />
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th scope="row">
+                      <span>출금계좌번호</span>
+                    </th>
+                    <td>
+                      <span class="typeMd">000-00-000000</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <span>출금계좌비밀번호</span>
+                    </th>
+                    <td>
+                      <div class="tbl-flex">
+                        <input type="password" id="input-ectnb8" class="input size-lg wSize-smMd" aria-label="출금계좌비밀번호 " placeholder="" />
+                        <button class="btn-mouse-keypad">
+                          <!-- 키패드 활성화시 is-active 클래스 추가 -->
+                          <i class="ico ico-size-smMd" aria-hidden="true"></i>
+                          <span class="blind">마우스 입력 열기</span>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <span>보내는 분 통장표시내용</span>
+                    </th>
+                    <td>
+                      <div class="clear-type">
+                        <input type="text" id="input-6nvc48" class="input size-lg wSize-lg" aria-label="보내는 분 통장표시내용" placeholder="보내는분 통장표시내용을 입력하세요" />
+                        <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                          <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                          <span class="blind">닫기</span>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <span>전화번호</span>
+                    </th>
+                    <td>
+                      <div class="tbl-flex">
+                        <div class="box-select wSize-sm">
+                          <button type="button" id="phonePrefixBtn" class="select size-lg" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="selectDropdown01" aria-labelledby="phone-label" aria-required="true">
+                            <span class="text">010</span>
+                          </button>
+                          <div id="selectDropdown01" class="box-list-select">
+                            <ul class="list-select" role="listbox" aria-label="전화번호 앞자리 선택">
+                              <li class="item-select" role="option" aria-selected="true" tabindex="0">
+                                <span class="btn-item-select">010</span>
+                              </li>
+                              <li class="item-select" role="option" aria-selected="false" tabindex="-1">
+                                <span class="btn-item-select">011</span>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                        <span aria-hidden="true">-</span>
+                        <div class="clear-type">
+                          <input type="text" class="input size-lg wSize-sm" value="" maxlength="4" aria-label="전화번호 중간자리" aria-required="true" />
+                          <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                            <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                            <span class="blind">닫기</span>
+                          </button>
+                        </div>
+                        <span aria-hidden="true">-</span>
+                        <div class="clear-type">
+                          <input type="text" class="input size-lg wSize-sm" value="" maxlength="4" aria-label="전화번호 뒷자리" aria-required="true" />
+                          <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                            <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                            <span class="blind">닫기</span>
+                          </button>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="tbl-area">
+              <h4 class="typeH4">입금정보</h4>
+              <table class="table-type01">
+                <caption>
+                  입금은행, 입금계좌번호, 이체금액, CMS 송금여부, 입금의뢰인, 송금구분, 송품장일련번호, 이동전화번호에 대한 구성 테이블입니다.
+                </caption>
+                <colgroup>
+                  <col style="width: 160px" />
+                  <col style="width: auto" />
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th scope="row">
+                      <span>입금은행</span>
+                    </th>
+                    <td>
+                      <div class="tbl-flex">
+                        <div class="box-select wSize-md">
+                          <button type="button" id="input-ef90ym" class="select size-lg" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="comp-d8bg7q" aria-label="입금은행 선택">
+                            <span class="text">수협</span>
+                            <span class="blind">펼침</span>
+                          </button>
+                          <div id="comp-d8bg7q" class="box-list-select">
+                            <ul class="list-select" role="listbox" aria-label="입금은행">
+                              <li class="item-select" role="option" aria-selected="false"><span class="btn-item-select">Option01</span></li>
+                              <li class="item-select" role="option" aria-selected="false"><span class="btn-item-select">Option02</span></li>
+                            </ul>
+                          </div>
+                        </div>
+                        <button type="button" class="btn type-line-secondary size-lg">
+                          <span class="text">장애은행조회</span>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <span>입금계좌번호</span>
+                    </th>
+                    <td>
+                      <div class="tbl-column">
+                        <div class="radio-group" role="radiogroup" aria-label="입금계좌번호">
+                          <span class="form-box">
+                            <input type="radio" name="입금계좌번호" id="직접입력" class="radio-btn" checked="" />
+                            <label for="직접입력" class="form-label">직접입력</label>
+                          </span>
+                          <span class="form-box">
+                            <input type="radio" name="입금계좌번호" id="최근" class="radio-btn" />
+                            <label for="최근" class="form-label">최근</label>
+                          </span>
+                          <span class="form-box">
+                            <input type="radio" name="입금계좌번호" id="자주" class="radio-btn" />
+                            <label for="자주" class="form-label">자주</label>
+                          </span>
+                        </div>
+                        <div class="clear-type">
+                          <input type="text" id="input-jxx10v" class="input size-lg wSize-lg" aria-label="입금계좌번호 입력" placeholder="입금계좌번호를 입력하세요" />
+                          <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                            <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                            <span class="blind">닫기</span>
+                          </button>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <span>이체금액(원)</span>
+                    </th>
+                    <td>
+                      <div class="tbl-column">
+                        <div class="tbl-flex">
+                          <!-- [수정] 20260903 title 값 추가  -->
+                          <div class="clear-type">
+                            <input type="text" class="input size-lg wSize-md" placeholder="이체금액을 입력하세요" title="이체금액" value="10,000,000" />
+
+                            <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                              <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                              <span class="blind">닫기</span>
+                            </button>
+                          </div>
+                          <div class="clear-type">
+                            <input type="text" class="input size-lg wSize-md" placeholder="입력된 금액이 한글로 표기됩니다." title="이체금액" readonly="" />
+                            <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                              <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                              <span class="blind">닫기</span>
+                            </button>
+                          </div>
+                          <button type="button" class="btn type-line-secondary size-lg flex gap-4 items-center">
+                            <span class="text">재입력</span>
+                          </button>
+                          <button type="button" class="btn type-line-secondary size-lg flex gap-4 items-center">
+                            <span class="text">인출가능잔액조회 </span>
+                          </button>
+                        </div>
+
+                        <ul class="button-group">
+                          <li>
+                            <button type="button" class="btn type-bg-neutral-tint size-sm flex items-center gap-4">
+                              <i class="ico line ico-size-sm ico-plus colorFgNetral" aria-hidden="true"></i>
+                              <span class="text">1000만</span>
+                            </button>
+                          </li>
+                          <li>
+                            <button type="button" class="btn type-bg-neutral-tint size-sm flex items-center gap-4">
+                              <i class="ico line ico-size-sm ico-plus colorFgNetral" aria-hidden="true"></i>
+                              <span class="text">500만</span>
+                            </button>
+                          </li>
+                          <li>
+                            <button type="button" class="btn type-bg-neutral-tint size-sm flex items-center gap-4">
+                              <i class="ico line ico-size-sm ico-plus colorFgNetral" aria-hidden="true"></i>
+                              <span class="text">100만</span>
+                            </button>
+                          </li>
+
+                          <li>
+                            <button type="button" class="btn type-bg-neutral-tint size-sm">
+                              <span class="text">계산기</span>
+                            </button>
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                  <!-- for dev) 화면설계서기준 CMS 송금여부 CMS 번호 분리되어있으나 다른 화면설계 피그마 화면디자인들은 합쳐져있음 변경가능성있음 -->
+                  <tr>
+                    <th scope="row">
+                      <span>CMS 송금여부</span>
+                    </th>
+                    <td>
+                      <div class="tbl-column">
+                        <div class="form-box-wrap">
+                          <span class="form-box">
+                            <input type="radio" name="remittanceType" id="SampleRadio0305" class="form-radio size-md" checked="" />
+                            <label for="SampleRadio0305" class="form-label">일반송금</label>
+                          </span>
+
+                          <span class="form-box">
+                            <input type="radio" name="remittanceType" id="SampleRadio0306" class="form-radio size-md" />
+                            <label for="SampleRadio0306" class="form-label">CMS송금</label>
+                          </span>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <span>CMS 번호</span>
+                    </th>
+                    <td>
+                      <div class="tbl-column">
+                        <div class="clear-type">
+                          <input type="text" class="input size-lg wSize-md" placeholder="CMS번호를 입력해주세요" title="CMS번호" value="" />
+
+                          <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                            <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                            <span class="blind">닫기</span>
+                          </button>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <span>입금의뢰인</span>
+                    </th>
+                    <td>
+                      <div class="clear-type">
+                        <input type="text" id="input-oaq5wj" class="input size-lg wSize-md" aria-label="입금의뢰인 입력" placeholder="입력해주세요" value="나래통신" />
+
+                        <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                          <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                          <span class="blind">닫기</span>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <span>송금구분</span>
+                    </th>
+                    <td>
+                      <div class="box-select wSize-smMd">
+                        <button type="button" id="input-gqgjgs" class="select size-lg" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="comp-rt0hli" aria-label="항목 1 선택">
+                          <span class="text">정산금액</span>
+                          <span class="blind">펼침</span>
+                        </button>
+                        <div id="comp-rt0hli" class="box-list-select">
+                          <ul class="list-select" role="listbox" aria-label="항목 1">
+                            <li class="item-select" role="option" aria-selected="false"><span class="btn-item-select">정산금액</span></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <span>송품장일련번호</span>
+                    </th>
+                    <td>
+                      <div class="clear-type">
+                        <input type="text" id="input-pspdkj" class="input size-lg wSize-lg" aria-label="송품장일련번호 입력" placeholder="송품장일련번호를 입력하세요" />
+
+                        <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                          <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                          <span class="blind">닫기</span>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <span>이동전화번호</span>
+                    </th>
+                    <td>
+                      <div class="tbl-flex">
+                        <div class="box-select wSize-sm">
+                          <button type="button" id="phonePrefixBtn" class="select size-lg" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="selectDropdown01" aria-labelledby="phone-label" aria-required="true">
+                            <span class="text">010</span>
+                          </button>
+                          <div id="selectDropdown01" class="box-list-select">
+                            <ul class="list-select" role="listbox" aria-label="이동전화번호 앞자리 선택">
+                              <li class="item-select" role="option" aria-selected="true" tabindex="0">
+                                <span class="btn-item-select">010</span>
+                              </li>
+                              <li class="item-select" role="option" aria-selected="false" tabindex="-1">
+                                <span class="btn-item-select">011</span>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                        <span aria-hidden="true">-</span>
+                        <div class="clear-type">
+                          <input type="text" class="input size-lg wSize-sm" value="" maxlength="4" aria-label="이동전화번호 중간자리" aria-required="true" />
+                          <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                            <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                            <span class="blind">닫기</span>
+                          </button>
+                        </div>
+                        <span aria-hidden="true">-</span>
+                        <div class="clear-type">
+                          <input type="text" class="input size-lg wSize-sm" value="" maxlength="4" aria-label="이동전화번호 뒷자리" aria-required="true" />
+                          <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                            <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                            <span class="blind">닫기</span>
+                          </button>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="list type-star mt-12">
+              <ul>
+                <li class="typeMd">이체에 대한 정보를 입력하신 뒤 아래의 추가 버튼을 누르세요.</li>
+              </ul>
+            </div>
+
+            <div class="btn-wrap center lg-bot">
+              <button type="button" class="btn type-line-neutral size-xxl">
+                <span class="text">추가</span>
+              </button>
+              <button type="button" class="btn type-bg-primary size-xxl">
+                <span class="text">이체</span>
+              </button>
+            </div>
+          </div>
+          <div class="box-tab-content" id="tabPanelTypeOutline02" role="tabpanel" aria-labelledby="tabBtnTypeOutline02" style="display: none">
+            <h3 class="blind">거래내역조회 탭</h3>
+            Tab 본문 02
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
+</html>
+<script></script>

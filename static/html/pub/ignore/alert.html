@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>수협은행</title>
+  <link rel="stylesheet" href="/static/css/reset.css" />
+  <link rel="stylesheet" href="/static/css/layout.css" />
+  <link rel="stylesheet" href="/static/css/component.css" />
+  <link rel="stylesheet" href="/static/css/common.css" />
+  <link rel="stylesheet" href="/static/css/dts.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <div id="header">
+      @@include('static/html/pub/layout/skipNavigation.html')
+      @@include('static/html/pub/layout/header_sub.html')
+    </div>
+
+    <div id="container" class="container">
+      <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+      <div id="contents">
+        <div class="content">
+          @@include('static/html/pub/layout/breadcrumb.html')
+          <div class="dts">
+            <h4 class="typeH">해지예상조회</h4>
+            <button type="button" class="btn type-bg-primary size-md btn-modal" data-target="modal-01">
+              <span class="text">필수 항목</span>
+            </button>
+            <button type="button" class="btn type-bg-primary size-md btn-modal" data-target="modal-02">
+              <span class="text">알림</span>
+            </button>
+
+            <button type="button" class="btn type-bg-primary size-md btn-modal" data-target="modal-03">
+              <span class="text">알림2</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+    </div>
+    <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+  </div>
+  <script src="/static/js/ui/cib_ui_common.js"></script>
+  <div id="modal-01" class="modal" data-dim="true" data-backdrop-close="false" data-alert="false" data-size="xs"
+    role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc">
+    <div class="modal-wrapper">
+      <div class="modal-title">
+        <h4 class="typeH4">필수 항목</h4>
+      </div>
+      <div class="modal-slot">
+        <p>출금계좌번호는 필수 입력 항목입니다.</p>
+      </div>
+      <div class="modal-footer flex items-center justify-center gap-8">
+        <button type="button" class="btn type-bg-primary size-lg">
+          <span class="text">확인</span>
+        </button>
+      </div>
+      <button type="button" class="ico btn-close" aria-label="모달 닫기">
+        <i class="ico-close ico-size-smMd" aria-hidden="true"></i>
+        <span class="blind">닫기</span>
+      </button>
+    </div>
+  </div>
+  <div id="modal-01" class="modal" data-dim="true" data-backdrop-close="false" data-alert="false" data-size="xs"
+    role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc">
+    <div class="modal-wrapper">
+      <div class="modal-title">
+        <h4 class="typeH4">필수 항목</h4>
+      </div>
+      <div class="modal-slot">
+        <p>출금계좌번호는 필수 입력 항목입니다.</p>
+      </div>
+      <div class="modal-footer flex items-center justify-center gap-8">
+        <button type="button" class="btn type-bg-primary size-lg">
+          <span class="text">확인</span>
+        </button>
+      </div>
+      <button type="button" class="ico btn-close" aria-label="모달 닫기">
+        <i class="ico-close ico-size-smMd" aria-hidden="true"></i>
+        <span class="blind">닫기</span>
+      </button>
+    </div>
+  </div>
+  <div id="modal-02" class="modal" data-dim="true" data-backdrop-close="false" data-alert="false" data-size="xs"
+    role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc">
+    <div class="modal-wrapper">
+      <div class="modal-title">
+        <h4 class="typeH4">알림</h4>
+      </div>
+      <div class="modal-slot">
+        <p>해지예상일자는 현재날짜보다 커야합니다.</p>
+      </div>
+      <div class="modal-footer flex items-center justify-center gap-8">
+        <button type="button" class="btn type-bg-primary size-lg">
+          <span class="text">확인</span>
+        </button>
+      </div>
+      <button type="button" class="ico btn-close" aria-label="모달 닫기">
+        <i class="ico-close ico-size-smMd" aria-hidden="true"></i>
+        <span class="blind">닫기</span>
+      </button>
+    </div>
+  </div>
+  <div id="modal-03" class="modal" data-dim="true" data-backdrop-close="false" data-alert="false" data-size="xs"
+    role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc">
+    <div class="modal-wrapper">
+      <div class="modal-title">
+        <h4 class="typeH4">알림</h4>
+      </div>
+      <div class="modal-slot">
+        <div class="text-center error-code">
+          <p class="typeLgSemibold">비대명 해지가 불가합니다.<br>해지는 영업점에서만 가능합니다.</p>
+          <div class="line-box size-lgXl mt-24 mb-24">
+            <span class="typeMd">오류코드 : APPR00001</span>
+          </div>
+          <span class="typeMd">TEL : 1588-1515, 1644-1515 (서비스코드 04번)</span>
+        </div>
+
+      </div>
+      <div class="modal-footer flex items-center justify-center gap-8">
+        <button type="button" class="btn type-bg-primary size-lg">
+          <span class="text">확인</span>
+        </button>
+      </div>
+      <button type="button" class="ico btn-close" aria-label="모달 닫기">
+        <i class="ico-close ico-size-smMd" aria-hidden="true"></i>
+        <span class="blind">닫기</span>
+      </button>
+    </div>
+  </div>
+
+</body>
+
+</html>

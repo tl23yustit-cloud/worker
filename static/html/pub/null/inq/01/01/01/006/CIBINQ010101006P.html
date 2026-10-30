@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/inq.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
+
+      <div id="container" class="container">
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="inq">
+              <button type="button" class="btn type-bg-primary size-lg btn-modal" data-target="modal-16">
+                <span class="text">충전</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+
+    <div id="modal-16" class="modal is-active" data-dim="true" data-backdrop-close="false" data-alert="true" data-size="sm" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc">
+      <div class="modal-wrapper">
+        <div class="modal-title">
+          <!--[dev]:20261020 텍스트수정-->
+          <h4 class="typeH4" id="modal-title">채우기</h4>
+          <!--[dev]:20261020 텍스트수정-->
+        </div>
+        <div class="modal-slot">
+          <div id="modal-desc">
+            <div class="account-info-box">
+              <div class="account-top-content">
+                <div class="account-logo">
+                  <i class="bank-007 circle ico-size-md" aria-hidden="true"></i>
+                </div>
+                <div class="account-info">
+                  <dl>
+                    <dt><span class="typeLgSemibold">헤이(Hey)정기예금</span></dt>
+                    <dd>
+                      <div>
+                        <div class="box-select">
+                          <button type="button" class="select" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="selectDropdown01">
+                            <span class="text">Sh수협은행 0405-1182-3345</span>
+                            <span class="blind">펼침</span>
+                          </button>
+                          <div id="selectDropdown01" class="box-list-select">
+                            <ul class="list-select" role="listbox" aria-label="헤이(Hey)정기예금 선택 항목 리스트">
+                              <li class="item-select" role="group" aria-selected="true">
+                                <span class="btn-item-select"> Sh수협은행 0405-1182-3345 </span>
+                              </li>
+                              <li class="item-select" role="group" aria-selected="false">
+                                <span class="btn-item-select"> Sh수협은행 0405-1182-3346 </span>
+                              </li>
+                              <li class="item-select" role="group" aria-selected="false">
+                                <span class="btn-item-select"> Sh수협은행 0405-1182-3347 </span>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                      <div>
+                        <span class="typeMdMedium">계좌잔액</span>
+                        <span class="typeLgSemibold">85,119,800,000,000원</span>
+                      </div>
+                    </dd>
+                  </dl>
+                </div>
+              </div>
+              <dl class="account-bottom-content">
+                <dt class="flex items-center gap-4">
+                  <i class="ico etc ico-size-sm ico-coin" aria-hidden="true"></i>
+                  <span class="typeMdMedium">입금받을 총 금액</span>
+                </dt>
+                <dd>
+                  <span class="typeXlBold color-fg-primary">85,119,800,000,000원</span>
+                </dd>
+              </dl>
+            </div>
+            <div class="box-tab">
+              <!--[dev]:20261020 aria-label 내용변경-->
+              <ul class="list-tab-button type-chip size-md" role="tablist" aria-label="채우기 탭">
+                <!--//[dev]:20261020 aria-label 내용변경-->
+                <li class="item-tab-button">
+                  <button type="button" class="btn-tab" id="tabBtnTypeHighlightFull01" role="tab" aria-selected="true" aria-controls="tabPanelTypeHighlightFull01">
+                    <!--[dev]:20261020 텍스트수정-->
+                    <span class="text">채우기</span>
+                    <!--//[dev]:20261020 텍스트수정-->
+                  </button>
+                </li>
+                <li class="item-tab-button">
+                  <button type="button" class="btn-tab" id="tabBtnTypeHighlightFull02" role="tab" aria-selected="false" aria-controls="tabPanelTypeHighlightFull02">
+                    <!--[dev]:20261020 텍스트수정-->
+                    <span class="text">예약 채우기</span>
+                    <!--//[dev]:20261020 텍스트수정-->
+                  </button>
+                </li>
+                <li class="item-tab-button">
+                  <button type="button" class="btn-tab active" title="선택됨" id="tabBtnTypeHighlightFull03" role="tab" aria-selected="false" aria-controls="tabPanelTypeHighlightFull03">
+                    <span class="text">설정 내역</span>
+                    <!--[dev]:20261027 웹접근성 blind텍스트 추가-->
+                    <span class="blind">설정 내역</span>
+                    <!--//[dev]:20261027 웹접근성 blind텍스트 추가-->
+                  </button>
+                </li>
+              </ul>
+              <!--[dev]:20261020 class autoH 삭제-->
+              <div class="box-tab-content" id="tabPanelTypeHighlightFull01" role="tabpanel" aria-labelledby="tabBtnTypeHighlightFull01" style="display: none"></div>
+              <!--//[dev]:20261020 class autoH 삭제-->
+              <!--[dev]:20261020 class autoH 삭제-->
+              <div class="box-tab-content autoH" id="tabPanelTypeHighlightFull02" role="tabpanel" aria-labelledby="tabBtnTypeHighlightFull02" style="display: none"></div>
+              <!--//[dev]:20261020 class autoH 삭제-->
+              <!--[dev]:20261020 class autoH 삭제-->
+              <div class="box-tab-content autoH active" id="tabPanelTypeHighlightFull03" role="tabpanel" aria-labelledby="tabBtnTypeHighlightFull03" style="display: block">
+                <!--//[dev]:20261020 class autoH 삭제-->
+                <div class="mt-24">
+                  <span class="typeLgSemibold">설정 내역</span>
+                  <div class="list type-dotted">
+                    <ul>
+                      <li class="typeMd">설정 내역은 연결된 출금계좌 단위로 조회됩니다.(1건의 설정은 최대 5개의 출금계좌로 구성됩니다.)</li>
+                    </ul>
+                  </div>
+                  <div class="set-history-wrap">
+                    <ul>
+                      <li class="line-box size-xl set-history">
+                        <div class="set-area">
+                          <span class="badge-light type-blue">
+                            <span class="text">금액지정</span>
+                          </span>
+                          <span class="btn-switch size-sm">
+                            <!--[dev]:20261020 텍스트 변경-->
+                            <label class="typeMd">예약 채우기</label>
+                            <!--//[dev]:20261020 텍스트 변경-->
+                            <!--[dev]:20261020 웹접근성 공통으로 title->aria-label로 변경-->
+                            <input type="checkbox" id="SAMPLESWITCHSMLABEL01" class="blind" role="switch" aria-checked="false" aria-label="예약 채우기" />
+                            <!--//[dev]:20261020 웹접근성 공통으로 title->aria-label로 변경-->
+                            <label for="SAMPLESWITCHSMLABEL01" class="ico-btn-switch">
+                              <span class="text-off" aria-hidden="false">Off</span>
+                              <span class="text-on" aria-hidden="true">On</span>
+                            </label>
+                          </span>
+                          <div class="set-util">
+                            <button type="button" class="btn type-line-neutral size-sm">
+                              <!--[dev]:20261020버튼텍스트변경-->
+                              <span class="text">설정변경</span>
+                              <!--//[dev]:20261020버튼텍스트변경-->
+                            </button>
+                          </div>
+                        </div>
+                        <div class="accout-text">
+                          <dl class="account-bottom-content">
+                            <dt class="flex items-center gap-4">
+                              <!--[dev]20261026충전설정날 추가-->
+                              <span class="typeMdMedium">김수협(00 은행 000 통장 0000-0000-00000)<span>매월 말일 09시 </span></span>
+                               <!--//[dev]20261026충전설정날 추가-->
+                            </dt>
+                            <dd>
+                              <span class="typeXlBold color-fg-primary">85,119,800,000,000원</span>
+                            </dd>
+                          </dl>
+                        </div>
+                      </li>
+                      <li class="line-box size-lgXl set-history">
+                        <div class="set-area">
+                          <span class="badge-light type-blue">
+                            <span class="text">금액지정</span>
+                          </span>
+                          <span class="btn-switch size-sm">
+                            <!--[dev]:20261020 텍스트 변경-->
+                            <label class="typeMd">예약 채우기</label>
+                            <!--//[dev]:20261020 텍스트 변경-->
+                            <!--[dev]:20261020 웹접근성 공통으로 title->aria-label로 변경-->
+                            <input type="checkbox" id="SAMPLESWITCHSMLABEL01" class="blind" role="switch" aria-checked="false" aria-label="예약 채우기" />
+                            <!--//[dev]:20261020 웹접근성 공통으로 title->aria-label로 변경-->
+                            <label for="SAMPLESWITCHSMLABEL01" class="ico-btn-switch">
+                              <span class="text-off" aria-hidden="false">Off</span>
+                              <span class="text-on" aria-hidden="true">On</span>
+                            </label>
+                          </span>
+                          <div class="set-util">
+                            <button type="button" class="btn type-line-neutral size-sm">
+                              <!--[dev]:20261020버튼텍스트변경-->
+                              <span class="text">설정변경</span>
+                              <!--//[dev]:20261020버튼텍스트변경-->
+                            </button>
+                          </div>
+                        </div>
+                        <div class="accout-text">
+                          <dl class="account-bottom-content">
+                            <dt class="flex items-center gap-4">
+                              <!--[dev]20261026충전설정날 추가-->
+                              <span class="typeMdMedium">김수협(00 은행 000 통장 0000-0000-00000)<span>매월 말일 09시 </span></span>
+                               <!--//[dev]20261026충전설정날 추가-->
+                            </dt>
+                            <dd>
+                              <span class="typeXlBold color-fg-primary">충전일 잔액 전체</span>
+                            </dd>
+                          </dl>
+                        </div>
+                      </li>
+                      <li class="line-box size-lgXl set-history">
+                        <div class="set-area">
+                          <span class="badge-light type-orange">
+                            <span class="text">잔액기준</span>
+                          </span>
+                          <span class="btn-switch size-sm">
+                            <!--[dev]:20261020 텍스트 변경-->
+                            <label class="typeMd">예약 채우기</label>
+                            <!--//[dev]:20261020 텍스트 변경-->
+                            <!--[dev]:20261020 웹접근성 공통으로 title->aria-label로 변경-->
+                            <input type="checkbox" id="SAMPLESWITCHSMLABEL01" class="blind" role="switch" aria-checked="false" aria-label="예약 채우기" />
+                            <!--//[dev]:20261020 웹접근성 공통으로 title->aria-label로 변경-->
+                            <label for="SAMPLESWITCHSMLABEL01" class="ico-btn-switch">
+                              <span class="text-off" aria-hidden="false">Off</span>
+                              <span class="text-on" aria-hidden="true">On</span>
+                            </label>
+                          </span>
+                          <div class="set-util">
+                            <button type="button" class="btn type-line-neutral size-sm">
+                              <!--[dev]:20261020버튼텍스트변경-->
+                              <span class="text">설정변경</span>
+                              <!--//[dev]:20261020버튼텍스트변경-->
+                            </button>
+                          </div>
+                        </div>
+                        <div class="accout-text">
+                          <dl class="account-bottom-content">
+                            <dt class="flex items-center gap-4">
+                              <!--[dev]20261026충전설정날 추가-->
+                              <span class="typeMdMedium">김수협(00 은행 000 통장 0000-0000-00000)<span>매월 말일 09시 </span></span>
+                               <!--//[dev]20261026충전설정날 추가-->
+                            </dt>
+                            <dd>
+                              <span class="typeXlBold color-fg-primary"><span>유지잔액 </span>100,000원</span>
+                            </dd>
+                          </dl>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                  <nav class="pagination size-md" aria-label="페이지네이션">
+                    <button type="button" class="btn-nav first" disabled="" aria-disabled="true" aria-label="첫 페이지">
+                      <span class="blind">첫 페이지</span>
+                    </button>
+                    <button type="button" class="btn-nav prev" disabled="" aria-disabled="true" aria-label="이전 페이지">
+                      <span class="blind">이전 페이지</span>
+                    </button>
+
+                    <ol class="list-pagination">
+                      <li>
+                        <button type="button" class="btn-page active" aria-current="page" title="현재 페이지">1</button>
+                      </li>
+                      <li>
+                        <button type="button" class="btn-page" aria-label="2페이지">2</button>
+                      </li>
+                      <li>
+                        <button type="button" class="btn-page" aria-label="3페이지">3</button>
+                      </li>
+                      <li>
+                        <button type="button" class="btn-page" aria-label="4페이지">4</button>
+                      </li>
+                      <li>
+                        <button type="button" class="btn-page" aria-label="5페이지">5</button>
+                      </li>
+                    </ol>
+
+                    <button type="button" class="btn-nav next" aria-label="다음 페이지">
+                      <span class="blind">다음 페이지</span>
+                    </button>
+                    <button type="button" class="btn-nav last" aria-label="마지막 페이지">
+                      <span class="blind">마지막 페이지</span>
+                    </button>
+                  </nav>
+                  <div class="list type-dotted color-resolving mt-48">
+                    <ul>
+                      <li class="typeMd">예약 주기 도래일에 출금계좌의 잔액이 부족할 경우 해당 주기 이체 및 충전은 취소됩니다.</li>
+                      <li class="typeMd">예약충전설정은 잔액충전, 다른은행자금모으기 등 속성별 최대 5건까지 등록 가능합니다.</li>
+                      <li class="typeMd">실행 예정 당일에는 예약이체 설정 변경(일자 변경, 일시중지, 삭제)을 할 수 없습니다.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button type="button" class="ico btn-close" aria-label="모달 닫기">
+          <i class="ico-close ico-size-smMd" aria-hidden="true"></i>
+          <span class="blind">닫기</span>
+        </button>
+      </div>
+    </div>
+  </body>
+</html>

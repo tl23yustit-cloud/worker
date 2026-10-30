@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>수협은행</title>
+  <link rel="stylesheet" href="/static/css/reset.css" />
+  <link rel="stylesheet" href="/static/css/layout.css" />
+  <link rel="stylesheet" href="/static/css/component.css" />
+  <link rel="stylesheet" href="/static/css/common.css" />
+  <link rel="stylesheet" href="/static/css/inq.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <div id="header">
+      @@include('static/html/pub/layout/skipNavigation.html')
+      @@include('static/html/pub/layout/header_sub.html')
+    </div>
+
+    <div id="container" class="container">
+      <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+      <div id="contents">
+        <div class="content">
+          @@include('static/html/pub/layout/breadcrumb.html')
+          <div class="inq">
+            <button type="button" class="btn type-bg-primary size-lg btn-modal" data-target="modal-16">
+              <span class="text">충전</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+    </div>
+    <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+  </div>
+  <script src="/static/js/ui/cib_ui_common.js"></script>
+
+  <div id="modal-16" class="modal is-active" data-dim="true" data-backdrop-close="false" data-alert="true"
+    data-size="sm" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc">
+    <div class="modal-wrapper">
+      <div class="modal-title">
+        <!--[dev]:20261020 텍스트수정-->
+        <h4 class="typeH4" id="modal-title">채우기</h4>
+        <!--[dev]:20261020 텍스트수정-->
+      </div>
+      <div class="modal-slot">
+        <div id="modal-desc">
+          <div class="account-info-box">
+            <div class="account-top-content">
+              <div class="account-logo">
+                <i class="bank-007 circle ico-size-md" aria-hidden="true"></i>
+              </div>
+              <div class="account-info">
+                <dl>
+                  <dt><span class="typeLgSemibold">헤이(Hey)정기예금</span></dt>
+                  <dd>
+                    <div>
+                      <div class="box-select">
+                        <button type="button" class="select" role="combobox" aria-expanded="false"
+                          aria-haspopup="listbox" aria-controls="selectDropdown01">
+                          <span class="text">Sh수협은행 0405-1182-3345</span>
+                          <span class="blind">펼침</span>
+                        </button>
+                        <div id="selectDropdown01" class="box-list-select">
+                          <ul class="list-select" role="listbox" aria-label="헤이(Hey)정기예금 선택 항목 리스트">
+                            <li class="item-select" role="group" aria-selected="true">
+                              <button class="btn-item-select">
+                                Sh수협은행 0405-1182-3345
+                              </button>
+                            </li>
+                            <li class="item-select" role="group">
+                              <button class="btn-item-select">
+                                Sh수협은행 0405-1182-3346
+                              </button>
+                            </li>
+                            <li class="item-select" role="group">
+                              <button class="btn-item-select">
+                                Sh수협은행 0405-1182-3347
+                              </button>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <span class="typeMdMedium">계좌잔액</span>
+                      <span class="typeLgSemibold">85,119,800,000,000원</span>
+                    </div>
+                  </dd>
+                </dl>
+              </div>
+            </div>
+            <dl class="account-bottom-content">
+              <dt class="flex items-center gap-4">
+                <i class="ico etc ico-size-sm ico-coin" aria-hidden="true"></i>
+                <span class="typeMdMedium">입금받을 총 금액</span>
+              </dt>
+              <dd>
+                <span class="typeXlBold color-fg-primary">85,119,800,000,000원</span>
+              </dd>
+            </dl>
+          </div>
+          <div class="box-tab">
+             <!--[dev]:20261020 aria-label 내용변경-->
+            <ul class="list-tab-button type-chip size-md" role="tablist" aria-label="채우기 탭">
+              <!--//[dev]:20261020 aria-label 내용변경-->
+              <li class="item-tab-button">
+                <button type="button" class="btn-tab" id="tabBtnTypeHighlightFull01" role="tab" aria-selected="true"
+                  aria-controls="tabPanelTypeHighlightFull01">
+                  <!--[dev]:20261020 텍스트수정-->
+                    <span class="text">채우기</span>
+                    <!--//[dev]:20261020 텍스트수정-->
+                </button>
+              </li>
+              <li class="item-tab-button">
+                <button type="button" class="btn-tab" id="tabBtnTypeHighlightFull02" role="tab" aria-selected="false"
+                  aria-controls="tabPanelTypeHighlightFull02">
+                  <!--[dev]:20261020 텍스트수정-->
+                    <span class="text">예약 채우기</span>
+                    <!--//[dev]:20261020 텍스트수정-->
+                </button>
+              </li>
+              <li class="item-tab-button">
+                <button type="button" class="btn-tab active" title="선택됨" id="tabBtnTypeHighlightFull03" role="tab"
+                  aria-selected="false" aria-controls="tabPanelTypeHighlightFull03">
+                  <span class="text">설정 내역</span>
+                  <!--[dev]:20261027 웹접근성 blind텍스트 추가-->
+                    <span class="blind">설정 내역</span>
+                    <!--//[dev]:20261027 웹접근성 blind텍스트 추가-->
+                </button>
+              </li>
+            </ul>
+            <!--[dev]:20261020 class autoH 삭제-->
+            <div class="box-tab-content" id="tabPanelTypeHighlightFull01" role="tabpanel"
+              aria-labelledby="tabBtnTypeHighlightFull01" style="display: none;">
+              <!--//[dev]:20261020 class autoH 삭제-->
+
+            </div>
+            <!--[dev]:20261020 class autoH 삭제-->
+            <div class="box-tab-content" id="tabPanelTypeHighlightFull02" role="tabpanel"
+              aria-labelledby="tabBtnTypeHighlightFull02" style="display: none;">
+              <!--//[dev]:20261020 class autoH 삭제-->
+
+            </div>
+            <!--[dev]:20261020 class autoH 삭제-->
+            <div class="box-tab-content active" id="tabPanelTypeHighlightFull02" role="tabpanel"
+              aria-labelledby="tabBtnTypeHighlightFull02" style="display: block;">
+              <!--[dev]:20261020 class autoH 삭제-->
+              <div class="empty-box mt-24">
+                <div class="empty-page">
+                  <i class="ico-info"></i>
+                  <!--[dev]:20261026 텍스트수정-->
+                  <div class="typeMd">설정된 예약채우기가 없습니다.</div>
+                  <!--//[dev]:20261026 텍스트수정-->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button type="button" class="ico btn-close" aria-label="모달 닫기">
+        <i class="ico-close ico-size-smMd" aria-hidden="true"></i>
+        <span class="blind">닫기</span>
+      </button>
+    </div>
+  </div>
+</body>
+
+</html>

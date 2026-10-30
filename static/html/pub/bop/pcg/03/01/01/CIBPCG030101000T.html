@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/pcg.css" />
+</head>
+
+<body>
+    <div class="wrapper">
+        <div id="header">
+            @@include('static/html/pub/layout/skipNavigation.html')
+            @@include('static/html/pub/layout/header_sub.html')
+        </div>
+
+        <div id="container" class="container">
+            <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+            <div id="contents">
+                <div class="content">
+                    @@include('static/html/pub/layout/breadcrumb.html')
+                    <div class="pcg">
+                        <h2 class="typeH2">
+                            KT통신요금
+                        </h2>
+                        <div class="box-tab">
+                            <ul class="list-tab-button type-outline" role="tablist" aria-label="탭 이름">
+                                <li class="item-tab-button">
+                                    <button type="button" class="btn-tab active" title="선택됨" id="tabBtnTypeOutline01"
+                                        role="tab" aria-selected="false" aria-controls="tabPanelTypeOutline01">
+                                        <span class="text">KT통신요금납부</span>
+                                    </button>
+                                </li>
+                                <li class="item-tab-button">
+                                    <button type="button" class="btn-tab" id="tabBtnTypeOutline02" role="tab"
+                                        aria-selected="true" aria-controls="tabPanelTypeOutline02">
+                                        <span class="text">납부조회/취소
+                                        </span>
+                                    </button>
+                                </li>
+                            </ul>
+                            <!-- 첫번째 탭 -->
+                            <div class="box-tab-content active" id="tabPanelTypeOutline01" role="tabpanel"
+                                aria-labelledby="tabBtnTypeOutline01" style="display:block;">
+                                <div class="tbl-area">
+                                    <table class="table-type01">
+                                        <caption></caption>
+                                        <colgroup>
+                                            <col style="width: 160px">
+                                            <col style="width: auto">
+                                        </colgroup>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">
+                                                    <span>납부방법</span>
+                                                </th>
+                                                <td>
+                                                    <div class="form-box-wrap" role="radiogroup" aria-label="납부방법">
+                                                        <span class="form-box">
+                                                            <input type="radio" name="radio_comp-sxg0xk"
+                                                                id="radio_comp-sxg0xk_01" class="form-radio size-md"
+                                                                checked="">
+                                                            <label for="radio_comp-sxg0xk_01"
+                                                                class="form-label">전자납부번호</label>
+                                                        </span>
+                                                        <span class="form-box">
+                                                            <input type="radio" name="radio_comp-sxg0xk"
+                                                                id="radio_comp-sxg0xk_02" class="form-radio size-md">
+                                                            <label for="radio_comp-sxg0xk_02" class="form-label">전화번호
+                                                                납부</label>
+                                                        </span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    <span><label for="input-nqzj9q">전자납부번호</label></span>
+                                                </th>
+                                                <td>
+                                                    <input type="text" id="input-nqzj9q" class="input size-lg wSize-lg"
+                                                        aria-label="전자납부번호 입력" placeholder="입력하세요">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    <span><label for="input-nqzj9q">전화번호</label></span>
+                                                </th>
+                                                <td>
+                                                    <div class="tbl-flex">
+                                                        <input type="text" class="input size-lg wSize-sm" value="010"
+                                                            maxlength="3" title="전화번호 앞자리" aria-required="true">
+                                                        <span aria-hidden="true">-</span>
+                                                        <input type="text" class="input size-lg wSize-sm" value=""
+                                                            maxlength="4" title="전화번호 중간자리" aria-required="true">
+                                                        <span aria-hidden="true">-</span>
+                                                        <input type="text" class="input size-lg wSize-sm" value=""
+                                                            maxlength="4" title="전화번호 마지막자리" aria-required="true">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="btn-wrap center lg-bot">
+                                    <button type="button" class="btn type-bg-primary size-xxl">
+                                        <span class="text">확인</span>
+                                    </button>
+                                </div>
+
+
+                                <!-- 테이블 -->
+                                <div class="tbl-area">
+                                    <h4 class="typeH4">납부방법_전화번호부 납부</h4>
+                                    <table class="table-type01">
+                                        <caption></caption>
+                                        <colgroup>
+                                            <col style="width: 160px">
+                                            <col style="width: auto">
+                                        </colgroup>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">
+                                                    <span>납부방법</span>
+                                                </th>
+                                                <td>
+                                                    <div class="form-box-wrap" role="radiogroup" aria-label="납부방법">
+                                                        <span class="form-box">
+                                                            <input type="radio" name="radio_comp-sxg0xk1"
+                                                                id="radio_comp-sxg0xk_012" class="form-radio size-md">
+                                                            <label for="radio_comp-sxg0xk_012"
+                                                                class="form-label">전자납부번호</label>
+                                                        </span>
+                                                        <span class="form-box">
+                                                            <input type="radio" name="radio_comp-sxg0xk1"
+                                                                id="radio_comp-sxg0xk_022" checked=""
+                                                                class="form-radio size-md ">
+                                                            <label for="radio_comp-sxg0xk_022" class="form-label">전화번호
+                                                                납부</label>
+                                                        </span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <th scope="row">
+                                                    <span><label for="input-nqzj9q">전화번호</label></span>
+                                                </th>
+                                                <td>
+                                                    <div class="tbl-flex">
+                                                        <input type="text" class="input size-lg wSize-sm" value="010"
+                                                            maxlength="3" title="전화번호 앞자리" aria-required="true">
+                                                        <span aria-hidden="true">-</span>
+                                                        <input type="text" class="input size-lg wSize-sm" value=""
+                                                            maxlength="4" title="전화번호 중간자리" aria-required="true">
+                                                        <span aria-hidden="true">-</span>
+                                                        <input type="text" class="input size-lg wSize-sm" value=""
+                                                            maxlength="4" title="전화번호 마지막자리" aria-required="true">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- 테이블 -->
+
+
+                                <!-- 이용안내 -->
+                                <div class="line-box size-xl mt-48">
+                                    <span class="typeLgSemibold">이용안내</span>
+
+
+                                    <div class="list type-dotted">
+                                        <ul>
+
+                                            <li class="typeMd">
+                                                ㈜KT에서 부과하는 전화요금, 휴대폰요금, 인터넷사용료 등 각종 통신요금을 납부 하실 수 있습니다.
+
+                                            </li>
+
+                                            <li class="typeMd">
+                                                고지서의 전자납부번호 혹은 전화번호로 조회 하실 수 있습니다.
+                                                <div class="list type-bar">
+                                                    <ul>
+                                                        <li class="typeMd">유선전화 및 인터넷사용료(QOOK) : 전자납부번호 12자리
+                                                        </li>
+                                                        <li class="typeMd">휴대폰 요금(SHOW) : 전자납부번호 9자리
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                            <li class="typeMd">
+                                                고지내역에 관한 사항은 해당 청구기관에 직접 문의하시기 바랍니다.
+                                                <div class="list type-bar">
+                                                    <ul>
+                                                        <li class="typeMd">유선전화 및 인터넷 사용료(QOOK) : ㈜KT : 국번없이 100 [전자납부번호
+                                                            12자리]
+                                                        </li>
+                                                        <li class="typeMd">휴대폰 요금(SHOW) : 1588-0010 [전자납부번호 9자리]
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+
+
+                                        </ul>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!-- 두번째 탭 -->
+
+                            <div class="box-tab-content" id="tabPanelTypeOutline02" role="tabpanel"
+                                aria-labelledby="tabBtnTypeOutline02" style="display: none;">
+                                납부조회/취소 내용
+                            </div>
+
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+            <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+        </div>
+        <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+</body>
+
+</html>
+<script>
+
+</script>

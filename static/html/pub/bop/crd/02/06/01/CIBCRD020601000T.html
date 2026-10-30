@@ -1,0 +1,724 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>수협은행</title>
+  <link rel="stylesheet" href="/static/css/reset.css" />
+  <link rel="stylesheet" href="/static/css/layout.css" />
+  <link rel="stylesheet" href="/static/css/component.css" />
+  <link rel="stylesheet" href="/static/css/common.css" />
+  <link rel="stylesheet" href="/static/css/bop.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <div id="header">
+      @@include('static/html/pub/layout/skipNavigation.html')
+      @@include('static/html/pub/layout/header_sub.html')
+    </div>
+
+    <div id="container" class="container">
+      <div id="leftArea">
+        @@include('static/html/pub/layout/leftArea.html')
+      </div>
+      <div id="contents">
+        <div class="content">
+          @@include('static/html/pub/layout/breadcrumb.html')
+          <div class="bop">
+            <h2 class="typeH2">카드해지/해지취소</h2>
+            <div class="box-tab">
+              <ul class="list-tab-button type-outline" role="tablist" aria-label="탭 이름">
+                <li class="item-tab-button">
+                  <button type="button" class="btn-tab active" title="선택됨" id="tabBtnTypeOutline01" role="tab"
+                    aria-selected="true" aria-controls="tabPanelTypeOutline01">
+                    <span class="text">카드해지</span>
+                  </button>
+                </li>
+                <li class="item-tab-button">
+                  <button type="button" class="btn-tab" id="tabBtnTypeOutline02" role="tab" aria-selected="false"
+                    aria-controls="tabPanelTypeOutline02">
+                    <span class="text">카드해지 취소</span>
+                  </button>
+                </li>
+                <li class="item-tab-button">
+                  <button type="button" class="btn-tab" id="tabBtnTypeOutline02" role="tab" aria-selected="false"
+                    aria-controls="tabPanelTypeOutline02">
+                    <span class="text">해지 내역조회</span>
+                  </button>
+                </li>
+              </ul>
+              <div class="box-tab-content active" id="tabPanelTypeOutline01" role="tabpanel"
+                aria-labelledby="tabBtnTypeOutline01" style="display: block">
+                <!--Atype-->
+                <div class="tbl-area">
+                  <div class="tbl-head">
+                    <div class="right-area">
+                      <span class="required typeMd">필수 항목</span>
+                    </div>
+                  </div>
+                  <table class="table-type01">
+                    <caption>조회구분, 사업장명, 카드유형, 카드상품명, 카드번호 뒷4자리에 대한 구성 테이블입니다.</caption>
+                    <!-- [수정] 20260908 col width 값 수정  -->
+                    <colgroup>
+                      <col style="width: 160px" />
+                      <col style="width: auto" />
+                    </colgroup>
+                    <tbody>
+                      <tr>
+                        <th scope="row">
+                          <span class="required">조회구분</span>
+                        </th>
+                        <td>
+                          <div class="form-box-wrap" role="radiogroup" aria-label="조회구분">
+                            <span class="form-box">
+                              <input type="radio" name="searchTypeA" id="searchTypeA_02" class="form-radio size-md">
+                              <label for="searchTypeA_02" class="form-label">사업장</label>
+                            </span>
+                            <span class="form-box">
+                              <input type="radio" name="searchTypeA" id="searchTypeA_03" class="form-radio size-md">
+                              <label for="searchTypeA_03" class="form-label">카드</label>
+                            </span>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">
+                          <label for="businessNameInputA">사업장명</label>
+                        </th>
+                        <td>
+                          <div class="tbl-flex">
+                            <input type="text" id="businessNameInputA" class="input wSize-md size-lg" title="사업장명"
+                              value="" placeholder="사업장명을 입력하세요">
+                            <button type="button" class="btn type-line-secondary size-lg">
+                              <span class="text">조회</span>
+                            </button>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">
+                          <span class="required">카드유형</span>
+                        </th>
+                        <td>
+                          <div class="box-select wSize-md">
+                            <button type="button" class="select size-lg" role="combobox" aria-expanded="false"
+                              aria-haspopup="listbox" aria-controls="selectDropdownTypeA" title="카드유형 선택"
+                              aria-required="true">
+                              <span class="text">카드유형을 선택하세요</span>
+                              <span class="blind">펼침</span>
+                            </button>
+                            <div id="selectDropdownTypeA" class="box-list-select">
+                              <ul class="list-select" role="listbox" aria-label="카드유형 선택 항목 리스트">
+                                <li class="item-select" role="option" aria-selected="true">
+                                  <button type="button" class="btn-item-select">
+                                    전체
+                                  </button>
+                                </li>
+                                <li class="item-select" role="option" aria-selected="false">
+                                  <button type="button" class="btn-item-select">
+                                    이체
+                                  </button>
+                                </li>
+                                <li class="item-select" role="option" aria-selected="false">
+                                  <button type="button" class="btn-item-select">
+                                    뱅킹업무
+                                  </button>
+                                </li>
+                                <li class="item-select" role="option" aria-selected="false">
+                                  <button type="button" class="btn-item-select">
+                                    B2B전자결제
+                                  </button>
+                                </li>
+                                <li class="item-select" role="option" aria-selected="false">
+                                  <button type="button" class="btn-item-select">
+                                    뱅킹관리 노출
+                                  </button>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">카드상품명</th>
+                        <td>
+                          <div class="box-select wSize-md">
+                            <button type="button" class="select size-lg" role="combobox" aria-expanded="false"
+                              aria-haspopup="listbox" aria-controls="cardProductDropdownTypeA" title="카드상품명 선택"
+                              aria-required="true">
+                              <span class="text">카드상품명을 선택하세요</span>
+                              <span class="blind">펼침</span>
+                            </button>
+                            <div id="cardProductDropdownTypeA" class="box-list-select">
+                              <ul class="list-select" role="listbox" aria-label="카드상품명 선택 항목 리스트">
+                                <li class="item-select" role="option">
+                                  <button type="button" class="btn-item-select" aria-selected="true">
+                                    전체
+                                  </button>
+                                </li>
+                                <li class="item-select" role="option">
+                                  <button type="button" class="btn-item-select" aria-selected="false">
+                                    이체
+                                  </button>
+                                </li>
+                                <li class="item-select" role="option" aria-selected="false">
+                                  <button type="button" class="btn-item-select">
+                                    뱅킹업무
+                                  </button>
+                                </li>
+                                <li class="item-select" role="option" aria-selected="false">
+                                  <button type="button" class="btn-item-select">
+                                    B2B전자결제
+                                  </button>
+                                </li>
+                                <li class="item-select" role="option" aria-selected="false">
+                                  <button type="button" class="btn-item-select">
+                                    뱅킹관리 노출
+                                  </button>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">
+                          <span class="required"><label for="cardLastNumA">카드번호 뒷4자리</label></span>
+                        </th>
+                        <td>
+                          <div class="input-box wSize-md">
+                            <input type="password" id="cardLastNumA" class="input" placeholder="카드번호 뒷4자리를 입력하세요."
+                              aria-label="카드번호 뒷4자리">
+                            <button type="button" class="btn">
+                              <i class="ico-keypad ico-size-smMd"></i>
+                              <span class="blind">보안 키패드 열기</span>
+                            </button>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <!--//Atype-->
+                <div class="tbl-area">
+                  <div class="tbl-head">
+                    <h6 class="typeH6">조회결과</h6>
+                  </div>
+                  <div class="wrap-board-grid">
+                    <!-- [dev] 그리드 -->
+                    <div class="board-grid">
+                      <!-- [dev] 그리드 컨텐츠 영역 : 작업 시 삭제-->
+                      <i style="
+                            display: block;
+                            border: var(--borderWidthMd) solid
+                              var(--colorBorderBase);
+                            border-radius: var(--radiusMd);
+                            padding: var(--spacing2Xl);
+                          ">임시 그리드 영역</i>
+                      <!-- //[dev] 그리드 컨텐츠 영역 : 작업 시 삭제 -->
+                    </div>
+                    <!-- //[dev] 그리드 -->
+                  </div>
+                </div>
+                <div class="btn-wrap center sm-mid">
+                  <button type="button" class="btn type-bg-primary size-xxl">
+                    <span class="text">카드선택</span>
+                  </button>
+                </div>
+                <div class="tbl-area">
+                  <div class="tbl-head">
+                    <div class="left-area">
+                      <h6 class="typeH6">OTP 비밀번호 입력</h6>
+                    </div>
+                  </div>
+                  <table class="table-type01">
+                    <caption>
+                      OTP
+                    </caption>
+                    <!-- [수정] 20260908 col width 값 수정  -->
+                    <colgroup>
+                      <col style="width: 160px" />
+                      <col style="width: auto" />
+                    </colgroup>
+                    <tbody>
+                      <tr>
+                        <th scope="row" rowspan="2" class="noradius">
+                          <label for="OTP">OTP
+                          </label>
+                        </th>
+                        <td>
+                          <div class="otp-text-wrap">
+                            <input type="password" id="OTP" class="input wSize-smMd size-lg" placeholder="숫자 6자리"
+                              title="" aria-label="숫자 6자리">
+                            <div class="typeMd">OTP 만료 기한이 <span>14</span>일 남았습니다.
+                              <span>(2026-04-30)</span>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="otp-noti">
+                            <div class="list type-dotted">
+                              <ul>
+                                <li class="typeMd">
+                                  OTP에 생성된 숫자 6자리를 입력하세요
+                                </li>
+                                <li class="typeMd">
+                                  OTP는 1분마다 새로운 비밀번호가 생성됩니다
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="btn-wrap center lg-bot">
+                  <button type="button" class="btn type-line-primary size-xxl">
+                    <span class="text">초기화</span>
+                  </button>
+                  <button type="button" class="btn type-line-primary size-xxl">
+                    <span class="text">해지사유 등록</span>
+                  </button>
+                  <button type="button" class="btn type-bg-primary size-xxl">
+                    <span class="text">카드해지</span>
+                  </button>
+                </div>
+                <div class="line-box size-xl mt-48">
+                  <span class="typeLgSemibold">이용안내</span>
+                  <div class="list type-dotted">
+                    <ul>
+                      <li class="typeMd">
+                        발급된 카드의 카드해지 업무를 할 수 있는 화면입니다.
+                      </li>
+                      <li class="typeMd">
+                        해지 전 미결제 대금정리를 원하시는 경우 '선결제'업무를 통하여 미결제대금을 선납 후 해지를 진행하시기 바랍니다.
+                      </li>
+                      <li class="typeMd">연회비는 발급, 배송, 서비스 이용금액을 제외한 후 반환 대상 일수를 산정하여 결제계좌로 입금됩니다.</li>
+                      <li class="typeMd">카드해지를 원하시는 카드를 선택 후 [다음] 버튼을 클릭하세요. (카드해지는 최대 10개 까지 한 번에 일괄해지가 가능합니다.)
+                      <li class="typeMd">해지 후 당일이내에 '카드 해지취소'가 가능합니다.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="box-tab-content" id="tabPanelTypeOutline02" role="tabpanel"
+                aria-labelledby="tabBtnTypeOutline02" style="display: none">
+                <!--Atype-->
+                <div class="tbl-area">
+                  <div class="tbl-head">
+                    <div class="right-area">
+                      <span class="required typeMd">필수 항목</span>
+                    </div>
+                  </div>
+                  <table class="table-type01">
+                    <caption>조회구분, 사업장명, 카드유형, 카드상품명, 카드번호 뒷4자리에 대한 구성 테이블입니다.</caption>
+                    <!-- [수정] 20260908 col width 값 수정  -->
+                    <colgroup>
+                      <col style="width: 160px" />
+                      <col style="width: auto" />
+                    </colgroup>
+                    <tbody>
+                      <tr>
+                        <th scope="row">
+                          <span class="required">조회구분</span>
+                        </th>
+                        <td>
+                          <div class="form-box-wrap" role="radiogroup" aria-label="조회구분">
+                            <span class="form-box">
+                              <input type="radio" name="searchTypeA" id="searchTypeA_02" class="form-radio size-md">
+                              <label for="searchTypeA_02" class="form-label">사업장</label>
+                            </span>
+                            <span class="form-box">
+                              <input type="radio" name="searchTypeA" id="searchTypeA_03" class="form-radio size-md">
+                              <label for="searchTypeA_03" class="form-label">카드</label>
+                            </span>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">
+                          <label for="businessNameInputA">사업장명</label>
+                        </th>
+                        <td>
+                          <div class="tbl-flex">
+                            <input type="text" id="businessNameInputA" class="input wSize-md size-lg" title="사업장명"
+                              value="" placeholder="사업장명을 입력하세요">
+                            <button type="button" class="btn type-line-secondary size-lg">
+                              <span class="text">조회</span>
+                            </button>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">
+                          <span class="required">카드유형</span>
+                        </th>
+                        <td>
+                          <div class="box-select wSize-md">
+                            <button type="button" class="select size-lg" role="combobox" aria-expanded="false"
+                              aria-haspopup="listbox" aria-controls="selectDropdownTypeA" title="카드유형 선택"
+                              aria-required="true">
+                              <span class="text">카드유형을 선택하세요</span>
+                              <span class="blind">펼침</span>
+                            </button>
+                            <div id="selectDropdownTypeA" class="box-list-select">
+                              <ul class="list-select" role="listbox" aria-label="카드유형 선택 항목 리스트">
+                                <li class="item-select" role="option" aria-selected="true">
+                                  <button type="button" class="btn-item-select">
+                                    전체
+                                  </button>
+                                </li>
+                                <li class="item-select" role="option" aria-selected="false">
+                                  <button type="button" class="btn-item-select">
+                                    이체
+                                  </button>
+                                </li>
+                                <li class="item-select" role="option" aria-selected="false">
+                                  <button type="button" class="btn-item-select">
+                                    뱅킹업무
+                                  </button>
+                                </li>
+                                <li class="item-select" role="option" aria-selected="false">
+                                  <button type="button" class="btn-item-select">
+                                    B2B전자결제
+                                  </button>
+                                </li>
+                                <li class="item-select" role="option" aria-selected="false">
+                                  <button type="button" class="btn-item-select">
+                                    뱅킹관리 노출
+                                  </button>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">카드상품명</th>
+                        <td>
+                          <div class="box-select wSize-md">
+                            <button type="button" class="select size-lg" role="combobox" aria-expanded="false"
+                              aria-haspopup="listbox" aria-controls="cardProductDropdownTypeA" title="카드상품명 선택"
+                              aria-required="true">
+                              <span class="text">카드상품명을 선택하세요</span>
+                              <span class="blind">펼침</span>
+                            </button>
+                            <div id="cardProductDropdownTypeA" class="box-list-select">
+                              <ul class="list-select" role="listbox" aria-label="카드상품명 선택 항목 리스트">
+                                <li class="item-select" role="option">
+                                  <button type="button" class="btn-item-select" aria-selected="true">
+                                    전체
+                                  </button>
+                                </li>
+                                <li class="item-select" role="option">
+                                  <button type="button" class="btn-item-select" aria-selected="false">
+                                    이체
+                                  </button>
+                                </li>
+                                <li class="item-select" role="option" aria-selected="false">
+                                  <button type="button" class="btn-item-select">
+                                    뱅킹업무
+                                  </button>
+                                </li>
+                                <li class="item-select" role="option" aria-selected="false">
+                                  <button type="button" class="btn-item-select">
+                                    B2B전자결제
+                                  </button>
+                                </li>
+                                <li class="item-select" role="option" aria-selected="false">
+                                  <button type="button" class="btn-item-select">
+                                    뱅킹관리 노출
+                                  </button>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">
+                          <span class="required"><label for="cardLastNumA">카드번호 뒷4자리</label></span>
+                        </th>
+                        <td>
+                          <div class="input-box wSize-md">
+                            <input type="password" id="cardLastNumA" class="input" placeholder="카드번호 뒷4자리를 입력하세요."
+                              aria-label="카드번호 뒷4자리">
+                            <button type="button" class="btn">
+                              <i class="ico-keypad ico-size-smMd"></i>
+                              <span class="blind">보안 키패드 열기</span>
+                            </button>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <!--//Atype-->
+                <div class="tbl-area">
+                  <div class="tbl-head">
+                    <h6 class="typeH6">조회결과</h6>
+                  </div>
+                  <div class="wrap-board-grid">
+                    <!-- [dev] 그리드 -->
+                    <div class="board-grid">
+                      <!-- [dev] 그리드 컨텐츠 영역 : 작업 시 삭제-->
+                      <i style="
+                            display: block;
+                            border: var(--borderWidthMd) solid
+                              var(--colorBorderBase);
+                            border-radius: var(--radiusMd);
+                            padding: var(--spacing2Xl);
+                          ">임시 그리드 영역</i>
+                      <!-- //[dev] 그리드 컨텐츠 영역 : 작업 시 삭제 -->
+                    </div>
+                    <!-- //[dev] 그리드 -->
+                  </div>
+                </div>
+                <div class="btn-wrap center sm-mid">
+                  <button type="button" class="btn type-bg-primary size-xxl">
+                    <span class="text">카드선택</span>
+                  </button>
+                </div>
+                <div class="tbl-area">
+                  <div class="tbl-head">
+                    <div class="left-area">
+                      <h6 class="typeH6">OTP 비밀번호 입력</h6>
+                    </div>
+                  </div>
+                  <table class="table-type01">
+                    <caption>
+                      OTP
+                    </caption>
+                    <!-- [수정] 20260908 col width 값 수정  -->
+                    <colgroup>
+                      <col style="width: 160px" />
+                      <col style="width: auto" />
+                    </colgroup>
+                    <tbody>
+                      <tr>
+                        <th scope="row" rowspan="2" class="noradius">
+                          <label for="OTP">OTP
+                          </label>
+                        </th>
+                        <td>
+                          <div class="otp-text-wrap">
+                            <input type="password" id="OTP" class="input wSize-smMd size-lg" placeholder="숫자 6자리"
+                              title="" aria-label="숫자 6자리">
+                            <div class="typeMd">OTP 만료 기한이 <span>14</span>일 남았습니다.
+                              <span>(2026-04-30)</span>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="otp-noti">
+                            <div class="list type-dotted">
+                              <ul>
+                                <li class="typeMd">
+                                  OTP에 생성된 숫자 6자리를 입력하세요
+                                </li>
+                                <li class="typeMd">
+                                  OTP는 1분마다 새로운 비밀번호가 생성됩니다
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="btn-wrap center lg-bot">
+                  <button type="button" class="btn type-bg-primary size-xxl">
+                    <span class="text">카드해지 취소</span>
+                  </button>
+                </div>
+                <div class="line-box size-xl mt-48">
+                  <span class="typeLgSemibold">이용안내</span>
+                  <div class="list type-dotted">
+                    <ul>
+                      <li class="typeMd">
+                        해지된 카드를 취소처리하는 업무를 하는 화면입니다.
+                      </li>
+                      <li class="typeMd">
+                        카드해지 취소는 당일건에 한해서 신청 가능합니다(당일기준 : 23:59:59)
+                      </li>
+                      <li class="typeMd">조회결과는 당일에 해지 된 목록만 노출됩니다.</li>
+                      <li class="typeMd">카드해지 취소는 최대 10개 까지 한 번에 처리가 가능합니다.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="box-tab-content" id="tabPanelTypeOutline02" role="tabpanel"
+                aria-labelledby="tabBtnTypeOutline02" style="display: none">
+                <div class="tbl-head">
+                  <div class="right-area">
+                    <span class="required typeMd">필수 항목</span>
+                  </div>
+                </div>
+                <table class="table-type01">
+                  <caption>
+                    정지일시 조회기간 선택 테이블
+                  </caption>
+                  <!-- [수정] 20260908 col width 값 수정  -->
+                  <colgroup>
+                    <col style="width: 160px" />
+                    <col style="width: auto" />
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="row">
+                        <span class="required">카드유형</span>
+                      </th>
+                      <td colspan="3">
+                        <div class="box-select wSize-lg">
+                          <button type="button" class="select size-lg" role="combobox" aria-expanded="false"
+                            aria-haspopup="listbox" aria-controls="selectDropdown01" aria-labelledby="label-account"
+                            aria-required="true">
+                            <span class="text">카드유형을 선택하세요</span>
+                            <span class="blind">목록 열기</span>
+                          </button>
+                          <div id="selectDropdown01" class="box-list-select">
+                            <ul class="list-select" role="listbox" aria-label="카드유형 선택 리스트">
+                              <li class="item-select" role="group" aria-selected="true">
+                                <button class="btn-item-select">
+                                  외화보통예금 1010-27330000</button>
+                              </li>
+                              <li class="item-select" role="group" aria-selected="false">
+                                <button class="btn-item-select">1</button>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row" id="search_period">
+                        <span class="required">해지일시 조회기간</span>
+                      </th>
+                      <td colspan="3">
+                        <div class="tbl-column">
+                          <!-- 1. radiogroup에 aria-label 추가 -->
+                          <div class="radio-group" role="radiogroup" aria-label="조회기간">
+                            <span class="form-box">
+                              <input type="radio" name="searchPeriod" id="period_01" class="radio-btn" checked="">
+                              <label for="period_01" class="form-label">당일</label>
+                            </span>
+                            <span class="form-box">
+                              <input type="radio" name="searchPeriod" id="period_02" class="radio-btn">
+                              <label for="period_02" class="form-label">1개월</label>
+                            </span>
+                            <span class="form-box">
+                              <input type="radio" name="searchPeriod" id="period_03" class="radio-btn">
+                              <label for="period_03" class="form-label">3개월</label>
+                            </span>
+                            <span class="form-box">
+                              <input type="radio" name="searchPeriod" id="period_04" class="radio-btn">
+                              <label for="period_04" class="form-label">6개월</label>
+                            </span>
+                            <span class="form-box">
+                              <input type="radio" name="searchPeriod" id="period_05" class="radio-btn">
+                              <label for="period_05" class="form-label">1년</label>
+                            </span>
+                          </div>
+
+                          <div class="calendar-wrap">
+                            <div class="input-box">
+                              <input type="text" class="input" placeholder="조회 시작일" aria-label="조회 시작일"
+                                value="2026-01-06">
+                              <button type="button" class="btn">
+                                <i class="ico-calendar ico-size-smMd" aria-hidden="true"></i>
+                                <span class="blind">조회 시작일 달력 열기</span>
+                              </button>
+                            </div>
+                            <span aria-hidden="true">~</span>
+                            <div class="input-box">
+                              <input type="text" class="input" placeholder="조회 종료일" aria-label="조회 종료일"
+                                value="2026-01-06">
+                              <button type="button" class="btn">
+                                <i class="ico-calendar ico-size-smMd" aria-hidden="true"></i>
+                                <span class="blind">조회 종료일 달력 열기</span>
+                              </button>
+                            </div>
+                            <div class="box-select wSize-smMd">
+                              <button type="button" class="select size-lg" role="combobox" aria-expanded="false"
+                                aria-haspopup="listbox" aria-controls="selectDropdown01" aria-labelledby="search_perio">
+                                <span class="text">월별선택</span>
+                                <span class="blind">목록 열기</span>
+                              </button>
+                              <div id="selectDropdown01" class="box-list-select">
+                                <ul class="list-select" role="listbox" aria-label="월별 선택 목록">
+                                  <!-- li에 role="option" 및 aria-selected 부여 -->
+                                  <li class="item-select" role="option" aria-selected="true">
+                                    <span class="form-box">월별선택</span>
+                                  </li>
+                                  <li class="item-select" role="option" aria-selected="false">
+                                    <span class="form-box">1월</span>
+                                  </li>
+                                  <li class="item-select" role="option" aria-selected="false">
+                                    <span class="form-box">2월</span>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div class="btn-wrap center sm-mid">
+                  <button type="button" class="btn type-bg-neutral size-xl">
+                    <span class="text">조회</span>
+                  </button>
+                </div>
+                <div class="tbl-area">
+                  <div class="tbl-head">
+                    <h6 class="typeH6">조회결과</h6>
+                  </div>
+                  <div class="wrap-board-grid">
+                    <!-- [dev] 그리드 -->
+                    <div class="board-grid">
+                      <!-- [dev] 그리드 컨텐츠 영역 : 작업 시 삭제-->
+                      <i style="
+                            display: block;
+                            border: var(--borderWidthMd) solid
+                              var(--colorBorderBase);
+                            border-radius: var(--radiusMd);
+                            padding: var(--spacing2Xl);
+                          ">임시 그리드 영역</i>
+                      <!-- //[dev] 그리드 컨텐츠 영역 : 작업 시 삭제 -->
+                    </div>
+                    <!-- //[dev] 그리드 -->
+                  </div>
+                </div>
+                <div class="line-box size-xl mt-48">
+                  <span class="typeLgSemibold">이용안내</span>
+                  <div class="list type-dotted">
+                    <ul>
+                      <li class="typeMd">
+                        해지된 카드내역을 조회할 수 있는 화면입니다.
+                      </li>
+                      <li class="typeMd">해지된 카드 내역은 최대 3년까지 조회가능합니다.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+    </div>
+    <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+  </div>
+  <script src="/static/js/ui/cib_ui_common.js"></script>
+</body>
+
+</html>
+<script></script>

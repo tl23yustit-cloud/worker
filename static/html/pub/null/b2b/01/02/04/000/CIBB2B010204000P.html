@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>수협은행</title>
+  <link rel="stylesheet" href="/static/css/reset.css" />
+  <link rel="stylesheet" href="/static/css/layout.css" />
+  <link rel="stylesheet" href="/static/css/component.css" />
+  <link rel="stylesheet" href="/static/css/common.css" />
+  <link rel="stylesheet" href="/static/css/b2b.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <div id="header">
+      @@include('static/html/pub/layout/skipNavigation.html')
+      @@include('static/html/pub/layout/header_sub.html')
+    </div>
+
+    <div id="container" class="container">
+      <div id="leftArea">
+        @@include('static/html/pub/layout/leftArea.html')
+      </div>
+      <div id="contents">
+        <div class="content">
+          @@include('static/html/pub/layout/breadcrumb.html')
+          <div class="b2b">
+            <button type="button" class="btn type-bg-primary size-md btn-modal" data-target="modal-01">
+              <span class="text">모달 버튼</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+    </div>
+    <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+  </div>
+  <script src="/static/js/ui/cib_ui_common.js"></script>
+
+  <div id="modal-01" class="modal is-active" data-dim="true" data-backdrop-close="false" data-alert="true"
+    data-size="lg" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc">
+    <div class="modal-wrapper">
+      <div class="modal-title" id="modal-title">
+        <h4 class="typeH4">결제일별 이용기간 안내</h4>
+      </div>
+      <div class="modal-slot" id="modal-desc">
+        <div class="modal-desc">
+          <div class="tbl-area">
+            <div class="tbl-head">
+              <h4>추심의뢰정보</h4>
+            </div>
+            <table class="table-type01">
+              <caption>
+                추심의뢰정보 상세: 추심의뢰번호, 환어음관리번호, 채권상태,
+                추심상태, 추심금액, 만기일, 결제예정일, 결제일, 추심의뢰일,
+                추심승인일 정보를 제공하는 표입니다.
+              </caption>
+              <!-- [수정] 20260903 col width 값 수정  -->
+              <!-- [수정] 20260910 col width style 수정  -->
+              <colgroup>
+                <col style="width: 160px" />
+                <col style="width: 368px" />
+                <col style="width: 160px" />
+                <col style="width: 368px" />
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th scope="row">추심의뢰번호</th>
+                  <td>
+                    <span class="typeMd">0535050125015120041</span>
+                  </td>
+                  <th scope="row">환어음관리번호</th>
+                  <td>
+                    <span class="typeMd">007021625</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">채권상태</th>
+                  <td>
+                    <span class="typeMd">결제</span>
+                  </td>
+                  <th scope="row">추심상태</th>
+                  <td>
+                    <span class="typeMd">구매자금결제</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">추심금액</th>
+                  <td class="text-right">
+                    <span class="typeMd">232,111,000 원</span>
+                  </td>
+                  <th scope="row">만기일</th>
+                  <td>
+                    <span class="typeMd">20일</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">결제예정일</th>
+                  <td>
+                    <span class="typeMd">2026-06-04</span>
+                  </td>
+                  <th scope="row">결제일</th>
+                  <td>
+                    <span class="typeMd">2026-05-26</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">추심의뢰일</th>
+                  <td>
+                    <span class="typeMd">2026-05-26</span>
+                  </td>
+                  <th scope="row">추심승인일</th>
+                  <td>
+                    <span class="typeMd">2026-05-26</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="tbl-area">
+            <div class="tbl-head">
+              <h4>매매계약정보</h4>
+            </div>
+            <table class="table-type01">
+              <caption>
+                매매계약정보 상세: 구매 및 판매기업의 명칭, 사업자번호,
+                수신계좌번호와 매매계약번호, 일자, 금액, MP정보 및 각종 수수료
+                정보를 제공하는 표입니다.
+              </caption>
+              <!-- [수정] 20260903 col width 값 수정  -->
+              <!-- [수정] 20260910 col width style 수정  -->
+              <colgroup>
+                <col style="width: 160px" />
+                <col style="width: 368px" />
+                <col style="width: 160px" />
+                <col style="width: 368px" />
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th scope="row">구매기업명</th>
+                  <td colspan="3">
+                    <span class="typeMd">(팡)봉인용대</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">판매기업명</th>
+                  <td colspan="3">
+                    <span class="typeMd">결신창최고문하생</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">구매기업 사업자번호</th>
+                  <td>
+                    <span class="typeMd">602-81-18076</span>
+                  </td>
+                  <th scope="row">판매기업 사업자번호</th>
+                  <td>
+                    <span class="typeMd">602-81-18076</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    구매기업<br />
+                    수신계좌번호
+                  </th>
+                  <td>
+                    <span class="typeMd">1130-0064-5170</span>
+                  </td>
+                  <th scope="row">
+                    판매기업<br />
+                    수신계좌번호
+                  </th>
+                  <td>
+                    <span class="typeMd">1130-0064-5170</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">매매계약번호</th>
+                  <td>
+                    <span class="typeMd">KF2026055531314532</span>
+                  </td>
+                  <th scope="row">매매계약일자</th>
+                  <td>
+                    <span class="typeMd">2026-05-26</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">매매계약금액</th>
+                  <td>
+                    <span class="typeMd">KF2026055531314532</span>
+                  </td>
+                  <th scope="row">매매계약일자</th>
+                  <td class="text-right">
+                    <span class="typeMd">812,160,000 원</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">MP명</th>
+                  <td colspan="3">
+                    <span class="typeMd">우밤용김돌팡</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">MP사업자번호</th>
+                  <td>
+                    <span class="typeMd">219-82-01711</span>
+                  </td>
+                  <th scope="row">MP구분</th>
+                  <td>
+                    <span class="typeMd">신용보증기금</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">중계수수료징수구분</th>
+                  <td colspan="3">
+                    <span class="typeMd">구매기업</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">구매기업B2B 이용수수료</th>
+                  <td class="text-right">
+                    <span class="typeMd">0원</span>
+                  </td>
+                  <th scope="row">판매기업B2B 이용수수료</th>
+                  <td class="text-right">
+                    <span class="typeMd">20,000원</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">구매기업중개수수료</th>
+                  <td class="text-right">
+                    <span class="typeMd">1,255,623 원</span>
+                  </td>
+                  <th scope="row">판매기업중개수수료</th>
+                  <td class="text-right">
+                    <span class="typeMd">20,000원</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="tbl-area">
+            <div class="tbl-head">
+              <h4>세금계산서정보</h4>
+            </div>
+            <table class="table-type01">
+              <caption>
+                세금계산서정보 상세: 세금계산서번호, 세금계산서발행일,
+                대표품목명, 세금계산서발행금액 정보를 제공하는 표입니다.
+              </caption>
+              <!-- [수정] 20260903 col width 값 수정  -->
+              <!-- [수정] 20260910 col width style 수정  -->
+              <colgroup>
+                <col style="width: 160px" />
+                <col style="width: 368px" />
+                <col style="width: 160px" />
+                <col style="width: 368px" />
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th scope="row">세금계산서번호</th>
+                  <td>
+                    <span class="typeMd">253535366</span>
+                  </td>
+                  <th scope="row">세금계산서발행일</th>
+                  <td>
+                    <span class="typeMd">2026-05-26</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">대표품목명</th>
+                  <td>
+                    <span class="typeMd">냉동꽃게</span>
+                  </td>
+                  <th scope="row">세금계산서발행금액</th>
+                  <!-- [수정] 20260903 금액 text-right 클래스 추가  -->
+                  <td class="text-right">
+                    <span class="typeMd">623,123,000 원</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="tbl-area">
+            <div class="tbl-head">
+              <h4>대출정보</h4>
+            </div>
+            <table class="table-type01">
+              <caption>
+                대출정보 상세: 대출계좌번호, 대출실행번호, 대출상태,
+                대출실행일, 대출금액, 대출만기일자, 대출잔액, 대출상환일,
+                대출금리, 대출이자, 대출실행점 정보를 제공하는 표입니다.
+              </caption>
+              <!-- [수정] 20260903 col width 값 수정  -->
+              <!-- [수정] 20260910 col width style 수정  -->
+              <colgroup>
+                <col style="width: 160px" />
+                <col style="width: 368px" />
+                <col style="width: 160px" />
+                <col style="width: 368px" />
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th scope="row">대출계좌번호</th>
+                  <td>
+                    <span class="typeMd">3220-0004-9969</span>
+                  </td>
+                  <th scope="row">대출실행번호</th>
+                  <td>
+                    <span class="typeMd">1</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">대출상태</th>
+                  <td>
+                    <span class="typeMd">대출상환</span>
+                  </td>
+                  <th scope="row">대출실행일</th>
+                  <td>
+                    <span class="typeMd">2026-05-27</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">대출금액</th>
+                  <td class="text-right">
+                    <span class="typeMd">634,111,000 원</span>
+                  </td>
+                  <th scope="row">대출만기일자</th>
+                  <td>
+                    <span class="typeMd">2026-05-27</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">대출잔액</th>
+                  <td class="text-right">
+                    <span class="typeMd">0 원</span>
+                  </td>
+                  <th scope="row">대출상환일</th>
+                  <td>
+                    <span class="typeMd">2026-05-27</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">대출금리</th>
+                  <td>
+                    <span class="typeMd">6.8</span>
+                  </td>
+                  <th scope="row">대출이자</th>
+                  <td class="text-right">
+                    <span class="typeMd">0 원</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">대출실행점/명</th>
+                  <td colspan="3">
+                    <span class="typeMd">1051/화명동지점</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="btn-wrap center lg-bot">
+            <button type="button" class="btn type-line-neutral size-xl">
+              <span class="text">인쇄</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <button type="button" class="ico btn-close" aria-label="모달 닫기">
+        <i class="ico-close ico-size-smMd" aria-hidden="true"></i>
+        <span class="blind">닫기</span>
+      </button>
+    </div>
+  </div>
+</body>
+
+</html>

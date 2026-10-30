@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/dob.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
+
+      <div id="container" class="container">
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="dob">
+              <button type="button" class="btn type-bg-primary size-md btn-modal" data-target="modal-01">
+                <span class="text">모달 버튼</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <div id="modal-01" class="modal is-active" data-dim="true" data-backdrop-close="false" data-alert="true" data-size="sm" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc">
+      <div class="modal-wrapper">
+        <div class="modal-title" id="modal-title">
+          <h4 class="typeH4">계약서류 확인</h4>
+        </div>
+        <div id="modal-desc" class="blind">계약서류 확인 모달입니다.</div>
+        <div class="modal-slot">
+          <div class="bg-box line size-lgXl">
+            <div class="typeMdSemibold text-center">계약서류를 반드시 다운로드하여 계약내용을 확인해 주세요.</div>
+          </div>
+
+          <div class="typeH6 mt-24">계약서(확인서)</div>
+          <ul class="document-list">
+            <li class="document-item">
+              <p class="typeMd">예금상품계약서</p>
+              <button title="예금상품계약서 내용확인"><span class="typeMdMedium">내용확인</span><i class="ico line ico-size-sm ico-download" aria-hidden="true"></i></button>
+            </li>
+          </ul>
+          <div class="typeH6 mt-24">상품설명서/약관</div>
+          <ul class="document-list">
+            <li class="document-item">
+              <p class="typeMd">20270412 시행_예금거래기본약관_개정안_전문</p>
+              <button title="20270412 시행_예금거래기본약관_개정안_전문"><span class="typeMdMedium">내용확인</span><i class="ico line ico-size-sm ico-download" aria-hidden="true"></i></button>
+            </li>
+            <li class="document-item">
+              <p class="typeMd">적립식예금약관_2021023</p>
+              <button title="적립식예금약관_2021023"><span class="typeMdMedium">내용확인</span><i class="ico line ico-size-sm ico-download" aria-hidden="true"></i></button>
+            </li>
+            <li class="document-item">
+              <p class="typeMd">Sh해양플라스트틱Zerol적금_특약_270428</p>
+              <button title="Sh해양플라스트틱Zerol적금_특약_270428"><span class="typeMdMedium">내용확인</span><i class="ico line ico-size-sm ico-download" aria-hidden="true"></i></button>
+            </li>
+            <li class="document-item">
+              <p class="typeMd">Sh해양플라스트틱Zerol적금_상품설명서_20270418</p>
+              <button title="Sh해양플라스트틱Zerol적금_상품설명서_20270418s"><span class="typeMdMedium">내용확인</span><i class="ico line ico-size-sm ico-download" aria-hidden="true"></i></button>
+            </li>
+          </ul>
+        </div>
+        <div class="modal-footer flex items-center justify-center gap-8">
+          <button type="button" class="btn type-bg-primary size-lg">
+            <span class="text">확인  </span>
+          </button>
+        </div>
+        <button type="button" class="ico btn-close" aria-label="모달 닫기">
+          <i class="ico-close ico-size-smMd" aria-hidden="true"></i>
+          <span class="blind">닫기</span>
+        </button>
+      </div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
+</html>

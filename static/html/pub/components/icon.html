@@ -1,0 +1,1565 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>아이콘 가이드 라이브러리</title>
+        <!-- 기존 실무 CSS 링크들 (경로에 맞게 유지) -->
+        <link rel="stylesheet" href="/static/cl/guide.css" />
+        <link rel="stylesheet" href="/static/css/reset.css" />
+        <link rel="stylesheet" href="/static/css/component.css" />
+        <link rel="stylesheet" href="/static/css/common.css" />
+
+        <style>
+            @charset "UTF-8";
+
+            body {
+                background-color: #f9fafb;
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+                margin: 0;
+                padding: 40px 24px;
+                color: #111827;
+            }
+
+            .page-header {
+                text-align: center;
+                margin-bottom: 24px;
+            }
+
+            .page-header h1 {
+                font-size: 28px;
+                font-weight: 700;
+                margin-bottom: 8px;
+            }
+
+            .page-header p {
+                color: #6b7280;
+                font-size: 15px;
+            }
+
+            /* Filter Controls */
+            .filter-container {
+                display: flex;
+                justify-content: flex-end;
+                max-width: 1400px;
+                margin: 0 auto 20px auto;
+                gap: 8px;
+                flex-wrap: wrap;
+            }
+
+            .filter-btn {
+                background-color: #ffffff;
+                border: 1px solid #e5e7eb;
+                color: #4b5563;
+                padding: 8px 16px;
+                font-size: 13px;
+                font-weight: 500;
+                border-radius: 8px;
+                cursor: pointer;
+                transition: all 0.2s ease;
+                box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+            }
+
+            .filter-btn:hover {
+                background-color: #f3f4f6;
+                color: #111827;
+            }
+
+            .filter-btn.active {
+                background-color: #4b5563;
+                border-color: #4b5563;
+                color: #ffffff;
+                font-weight: 600;
+            }
+
+            /* 기본 아이콘 속성 */
+            .ico {
+                display: inline-block;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: contain;
+                transition: all 0.2s ease;
+            }
+
+            /* Grid Layout */
+            .icon-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+                gap: 16px;
+                max-width: 1400px;
+                margin: 0 auto;
+            }
+
+            /* Icon Card */
+            .icon-item {
+                position: relative;
+                background: #ffffff;
+                border: 1px solid #e5e7eb;
+                border-radius: 12px;
+                padding: 20px 12px 16px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                cursor: pointer;
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+                transition: all 0.2s ease;
+                height: 135px;
+                box-sizing: border-box;
+            }
+
+            .icon-item:hover {
+                border-color: #a5b4fc;
+                box-shadow:
+                    0 10px 20px -5px rgba(99, 102, 241, 0.1),
+                    0 8px 10px -6px rgba(99, 102, 241, 0.05);
+                transform: translateY(-3px);
+            }
+
+            .icon-item.active {
+                border-color: #818cf8;
+                box-shadow: 0 0 0 2px rgba(129, 140, 248, 0.2);
+            }
+
+            .icon-item.hidden {
+                display: none !important;
+            }
+
+            .icon-wrapper {
+                flex: 1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-bottom: 8px;
+                min-height: 40px;
+            }
+
+            .text-area {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .icon-name {
+                font-size: 12px;
+                color: #4b5563;
+                font-weight: 500;
+                text-align: center;
+                word-break: break-all;
+            }
+
+            /* Style Badges */
+            .style-badges {
+                display: flex;
+                gap: 4px;
+                margin-top: 4px;
+                min-height: 19px;
+            }
+
+            .style-badge {
+                font-size: 9px;
+                padding: 2px 6px;
+                border-radius: 4px;
+                background-color: #f3f4f6;
+                color: #6b7280;
+                cursor: pointer;
+                border: 1px solid transparent;
+                transition: all 0.2s;
+                font-weight: 500;
+            }
+
+            /* 라온 배지 커스텀 스타일 추가 */
+            .style-badge[data-style="laon"] {
+                background-color: #fdf4ff;
+                color: #c084fc;
+                border-color: #fae8ff;
+            }
+
+            .style-badge[data-style="laon"].active {
+                background-color: #c084fc;
+                color: #ffffff;
+                border-color: #c084fc;
+                font-weight: 600;
+            }
+
+            .style-badge[data-style="line"] {
+                background-color: #eff6ff;
+                color: #3b82f6;
+                border-color: #dbeafe;
+            }
+
+            .style-badge[data-style="line"].active {
+                background-color: #3b82f6;
+                color: #ffffff;
+                border-color: #3b82f6;
+                font-weight: 600;
+            }
+
+            .style-badge[data-style="solid"] {
+                background-color: #fff7ed;
+                color: #f97316;
+                border-color: #ffedd5;
+            }
+
+            .style-badge[data-style="solid"].active {
+                background-color: #f97316;
+                color: #ffffff;
+                border-color: #f97316;
+                font-weight: 600;
+            }
+
+            .style-badge[data-style="sns"] {
+                background-color: #f0fdf4;
+                color: #10b981;
+                border-color: #dcfce7;
+            }
+
+            .style-badge[data-style="sns"].active {
+                background-color: #10b981;
+                color: #ffffff;
+                border-color: #10b981;
+                font-weight: 600;
+            }
+
+            .style-badge[data-style="bank"] {
+                background-color: #f5f3ff;
+                color: #8b5cf6;
+                border-color: #ede9fe;
+            }
+
+            .style-badge[data-style="bank"].active {
+                background-color: #8b5cf6;
+                color: #ffffff;
+                border-color: #8b5cf6;
+                font-weight: 600;
+            }
+
+            .style-badge[data-style="card"] {
+                background-color: #fdf2f8;
+                color: #db2777;
+                border-color: #fce7f3;
+            }
+
+            .style-badge[data-style="card"].active {
+                background-color: #db2777;
+                color: #ffffff;
+                border-color: #db2777;
+                font-weight: 600;
+            }
+
+            .style-badge[data-style="etf"] {
+                background-color: #ecfeff;
+                color: #0891b2;
+                border-color: #cffaff;
+            }
+
+            .style-badge[data-style="etf"].active {
+                background-color: #0891b2;
+                color: #ffffff;
+                border-color: #0891b2;
+                font-weight: 600;
+            }
+
+            .style-badge[data-style="securities-back"] {
+                background-color: #eef2ff;
+                color: #4f46e5;
+                border-color: #e0e7ff;
+            }
+
+            .style-badge[data-style="securities-back"].active {
+                background-color: #4f46e5;
+                color: #ffffff;
+                border-color: #4f46e5;
+                font-weight: 600;
+            }
+
+            .style-badge[data-style="securities-circle"] {
+                background-color: #f0fdf4;
+                color: #16a34a;
+                border-color: #dcfce7;
+            }
+
+            .style-badge[data-style="securities-circle"].active {
+                background-color: #16a34a;
+                color: #ffffff;
+                border-color: #16a34a;
+                font-weight: 600;
+            }
+
+            .style-badge[data-style="flags"] {
+                background-color: #fef2f2;
+                color: #ef4444;
+                border-color: #fee2e2;
+            }
+
+            .style-badge[data-style="flags"].active {
+                background-color: #ef4444;
+                color: #ffffff;
+                border-color: #ef4444;
+                font-weight: 600;
+            }
+
+            .style-badge[data-style="file"] {
+                background-color: #f3f0ff;
+                color: #7f56d9;
+                border-color: #e9d7fe;
+            }
+
+            .style-badge[data-style="file"].active {
+                background-color: #7f56d9;
+                color: #ffffff;
+                border-color: #7f56d9;
+                font-weight: 600;
+            }
+
+            .style-badge[data-style="etc"] {
+                background-color: #f3f4f6;
+                color: #4b5563;
+                border-color: #e5e7eb;
+            }
+
+            .style-badge[data-style="etc"].active {
+                background-color: #4b5563;
+                color: #ffffff;
+                border-color: #4b5563;
+                font-weight: 600;
+            }
+
+            /* 우측 사이드바 패널 스타일 */
+            .sidebar-overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                background: rgba(0, 0, 0, 0.3);
+                backdrop-filter: blur(2px);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+                z-index: 998;
+            }
+
+            .sidebar-overlay.open {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .side-panel {
+                position: fixed;
+                top: 0;
+                right: -400px;
+                width: 380px;
+                height: 100vh;
+                background: #ffffff;
+                box-shadow: -10px 0 25px rgba(0, 0, 0, 0.1);
+                z-index: 999;
+                display: flex;
+                flex-direction: column;
+                transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+                box-sizing: border-box;
+            }
+
+            .side-panel.open {
+                right: 0;
+            }
+
+            .panel-header {
+                padding: 24px;
+                border-bottom: 1px solid #e5e7eb;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            .panel-title {
+                font-size: 18px;
+                font-weight: 700;
+                color: #111827;
+                margin: 0;
+            }
+
+            .panel-close {
+                background: none;
+                border: none;
+                font-size: 20px;
+                cursor: pointer;
+                color: #9ca3af;
+                padding: 4px;
+            }
+
+            .panel-close:hover {
+                color: #111827;
+            }
+
+            .panel-body {
+                padding: 24px;
+                overflow-y: auto;
+                flex: 1;
+            }
+
+            .preview-box {
+                background: #f9fafb;
+                border: 1px solid #e5e7eb;
+                border-radius: 12px;
+                height: 120px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-bottom: 24px;
+            }
+
+            .section-label {
+                font-size: 13px;
+                font-weight: 600;
+                color: #374151;
+                margin-bottom: 12px;
+            }
+
+            .color-group {
+                display: flex;
+                gap: 8px;
+                margin-bottom: 24px;
+            }
+
+            .color-btn {
+                flex: 1;
+                padding: 10px;
+                border: 1px solid #e5e7eb;
+                background: #ffffff;
+                border-radius: 8px;
+                font-size: 12px;
+                font-weight: 500;
+                cursor: pointer;
+                transition: all 0.2s;
+                text-transform: capitalize;
+            }
+
+            .color-btn.active {
+                background: #eff6ff;
+                color: #3b82f6;
+                border-color: #dbeafe;
+                font-weight: 600;
+            }
+
+            .size-list-panel {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .size-list-panel li {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 12px 16px;
+                background: #ffffff;
+                border: 1px solid #e5e7eb;
+                border-radius: 8px;
+                cursor: pointer;
+                transition: all 0.2s;
+            }
+
+            .size-list-panel li:hover {
+                background: #f3f4f6;
+                border-color: #d1d5db;
+            }
+
+            .size-list-panel li .size-info {
+                font-size: 13px;
+                font-weight: 500;
+                color: #1f2937;
+            }
+
+            .size-list-panel li .size-info span {
+                color: #9ca3af;
+                font-size: 12px;
+                margin-left: 6px;
+            }
+
+            .size-list-panel li .copy-hint {
+                font-size: 11px;
+                color: #3b82f6;
+                font-weight: 600;
+                opacity: 0;
+                transition: opacity 0.2s;
+            }
+
+            .size-list-panel li:hover .copy-hint {
+                opacity: 1;
+            }
+
+            .toast-popup {
+                position: fixed;
+                bottom: 40px;
+                left: 50%;
+                transform: translateX(-50%) translateY(100px);
+                background-color: #1f2937;
+                color: #ffffff;
+                padding: 12px 24px;
+                border-radius: 30px;
+                font-size: 14px;
+                font-weight: 500;
+                opacity: 0;
+                transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+                z-index: 9999;
+                box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+
+            .toast-popup.show {
+                transform: translateX(-50%) translateY(0);
+                opacity: 1;
+            }
+
+            .toast-popup svg {
+                color: #34d399;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="page-header">
+            <h1>아이콘 라이브러리 가이드</h1>
+            <p>아이콘을 클릭하면 우측 패널에서 상세 설정 및 복사가 가능합니다.</p>
+        </div>
+
+        <!-- 우측 상단 필터 버튼 영역 -->
+        <div class="filter-container">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="laon">라온</button>
+            <button class="filter-btn" data-filter="line">Line</button>
+            <button class="filter-btn" data-filter="solid">Solid</button>
+            <button class="filter-btn" data-filter="sns">SNS</button>
+            <button class="filter-btn" data-filter="bank">Bank</button>
+            <button class="filter-btn" data-filter="card">Card</button>
+            <button class="filter-btn" data-filter="etf">ETF</button>
+            <button class="filter-btn" data-filter="securities-back">증권</button>
+            <button class="filter-btn" data-filter="securities-circle">증권(원)</button>
+            <button class="filter-btn" data-filter="flags">국기</button>
+            <button class="filter-btn" data-filter="file">File</button>
+            <button class="filter-btn" data-filter="etc">기타</button>
+        </div>
+
+        <!-- 아이콘들이 생성될 그리드 영역 -->
+        <div class="icon-grid" id="iconGrid"></div>
+
+        <!-- 우측 사이드바 패널 구성 -->
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+        <div class="side-panel" id="sidePanel">
+            <div class="panel-header">
+                <h3 class="panel-title" id="panelTitle">아이콘 설정</h3>
+                <button class="panel-close" id="panelClose">&times;</button>
+            </div>
+            <div class="panel-body">
+                <div class="preview-box">
+                    <i class="ico ico-size-3xl" aria-hidden="true" id="panelPreviewIcon"></i>
+                </div>
+
+                <!-- 옵션/컬러 선택 버튼들이 동적으로 채워질 영역 -->
+                <div id="colorSection" style="display: none">
+                    <div class="section-label">Variant / Color</div>
+                    <div class="color-group" id="colorGroup"></div>
+                </div>
+
+                <div class="section-label">Size (클릭시 복사)</div>
+                <ul class="size-list-panel" id="sizeListPanel"></ul>
+            </div>
+        </div>
+
+        <!-- 완료 토스트 팝업 -->
+        <div id="toast" class="toast-popup">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            태그가 복사되었습니다!
+        </div>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                // 배지 라벨 변환 객체
+                const badgeLabels = {
+                    laon: "라온",
+                    line: "Line",
+                    solid: "Solid",
+                    sns: "SNS",
+                    bank: "Bank",
+                    card: "Card",
+                    etf: "ETF",
+                    "securities-back": "증권",
+                    "securities-circle": "증권(원)",
+                    flags: "Flags",
+                    file: "File",
+                    etc: "ETC",
+                };
+
+                const iconData = [
+                    /* 라온 아이콘 카테고리 추가 */
+                    { name: "ico-laon-success", styles: ["laon"] },
+                    { name: "ico-laon-search", styles: ["laon"] },
+                    { name: "ico-laon-search-type2", styles: ["laon"] },
+                    { name: "ico-laon-search-check", styles: ["laon"] },
+                    { name: "ico-laon-warning", styles: ["laon"] },
+                    { name: "ico-laon-working", styles: ["laon"] },
+                    { name: "ico-laon-x", styles: ["laon"] },
+                    { name: "ico-laon-o", styles: ["laon"] },
+                    { name: "ico-laon-curiosity", styles: ["laon"] },
+                    /* Line 전용 아이콘 */
+                    {
+                        name: "ico-right-arrow",
+                        styles: ["line"],
+                        colors: [""],
+                    },
+                    {
+                        name: "ico-chevron-right",
+                        styles: ["line"],
+                        colors: ["", "color-fg-disabled", "color-fg-white", "color-fg-primary"],
+                    },
+                    {
+                        name: "ico-quick-service",
+                        styles: ["line"],
+                        colors: [""],
+                    },
+                    {
+                        name: "ico-easy-menu",
+                        styles: ["line"],
+                        colors: [""],
+                    },
+                    {
+                        name: "ico-today-product",
+                        styles: ["line"],
+                        colors: [""],
+                    },
+                    { name: "ico-refresh", styles: ["line"] },
+                    { name: "ico-qmark", styles: ["line"] },
+                    {
+                        name: "ico-plus",
+                        styles: ["line"],
+                        colors: ["", "type2", "color-fg-netral", "color-fg-whtie"],
+                    },
+                    {
+                        name: "ico-info-circle",
+                        styles: ["line"],
+                        colors: ["", "colorFgNetral", "color-fg-error", "color-fg-primary"],
+                    },
+                    { name: "ico-chevron-down", styles: ["line"] },
+                    { name: "ico-chevron-up", styles: ["line"] },
+                    { name: "ico-search", styles: ["line"] },
+                    { name: "ico-search-subtle", styles: ["line"] },
+                    { name: "ico-filter", styles: ["line"] },
+                    {
+                        name: "ico-chevron-left",
+                        styles: ["line"],
+                        colors: ["", "color-fg-disabled"],
+                    },
+                    { name: "ico-chevron-double-left", styles: ["line"] },
+                    { name: "ico-chevron-double-right", styles: ["line"] },
+                    {
+                        name: "ico-calendar",
+                        styles: ["line"],
+                        colors: ["", "white", "type2", "type3"],
+                    },
+                    { name: "ico-document", styles: ["line"], colors: ["white"] },
+                    { name: "ico-close-circle", styles: ["line"] },
+                    { name: "ico-close-circle-solid", styles: ["solid"] },
+                    { name: "ico-close", styles: ["line"] },
+                    { name: "ico-refresh-cw", styles: ["line"] },
+                    { name: "ico-link-external", styles: ["line"] },
+                    { name: "ico-log-in", styles: ["line"] },
+                    { name: "ico-log-out", styles: ["line"] },
+                    {
+                        name: "ico-menu",
+                        styles: ["line"],
+                        colors: ["", "color-fg-netral", "color-fg-primary"],
+                    },
+                    { name: "ico-double-arrow", styles: ["line"] },
+                    { name: "ico-arrow-right", styles: ["line"] },
+                    { name: "ico-arrow-up-right", styles: ["line"] },
+                    { name: "ico-bell-ringing", styles: ["line"] },
+                    { name: "ico-clock-rewind", styles: ["line"] },
+                    { name: "ico-inbox", styles: ["line"] },
+                    {
+                        name: "ico-grid",
+                        styles: ["line"],
+                        colors: ["", "color-fg-netral"],
+                    },
+                    { name: "ico-location-marker", styles: ["line"] },
+                    { name: "ico-copy", styles: ["line"] },
+                    { name: "ico-printer", styles: ["line"] },
+                    { name: "ico-dots-vertical", styles: ["line"] },
+                    { name: "ico-dots-horizontal", styles: ["line"] },
+                    {
+                        name: "ico-alert-circle",
+                        styles: ["line"],
+                        colors: ["", "color-fg-disabled", "color-fg-secondary"],
+                    },
+                    { name: "ico-minus", styles: ["line"], colors: ["", "type2"] },
+                    {
+                        name: "ico-check",
+                        styles: ["line"],
+                        colors: ["", "type2", "type3"],
+                    },
+                    { name: "ico-check2", styles: ["line"], colors: ["", "type2"] },
+                    { name: "ico-check-round", styles: ["line"], colors: ["", "type2"] },
+                    { name: "ico-check-board", styles: ["line"], colors: ["", "type2"] },
+                    { name: "ico-money", styles: ["line"], colors: ["white"] },
+                    { name: "ico-home-line", styles: ["line"] },
+                    { name: "ico-loading", styles: ["line"] },
+                    { name: "ico-user", styles: ["line"] },
+                    {
+                        name: "ico-download",
+                        styles: ["line"],
+                        colors: ["", "color-fg-white"],
+                    },
+                    { name: "ico-heart-rounded", styles: ["line"] },
+                    {
+                        name: "ico-edit",
+                        styles: ["line"],
+                        colors: ["", "color-fg-netral", "color-fg-lightSolid", "white"],
+                    },
+                    { name: "ico-trash", styles: ["line"] },
+                    { name: "ico-pause", styles: ["line"] },
+                    { name: "ico-arrow-up", styles: ["line"] },
+                    {
+                        name: "ico-sticker-square",
+                        styles: ["line"],
+                        colors: ["", "white"],
+                    },
+                    {
+                        name: "ico-wonline-white",
+                        styles: ["line"],
+                    },
+                    { name: "ico-help-circle", styles: ["line"] },
+                    { name: "ico-eyes", styles: ["line"] },
+
+                    /* Solid 전용 아이콘 */
+                    {
+                        name: "ico-grid",
+                        styles: ["solid"],
+                        colors: ["", "color-fg-tertiary", "color-fg-primary"],
+                    },
+                    { name: "ico-home-line", styles: ["solid"] },
+                    {
+                        name: "ico-sticker-square",
+                        styles: ["solid"],
+                        colors: ["", "color-accent-teal"],
+                    },
+                    {
+                        name: "ico-star",
+                        styles: ["solid"],
+                        colors: ["", "yellow", "type2"],
+                    },
+                    { name: "ico-layout-alt", styles: ["solid"] },
+                    { name: "ico-shopping-bag", styles: ["solid"] },
+                    { name: "ico-box", styles: ["solid"] },
+                    { name: "ico-play", styles: ["solid"] },
+                    {
+                        name: "ico-tel",
+                        styles: ["solid"],
+                        colors: ["", "color-fg-primary"],
+                    },
+                    {
+                        name: "ico-tel02",
+                        styles: ["solid"],
+                        colors: [""],
+                    },
+                    {
+                        name: "ico-clock02",
+                        styles: ["solid"],
+                        colors: ["", "type2", "type3"],
+                    },
+
+                    /* SNS 카테고리 */
+                    {
+                        name: "ico-facebook",
+                        styles: ["sns"],
+                        colors: ["", "color-fg-tertiary", "type2"],
+                    },
+                    {
+                        name: "ico-twitter",
+                        styles: ["sns"],
+                        colors: ["", "color-fg-tertiary"],
+                    },
+                    {
+                        name: "ico-kakao",
+                        styles: ["sns"],
+                        colors: ["", "color-fg-tertiary"],
+                    },
+                    {
+                        name: "ico-link",
+                        styles: ["sns"],
+                        colors: ["", "color-fg-tertiary"],
+                    },
+                    {
+                        name: "ico-instagram",
+                        styles: ["sns"],
+                        colors: ["", "color-fg-tertiary"],
+                    },
+                    {
+                        name: "ico-youtube",
+                        styles: ["sns"],
+                        colors: ["", "color-fg-tertiary"],
+                    },
+                    {
+                        name: "ico-naver",
+                        styles: ["sns"],
+                        colors: ["", "color-fg-tertiary"],
+                    },
+                    {
+                        name: "ico-blog",
+                        styles: ["sns"],
+                        colors: ["", "color-fg-tertiary"],
+                    },
+                    {
+                        name: "ico-pinterest",
+                        styles: ["sns"],
+                        colors: ["", "color-fg-tertiary"],
+                    },
+                    {
+                        name: "ico-linkedin",
+                        styles: ["sns"],
+                        colors: ["", "color-fg-tertiary"],
+                    },
+                    {
+                        name: "ico-tiktok",
+                        styles: ["sns"],
+                        colors: ["", "color-fg-tertiary"],
+                    },
+                    { name: "ico-x", styles: ["sns"], colors: ["", "color-fg-tertiary"] },
+
+                    /* Bank 카테고리 */
+                    { name: "ico-busan-gyeongnam", styles: ["bank"] },
+                    { name: "ico-post-office", styles: ["bank"] },
+                    { name: "ico-kdb", styles: ["bank"] },
+                    { name: "ico-kbank", styles: ["bank"] },
+                    { name: "ico-shinhan-jeju", styles: ["bank"] },
+                    { name: "ico-shinhan", styles: ["bank"] },
+                    { name: "ico-kftc", styles: ["bank"] },
+                    { name: "ico-swift", styles: ["bank"] },
+                    { name: "ico-bank-of-america", styles: ["bank"] },
+                    { name: "ico-daegu", styles: ["bank"] },
+                    { name: "ico-china-construction-bank", styles: ["bank"] },
+                    { name: "ico-credit-union", styles: ["bank"] },
+                    { name: "ico-suhyup", styles: ["bank"] },
+                    { name: "ico-hana", styles: ["bank"] },
+                    { name: "ico-savings-bank", styles: ["bank"] },
+                    { name: "ico-jb-kj", styles: ["bank"] },
+                    { name: "ico-hsbc", styles: ["bank"] },
+                    { name: "ico-jpmorgan", styles: ["bank"] },
+                    { name: "ico-deutsche-bank", styles: ["bank"] },
+                    { name: "ico-citi", styles: ["bank"] },
+                    { name: "ico-nonghyup", styles: ["bank"] },
+                    { name: "ico-bnp-paribas", styles: ["bank"] },
+                    { name: "ico-woori", styles: ["bank"] },
+                    { name: "ico-ibk", styles: ["bank"] },
+                    { name: "ico-kb", styles: ["bank"] },
+                    { name: "ico-kf", styles: ["bank"] },
+                    { name: "ico-sc-jeil", styles: ["bank"] },
+                    { name: "ico-kakaobank", styles: ["bank"] },
+                    { name: "ico-nfcf", styles: ["bank"] },
+                    { name: "ico-toss-bank", styles: ["bank"] },
+                    { name: "ico-daol", styles: ["bank"] },
+                    { name: "ico-suhyup2", styles: ["bank"], colors: ["", "bg-type"] },
+
+                    /* Card 카테고리 */
+                    { name: "ico-visa", styles: ["card"] },
+                    { name: "ico-master", styles: ["card"] },
+                    { name: "ico-payco", styles: ["card"] },
+                    { name: "ico-union", styles: ["card"] },
+                    { name: "ico-hyundai", styles: ["card"] },
+                    { name: "ico-lotte", styles: ["card"] },
+                    { name: "ico-bc", styles: ["card"] },
+                    { name: "ico-jcb", styles: ["card"] },
+                    { name: "ico-diners", styles: ["card"] },
+                    { name: "ico-amex", styles: ["card"] },
+                    { name: "ico-discover", styles: ["card"] },
+                    { name: "ico-samsung", styles: ["card"] },
+                    { name: "ico-bc-card", styles: ["card"] },
+                    { name: "ico-ibk-card", styles: ["card"] },
+                    { name: "ico-nh-card", styles: ["card"] },
+                    { name: "ico-kj-card", styles: ["card"] },
+                    { name: "ico-lotte-card", styles: ["card"] },
+                    { name: "ico-samsung-card", styles: ["card"] },
+                    { name: "ico-shinhan-card", styles: ["card"] },
+                    { name: "ico-woori-card", styles: ["card"] },
+                    { name: "ico-jb-card ", styles: ["card"] },
+                    { name: "ico-kbank-card ", styles: ["card"] },
+                    { name: "ico-jeju-card", styles: ["card"] },
+                    { name: "ico-kakao-card", styles: ["card"] },
+                    { name: "ico-toss-card", styles: ["card"] },
+                    { name: "ico-hana-card ", styles: ["card"] },
+                    { name: "ico-hyundai-card ", styles: ["card"] },
+                    /* ETF 카테고리 */
+                    { name: "ico-kodex1-etf", styles: ["etf"] },
+                    { name: "ico-kodex-2-etf", styles: ["etf"] },
+                    { name: "ico-hanaro-etf", styles: ["etf"] },
+                    { name: "ico-kosef-etf", styles: ["etf"] },
+                    { name: "ico-plus-etf", styles: ["etf"] },
+                    { name: "ico-rise-etf", styles: ["etf"] },
+                    { name: "ico-ace-etf", styles: ["etf"] },
+                    { name: "ico-sol-etf", styles: ["etf"] },
+                    { name: "ico-tiger-etf", styles: ["etf"] },
+
+                    /* Securities-back 카테고리 */
+                    { name: "ico-shinhan-jeju", styles: ["securities-back"] },
+                    { name: "ico-hana", styles: ["securities-back"] },
+                    { name: "ico-nonghyup", styles: ["securities-back"] },
+                    { name: "ico-woori", styles: ["securities-back"] },
+                    { name: "ico-toss", styles: ["securities-back"] },
+                    { name: "ico-kyobo", styles: ["securities-back"] },
+                    { name: "ico-daishin", styles: ["securities-back"] },
+                    { name: "ico-dongbu", styles: ["securities-back"] },
+                    { name: "ico-meritz", styles: ["securities-back"] },
+                    { name: "ico-mirae", styles: ["securities-back"] },
+                    { name: "ico-bookook", styles: ["securities-back"] },
+                    { name: "ico-samsung", styles: ["securities-back"] },
+                    { name: "ico-shinyoung", styles: ["securities-back"] },
+                    { name: "ico-eugene", styles: ["securities-back"] },
+                    { name: "ico-yuanta", styles: ["securities-back"] },
+                    { name: "ico-ebest", styles: ["securities-back"] },
+                    { name: "ico-cape", styles: ["securities-back"] },
+                    { name: "ico-kiwoom", styles: ["securities-back"] },
+                    { name: "ico-truefriend", styles: ["securities-back"] },
+                    { name: "ico-hanwha", styles: ["securities-back"] },
+                    { name: "ico-sk", styles: ["securities-back"] },
+                    { name: "ico-daol", styles: ["securities-back"] },
+                    { name: "ico-im", styles: ["securities-back"] },
+
+                    /* Securities-circle 카테고리 */
+                    { name: "ico-bookook", styles: ["securities-circle"] },
+                    { name: "ico-shinyoung", styles: ["securities-circle"] },
+                    { name: "ico-meritz", styles: ["securities-circle"] },
+                    { name: "ico-heungkuk", styles: ["securities-circle"] },
+                    { name: "ico-kb", styles: ["securities-circle"] },
+                    { name: "ico-bnk", styles: ["securities-circle"] },
+                    { name: "ico-nonghyup", styles: ["securities-circle"] },
+                    { name: "ico-mirae", styles: ["securities-circle"] },
+                    { name: "ico-sk", styles: ["securities-circle"] },
+                    { name: "ico-kiwoom", styles: ["securities-circle"] },
+                    { name: "ico-hmsec", styles: ["securities-circle"] },
+                    { name: "ico-korea-asset", styles: ["securities-circle"] },
+                    { name: "ico-samsung", styles: ["securities-circle"] },
+                    { name: "ico-dongbu", styles: ["securities-circle"] },
+                    { name: "ico-kyobo", styles: ["securities-circle"] },
+                    { name: "ico-hanwha", styles: ["securities-circle"] },
+                    { name: "ico-daishin", styles: ["securities-circle"] },
+                    { name: "ico-truefriend", styles: ["securities-circle"] },
+                    { name: "ico-eugene", styles: ["securities-circle"] },
+                    { name: "ico-foss", styles: ["securities-circle"] },
+
+                    /* Flags 카테고리 */
+                    { name: "ico-us", styles: ["flags"] },
+                    { name: "ico-eu", styles: ["flags"] },
+                    { name: "ico-jp", styles: ["flags"] },
+                    { name: "ico-uk", styles: ["flags"] },
+                    { name: "ico-ch", styles: ["flags"] },
+                    { name: "ico-ca", styles: ["flags"] },
+                    { name: "ico-au", styles: ["flags"] },
+                    { name: "ico-nz", styles: ["flags"] },
+                    { name: "ico-ru", styles: ["flags"] },
+                    { name: "ico-cn", styles: ["flags"] },
+                    { name: "ico-sg", styles: ["flags"] },
+                    { name: "ico-hk", styles: ["flags"] },
+                    { name: "ico-my", styles: ["flags"] },
+                    { name: "ico-id", styles: ["flags"] },
+                    { name: "ico-vn", styles: ["flags"] },
+                    { name: "ico-th", styles: ["flags"] },
+                    { name: "ico-se", styles: ["flags"] },
+                    { name: "ico-dk", styles: ["flags"] },
+                    { name: "ico-no", styles: ["flags"] },
+                    { name: "ico-sa", styles: ["flags"] },
+                    { name: "ico-kw", styles: ["flags"] },
+                    { name: "ico-bh", styles: ["flags"] },
+                    { name: "ico-ae", styles: ["flags"] },
+
+                    /* File 카테고리 */
+                    {
+                        name: "ico-empty",
+                        styles: ["file"],
+                        colors: ["", "gray", "solid"],
+                    },
+                    { name: "ico-folder", styles: ["file"] },
+                    {
+                        name: "ico-image",
+                        styles: ["file"],
+                        colors: ["", "gray", "solid"],
+                    },
+                    {
+                        name: "ico-video-01",
+                        styles: ["file"],
+                        colors: ["", "gray", "solid"],
+                    },
+                    {
+                        name: "ico-video-02",
+                        styles: ["file"],
+                        colors: ["", "gray", "solid"],
+                    },
+                    {
+                        name: "ico-audio",
+                        styles: ["file"],
+                        colors: ["", "gray", "solid"],
+                    },
+                    {
+                        name: "ico-pdf",
+                        styles: ["file"],
+                        colors: ["", "gray", "solid", "red"],
+                    },
+                    { name: "ico-pdf02", styles: ["file"] },
+                    {
+                        name: "ico-document",
+                        styles: ["file"],
+                        colors: ["", "gray", "solid"],
+                    },
+                    {
+                        name: "ico-spreadsheet",
+                        styles: ["file"],
+                        colors: ["", "gray", "solid"],
+                    },
+                    { name: "ico-code", styles: ["file"], colors: ["", "gray", "solid"] },
+
+                    /* Extension (gray, solid) */
+                    {
+                        name: "ico-extension-img",
+                        styles: ["file"],
+                        colors: ["", "gray", "solid"],
+                    },
+                    {
+                        name: "ico-extension-jpg",
+                        styles: ["file"],
+                        colors: ["", "gray", "solid"],
+                    },
+                    {
+                        name: "ico-extension-jpeg",
+                        styles: ["file"],
+                        colors: ["", "gray", "solid"],
+                    },
+                    {
+                        name: "ico-extension-png",
+                        styles: ["file"],
+                        colors: ["", "gray", "solid"],
+                    },
+                    {
+                        name: "ico-extension-webp",
+                        styles: ["file"],
+                        colors: ["", "gray", "solid"],
+                    },
+                    {
+                        name: "ico-extension-tiff",
+                        styles: ["file"],
+                        colors: ["", "gray", "solid"],
+                    },
+                    {
+                        name: "ico-extension-gif",
+                        styles: ["file"],
+                        colors: ["", "gray", "solid"],
+                    },
+                    {
+                        name: "ico-extension-svg",
+                        styles: ["file"],
+                        colors: ["", "gray", "solid"],
+                    },
+                    {
+                        name: "ico-extension-eps",
+                        styles: ["file"],
+                        colors: ["", "gray", "solid"],
+                    },
+                    {
+                        name: "ico-extension-pdf",
+                        styles: ["file"],
+                        colors: ["", "gray", "solid"],
+                    },
+                    {
+                        name: "ico-extension-doc",
+                        styles: ["file"],
+                        colors: ["", "gray", "solid"],
+                    },
+                    {
+                        name: "ico-extension-docx",
+                        styles: ["file"],
+                        colors: ["", "gray", "solid"],
+                    },
+                    {
+                        name: "ico-extension-txt",
+                        styles: ["file"],
+                        colors: ["", "gray", "solid"],
+                    },
+                    {
+                        name: "ico-extension-csv",
+                        styles: ["file"],
+                        colors: ["", "gray", "solid"],
+                    },
+                    {
+                        name: "ico-extension-xls",
+                        styles: ["file"],
+                        colors: ["", "gray", "solid"],
+                    },
+                    {
+                        name: "ico-extension-xlsx",
+                        styles: ["file"],
+                        colors: ["", "gray", "solid"],
+                    },
+                    {
+                        name: "ico-extension-ppt",
+                        styles: ["file"],
+                        colors: ["", "gray", "solid"],
+                    },
+                    {
+                        name: "ico-extension-pptx",
+                        styles: ["file"],
+                        colors: ["", "gray", "solid"],
+                    },
+                    {
+                        name: "ico-extension-hwp",
+                        styles: ["file"],
+                        colors: ["", "gray", "solid"],
+                    },
+                    {
+                        name: "ico-extension-fig",
+                        styles: ["file"],
+                        colors: ["", "gray", "solid"],
+                    },
+                    {
+                        name: "ico-extension-ai",
+                        styles: ["file"],
+                        colors: ["", "gray", "solid"],
+                    },
+                    {
+                        name: "ico-extension-psd",
+                        styles: ["file"],
+                        colors: ["", "gray", "solid"],
+                    },
+                    {
+                        name: "ico-extension-indd",
+                        styles: ["file"],
+                        colors: ["", "gray", "solid"],
+                    },
+                    {
+                        name: "ico-extension-aep",
+                        styles: ["file"],
+                        colors: ["", "gray", "solid"],
+                    },
+                    {
+                        name: "ico-extension-mp3",
+                        styles: ["file"],
+                        colors: ["", "gray", "solid"],
+                    },
+                    {
+                        name: "ico-extension-wav",
+                        styles: ["file"],
+                        colors: ["", "gray", "solid"],
+                    },
+                    {
+                        name: "ico-extension-mp4",
+                        styles: ["file"],
+                        colors: ["", "gray", "solid"],
+                    },
+                    {
+                        name: "ico-extension-mpeg",
+                        styles: ["file"],
+                        colors: ["", "gray", "solid"],
+                    },
+                    {
+                        name: "ico-extension-avi",
+                        styles: ["file"],
+                        colors: ["", "gray", "solid"],
+                    },
+                    {
+                        name: "ico-extension-mkv",
+                        styles: ["file"],
+                        colors: ["", "gray", "solid"],
+                    },
+                    {
+                        name: "ico-extension-html",
+                        styles: ["file"],
+                        colors: ["", "gray", "solid"],
+                    },
+                    {
+                        name: "ico-extension-css",
+                        styles: ["file"],
+                        colors: ["", "gray", "solid"],
+                    },
+                    {
+                        name: "ico-extension-rss",
+                        styles: ["file"],
+                        colors: ["", "gray", "solid"],
+                    },
+                    {
+                        name: "ico-extension-sql",
+                        styles: ["file"],
+                        colors: ["", "gray", "solid"],
+                    },
+                    {
+                        name: "ico-extension-js",
+                        styles: ["file"],
+                        colors: ["", "gray", "solid"],
+                    },
+                    {
+                        name: "ico-extension-json",
+                        styles: ["file"],
+                        colors: ["", "gray", "solid"],
+                    },
+                    {
+                        name: "ico-extension-java",
+                        styles: ["file"],
+                        colors: ["", "gray", "solid"],
+                    },
+                    {
+                        name: "ico-extension-xml",
+                        styles: ["file"],
+                        colors: ["", "gray", "solid"],
+                    },
+                    {
+                        name: "ico-extension-exe",
+                        styles: ["file"],
+                        colors: ["", "gray", "solid"],
+                    },
+                    {
+                        name: "ico-extension-dmg",
+                        styles: ["file"],
+                        colors: ["", "gray", "solid"],
+                    },
+                    {
+                        name: "ico-extension-zip",
+                        styles: ["file"],
+                        colors: ["", "gray", "solid"],
+                    },
+                    {
+                        name: "ico-extension-rar",
+                        styles: ["file"],
+                        colors: ["", "gray", "solid"],
+                    },
+
+                    /* Simple (Default 단일) */
+                    { name: "ico-simple-email", styles: ["file"] },
+                    { name: "ico-simple-hunminjungum", styles: ["file"] },
+                    { name: "ico-simple-ics", styles: ["file"] },
+                    { name: "ico-simple-ai", styles: ["file"] },
+                    { name: "ico-simple-audio", styles: ["file"] },
+                    { name: "ico-simple-doc", styles: ["file"] },
+                    { name: "ico-simple-etc", styles: ["file"] },
+                    { name: "ico-simple-hangul", styles: ["file"] },
+                    { name: "ico-simple-html", styles: ["file"] },
+                    { name: "ico-simple-image", styles: ["file"] },
+                    { name: "ico-simple-mhtml", styles: ["file"] },
+                    { name: "ico-simple-pod", styles: ["file"] },
+                    { name: "ico-simple-pdf", styles: ["file"] },
+                    { name: "ico-simple-ppt", styles: ["file"] },
+                    { name: "ico-simple-psd", styles: ["file"] },
+                    { name: "ico-simple-text", styles: ["file"] },
+                    { name: "ico-simple-video", styles: ["file"] },
+                    { name: "ico-simple-xd", styles: ["file"] },
+                    { name: "ico-simple-xls", styles: ["file"] },
+                    { name: "ico-simple-zip", styles: ["file"] },
+                    { name: "ico-simple-link", styles: ["file"] },
+
+                    /* ETC 카테고리 */
+                    { name: "ico-monitor", styles: ["etc"], colors: ["", "type02"] },
+                    { name: "ico-monitor-shield", styles: ["etc"], colors: [""] },
+
+                    { name: "ico-file", styles: ["etc"], colors: ["", "type1"] },
+                    { name: "ico-folederbox", styles: ["etc"] },
+                    { name: "ico-arrow-dark", styles: ["etc"] },
+                    { name: "ico-rating", styles: ["etc"] },
+
+                    { name: "ico-search-id", styles: ["etc"] },
+
+                    { name: "ico-ask-person", styles: ["etc"] },
+                    { name: "ico-lock", styles: ["etc"] },
+                    { name: "ico-government", styles: ["etc"] },
+                    { name: "ico-location-mark", styles: ["etc"] },
+                    { name: "ico-exclamation-mark", styles: ["etc"] },
+                    {
+                        name: "ico-payer",
+                        styles: ["etc"],
+                        colors: ["type1", "type2", "type3", "type4", "type5"],
+                    },
+                    {
+                        name: "ico-pocket",
+                        styles: ["etc"],
+                        colors: ["", "type2", "blue", "green", "yellow"],
+                    },
+                    { name: "ico-building", styles: ["etc"] },
+                    {
+                        name: "ico-coin",
+                        styles: ["etc"],
+                        colors: ["", "type2", "type3", "type4", "type5", "type6"],
+                    },
+                    {
+                        name: "ico-coin2",
+                        styles: ["etc"],
+                        colors: [""],
+                    },
+                    {
+                        name: "ico-lock-phone",
+                        styles: ["etc"],
+                        colors: [""],
+                    },
+                    {
+                        name: "ico-lock-pc",
+                        styles: ["etc"],
+                        colors: [""],
+                    },
+                    {
+                        name: "ico-doller",
+                        styles: ["etc"],
+                        colors: [""],
+                    },
+                    { name: "ico-discount", styles: ["etc"] },
+                    // { name: "ico-star", styles: ["etc"] },
+                    {
+                        name: "ico-result",
+                        styles: ["etc"],
+                        colors: ["success", "needed"],
+                    },
+                    { name: "ico-speechBubble", styles: ["etc"] },
+                    { name: "ico-grid-menu", styles: ["etc"] },
+                    { name: "ico-method", styles: ["etc"], colors: ["", "type2"] },
+                    { name: "ico-notepay", styles: ["etc"] },
+                    { name: "ico-earth", styles: ["etc"] },
+                    { name: "ico-deposit", styles: ["etc"], colors: ["", "type2"] },
+                    { name: "ico-etc-1", styles: ["etc"] },
+                    { name: "ico-passbook", styles: ["etc"], colors: ["", "type2", "type3"] },
+                    { name: "ico-card", styles: ["etc"], colors: ["", "type2"] },
+                    { name: "ico-magnifier-won", styles: ["etc"], colors: ["", "type2"] },
+                    { name: "ico-handover", styles: ["etc"], colors: ["", "type2"] },
+                    { name: "ico-user", styles: ["etc"], colors: ["", "type2", "type3"] },
+                    { name: "ico-shield", styles: ["etc"], colors: ["", "type2"] },
+                    { name: "ico-shield2", styles: ["etc"], colors: ["", "type2"] },
+                    { name: "ico-key", styles: ["etc"], colors: [""] },
+                    { name: "ico-paper", styles: ["etc"], colors: ["", "type2"] },
+                    { name: "ico-qrverifi", styles: ["etc"], colors: [""] },
+                    { name: "ico-fold", styles: ["etc"], colors: [""] },
+                    { name: "ico-fold-01", styles: ["etc"], colors: [""] },
+                    { name: "ico-phone", styles: ["etc"], colors: [""] },
+                    { name: " ico-phone-shield ", styles: ["etc"], colors: [""] },
+                    { name: "ico-big-arrow", styles: ["etc"], colors: [""] },
+                    { name: "ico-phone-01", styles: ["etc"], colors: [""] },
+                    { name: "ico-phone-02", styles: ["etc"], colors: [""] },
+                    { name: "ico-document", styles: ["etc"], colors: [""] },
+                    { name: "ico-monitor-check", styles: ["etc"], colors: [""] },
+                    { name: "ico-phone-check", styles: ["etc"], colors: [""] },
+                    { name: "ico-clock-01", styles: ["etc"], colors: ["", "type2"] },
+                    { name: "ico-document-01", styles: ["etc"], colors: [""] },
+                    {
+                        name: "ico-document-check",
+                        styles: ["etc"],
+                        colors: ["", "type2"],
+                    },
+                    { name: "ico-email", styles: ["etc"], colors: [""] },
+                    { name: "ico-id", styles: ["etc"], colors: [""] },
+                    { name: "ico-id-01", styles: ["etc"], colors: [""] },
+                    { name: "ico-docs-01", styles: ["etc"], colors: [""] },
+                    { name: "ico-docs-02", styles: ["etc"], colors: [""] },
+                    { name: "ico-docs-03", styles: ["etc"], colors: [""] },
+                    { name: "ico-docs-04", styles: ["etc"], colors: [""] },
+                    { name: "ico-board-warrging", styles: ["etc"], colors: [""] },
+                    { name: "ico-letter-pay", styles: ["etc"], colors: [""] },
+                    { name: "ico-letter-pay-01", styles: ["etc"], colors: [""] },
+                    // { name: "ico-scraping", styles: ["etc"], colors: [""] },
+                    { name: "ico-load-document", styles: ["etc"], colors: [""] },
+                ];
+
+                const sizeList = [
+                    { size: "ico-size-xs", label: "xSmall", px: "12px" },
+                    { size: "ico-size-sm", label: "Small", px: "16px" },
+                    { size: "ico-size-smMd", label: "sMedium", px: "20px" },
+                    { size: "ico-size-md", label: "Medium", px: "24px" },
+                    { size: "ico-size-mdLg", label: "mLarge", px: "28px" },
+                    { size: "ico-size-lg", label: "Large", px: "32px" },
+                    { size: "ico-size-xl", label: "xLarge", px: "40px" },
+                    { size: "ico-size-2xl", label: "2xLarge", px: "48px" },
+                    { size: "ico-size-3xl", label: "3xLarge", px: "56px" },
+                    { size: "ico-size-4xl", label: "4xLarge", px: "64px" },
+                    { size: "ico-size-5xl", label: "5xLarge", px: "72px" },
+                    { size: "ico-size-6xl", label: "6xLarge", px: "80px" },
+                ];
+
+                const iconGrid = document.getElementById("iconGrid");
+                const toast = document.getElementById("toast");
+                const filterBtns = document.querySelectorAll(".filter-btn");
+                const sidePanel = document.getElementById("sidePanel");
+                const sidebarOverlay = document.getElementById("sidebarOverlay");
+                const panelClose = document.getElementById("panelClose");
+                const panelTitle = document.getElementById("panelTitle");
+                const panelPreviewIcon = document.getElementById("panelPreviewIcon");
+                const colorSection = document.getElementById("colorSection");
+                const colorGroup = document.getElementById("colorGroup");
+                const sizeListPanel = document.getElementById("sizeListPanel");
+                let toastTimer = null;
+
+                let activeCard = null;
+                let selectedIconData = null;
+                let currentStyle = "";
+                let currentColor = "";
+
+                // 그리드 렌더링
+                iconData.forEach((item) => {
+                    const defaultStyle = item.styles.length > 0 ? item.styles[0] : "";
+                    const styleClass = defaultStyle ? defaultStyle + " " : "";
+
+                    const firstColor = item.colors && item.colors.length > 0 ? item.colors[0] : "";
+                    const colorClass = firstColor ? " " + firstColor : "";
+
+                    const card = document.createElement("div");
+                    card.className = "icon-item";
+                    card.setAttribute("data-icon", item.name);
+                    card.setAttribute("data-current-style", defaultStyle);
+                    card.setAttribute("data-styles", item.styles.join(","));
+
+                    const badgesHTML =
+                        item.styles.length > 0
+                            ? item.styles
+                                  .map(
+                                      (style) => `
+            <span class="style-badge active" data-style="${style}">
+              ${badgeLabels[style] || style}
+            </span>
+          `,
+                                  )
+                                  .join("")
+                            : "";
+
+                    card.innerHTML = `
+            <div class="icon-wrapper">
+              <i class="ico ${styleClass}ico-size-xl ${item.name}${colorClass}" aria-hidden="true"></i>
+            </div>
+            <div class="text-area">
+              <span class="icon-name">${item.name}</span>
+              <div class="style-badges">${badgesHTML}</div>
+            </div>
+          `;
+
+                    card.addEventListener("click", () => {
+                        if (activeCard) activeCard.classList.remove("active");
+                        activeCard = card;
+                        card.classList.add("active");
+
+                        selectedIconData = item;
+                        currentStyle = card.getAttribute("data-current-style");
+
+                        openSidebar();
+                    });
+
+                    iconGrid.appendChild(card);
+                });
+
+                function openSidebar() {
+                    panelTitle.textContent = selectedIconData.name;
+
+                    if (selectedIconData.colors && selectedIconData.colors.length > 0) {
+                        colorSection.style.display = "block";
+                        currentColor = selectedIconData.colors[0];
+
+                        colorGroup.innerHTML = selectedIconData.colors
+                            .map((color) => {
+                                const label = color === "" ? "Default" : color === "colorFgTertiary" ? "Tertiary" : color.charAt(0).toUpperCase() + color.slice(1);
+                                const activeClass = color === currentColor ? "active" : "";
+                                return `<button class="color-btn ${activeClass}" data-color="${color}">${label}</button>`;
+                            })
+                            .join("");
+
+                        colorGroup.querySelectorAll(".color-btn").forEach((btn) => {
+                            btn.addEventListener("click", () => {
+                                colorGroup.querySelectorAll(".color-btn").forEach((b) => b.classList.remove("active"));
+                                btn.classList.add("active");
+                                currentColor = btn.getAttribute("data-color");
+                                updatePanelPreview(panelPreviewIcon.className.match(/ico-size-\S+/) || "ico-size-2xl");
+                            });
+                        });
+                    } else {
+                        colorSection.style.display = "none";
+                        currentColor = "";
+                    }
+
+                    updatePanelPreview("ico-size-2xl");
+                    renderSizeList();
+
+                    sidePanel.classList.add("open");
+                    sidebarOverlay.classList.add("open");
+                }
+
+                function closeSidebar() {
+                    sidePanel.classList.remove("open");
+                    sidebarOverlay.classList.remove("open");
+                    if (activeCard) activeCard.classList.remove("active");
+                }
+
+                panelClose.addEventListener("click", closeSidebar);
+                sidebarOverlay.addEventListener("click", closeSidebar);
+
+                function updatePanelPreview(sizeClass) {
+                    const styleStr = currentStyle ? currentStyle + " " : "";
+                    const colorStr = currentColor ? " " + currentColor : "";
+                    const resolvedSize = typeof sizeClass === "string" ? sizeClass : sizeClass[0] || "ico-size-2xl";
+                    panelPreviewIcon.className = `ico ${styleStr}${resolvedSize} ${selectedIconData.name}${colorStr}`;
+                }
+
+                function renderSizeList() {
+                    sizeListPanel.innerHTML = sizeList
+                        .map(
+                            (sizeItem) => `
+            <li data-size="${sizeItem.size}">
+              <div class="size-info">${sizeItem.label} <span>${sizeItem.px}</span></div>
+              <div class="copy-hint">클릭하여 복사</div>
+            </li>
+          `,
+                        )
+                        .join("");
+
+                    sizeListPanel.querySelectorAll("li").forEach((li) => {
+                        const sizeClass = li.getAttribute("data-size");
+
+                        li.addEventListener("mouseenter", () => {
+                            updatePanelPreview(sizeClass);
+                        });
+
+                        li.addEventListener("click", () => {
+                            const styleStr = currentStyle ? currentStyle + " " : "";
+                            const colorStr = currentColor ? " " + currentColor : "";
+                            const targetTag = `<i class="ico ${styleStr}${sizeClass} ${selectedIconData.name}${colorStr}" aria-hidden="true"></i>`;
+
+                            navigator.clipboard.writeText(targetTag).then(() => {
+                                showToast();
+                                closeSidebar();
+                            });
+                        });
+                    });
+                }
+
+                filterBtns.forEach((btn) => {
+                    btn.addEventListener("click", () => {
+                        filterBtns.forEach((b) => b.classList.remove("active"));
+                        btn.classList.add("active");
+
+                        const filterType = btn.getAttribute("data-filter");
+                        document.querySelectorAll(".icon-item").forEach((item) => {
+                            const itemStyles = item.getAttribute("data-styles").split(",").filter(Boolean);
+                            if (filterType === "all" || itemStyles.includes(filterType)) {
+                                item.classList.remove("hidden");
+                            } else {
+                                item.classList.add("hidden");
+                            }
+                        });
+                    });
+                });
+
+                function showToast() {
+                    if (toastTimer) {
+                        clearTimeout(toastTimer);
+                        toast.classList.remove("show");
+                    }
+                    setTimeout(() => toast.classList.add("show"), 10);
+                    toastTimer = setTimeout(() => {
+                        toast.classList.remove("show");
+                    }, 2500);
+                }
+            });
+        </script>
+    </body>
+</html>

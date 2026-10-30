@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>수협은행</title>
+  <link rel="stylesheet" href="/static/css/reset.css" />
+  <link rel="stylesheet" href="/static/css/layout.css" />
+  <link rel="stylesheet" href="/static/css/component.css" />
+  <link rel="stylesheet" href="/static/css/common.css" />
+  <link rel="stylesheet" href="/static/css/bop.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <div id="header">
+      @@include('static/html/pub/layout/skipNavigation.html')
+      @@include('static/html/pub/layout/header_sub.html')
+    </div>
+
+    <div id="container" class="container">
+      <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+      <div id="contents">
+        <div class="content">
+          @@include('static/html/pub/layout/breadcrumb.html')
+          <div class="bop">
+            <h2 class="typeH2">
+              이자납입
+              <div class="box-steps">
+                <ol class="list-steps">
+                  <!-- 
+												[dev] 상태값 class 안내
+												class="item-steps" 기본 숫자 표기
+												class="item-steps passed" 완료
+												class="item-steps current" 현재
+											 -->
+                  <li class="item-steps passed" aria-current="step">
+                    <span class="blind">완료된 단계</span>
+                    <i class="icon" aria-hidden="true">1</i>
+                    <span class="text">계좌조회</span>
+                  </li>
+                  <li class="item-steps current">
+                    <i class="icon" aria-hidden="true">2</i>
+                    <span class="text">정보입력</span>
+                  </li>
+                  <li class="item-steps">
+                    <i class="icon" aria-hidden="true">3</i>
+                    <span class="text">정보확인 및 인증</span>
+                  </li>
+                  <li class="item-steps">
+                    <i class="icon" aria-hidden="true">4</i>
+                    <span class="text">결제 요청 완료</span>
+                  </li>
+                </ol>
+              </div>
+            </h2>
+            <div class="tbl-area">
+              <table class="table-type01">
+                <caption>
+                  이자납입
+                </caption>
+                <colgroup>
+                  <col />
+                  <col />
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th scope="row">
+                      <span>대출계좌번호</span>
+                    </th>
+                    <td colspan="3">
+                      <span class="typeMd">0000-0000-0000</span>
+                    </td>
+                  </tr>
+                  <th scope="row">
+                    <span>대출실행번호</span>
+                  </th>
+                  <td colspan="3">
+                    <span class="typeMd">1</span>
+                  </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <span>최초대출액</span>
+                    </th>
+                    <td class="text-right">
+                      <span class="typeMd">100,000,000원</span>
+                    </td>
+                    <th scope="row">
+                      <span>대출잔액</span>
+                    </th>
+                    <td class="text-right">
+                      <span class="typeMd">50,000,000원</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <span>출금계좌번호</span>
+                    </th>
+                    <td colspan="3">
+                      <div class="withdrawal-account">
+                        <div class="box-select wSize-lg">
+                          <button type="button" class="select size-lg" role="combobox" aria-expanded="false"
+                            aria-haspopup="listbox" aria-controls="selectDropdown01">
+                            <span class="text">0000-0000-0000(보통예금)</span>
+                            <span class="blind">펼침</span>
+                          </button>
+                          <div id="selectDropdown01" class="box-list-select">
+                            <ul class="list-select" role="listbox" aria-label="선택 항목 리스트">
+                              <li class="item-select" role="group" aria-label="선택 항목 리스트">
+                                <span class="form-box">
+                                  보통예금 1010-27330000
+                                </span>
+                              </li>
+                              <li class="item-select" role="group" aria-label="선택 항목 리스트">
+                                <span class="form-box">
+                                  1
+                                </span>
+                              </li>
+                              <li class="item-select" role="group" aria-label="선택 항목 리스트">
+                                <span class="form-box">
+                                  1
+                                </span>
+                              </li>
+                              <li class="item-select" role="group" aria-label="선택 항목 리스트">
+                                <span class="form-box">
+                                  1
+                                </span>
+                              </li>
+                              <li class="item-select" role="group" aria-label="선택 항목 리스트">
+                                <span class="form-box">
+                                  1
+                                </span>
+                              </li>
+                              <li class="item-select" role="group" aria-label="선택 항목 리스트">
+                                <span class="form-box">
+                                  1
+                                </span>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                        <div class="account-balance-info">
+                          <ul>
+                            <li class="info-item">
+                              <span class="typeSm">계좌잔액<strong class="typeMdBold">131,000,000</strong>원</span>
+                            </li>
+                            <!-- <span class="divider" aria-hidden="true"></span> -->
+                            <li class="info-item highlight">
+                              <span class="typeSm">출금가능금액<strong class="typeMdBold">120,000,000</strong>원</span>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <span>출금계좌비밀번호</span>
+                    </th>
+                    <td colspan="3">
+                      <div class="input-box">
+                        <input type="password" class="input" placeholder="숫자 4자리" title="" aria-label="숫자 4자리">
+                        <button type="button" class="btn">
+                          <i class="ico-keypad ico-size-smMd"></i>
+                          <span class="blind">보안 키패드 열기</span>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <span>이자납입방법</span>
+                    </th>
+                    <td colspan="3">
+                      <div class="withdrawal-account">
+                        <div class="box-select wSize-lg">
+                          <button type="button" class="select size-lg" role="combobox" aria-expanded="false"
+                            aria-haspopup="listbox" aria-controls="selectDropdown01">
+                            <span class="text">이자납입일 전일납부</span>
+                            <span class="blind">펼침</span>
+                          </button>
+                          <div id="selectDropdown01" class="box-list-select">
+                            <ul class="list-select" role="listbox" aria-label="선택 항목 리스트">
+                              <li class="item-select" role="group" aria-label="선택 항목 리스트">
+                                <span class="form-box">
+                                  이자납입일 전일납부
+                                </span>
+                              </li>
+                              <li class="item-select" role="group" aria-label="선택 항목 리스트">
+                                <span class="form-box">
+                                  1
+                                </span>
+                              </li>
+                              <li class="item-select" role="group" aria-label="선택 항목 리스트">
+                                <span class="form-box">
+                                  1
+                                </span>
+                              </li>
+                              <li class="item-select" role="group" aria-label="선택 항목 리스트">
+                                <span class="form-box">
+                                  1
+                                </span>
+                              </li>
+                              <li class="item-select" role="group" aria-label="선택 항목 리스트">
+                                <span class="form-box">
+                                  1
+                                </span>
+                              </li>
+                              <li class="item-select" role="group" aria-label="선택 항목 리스트">
+                                <span class="form-box">
+                                  1
+                                </span>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                        <div class="account-balance-info">
+                          <ul>
+                            <li class="info-item">
+                              <span class="typeSm">이자납입일 전일 : 2026-08-17</span>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <span>지정일자</span>
+                    </th>
+                    <td colspan="3">
+                      <div class="calandar-group">
+                        <input type="text" class="input wSize-smMd" title="" value="">
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <span>전화번호</span>
+                    </th>
+                    <td class="flex items-center gap-8">
+                      <div class="box-select phone">
+                        <button type="button" class="select" role="combobox" aria-expanded="false"
+                          aria-haspopup="listbox" aria-controls="selectDropdown01">
+                          <span class="text">선택</span>
+                          <span class="blind">펼침</span>
+                        </button>
+                        <div id="selectDropdown01" class="box-list-select">
+                          <ul class="list-select" role="listbox" aria-label="선택 항목 리스트">
+                            <li class="item-select" role="group" aria-label="선택 항목 리스트">
+                              <span class="form-box">
+                                02
+                              </span>
+                            </li>
+                            <li class="item-select" role="group" aria-label="선택 항목 리스트">
+                              <span class="form-box">
+                                032
+                              </span>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <span>-</span>
+                      <input type="text" class="input phone" title="" size="4" value="1234">
+                      <span>-</span>
+                      <input type="text" class="input phone" title="" size="4" value="5678">
+                    </td>
+                    <th scope="row">
+                      <span>휴대폰번호</span>
+                    </th>
+                    <td class="flex items-center gap-8">
+                      <div class="box-select phone">
+                        <button type="button" class="select" role="combobox" aria-expanded="false"
+                          aria-haspopup="listbox" aria-controls="selectDropdown01">
+                          <span class="text">선택</span>
+                          <span class="blind">펼침</span>
+                        </button>
+                        <div id="selectDropdown01" class="box-list-select">
+                          <ul class="list-select" role="listbox" aria-label="선택 항목 리스트">
+                            <li class="item-select" role="group" aria-label="선택 항목 리스트">
+                              <span class="form-box">
+                                02
+                              </span>
+                            </li>
+                            <li class="item-select" role="group" aria-label="선택 항목 리스트">
+                              <span class="form-box">
+                                032
+                              </span>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <span>-</span>
+                      <input type="text" class="input phone" title="" size="4" value="1234">
+                      <span>-</span>
+                      <input type="text" class="input phone" title="" size="4" value="5678">
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="btn-wrap center">
+              <button type="button" class="btn type-bg-primary size-xxl">
+                <span class="text">확인</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+    </div>
+    <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+  </div>
+  <script src="/static/js/ui/cib_ui_common.js"></script>
+</body>
+
+</html>

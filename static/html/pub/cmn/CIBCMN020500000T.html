@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/cmn.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
+
+      <div id="container" class="container">
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="cmn">
+              <button type="button" class="btn type-bg-primary size-md btn-modal" data-target="modal-16">
+                <span class="text">간편조회</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <div id="modal-16" class="modal is-active" data-dim="true" data-backdrop-close="false" data-alert="true" data-size="md" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc">
+      <div class="modal-wrapper">
+        <div class="modal-title">
+          <h4 class="typeH4">간편조회</h4>
+        </div>
+        <div class="modal-slot">
+          <div id="modal-desc">
+            <div class="box-tab">
+              <ul class="list-tab-button type-chip size-md" role="tablist" aria-label="공시자료 탭">
+                <li class="item-tab-button">
+                  <button type="button" class="btn-tab" id="tabBtnTypeHighlightFull01" role="tab" aria-selected="true" aria-controls="tabPanelTypeHighlightFull01">
+                    <span class="text">예금잔액조회</span>
+                  </button>
+                </li>
+                <li class="item-tab-button">
+                  <button type="button" class="btn-tab" id="tabBtnTypeHighlightFull02" role="tab" aria-selected="false" aria-controls="tabPanelTypeHighlightFull02">
+                    <span class="text">예금거래내역조회</span>
+                  </button>
+                </li>
+                <li class="item-tab-button">
+                  <button type="button" class="btn-tab" id="tabBtnTypeHighlightFull03" role="tab" aria-selected="false" aria-controls="tabPanelTypeHighlightFull03">
+                    <span class="text">자기앞수표조회</span>
+                  </button>
+                </li>
+                <li class="item-tab-button">
+                  <button type="button" class="btn-tab" id="tabBtnTypeHighlightFull04" role="tab" aria-selected="false" aria-controls="tabPanelTypeHighlightFull04">
+                    <span class="text">환율정보조회</span>
+                  </button>
+                </li>
+                <li class="item-tab-button">
+                  <button type="button" class="btn-tab active" title="선택됨" id="tabBtnTypeHighlightFull05" role="tab" aria-selected="false" aria-controls="tabPanelTypeHighlightFull05">
+                    <span class="text">신탁수익률조회</span>
+                  </button>
+                </li>
+                <li class="item-tab-button">
+                  <button type="button" class="btn-tab" id="tabBtnTypeHighlightFull06" role="tab" aria-selected="false" aria-controls="tabPanelTypeHighlightFull06">
+                    <span class="text">가상계좌입금내역조회</span>
+                  </button>
+                </li>
+              </ul>
+              <div class="box-tab-content" id="tabPanelTypeHighlightFull01" role="tabpanel" aria-labelledby="tabBtnTypeHighlightFull01" style="display: none"></div>
+              <div class="box-tab-content" id="tabPanelTypeHighlightFull02" role="tabpanel" aria-labelledby="tabBtnTypeHighlightFull02" style="display: none"></div>
+              <div class="box-tab-content active" id="tabPanelTypeHighlightFull03" role="tabpanel" aria-labelledby="tabBtnTypeHighlightFull03" style="display: none"></div>
+              <div class="box-tab-content active" id="tabPanelTypeHighlightFull04" role="tabpanel" aria-labelledby="tabBtnTypeHighlightFull04" style="display: block">
+                <div class="tbl-area">
+                  <table class="table-type01">
+                    <caption>
+                      사용자ID, 사용자명, 부서명, 직위, 사용자구분, 휴대전화번호, 1회 이체한도, 1일 이체한도, OTP종류에 대한 구성 테이블입니다.
+                    </caption>
+                    <colgroup>
+                      <col style="width: 160px" />
+                      <col style="width: 368px" />
+                      <col style="width: 160px" />
+                      <col style="width: 368px" />
+                    </colgroup>
+                    <tbody>
+                      <tr>
+                        <th scope="row">
+                          <span>발행일자</span>
+                        </th>
+                        <td>
+                          <div class="calendar-wrap">
+                            <!-- 날짜 입력 영역 -->
+                            <div class="input-box">
+                              <input type="text" class="input" placeholder="발행일자" aria-label="발행일자" value="2026-01-06" />
+                              <button type="button" class="btn">
+                                <i class="ico-calendar ico-size-smMd" aria-hidden="true"></i>
+                                <span class="blind">발행일자 달력 열기</span>
+                              </button>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="tbl-area">
+                  <div class="tbl-head">
+                    <div class="left-area">
+                      <span class="typeMd">지정일자 : 2026-07-28</span>
+                    </div>
+                  </div>
+
+                  <table class="table-type03 mt-8">
+                    <caption>
+                      번호, 적용약관, 변경파일에 대한 구성 테이블입니다.
+                    </caption>
+                    <colgroup>
+                      <col width="auto" />
+                      <col width="auto" />
+                      <col width="auto" />
+                    </colgroup>
+                    <thead>
+                      <tr>
+                        <th>통화코드</th>
+                        <th>배당율(%)</th>
+                        <th>기준가격(원)</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><span class="typeMd">적립식목적신탁(정액적립식)</span></td>
+                        <td><span class="typeMd">2.45</span></td>
+                        <td headers="th-03" class="text-right"><span class="typeMd">0</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="box-tab-content" id="tabPanelTypeHighlightFull05" role="tabpanel" aria-labelledby="tabBtnTypeHighlightFull05" style="display: none"></div>
+              <div class="box-tab-content" id="tabPanelTypeHighlightFull06" role="tabpanel" aria-labelledby="tabBtnTypeHighlightFull06" style="display: none"></div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer flex items-center justify-center gap-6">
+          <button type="button" class="btn type-bg-primary size-lg">
+            <span class="text">확인</span>
+          </button>
+        </div>
+        <button type="button" class="ico btn-close" aria-label="모달 닫기">
+          <i class="ico-close ico-size-smMd" aria-hidden="true"></i>
+          <span class="blind">닫기</span>
+        </button>
+      </div>
+    </div>
+  </body>
+</html>
+<script src="/static/js/ui/cib_ui_common.js"></script>

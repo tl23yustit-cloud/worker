@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>수협은행</title>
+  <link rel="stylesheet" href="/static/css/reset.css" />
+  <link rel="stylesheet" href="/static/css/layout.css" />
+  <link rel="stylesheet" href="/static/css/component.css" />
+  <link rel="stylesheet" href="/static/css/common.css" />
+  <link rel="stylesheet" href="/static/css/bop.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <div id="header">
+      @@include('static/html/pub/layout/skipNavigation.html')
+      @@include('static/html/pub/layout/header_sub.html')
+    </div>
+
+    <div id="container" class="container">
+      <div id="leftArea">
+        @@include('static/html/pub/layout/leftArea.html')
+      </div>
+      <div id="contents">
+        <div class="content">
+          @@include('static/html/pub/layout/breadcrumb.html')
+          <div class="bop">
+            <h2 class="typeH2">선결제
+              <div class="box-steps">
+                <ol class="list-steps">
+                  <!-- 
+												[dev] 상태값 class 안내
+												class="item-steps" 기본 숫자 표기
+												class="item-steps passed" 완료
+												class="item-steps current" 현재
+											 -->
+                  <li class="item-steps current">
+                    <i class="icon" aria-hidden="true">1</i>
+                    <span class="text">결제정보입력</span>
+                  </li>
+                  <li class="item-steps" aria-current="step">
+                    <i class="icon" aria-hidden="true">2</i>
+                    <span class="text">확인 및 인증</span>
+                  </li>
+                </ol>
+              </div>
+            </h2>
+            <!--출금계좌선택시 분기노출-->
+            <div class="tbl-area">
+              <div class="tbl-head">
+                <div class="left-area">
+                  <h4 class="typeH4">결제정보 입력</h4>
+                </div>
+                <div class="right-area">
+                  <span class="required typeMd">필수 항목</span>
+                </div>
+              </div>
+              <table class="table-type01">
+                <caption>사고유형, 최종 본인사용일, 최종사용 가맹점, 연락처, 승인구분, 사고 경위내용에 대한 구성 테이블입니다.</caption>
+                <colgroup>
+                  <col>
+                  <col>
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th scope="row">기준일자</th>
+                    <td>
+                      <span class="typeMd">2026-07-01</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <span class="required">결제수단</span>
+                    </th>
+                    <td>
+                      <div class="form-box-wrap" role="radiogroup" aria-label="결제수단">
+                        <span class="form-box">
+                          <input type="radio" name="searchType" id="searchType_02" class="form-radio size-md" checked>
+                          <label for="searchType_02" class="form-label">출금계좌</label>
+                        </span>
+                        <span class="form-box">
+                          <input type="radio" name="searchType" id="searchType_03" class="form-radio size-md">
+                          <label for="searchType_03" class="form-label">가상계좌</label>
+                        </span>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <span class="required">계좌번호</span>
+                    </th>
+                    <td colspan="3">
+                      <div class="box-select wSize-lg">
+                        <button type="button" class="select size-lg" role="combobox" aria-expanded="false"
+                          aria-haspopup="listbox" aria-controls="selectDropdown01" aria-labelledby="label-account"
+                          aria-required="true">
+                          <span class="text">계좌를 선택하세요</span>
+                          <span class="blind">목록 열기</span>
+                        </button>
+                        <div id="selectDropdown01" class="box-list-select">
+                          <ul class="list-select" role="listbox" aria-label="계좌번호 선택 리스트">
+                            <li class="item-select" role="group" aria-selected="true">
+                              <span class="btn-item-select">
+                                1234-1234-1234</span>
+                            </li>
+                            <li class="item-select" role="group" aria-selected="false">
+                              <span class="btn-item-select">1</span>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <p class="input-guide-text02">
+                        계좌잔액 :
+                        <strong class="color-fg-primary">0원</strong>
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <label class="required" for="password02">계좌비밀번호</label>
+                    </th>
+                    <td>
+                      <div class="input-box wSize-smMd">
+                        <input type="password" id="password02" class="input" placeholder="비밀번호 입력" aria-label="계좌비밀번호">
+                        <button type="button" class="btn">
+                          <i class="ico-keypad ico-size-smMd"></i>
+                          <span class="blind">보안 키패드 열기</span>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <span class="required">이용구분</span>
+                    </th>
+                    <td colspan="3">
+                      <div class="box-select wSize-lg">
+                        <button type="button" class="select size-lg" role="combobox" aria-expanded="false"
+                          aria-haspopup="listbox" aria-controls="selectDropdown01" aria-labelledby="label-account"
+                          aria-required="true">
+                          <span class="text">이용구분을 선택하세요</span>
+                          <span class="blind">목록 열기</span>
+                        </button>
+                        <div id="selectDropdown01" class="box-list-select">
+                          <ul class="list-select" role="listbox" aria-label="이용구분 선택 리스트">
+                            <li class="item-select" role="group" aria-selected="true">
+                              <span class="btn-item-select">
+                                1234-1234-1234</span>
+                            </li>
+                            <li class="item-select" role="group" aria-selected="false">
+                              <span class="btn-item-select">1</span>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="btn-wrap center lg-bot">
+                <button type="button" class="btn type-bg-primary-tint size-xxl">
+                  <span class="text">이전</span>
+                </button>
+                <button type="button" class="btn type-bg-primary size-xxl">
+                  <span class="text">다음</span>
+                </button>
+              </div>
+            </div>
+            <!--//출금계좌선택시 분기노출-->
+            <!--가상계좌선택시 분기노출-->
+            <div class="tbl-area">
+              <div class="tbl-head">
+                <div class="left-area">
+                  <h4 class="typeH4">결제정보 입력</h4>
+                </div>
+                <div class="right-area">
+                  <span class="required typeMd">필수 항목</span>
+                </div>
+              </div>
+              <table class="table-type01">
+                <caption>사고유형, 최종 본인사용일, 최종사용 가맹점, 연락처, 승인구분, 사고 경위내용에 대한 구성 테이블입니다.</caption>
+                <colgroup>
+                  <col>
+                  <col>
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th scope="row">기준일자</th>
+                    <td>
+                      <span class="typeMd">2026-07-01</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <span class="required">결제수단</span>
+                    </th>
+                    <td>
+                      <div class="form-box-wrap" role="radiogroup" aria-label="결제수단">
+                        <span class="form-box">
+                          <input type="radio" name="searchType1" id="searchType_021" class="form-radio size-md">
+                          <label for="searchType_021" class="form-label">출금계좌</label>
+                        </span>
+                        <span class="form-box">
+                          <input type="radio" name="searchType1" id="searchType_031" class="form-radio size-md" checked>
+                          <label for="searchType_031" class="form-label">가상계좌</label>
+                        </span>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <span class="required">가상계좌번호</span>
+                    </th>
+                    <td>
+                      <div class="tbl-flex">
+                        <input type="text" id="userDeptInput" class="input size-lg wSize-md" value="" placeholder=""
+                          aria-label="가상계좌번호">
+                        <!--가상계좌 발급 후 상태이면 버튼 disabled 처리-->
+                        <button type="button" class="btn type-line-secondary size-lg">
+                          <span class="text">가상계좌 발급</span>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <span class="required">이용구분</span>
+                    </th>
+                    <td colspan="3">
+                      <div class="box-select wSize-lg">
+                        <button type="button" class="select size-lg" role="combobox" aria-expanded="false"
+                          aria-haspopup="listbox" aria-controls="selectDropdown01" aria-labelledby="label-account"
+                          aria-required="true">
+                          <span class="text">이용구분을 선택하세요</span>
+                          <span class="blind">목록 열기</span>
+                        </button>
+                        <div id="selectDropdown01" class="box-list-select">
+                          <ul class="list-select" role="listbox" aria-label="이용구분 선택 리스트">
+                            <li class="item-select" role="group" aria-selected="true">
+                              <span class="btn-item-select">
+                                1234-1234-1234</span>
+                            </li>
+                            <li class="item-select" role="group" aria-selected="false">
+                              <span class="btn-item-select">1</span>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="btn-wrap center lg-bot">
+                <button type="button" class="btn type-bg-primary-tint size-xxl">
+                  <span class="text">이전</span>
+                </button>
+                <button type="button" class="btn type-bg-primary size-xxl">
+                  <span class="text">다음</span>
+                </button>
+              </div>
+            </div>
+            <!--//가상계좌선택시 분기노출-->
+          </div>
+        </div>
+      </div>
+      <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+    </div>
+    <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+  </div>
+  <script src="/static/js/ui/cib_ui_common.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>수협은행</title>
+  <link rel="stylesheet" href="/static/css/reset.css" />
+  <link rel="stylesheet" href="/static/css/layout.css" />
+  <link rel="stylesheet" href="/static/css/component.css" />
+  <link rel="stylesheet" href="/static/css/common.css" />
+  <link rel="stylesheet" href="/static/css/bop.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <div id="header">
+      @@include('static/html/pub/layout/skipNavigation.html')
+      @@include('static/html/pub/layout/header_sub.html')
+    </div>
+
+    <div id="container" class="container">
+      <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+      <div id="contents">
+        <div class="content">
+          @@include('static/html/pub/layout/breadcrumb.html')
+          <div class="bop">
+            <h2 class="typeH2">
+              원금상환
+              <div class="box-steps">
+                <ol class="list-steps">
+                  <!-- 
+												[dev] 상태값 class 안내
+												class="item-steps" 기본 숫자 표기
+												class="item-steps passed" 완료
+												class="item-steps current" 현재
+											 -->
+                  <li class="item-steps passed" aria-current="step">
+                    <span class="blind">완료된 단계</span>
+                    <i class="icon" aria-hidden="true">1</i>
+                    <span class="text">계좌조회</span>
+                  </li>
+                  <li class="item-steps current">
+                    <i class="icon" aria-hidden="true">2</i>
+                    <span class="text">정보입력</span>
+                  </li>
+                  <li class="item-steps">
+                    <i class="icon" aria-hidden="true">3</i>
+                    <span class="text">정보확인 및 인증</span>
+                  </li>
+                  <li class="item-steps">
+                    <i class="icon" aria-hidden="true">4</i>
+                    <span class="text">결제 요청 완료</span>
+                  </li>
+                </ol>
+              </div>
+            </h2>
+            <div class="tbl-area">
+              <table class="table-type01">
+                <caption>
+                  원금상환
+                </caption>
+                <colgroup>
+                  <col width="168px" />
+                  <col width="300px" />
+                  <col width="168px" />
+                  <col width="300px" />
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th scope="row">대출계좌번호</th>
+                    <td colspan="3">
+                      <span class="typeMd">0000-0000-0000</span>
+                    </td>
+                  </tr>
+                  <th scope="row">대출실행번호</th>
+                  <td colspan="3">
+                    <span class="typeMd">1</span>
+                  </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">최초대출액</th>
+                    <td class="text-right">
+                      <span class="typeMd">100,000,000원</span>
+                    </td>
+                    <th scope="row">대출잔액</th>
+                    <td class="text-right">
+                      <span class="typeMd">50,000,000원</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <span>출금계좌번호</span>
+                    </th>
+                    <td colspan="3">
+                      <div class="withdrawal-account">
+                        <div class="box-select wSize-lg">
+                          <button type="button" class="select size-lg" role="combobox" aria-expanded="false"
+                            aria-haspopup="listbox" aria-controls="selectDropdown01" aria-labelledby="label-account"
+                            aria-required="true">
+                            <span class="text">0000-0000-0000 (기업운전일반자금대출)</span>
+                            <span class="blind">목록 열기</span>
+                          </button>
+                          <div id="selectDropdown01" class="box-list-select">
+                            <ul class="list-select" role="listbox" aria-label="출금계좌번호 선택 리스트">
+                              <li class="item-select" role="group" aria-selected="true">
+                                <button class="btn-item-select">
+                                  외화보통예금 1010-27330000</button>
+                              </li>
+                              <li class="item-select" role="group" aria-selected="false">
+                                <button class="btn-item-select">1</button>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                        <div class="account-balance-info">
+                          <ul>
+                            <li class="info-item">
+                              <span class="typeSm">계좌잔액<strong class="typeMdBold">131,000,000</strong>원</span>
+                            </li>
+                            <li class="info-item highlight">
+                              <span class="typeSm">출금가능금액<strong class="typeMdBold">120,000,000</strong>원</span>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <span>출금계좌비밀번호</span>
+                    </th>
+                    <td colspan="3">
+                      <div class="input-box">
+                        <input type="password" class="input" placeholder="숫자 4자리" title="" aria-label="숫자 4자리">
+                        <button type="button" class="btn">
+                          <i class="ico-keypad ico-size-smMd"></i>
+                          <span class="blind">보안 키패드 열기</span>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <span>
+                        상환유형
+                      </span>
+                    </th>
+                    <td>
+                      <div class="tbl-column">
+                        <div class="form-box-wrap" role="radiogroup" aria-label="상환유형">
+                          <span class="form-box">
+                            <input type="radio" name="searchType" id="searchType_01" class="form-radio size-md"
+                              checked="">
+                            <label for="searchType_01" class="form-label">일부상환</label>
+                          </span>
+                          <span class="form-box">
+                            <input type="radio" name="searchType" id="searchType_02" class="form-radio size-md">
+                            <label for="searchType_02" class="form-label">회차상환
+                            </label>
+                          </span>
+                          <span class="form-box">
+                            <input type="radio" name="searchType" id="searchType_03" class="form-radio size-md">
+                            <label for="searchType_03" class="form-label">완제
+                            </label>
+                          </span>
+                        </div>
+                        <!--일부상환, 회차상환일때 노출 인듯-->
+                        <input type="password" class="input size-lg wSize-lg" placeholder="숫자만 입력하세요" title=""
+                          aria-label="상환유형 입력">
+                        <!--//일부상환, 회차상환일때 노출 인듯-->
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>            
+            <div class="bg-box color-bg-secondary">              
+              <div class="bottom-etc-area">
+                <span class="typeLgSemibold">고객님께서는 본 대출에 대한 ‘대출계약철회권’ 행사가 가능합니다. </span>
+                <button type="button" class="btn type-line-secondary size-lg">
+                  <span class="text">대출계약철회권 행사</span>
+                </button>
+              </div>
+            </div>
+            <div class="list type-dotted">
+              <span class="typeMdMedium">‘대출계약철회권’이란?</span>
+              <ul>
+                <li class="typeMd">
+                  대출 실행일로부터 14일 이내에 중도상환수수료 없이 대출 계약을 취소하는 제도입니다.
+                  <div class="list type-bar">
+                    <ul>
+                      <li class="typeMd">
+                        대출금 사용기간에 대한 이자 및 인지세는 고객이 납부하셔야 합니다.
+                      </li>
+                    </ul>
+                  </div>
+                  <p></p>
+                </li>
+              </ul>
+            </div>
+            <div class="btn-wrap center">
+              <button type="button" class="btn type-bg-primary size-xxl">
+                <span class="text">확인</span>
+              </button>
+            </div>
+            <div class="line-box size-xl">
+              <span class="typeLgSemibold">이용안내</span>
+              <div class="list type-dotted">
+                <ul>
+                  <li class="typeMd">
+                    일부상환 : 납부하시는 금액으로 대출금을 상환하는 방식으로, 분할상환(원금균등, 원리금균등)의 경우에는 다음과 같이 합니다.
+                    <div class="list type-num02">
+                      <ul>
+                        <li class="typeSm">
+                          납부하시는 금액이 1회차 상환금액보다 많은 경우에는 상환금애에 대한 이자수납을 하고, 상환계획을 재조정합니다.
+                        </li>
+                        <li class="typeSm">
+                          납부하시는 금액이 1회차 금액보다 적거나 같은 경우에는 잔액에 대한 이자수납을 하고, 상환계획은 재조정 하지 않습니다.
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li class="typeMd">
+                    회차상환 : 납부하시는 금액으로 앞 회차부터 상환하는 방식입니다.
+                  </li>
+                  <li class="typeMd">
+                    완제 : 대출금(이자포함)을 모두 납부하여 계좌해지하는 방식입니다.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+    </div>
+    <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+  </div>
+  <script src="/static/js/ui/cib_ui_common.js"></script>
+</body>
+
+</html>

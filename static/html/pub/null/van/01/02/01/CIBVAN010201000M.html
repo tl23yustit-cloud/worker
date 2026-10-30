@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/van.css" />
+</head>
+
+<body>
+    <div class="wrapper">
+        <div id="header">
+            @@include('static/html/pub/layout/skipNavigation.html')
+            @@include('static/html/pub/layout/header_sub.html')
+        </div>
+
+        <div id="container" class="container">
+            <div id="leftArea">
+                @@include('static/html/pub/layout/leftArea.html')
+            </div>
+            <div id="contents">
+                <div class="content">
+                    @@include('static/html/pub/layout/breadcrumb.html')
+                    <div class="van">
+                        <h2 class="typeH2">가상계좌 사용등록</h2>
+                        <div class="tbl-area">
+                            <div class="tbl-area">
+                                <div class="tbl-head">
+                                    <div class="left-area">
+                                        <h6 class="typeH4">기본정보</h6>
+                                    </div>
+                                </div>
+                                <table class="table-type01">
+                                    <caption>
+
+                                    </caption>
+                                    <colgroup>
+                                        <col style="width: 160px" />
+                                        <col style="width: auto" />
+                                    </colgroup>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">사업자등록번호</th>
+                                            <td><span class="typeMd">000-00-00000</span></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">업체명</th>
+                                            <td><span class="typeMd">㈜가나다상사
+                                                </span></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row"><span class="required">사용용도</span></th>
+                                            <td>
+                                                <input type="text" class="input size-lg wSize-lg"
+                                                    placeholder="사용용도를 입력하세요" title="사용용도 입력" aria-label="사용용도 입력">
+                                            </td>
+                                        </tr>
+
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!--담당자 정보  -->
+                        <div class="tbl-area">
+                            <div class="tbl-area">
+                                <div class="tbl-head">
+                                    <div class="left-area">
+                                        <h6 class="typeH4">담당자정보</h6>
+                                    </div>
+                                </div>
+                                <table class="table-type01">
+                                    <caption>
+
+                                    </caption>
+                                    <colgroup>
+                                        <col style="width: 160px" />
+                                        <col style="width: auto" />
+                                    </colgroup>
+                                    <tbody>
+
+                                        <tr>
+                                            <th scope="row">담당자유형</th>
+                                            <td><span class="typeMd">기관담당자</span></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row"><span class="required">담당자명</span></th>
+                                            <td>
+                                                <input type="text" class="input size-lg wSize-lg" placeholder="입력해주세요"
+                                                    title="담당자명 입력" aria-label="담당자명 입력">
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <th scope="row">
+                                                <span class="required">휴대전화번호</span>
+                                            </th>
+                                            <td>
+                                                <div class="tbl-flex">
+                                                    <div class="box-select wSize-sm">
+                                                        <button type="button" id="phonePrefixBtn" class="select size-lg"
+                                                            role="combobox" aria-expanded="false"
+                                                            aria-haspopup="listbox" aria-controls="selectDropdown03"
+                                                            aria-labelledby="phone-label"
+                                                            aria-describedby="phone3-guide">
+                                                            <span class="text">010</span>
+                                                        </button>
+                                                        <div id="selectDropdown03" class="box-list-select">
+                                                            <ul class="list-select" role="listbox"
+                                                                aria-label="휴대전화번호 앞자리 선택">
+                                                                <li class="item-select" role="option"
+                                                                    aria-selected="true" tabindex="0">
+                                                                    <span class="btn-item-select">010</span>
+                                                                </li>
+                                                                <li class="item-select" role="option"
+                                                                    aria-selected="false" tabindex="-1">
+                                                                    <span class="btn-item-select">011</span>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <span aria-hidden="true">-</span>
+                                                    <input type="text" class="input size-lg wSize-sm" value=""
+                                                        maxlength="4" aria-labelledby="label-phone"
+                                                        aria-label="휴대전화번호 중간자리" aria-required="true"
+                                                        aria-describedby="phone3-guide">
+                                                    <span aria-hidden="true">-</span>
+                                                    <input type="text" class="input size-lg wSize-sm" value=""
+                                                        maxlength="4" aria-labelledby="label-phone"
+                                                        aria-label="휴대전화번호 뒷자리" aria-required="true"
+                                                        aria-describedby="phone3-guide">
+                                                </div>
+                                            </td>
+                                        </tr>
+
+
+                                        <tr>
+                                            <th scope="row">
+                                                <span class="required"><label for="input-ks1dcc">이메일</label></span>
+                                            </th>
+                                            <td>
+                                                <input type="text" id="input-ks1dcc" class="input size-lg wSize-lg"
+                                                    aria-label=" E-Mail 입력" placeholder="입력해주세요">
+                                            </td>
+                                        </tr>
+
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+
+                        <div class="btn-wrap center lg-bot">
+                            <button type="button" class="btn type-bg-primary size-xxl">
+                                <span class="text">등록</span>
+                            </button>
+                        </div>
+
+                        <div class="line-box size-xl mt-48">
+                            <span class="typeLgSemibold">이용안내</span>
+
+
+                            <div class="list type-dotted">
+                                <ul>
+                                    <li class="typeMd">
+                                        가상계좌를 사용하기 위한 사용등록 화면입니다.
+                                    </li>
+                                    <li class="typeMd">
+                                        가상계좌 사용등록 후 익 영업일(토/일 등록 시 월요일), 본부 승인 후 사용이 가능합니다.
+                                    </li>
+                                    <li class="typeMd">
+                                        본부 승인이 되면 담당자의 후대전화번호로 SMS 승인 문자가 발송됩니다.
+
+                                    </li>
+
+
+
+
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+        </div>
+        <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+</body>
+
+</html>
+<script></script>

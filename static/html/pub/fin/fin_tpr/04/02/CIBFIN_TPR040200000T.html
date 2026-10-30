@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>수협은행</title>
+  <link rel="stylesheet" href="/static/css/reset.css" />
+  <link rel="stylesheet" href="/static/css/layout.css" />
+  <link rel="stylesheet" href="/static/css/component.css" />
+  <link rel="stylesheet" href="/static/css/common.css" />
+  <link rel="stylesheet" href="/static/css/fin.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <div id="header">
+      @@include('static/html/pub/layout/skipNavigation.html')
+      @@include('static/html/pub/layout/header_sub.html')
+    </div>
+    <div id="container" class="container">
+      <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+      <div id="contents">
+        <div class="content">
+          @@include('static/html/pub/layout/breadcrumb.html')
+          <div class="fin">
+            <h2 class="typeH2">
+              기준가/수익률조회
+            </h2>
+            <div class="box-tab">
+              <ul class="list-tab-button type-outline" role="tablist" aria-label="탭 이름">
+                <li class="item-tab-button">
+                  <button type="button" class="btn-tab" id="tabBtnTypeOutline01" role="tab" aria-selected="true"
+                    aria-controls="tabPanelTypeOutline01">
+                    <span class="text">신탁기준가격</span>
+                  </button>
+                </li>
+                <li class="item-tab-button">
+                  <button type="button" class="btn-tab active" title="선택됨" id="tabBtnTypeOutline02" role="tab"
+                    aria-selected="false" aria-controls="tabPanelTypeOutline02">
+                    <span class="text">신탁배당률</span>
+                  </button>
+                </li>
+                <li class="item-tab-button">
+                  <button type="button" class="btn-tab" id="tabBtnTypeOutline02" role="tab" aria-selected="false"
+                    aria-controls="tabPanelTypeOutline02">
+                    <span class="text">기간별수익율</span>
+                  </button>
+                </li>
+              </ul>
+              <div class="box-tab-content" id="tabPanelTypeOutline01" role="tabpanel"
+                aria-labelledby="tabBtnTypeOutline01" style="display: block;">
+                <table class="table-type01">
+                  <caption>
+                    조회기간으로 구분된 해외송금내역조회 조회 테이블
+                  </caption>
+                  <!-- [수정] 20260904 col width 값 추가  -->
+                  <colgroup>
+                    <col style="width: 160px" />
+                    <col style="width: auto" />
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="row"><label for="조회일자">조회일자 </label></th>
+                      <td>
+                        <div class="tbl-column">
+                          <div class="calendar-wrap">
+                            <div class="input-box">
+                              <input type="text" class="input" placeholder="조회 시작일" title="조회일자" aria-label="조회 시작일"
+                                value="2026-01-06">
+                              <button type="button" class="btn">
+                                <i class="ico-calendar ico-size-smMd" aria-hidden="true"></i>
+                                <span class="blind">조회 시작일 달력 열기</span>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div class="btn-wrap center sm-mid">
+                  <button type="button" class="btn type-bg-neutral size-xl">
+                    <span class="text">조회</span>
+                  </button>
+                </div>
+                <div class="wScroll">
+                  <div class="tbl-head">
+                    <div class="right-area">
+                      <span class="color-fg-secondary typeMd">조회일자 : 2020-01-02</span>
+                    </div>
+                  </div>
+                  <table class="table-type03">
+                    <caption>
+                      개설내역 검색 내용 테이블
+                    </caption>
+                    <colgroup>
+                      <col>
+                      <col>
+                      <col>
+                    </colgroup>
+                    <thead>
+                      <!-- [수정] 20260904 th scope 추가 -->
+                      <tr>
+                        <th scope="col">상품</th>
+                        <th scope="col">기준가격(원)</th>
+                        <th scope="col">최근1개월기준가</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><span class="typeMd">연금신탁</span></td>
+                        <td class="text-right"><span class="typeMd">1,000</span></td>
+                        <td>
+                          <button type="button" class="btn type-line-neutral size-sm">
+                            <span class="text">조회</span>
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="box-tab-content active" id="tabPanelTypeOutline02" role="tabpanel"
+                aria-labelledby="tabBtnTypeOutline02" style="display: none;">
+                <table class="table-type01">
+                  <caption>
+                    조회기간으로 구분된 해외송금내역조회 조회 테이블
+                  </caption>
+                  <colgroup>
+                    <col>
+                    <col>
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="row"><label for="조회일자">조회일자 </label></th>
+                      <td>
+                        <div class="tbl-column">
+                          <div class="calendar-wrap">
+                            <div class="input-box">
+                              <input type="text" class="input" placeholder="조회 시작일" title="조회일자" aria-label="조회 시작일"
+                                value="2026-01-06">
+                              <button type="button" class="btn">
+                                <i class="ico-calendar ico-size-smMd" aria-hidden="true"></i>
+                                <span class="blind">조회 시작일 달력 열기</span>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div class="btn-wrap center sm-mid">
+                  <button type="button" class="btn type-bg-neutral size-xl">
+                    <span class="text">조회</span>
+                  </button>
+                </div>
+                <div class="wScroll">
+                  <div class="tbl-head">
+                    <div class="right-area">
+                      <span class="color-fg-secondary typeMd">조회일자 : 2020-01-02</span>
+                    </div>
+                  </div>
+                  <table class="table-type03">
+                    <caption>
+                      개설내역 검색 내용 테이블
+                    </caption>
+                    <colgroup>
+                      <col>
+                      <col>
+                      <col>
+                      <col>
+                      <col>
+                    </colgroup>
+                    <thead>
+                      <tr>
+                        <th rowspan="2">상품</th>
+                        <th colspan="4">배당율(%)</th>
+                      </tr>
+                      <tr>
+                        <th>기준일현재</th>
+                        <th>전월평균</th>
+                        <th>전전월평균</th>
+                        <th>전전전월평균</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><span class="typeMd">적립식목적신탁(정액적립식)</span></td>
+                        <td class="text-right"><span class="typeMd">0.00</span></td>
+                        <td class="text-right"><span class="typeMd">1,000</span></td>
+                        <td class="text-right"><span class="typeMd">1,000</span></td>
+                        <td class="text-right"><span class="typeMd">1,000</span></td>
+                      </tr>
+                      <tr>
+                        <td><span class="typeMd">적립식목적신탁(자유적립식)</span></td>
+                        <td class="text-right"><span class="typeMd">0.00</span></td>
+                        <td class="text-right"><span class="typeMd">1,000</span></td>
+                        <td class="text-right"><span class="typeMd">1,000</span></td>
+                        <td class="text-right"><span class="typeMd">1,000</span></td>
+                      </tr>
+                      <tr>
+                        <td><span class="typeMd">뉴플러스적립신탁</span></td>
+                        <td class="text-right"><span class="typeMd">0.00</span></td>
+                        <td class="text-right"><span class="typeMd">1,000</span></td>
+                        <td class="text-right"><span class="typeMd">1,000</span></td>
+                        <td class="text-right"><span class="typeMd">1,000</span></td>
+                      </tr>
+                      <tr>
+                        <td><span class="typeMd">삼삼사은신탁</span></td>
+                        <td class="text-right"><span class="typeMd">0.00</span></td>
+                        <td class="text-right"><span class="typeMd">1,000</span></td>
+                        <td class="text-right"><span class="typeMd">1,000</span></td>
+                        <td class="text-right"><span class="typeMd">1,000</span></td>
+                      </tr>
+                      <tr>
+                        <td><span class="typeMd">기업금전신탁</span></td>
+                        <td class="text-right"><span class="typeMd">0.00</span></td>
+                        <td class="text-right"><span class="typeMd">1,000</span></td>
+                        <td class="text-right"><span class="typeMd">1,000</span></td>
+                        <td class="text-right"><span class="typeMd">1,000</span></td>
+                      </tr>
+                      <tr>
+                        <td><span class="typeMd">가계금전신탁</span></td>
+                        <td class="text-right"><span class="typeMd">0.00</span></td>
+                        <td class="text-right"><span class="typeMd">1,000</span></td>
+                        <td class="text-right"><span class="typeMd">1,000</span></td>
+                        <td class="text-right"><span class="typeMd">1,000</span></td>
+                      </tr>
+                      <tr>
+                        <td><span class="typeMd">신종적립신탁</span></td>
+                        <td class="text-right"><span class="typeMd">0.00</span></td>
+                        <td class="text-right"><span class="typeMd">1,000</span></td>
+                        <td class="text-right"><span class="typeMd">1,000</span></td>
+                        <td class="text-right"><span class="typeMd">1,000</span></td>
+                      </tr>
+                      <tr>
+                        <td><span class="typeMd">개인연금신탁</span></td>
+                        <td class="text-right"><span class="typeMd">0.00</span></td>
+                        <td class="text-right"><span class="typeMd">1,000</span></td>
+                        <td class="text-right"><span class="typeMd">1,000</span></td>
+                        <td class="text-right"><span class="typeMd">1,000</span></td>
+                      </tr>
+                      <tr>
+                        <td><span class="typeMd">비과세장기신탁</span></td>
+                        <td class="text-right"><span class="typeMd">0.00</span></td>
+                        <td class="text-right"><span class="typeMd">1,000</span></td>
+                        <td class="text-right"><span class="typeMd">1,000</span></td>
+                        <td class="text-right"><span class="typeMd">1,000</span></td>
+                      </tr>
+                      <tr>
+                        <td><span class="typeMd">근로자우대신탁</span></td>
+                        <td class="text-right"><span class="typeMd">0.00</span></td>
+                        <td class="text-right"><span class="typeMd">1,000</span></td>
+                        <td class="text-right"><span class="typeMd">1,000</span></td>
+                        <td class="text-right"><span class="typeMd">1,000</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="box-tab-content" id="tabPanelTypeOutline03" role="tabpanel"
+                aria-labelledby="tabBtnTypeOutline03" style="display: none;">
+                <table class="table-type01">
+                  <caption>
+                    조회기간으로 구분된 해외송금내역조회 조회 테이블
+                  </caption>
+                  <colgroup>
+                    <col>
+                    <col>
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="row">상품구분</th>
+                      <td>
+                        <div class="box-select wSize-md">
+                          <button type="button" class="select size-lg" role="combobox" aria-expanded="false"
+                            aria-haspopup="listbox" aria-controls="selectDropdown01">
+                            <span class="text">선택</span>
+                            <span class="blind">펼침</span>
+                          </button>
+                          <div id="selectDropdown01" class="box-list-select">
+                            <ul class="list-select" role="listbox" aria-label="선택 항목 리스트" tabindex="0">
+                              <li class="item-select" role="option">
+                                <button class="btn-item-select">연금저축신탁</button>
+                              </li>
+                              <li class="item-select" role="option" id="opt-1" aria-selected="true">
+                                <button class="btn-item-select">1</button>
+                              </li>
+                              <li class="item-select" role="option" id="opt-2" aria-selected="false">
+                                <button class="btn-item-select">1</button>
+                              </li>
+                              <li class="item-select" role="option" id="opt-3" aria-selected="false">
+                                <button class="btn-item-select">1</button>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row"><label for="조회일자">조회기간</label></th>
+                      <td>
+                        <div class="calendar-wrap">
+                          <div class="input-box">
+                            <input type="text" class="input" placeholder="조회 시작일" aria-label="조회 시작일"
+                              value="2026-01-06">
+                            <button type="button" class="btn">
+                              <i class="ico-calendar ico-size-smMd" aria-hidden="true"></i>
+                              <span class="blind">조회 시작일 달력 열기</span>
+                            </button>
+                          </div>
+                          <span aria-hidden="true">~</span>
+                          <div class="input-box">
+                            <input type="text" class="input" placeholder="조회 종료일" aria-label="조회 종료일"
+                              value="2026-01-06">
+                            <button type="button" class="btn">
+                              <i class="ico-calendar ico-size-smMd" aria-hidden="true"></i>
+                              <span class="blind">조회 종료일 달력 열기</span>
+                            </button>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div class="btn-wrap center sm-mid">
+                  <button type="button" class="btn type-bg-neutral size-xl">
+                    <span class="text">조회</span>
+                  </button>
+                </div>
+                <div class="wScroll">
+                  <div class="tbl-head">
+                    <h4 class="typeH4">
+                      <span class="text">연금저축신탁</span>
+                    </h4>
+                    <div class="right-area">
+                      <span class="color-fg-secondary typeMd">조회일자 : 2020-01-02</span>
+                    </div>
+                  </div>
+                  <table class="table-type03 mt-6">
+                    <caption>연금저축신탁 테이블</caption>
+                    <colgroup>
+                      <col width="33.3%">
+                      <col width="33.3%">
+                      <col width="33.3%">
+                    </colgroup>
+                    <thead>
+                      <tr>
+                        <th scope="col">조회일자</th>
+                        <th scope="col">기준일자</th>
+                        <th scope="col">기준가</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row" class="allnoradius">조회시작일</th>
+                        <td><span class="typeMd">2026-10-22</span></td>
+                        <td class="text-right"><span class="typeMd">0.00</span></td>
+                      </tr>
+                      <tr>
+                        <th scope="row" class="noradius">조회종료일</th>
+                        <td><span class="typeMd">2026-10-22</span></td>
+                        <td class="text-right"><span class="typeMd">0.00</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <table class="table-type03">
+                    <caption>
+                      연금저축신탁 테이블
+                    </caption>
+                    <colgroup>
+                      <col>
+                      <col>
+                      <col>
+                    </colgroup>
+                    <thead>
+                      <tr>
+                        <th>내용</th>
+                        <th>결과값</th>
+                        <th>산출식</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><span class="typeMd">연환산수익률(%)</span></td>
+                        <td><span class="typeMd">0.00</span></td>
+                        <td><span class="typeMd">(기간등락률/계산일수)*365</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+    </div>
+    <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+  </div>
+  <script src="/static/js/ui/cib_ui_common.js"></script>
+</body>
+
+</html>

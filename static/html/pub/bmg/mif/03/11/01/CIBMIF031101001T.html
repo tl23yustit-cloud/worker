@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>수협은행</title>
+  <link rel="stylesheet" href="/static/css/reset.css" />
+  <link rel="stylesheet" href="/static/css/layout.css" />
+  <link rel="stylesheet" href="/static/css/component.css" />
+  <link rel="stylesheet" href="/static/css/common.css" />
+  <link rel="stylesheet" href="/static/css/bop.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <div id="header">
+      @@include('static/html/pub/layout/skipNavigation.html')
+      @@include('static/html/pub/layout/header_sub.html')
+    </div>
+
+    <div id="container" class="container">
+      <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+      <div id="contents">
+        <div class="content">
+          @@include('static/html/pub/layout/breadcrumb.html')
+          <div class="bop">
+            <h2 class="typeH2">이자납입</h2>
+            <div class="box-tab">
+              <ul class="list-tab-button type-outline" role="tablist" aria-label="탭 이름">
+                <li class="item-tab-button">
+                  <button type="button" class="btn-tab active" title="선택됨" id="tabBtnTypeOutline01" role="tab"
+                    aria-selected="true" aria-controls="tabPanelTypeOutline01">
+                    <span class="text">예금/신탁</span>
+                  </button>
+                </li>
+                <li class="item-tab-button">
+                  <button type="button" class="btn-tab" id="tabBtnTypeOutline02" role="tab" aria-selected="false"
+                    aria-controls="tabPanelTypeOutline02">
+                    <span class="text">외화</span>
+                  </button>
+                </li>
+              </ul>
+              <div class="box-tab-content active" id="tabPanelTypeOutline01" role="tabpanel"
+                aria-labelledby="tabBtnTypeOutline01" style="display: block;">
+                <div class="tbl-area">
+                  <h4 class="typeH4">가입계좌 조회</h4>
+                  <table class="table-type01 mt40">
+                    <caption>
+                      이자납입
+                    </caption>
+                    <colgroup>
+                      <col style="width: 160px" />
+                      <col style="width: auto" />
+                    </colgroup>
+                    <tbody>
+                      <tr>
+                        <th scope="row">
+                          <span>가입계좌번호</span>
+                        </th>
+                        <td colspan="3">
+                          <div class="box-select wSize-lg">
+                            <button type="button" class="select size-lg" role="combobox" aria-expanded="false"
+                              aria-haspopup="listbox" aria-controls="selectDropdown01" aria-labelledby="label-account"
+                              aria-required="true">
+                              <span class="text">0000-0000-0000 (기업운전일반자금대출)</span>
+                              <span class="blind">목록 열기</span>
+                            </button>
+                            <div id="selectDropdown01" class="box-list-select">
+                              <ul class="list-select" role="listbox" aria-label="가입계좌번호 선택 리스트">
+                                <li class="item-select" role="group" aria-selected="true">
+                                  <span class="btn-item-select">
+                                    외화보통예금 1010-27330000</span>
+                                </li>
+                                <li class="item-select" role="group" aria-selected="false">
+                                  <span class="btn-item-select">1</span>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="btn-wrap center">
+                  <button type="button" class="btn type-bg-primary size-xxl">
+                    <span class="text">확인</span>
+                  </button>
+                </div>
+              </div>
+              <div class="box-tab-content" id="tabPanelTypeOutline02" role="tabpanel"
+                aria-labelledby="tabBtnTypeOutline02" style="display: none;">
+                <div class="tbl-area">
+                  <h4 class="typeH4">가입계좌 조회</h4>
+                  <table class="table-type01 mt40">
+                    <caption>
+                      이자납입
+                    </caption>
+                    <colgroup>
+                      <col style="width: 160px" />
+                      <col style="width: auto" />
+                    </colgroup>
+                    <tbody>
+                      <tr>
+                        <th scope="row">
+                          <span>가입계좌번호</span>
+                        </th>
+                        <td colspan="3">
+                          <div class="box-select wSize-lg">
+                            <button type="button" class="select size-lg" role="combobox" aria-expanded="false"
+                              aria-haspopup="listbox" aria-controls="selectDropdown01" aria-labelledby="label-account"
+                              aria-required="true">
+                              <span class="text">0000-0000-0000 (기업운전일반자금대출)</span>
+                              <span class="blind">목록 열기</span>
+                            </button>
+                            <div id="selectDropdown01" class="box-list-select">
+                              <ul class="list-select" role="listbox" aria-label="가입계좌번호 선택 리스트">
+                                <li class="item-select" role="group" aria-selected="true">
+                                  <span class="btn-item-select">
+                                    외화보통예금 1010-27330000</span>
+                                </li>
+                                <li class="item-select" role="group" aria-selected="false">
+                                  <span class="btn-item-select">1</span>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="btn-wrap center">
+                  <button type="button" class="btn type-bg-primary size-xxl">
+                    <span class="text">확인</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+    </div>
+    <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+  </div>
+  <script src="/static/js/ui/cib_ui_common.js"></script>
+</body>
+
+</html>

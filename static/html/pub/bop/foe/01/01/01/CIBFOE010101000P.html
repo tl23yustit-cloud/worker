@@ -1,0 +1,82 @@
+<!-- SHB_CIB_화면설계서_뱅킹업무_외환_20261019_v1.55 -->
+<!--기획누락화면-->
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/inq.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
+
+      <div id="container" class="container">
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="inq">
+              <button type="button" class="btn type-bg-primary size-md btn-modal" data-target="modal-05">
+                <span class="text">카드선택 확인</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+    <div id="modal-05" class="modal is-active" data-dim="true" data-backdrop-close="false" data-alert="false" data-size="sm" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc">
+      <div class="modal-wrapper">
+        <div class="modal-title">
+          <h4 class="typeH4">해지가능계좌안내</h4>
+        </div>
+        <div class="modal-slot">
+          <div class="list-lg-wrap">
+            <h6 class="typeH6">해지가능계좌</h6>
+            <div class="list type-bar mt-12">
+              <ul>
+                <li class="typeLg">2022년 6월 2일 이후 영업점에서 신규한 외화계좌</li>
+                <li class="typeLg">스마트폰뱅킹(인터넷벵킹)으로 신규한 계좌
+                   <div class="list type-reference">
+                  <ul>
+                    <li class="typeLg">단, sh외화레인지 예금은 2022년 6월 2일 이후 신규한 계좌부터 적용</li>
+                  </ul>
+                </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="list-lg-wrap">
+            <h6 class="typeH6">해지불가계좌</h6>
+            <div class="list type-bar mt-12">
+              <ul>
+                <li class="typeLg">2022년 6월 2일 이전 영업점에서 신규한 외화계좌</li>
+                <li class="typeLg">2022년 6월 2일 이후 영업점에서 신규한 외화계좌 중 ‘비대면해지불가＇를 등록한 계좌</li>
+                <li class="typeLg">자동이체 연결계좌, 예금/적금 계좌의 근거계좌, 마이너스통장 대출 연결계좌, 카드 등의 결제계좌</li>
+                <li class="typeLg">미성년자 계좌, 비거주자 예금, 피후견인 예금, 비과세종합저축 계좌, 비밀번호 미등록 계좌, 질권설정, 압류, 사고신고 계좌, 대외계정 계좌(외국인 및 비거주자 등이 개설한 외화예금)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer flex items-center justify-center gap-8">
+          <button type="button" class="btn type-bg-primary size-lg">
+            <span class="text">닫기</span>
+          </button>
+        </div>
+        <button type="button" class="ico btn-close" aria-label="모달 닫기">
+          <i class="ico-close ico-size-smMd" aria-hidden="true"></i>
+          <span class="blind">닫기</span>
+        </button>
+      </div>
+    </div>
+  </body>
+</html>

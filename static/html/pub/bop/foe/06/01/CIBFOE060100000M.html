@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>수협은행</title>
+  <link rel="stylesheet" href="/static/css/reset.css" />
+  <link rel="stylesheet" href="/static/css/layout.css" />
+  <link rel="stylesheet" href="/static/css/component.css" />
+  <link rel="stylesheet" href="/static/css/common.css" />
+  <link rel="stylesheet" href="/static/css/bop.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <div id="header">
+      @@include('static/html/pub/layout/skipNavigation.html')
+      @@include('static/html/pub/layout/header_sub.html')
+    </div>
+
+    <div id="container" class="container">
+      <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+      <div id="contents">
+        <div class="content">
+          @@include('static/html/pub/layout/breadcrumb.html')
+          <div class="bop">
+            <h2 class="typeH2">
+              현재환율
+            </h2>
+            <div class="tbl-area">
+              <table class="table-type01">
+                <caption>
+                  조회기간으로 구분된 해외송금내역조회 조회 테이블
+                </caption>
+                <!-- [수정] 20260908 col width 값 수정  -->
+                <colgroup>
+                  <col style="width: 160px" />
+                  <col style="width: 368px" />
+                  <col style="width: 160px" />
+                  <col style="width: 368px" />
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th scope="row">지정일자</th>
+                    <td colspan="3">
+                      <div class="tbl-column">
+                        <div class="calendar-wrap">
+                          <div class="input-box">
+                            <input type="text" class="input" placeholder="지정일" aria-label="지정일" value="2026-01-06" />
+                            <button type="button" class="btn">
+                              <i class="ico-calendar ico-size-smMd" aria-hidden="true"></i>
+                              <span class="blind">지정일 달력 열기</span>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">회차</th>
+                    <td>
+                      <div class="box-select wSize-md">
+                        <button type="button" class="select size-lg" role="combobox" aria-expanded="false"
+                          aria-haspopup="listbox" aria-controls="selectDropdown01" aria-required="true">
+                          <span class="text">회차를 선택하세요</span>
+                          <span class="blind">펼침</span>
+                        </button>
+                        <div id="selectDropdown01" class="box-list-select">
+                          <ul class="list-select" role="listbox" aria-label="선택 항목 리스트">
+                            <li class="item-select" role="group" aria-selected="true">
+                              <button class="btn-item-select"> 1</button>
+                            </li>
+                            <li class="item-select" role="group" aria-selected="false">
+                              <button class="btn-item-select">1</button>
+                            </li>
+                            <li class="item-select" role="group" aria-selected="false">
+                              <button class="btn-item-select">1</button>
+                            </li>
+                            <li class="item-select" role="group" aria-selected="false">
+                              <button class="btn-item-select">1</button>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </td>
+                    <th scope="row">최종회차</th>
+                    <td>000 회차</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="list type-reference mt-12">
+              <ul>
+                <li class="typeMd">조회일이 1/1, 토/일인 경우 전 일자로 조회됩니다.</li>
+              </ul>
+            </div>
+            <div class="btn-wrap center sm-mid">
+              <button type="button" class="btn type-bg-neutral size-xl">
+                <span class="text">조회</span>
+              </button>
+            </div>
+            <div class="tbl-area">
+              <div class="tbl-head">
+                <div class="right-area flex items-center gap-4">
+                  <span class="color-fg-secondary typeMd">조회기준일(회차) : <span>YYYY-MM-DD (000 회차)</span></span>
+                </div>
+              </div>
+              <table class="table-type03">
+                <caption>통화코드, 기준환율, 전신환율(사실때, 파실때), 현찰(사실때, 파실때), 외화수표 파실때에 대한 환율 정보 목록 테이블입니다.</caption>
+                <colgroup>
+                  <col>
+                  <col>
+                  <col>
+                  <col>
+                  <col>
+                  <col>
+                  <col>
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th rowspan="2" id="th-code">통화코드</th>
+                    <th rowspan="2" id="th-baseRate">기준환율</th>
+                    <th colspan="2" id="th-tt">전신환율</th>
+                    <th colspan="2" id="th-cash">현찰</th>
+                    <th rowspan="2" id="th-tcSell">외화수표<br>파실때</th>
+                  </tr>
+                  <tr>
+                    <th id="th-ttBuy">사실때</th>
+                    <th id="th-ttSell">파실때</th>
+                    <th id="th-cashBuy">사실때</th>
+                    <th id="th-cashSell">파실때</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- USD -->
+                  <tr>
+                    <td rowspan="2" class="td-ico" headers="th-code">
+                      <div>
+                        <!--[dev]:20261008 아이콘변경-->
+                        <span class="typeMd"><i class="currency-USD circle ico-size-sm"
+                            aria-hidden="true"></i>USD</span>
+                        <!--//[dev]:20261008 아이콘변경-->
+                      </div>
+                    </td>
+                    <td rowspan="2" class="text-right" headers="th-baseRate"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right" headers="th-tt th-ttBuy"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right" headers="th-tt th-ttSell"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right" headers="th-cash th-cashBuy"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right" headers="th-cash th-cashSell"><span class="typeMd">1,135.50</span></td>
+                    <td rowspan="2" class="text-right" headers="th-tcSell"><span class="typeMd">1,135.50</span></td>
+                  </tr>
+                  <tr>
+                    <!--[dev]:20261028 class tbl-border-left 추가-->
+                    <td class="text-right tbl-border-left" headers="th-tt th-ttBuy"><span class="typeMd">1,135.50</span></td>
+                    <!--//[dev]:20261028 class tbl-border-left 추가-->
+                    <td class="text-right" headers="th-tt th-ttSell"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right" headers="th-cash th-cashBuy"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right" headers="th-cash th-cashSell"><span class="typeMd">1,135.50</span></td>
+                  </tr>
+
+                  <!-- JPY -->
+                  <tr>
+                    <td rowspan="2" class="td-ico" headers="th-code">
+                      <div>
+                        <span class="typeMd">
+                          <!--[dev]:20261008 아이콘변경-->
+                          <i class="currency-JPY circle ico-size-sm" aria-hidden="true"></i>JPY(100엔)</span>
+                        <!--//[dev]:20261008 아이콘변경-->
+                      </div>
+                    </td>
+                    <td rowspan="2" class="text-right" headers="th-baseRate"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right" headers="th-tt th-ttBuy"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right" headers="th-tt th-ttSell"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right" headers="th-cash th-cashBuy"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right" headers="th-cash th-cashSell"><span class="typeMd">1,135.50</span></td>
+                    <td rowspan="2" class="text-right" headers="th-tcSell"><span class="typeMd">1,135.50</span></td>
+                  </tr>
+                  <tr>
+                    <!--[dev]:20261028 class tbl-border-left 추가-->
+                    <td class="text-right tbl-border-left" headers="th-tt th-ttBuy"><span class="typeMd">1,135.50</span></td>
+                    <!--//[dev]:20261028 class tbl-border-left 추가-->
+                    <td class="text-right" headers="th-tt th-ttSell"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right" headers="th-cash th-cashBuy"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right" headers="th-cash th-cashSell"><span class="typeMd">1,135.50</span></td>
+                  </tr>
+
+                  <!-- CNY -->
+                  <tr>
+                    <td rowspan="2" class="td-ico" headers="th-code">
+                      <div>
+                        <span class="typeMd">
+                          <!--[dev]:20261008 아이콘변경-->
+                          <i class="currency-CNY circle ico-size-sm" aria-hidden="true"></i>CNY</span>
+                        <!--//[dev]:20261008 아이콘변경-->
+                      </div>
+                    </td>
+                    <td rowspan="2" class="text-right" headers="th-baseRate"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right" headers="th-tt th-ttBuy"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right" headers="th-tt th-ttSell"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right" headers="th-cash th-cashBuy"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right" headers="th-cash th-cashSell"><span class="typeMd">1,135.50</span></td>
+                    <td rowspan="2" class="text-right" headers="th-tcSell"><span class="typeMd">1,135.50</span></td>
+                  </tr>
+                  <tr>
+                    <!--[dev]:20261028 class tbl-border-left 추가-->
+                    <td class="text-right tbl-border-left" headers="th-tt th-ttBuy"><span class="typeMd">1,135.50</span></td>
+                    <!--//[dev]:20261028 class tbl-border-left 추가-->
+                    <td class="text-right" headers="th-tt th-ttSell"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right" headers="th-cash th-cashBuy"><span class="typeMd">1,135.50</span></td>
+                    <td class="text-right" headers="th-cash th-cashSell"><span class="typeMd">1,135.50</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="list type-dotted mt-12">
+              <ul>
+                <li class="typeMd">
+                  환율은 통화별 기준환율에 통화별 스프레드를 반영하여 고시합니다.
+                </li>
+                <li class="typeMd">
+                  외국통화 수출입 비용 등 환전거래와 관련하여 발생하는 비용이 통화 별로 다르기 때문에 통화별 스프데르 차이가 있습니다
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+    </div>
+
+    <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+  </div>
+  <script src="/static/js/ui/cib_ui_common.js"></script>
+</body>
+
+</html>

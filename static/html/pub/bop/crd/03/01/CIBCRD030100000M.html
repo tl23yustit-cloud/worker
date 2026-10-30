@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>뱅킹업무 &gt; 카드 &gt; 카드관리 &gt; 이용한도조회 | 수협은행</title>
+  <link rel="stylesheet" href="/static/css/reset.css" />
+  <link rel="stylesheet" href="/static/css/layout.css" />
+  <link rel="stylesheet" href="/static/css/component.css" />
+  <link rel="stylesheet" href="/static/css/common.css" />
+  <link rel="stylesheet" href="/static/css/bop.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <div id="header">
+      @@include('static/html/pub/layout/skipNavigation.html')
+      @@include('static/html/pub/layout/header_sub.html')
+    </div>
+
+    <div id="container" class="container">
+      <div id="leftArea">
+        @@include('static/html/pub/layout/leftArea.html')
+      </div>
+      <div id="contents">
+        <div class="content">
+          @@include('static/html/pub/layout/breadcrumb.html')
+          <div class="bop">
+            <h2 class="typeH2">이용한도조회</h2>
+            <div class="tbl-area">
+              <div class="tbl-area">
+                <div class="tbl-head">
+                  <div class="right-area">
+                    <span class="required typeMd">필수 항목</span>
+                  </div>
+                </div>
+              </div>
+              <table class="table-type01">
+                <caption>
+                  통지서비스신청/해지 테이블
+                </caption>
+                <!-- [수정] 20260908 col width 값 수정  -->
+                <colgroup>
+                  <col style="width: 160px" />
+                  <col style="width: auto" />
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th scope="row">
+                      <span class="required">조회구분</span>
+                    </th>
+                    <td>
+                      <div class="form-box-wrap" role="radiogroup">
+                        <!--[dev] 관리자일 경우에만 노출-->
+                        <span class="form-box">
+                          <input type="radio" name="searchType" id="searchType_01" title="통지구분"
+                            class="form-radio size-md" checked="" />
+                          <label for="searchType_01" class="form-label">사업자</label>
+                        </span>
+                        <span class="form-box">
+                          <input type="radio" name="searchType" id="searchType_02" title="통지구분"
+                            class="form-radio size-md" />
+                          <label for="searchType_02" class="form-label">사업장</label>
+                        </span>
+                        <!--//[dev] 관리자일 경우에만 노출-->
+                        <span class="form-box">
+                          <input type="radio" name="searchType" id="searchType_03" title="통지구분"
+                            class="form-radio size-md" />
+                          <label for="searchType_03" class="form-label">카드</label>
+                        </span>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <span class="required">사업장명</span>
+                    </th>
+                    <td>
+                      <!-- [수정] 20260908 title 값 추가  -->
+                      <input type="text" class="input size-lg wSize-md" id="통지 연락처" title="사업장명"
+                        placeholder="사업장을 검색하세요" value="" />
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="tbl-area">
+              <div class="tbl-head">
+                <h6 class="typeH6">사업장한도 상세내역</h6>
+              </div>
+              <div class="wrap-board-grid">
+                <!-- [dev] 그리드 -->
+                <div class="board-grid">
+                  <!-- [dev] 그리드 컨텐츠 영역 : 작업 시 삭제-->
+                  <i style="
+                        display: block;
+                        border: var(--borderWidthMd) solid
+                          var(--colorBorderBase);
+                        border-radius: var(--radiusMd);
+                        padding: var(--spacing2Xl);
+                      ">임시 그리드 영역</i>
+                  <!-- //[dev] 그리드 컨텐츠 영역 : 작업 시 삭제 -->
+                </div>
+                <!-- //[dev] 그리드 -->
+              </div>
+            </div>
+            <div class="tbl-area">
+              <div class="tbl-head">
+                <h6 class="typeH6">카드한도 상세내역</h6>
+              </div>
+              <div class="wrap-board-grid">
+                <!-- [dev] 그리드 -->
+                <div class="board-grid">
+                  <!-- [dev] 그리드 컨텐츠 영역 : 작업 시 삭제-->
+                  <i style="
+                        display: block;
+                        border: var(--borderWidthMd) solid
+                          var(--colorBorderBase);
+                        border-radius: var(--radiusMd);
+                        padding: var(--spacing2Xl);
+                      ">임시 그리드 영역</i>
+                  <!-- //[dev] 그리드 컨텐츠 영역 : 작업 시 삭제 -->
+                </div>
+                <!-- //[dev] 그리드 -->
+              </div>
+            </div>
+            <div class="btn-wrap center sm-mid">
+              <button type="button" class="btn type-line-neutral size-xxl">
+                <span class="text">초기화</span>
+              </button>
+              <button type="button" class="btn type-bg-primary size-xxl">
+                <span class="text">조회</span>
+              </button>
+            </div>
+
+            <div class="line-box size-xl">
+              <span class="typeLgSemibold">이용안내</span>
+              <div class="list type-dotted">
+                <ul>
+                  <li class="typeMd">
+                    조회 구분에 따라 이용한도 상세조회가 가능합니다.
+                  </li>
+                  <li class="typeMd">
+                    <span class="typeMd">
+                      사업장명이 중복되는 경우 변경 후 정확한 조회가
+                      가능합니다.
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+    </div>
+    <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+  </div>
+  <script src="/static/js/ui/cib_ui_common.js"></script>
+</body>
+
+</html>
+<script></script>

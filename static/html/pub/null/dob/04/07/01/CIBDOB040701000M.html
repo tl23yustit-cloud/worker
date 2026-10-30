@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/dob.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
+
+      <div id="container" class="container">
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="dob">
+              <h2 class="typeH2">잔액잔고증명서 발급확인</h2>
+              <h4 class="typeH4">증명서 발급확인에 필요한 정보를 입력해주세요</h4>
+              <div class="tbl-area">
+                <div class="tbl-head">
+                  <div class="left-area">
+                    <h4 class="typeH4">발급정보 입력</h4>
+                  </div>
+                  <div class="right-area">
+                    <span class="required typeMd">필수 항목</span>
+                  </div>
+                </div>
+
+                <table class="table-type01">
+                  <caption></caption>
+                  <colgroup>
+                    <col style="width: 160px" />
+                    <col style="width: auto" />
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="row">
+                        <span class="required"><span class="blind">필수</span>발급번호</span>
+                      </th>
+                      <td>
+                        <div class="clear-type">
+                          <input type="text" id="input-joah2e" class="input size-lg wSize-lg" aria-label="발급번호" />
+                          <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                            <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                            <span class="blind">닫기</span>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span class="required"><span class="blind">필수</span>증서번호</span>
+                      </th>
+                      <td>
+                        <div class="tbl-flex">
+                          <div class="clear-type">
+                            <input type="text" class="input size-lg wSize-lg" title="증서번호" />
+                            <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                              <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                              <span class="blind">닫기</span>
+                            </button>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span class="required"><span class="blind">필수</span>계좌번호</span>
+                      </th>
+                      <td>
+                        <div class="tbl-flex">
+                          <div class="clear-type">
+                            <input type="text" class="input size-lg wSize-lg" aria-label="계좌번호" />
+                            <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                              <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                              <span class="blind">닫기</span>
+                            </button>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span class="required"><span class="blind">필수</span>통화코드</span>
+                      </th>
+                      <td>
+                        <div class="tbl-flex">
+                          <div class="box-select wSize-lg">
+                            <button type="button" class="select size-lg" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="selectDropdown01">
+                              <span class="text">대한민국</span>
+                              <span class="blind">펼침</span>
+                            </button>
+                            <div id="selectDropdown01" class="box-list-select">
+                              <ul class="list-select" role="listbox" aria-label="통화코드 선택 리스트">
+                                <li class="item-select" role="option" aria-selected="true">
+                                  <span class="form-box">대한민국</span>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span class="required"><span class="blind">필수</span>발급금액</span>
+                      </th>
+                      <td>
+                        <div class="tbl-flex">
+                          <div class="clear-type">
+                            <input type="text" class="input size-lg wSize-md" aria-label="발급금액" value="0" />
+
+                            <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                              <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                              <span class="blind">닫기</span>
+                            </button>
+                          </div>
+                          원
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span class="required"><span class="blind">필수</span>예금주명</span>
+                      </th>
+                      <td>
+                        <div class="tbl-flex">
+                          <div class="clear-type">
+                            <input type="text" class="input size-lg" aria-label="예금주명" />
+                            <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                              <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                              <span class="blind">닫기</span>
+                            </button>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span class="required"><span class="blind">필수</span>발급기준일</span>
+                      </th>
+                      <td>
+                        <div class="tbl-flex">
+                          <div class="input-box gap-10">
+                            <input type="text" class="input" placeholder="발급기준일" aria-label="발급기준일" aria-label="발급기준일" value="2026-01-06" />
+                            <button type="button" class="btn">
+                              <i class="ico-calendar ico-size-smMd" aria-hidden="true"></i>
+                              <span class="blind">날짜 열기</span>
+                            </button>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span class="required"><span class="blind">필수</span>발급일</span>
+                      </th>
+                      <td>
+                        <div class="tbl-flex">
+                          <div class="calendar-wrap">
+                            <div class="input-box gap-10">
+                              <input type="text" class="input" placeholder="발급일" aria-label="발급일" value="2026-01-06" />
+                              <button type="button" class="btn">
+                                <i class="ico-calendar ico-size-smMd" aria-hidden="true"></i>
+                                <span class="blind">날짜 열기</span>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span class="required"><span class="blind">필수</span>조회인성명</span>
+                      </th>
+                      <td>
+                        <div class="clear-type">
+                          <input type="text" class="input size-lg wSize-lg" aria-label="조회인성명" />
+
+                          <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                            <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                            <span class="blind">닫기</span>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span class="required"><span class="blind">필수</span>조회인 연락처</span>
+                      </th>
+                      <td>
+                        <div class="tbl-flex">
+                          <div class="box-select wSize-sm">
+                            <button type="button" id="phonePrefixBtn" class="select size-lg" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="selectDropdown01" aria-labelledby="phone-label" aria-required="true">
+                              <span class="text">010</span>
+                            </button>
+                            <div id="selectDropdown01" class="box-list-select">
+                              <ul class="list-select" role="listbox" aria-label="휴대전화번호 앞자리 선택">
+                                <li class="item-select" role="option" aria-selected="true" tabindex="0">
+                                  <span class="btn-item-select">010</span>
+                                </li>
+                                <li class="item-select" role="option" aria-selected="false" tabindex="-1">
+                                  <span class="btn-item-select">011</span>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                          <span aria-hidden="true">-</span>
+                          <div class="clear-type">
+                            <input type="text" class="input size-lg wSize-sm" value="" maxlength="4" aria-label="휴대전화번호 중간자리" aria-required="true" />
+                            <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                              <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                              <span class="blind">닫기</span>
+                            </button>
+                          </div>
+                          <span aria-hidden="true">-</span>
+                          <div class="clear-type">
+                            <input type="text" class="input size-lg wSize-sm" value="" maxlength="4" aria-label="휴대전화번호 뒷자리" aria-required="true" />
+                            <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                              <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                              <span class="blind">닫기</span>
+                            </button>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- 하단 확인 버튼 영역 -->
+              <div class="btn-wrap center lg-bot">
+                <button type="button" class="btn type-bg-primary size-xxl">
+                  <span class="text">확인</span>
+                </button>
+              </div>
+              <div class="line-box size-xl mt-48">
+                <span class="typeLgSemibold">이용안내</span>
+                <div class="list type-dotted">
+                  <ul>
+                    <li class="typeMd">대상고객 : 잔액잔고증명서 발급 계좌</li>
+                    <li class="typeMd">수협은행계좌-영업점 발급분, 인터넷발급</li>
+                    <li class="typeMd">회원수협계좌-영업점 발급분, 인터넷발급</li>
+                    <li class="typeMd">계좌번호 입력방법 : &quot;-&quot; 없이 숫자만 입력해주세요</li>
+                    <li class="typeMd">증서번호 입력방법 : 수협은행 발급분: 잔액잔고증명서에 기재된 증서번호</li>
+                    <li class="typeMd">회원수협 발급분: 잔액잔고증명서에 기재된 증서번호</li>
+                    <li class="typeMd">인터넷발급분 : &quot;0&quot;입력 또는 입력 불필요</li>
+                    <li class="typeMd">조회기간 : 발급일로부터 1개월 이내</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
+</html>

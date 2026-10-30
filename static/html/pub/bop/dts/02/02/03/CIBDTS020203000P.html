@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>뱅킹업무 &gt; 예금/신탁 &gt; 예금 &gt; 해지계좌조회 &gt; 해지계산서 </title>
+  <link rel="stylesheet" href="/static/css/reset.css" />
+  <link rel="stylesheet" href="/static/css/layout.css" />
+  <link rel="stylesheet" href="/static/css/component.css" />
+  <link rel="stylesheet" href="/static/css/common.css" />
+  <link rel="stylesheet" href="/static/css/bop.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <div id="header">
+      @@include('static/html/pub/layout/skipNavigation.html')
+      @@include('static/html/pub/layout/header_sub.html')
+    </div>
+
+    <div id="container" class="container">
+      <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+      <div id="contents">
+        <div class="content">
+          @@include('static/html/pub/layout/breadcrumb.html')
+          <div class="bop">
+            <button type="button" class="btn type-bg-primary size-md btn-modal" data-target="modal-16">
+              <span class="text">해지계산서</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+    </div>
+    <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+  </div>
+  <script src="/static/js/ui/cib_ui_common.js"></script>
+  <div id="modal-16" class="modal is-active" data-dim="true" data-backdrop-close="false" data-alert="true"
+    data-size="md" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc">
+    <div class="modal-wrapper">
+      <div class="modal-title">
+        <h4 class="typeH4">해지계산서</h4>
+      </div>
+      <div class="modal-slot">
+        <div id="modal-desc">
+          <div class="tbl-area">
+            <div class="typeH6">기본정보</div>
+            <table class="table-type01">
+              <caption>
+                해지계산서 기본정보 테이블
+              </caption>
+              <colgroup>
+                <col style="width: 160px" />
+                <col style="width: 368px" />
+                <col style="width: 160px" />
+                <col style="width: 368px" />
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th scope="row">계좌번호 </th>
+                  <td colspan="3">
+                    <span class="typeMd">0012-1212-1006</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">상품종류</th>
+                  <td colspan="3">
+                    <span class="typeMd">Sh해양플라스틱Zero적금(정액적립식)</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">별칭명</th>
+                  <td colspan="3">
+                    <span class="typeMd">-</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">거래점</th>
+                  <td>
+                    <span class="typeMd">공덕금융센터</span>
+                  </td>
+                  <th scope="row">신규일</th>
+                  <td>
+                    <span class="typeMd">2020-05-18</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">최종거래일</th>
+                  <td colspan="3">
+                    <span class="typeMd">2020-05-18</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <span>대출상태</span>
+                  </th>
+                  <td colspan="3">
+                    <span class="typeMd">정상</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="tbl-area">
+            <div class="typeH6">상세정보</div>
+            <table class="table-type01">
+              <caption>
+                해지계산서 상세정보 조회
+              </caption>
+              <colgroup>
+                <col style="width: 160px" />
+                <col style="width: 368px" />
+                <col style="width: 160px" />
+                <col style="width: 368px" />
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th scope="row">원금</th>
+                  <td class="text-right">
+                    <span class="typeMd">1,000,000원</span>
+                  </td>
+                  <th scope="row">세금합계</th>
+                  <td class="text-right">
+                    <span class="typeMd">50,000,000원</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">세전이자액</th>
+                  <td class="text-right">
+                    <span class="typeMd">400,000,000원</span>
+                  </td>
+                  <th scope="row">세후이자액</th>
+                  <td class="text-right">
+                    <span class="typeMd">400,000,000원</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">찾으신 금액</th>
+                  <td colspan="3" class="text-right">
+                    <span class="typeMd">400,000,000원</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <!--[dev]:20261021 버튼 아이콘 삭제, 공통 적용-->
+      <div class="modal-footer flex items-center justify-center gap-8">
+        <button type="button" class="btn type-bg-primary size-xl">          
+          <span class="text">인쇄</span>
+        </button>
+      </div>
+      <!--//[dev]:20261021 버튼 아이콘 삭제, 공통 적용-->
+      <button type="button" class="ico btn-close" aria-label="모달 닫기">
+        <i class="ico-close ico-size-smMd" aria-hidden="true"></i>
+        <span class="blind">닫기</span>
+      </button>
+    </div>
+  </div>
+</body>
+
+</html>

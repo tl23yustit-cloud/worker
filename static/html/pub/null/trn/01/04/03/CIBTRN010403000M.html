@@ -1,0 +1,330 @@
+<!-- CIBTRN010403000M.html -->
+<!-- 이체 > 계좌이체 > 다계좌이체 -->
+<!-- 디자인 미확정 -->
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/trn.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
+
+      <div id="container" class="container">
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="trn">
+              <h2 class="typeH2">
+                이체
+                <div class="box-steps">
+                  <ol class="list-steps">
+                    <li class="item-steps passed">
+                      <span class="blind">1</span>
+                      <i class="icon" aria-hidden="true">1</i>
+                      <span class="text">1</span>
+                    </li>
+                    <li class="item-steps passed">
+                      <i class="icon" aria-hidden="true">2</i>
+                      <span class="text">2</span>
+                    </li>
+                    <li class="item-steps current" aria-current="step">
+                      <i class="icon" aria-hidden="true">3</i>
+                      <span class="text">결재요청완료</span>
+                    </li>
+                  </ol>
+                </div>
+              </h2>
+
+              <!-- [dev] 사용자별 구분 20261022 -->
+              <div class="result-box">
+                <div class="result-banner">
+                  <div class="inner-img"></div>
+                  <div class="result-message">
+                    <h4 class="typeH4 color-blueMd">정상적으로 지연이체로 요청되어 이체예정시간에 처리될 예정입니다.</h4>
+                  </div>
+                </div>
+                <div class="total-summary-box">
+                  <div class="total">총 <strong>999 건</strong></div>
+                  <ul>
+                    <li>
+                      <dl>
+                        <dt>정상처리</dt>
+                        <dd><span class="color-fg-primary">1</span>건</dd>
+                      </dl>
+                    </li>
+                    <li>
+                      <dl>
+                        <dt>예외처리</dt>
+                        <dd><span class="color-fg-error">1</span>건</dd>
+                      </dl>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="result-box">
+                <div class="result-banner">
+                  <div class="inner-img"></div>
+                  <div class="result-message">
+                    <h4 class="typeH4 color-blueMd">정상적으로 이체를 완료하였습니다.</h4>
+                  </div>
+                </div>
+                <div class="total-summary-box">
+                  <div class="total">총 <strong>999 건</strong></div>
+                  <ul>
+                    <li>
+                      <dl>
+                        <dt>정상처리</dt>
+                        <dd><span class="color-fg-primary">1</span>건</dd>
+                      </dl>
+                    </li>
+                    <li>
+                      <dl>
+                        <dt>예외처리</dt>
+                        <dd><span class="color-fg-error">1</span>건</dd>
+                      </dl>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="result-box">
+                <div class="result-banner">
+                  <div class="inner-img"></div>
+                  <div class="result-message">
+                    <h4 class="typeH4 color-blueMd">결재요청이 정상 처리되었습니다.</h4>
+                  </div>
+                </div>
+                <div class="total-summary-box">
+                  <div class="total">총 <strong>999 건</strong></div>
+                  <ul>
+                    <li>
+                      <dl>
+                        <dt>정상처리</dt>
+                        <dd><span class="color-fg-primary">1</span>건</dd>
+                      </dl>
+                    </li>
+                    <li>
+                      <dl>
+                        <dt>예외처리</dt>
+                        <dd><span class="color-fg-error">1</span>건</dd>
+                      </dl>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <!-- //[dev] 사용자별 구분 20261022 -->
+
+              <div class="tbl-area">
+                <div class="tbl-head">
+                  <h4 class="typeH4">출금정보</h4>
+                </div>
+                <table class="table-type01">
+                  <!-- [수정] 20260902 caption 수정 -->
+                  <caption></caption>
+                  <colgroup>
+                    <!-- [수정] 20260901 col width 값 추가 -->
+                    <!-- [수정] 20260909 col width style 수정  -->
+                    <col style="width: 160px" />
+                    <col style="width: 368px" />
+                    <col style="width: 160px" />
+                    <col style="width: 368px" />
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="row">출금계좌번호</th>
+                      <td>
+                        <span class="typeMd">1000-0000-0000</span>
+                      </td>
+                      <th scope="row">출금계좌예금주</th>
+                      <td>
+                        <span class="typeMd">김수협</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">정상출금액(완료)</th>
+                      <td class="text-right">
+                        <span class="typeMd">10,000,000원</span>
+                      </td>
+                      <th scope="row">지연출금액(예정)</th>
+                      <td class="text-right">
+                        <span class="typeMd">10,000,000원</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">정상출금액</th>
+                      <td class="text-right">
+                        <span class="typeMd">10,000,000원</span>
+                      </td>
+                      <th scope="row">이체후 잔액</th>
+                      <td class="text-right">
+                        <span class="typeMd">10,000,000원</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">지급가능 잔액</th>
+                      <td colspan="3" class="text-right">
+                        <span class="typeMd">10,000,000원</span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="tbl-area">
+                <h4 class="typeH4">이체 정보</h4>
+
+                <div class="wScroll">
+                  <table class="table-type03">
+                    <caption>
+                      이체 정보
+                    </caption>
+                    <colgroup>
+                      <col style="width: auto" />
+                      <col style="width: auto" />
+                      <col style="width: auto" />
+                      <col style="width: auto" />
+                      <col style="width: auto" />
+                      <col style="width: auto" />
+                      <col style="width: auto" />
+                      <col style="width: auto" />
+                      <col style="width: auto" />
+                      <col style="width: auto" />
+                      <col style="width: auto" />
+                      <col style="width: auto" />
+                      <col style="width: auto" />
+                    </colgroup>
+                    <thead>
+                      <!-- [수정] 20260909 th scope 추가 -->
+                      <tr>
+                        <th scope="col">No</th>
+                        <th scope="col">입금은행</th>
+                        <th scope="col">입금계좌</th>
+                        <th scope="col">입금예금주</th>
+                        <th scope="col">받은분<br />통장표시내용</th>
+                        <th scope="col">보내시는분<br />통장표시내용</th>
+                        <th scope="col">금액</th>
+                        <th scope="col">수수료</th>
+                        <th scope="col">상태</th>
+                        <th scope="col">자주쓰는입금계좌</th>
+                        <th scope="col">지연여부</th>
+
+                        <th scope="col">이체예정시간</th>
+                        <th scope="col">선택</th>
+                      </tr>
+                    </thead>
+
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>수협</td>
+                        <td>1000-0000-0000</td>
+                        <td>김수협</td>
+                        <td>김수협</td>
+                        <td>김수협</td>
+                        <td class="text-right">10,000,000,000 원</td>
+                        <td class="text-right">0</td>
+                        <!-- [dev] 내용수정 20261022 -->
+                        <td>
+                          <div class="box-tooltip tail-top-start">
+                            <button type="button" class="btn type-line-primary size-sm" aria-describedby="tooltipBoxTop0101">
+                              <span class="text">오류</span>
+                            </button>
+                            <div id="tooltipBoxTop0101" class="layer-tooltip" role="tooltip" aria-hidden="true">
+                              <div class="content-tooltip">
+                                <span class="text">처리오류 메세지 에러메시지가 노출됩니다.</span>
+                              </div>
+                              <button type="button" class="btn-close">
+                                <i class="ico-close ico-size-sm" aria-hidden="true"></i>
+                                <span class="blind">툴팁 닫기</span>
+                              </button>
+                              <i class="ico-tail-tooltip" aria-hidden="true"></i>
+                            </div>
+                          </div>
+                        </td>
+
+                        <td>등록됨</td>
+                        <!-- //[dev] 내용수정 20261022 -->
+                        <td>지연</td>
+                        <td>2026-06-18<br />09:00:00</td>
+                        <td>
+                          <input type="checkbox" name="" id="SampleCheckbox0101" class="form-checkbox size-sm" />
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>수협</td>
+                        <td>1000-0000-0000</td>
+                        <td>김수협</td>
+                        <td>김수협</td>
+                        <td>김수협</td>
+                        <td class="text-right">10,000,000,000원</td>
+                        <td class="text-right">0</td>
+                        <!-- [dev] 내용수정 20261022 -->
+                        <td>-</td>
+                        <td>
+                          <button type="button" class="btn type-line-neutral size-sm">
+                            <span class="text">등록</span>
+                          </button>
+                        </td>
+                        <!-- //[dev] 내용수정 20261022 -->
+                        <td>지연</td>
+                        <td>2026-06-18<br />09:00:00</td>
+                        <td>
+                          <input type="checkbox" name="" id="SampleCheckbox0101" class="form-checkbox size-sm" />
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <!-- [수정] 20260901 type-reference 클래스 변경 -->
+                <div class="list type-reference mt-12">
+                  <ul>
+                    <li class="typeMd">본처리 결과는 변경 가능성이 있어 거래증빙으로 사용 할 수 없습니다.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="btn-wrap center lg-bot">
+                <button type="button" class="btn type-line-neutral size-xxl">
+                  <span class="text">이체확인증 인쇄</span>
+                </button>
+                <button type="button" class="btn type-bg-primary size-xxl">
+                  <span class="text">이체계속하기</span>
+                </button>
+              </div>
+              <div class="line-box size-xl mt-48">
+                <span class="typeLgSemibold">이용안내</span>
+                <div class="list type-dotted">
+                  <ul>
+                    <li class="typeMd">다계좌 이체에 대한 결과입니다.</li>
+                    <li class="typeMd">상태가 정상이 아닌 경우는 반드시 출금계좌의 입출금 내역을 확인하시기 바랍니다.</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="line-box size-xl mt-48">
+                <span class="typeLgSemibold">이용안내</span>
+                <div class="list type-dotted">
+                  <ul>
+                    <li class="typeMd">다계좌 이체에 대한 결재요청 결과입니다.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
+</html>

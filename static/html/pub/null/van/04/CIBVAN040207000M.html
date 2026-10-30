@@ -1,0 +1,222 @@
+<!-- 1.0v 적용 -->
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/van.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">
+        @@include('static/html/pub/layout/skipNavigation.html')
+        @@include('static/html/pub/layout/header_sub.html')
+      </div>
+
+      <div id="container" class="container">
+        <div id="leftArea">
+          @@include('static/html/pub/layout/leftArea.html')
+        </div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="van">
+              <h2 class="typeH2">
+                다른은행 계좌등록
+                <div class="box-steps">
+                  <ol class="list-steps">
+                    <li class="item-steps passed">
+                      <span class="blind">1</span>
+                      <i class="icon" aria-hidden="true">1</i>
+                    </li>
+                    <li class="item-steps passed" aria-current="step">
+                      <span class="blind">2</span>
+                      <i class="icon" aria-hidden="true">2</i>
+                    </li>
+                    <li class="item-steps current" aria-current="step">
+                      <span class="blind">3</span>
+                      <i class="icon" aria-hidden="true">3</i>
+                      <span class="text">등록완료</span>
+                    </li>
+                  </ol>
+                </div>
+              </h2>
+              <div class="prototype-view">
+                <div class="result-box">
+                  <div class="result-banner">
+                    <div class="inner-img"></div>
+                    <div class="result-message">
+                      <h4 class="typeH4 color-blueMd">
+                        다른 은행 계좌 등록이 완료 되었습니다.
+                      </h4>
+                      <span class="typeMd"
+                        >총 29건 총 3건이 등록되었습니다.</span
+                      >
+                    </div>
+                  </div>
+                  <div class="total-summary-box">
+                    <div class="total">총 <strong>999 건</strong></div>
+                    <ul>
+                      <li>
+                        <dl>
+                          <dt>정상처리</dt>
+                          <dd><span class="color-primary">1</span>건</dd>
+                        </dl>
+                      </li>
+                      <li>
+                        <dl>
+                          <dt>오류</dt>
+                          <dd><span class="color-fg-error">1</span>건</dd>
+                        </dl>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="tbl-area">
+                <h4 class="typeH4">
+                  등록한 계좌 <span class="color-fg-primary">3</span>
+                </h4>
+                <table class="table-type03">
+                  <caption>
+                    은행, 계좌종류, 게좌번호, 등록결과에 대한 구성 테이블입니다.
+                  </caption>
+                  <colgroup>
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th scope="col"><span>은행</span></th>
+                      <th scope="col"><span>계좌종류</span></th>
+                      <th scope="col"><span>게좌번호</span></th>
+                      <th scope="col"><span>등록결과</span></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <span class="typeMd">입출금</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">입출금</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">00000000</span>
+                      </td>
+                      <td>
+                        <span class="color-fg-success">성공 </span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span class="typeMd">예적금</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">예적금</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">00000000</span>
+                      </td>
+                      <td>
+                        <span class="color-fg-success">성공</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span class="typeMd">신탁</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">00000000</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">00000000</span>
+                      </td>
+                      <td class="text-center">
+                        <span class="color-fg-error">오류</span>
+                        <div class="box-tooltip tail-top-start">
+                          <button
+                            type="button"
+                            class="btn type-ghost-neutral size-Xs"
+                            aria-describedby="tooltipBoxTop0101"
+                          >
+                            <i
+                              class="ico line ico-size-sm ico-link-external"
+                              aria-hidden="true"
+                            ></i>
+                            <span class="blind"
+                              >국민은행 000000000 오류 상세보기</span
+                            >
+                          </button>
+
+                          <div
+                            id="tooltipBoxTop0101"
+                            class="layer-tooltip size-244"
+                            role="tooltip"
+                            aria-hidden="true"
+                          >
+                            <div class="content-tooltip whitespace-normal">
+                              <span class="text"
+                                >실패사유:<br />
+                                오픈뱅킹 조회서비스 등록이 처리되지 않았습니다.
+                                - 참가기관 에러 [000 - 해당사용자 없음]
+                              </span>
+                            </div>
+                            <button type="button" class="btn-close">
+                              <i
+                                class="ico-close ico-size-sm"
+                                aria-hidden="true"
+                              ></i>
+                              <span class="blind">툴팁 닫기</span>
+                            </button>
+                            <i class="ico-tail-tooltip" aria-hidden="true"></i>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="btn-wrap center lg-bot">
+                <button type="button" class="btn type-bg-primary size-xxl">
+                  <span class="text">확인 </span>
+                </button>
+                <button type="button" class="btn type-line-neutral size-xxl">
+                  <span class="text">다른계좌 추가등록 </span>
+                </button>
+              </div>
+              <div class="line-box size-xl mt-48">
+                <span class="typeLgSemibold">이용안내</span>
+                <div class="list type-dotted">
+                  <ul>
+                    <li class="typeMd">
+                      오픈뱅킹 업무 진행이 가능한 다른은행 계좌 등록 결과를
+                      확인합니다.
+                    </li>
+                    <li class="typeMd">
+                      조회 또는 이체 등록 오류 시, 해당 계좌는 오픈뱅킹 서비스를
+                      이용하실 수 없으며, 약관 동의부터 등록 절차를 처음부터
+                      다시 진행해야 합니다.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
+</html>

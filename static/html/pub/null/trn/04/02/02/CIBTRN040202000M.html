@@ -1,0 +1,155 @@
+<!-- CIBTRN010403000M.html -->
+<!-- 이체 > 계좌이체 > 다계좌이체 -->
+<!-- 디자인 미확정 -->
+<!-- 기획서에 2번째 테이블 입금계좌번호 , 금액 매칭안맞음 확인필요 -->
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/trn.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
+
+      <div id="container" class="container">
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="trn">
+              <h2 class="typeH2">다른은행으로 이체</h2>
+
+              <div class="tbl-area">
+                <div class="tbl-head">
+                  <h4 class="typeH4">영문고객정보 확인</h4>
+                </div>
+
+                <!--  -->
+                <table class="table-type01">
+                  <caption>
+                    전화번호, 이동전화번호에 대한 구성 테이블입니다.
+                  </caption>
+                  <colgroup>
+                    <col />
+                    <col />
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="row">송금인명</th>
+                      <td>
+                        <div class="clear-type">
+                          <input type="text" id="userDeptInput" class="input size-lg wSize-md" value="WHN ADA WPK GKNC FJ,.NVF" placeholder=" 송금인명을 입력해주세요" aria-label="송금인명" />
+
+                          <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                            <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                            <span class="blind">닫기</span>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope=" row">
+                        <span class="required">전화번호</span>
+                      </th>
+                      <td>
+                        <div class="tbl-flex">
+                          <div class="box-select wSize-sm">
+                            <button type="button" id="phonePrefixBtn" class="select size-lg" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="selectDropdown01" aria-labelledby="phone-label" aria-describedby="phone-guide">
+                              <span class="text">02</span>
+                            </button>
+                            <div id="selectDropdown01" class="box-list-select">
+                              <ul class="list-select" role="listbox" aria-label="전화번호 앞자리 선택">
+                                <li class="item-select" role="option" aria-selected="true" tabindex="0">
+                                  <span class="btn-item-select">02</span>
+                                </li>
+                                <li class="item-select" role="option" aria-selected="false" tabindex="-1">
+                                  <span class="btn-item-select">010</span>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                          <span aria-hidden="true">-</span>
+                          <div class="clear-type">
+                            <input type="text" class="input size-lg wSize-sm" value="" maxlength="4" aria-labelledby="label-phone" aria-label="전화번호 중간자리" aria-required="true" aria-describedby="phone-guide" />
+                            <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                              <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                              <span class="blind">닫기</span>
+                            </button>
+                          </div>
+                          <span aria-hidden="true">-</span>
+                          <div class="clear-type">
+                            <input type="text" class="input size-lg wSize-sm" value="" maxlength="4" aria-labelledby="label-phone" aria-label="전화번호 뒷자리" aria-required="true" aria-describedby="phone-guide" />
+                            <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                              <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                              <span class="blind">닫기</span>
+                            </button>
+                          </div>
+                        </div>
+                        <p class="error-message">송금처리 불가시 연락 가능한 전화번호를 반드시 입력해 주시기 바랍니다.</p>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="list type-dotted mt-12">
+                <ul>
+                  <li class="typeMd">개인사업자 성명(영문) 수정은 가능하나 고객정보의 영문명 수정이 필요한 경우 영업점에 방문하시기 바랍니다.</li>
+                </ul>
+              </div>
+              <!-- 버튼 -->
+
+              <div class="btn-wrap center lg-bot">
+                <button type="button" class="btn type-bg-primary size-xxl">
+                  <span class="text">확인</span>
+                </button>
+              </div>
+
+              <!--[dev] 영문명 미등록자 메시지  -->
+              <div class="text-box-container flex justify-between gap-16 items-center mt-48">
+                <div class="flex items-center justify-start gap-16">
+                  <div class="inner-img type-warning"></div>
+                  <div class="text-box flex flex-column gap-4 items-start">
+                    <p class="typeLgSemibold">고객님의 정확한 영문 성명 등록을 위해서 최초 1회 영업점 방문이 필요합니다.</p>
+                    <span class="typeMd">번거로우시겠지만, 인근 영업점 방문을 부탁드립니다.</span>
+                  </div>
+                </div>
+
+                <button type="button" class="btn type-line-neutral size-md">
+                  <span class="text">영업점 검색</span>
+                </button>
+              </div>
+              <!--//[dev] 영문명 미등록자 메시지  -->
+
+              <!--[dev] 비거지주 메시지 -->
+              <div class="text-box-container flex justify-between gap-16 items-center mt-48">
+                <div class="flex items-center justify-start gap-16">
+                  <div class="inner-img type-warning"></div>
+                  <div class="text-box flex flex-column gap-4 items-start">
+                    <p class="typeLgSemibold">다른은행으로 이체 거래는 외국환거래법상 거주자인 경우만 가능합니다.</p>
+                    <span class="typeMd">번거로우시겠지만, 인근 영업점 방문을 부탁드립니다.</span>
+                  </div>
+                </div>
+
+                <button type="button" class="btn type-line-neutral size-md">
+                  <span class="text">영업점 검색</span>
+                </button>
+              </div>
+              <!--//[dev] 비거지주 메시지  -->
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
+</html>

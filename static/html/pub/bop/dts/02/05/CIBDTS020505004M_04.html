@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>수협은행</title>
+	<link rel="stylesheet" href="/static/css/reset.css" />
+	<link rel="stylesheet" href="/static/css/layout.css" />
+	<link rel="stylesheet" href="/static/css/component.css" />
+	<link rel="stylesheet" href="/static/css/common.css" />
+	<link rel="stylesheet" href="/static/css/dts.css" />
+</head>
+
+<body>
+	<div class="wrapper">
+		<div id="header">
+			@@include('static/html/pub/layout/skipNavigation.html')
+			@@include('static/html/pub/layout/header_sub.html')
+		</div>
+
+		<div id="container" class="container">
+			<div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+			<div id="contents">
+				<div class="content">
+					@@include('static/html/pub/layout/breadcrumb.html')
+					<div class="dts">
+						<h2 class="typeH2">
+							만기자동해지/재예치 신청
+							<div class="box-steps">
+								<ol class="list-steps">
+									<!-- 
+												[dev] 상태값 class 안내
+												class="item-steps" 기본 숫자 표기
+												class="item-steps passed" 완료
+												class="item-steps current" 현재
+											 -->
+									<li class="item-steps passed" aria-current="step">
+										<span class="blind">완료된 단계</span>
+										<i class="icon" aria-hidden="true">1</i>
+										<span class="text">정보입력</span>
+									</li>
+									<li class="item-steps current">
+										<i class="icon" aria-hidden="true">2</i>
+										<span class="text">정보확인</span>
+									</li>
+									<li class="item-steps">
+										<i class="icon" aria-hidden="true">3</i>
+										<span class="text">완료</span>
+									</li>
+								</ol>
+							</div>
+						</h2>
+						<div class="tbl-area">
+							<h4 class="typeH4">
+								<span class="text">신청정보입력</span>
+							</h4>
+							<table class="table-type01">
+								<caption>
+									만기자동해지 취소 테이블
+								</caption>
+								<colgroup>
+									<col>
+									<col>
+								</colgroup>
+								<tbody>
+									<tr>
+										<th scope="row">신청구분</th>
+										<td><span class="typeMd">만기자동재예치</span></td>
+									</tr>
+									<tr>
+										<th scope="row">
+											<span>계좌번호</span>
+										</th>
+										<td colspan="3">
+											<div class="tbl-flex">
+												<div class="box-select wSize-lg">
+													<button type="button" class="select size-lg" role="combobox"
+														aria-expanded="false" aria-haspopup="listbox"
+														aria-controls="selectDropdown01" aria-labelledby="label-account"
+														aria-required="true">
+														<span class="text">0000-0000-0000 (기업운전일반자금대출)</span>
+														<span class="blind">목록 열기</span>
+													</button>
+													<div id="selectDropdown01" class="box-list-select">
+														<ul class="list-select" role="listbox" aria-label="계좌번호 선택 리스트">
+															<li class="item-select" role="group" aria-selected="true">
+																<button class="btn-item-select">
+																	외화보통예금 1010-27330000</button>
+															</li>
+															<li class="item-select" role="group" aria-selected="false">
+																<button class="btn-item-select">1</button>
+															</li>
+														</ul>
+													</div>
+												</div>
+												<div class="box-select wSize-lg">
+													<button type="button" class="select size-lg" role="combobox"
+														aria-expanded="false" aria-haspopup="listbox"
+														aria-controls="selectDropdown01" aria-labelledby="label-account"
+														aria-required="true">
+														<span class="text">가능한계좌가 없습니다</span>
+														<span class="blind">목록 열기</span>
+													</button>
+													<div id="selectDropdown01" class="box-list-select">
+														<ul class="list-select" role="listbox"
+															aria-label="대상계좌번호 선택 리스트">
+															<li class="item-select" role="group" aria-selected="true">
+																<button class="btn-item-select">
+																	외화보통예금 1010-27330000</button>
+															</li>
+															<li class="item-select" role="group" aria-selected="false">
+																<button class="btn-item-select">1</button>
+															</li>
+														</ul>
+													</div>
+												</div>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<th scope="row">만기재예치횟수</th>
+										<td><span class="typeMd">2</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="tbl-area">
+							<h4 class="typeH4">
+								<span class="text">재예치 정보</span>
+							</h4>
+							<table class="table-type01">
+								<caption>
+									만기자동해지 취소 테이블
+								</caption>
+								<colgroup>
+									<col>
+									<col>
+								</colgroup>
+								<tbody>
+									<tr>
+										<th scope="row">
+											<span>
+												재예치구분
+											</span>
+										</th>
+										<td>
+											<div class="form-box-wrap" role="radiogroup" aria-label="재예치구분">
+												<span class="form-box">
+													<input type="radio" name="searchType" id="searchType_01"
+														class="form-radio size-md" checked="">
+													<label for="searchType_01" class="form-label">원리금 모두 재예치</label>
+												</span>
+												<span class="form-box">
+													<input type="radio" name="searchType" id="searchType_02"
+														class="form-radio size-md">
+													<label for="searchType_02" class="form-label">원금만 재예치</label>
+												</span>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<th scope="row">
+											<span>이자지급 계좌번호</span>
+										</th>
+										<td colspan="3">
+											<div class="tbl-flex">
+												<div class="box-select wSize-lg">
+													<button type="button" class="select size-lg" role="combobox"
+														aria-expanded="false" aria-haspopup="listbox"
+														aria-controls="selectDropdown01" aria-labelledby="label-account"
+														aria-required="true">
+														<span class="text">0000-0000-0000 (기업운전일반자금대출)</span>
+														<span class="blind">목록 열기</span>
+													</button>
+													<div id="selectDropdown01" class="box-list-select">
+														<ul class="list-select" role="listbox"
+															aria-label="이자지급 계좌번호 선택 리스트">
+															<li class="item-select" role="group" aria-selected="true">
+																<button class="btn-item-select">
+																	외화보통예금 1010-27330000</button>
+															</li>
+															<li class="item-select" role="group" aria-selected="false">
+																<button class="btn-item-select">1</button>
+															</li>
+														</ul>
+													</div>
+												</div>
+												<div class="list type-star">
+													<ul>
+														<li class="typeMd">원금만 재예치 시를 선택하는 경우에만 선택 가능합니다.</li>
+													</ul>
+												</div>
+											</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="btn-wrap center lg-bot">
+							<button type="button" class="btn type-bg-primary size-xxl">
+								<span class="text">다음</span>
+							</button>
+						</div>
+						<div class="line-box size-xl mt-48">
+							<span class="typeLgSemibold">이용안내</span>
+							<div class="list type-dotted">
+								<ul>
+									<li class="typeMd">
+										자동재예치는 총 5회까지 허용되며 만기일 전일까지 신청 가능합니다.
+									</li>
+									<li class="typeMd">
+										관련 세법의 변경(한도, 가입대상 등)으로 세제혜택한도가 변경 시에는 재예치가 되지 않습니다.
+									</li>
+									<li class="typeMd">
+										재예치 이후 해지하면 재예치 기간 동안 중도해지이율이 적용됩니다.
+									</li>
+									<li class="typeMd">
+										재예치시 금리는 기본금리가 적용됩니다.
+									</li>
+									<li class="typeMd">
+										소득세법상 거주자만 가능합니다.
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+		</div>
+		<div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+	</div>
+	<script src="/static/js/ui/cib_ui_common.js"></script>
+</body>
+
+</html>
+<script>
+
+</script>
