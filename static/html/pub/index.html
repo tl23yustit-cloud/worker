@@ -538,9 +538,21 @@
             return 0;
           },
           compareItems: (left, right) => {
+<<<<<<< HEAD
             const folderResult = utils.compareDepths(left.rawFolders, right.rawFolders);
             if (folderResult !== 0) return folderResult;
             return utils.compareWbsValue(left.fileId || left.file, right.fileId || right.file);
+=======
+            const folderResult = utils.compareDepths(
+              left.rawFolders,
+              right.rawFolders,
+            );
+            if (folderResult !== 0) return folderResult;
+            return utils.compareWbsValue(
+              left.fileId || left.file,
+              right.fileId || right.file,
+            );
+>>>>>>> cadb075459045527aeafa652310925ccc7817d37
           },
           highlight: (text, keyword) => {
             if (!keyword || !text) return text || "-";
@@ -674,7 +686,15 @@
 
             let html = "";
             Object.keys(groups)
+<<<<<<< HEAD
               .sort(utils.compareWbsValue)
+=======
+              .sort((left, right) => {
+                const leftItem = groups[left][0];
+                const rightItem = groups[right][0];
+                return utils.compareItems(leftItem, rightItem);
+              })
+>>>>>>> cadb075459045527aeafa652310925ccc7817d37
               .forEach((group) => {
                 html += `<section class="pub-section-normal"><h2>${utils.highlight(group, keyword)}</h2><div style="border: 1px solid #e2e8f0; border-radius: 8px; overflow:hidden;"><table><thead><tr>`;
                 for (let i = 0; i < maxDepth; i++) html += `<th>${i + 1}Depth</th>`;
@@ -694,9 +714,26 @@
             const container = document.getElementById("list");
             if (!data.length) return (container.innerHTML = "<p style='padding:20px; background:#fff; border-radius:12px; border:1px solid #e2e8f0;'>표시할 데이터가 없습니다.</p>");
 
+<<<<<<< HEAD
             const groupKeys = [...new Set(data.map((item) => item.displayDepths[0]))];
             const toggleState = JSON.parse(localStorage.getItem(STORE_TOGGLE)) || {};
             const orderedGroups = groupKeys.sort(utils.compareWbsValue);
+=======
+            const groupKeys = [
+              ...new Set(data.map((item) => item.displayDepths[0])),
+            ];
+            const toggleState =
+              JSON.parse(localStorage.getItem(STORE_TOGGLE)) || {};
+            const orderedGroups = groupKeys.sort((left, right) => {
+              const leftItem = data.find(
+                (item) => item.displayDepths[0] === left,
+              );
+              const rightItem = data.find(
+                (item) => item.displayDepths[0] === right,
+              );
+              return utils.compareItems(leftItem, rightItem);
+            });
+>>>>>>> cadb075459045527aeafa652310925ccc7817d37
 
             let html = "";
             orderedGroups.forEach((groupName, idx) => {
@@ -853,7 +890,13 @@
             localStorage.setItem(STORE_TOGGLE, JSON.stringify(state));
           },
           resetAll: () => {
+<<<<<<< HEAD
             if (confirm("모든 아코디언 상태를 초기화하시겠습니까?")) {
+=======
+            if (
+              confirm("모든 아코디언 상태를 초기화하시겠습니까?")
+            ) {
+>>>>>>> cadb075459045527aeafa652310925ccc7817d37
               localStorage.removeItem(STORE_TOGGLE);
               location.reload();
             }
