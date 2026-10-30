@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/cms.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">
+        @@include('static/html/pub/layout/skipNavigation.html')
+        @@include('static/html/pub/layout/header_sub.html')
+      </div>
+
+      <div id="container" class="container">
+        <div id="leftArea">
+          @@include('static/html/pub/layout/leftArea.html')
+        </div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="cms">
+              <button
+                type="button"
+                class="btn type-bg-primary size-md btn-modal"
+                data-target="modal-01"
+              >
+                <span class="text">모달 버튼</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+    <div
+      id="modal-01"
+      class="modal is-active"
+      data-dim="true"
+      data-backdrop-close="false"
+      data-alert="true"
+      data-size="sm"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modal-title"
+      aria-describedby="modal-desc"
+    >
+      <!-- class cms적용하기(타이틀 아래로 조회성테이블 나올때 12px 여백 벌어짐해결위해서) -->
+      <div class="modal-wrapper cms">
+        <div class="modal-title">
+          <h4 class="typeH4">금융사변경</h4>
+        </div>
+        <div class="modal-slot">
+          <div id="modal-desc">
+            <div class="tbl-area">
+              <table class="table-type01 mt-0">
+                <caption>
+                  사업장, 금융사 유형, 금융사 정보를 제공합니다.
+                </caption>
+                <colgroup>
+                  <col width="160px" />
+                  <col width="*" />
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th scope="row">
+                      <span class="required">사업장</span>
+                    </th>
+                    <td>
+                      <div class="box-select wSize-lg">
+                        <button
+                          type="button"
+                          class="select size-lg"
+                          role="combobox"
+                          aria-expanded="false"
+                          aria-haspopup="listbox"
+                          aria-controls="selectDropdown01"
+                        >
+                          <span class="text">선택하세요</span>
+                          <span class="blind">펼침</span>
+                        </button>
+                        <div id="selectDropdown01" class="box-list-select">
+                          <ul
+                            class="list-select"
+                            role="listbox"
+                            aria-label="선택 항목 리스트"
+                          >
+                            <li
+                              class="item-select"
+                              role="group"
+                              aria-label="선택 항목 리스트"
+                            >
+                              <button class="btn-item-select">
+                                선택하세요
+                              </button>
+                            </li>
+                            <li
+                              class="item-select"
+                              role="group"
+                              aria-label="선택 항목 리스트"
+                            >
+                              <button class="btn-item-select">1</button>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <span class="required">금융사 유형</span>
+                    </th>
+                    <td>
+                      <div class="box-select wSize-lg">
+                        <button
+                          type="button"
+                          class="select size-lg"
+                          role="combobox"
+                          aria-expanded="false"
+                          aria-haspopup="listbox"
+                          aria-controls="selectDropdown01"
+                        >
+                          <span class="text">선택하세요</span>
+                          <span class="blind">펼침</span>
+                        </button>
+                        <div id="selectDropdown01" class="box-list-select">
+                          <ul
+                            class="list-select"
+                            role="listbox"
+                            aria-label="선택 항목 리스트"
+                          >
+                            <li
+                              class="item-select"
+                              role="group"
+                              aria-label="선택 항목 리스트"
+                            >
+                              <button class="btn-item-select">
+                                선택하세요
+                              </button>
+                            </li>
+                            <li
+                              class="item-select"
+                              role="group"
+                              aria-label="선택 항목 리스트"
+                            >
+                              <button class="btn-item-select">1</button>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <span class="required">금융사</span>
+                    </th>
+                    <td>
+                      <div class="box-select wSize-lg">
+                        <button
+                          type="button"
+                          class="select size-lg"
+                          role="combobox"
+                          aria-expanded="false"
+                          aria-haspopup="listbox"
+                          aria-controls="selectDropdown01"
+                        >
+                          <span class="text">선택하세요</span>
+                          <span class="blind">펼침</span>
+                        </button>
+                        <div id="selectDropdown01" class="box-list-select">
+                          <ul
+                            class="list-select"
+                            role="listbox"
+                            aria-label="선택 항목 리스트"
+                          >
+                            <li
+                              class="item-select"
+                              role="group"
+                              aria-label="선택 항목 리스트"
+                            >
+                              <button class="btn-item-select">
+                                선택하세요
+                              </button>
+                            </li>
+                            <li
+                              class="item-select"
+                              role="group"
+                              aria-label="선택 항목 리스트"
+                            >
+                              <button class="btn-item-select">1</button>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer flex items-center justify-center gap-8">
+          <button
+            type="button"
+            class="btn type-bg-primary-tint size-lg btn-close"
+          >
+            <span class="text">취소</span>
+          </button>
+          <button type="button" class="btn type-bg-primary size-lg">
+            <span class="text">다음</span>
+          </button>
+        </div>
+        <button type="button" class="ico btn-close" aria-label="모달 닫기">
+          <i class="ico-close ico-size-smMd" aria-hidden="true"></i>
+          <span class="blind">닫기</span>
+        </button>
+      </div>
+    </div>
+  </body>
+</html>

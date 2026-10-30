@@ -184,6 +184,13 @@ function html() {
         .pipe(gulp.dest('dist'));
 }
 
+function htmlFile(filePath) {
+    return gulp.src(filePath, { base: '.', allowEmpty: true })
+        .pipe(fileinclude({ prefix: '@@', basepath: '@root', indent: true }))
+        .on('error', function (err) { console.error('❌ [HTML ERROR]:', err.toString()); this.emit('error', err); })
+        .pipe(gulp.dest('dist'));
+}
+
 function styles() {
     return gulp.src(['static/css/**/*.scss', 'static/cl/**/*.scss'], { base: '.', allowEmpty: true })
         .pipe(sourcemaps.init())
@@ -210,11 +217,23 @@ function watchFiles() {
     const browserSync = require('browser-sync').create();
     browserSync.init({ server: { baseDir: './dist', index: 'static/html/pub/index.html' }, port: 3000 });
 
-    gulp.watch('index.html', gulp.series(html, (done) => { browserSync.reload(); done(); }));
+    gulp.watch('index.html').on('change', function (filePath) {
+        htmlFile(filePath).on('end', function () { browserSync.reload(); });
+    });
     
     // 💡 저장 시 목록(generatePubList) 재생성을 제외하여 속도를 극대화합니다.
-    gulp.watch(['static/html/**/*.html', '!static/html/**/*.md'], gulp.series(html, (done) => { browserSync.reload(); done(); }));
-    gulp.watch('static/html/**/*.md', gulp.series(clearCaches, html, (done) => { browserSync.reload(); done(); }));
+    gulp.watch(['static/html/pub/**/*.html', '!static/html/pub/**/layout/*.html'])
+        .on('change', function (filePath) {
+            htmlFile(filePath).on('end', function () { browserSync.reload(); });
+        });
+    gulp.watch('static/html/pub/**/layout/*.html')
+        .on('change', gulp.series(html, function (done) { browserSync.reload(); done(); }));
+    gulp.watch('static/html/pub/components/**/*.html')
+        .on('change', gulp.series(html, function (done) { browserSync.reload(); done(); }));
+    gulp.watch('static/html/**/*.md', gulp.series(clearCaches, function (done) {
+        browserSync.reload();
+        done();
+    }));
     gulp.watch('static/cl/status/**/*.js', (done) => { browserSync.reload(); done(); });
 
     gulp.watch(['static/css/**/*.scss', 'static/cl/**/*.scss'], gulp.series(styles, (done) => { browserSync.reload(); done(); }));

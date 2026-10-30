@@ -1,0 +1,612 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="/static/css/foe.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
+
+      <div id="container" class="container">
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="foe">
+              <h2 class="typeH2">
+                결제대상조회
+                <div class="box-steps">
+                  <ol class="list-steps">
+                    <!-- 
+												[dev] 상태값 class 안내
+												class="item-steps" 기본 숫자 표기
+												class="item-steps passed" 완료
+												class="item-steps current" 현재
+											 -->
+                    <li class="item-steps current" aria-current="step">
+                      <i class="icon" aria-hidden="true">1</i>
+                      <span class="text">정보입력</span>
+                    </li>
+                    <li class="item-steps">
+                      <i class="icon" aria-hidden="true">2</i>
+                      <span class="text">정보확인</span>
+                    </li>
+                    <li class="item-steps">
+                      <i class="icon" aria-hidden="true">3</i>
+                      <span class="text">결제완료</span>
+                    </li>
+                  </ol>
+                </div>
+              </h2>
+              <div class="tbl-area">
+                <h4 class="typeH4">상세안내</h4>
+                <table class="table-type01">
+                  <caption>
+                    결제대상조회 상세안내 관련 테이블
+                  </caption>
+                  <colgroup>
+                    <col style="width: 160px" />
+                    <col style="width: auto" />
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="row">신용장번호</th>
+                      <td>
+                        <span class="typeMd">M05131511XU00066</span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <table class="table-type01">
+                  <caption>
+                    결제대상조회 상세안내 관련 테이블
+                  </caption>
+                  <colgroup>
+                    <col style="width: 160px" />
+                    <col style="width: 368px" />
+                    <col style="width: 160px" />
+                    <col style="width: 368px" />
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="row">통화</th>
+                      <td>
+                        <span class="typeMd">USD</span>
+                      </td>
+                      <th scope="row">개설금액</th>
+                      <td class="text-right">
+                        <span class="typeMd">1,000.00</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">개설일</th>
+                      <td>
+                        <span class="typeMd">YYYY-MM-DD</span>
+                      </td>
+                      <th scope="row">유효기일</th>
+                      <td>
+                        <span class="typeMd">YYYY-MM-DD</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">수수료율</th>
+                      <td>
+                        <span class="typeMd">0.0 %</span>
+                      </td>
+                      <th scope="row">TERM CHARGE 최종일</th>
+                      <td>
+                        <span class="typeMd">YYYY-MM-DD</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">L/C잔액</th>
+                      <td class="text-right">
+                        <span class="typeMd">0.00</span>
+                      </td>
+                      <th scope="row">신용장발행잔액</th>
+                      <td>
+                        <span class="typeMd">0.0 %</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">L/C잔액</th>
+                      <td class="text-right">
+                        <span class="typeMd">0.00</span>
+                      </td>
+                      <th scope="row">인수잔액</th>
+                      <td class="text-right">
+                        <span class="typeMd">0.00</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">외화보증금잔액</th>
+                      <td class="text-right">
+                        <span class="typeMd">1,000.00</span>
+                      </td>
+                      <th scope="row">원화보증금잔액</th>
+                      <td class="text-right">
+                        <span class="typeMd">1,000 원</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">LG외화보증금잔액</th>
+                      <td class="text-right">
+                        <span class="typeMd">0.00</span>
+                      </td>
+                      <th scope="row">LG원화보증금잔액</th>
+                      <td class="text-right">
+                        <span class="typeMd">1,000 원</span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!--[dev]:20261022 중간 버튼 공통 적용-->
+              <div class="btn-wrap center sm-mid">
+                <button type="button" class="btn type-line-neutral size-xl">
+                  <span class="text">수입어음결제</span>
+                </button>
+                <button type="button" class="btn type-bg-neutral size-xl">
+                  <span class="text">확인</span>
+                </button>
+              </div>
+              <!--//[dev]:20261022 중간 버튼 공통 적용-->
+             
+              <div class="bg-box top-box size-xl mt-48">
+                <div class="bg-text-wrap">
+                  <!--[dev]:20261022 title삭제-->
+                  <!--//[dev]:20261022 title삭제-->
+                  <p class="typeLg">
+                    수입어음 결제를 위해 고객님께서 발행하신 L/G(수입화물선취보증서) 정보를 확인하려고 합니다.<br />
+                    우측의 [L/G정보확인] 버튼을 클릭해 주시기 바랍니다.
+                  </p>
+                </div>
+                <div class="r-btn">
+                  <!--[dev]:20261022 버튼수정-->
+                  <button type="button" class="btn type-line-neutral size-lg mt-8">
+                    <span class="text">L/G정보확인</span>
+                  </button>
+                  <!--//[dev]:20261022 버튼수정-->
+                </div>
+              </div>
+               <!--[dev]:20261022 새로 추가된 영역-->
+              <div class="asset-summary-wrap mb-48">
+                <div class="asset-summary">
+                  <div class="summary-item">
+                    <div class="typeMd"><i class="ico line ico-size-sm ico-sticker-square white" aria-hidden="true"></i>인도번호</div>
+                    <div class="typeH3">1</div>
+                  </div>
+                  <div class="summary-item">
+                    <div class="typeMd"><i class="ico line ico-size-sm ico-wonline-white" aria-hidden="true"></i>결제예정 금액</div>
+                    <div class="typeH3">USD 10,000.00</div>
+                  </div>
+                </div>
+                <div class="asset-summary-bottom">
+                  <div class="asset-summary-inner">
+                    <div class="summary-item">
+                      <div class="typeMd">L/G발급번호</div>
+                      <div class="typeH3 normal">1</div>
+                    </div>
+                    <div class="summary-item">
+                      <div class="typeMd">통화/발급일자</div>
+                      <div class="typeH3 normal">USD<span class="typeXs">YYYY-MM-DD</span></div>
+                    </div>
+                  </div>
+                  <div class="asset-summary-inner">
+                    <div class="summary-item">
+                      <div class="typeMd">L/G발급금액</div>
+                      <div class="typeH3">10,000.00</div>
+                    </div>
+                    <div class="summary-item">
+                      <div class="typeMd">보증금외화잔액 /보증금원화잔액</div>
+                      <div class="typeH3 normal">10,000.00 / 10,000</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="asset-summary-bottom">
+                  <div class="asset-summary-inner">
+                    <div class="summary-item">
+                      <div class="typeMd">L/G발급번호</div>
+                      <div class="typeH3 normal">2</div>
+                    </div>
+                    <div class="summary-item">
+                      <div class="typeMd">통화/발급일자</div>
+                      <div class="typeH3 normal">USD<span class="typeXs">YYYY-MM-DD</span></div>
+                    </div>
+                  </div>
+                  <div class="asset-summary-inner">
+                    <div class="summary-item">
+                      <div class="typeMd">L/G발급금액</div>
+                      <div class="typeH3">10,000.00</div>
+                    </div>
+                    <div class="summary-item">
+                      <div class="typeMd">보증금외화잔액 /보증금원화잔액</div>
+                      <div class="typeH3 normal">10,000.00 / 10,000</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tbl-area">
+                <h4 class="typeH4">보증금결제</h4>
+                <table class="table-type05">
+                  <caption>
+                    수수료 안내 입력테이블
+                  </caption>
+                  <colgroup>
+                    <col width="180px" />
+                    <col width="auto" />
+                    <col width="auto" />
+                    <col width="auto" />
+                    <col width="auto" />
+                    <col width="auto" />
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th id="th-01">구분</th>
+                      <th id="th-02">L/G외화</th>
+                      <th id="th-03">L/G원화</th>
+                      <th id="th-04">개설외화</th>
+                      <th id="th-05">개설외화</th>
+                      <th id="th-06">결제(연장)외화</th>
+                      <th id="th-07">결제(연장)원화</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th id="th-01-01">적립된보증금</th>
+                      <td class="text-right" headers="th-01-01 th-02"><span class="typeMd">20,000.00</span></td>
+                      <td class="text-right" headers="th-01-01 th-03"><span class="typeMd">20,000</span></td>
+                      <td class="text-right" headers="th-01-01 th-04"><span class="typeMd">12,000</span></td>
+                      <td class="text-right" headers="th-01-01 th-05"><span class="typeMd">12,000</span></td>
+                      <td class="text-right" headers="th-01-01 th-06"><span class="typeMd">15,000</span></td>
+                      <td class="text-right" headers="th-01-01 th-07"><span class="typeMd">20,000</span></td>
+                    </tr>
+                    <tr>
+                      <th id="th-01-02">결제할보증금</th>
+                      <td class="text-right" headers="th-01-02 th-02">
+                        <div class="clear-type">
+                          <input type="text" id="cardLastNumA" class="input size-lg" value="" placeholder="입력하세요" aria-label="결제할보증금 L/G외화" />
+                          <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                            <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                            <span class="blind">닫기</span>
+                          </button>
+                        </div>
+                      </td>
+                      <td class="text-right" headers="th-01-02 th-03">
+                        <div class="clear-type">
+                          <input type="text" id="cardLastNumA" class="input size-lg" value="" placeholder="입력하세요" aria-label="결제할보증금 L/G외화" />
+                          <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                            <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                            <span class="blind">닫기</span>
+                          </button>
+                        </div>
+                      </td>
+                      <td class="text-right" headers="th-01-02 th-04">
+                        <div class="clear-type">
+                          <input type="text" id="cardLastNumA" class="input size-lg" value="" placeholder="입력하세요" aria-label="결제할보증금 개설외화" />
+                          <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                            <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                            <span class="blind">닫기</span>
+                          </button>
+                        </div>
+                      </td>
+                      <td class="text-right" headers="th-01-02 th-05">
+                        <div class="clear-type">
+                          <input type="text" id="cardLastNumA" class="input size-lg" value="" placeholder="입력하세요" aria-label="결제할보증금 개설외화" />
+                          <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                            <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                            <span class="blind">닫기</span>
+                          </button>
+                        </div>
+                      </td>
+                      <td class="text-right" headers="th-01-02 th-06">
+                        <div class="clear-type">
+                          <input type="text" id="cardLastNumA" class="input size-lg" value="" placeholder="입력하세요" aria-label="결제할보증금 결제(연장)외화" />
+                          <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                            <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                            <span class="blind">닫기</span>
+                          </button>
+                        </div>
+                      </td>
+                      <td class="text-right" headers="th-01-02 th-07">
+                        <div class="clear-type">
+                          <input type="text" id="cardLastNumA" class="input size-lg" value="" placeholder="입력하세요" aria-label="결제할보증금 결제(연장)외화" />
+                          <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                            <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                            <span class="blind">닫기</span>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="list type-dotted mt-12">
+                <ul>
+                  <li class="typeMd">보증금으로 결제가 가능합니다. 고객님의 적립된 보증금을 확인하신 후 결제하실 금액을 입력해 주시기 바랍니다.</li>
+                </ul>
+              </div>
+              <div class="tbl-area">
+                <h4 class="typeH4">출금계좌입력</h4>
+                <table class="table-type01">
+                  <caption>
+                    결제대상조회 상세안내 관련 테이블
+                  </caption>
+                  <colgroup>
+                    <col style="width: 160px" />
+                    <col style="width: auto" />
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="row">
+                        <span> 출금종류 </span>
+                      </th>
+                      <td>
+                        <div class="form-box-wrap" role="radiogroup" aria-label="출금종류">
+                          <span class="form-box">
+                            <input type="radio" name="searchType" id="searchType_01" class="form-radio size-md" checked="" />
+                            <label for="searchType_01" class="form-label">외화통장에서 출금</label>
+                          </span>
+                          <span class="form-box">
+                            <input type="radio" name="searchType" id="searchType_02" class="form-radio size-md" />
+                            <label for="searchType_02" class="form-label">원화통장에서 출금</label>
+                          </span>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>
+                        <div class="flex">
+                          <span>외화출금계좌번호</span>
+                          <div class="box-tooltip tail-bottom-center">
+                            <button type="button" class="btn type-ghost-neutral size-Xs" aria-describedby="tooltipBoxTop0202">
+                              <i class="ico line ico-size-sm ico-info-circle colorFgNetral" aria-hidden="true"></i>
+                              <span class="blind">납부완료 안내 툴팁 열기</span>
+                            </button>
+                            <div id="tooltipBoxTop0202" class="layer-tooltip" role="tooltip" aria-hidden="false">
+                              <div class="content-tooltip">
+                                <span class="text">자동대체특별지급 약정계좌에 한하여 <br />출금이 가능합니다. </span>
+                              </div>
+                              <button type="button" class="btn-close">
+                                <i class="ico-close ico-size-sm" aria-hidden="true"></i>
+                                <span class="blind">툴팁 닫기</span>
+                              </button>
+                              <i class="ico-tail-tooltip" aria-hidden="true"></i>
+                            </div>
+                          </div>
+                        </div>
+                      </th>
+                      <td colspan="3">
+                        <div class="tbl-column">
+                          <div class="tbl-flex">
+                            <div class="box-select wSize-lg">
+                              <button type="button" class="select size-lg" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="selectDropdown01" aria-required="true">
+                                <span class="text">외화보통예금 1010-27330000</span>
+                                <span class="blind">펼침</span>
+                              </button>
+                              <div id="selectDropdown01" class="box-list-select">
+                                <ul class="list-select" role="listbox" aria-label="외화출금계좌번호 선택 항목 리스트">
+                                  <li class="item-select" role="group" aria-selected="true">
+                                    <span class="btn-item-select"> 외화보통예금 1010-27330000 </span>
+                                  </li>
+                                  <li class="item-select" role="group" aria-selected="false">
+                                    <span class="btn-item-select">1</span>
+                                  </li>
+                                  <li class="item-select" role="group" aria-selected="false">
+                                    <span class="btn-item-select">1</span>
+                                  </li>
+                                  <li class="item-select" role="group" aria-selected="false">
+                                    <span class="btn-item-select">1</span>
+                                  </li>
+                                  <li class="item-select" role="group">
+                                    <button class="btn-item-select">1</button>
+                                  </li>
+                                  <li class="item-select" role="group" aria-selected="false">
+                                    <span class="btn-item-select">1</span>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                            <button type="button" class="btn type-line-secondary size-lg">
+                              <span class="text">인출가능금액조회</span>
+                            </button>
+                          </div>
+                        </div>
+                        <p class="input-guide-text02">
+                          출금가능금액
+                          <strong class="color-fg-primary">USD 21.00</strong>
+                        </p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>외화계좌비밀번호</th>
+                      <td>
+                        <div class="tbl-flex">
+                          <div class="clear-type">
+                            <input type="password" id="외화계좌비밀번호" class="input size-lg wSize-md" value="" placeholder="외화계좌비밀번호" aria-label="외화계좌비밀번호" />
+                            <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                              <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                              <span class="blind">닫기</span>
+                            </button>
+                          </div>
+                          <button class="btn-mouse-keypad">
+                            <!-- 키패드 활성화시 is-active 클래스 추가 -->
+                            <i class="ico ico-size-smMd" aria-hidden="true"></i>
+                            <span class="blind">마우스 입력 열기</span>
+                          </button>
+                          <button class="btn-mouse-keypad is-active">
+                            <!-- 키패드 비활성화시 is-active 클래스 삭제 -->
+                            <i class="ico ico-size-smMd" aria-hidden="true"></i>
+                            <span class="blind">마우스 입력 닫기</span>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <div class="flex">
+                          원화계좌번호<br />
+                          (수수료출금계좌)
+                          <div class="box-tooltip tail-bottom-center">
+                            <button type="button" class="btn type-ghost-neutral size-Xs" aria-describedby="tooltipBoxTop0202">
+                              <i class="ico line ico-size-sm ico-info-circle colorFgNetral" aria-hidden="true"></i>
+                              <span class="blind">납부완료 안내 툴팁 열기</span>
+                            </button>
+                            <div id="tooltipBoxTop0202" class="layer-tooltip" role="tooltip" aria-hidden="false">
+                              <div class="content-tooltip">
+                                <span class="text">자동대체특별지급 약정계좌에 한하여 <br />출금이 가능합니다.</span>
+                              </div>
+                              <button type="button" class="btn-close">
+                                <i class="ico-close ico-size-sm" aria-hidden="true"></i>
+                                <span class="blind">툴팁 닫기</span>
+                              </button>
+                              <i class="ico-tail-tooltip" aria-hidden="true"></i>
+                            </div>
+                          </div>
+                        </div>
+                      </th>
+                      <td>
+                        <div class="tbl-column">
+                          <div class="tbl-flex">
+                            <div class="box-select wSize-lg">
+                              <button type="button" class="select size-lg" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="selectDropdown01" aria-required="true">
+                                <span class="text">외화보통예금 1010-27330000</span>
+                                <span class="blind">펼침</span>
+                              </button>
+                              <div id="selectDropdown01" class="box-list-select">
+                                <ul class="list-select" role="listbox" aria-label="원화계좌번호 선택 항목 리스트">
+                                  <li class="item-select" role="group" aria-selected="true">
+                                    <span class="btn-item-select"> 외화보통예금 1010-27330000 </span>
+                                  </li>
+                                  <li class="item-select" role="group" aria-selected="false">
+                                    <span class="btn-item-select">1</span>
+                                  </li>
+                                  <li class="item-select" role="group" aria-selected="false">
+                                    <span class="btn-item-select">1</span>
+                                  </li>
+                                  <li class="item-select" role="group" aria-selected="false">
+                                    <span class="btn-item-select">1</span>
+                                  </li>
+                                  <li class="item-select" role="group">
+                                    <button class="btn-item-select">1</button>
+                                  </li>
+                                  <li class="item-select" role="group" aria-selected="false">
+                                    <span class="btn-item-select">1</span>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                            <button type="button" class="btn type-line-secondary size-lg">
+                              <span class="text">인출가능금액조회</span>
+                            </button>
+                          </div>
+                        </div>
+                        <p class="input-guide-text02">
+                          출금가능금액
+                          <strong class="color-fg-primary">USD 21.00</strong>
+                        </p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th><span>외화계좌비밀번호</span></th>
+                      <td>
+                        <div class="tbl-flex">
+                          <div class="clear-type">
+                            <input type="password" id="외화계좌비밀번호" class="input size-lg wSize-md" value="" placeholder="외화계좌비밀번호" aria-label="외화계좌비밀번호" />
+                            <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                              <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                              <span class="blind">닫기</span>
+                            </button>
+                          </div>
+                          <button class="btn-mouse-keypad">
+                            <!-- 키패드 활성화시 is-active 클래스 추가 -->
+                            <i class="ico ico-size-smMd" aria-hidden="true"></i>
+                            <span class="blind">마우스 입력 열기</span>
+                          </button>
+                          <button class="btn-mouse-keypad is-active">
+                            <!-- 키패드 비활성화시 is-active 클래스 삭제 -->
+                            <i class="ico ico-size-smMd" aria-hidden="true"></i>
+                            <span class="blind">마우스 입력 닫기</span>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="bg-box line size-lgXl mt-64">
+                <div class="typeLgSemibold text-center">
+                  결제할 금액 <em class="typeH4 color-fg-primary">10,000.00</em><strong class="typeH4">USD</strong> <span class="typeMd">(적용환율 1,000.00)</span>
+                  <div class="box-tooltip tail-bottom-center">
+                    <button type="button" class="btn type-ghost-neutral size-Xs" aria-describedby="tooltipBoxTop0202">
+                      <i class="ico line ico-size-sm ico-info-circle colorFgNetral" aria-hidden="true"></i>
+                      <span class="blind">납부완료 안내 툴팁 열기</span>
+                    </button>
+                    <div id="tooltipBoxTop0202" class="layer-tooltip" role="tooltip" aria-hidden="false">
+                      <div class="content-tooltip">
+                        <span class="text">특별환율 적용 고객 안내 <br />예시)적용환율 :1,500.00 <br />* 90%의 우대율 적용 또는 <br />* 매매기준율 +1원 적용 </span>
+                      </div>
+                      <button type="button" class="btn-close">
+                        <i class="ico-close ico-size-sm" aria-hidden="true"></i>
+                        <span class="blind">툴팁 닫기</span>
+                      </button>
+                      <i class="ico-tail-tooltip" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </div>
+                <p class="typeMd text-center">결제할 금액은 [결제금액-보증금 결제] 금액에 환율을 적용하여 계산됩니다.</p>
+              </div>
+              <div class="tbl-area">
+                <table class="table-type01">
+                  <caption>
+                    결제대상조회 상세안내 관련 테이블
+                  </caption>
+                  <colgroup>
+                    <col style="width: 160px" />
+                    <col style="width: auto" />
+                    <col style="width: 160px" />
+                    <col style="width: auto" />
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="row">결제금액</th>
+                      <td class="text-right">
+                        <span class="typeMd">1,500,000.00 USD</span>
+                      </td>
+                      <th scope="row">보증금결제 <br />합산 금액</th>
+                      <td class="text-right">
+                        <span class="typeMd">10,000.00</span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="btn-wrap center lg-bot">
+                <button type="button" class="btn type-bg-primary-tint size-xxl">
+                  <span class="text">취소</span>
+                </button>
+                <button type="button" class="btn type-bg-primary size-xxl">
+                  <span class="text">다음</span>
+                </button>
+              </div>
+            </div>
+            <!--[dev]:20261022 새로 추가된 영역-->
+          </div>
+          <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+        </div>
+        <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+      </div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+    <script src="/static/js/ui/swiper.min.js"></script>
+  </body>
+</html>

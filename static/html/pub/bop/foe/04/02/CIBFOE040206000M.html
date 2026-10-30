@@ -5,9 +5,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      뱅킹업무 &gt; 외환 &gt; 해외송금 &gt; 무증빙해외송금 | 수협은행
-    </title>
+    <title>뱅킹업무 &gt; 외환 &gt; 해외송금 &gt; 무증빙해외송금 | 수협은행</title>
     <link rel="stylesheet" href="/static/css/reset.css" />
     <link rel="stylesheet" href="/static/css/layout.css" />
     <link rel="stylesheet" href="/static/css/component.css" />
@@ -17,15 +15,10 @@
 
   <body>
     <div class="wrapper">
-      <div id="header">
-        @@include('static/html/pub/layout/skipNavigation.html')
-        @@include('static/html/pub/layout/header_sub.html')
-      </div>
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
 
       <div id="container" class="container">
-        <div id="leftArea">
-          @@include('static/html/pub/layout/leftArea.html')
-        </div>
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
         <div id="contents">
           <div class="content">
             @@include('static/html/pub/layout/breadcrumb.html')
@@ -34,26 +27,36 @@
                 해외송금(기업송금)
                 <div class="box-steps">
                   <ol class="list-steps">
-                    <li class="item-steps passed" aria-current="step">
+                    <li class="item-steps passed">
+                      <span class="blind">완료된 단계</span>
                       <i class="icon" aria-hidden="true">1</i>
                       <span class="text">1</span>
                     </li>
                     <li class="item-steps passed">
+                      <span class="blind">완료된 단계</span>
                       <i class="icon" aria-hidden="true">2</i>
                       <span class="text">2</span>
                     </li>
                     <li class="item-steps passed">
+                      <span class="blind">완료된 단계</span>
                       <i class="icon" aria-hidden="true">3</i>
                       <span class="text">3</span>
                     </li>
                     <li class="item-steps passed">
+                      <span class="blind">완료된 단계</span>
                       <i class="icon" aria-hidden="true">4</i>
                       <span class="text">4</span>
                     </li>
-                    <li class="item-steps current">
+                    <li class="item-steps current" aria-current="step">
                       <i class="icon" aria-hidden="true">5</i>
-                      <span class="text">송금완료</span>
+                      <span class="text">신청완료</span>
                     </li>
+                    <!--[dev]:20261027 step추가-->
+                    <li class="item-steps">
+                      <i class="icon" aria-hidden="true">6</i>
+                      <span class="text">6</span>
+                    </li>
+                    <!--//[dev]:20261027 step추가-->
                   </ol>
                 </div>
               </h2>
@@ -63,9 +66,7 @@
                 <div class="result-banner">
                   <div class="inner-img"></div>
                   <div class="result-message">
-                    <h4 class="typeH4 color-blueMd">
-                      해외송금(기업송금)이 등록되었습니다.
-                    </h4>
+                    <h4 class="typeH4 color-blueMd">해외송금(기업송금)이 등록되었습니다.</h4>
                   </div>
                 </div>
               </div>
@@ -119,6 +120,21 @@
                         <span class="typeMd">1,000 원</span>
                       </td>
                     </tr>
+                    <!--[dev]:20261027 필드 추가-->
+                    <tr>
+                      <th scope="row">송금목적</th>
+                      <td>
+                        <span class="typeMd"
+                          >무역송금<br />
+                          사전통관(일반수입)방식
+                        </span>
+                      </td>
+                      <th scope="row">중계은행수수료</th>
+                      <td>
+                        <span class="typeMd">송금인부담</span>
+                      </td>
+                    </tr>
+                    <!--//[dev]:20261027 필드 추가-->
                     <tr>
                       <th scope="row">수취인성명</th>
                       <td>
@@ -200,13 +216,25 @@
 
               <!-- 하단 버튼 영역 -->
               <div class="btn-wrap center lg-bot">
-                <button type="button" class="btn type-line-neutral size-xxl">
-                  <span class="text">송금내역조회</span>
-                </button>
+                <!--[dev]:20261027버튼 삭제-->
+                <!--[dev]:20261027버튼 텍스트 수정-->
                 <button type="button" class="btn type-bg-primary size-xxl">
-                  <span class="text">추가송금</span>
+                  <span class="text">서류제출</span>
                 </button>
+                <!--//[dev]:20261027버튼 텍스트 수정-->
               </div>
+              <!--[dev]:20261027 이용안내추가-->
+              <div class="line-box size-xl mt-48">
+                <span class="typeLgSemibold">이용안내</span>
+                <div class="list type-dotted">
+                  <ul>
+                    <li class="typeMd">송금은 영업점에 송금 증빙서류를 제출하고 확인이 이루어진 후에 완료가 됩니다. 송금신청 후 서류를 제출하세요</li>
+                    <li class="typeMd">자금출금은 영업점 송금 처리 시점의 환율(또는 선등록 환율)을 적용하여 등록된 출금요청계좌에서 지급됩니다.</li>
+                    <li class="typeMd">송금내역서 및 계산서는 영업점에서 송금처리가 최종 완료된 이후에 ‘해외송금내역조회‘ 에서 출력 가능합니다.</li>
+                  </ul>
+                </div>
+              </div>
+              <!--//[dev]:20261027 이용안내추가-->
             </div>
           </div>
         </div>

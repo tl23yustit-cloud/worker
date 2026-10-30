@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> 수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/bmg.css" />
+</head>
+
+<body>
+    <div class="wrapper">
+        <div id="header">
+            @@include('static/html/pub/layout/skipNavigation.html')
+            @@include('static/html/pub/layout/header_sub.html')
+        </div>
+
+        <div id="container" class="container">
+            <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+            <div id="contents">
+                <div class="content">
+                    @@include('static/html/pub/layout/breadcrumb.html')
+                    <div class="bmg">
+                        <h2 class="typeH2">
+                            파트너고객등급조회(회원수협)
+                        </h2>
+                        <!-- [dev] 전송처리중 카드 안내박스 - 등록 상태에서 해제 시도 후 전송 처리 상태일 시 -->
+                        <div class="box-lined-icon-text">
+                            <div class="wrap-ico">
+                                <i class="ico laon ico-laon-warning" aria-hidden="true"></i>
+                            </div>
+                            <div class="message">
+                                <b class="type2XlSemibold">
+                                    고객님 죄송합니다.
+                                </b>
+                                <span class="typeLg">
+                                    고객구분코드 검증 결과 오류가 발생하였습니다. <br>
+                                    응답코드: BECOM00007
+                                </span>
+                                <span class="typeLg">
+                                    고객지원센터 1588-1515, 1644-1515(서비스코드 03번)<br>
+                                    장기 미사용 해지는 뱅킹관리->My정보->고객정보관리->서비스정지 해제를 이용하시기 바랍니다.
+                                </span>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+            <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+        </div>
+        <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+
+    <!-- [dev] 임시 스크립트 -->
+    <script>
+        const $btnsCloseBox = document.querySelectorAll('.box-lined-icon-text .btn-close')
+        $btnsCloseBox.forEach(function ($btnCloseBox) {
+            $btnCloseBox.addEventListener('click', function () {
+                const $targetBox = this.closest('.box-lined-icon-text');
+
+                if ($targetBox) {
+                    $targetBox.style.display = 'none';
+                }
+            });
+        })
+    </script>
+</body>
+
+</html>

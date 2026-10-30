@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/van.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
+
+      <div id="container" class="container">
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="van">
+              <h2 class="typeH2">결재요청 내역 조회</h2>
+              <div class="tbl-area">
+                <table class="table-type01">
+                  <caption></caption>
+                  <colgroup>
+                    <col style="width: 160px" />
+                    <col style="width: auto" />
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="row">
+                        <span>구분</span>
+                      </th>
+                      <td colspan="3">
+                        <div class="box-select wSize-lg">
+                          <button type="button" class="select size-lg" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="selectDropdown01" aria-labelledby="label-account" aria-required="true">
+                            <span class="text">전체</span>
+                            <span class="blind">목록 열기</span>
+                          </button>
+                          <div id="selectDropdown01" class="box-list-select">
+                            <ul class="list-select" role="listbox" aria-label="구분 선택 리스트">
+                              <li class="item-select" role="group" aria-selected="true">
+                                <span class="btn-item-select">부분</span>
+                              </li>
+                              <li class="item-select" role="group" aria-selected="false">
+                                <span class="btn-item-select">1</span>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span>조회기간</span>
+                      </th>
+                      <td>
+                        <div class="tbl-column">
+                          <div class="radio-group" role="radiogroup" aria-label="조회기간">
+                            <span class="form-box">
+                              <input type="radio" name="searchPeriod" id="period_03" class="radio-btn" />
+                              <label for="period_03" class="form-label">1주일</label>
+                            </span>
+                            <span class="form-box">
+                              <input type="radio" name="searchPeriod" id="period_04" class="radio-btn" />
+                              <label for="period_04" class="form-label">1개월</label>
+                            </span>
+                            <span class="form-box">
+                              <input type="radio" name="searchPeriod" id="period_05" class="radio-btn" />
+                              <label for="period_05" class="form-label">3개월</label>
+                            </span>
+                            <span class="form-box">
+                              <input type="radio" name="searchPeriod" id="period_06" class="radio-btn" />
+                              <label for="period_06" class="form-label">6개월</label>
+                            </span>
+                          </div>
+
+                          <div class="calendar-wrap">
+                            <!-- 날짜 입력 영역 -->
+                            <div class="input-box">
+                              <input type="text" class="input" placeholder="조회 시작일" aria-label="조회 시작일" value="2026-01-06" />
+                              <button type="button" class="btn">
+                                <i class="ico-calendar ico-size-smMd" aria-hidden="true"></i>
+                                <span class="blind">조회 시작일 달력 열기</span>
+                              </button>
+                            </div>
+                            <span aria-hidden="true">~</span>
+                            <div class="input-box">
+                              <input type="text" class="input" placeholder="조회 종료일" aria-label="조회 종료일" value="2026-01-06" />
+                              <button type="button" class="btn">
+                                <i class="ico-calendar ico-size-smMd" aria-hidden="true"></i>
+                                <span class="blind">조회 종료일 달력 열기</span>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span>조회순서</span>
+                      </th>
+                      <td>
+                        <div class="form-box-wrap" role="radiogroup" aria-label="조회순서">
+                          <span class="form-box">
+                            <input type="radio" name="searchType" id="searchType_01" class="form-radio size-md" checked="" />
+                            <label for="searchType_01" class="form-label">최근 거래내역이 위로</label>
+                          </span>
+                          <span class="form-box">
+                            <input type="radio" name="searchType" id="searchType_02" class="form-radio size-md" />
+                            <label for="searchType_02" class="form-label">과거 거래내역이 위로</label>
+                          </span>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="btn-wrap center sm-mid">
+                <button type="button" class="btn type-bg-neutral size-xl">
+                  <span class="text">조회</span>
+                </button>
+              </div>
+              <div class="tbl-area">
+                <h4 class="typeH4">조회결과</h4>
+                <div class="tbl-head">
+                  <div class="left-area">
+                    <span class="total typeMd">총 <span class="num">$n$</span></span>
+                  </div>
+                  <div class="right-area"><span class="color-fg-secondary typeMd">조회기간 : 2026-06-14 ~ 2026-06-14</span></div>
+                </div>
+                <table class="table-type03">
+                  <caption>
+                    조회결과
+                  </caption>
+                  <colgroup>
+                    <col width="20px" />
+                    <col width="180px" />
+                    <col width="180px" />
+                    <col width="180px" />
+                    <col width="180px" />
+                    <col width="180px" />
+                    <col width="180px" />
+                    <col width="180px" />
+                    <col width="180px" />
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th>선택</th>
+                      <th>거래번호</th>
+                      <th>거래일자</th>
+                      <th>거래시간</th>
+                      <th>전자어음번호</th>
+                      <th>거래종류</th>
+                      <th>총금액</th>
+                      <th>총건수</th>
+                      <th>결재상태</th>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                    <tr>
+                      <td>
+                        <div class="form-box-wrap" role="radiogroup" aria-label="선택">
+                          <span class="form-box">
+                            <input type="radio" name="searchType1" id="searchType_011" class="form-radio size-md" checked="" />
+                            <label for="searchType_011" class="form-label blind">선택</label>
+                          </span>
+                        </div>
+                      </td>
+                      <td><span class="typeMd">000000000</span></td>
+                      <td><span class="typeMd">2026-05-18</span></td>
+                      <td><span class="typeMd">09:15:30</span></td>
+                      <td><span class="typeMd">0000-0000-0000-0000</span></td>
+                      <td><span class="typeMd">이체</span></td>
+                      <td class="text-right">
+                        <span class="typeMd">50,000,000 원</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">1</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">결재완료</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="form-box-wrap" role="radiogroup" aria-label="선택">
+                          <span class="form-box">
+                            <input type="radio" name="searchType1" id="searchType_011" class="form-radio size-md" checked="" />
+                            <label for="searchType_011" class="form-label blind">선택</label>
+                          </span>
+                        </div>
+                      </td>
+                      <td><span class="typeMd">000000000</span></td>
+                      <td><span class="typeMd">2026-05-18</span></td>
+                      <td><span class="typeMd">09:15:30</span></td>
+                      <td><span class="typeMd">0000-0000-0000-0000</span></td>
+                      <td><span class="typeMd">이체</span></td>
+                      <td class="text-right">
+                        <span class="typeMd">50,000,000 원</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">1</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">결재완료</span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <nav class="pagination size-md" aria-label="페이지네이션">
+                <button type="button" class="btn-nav first" disabled="" aria-disabled="true" aria-label="첫 페이지">
+                  <span class="blind">첫 페이지</span>
+                </button>
+                <button type="button" class="btn-nav prev" disabled="" aria-disabled="true" aria-label="이전 페이지">
+                  <span class="blind">이전 페이지</span>
+                </button>
+
+                <ol class="list-pagination">
+                  <li>
+                    <button type="button" class="btn-page active" aria-current="page" aria-label="1페이지" title="현재 페이지">1</button>
+                  </li>
+                  <li>
+                    <button type="button" class="btn-page" aria-label="2페이지">2</button>
+                  </li>
+                  <li>
+                    <button type="button" class="btn-page" aria-label="3페이지">3</button>
+                  </li>
+                  <li>
+                    <button type="button" class="btn-page" aria-label="4페이지">4</button>
+                  </li>
+                  <li>
+                    <button type="button" class="btn-page" aria-label="5페이지">5</button>
+                  </li>
+                </ol>
+
+                <button type="button" class="btn-nav next" aria-label="다음 페이지">
+                  <span class="blind">다음 페이지</span>
+                </button>
+                <button type="button" class="btn-nav last" aria-label="마지막 페이지">
+                  <span class="blind">마지막 페이지</span>
+                </button>
+              </nav>
+              <div class="btn-wrap center lg-bot">
+                <button type="button" class="btn type-bg-primary-tint size-xxl">
+                  <span class="text">상세조회</span>
+                </button>
+                <button type="button" class="btn type-bg-primary size-xxl">
+                  <span class="text">결재상태보기</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
+</html>

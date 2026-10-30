@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>수협은행</title>
+  <link rel="stylesheet" href="/static/css/reset.css" />
+  <link rel="stylesheet" href="/static/css/layout.css" />
+  <link rel="stylesheet" href="/static/css/component.css" />
+  <link rel="stylesheet" href="/static/css/common.css" />
+  <link rel="stylesheet" href="/static/css/inq.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <div id="header">
+      @@include('static/html/pub/layout/skipNavigation.html')
+      @@include('static/html/pub/layout/header_sub.html')
+    </div>
+
+    <div id="container" class="container">
+      <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+      <div id="contents">
+        <div class="content">
+          @@include('static/html/pub/layout/breadcrumb.html')
+          <div class="inq">
+            <button type="button" class="btn type-bg-primary size-md btn-modal" data-target="modal-05">
+              <span class="text">동의 5년경과시</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+    </div>
+    <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+  </div>
+  <script src="/static/js/ui/cib_ui_common.js"></script>
+  <div id="modal-05" class="modal" data-dim="true" data-backdrop-close="false" data-alert="false" data-size="xs"
+    role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc">
+    <div class="modal-wrapper">
+      <!--[dev]:20261020 title삭제-->
+      <!-- <div class="modal-title">        
+        <h4 class="typeH4">안내</h4>
+      </div> -->
+      <!--//[dev]:20261020 title삭제-->
+      <div class="modal-slot">
+        <p class="alert-desc">금융실명법 제4조 제1항에 따라 5년에 <br />한번 금융거래정보 재동의 절차가 필요합니다.<br />
+        최초 동의일로부터 5년이 초과될 경우 <br />기존등록 계좌는 해지처리 됩니다.
+      </p>
+      </div>
+      <div class="modal-footer flex items-center justify-center gap-8">
+        <button type="button" class="btn type-bg-primary-tint size-lg btn-close">
+          <span class="text">다음에<br />
+            (오늘 하루 보지않기)
+          </span>
+        </button>
+        <button type="button" class="btn type-bg-primary size-lg">
+          <span class="text">재동의하기</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

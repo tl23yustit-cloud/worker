@@ -1,0 +1,593 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>수협은행</title>
+  <link rel="stylesheet" href="/static/css/reset.css" />
+  <link rel="stylesheet" href="/static/css/layout.css" />
+  <link rel="stylesheet" href="/static/css/component.css" />
+  <link rel="stylesheet" href="/static/css/common.css" />
+  <link rel="stylesheet" href="/static/css/bop.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <div id="header">
+      @@include('static/html/pub/layout/skipNavigation.html')
+      @@include('static/html/pub/layout/header_sub.html')
+    </div>
+
+    <div id="container" class="container">
+      <div id="leftArea">
+        @@include('static/html/pub/layout/leftArea.html')
+      </div>
+      <div id="contents">
+        <div class="content">
+          @@include('static/html/pub/layout/breadcrumb.html')
+          <div class="bop">
+            <h2 class="typeH2">선결제</h2>
+            <div class="box-tab">
+              <ul class="list-tab-button type-outline" role="tablist" aria-label="탭 이름">
+                <li class="item-tab-button">
+                  <button type="button" class="btn-tab" id="tabBtnTypeOutline01" role="tab"
+                    aria-selected="false" aria-controls="tabPanelTypeOutline01">
+                    <span class="text">당월청구분</span>
+                  </button>
+                </li>
+                <li class="item-tab-button">
+                  <button type="button" class="btn-tab active" title="선택됨" id="tabBtnTypeOutline02" role="tab" aria-selected="true"
+                    aria-controls="tabPanelTypeOutline02">
+                    <span class="text">이용구분</span>
+                  </button>
+                </li>
+                <li class="item-tab-button">
+                  <button type="button" class="btn-tab" id="tabBtnTypeOutline03" role="tab" aria-selected="false"
+                    aria-controls="tabPanelTypeOutline03">
+                    <span class="text">결제당일/연체대금</span>
+                  </button>
+                </li>
+              </ul>
+              <div class="box-tab-content" id="tabPanelTypeOutline01" role="tabpanel"
+                aria-labelledby="tabBtnTypeOutline01" style="display: none">
+                <div class="tbl-area">
+                  <div class="tbl-head">
+                    <div class="right-area">
+                      <span class="required typeMd">필수 항목</span>
+                    </div>
+                  </div>
+                  <table class="table-type01">
+                    <caption>조회구분, 사업장명, 조회기간에 대한 구성 테이블입니다.</caption>
+                    <colgroup>
+                      <col>
+                      <col>
+                    </colgroup>
+                    <tbody>
+                      <tr>
+                        <th scope="row">
+                          <span class="required">조회구분</span>
+                        </th>
+                        <td>
+                          <div class="form-box-wrap" role="radiogroup" aria-label="조회구분">
+                            <span class="form-box">
+                              <input type="radio" name="searchType" id="searchType_02" class="form-radio size-md"
+                                checked="">
+                              <label for="searchType_02" class="form-label">사업장</label>
+                            </span>
+                            <span class="form-box">
+                              <input type="radio" name="searchType" id="searchType_03" class="form-radio size-md">
+                              <label for="searchType_03" class="form-label">카드</label>
+                            </span>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>
+                          <span class="required">사업장명</span>
+                        </th>
+                        <td colspan="3">
+                          <div class="tbl-column">
+                            <div class="tbl-flex">
+                              <input type="text" id="userDeptInput" class="input size-lg wSize-md" value=""
+                                placeholder="사업장명을 검색하세요" aria-label="사업장명">
+                              <button type="button" class="btn type-line-secondary size-lg">
+                                <span class="text">검색</span>
+                              </button>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">
+                          <span>조회기준일</span>
+                        </th>
+                        <td>
+                          <div class="calendar-wrap">
+                            <div class="input-box">
+                              <input type="text" class="input" placeholder="조회기준일" aria-label="조회기준일"
+                                value="2026-01-06">
+                              <button type="button" class="btn">
+                                <i class="ico-calendar ico-size-smMd" aria-hidden="true"></i>
+                                <span class="blind">조회기준일 달력 열기</span>
+                              </button>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="btn-wrap center sm-mid">
+                  <button type="button" class="btn type-line-neutral size-xl">
+                    <span class="text">초기화</span>
+                  </button>
+                  <button type="button" class="btn type-bg-neutral size-xl">
+                    <span class="text">조회</span>
+                  </button>
+                </div>
+                <div class="tbl-area">
+                  <div class="tbl-head">
+                    <h4 class="typeH4">조회결과</h4>
+                    <div class="right-area">
+                      <span class="color-fg-secondary typeMd">(합계금액은 미청구원금이 제외된 금액입니다)</span>
+                    </div>
+                  </div>
+
+                  <table class="table-type01">
+                    <caption>총 이용금액에 대한 구성 테이블입니다.</caption>
+                    <colgroup>
+                      <col style="width: 160px">
+                      <col style="width: 368px">
+                      <col style="width: 160px">
+                      <col style="width: 368px">
+                    </colgroup>
+                    <tbody>
+                      <tr>
+                        <th scope="row">조회기준일</th>
+                        <td>
+                          <span class="typeMd">2026-07-01</span>
+                        </td>
+                        <th scope="row">결제예정일</th>
+                        <td>
+                          <span class="typeMd">23일</span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">사업장명</th>
+                        <td colspan="3">
+                          <span class="typeMd">일도상사</span>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <table class="table-type03">
+                    <caption>NO, 카드상품명, 카드번호, 처리결과, 실패사유에 대한 구성 테이블입니다.</caption>
+                    <colgroup>
+                      <col style="width: auto">
+                      <col style="width: auto">
+                      <col style="width: auto">
+                      <col style="width: auto">
+                      <col style="width: auto">
+                      <col style="width: auto">
+                      <col style="width: auto">
+                    </colgroup>
+                    <thead>
+                      <tr>
+                        <th scope="col" colspan="2">이용구분</th>
+                        <th scope="col">원금</th>
+                        <th scope="col">수수료</th>
+                        <th scope="col">이자</th>
+                        <th scope="col">합계</th>
+                        <th scope="col">미청구원금</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td colspan="2">
+                          <span class="typeMd">일시불</span>
+                        </td>
+                        <td class="text-right">
+                          <span class="typeMd">2,417,506 원</span>
+                        </td>
+                        <td class="text-right">
+                          <span class="typeMd">0 원</span>
+                        </td>
+                        <td class="text-right">
+                          <span class="typeMd">0 원</span>
+                        </td>
+                        <td class="text-right">
+                          <span class="typeMd">2,417,506 원</span>
+                        </td>
+                        <td class="text-right">
+                          <span class="typeMd">2,417,506 원</span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td colspan="2" class="tbl-bll-none">
+                          <span class="typeMd">할부</span>
+                        </td>
+                        <td class="text-right">
+                          <span class="typeMd">2,417,506 원</span>
+                        </td>
+                        <td class="text-right">
+                          <span class="typeMd">0 원</span>
+                        </td>
+                        <td class="text-right">
+                          <span class="typeMd">0 원</span>
+                        </td>
+                        <td class="text-right">
+                          <span class="typeMd">2,417,506 원</span>
+                        </td>
+                        <td class="text-right">
+                          <span class="typeMd">2,417,506 원</span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td colspan="2" class="tbl-bll-none">
+                          <span class="typeMd">단기카드대출<br />(현금서비스)</span>
+                        </td>
+                        <td class="text-right">
+                          <span class="typeMd">2,417,506 원</span>
+                        </td>
+                        <td class="text-right">
+                          <span class="typeMd">0 원</span>
+                        </td>
+                        <td class="text-right">
+                          <span class="typeMd">0 원</span>
+                        </td>
+                        <td class="text-right">
+                          <span class="typeMd">2,417,506 원</span>
+                        </td>
+                        <td class="text-right">
+                          <span class="typeMd">2,417,506 원</span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td rowspan="2" class="tbl-bll-none">
+                          <span class="typeMd">리볼빙</span>
+                        </td>
+                        <td>
+                          <span class="typeMd">일시불</span>
+                        </td>
+                        <td class="text-right">
+                          <span class="typeMd">2,417,506 원</span>
+                        </td>
+                        <td class="text-right">
+                          <span class="typeMd">0 원</span>
+                        </td>
+                        <td class="text-right">
+                          <span class="typeMd">0 원</span>
+                        </td>
+                        <td class="text-right">
+                          <span class="typeMd">2,417,506 원</span>
+                        </td>
+                        <td class="text-right">
+                          <span class="typeMd">2,417,506 원</span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <span class="typeMd">단기카드대출<br />(현금서비스)</span>
+                        </td>
+                        <td class="text-right">
+                          <span class="typeMd">2,417,506 원</span>
+                        </td>
+                        <td class="text-right">
+                          <span class="typeMd">0 원</span>
+                        </td>
+                        <td class="text-right">
+                          <span class="typeMd">0 원</span>
+                        </td>
+                        <td class="text-right">
+                          <span class="typeMd">2,417,506 원</span>
+                        </td>
+                        <td class="text-right">
+                          <span class="typeMd">2,417,506 원</span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td colspan="2" class="tbl-bll-none">
+                          <span class="typeMd">장기카드대출<br />(카드론)</span>
+                        </td>
+                        <td class="text-right">
+                          <span class="typeMd">2,417,506 원</span>
+                        </td>
+                        <td class="text-right">
+                          <span class="typeMd">0 원</span>
+                        </td>
+                        <td class="text-right">
+                          <span class="typeMd">0 원</span>
+                        </td>
+                        <td class="text-right">
+                          <span class="typeMd">2,417,506 원</span>
+                        </td>
+                        <td class="text-right">
+                          <span class="typeMd">2,417,506 원</span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td colspan="2" class="tbl-bll-none">
+                          <span class="typeMd">연회비/SMS</span>
+                        </td>
+                        <td class="text-right">
+                          <span class="typeMd">2,417,506 원</span>
+                        </td>
+                        <td class="text-right">
+                          <span class="typeMd">0 원</span>
+                        </td>
+                        <td class="text-right">
+                          <span class="typeMd">0 원</span>
+                        </td>
+                        <td class="text-right">
+                          <span class="typeMd">2,417,506 원</span>
+                        </td>
+                        <td class="text-right">
+                          <span class="typeMd">2,417,506 원</span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td colspan="2" class="tbl-bll-none">
+                          <span class="typeMd">합계</span>
+                        </td>
+                        <td class="text-right">
+                          <span class="typeMd">2,417,506 원</span>
+                        </td>
+                        <td class="text-right">
+                          <span class="typeMd">0 원</span>
+                        </td>
+                        <td class="text-right">
+                          <span class="typeMd">0 원</span>
+                        </td>
+                        <td class="text-right">
+                          <span class="typeMd">2,417,506 원</span>
+                        </td>
+                        <td class="text-right">
+                          <span class="typeMd">2,417,506 원</span>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <table class="table-type01">
+                    <caption>총 이용금액에 대한 구성 테이블입니다.</caption>
+                    <colgroup>
+                      <col style="width: 160px">
+                      <col style="width: 368px">
+                    </colgroup>
+                    <tbody>
+                      <tr>
+                        <th scope="row">선결제 금액합계</th>
+                        <td class="text-right">
+                          <span class="typeMd">2,425,350 원</span>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="btn-wrap center lg-bot">
+                  <button type="button" class="btn type-bg-primary size-xxl">
+                    <span class="text">다음</span>
+                  </button>
+                </div>
+                <div class="line-box size-xl mt-48">
+                  <span class="typeLgSemibold">이용안내</span>
+                  <div class="list type-dotted">
+                    <ul>
+                      <li class="typeMd">
+                        당월청구금액의 대상내역을 조회하실 수 있습니다.
+                      </li>
+                      <li class="typeMd">
+                        사업장 단위의 선결제는 청구결제단위별 단건으로만 선결제 가능합니다.(사업장 합산 금액이 아닙니다.)
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="box-tab-content active" id="tabPanelTypeOutline02" role="tabpanel"
+                aria-labelledby="tabBtnTypeOutline02" style="display: block">
+                <div class="tbl-area">
+                  <div class="tbl-head">
+                    <div class="right-area">
+                      <span class="required typeMd">필수 항목</span>
+                    </div>
+                  </div>
+                  <table class="table-type01">
+                    <caption>조회구분, 사업장명, 조회기간에 대한 구성 테이블입니다.</caption>
+                    <colgroup>
+                      <col>
+                      <col>
+                    </colgroup>
+                    <tbody>
+                      <tr>
+                        <th scope="row">
+                          <span class="required">조회구분</span>
+                        </th>
+                        <td>
+                          <div class="form-box-wrap" role="radiogroup" aria-label="조회구분">
+                            <span class="form-box">
+                              <input type="radio" name="searchType" id="searchType_02" class="form-radio size-md"
+                                checked="">
+                              <label for="searchType_02" class="form-label">사업장</label>
+                            </span>
+                            <span class="form-box">
+                              <input type="radio" name="searchType" id="searchType_03" class="form-radio size-md">
+                              <label for="searchType_03" class="form-label">카드</label>
+                            </span>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">
+                          <span class="required">결제구분</span>
+                        </th>
+                        <td>
+                          <div class="form-box-wrap" role="radiogroup" aria-label="결제구분">
+                            <span class="form-box">
+                              <input type="radio" name="searchType1" id="searchType_021" class="form-radio size-md"
+                                checked="">
+                              <label for="searchType_021" class="form-label">일괄</label>
+                            </span>
+                            <span class="form-box">
+                              <input type="radio" name="searchType1" id="searchType_031" class="form-radio size-md">
+                              <label for="searchType_031" class="form-label">건별</label>
+                            </span>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>
+                          <span class="required">사업장명</span>
+                        </th>
+                        <td colspan="3">
+                          <div class="tbl-column">
+                            <div class="tbl-flex">
+                              <input type="text" id="userDeptInput" class="input size-lg wSize-md" value=""
+                                placeholder="사업장명을 검색하세요" aria-label="사업장명">
+                              <button type="button" class="btn type-line-secondary size-lg">
+                                <span class="text">검색</span>
+                              </button>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="btn-wrap center sm-mid">
+                  <button type="button" class="btn type-bg-neutral size-xl">
+                    <span class="text">조회</span>
+                  </button>
+                </div>
+                <div class="tbl-area">
+                  <div class="tbl-head">
+                    <h4 class="typeH4">조회결과</h4>
+                    <div class="right-area">
+                      <span class="color-fg-secondary typeMd">(합계금액은 미청구원금이 제외된 금액입니다)</span>
+                    </div>
+                  </div>
+
+                  <table class="table-type01">
+                    <caption>총 이용금액에 대한 구성 테이블입니다.</caption>
+                    <colgroup>
+                      <col style="width: 160px">
+                      <col style="width: 368px">
+                      <col style="width: 160px">
+                      <col style="width: 368px">
+                    </colgroup>
+                    <tbody>
+                      <tr>
+                        <th scope="row">조회기준일</th>
+                        <td>
+                          <span class="typeMd">2026-07-01</span>
+                        </td>
+                        <th scope="row">결제예정일</th>
+                        <td>
+                          <span class="typeMd">23일</span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">사업장명</th>
+                        <td colspan="3">
+                          <span class="typeMd">일도상사</span>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <!--일괄처리 선택시 노출-->
+                  <table class="table-type03 mt-8">
+                    <caption>카드상품명, 카드번호, 해제일, 서명여부에 대한 구성 테이블입니다.</caption>
+                    <colgroup>
+                      <col width="120px">
+                      <col width="120px">
+                      <col width="100px">
+                      <col width="100px">
+                    </colgroup>
+                    <thead>
+                      <tr>
+                        <th>카드상품명</th>
+                        <th>카드번호</th>
+                        <th>해제일</th>
+                        <th>서명여부</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><span class="typeMd">슈퍼프라임신용카드</span></td>
+                        <td><span class="typeMd">1239-12**-****-4458</span></td>
+                        <td><span class="typeMd">2026-06-16</span></td>
+                        <td><span class="typeMd">서명함</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <!--//일괄처리 선택시 노출-->
+                </div>
+                <!--일괄처리 선택시 노출-->
+                <div class="tbl-area">
+                  <div class="wrap-board-grid">
+                    <!-- [dev] 그리드 -->
+                    <div class="board-grid">
+                      <!-- [dev] 그리드 컨텐츠 영역 : 작업 시 삭제-->
+                      <i style="
+                            display: block;
+                            border: var(--borderWidthMd) solid
+                              var(--colorBorderBase);
+                            border-radius: var(--radiusMd);
+                            padding: var(--spacing2Xl);
+                          ">임시 그리드 영역</i>
+                      <!-- //[dev] 그리드 컨텐츠 영역 : 작업 시 삭제 -->
+                    </div>
+                    <!-- //[dev] 그리드 -->
+                  </div>
+                </div>
+                <table class="table-type01">
+                  <caption>선결제 금액합계에 대한 구성 테이블입니다.</caption>
+                  <colgroup>
+                    <col style="width: 160px">
+                    <col style="width: 368px">
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="row">선결제 금액합계</th>
+                      <td class="text-right">
+                        <span class="typeMd">2,425,350 원</span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>                
+                <!--//일괄처리 선택시 노출-->
+                <div class="btn-wrap center lg-bot">
+                  <button type="button" class="btn type-bg-primary size-xxl">
+                    <span class="text">다음</span>
+                  </button>
+                </div>
+                <div class="line-box size-xl mt-48">
+                  <span class="typeLgSemibold">이용안내</span>
+                  <div class="list type-dotted">
+                    <ul>
+                      <li class="typeMd">
+                        당월청구금액의 대상내역을 조회하실 수 있습니다.
+                      </li>
+                      <li class="typeMd">
+                        사업장 단위의 선결제는 청구결제단위별 단건으로만 선결제 가능합니다.(사업장 합산 금액이 아닙니다.)
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="box-tab-content" id="tabPanelTypeOutline03" role="tabpanel"
+                aria-labelledby="tabBtnTypeOutline03" style="display: none">
+                tab3
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+    </div>
+    <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+  </div>
+  <script src="/static/js/ui/cib_ui_common.js"></script>
+</body>
+
+</html>
+<script></script>

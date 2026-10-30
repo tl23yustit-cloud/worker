@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>수협은행</title>
+  <link rel="stylesheet" href="/static/css/reset.css" />
+  <link rel="stylesheet" href="/static/css/layout.css" />
+  <link rel="stylesheet" href="/static/css/component.css" />
+  <link rel="stylesheet" href="/static/css/common.css" />
+  <link rel="stylesheet" href="/static/css/cmn.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <div id="header">
+      @@include('static/html/pub/layout/skipNavigation.html')
+      @@include('static/html/pub/layout/header_sub.html')
+    </div>
+
+    <div id="container" class="container">
+      <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+      <div id="contents">
+        <div class="content">
+          @@include('static/html/pub/layout/breadcrumb.html')
+          <div class="cmn">
+            <button type="button" class="btn type-bg-primary size-md btn-modal" data-target="modal-05">
+              <span class="text">외환 해외송금 입력안내</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+    </div>
+    <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+  </div>
+  <script src="/static/js/ui/cib_ui_common.js"></script>
+  <div id="modal-05" class="modal" data-dim="true" data-backdrop-close="false" data-alert="false" data-size="sm"
+    role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc">
+    <div class="modal-wrapper">
+      <div class="modal-title">
+        <h4 class="typeH4">수협은행 안내문</h4>
+      </div>
+      <div class="modal-slot">
+        <div class="list type-num">
+          <ul>
+            <li class="typeMd color-fg-base">
+              변경 시행일
+              <p class="typeMd">2009년 3월 1일 (수)</p>
+            </li>
+            <li class="typeMd  color-fg-base">
+              변경 내용
+              <p class="typeMd">2006년 3월 1일부터 사전에 등록한 계좌에 한하여 『간편조회서비스』 이용가능</p>
+            </li>
+            <li class="typeMd  color-fg-base">
+              간편조회서비스 등록 · 삭제 방법
+              <p class="typeMd">가. 인터넷 뱅킹 홈페이지(인터넷뱅킹 가입자)<br />
+                <span class="ml-20">개인 및 법인 : 인터넷뱅킹 로그인 후 My정보 > 계좌정보관리 > 간편조회서비스 등록·삭제</span>
+              </p>
+              <p class="typeMd">나. 영업점 신청<br />
+                <span class="ml-20">개인 : 본인이 신분증 지참하여 방문<br /></span>
+                <span class="ml-20">법인 : 아래 서류를 지참하여 방문<br /></span>
+                <span class="ml-20">대표자 본인 신청시 : 신분증, 사업자등록증, 법인인감, 법인인감증명서<br /></span>
+                <span class="ml-20">대리인 신청시 : 사업자등록증, 법인인감, 법인인감증명서, 위임장, 대리인 신분증</span>
+
+              </p>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <button type="button" class="ico btn-close" aria-label="모달 닫기">
+        <i class="ico-close ico-size-smMd" aria-hidden="true"></i>
+        <span class="blind">닫기</span>
+      </button>
+    </div>
+  </div>
+</body>
+
+</html>

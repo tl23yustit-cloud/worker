@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/crd.css" />
+</head>
+
+<body>
+    <div class="wrapper">
+        <div id="header">
+            @@include('static/html/pub/layout/skipNavigation.html')
+            @@include('static/html/pub/layout/header_sub.html')
+        </div>
+
+        <div id="container" class="container">
+            <div id="leftArea">
+                @@include('static/html/pub/layout/leftArea.html')
+            </div>
+            <div id="contents">
+                <div class="content">
+                    @@include('static/html/pub/layout/breadcrumb.html')
+                    <div class="crd">
+                        <h2 class="typeH2">이용한도변경</h2>
+                        <div class="tbl-area">
+                            <div class="tbl-head">
+                                <div class="right-area">
+                                    <span class="required typeMd">필수 항목</span>
+                                </div>
+                            </div>
+                            <table class="table-type01">
+                                <caption></caption>
+                                <colgroup>
+                                    <col style="width: 160px" />
+                                    <col style="width: auto" />
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">
+                                            <span class="required">조회구분</span>
+                                        </th>
+                                        <td>
+                                            <div class="form-box-wrap" role="radiogroup" aria-label="조회구분">
+                                                <span class="form-box">
+                                                    <input type="radio" name="searchTypeB" id="searchTypeB_02"
+                                                        class="form-radio size-md">
+                                                    <label for="searchTypeB_02" class="form-label">사업자한도</label>
+                                                </span>
+                                                <span class="form-box">
+                                                    <input type="radio" name="searchTypeB" id="searchTypeB_03"
+                                                        class="form-radio size-md" checked="">
+                                                    <label for="searchTypeB_03" class="form-label">사업장한도</label>
+                                                </span>
+                                                <span class="form-box">
+                                                    <input type="radio" name="searchTypeB" id="searchTypeB_04"
+                                                        class="form-radio size-md">
+                                                    <label for="searchTypeB_04" class="form-label">카드한도</label>
+                                                </span>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <th scope="row">
+                                            <span class="required">사업장명</span>
+                                        </th>
+                                        <td>
+                                            <div class="tbl-flex">
+                                                <input type="text" class="input size-lg wSize-md"
+                                                    id="businessNameInputA" title="사업장명" placeholder="검색하세요" value="">
+                                                <button type="button" class="btn type-line-secondary size-lg">
+                                                    <span class="text">검색</span>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="btn-wrap center sm-mid">
+                        <button type="button" class="btn type-line-neutral size-xxl">
+                            <span class="text">초기화</span>
+                        </button>
+                        <button type="button" class="btn type-bg-primary size-xxl">
+                            <span class="text">조회</span>
+                        </button>
+                    </div>
+
+                    <div class="tbl-area">
+                        <h4 class="typeH4">조회결과</h4>
+                        <table class="table-type03">
+                            <caption>선택, NO, 사업장명 , 사업자한도, 사업장 사용금액, 사업장 잔여한도에 대한 구성 테이블입니다.</caption>
+                            <colgroup>
+                                <col style="width: 80px">
+                                <col style="width: 80px">
+                                <col style="width: auto">
+                                <col style="width: auto">
+                                <col style="width: auto">
+                                <col style="width: auto">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <!-- <th scope="col"><span>선택</span></th> -->
+                                    <th scope="col">
+                                        <span><span class="form-box">
+                                                <input type="checkbox" name="전체선택" id="comp-ao11vy"
+                                                    class="form-checkbox size-lg"> </span></span>
+                                    </th>
+                                    <th scope="col"><span>NO</span></th>
+                                    <th scope="col"><span>사업장명 </span></th>
+                                    <th scope="col"><span>사업자한도</span></th>
+                                    <th scope="col"><span>사업장 사용금액</span></th>
+                                    <th scope="col"><span>사업장 잔여한도</span></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <span class="form-box">
+                                            <input type="checkbox" name="" id="comp-ao11vy"
+                                                class="form-checkbox size-lg">
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <span class="typeMd">1</span>
+                                    </td>
+                                    <td>
+                                        <span class="typeMd">수협A</span>
+                                    </td>
+                                    <td class="text-right">
+                                        <span class="typeMd">50,000,000 원<br />20,000 USD</span>
+                                    </td>
+                                    <td class="text-right">
+                                        <span class="typeMd">15,000,000 원 <br />0 USD</span>
+                                    </td>
+                                    <td class="text-right">
+                                        <span class="typeMd">35,000,000 원 <br />0 USD</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="form-box">
+                                            <input type="checkbox" name="" id="comp-ebavvg"
+                                                class="form-checkbox size-lg">
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <span class="typeMd">2</span>
+                                    </td>
+                                    <td>
+                                        <span class="typeMd">일이삼사오육칠팔구십</span>
+                                    </td>
+                                    <td class="text-right">
+                                        <span class="typeMd">50,000,000 원<br />20,000 USD</span>
+                                    </td>
+                                    <td class="text-right">
+                                        <span class="typeMd">15,000,000 원 <br />0 USD</span>
+                                    </td>
+                                    <td class="text-right">
+                                        <span class="typeMd">35,000,000 원 <br />0 USD</span>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                    <div class="btn-wrap center lg-bot">
+                        <button type="button" class="btn type-bg-primary size-xxl">
+                            <span class="text">한도변경</span>
+                        </button>
+                    </div>
+
+                    <div class="line-box size-xl mt-48">
+                        <span class="typeLgSemibold">이용안내</span>
+                        <div class="list type-dotted">
+                            <ul>
+                                <li class="typeMd">
+                                    법인/개인사업자 사업자한도 증액은 보증인 동의, 서류 제출 후 영업점 심사를 통해 한도 변경이 됩니다.
+                                </li>
+                                <li class="typeMd">
+                                    사업법인/개인사업자 사업자한도 감액, 사업장한도과 카드한도 증액/감액은 서류 제출없이 정해진 한도 내 변경 가능합니다.
+                                </li>
+                                <li class="typeMd">
+                                    장한도와 카드한도는 서류제출 및 영업점 방문 없이 정해진 한도 내 증액/감액 변경 가능합니다.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+    </div>
+    <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+</body>
+
+</html>

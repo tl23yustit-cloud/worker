@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="/static/css/layout.css" />
   <link rel="stylesheet" href="/static/css/component.css" />
   <link rel="stylesheet" href="/static/css/common.css" />
-  <link rel="stylesheet" href="/static/css/bop.scss" />
+  <link rel="stylesheet" href="/static/css/bop.css" />
 </head>
 
 <body>
@@ -33,7 +33,6 @@
                 <caption>
                   해지예상조회 테이블
                 </caption>
-                <!-- [수정] 20260907 col width 값 수정  -->
                 <colgroup>
                   <col style="width: 160px" />
                   <col style="width: auto" />
@@ -51,7 +50,8 @@
                           <span class="blind">목록 열기</span>
                         </button>
                         <div id="selectDropdown01" class="box-list-select">
-                          <ul class="list-select" role="listbox" aria-label="수취인 계좌번호 선택 리스트">
+                          <!--[dev]:20261026 aria-label 내용수정-->
+                          <ul class="list-select" role="listbox" aria-label="계좌번호 선택 리스트">
                             <li class="item-select" role="option" aria-selected="true">
                               <span class="form-box">0000-0000-0000 (기업운전일반자금대출)</span>
                             </li>
@@ -64,7 +64,9 @@
                     </td>
                   </tr>
                   <tr>
-                    <th scope="row">상환예정일자</th>
+                    <!--[dev]:20261026 텍스트 수정-->
+                    <th scope="row">해지예상일자</th>
+                    <!--//[dev]:20261026 텍스트 수정-->
                     <td>
                       <div class="tbl-column">
                         <div class="calendar-wrap">
@@ -88,13 +90,13 @@
                       <div class="box-select wSize-lg">
                         <button type="button" class="select size-lg" role="combobox" aria-expanded="false"
                           aria-haspopup="listbox" aria-controls="selectDropdown01" aria-labelledby="currency-code">
-                          <span class="text">0000-0000-0000 (기업운전일반자금대출)</span>
+                          <span class="text">USD - 미국달러</span>
                           <span class="blind">목록 열기</span>
                         </button>
                         <div id="selectDropdown01" class="box-list-select">
                           <ul class="list-select" role="listbox" aria-label="통화코드 선택 리스트">
                             <li class="item-select" role="option" aria-selected="true">
-                              <span class="form-box">0000-0000-0000 (기업운전일반자금대출)</span>
+                              <span class="form-box">USD - 미국달러</span>
                             </li>
                             <li class="item-select" role="option" aria-selected="false">
                               <span class="form-box">1</span>
@@ -176,7 +178,7 @@
                     <th scope="row">총납입회차</th>
                     <td>
                       <span class="typeMd">00회</span>
-                    </td>                    
+                    </td>
                   </tr>
                   <tr>
                     <th scope="row">상품명</th>
@@ -204,7 +206,7 @@
                       <span class="typeMd">USD 0.00</span>
                     </td>
                     <th scope="row">②세전이자(원화)</th>
-                   <td class="text-right">
+                    <td class="text-right">
                       <span class="typeMd">98원</span>
                     </td>
                   </tr>

@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/aut.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">
+        @@include('static/html/pub/layout/skipNavigation.html')
+        @@include('static/html/pub/layout/header_sub.html')
+      </div>
+
+      <div id="container" class="container">
+        <div id="leftArea">
+          @@include('static/html/pub/layout/leftArea.html')
+        </div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="aut">
+              <h2 class="typeH2">
+                인증서 폐기
+                <div class="box-steps">
+                  <ol class="list-steps">
+                    <li class="item-steps current" aria-current="step">
+                      <i class="icon" aria-hidden="true">1</i>
+                      <span class="text">인증서 선택 / 사용자 정보 입력 </span>
+                    </li>
+                    <li class="item-steps">
+                      <i class="icon" aria-hidden="true">2</i>
+                    </li>
+                    <li class="item-steps">
+                      <i class="icon" aria-hidden="true">3</i>
+                    </li>
+                  </ol>
+                </div>
+              </h2>
+
+              <div class="tbl-area">
+                <h4 class="typeH4">사용자 정보입력</h4>
+                <div class="list type-dotted mt-12">
+                  <ul>
+                    <li class="typeMd">
+                      폐기 – 인증서 사용을 원하지 않는 고객님께서 이용하실 수
+                      있습니다.
+                    </li>
+                    <li class="typeMd">
+                      효력회복 – 효력정지된 인증서에 대해 효력회복을 원하시는
+                      고객님께서 이용하실 수 있습니다.
+                    </li>
+                    <li class="typeMd">
+                      효력정지 – 일정기간 인증서의 사용을 정지하고자 하는
+                      고객님께서 이용하실 수 있습니다.
+                    </li>
+                  </ul>
+                </div>
+                <table class="table-type01">
+                  <caption>
+                    승인자(결재자) ID, 사업자등록번호에 대한 구성 테이블입니다.
+                  </caption>
+                  <colgroup>
+                    <col style="width: 160px" />
+                    <col style="width: auto" />
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="row">
+                        <span class="required"
+                          ><label for="input-zav1xd"
+                            >승인자(결재자) ID
+                          </label></span
+                        >
+                        <div class="box-tooltip tail-bottom-center">
+                          <button
+                            type="button"
+                            class="btn type-ghost-neutral size-Xs active"
+                            aria-describedby="tooltipBoxTop0202"
+                          >
+                            <i
+                              class="ico line ico-size-sm ico-info-circle colorFgNetral"
+                              aria-hidden="true"
+                            ></i>
+                            <span class="blind">납부완료 안내 툴팁 열기</span>
+                          </button>
+                          <div
+                            id="tooltipBoxTop0202"
+                            class="layer-tooltip"
+                            role="tooltip"
+                            aria-hidden="false"
+                          >
+                            <div class="content-tooltip">
+                              <span class="text">ID는 5~10자리 입력 </span>
+                            </div>
+                            <button type="button" class="btn-close">
+                              <i
+                                class="ico-close ico-size-sm"
+                                aria-hidden="true"
+                              ></i>
+                              <span class="blind">툴팁 닫기</span>
+                            </button>
+                            <i class="ico-tail-tooltip" aria-hidden="true"></i>
+                          </div>
+                        </div>
+                      </th>
+                      <td>
+                        <div class="tbl-flex">
+                          <input
+                            type="text"
+                            id="input-zav1xd"
+                            class="input size-lg wSize-md"
+                            aria-label="사용자 ID 입력"
+                            placeholder="입력해주세요"
+                          />
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span class="required">사업자등록번호</span>
+                      </th>
+                      <td>
+                        <div class="tbl-flex">
+                          <input
+                            type="text"
+                            class="input size-lg wSize-smMd"
+                            aria-label="사업자등록번호 입력"
+                            placeholder="3자리 입력"
+                          />
+                          -
+                          <input
+                            type="text"
+                            class="input size-lg wSize-smMd"
+                            aria-label="사업자등록번호 입력"
+                            placeholder="2자리 입력"
+                          />
+                          -
+                          <input
+                            type="text"
+                            class="input size-lg wSize-smMd"
+                            aria-label="사업자등록번호 입력"
+                            placeholder="5자리 입력"
+                          />
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span class="required"
+                          ><label for="input-tfnmxn">이름</label></span
+                        >
+                      </th>
+                      <td>
+                        <input
+                          type="text"
+                          id="input-tfnmxn"
+                          class="input size-lg wSize-md"
+                          aria-label="이름 입력"
+                          placeholder="입력해주세요"
+                        />
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="btn-wrap center lg-bot">
+                <button type="button" class="btn type-bg-primary-tint size-xxl">
+                  <span class="text">취소</span>
+                </button>
+                <button type="button" class="btn type-bg-primary size-xxl">
+                  <span class="text">다음</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
+</html>
+<script></script>

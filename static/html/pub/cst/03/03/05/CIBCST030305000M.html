@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>수협은행</title>
+        <link rel="stylesheet" href="/static/css/reset.css" />
+        <link rel="stylesheet" href="/static/css/layout.css" />
+        <link rel="stylesheet" href="/static/css/component.css" />
+        <link rel="stylesheet" href="/static/css/common.css" />
+        <link rel="stylesheet" href="/static/css/cst.css" />
+    </head>
+    <body>
+        <div class="wrapper">
+            <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
+            <div id="container" class="container">
+                <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+                <div id="contents">
+                    <div class="content">
+                        @@include('static/html/pub/layout/breadcrumb.html')
+                        <div class="cst">
+                            <h2 class="typeH2">인감/통장분실신고</h2>
+                            <div class="result-box">
+                                <div class="result-banner">
+                                    <div class="inner-img type-warning"></div>
+                                    <div class="result-message">
+                                        <h4 class="typeH4 color-blueMd">
+                                            고객님 죄송합니다.
+                                            <br />
+                                            계좌번호 입력 오류 입니다. 계좌번호를 정확히 입력하시기 바랍니다.
+                                        </h4>
+                                        <div class="result-deco-box">
+                                            <p class="typeLgMedium color-fg-error">응답코드 : BEEEFS00730</p>
+                                            <p class="typeMd color-fg-tertiary">더 궁금하신 사항이 있으시면 아래 고객지원센터로 연락바랍니다.</p>
+                                            <p class="typeMd color-fg-tertiary">TEL : 1588-1515, 1644-1515(서비스코드 03번)</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="btn-wrap center lg-bot mb-48">
+                                <button type="button" class="btn type-bg-primary-tint size-xxl">
+                                    <span class="text">닫기</span>
+                                </button>
+                            </div>
+                            <div class="tbl-area">
+                                <table class="table-type01 fixed">
+                                    <caption>인감/통장 분실신고</caption>
+                                    <colgroup>
+                                        <col style="width: 180px" />
+                                        <col />
+                                    </colgroup>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">
+                                                <span class="blind">필수</span>
+                                                <span class="required">계좌번호</span>
+                                            </th>
+                                            <td>
+                                                <div class="tbl-flex">
+                                                    <div class="clear-type">
+                                                        <input type="text" id="userDeptInput" class="input size-lg wSize-md" value="" placeholder="입력해주세요" aria-label="계좌번호" />
+                                                        <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                                                            <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                                                            <span class="blind">닫기</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">
+                                                <span class="blind">필수</span>
+                                                <span class="required">사고구분</span>
+                                            </th>
+                                            <td>
+                                                <div class="box-select wSize-md">
+                                                    <button type="button" class="select size-lg" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="selectDropdownTypeB" title="사고구분 선택">
+                                                        <span class="text">인감</span>
+                                                        <span class="blind">펼침</span>
+                                                    </button>
+                                                    <div id="selectDropdownTypeB" class="box-list-select">
+                                                        <ul class="list-select" role="listbox" aria-label="사고구분 리스트">
+                                                            <li class="item-select" role="option">
+                                                                <button type="button" class="btn-item-select">인감</button>
+                                                            </li>
+                                                            <li class="item-select" role="option">
+                                                                <button type="button" class="btn-item-select">통장</button>
+                                                            </li>
+                                                            <li class="item-select" role="option">
+                                                                <button type="button" class="btn-item-select">인감+통감</button>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">
+                                                <span class="blind">필수</span>
+                                                <span class="required">사고일자</span>
+                                            </th>
+                                            <td>
+                                                <div class="calendar-wrap">
+                                                    <div class="input-box">
+                                                        <input type="text" class="input" placeholder="" aria-label="사고일자" value="2026-09-10" />
+                                                        <button type="button" class="btn">
+                                                            <i class="ico-calendar ico-size-smMd" aria-hidden="true"></i>
+                                                            <span class="blind">사고일자 달력 열기</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">
+                                                <span class="blind">필수</span>
+                                                <span class="required">전화번호</span>
+                                            </th>
+                                            <td>
+                                                <div class="tbl-flex">
+                                                    <div class="box-select wSize-sm">
+                                                        <button type="button" id="phonePrefixBtn" class="select size-lg" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="selectDropdown01" aria-labelledby="phone-label" aria-required="true">
+                                                            <span class="text">010</span>
+                                                        </button>
+                                                        <div id="selectDropdown01" class="box-list-select">
+                                                            <ul class="list-select" role="listbox" aria-label="휴대전화번호 앞자리 선택">
+                                                                <li class="item-select" role="option" aria-selected="true" tabindex="0">
+                                                                    <span class="btn-item-select">010</span>
+                                                                </li>
+                                                                <li class="item-select" role="option" aria-selected="false" tabindex="-1">
+                                                                    <span class="btn-item-select">011</span>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <span aria-hidden="true">-</span>
+                                                    <div class="clear-type">
+                                                        <input type="text" class="input size-lg wSize-sm" value="" maxlength="4" aria-label="휴대전화번호 중간자리" aria-required="true" />
+                                                        <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                                                            <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                                                            <span class="blind">닫기</span>
+                                                        </button>
+                                                    </div>
+                                                    <span aria-hidden="true">-</span>
+                                                    <div class="clear-type">
+                                                        <input type="text" class="input size-lg wSize-sm" value="" maxlength="4" aria-label="휴대전화번호 뒷자리" aria-required="true" />
+                                                        <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                                                            <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                                                            <span class="blind">닫기</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">
+                                                <span class="blind">필수</span>
+                                                <span class="required">이동전화번호</span>
+                                            </th>
+                                            <td>
+                                                <div class="tbl-flex">
+                                                    <div class="box-select wSize-sm">
+                                                        <button type="button" id="phonePrefixBtn" class="select size-lg" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="selectDropdown01" aria-labelledby="phone-label" aria-required="true">
+                                                            <span class="text">010</span>
+                                                        </button>
+                                                        <div id="selectDropdown01" class="box-list-select">
+                                                            <ul class="list-select" role="listbox" aria-label="휴대전화번호 앞자리 선택">
+                                                                <li class="item-select" role="option" aria-selected="true" tabindex="0">
+                                                                    <span class="btn-item-select">010</span>
+                                                                </li>
+                                                                <li class="item-select" role="option" aria-selected="false" tabindex="-1">
+                                                                    <span class="btn-item-select">011</span>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <span aria-hidden="true">-</span>
+                                                    <div class="clear-type">
+                                                        <input type="text" class="input size-lg wSize-sm" value="" maxlength="4" aria-label="휴대전화번호 중간자리" aria-required="true" />
+                                                        <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                                                            <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                                                            <span class="blind">닫기</span>
+                                                        </button>
+                                                    </div>
+                                                    <span aria-hidden="true">-</span>
+                                                    <div class="clear-type">
+                                                        <input type="text" class="input size-lg wSize-sm" value="" maxlength="4" aria-label="휴대전화번호 뒷자리" aria-required="true" />
+                                                        <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                                                            <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                                                            <span class="blind">닫기</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="btn-wrap center lg-bot">
+                                <button class="btn type-bg-primary size-xxl" type="button"><span class="text">확인</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+            </div>
+            <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+        </div>
+        <script src="/static/js/ui/cib_ui_common.js"></script>
+    </body>
+</html>

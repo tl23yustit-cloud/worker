@@ -44,25 +44,32 @@
                       <div class="tbl-column">
                         <div class="radio-group" role="radiogroup">
                           <span class="form-box">
-                            <input type="radio" name="searchPeriod" title="조회기간" id="period_01" class="radio-btn"
-                              checked />
-                            <!--[dev]:텍스트 전 삭제-->
-                            <label for="period_01" class="form-label">당일</label>
-                            <input type="radio" name="searchPeriod" title="조회기간" id="period_02" class="radio-btn" />
-                            <label for="period_02" class="form-label">전일</label>
-                            <input type="radio" name="searchPeriod" title="조회기간" id="period_03" class="radio-btn" />
-                            <label for="period_03" class="form-label">3일</label>
-                            <input type="radio" name="searchPeriod" title="조회기간" id="period_04" class="radio-btn" />
-                            <label for="period_04" class="form-label">1주일</label>
-                            <input type="radio" name="searchPeriod" title="조회기간" id="period_05" class="radio-btn" />
-                            <label for="period_05" class="form-label">1달</label>
-                            <input type="radio" name="searchPeriod" title="조회기간" id="period_06" class="radio-btn" />
-                            <label for="period_06" class="form-label">3달</label>
-                            <input type="radio" name="searchPeriod" title="조회기간" id="period_07" class="radio-btn" />
-                            <label for="period_07" class="form-label">6달</label>
-                            <input type="radio" name="searchPeriod" title="조회기간" id="period_08" class="radio-btn" />
-                            <label for="period_08" class="form-label">1년</label>
-                            <!--//[dev]:텍스트 전 삭제-->
+                            <div class="radio-group" role="radiogroup" aria-label="조회기간">
+                                <span class="form-box">
+                                  <input type="radio" name="searchPeriod" id="period_01" class="radio-btn" checked="">
+                                  <label for="period_01" class="form-label">당일</label>
+                                </span>
+                                <span class="form-box">
+                                  <input type="radio" name="searchPeriod" id="period_02" class="radio-btn">
+                                  <label for="period_02" class="form-label">1주일</label>
+                                </span>
+                                <span class="form-box">
+                                  <input type="radio" name="searchPeriod" id="period_03" class="radio-btn">
+                                  <label for="period_03" class="form-label">1개월</label>
+                                </span>
+                                <span class="form-box">
+                                  <input type="radio" name="searchPeriod" id="period_04" class="radio-btn">
+                                  <label for="period_04" class="form-label">3개월</label>
+                                </span>
+                                <span class="form-box">
+                                  <input type="radio" name="searchPeriod" id="period_05" class="radio-btn">
+                                  <label for="period_05" class="form-label">6개월</label>
+                                </span>
+                                <span class="form-box">
+                                  <input type="radio" name="searchPeriod" id="period_06" class="radio-btn">
+                                  <label for="period_06" class="form-label">12개월</label>
+                                </span>
+                              </div>
                           </span>
                         </div>
                         <div class="calendar-wrap">
@@ -117,7 +124,7 @@
                   <col>
                   <col>
                   <col>
-                  <col width:="300px">
+                  <col>
                 </colgroup>
                 <thead>
                   <!-- [수정] 20260908 th scope 추가 -->
@@ -125,7 +132,9 @@
                     <th scope="col">송금일</th>
                     <th scope="col">송금번호</th>
                     <th scope="col">통화</th>
-                    <th scope="col">송금액</th>
+                    <!--[dev]:20261028 공통 col table th 금액단위표시(원)-->
+                    <th scope="col">송금액(원)</th>
+                    <!--//[dev]:20261028 공통 col table th 금액단위표시(원)-->
                     <th scope="col">수취인성명</th>
                     <th scope="col">수취인은행명</th>
                     <th scope="col">상태조회</th>
@@ -143,6 +152,8 @@
                     <td>
                       <button type="button" class="btn type-line-neutral size-sm">
                         <span class="text">상세조회</span>
+                        <!--[dev]:20261028 table btn blind텍스트 추가-->
+                        <span class="blind">SH000000000000 상세조회</span>
                       </button>
                     </td>
                     <td>
@@ -151,7 +162,16 @@
                         <div class="btn-wrap">
                           <button type="button" class="btn type-line-neutral size-sm">
                             <span class="text">송금취소</span>
+                            <!--[dev]:20261028 table btn blind텍스트 추가-->
+                        <span class="blind">SH000000000000 송금취소</span>
                           </button>
+                          <!--[dev]:20261027 버튼 추가-->
+                          <button type="button" class="btn type-line-neutral size-sm">
+                            <span class="text">서류제출</span>
+                            <!--[dev]:20261028 table btn blind텍스트 추가-->
+                        <span class="blind">SH000000000000 서류제출</span>
+                          </button>
+                          <!--//[dev]:20261027 버튼 추가-->
                         </div>
                       </div>
                     </td>

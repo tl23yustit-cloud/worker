@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>수협은행</title>
+        <link rel="stylesheet" href="/static/css/reset.css" />
+        <link rel="stylesheet" href="/static/css/layout.css" />
+        <link rel="stylesheet" href="/static/css/component.css" />
+        <link rel="stylesheet" href="/static/css/common.css" />
+        <link rel="stylesheet" href="/static/css/pcg.css" />
+    </head>
+
+    <body>
+        <div class="wrapper">
+            <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
+
+            <div id="container" class="container">
+                <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+                <div id="contents">
+                    <div class="content">
+                        @@include('static/html/pub/layout/breadcrumb.html')
+                        <div class="pcg">
+                            <h2 class="typeH2">
+                                기금/기타국고납부
+                                <div class="box-steps">
+                                    <ol class="list-steps">
+                                        <!-- 
+                                            [dev] 상태값 class 안내
+                                            class="item-steps" 기본 숫자 표기
+                                            class="item-steps passed" 완료
+                                            class="item-steps current" 현재
+                                            -->
+                                        <li class="item-steps passed">
+                                            <i class="icon" aria-hidden="true">1</i>
+                                            <span class="text">납부정보입력</span>
+                                        </li>
+                                        <li class="item-steps passed">
+                                            <i class="icon" aria-hidden="true">2</i>
+                                            <span class="text">정보확인</span>
+                                        </li>
+                                        <li class="item-steps current" aria-current="step">
+                                            <i class="icon" aria-hidden="true">3</i>
+                                            <span class="text">납부완료</span>
+                                        </li>
+                                    </ol>
+                                </div>
+                            </h2>
+
+                            <div class="result-box">
+                                <div class="result-banner">
+                                    <div class="inner-img"></div>
+                                    <div class="result-message">
+                                        <h4 class="typeH4 color-blueMd flex justify-center">기금/기타국고가 정상적으로 납부 되었습니다.</h4>
+                                        <span class="typeMd">납부하신 내역은 납부내역조회에서 5년간 확인하실 수 있습니다.</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tbl-area">
+                                <div class="tbl-head">
+                                    <div class="left-area">
+                                        <span class="typeH4">고지정보</span>
+                                    </div>
+                                </div>
+                                <table class="table-type01 fixed">
+                                    <caption>전자납부번호, 납세의무자명(상호), 납세의무자번호, 징수관계좌번호에 대한 구성 테이블입니다.</caption>
+                                    <colgroup>
+                                        <col style="width: 160px" />
+                                        <col style="width: auto" />
+                                        <col style="width: 160px" />
+                                        <col style="width: auto" />
+                                    </colgroup>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">
+                                                <span>전자납부번호</span>
+                                            </th>
+                                            <td>
+                                                <span class="typeMd">0000000000000000000</span>
+                                            </td>
+                                            <th scope="row">
+                                                <span>납세의무자명(상호)</span>
+                                            </th>
+                                            <td>
+                                                <span class="typeMd">홍길동</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">
+                                                <span>납세의무자번호</span>
+                                            </th>
+                                            <td>
+                                                <span class="typeMd">000-00-*****</span>
+                                            </td>
+                                            <th scope="row">
+                                                <span>징수관계좌번호</span>
+                                            </th>
+                                            <td>
+                                                <span class="typeMd">000000</span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="tbl-area mt-48">
+                                <div class="tbl-head">
+                                    <div class="left-area">
+                                        <span class="typeH4">납부상세정보</span>
+                                    </div>
+                                </div>
+                                <table class="table-type01 fixed">
+                                    <caption>납부금액, 납부계좌번호, 본세, 농어촌특별세, 교육세, 가산금 대한 구성 테이블입니다.</caption>
+                                    <colgroup>
+                                        <col style="width: 160px" />
+                                        <col style="width: auto" />
+                                        <col style="width: 160px" />
+                                        <col style="width: auto" />
+                                    </colgroup>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">
+                                                <span>납부금액</span>
+                                            </th>
+                                            <td class="text-right">
+                                                <span class="typeMd">1,000 원</span>
+                                            </td>
+                                            <th scope="row">
+                                                <span>납부계좌번호</span>
+                                            </th>
+                                            <td>
+                                                <span class="typeMd">0000-0000-0000 (보통예금)</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">
+                                                <span>본세</span>
+                                            </th>
+                                            <td class="text-right">
+                                                <span class="typeMd">1,000 원</span>
+                                            </td>
+                                            <th scope="row">
+                                                <span>농어촌특별세</span>
+                                            </th>
+                                            <td class="text-right">
+                                                <span class="typeMd">1,000 원</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">
+                                                <span>교육세</span>
+                                            </th>
+                                            <td class="text-right">
+                                                <span class="typeMd">1,000 원</span>
+                                            </td>
+                                            <th scope="row">
+                                                <span>가산금</span>
+                                            </th>
+                                            <td class="text-right">
+                                                <span class="typeMd">1,000 원</span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="btn-wrap center lg-bot">
+                                <button type="button" class="btn type-line-neutral size-xxl">
+                                    <span class="text">인쇄</span>
+                                </button>
+                                <button type="button" class="btn type-line-neutral size-xxl">
+                                    <span class="text">납부내역조회</span>
+                                </button>
+                                <button type="button" class="btn type-bg-primary size-xxl">
+                                    <span class="text">추가납부</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+        </div>
+        <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+        <script src="/static/js/ui/cib_ui_common.js"></script>
+    </body>
+</html>

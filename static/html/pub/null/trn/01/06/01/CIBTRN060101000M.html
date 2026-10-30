@@ -5,674 +5,410 @@
 <!-- 테이블 간격 디자인 협의 필요 -->
 <!doctype html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>수협은행</title>
-    <link rel="stylesheet" href="/static/css/reset.css" />
-    <link rel="stylesheet" href="/static/css/layout.css" />
-    <link rel="stylesheet" href="/static/css/component.css" />
-    <link rel="stylesheet" href="/static/css/common.css" />
-    <link rel="stylesheet" href="/static/css/trn.css" />
-  </head>
 
-  <body>
-    <div class="wrapper">
-      <div id="header">
-        @@include('static/html/pub/layout/skipNavigation.html')
-        @@include('static/html/pub/layout/header_sub.html')
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>수협은행</title>
+  <link rel="stylesheet" href="/static/css/reset.css" />
+  <link rel="stylesheet" href="/static/css/layout.css" />
+  <link rel="stylesheet" href="/static/css/component.css" />
+  <link rel="stylesheet" href="/static/css/common.css" />
+  <link rel="stylesheet" href="/static/css/trn.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <div id="header">
+      @@include('static/html/pub/layout/skipNavigation.html')
+      @@include('static/html/pub/layout/header_sub.html')
+    </div>
+
+    <div id="container" class="container">
+      <div id="leftArea">
+        @@include('static/html/pub/layout/leftArea.html')
       </div>
+      <div id="contents">
+        <div class="content">
+          @@include('static/html/pub/layout/breadcrumb.html')
+          <div class="trn">
+            <h2 class="typeH2">이체 결과조회</h2>
+            <div class="box-tab">
+              <ul class="list-tab-button type-outline" role="tablist" aria-label="탭 이름">
+                <li class="item-tab-button">
+                  <button type="button" class="btn-tab active" title="선택됨" id="tabBtnTypeOutline01" role="tab"
+                    aria-selected="true" aria-controls="tabPanelTypeOutline01">
+                    <span class="text">수협은행</span>
+                  </button>
+                </li>
+                <li class="item-tab-button">
+                  <button type="button" class="btn-tab" id="tabBtnTypeOutline02" role="tab" aria-selected="false"
+                    aria-controls="tabPanelTypeOutline02">
+                    <span class="text">다른금융</span>
+                  </button>
+                </li>
+              </ul>
+              <div class="box-tab-content active" id="tabPanelTypeChip01" role="tabpanel"
+                aria-labelledby="tabBtnTypeChip01" style="display: block">
+                <h3 class="blind">Tab Content01</h3>
+                <div class="tbl-area">
+                  <table class="table-type01">
+                    <caption>
+                      예약이체 등록내역 조회를 위한 계좌번호, 정렬방식,
+                      조회기간, 상대입금 계좌 선택 표
+                    </caption>
+                    <!-- [수정] 20260903 col width 값 수정 -->
+                    <!-- [수정] 20260909 col width style 수정  -->
+                    <colgroup>
+                      <col style="width: 160px" />
+                      <col style="width: auto" />
+                    </colgroup>
+                    <tbody>
+                      <tr>
+                        <th scope="row">계좌번호</th>
+                        <td colspan="3">
+                          <div class="box-select wSize-lg">
+                            <button type="button" class="select size-lg" role="combobox" aria-expanded="false"
+                              aria-haspopup="listbox" aria-controls="selectDropdown01">
+                              <span class="text">보통예금 0260-0200-0000</span>
+                              <span class="blind">펼침</span>
+                            </button>
+                            <div id="selectDropdown01" class="box-list-select">
+                              <ul class="list-select" role="listbox" aria-label="선택 항목 리스트">
+                                <li class="item-select" role="group" aria-label="선택 항목 리스트">
+                                  <span class="form-box">
+                                    보통예금 0260-0200-0000
+                                  </span>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">정렬방식</th>
+                        <td>
+                          <div class="form-box-wrap">
+                            <span class="form-box">
+                              <input type="radio" name="sortOrder" id="sortOrder01" class="form-radio size-md"
+                                checked="" />
+                              <label for="sortOrder01" class="form-label">최근 거래 내역이 위로</label>
+                            </span>
+                            <span class="form-box">
+                              <input type="radio" name="sortOrder" id="sortOrder02" class="form-radio size-md" />
+                              <label for="sortOrder02" class="form-label">과거 거래 내역이 위로</label>
+                            </span>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">출력건수</th>
+                        <td>
+                          <div class="form-box-wrap">
+                            <span class="form-box">
+                              <input type="radio" name="prints" id="name" class="form-radio size-md" checked="" />
+                              <label for="name" class="form-label">15</label>
+                            </span>
+                            <span class="form-box">
+                              <input type="radio" name="prints" id="nameOfDeposit" class="form-radio size-md" />
+                              <label for="nameOfDeposit" class="form-label">30</label>
+                            </span>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">조회기간</th>
+                        <td>
+                          <div class="tbl-column">
+                            <div class="radio-group">
+                              <span class="form-box">
+                                <input type="radio" name="SampleRadio0302_01" id="SampleRadio0302_01" class="radio-btn"
+                                  checked="" />
+                                <label for="SampleRadio0302_01" class="form-label">오늘</label>
+                                <input type="radio" name="SampleRadio0302_01" id="SampleRadio0302_02"
+                                  class="radio-btn" />
+                                <label for="SampleRadio0302_02" class="form-label">어제</label>
+                                <input type="radio" name="SampleRadio0302_01" id="SampleRadio0302_03"
+                                  class="radio-btn" />
+                                <label for="SampleRadio0302_03" class="form-label">3일</label>
+                                <input type="radio" name="SampleRadio0302_01" id="SampleRadio0302_04"
+                                  class="radio-btn" />
+                                <label for="SampleRadio0302_04" class="form-label">1주일</label>
+                                <input type="radio" name="SampleRadio0302_01" id="SampleRadio0302_05"
+                                  class="radio-btn" />
+                                <label for="SampleRadio0302_05" class="form-label">1개월</label>
+                                <input type="radio" name="SampleRadio0302_01" id="SampleRadio0302_06"
+                                  class="radio-btn" />
+                                <label for="SampleRadio0302_06" class="form-label">3개월</label>
+                                <input type="radio" name="SampleRadio0302_01" id="SampleRadio0302_07"
+                                  class="radio-btn" />
+                                <label for="SampleRadio0302_07" class="form-label">6개월</label>
+                                <input type="radio" name="SampleRadio0302_01" id="SampleRadio0302_08"
+                                  class="radio-btn" />
+                                <label for="SampleRadio0302_08" class="form-label">12개월</label>
+                              </span>
+                            </div>
+                            <div class="calendar-wrap">
+                              <div class="input-box">
+                                <input type="text" class="input" placeholder="이쳬예약일" title="" aria-label="이쳬예약일"
+                                  value="2026-01-06" />
+                                <button type="button" class="btn">
+                                  <i class="ico-calendar ico-size-smMd" aria-hidden="true"></i>
+                                  <span class="blind">날짜 열기</span>
+                                </button>
+                              </div>
+                              ~
+                              <div class="input-box">
+                                <input type="text" class="input" placeholder="이쳬예약일" title="" aria-label="이쳬예약일"
+                                  value="2026-01-06" />
+                                <button type="button" class="btn">
+                                  <i class="ico-calendar ico-size-smMd" aria-hidden="true"></i>
+                                  <span class="blind">날짜 열기</span>
+                                </button>
+                              </div>
+                              <div class="box-select wSize-smMd">
+                                <button type="button" class="select size-lg" role="combobox" aria-expanded="false"
+                                  aria-haspopup="listbox" aria-controls="selectDropdown01">
+                                  <span class="text">월별선택</span>
+                                  <span class="blind">펼침</span>
+                                </button>
+                                <div id="selectDropdown01" class="box-list-select">
+                                  <ul class="list-select" role="listbox" aria-label="선택 항목 리스트">
+                                    <li class="item-select" role="group" aria-label="선택 항목 리스트">
+                                      <span class="form-box"> 월별선택 </span>
+                                    </li>
+                                    <li class="item-select" role="group" aria-label="선택 항목 리스트">
+                                      <span class="form-box"> 1 </span>
+                                    </li>
+                                    <li class="item-select" role="group" aria-label="선택 항목 리스트">
+                                      <span class="form-box"> 1 </span>
+                                    </li>
+                                    <li class="item-select" role="group" aria-label="선택 항목 리스트">
+                                      <span class="form-box"> 1 </span>
+                                    </li>
+                                    <li class="item-select" role="group" aria-label="선택 항목 리스트">
+                                      <span class="form-box"> 1 </span>
+                                    </li>
+                                    <li class="item-select" role="group" aria-label="선택 항목 리스트">
+                                      <span class="form-box"> 1 </span>
+                                    </li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
 
-      <div id="container" class="container">
-        <div id="leftArea">
-          @@include('static/html/pub/layout/leftArea.html')
-        </div>
-        <div id="contents">
-          <div class="content">
-            @@include('static/html/pub/layout/breadcrumb.html')
-            <div class="trn">
-              <h2 class="typeH2">이체 결과조회</h2>
-              <div class="box-tab">
-                <ul
-                  class="list-tab-button type-outline"
-                  role="tablist"
-                  aria-label="탭 이름"
-                >
-                  <li class="item-tab-button">
-                    <button
-                      type="button"
-                      class="btn-tab active"
-                      title="선택됨"
-                      id="tabBtnTypeOutline01"
-                      role="tab"
-                      aria-selected="true"
-                      aria-controls="tabPanelTypeOutline01"
-                    >
-                      <span class="text">수협은행</span>
-                    </button>
-                  </li>
-                  <li class="item-tab-button">
-                    <button
-                      type="button"
-                      class="btn-tab"
-                      id="tabBtnTypeOutline02"
-                      role="tab"
-                      aria-selected="false"
-                      aria-controls="tabPanelTypeOutline02"
-                    >
-                      <span class="text">다른금융</span>
-                    </button>
-                  </li>
-                </ul>
-                <div
-                  class="box-tab-content active"
-                  id="tabPanelTypeChip01"
-                  role="tabpanel"
-                  aria-labelledby="tabBtnTypeChip01"
-                  style="display: block"
-                >
-                  <h3 class="blind">Tab Content01</h3>
-                  <div class="tbl-area">
-                    <table class="table-type01">
-                      <caption>
-                        예약이체 등록내역 조회를 위한 계좌번호, 정렬방식,
-                        조회기간, 상대입금 계좌 선택 표
-                      </caption>
-                      <!-- [수정] 20260903 col width 값 수정 -->
-                      <!-- [수정] 20260909 col width style 수정  -->
-                      <colgroup>
-                        <col style="width: 160px" />
-                        <col style="width: auto" />
-                      </colgroup>
-                      <tbody>
-                        <tr>
-                          <th scope="row">계좌번호</th>
-                          <td colspan="3">
-                            <div class="box-select wSize-lg">
-                              <button
-                                type="button"
-                                class="select size-lg"
-                                role="combobox"
-                                aria-expanded="false"
-                                aria-haspopup="listbox"
-                                aria-controls="selectDropdown01"
-                              >
-                                <span class="text"
-                                  >보통예금 0260-0200-0000</span
-                                >
-                                <span class="blind">펼침</span>
-                              </button>
-                              <div
-                                id="selectDropdown01"
-                                class="box-list-select"
-                              >
-                                <ul
-                                  class="list-select"
-                                  role="listbox"
-                                  aria-label="선택 항목 리스트"
-                                >
-                                  <li
-                                    class="item-select"
-                                    role="group"
-                                    aria-label="선택 항목 리스트"
-                                  >
-                                    <span class="form-box">
-                                      보통예금 0260-0200-0000
-                                    </span>
-                                  </li>
-                                </ul>
-                              </div>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <th scope="row">정렬방식</th>
-                          <td>
-                            <div class="form-box-wrap">
-                              <span class="form-box">
-                                <input
-                                  type="radio"
-                                  name="sortOrder"
-                                  id="sortOrder01"
-                                  class="form-radio size-md"
-                                  checked=""
-                                />
-                                <label for="sortOrder01" class="form-label"
-                                  >최근 거래 내역이 위로</label
-                                >
-                              </span>
-                              <span class="form-box">
-                                <input
-                                  type="radio"
-                                  name="sortOrder"
-                                  id="sortOrder02"
-                                  class="form-radio size-md"
-                                />
-                                <label for="sortOrder02" class="form-label"
-                                  >과거 거래 내역이 위로</label
-                                >
-                              </span>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <th scope="row">출력건수</th>
-                          <td>
-                            <div class="form-box-wrap">
-                              <span class="form-box">
-                                <input
-                                  type="radio"
-                                  name="prints"
-                                  id="name"
-                                  class="form-radio size-md"
-                                  checked=""
-                                />
-                                <label for="name" class="form-label">15</label>
-                              </span>
-                              <span class="form-box">
-                                <input
-                                  type="radio"
-                                  name="prints"
-                                  id="nameOfDeposit"
-                                  class="form-radio size-md"
-                                />
-                                <label for="nameOfDeposit" class="form-label"
-                                  >30</label
-                                >
-                              </span>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <th scope="row">조회기간</th>
-                          <td>
-                            <div class="tbl-column">
-                              <div class="radio-group">
-                                <span class="form-box">
-                                  <input
-                                    type="radio"
-                                    name="SampleRadio0302_01"
-                                    id="SampleRadio0302_01"
-                                    class="radio-btn"
-                                    checked=""
-                                  />
-                                  <label
-                                    for="SampleRadio0302_01"
-                                    class="form-label"
-                                    >오늘</label
-                                  >
-                                  <input
-                                    type="radio"
-                                    name="SampleRadio0302_01"
-                                    id="SampleRadio0302_02"
-                                    class="radio-btn"
-                                  />
-                                  <label
-                                    for="SampleRadio0302_02"
-                                    class="form-label"
-                                    >어제</label
-                                  >
-                                  <input
-                                    type="radio"
-                                    name="SampleRadio0302_01"
-                                    id="SampleRadio0302_03"
-                                    class="radio-btn"
-                                  />
-                                  <label
-                                    for="SampleRadio0302_03"
-                                    class="form-label"
-                                    >3일</label
-                                  >
-                                  <input
-                                    type="radio"
-                                    name="SampleRadio0302_01"
-                                    id="SampleRadio0302_04"
-                                    class="radio-btn"
-                                  />
-                                  <label
-                                    for="SampleRadio0302_04"
-                                    class="form-label"
-                                    >1주일</label
-                                  >
-                                  <input
-                                    type="radio"
-                                    name="SampleRadio0302_01"
-                                    id="SampleRadio0302_05"
-                                    class="radio-btn"
-                                  />
-                                  <label
-                                    for="SampleRadio0302_05"
-                                    class="form-label"
-                                    >1개월</label
-                                  >
-                                  <input
-                                    type="radio"
-                                    name="SampleRadio0302_01"
-                                    id="SampleRadio0302_06"
-                                    class="radio-btn"
-                                  />
-                                  <label
-                                    for="SampleRadio0302_06"
-                                    class="form-label"
-                                    >3개월</label
-                                  >
-                                  <input
-                                    type="radio"
-                                    name="SampleRadio0302_01"
-                                    id="SampleRadio0302_07"
-                                    class="radio-btn"
-                                  />
-                                  <label
-                                    for="SampleRadio0302_07"
-                                    class="form-label"
-                                    >6개월</label
-                                  >
-                                  <input
-                                    type="radio"
-                                    name="SampleRadio0302_01"
-                                    id="SampleRadio0302_08"
-                                    class="radio-btn"
-                                  />
-                                  <label
-                                    for="SampleRadio0302_08"
-                                    class="form-label"
-                                    >12개월</label
-                                  >
-                                </span>
-                              </div>
-                              <div class="calendar-wrap">
-                                <div class="input-box">
-                                  <input
-                                    type="text"
-                                    class="input"
-                                    placeholder="이쳬예약일"
-                                    title=""
-                                    aria-label="이쳬예약일"
-                                    value="2026-01-06"
-                                  />
-                                  <button type="button" class="btn">
-                                    <i
-                                      class="ico-calendar ico-size-smMd"
-                                      aria-hidden="true"
-                                    ></i>
-                                    <span class="blind">날짜 열기</span>
-                                  </button>
-                                </div>
-                                ~
-                                <div class="input-box">
-                                  <input
-                                    type="text"
-                                    class="input"
-                                    placeholder="이쳬예약일"
-                                    title=""
-                                    aria-label="이쳬예약일"
-                                    value="2026-01-06"
-                                  />
-                                  <button type="button" class="btn">
-                                    <i
-                                      class="ico-calendar ico-size-smMd"
-                                      aria-hidden="true"
-                                    ></i>
-                                    <span class="blind">날짜 열기</span>
-                                  </button>
-                                </div>
-                                <div class="box-select wSize-smMd">
-                                  <button
-                                    type="button"
-                                    class="select size-lg"
-                                    role="combobox"
-                                    aria-expanded="false"
-                                    aria-haspopup="listbox"
-                                    aria-controls="selectDropdown01"
-                                  >
-                                    <span class="text">월별선택</span>
-                                    <span class="blind">펼침</span>
-                                  </button>
-                                  <div
-                                    id="selectDropdown01"
-                                    class="box-list-select"
-                                  >
-                                    <ul
-                                      class="list-select"
-                                      role="listbox"
-                                      aria-label="선택 항목 리스트"
-                                    >
-                                      <li
-                                        class="item-select"
-                                        role="group"
-                                        aria-label="선택 항목 리스트"
-                                      >
-                                        <span class="form-box"> 월별선택 </span>
-                                      </li>
-                                      <li
-                                        class="item-select"
-                                        role="group"
-                                        aria-label="선택 항목 리스트"
-                                      >
-                                        <span class="form-box"> 1 </span>
-                                      </li>
-                                      <li
-                                        class="item-select"
-                                        role="group"
-                                        aria-label="선택 항목 리스트"
-                                      >
-                                        <span class="form-box"> 1 </span>
-                                      </li>
-                                      <li
-                                        class="item-select"
-                                        role="group"
-                                        aria-label="선택 항목 리스트"
-                                      >
-                                        <span class="form-box"> 1 </span>
-                                      </li>
-                                      <li
-                                        class="item-select"
-                                        role="group"
-                                        aria-label="선택 항목 리스트"
-                                      >
-                                        <span class="form-box"> 1 </span>
-                                      </li>
-                                      <li
-                                        class="item-select"
-                                        role="group"
-                                        aria-label="선택 항목 리스트"
-                                      >
-                                        <span class="form-box"> 1 </span>
-                                      </li>
-                                    </ul>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
+                <div class="btn-wrap center sm-mid">
+                  <button type="button" class="btn type-line-neutral size-xl">
+                    <span class="text">초기화</span>
+                  </button>
+                  <button type="button" class="btn type-bg-neutral size-xl">
+                    <span class="text">조회</span>
+                  </button>
+                </div>
+
+                <div class="tbl-area">
+                  <div class="tbl-head">
+                    <h4 class="typeH4">조회결과</h4>
                   </div>
 
-                  <div class="btn-wrap center sm-mid">
+                  <div class="acc-card">
+                    <!-- 상단 헤더 영역 -->
+                    <div class="acc-card-header">
+                      <div class="left-area">
+                        <!-- 로고 아이콘 자리 (클래스명은 환경에 맞게 수정) -->
+                        <i class="ico bank ico-size-sm ico-suhyup2" aria-hidden="true"></i>
+                        <div class="acc-info">
+                          <strong class="acc-name typeMdSemibold">Sh평생주거래우대통장</strong>
+                          <span class="acc-num typeMd"><span class="blind">계좌번호</span>
+                            1010-27330979</span>
+                        </div>
+                      </div>
+
+                      <div class="right-area">
+                        <dl class="date-info">
+                          <div class="date-item">
+                            <dt>최종거래일</dt>
+                            <dd>2026-07-03</dd>
+                          </div>
+                          <div class="date-item">
+                            <dt>만기일</dt>
+                            <dd>2030-12-31</dd>
+                          </div>
+                        </dl>
+                        <div class="btn-group">
+                          <button type="button" class="btn type-line-neutral size-sm">
+                            <span class="text">계좌상세정보</span>
+                          </button>
+                          <button type="button" class="btn type-line-neutral size-sm">
+                            <span class="text">이체</span>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- 하단 콘텐츠 영역 -->
+                    <div class="acc-card-body">
+                      <!-- 왼쪽 요약 박스 -->
+                      <div class="summary-box">
+                        <div class="summary-top">
+                          <i class="ico etc ico-size-sm ico-deposit" aria-hidden="true"></i>
+                          <span class="typeMdSemibold">이체완료건수</span>
+                          <span class="typeMdSemibold"><span class="color-fg-primary">3</span>건</span>
+                        </div>
+                        <div class="summary-bottom">
+                          <span class="typeMd">이체완료금액</span>
+                          <span class="type2XlBold">12,100,000</span>
+                        </div>
+                      </div>
+
+                      <!-- 오른쪽 요약 박스 -->
+                      <div class="summary-box">
+                        <div class="summary-top">
+                          <i class="ico etc ico-size-sm ico-deposit type2" aria-hidden="true"></i>
+                          <span class="typeMdSemibold">처리완료건수</span>
+                          <span class="typeMdSemibold"><span class="color-fg-primary">3</span>건</span>
+                        </div>
+                        <div class="summary-bottom">
+                          <span class="typeMd">처리진행금액</span>
+                          <span class="type2XlBold">10,010,000</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <table class="table-type03">
+                    <caption>
+                      예약이체 등록내역 조회 결과
+                    </caption>
+                    <thead>
+                      <tr>
+                        <th scope="col">이체일자</th>
+                        <th scope="col">입금정보</th>
+                        <th scope="col">보내는분/받는분</th>
+                        <th scope="col">이체금액</th>
+                        <th scope="col">수수료</th>
+                        <th scope="col">처리결과</th>
+                        <th scope="col">이체확인증</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>2026-07-01 14:10:10</td>
+                        <td>00은행 1000-0000-000(김수협)</td>
+                        <td>코오악/마나</td>
+                        <td>100,000,000,000</td>
+                        <td>0</td>
+                        <td>정상처리</td>
+                        <td>
+                          <span class="form-box">
+                            <input type="checkbox" id="SampleCheckbox0201" class="form-checkbox" checked=""
+                              title="2026-07-01 00은행 1000-0000-000(김수협) 100,000,000,000원 이체확인증 선택" />
+                          </span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>2026-07-01 14:10:10</td>
+                        <td>00은행 1000-0000-000(김수협)</td>
+                        <td>코오악/마나</td>
+                        <td>100,000,000,000</td>
+                        <td>0</td>
+                        <td>정상처리</td>
+                        <td>
+                          <span class="form-box">
+                            <input type="checkbox" id="SampleCheckbox0201" class="form-checkbox" checked=""
+                              title="2026-07-01 00은행 1000-0000-000(김수협) 100,000,000,000원 이체확인증 선택" />
+                          </span>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                  <div class="btn-wrap center lg-mid">
                     <button type="button" class="btn type-line-neutral size-xl">
-                      <span class="text">초기화</span>
+                      <span class="text">파일저장</span>
                     </button>
-                    <button type="button" class="btn type-bg-neutral size-xl">
-                      <span class="text">조회</span>
+                    <button type="button" class="btn type-line-neutral size-xl">
+                      <span class="text">이체확인증 인쇄</span>
                     </button>
-                  </div>
-
-                  <div class="tbl-area">
-                    <div class="tbl-head">
-                      <h4 class="typeH4">조회결과</h4>
-                    </div>
-
-                    <div class="acc-card">
-                      <!-- 상단 헤더 영역 -->
-                      <div class="acc-card-header">
-                        <div class="left-area">
-                          <!-- 로고 아이콘 자리 (클래스명은 환경에 맞게 수정) -->
-                          <i
-                            class="ico bank ico-size-sm ico-suhyup2"
-                            aria-hidden="true"
-                          ></i>
-                          <div class="acc-info">
-                            <strong class="acc-name typeMdSemibold"
-                              >Sh평생주거래우대통장</strong
-                            >
-                            <span class="acc-num typeMd"
-                              ><span class="blind">계좌번호</span>
-                              1010-27330979</span
-                            >
-                          </div>
-                        </div>
-
-                        <div class="right-area">
-                          <dl class="date-info">
-                            <div class="date-item">
-                              <dt>최종거래일</dt>
-                              <dd>2026-07-03</dd>
-                            </div>
-                            <div class="date-item">
-                              <dt>만기일</dt>
-                              <dd>2030-12-31</dd>
-                            </div>
-                          </dl>
-                          <div class="btn-group">
-                            <button
-                              type="button"
-                              class="btn type-line-neutral size-sm"
-                            >
-                              <span class="text">계좌상세정보</span>
-                            </button>
-                            <button
-                              type="button"
-                              class="btn type-line-neutral size-sm"
-                            >
-                              <span class="text">이체</span>
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-
-                      <!-- 하단 콘텐츠 영역 -->
-                      <div class="acc-card-body">
-                        <!-- 왼쪽 요약 박스 -->
-                        <div class="summary-box">
-                          <div class="summary-top">
-                            <i
-                              class="ico etc ico-size-sm ico-deposit"
-                              aria-hidden="true"
-                            ></i>
-                            <span class="typeMdSemibold">이체완료건수</span>
-                            <span class="typeMdSemibold"
-                              ><span class="color-fg-primary">3</span>건</span
-                            >
-                          </div>
-                          <div class="summary-bottom">
-                            <span class="typeMd">이체완료금액</span>
-                            <span class="type2XlBold">12,100,000</span>
-                          </div>
-                        </div>
-
-                        <!-- 오른쪽 요약 박스 -->
-                        <div class="summary-box">
-                          <div class="summary-top">
-                            <i
-                              class="ico etc ico-size-sm ico-deposit type2"
-                              aria-hidden="true"
-                            ></i>
-                            <span class="typeMdSemibold">처리완료건수</span>
-                            <span class="typeMdSemibold"
-                              ><span class="color-fg-primary">3</span>건</span
-                            >
-                          </div>
-                          <div class="summary-bottom">
-                            <span class="typeMd">처리진행금액</span>
-                            <span class="type2XlBold">10,010,000</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <table class="table-type03">
-                      <caption>
-                        예약이체 등록내역 조회 결과
-                      </caption>
-                      <thead>
-                        <tr>
-                          <th scope="col">이체일자</th>
-                          <th scope="col">입금정보</th>
-                          <th scope="col">보내는분/받는분</th>
-                          <th scope="col">이체금액</th>
-                          <th scope="col">수수료</th>
-                          <th scope="col">처리결과</th>
-                          <th scope="col">이체확인증</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>2026-07-01 14:10:10</td>
-                          <td>00은행 1000-0000-000(김수협)</td>
-                          <td>코오악/마나</td>
-                          <td>100,000,000,000</td>
-                          <td>0</td>
-                          <td>정상처리</td>
-                          <td>
-                            <span class="form-box">
-                              <input
-                                type="checkbox"
-                                id="SampleCheckbox0201"
-                                class="form-checkbox"
-                                checked=""
-                                title="2026-07-01 00은행 1000-0000-000(김수협) 100,000,000,000원 이체확인증 선택"
-                              />
-                            </span>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>2026-07-01 14:10:10</td>
-                          <td>00은행 1000-0000-000(김수협)</td>
-                          <td>코오악/마나</td>
-                          <td>100,000,000,000</td>
-                          <td>0</td>
-                          <td>정상처리</td>
-                          <td>
-                            <span class="form-box">
-                              <input
-                                type="checkbox"
-                                id="SampleCheckbox0201"
-                                class="form-checkbox"
-                                checked=""
-                                title="2026-07-01 00은행 1000-0000-000(김수협) 100,000,000,000원 이체확인증 선택"
-                              />
-                            </span>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-
-                    <div class="btn-wrap center lg-mid">
-                      <button
-                        type="button"
-                        class="btn type-line-neutral size-xl"
-                      >
-                        <span class="text">파일저장</span>
-                      </button>
-                      <button
-                        type="button"
-                        class="btn type-line-neutral size-xl"
-                      >
-                        <span class="text">이체확인증 인쇄</span>
-                      </button>
-                      <button
-                        type="button"
-                        class="btn type-line-neutral size-xl"
-                      >
-                        <span class="text">다건 이체확인증 인쇄</span>
-                      </button>
-                      <!-- FAX 발송 버튼: 모달 연결 -->
-                      <button
-                        type="button"
-                        class="btn type-line-neutral size-xl btn-modal"
-                        data-target="modal-fax"
-                      >
-                        <span class="text">FAX 발송</span>
-                      </button>
-                    </div>
+                    <button type="button" class="btn type-line-neutral size-xl">
+                      <span class="text">다건 이체확인증 인쇄</span>
+                    </button>
+                    <!-- FAX 발송 버튼: 모달 연결 -->
+                    <button type="button" class="btn type-line-neutral size-xl btn-modal" data-target="modal-fax">
+                      <span class="text">FAX 발송</span>
+                    </button>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
       </div>
-      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+      <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
     </div>
+    <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+  </div>
 
-    <!-- FAX 발송 모달 -->
-    <div
-      id="modal-fax"
-      class="modal"
-      data-dim="true"
-      data-backdrop-close="true"
-      data-size="sm"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="modal-fax-title"
-    >
-      <div class="modal-wrapper">
-        <div class="modal-title" id="modal-fax-title">
-          <h4 class="typeH4">FAX 발송</h4>
+  <!-- FAX 발송 모달 -->
+  <div id="modal-fax" class="modal" data-dim="true" data-backdrop-close="true" data-size="sm" role="dialog"
+    aria-modal="true" aria-labelledby="modal-fax-title">
+    <div class="modal-wrapper">
+      <div class="modal-title" id="modal-fax-title">
+        <h4 class="typeH4">FAX 발송</h4>
+      </div>
+      <div class="modal-slot">
+        <div class="tbl-area">
+          <table class="table-type01">
+            <caption>
+              Fax 번호, 보내는 사람 입력 테이블
+            </caption>
+            <colgroup>
+              <col style="width: 20%" />
+              <col style="width: 80%" />
+            </colgroup>
+            <tbody>
+              <tr>
+                <th scope="row">Fax 번호</th>
+                <td colspan="3">
+                  <div class="tbl-flex">
+                    <input type="text" class="input wSize-sm size-lg" title="Fax 번호 첫번째" value="" placeholder="" />
+                    -
+                    <input type="text" class="input wSize-sm size-lg" title="Fax 번호 두번째" value="" placeholder="" />
+                    -
+                    <input type="text" class="input wSize-sm size-lg" title="Fax 번호 세번째" value="" placeholder="" />
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">보내는사람</th>
+                <td>
+                  <input type="text" class="input wSize-md size-lg" title="성명(영문)" value="" placeholder="입력해주세요" />
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-        <div class="modal-slot">
-          <div class="tbl-area">
-            <table class="table-type01">
-              <caption>
-                Fax 번호, 보내는 사람 입력 테이블
-              </caption>
-              <colgroup>
-                <col style="width: 20%" />
-                <col style="width: 80%" />
-              </colgroup>
-              <tbody>
-                <tr>
-                  <th scope="row">Fax 번호</th>
-                  <td colspan="3">
-                    <div class="tbl-flex">
-                      <input
-                        type="text"
-                        class="input wSize-sm size-lg"
-                        title="Fax 번호 첫번째"
-                        value=""
-                        placeholder=""
-                      />
-                      -
-                      <input
-                        type="text"
-                        class="input wSize-sm size-lg"
-                        title="Fax 번호 두번째"
-                        value=""
-                        placeholder=""
-                      />
-                      -
-                      <input
-                        type="text"
-                        class="input wSize-sm size-lg"
-                        title="Fax 번호 세번째"
-                        value=""
-                        placeholder=""
-                      />
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">보내는사람</th>
-                  <td>
-                    <input
-                      type="text"
-                      class="input wSize-md size-lg"
-                      title="성명(영문)"
-                      value=""
-                      placeholder="입력해주세요"
-                    />
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
+      </div>
 
-        <div class="modal-footer flex items-center justify-center gap-8">
-          <button type="button" class="btn type-bg-primary size-lg">
-            <span class="text">확인</span>
-          </button>
-        </div>
-        <button type="button" class="ico btn-close" aria-label="모달 닫기">
-          <i class="ico-close ico-size-smMd" aria-hidden="true"></i>
-          <span class="blind">닫기</span>
+      <div class="modal-footer flex items-center justify-center gap-8">
+        <button type="button" class="btn type-bg-primary size-lg">
+          <span class="text">확인</span>
         </button>
       </div>
+      <button type="button" class="ico btn-close" aria-label="모달 닫기">
+        <i class="ico-close ico-size-smMd" aria-hidden="true"></i>
+        <span class="blind">닫기</span>
+      </button>
     </div>
+  </div>
 
-    <script src="/static/js/ui/cib_ui_common.js"></script>
-  </body>
+  <script src="/static/js/ui/cib_ui_common.js"></script>
+</body>
+
 </html>

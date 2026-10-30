@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/fin.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">
+        @@include('static/html/pub/layout/skipNavigation.html')
+        @@include('static/html/pub/layout/header_sub.html')
+      </div>
+
+      <div id="container" class="container">
+        <div id="leftArea">
+          @@include('static/html/pub/layout/leftArea.html')
+        </div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="fin">
+              <h2 class="typeH2">
+                대표자 휴대전화 본인인증
+
+                <div class="box-steps">
+                  <ol class="list-steps">
+                    <li class="item-steps current" aria-current="step">
+                      <span class="blind">1</span>
+                      <i class="icon" aria-hidden="true">1</i>
+                      <span class="text">가입자격확인(2/2) </span>
+                    </li>
+                    <li class="item-steps">
+                      <span class="blind">2</span>
+                      <i class="icon" aria-hidden="true">2</i>
+                    </li>
+                    <li class="item-steps">
+                      <span class="blind">3</span>
+                      <i class="icon" aria-hidden="true">3</i>
+                    </li>
+                    <li class="item-steps">
+                      <span class="blind">4</span>
+                      <i class="icon" aria-hidden="true">4</i>
+                    </li>
+                    <li class="item-steps">
+                      <span class="blind">5</span>
+                      <i class="icon" aria-hidden="true">5</i>
+                    </li>
+                    <li class="item-steps">
+                      <span class="blind">6</span>
+                      <i class="icon" aria-hidden="true">6</i>
+                    </li>
+                  </ol>
+                </div>
+              </h2>
+              <!-- [수정] 2026-10-26 텍스트 추가 -->
+              <h4 class="typeH4">대표자의 휴대전화 본인인증을 진행해 주세요</h4>
+              <p class="typeLg mt-4 mb-24">대표자 명의의 휴대전화 인증과 사업자등록번호로 가입 가능여부를 확인합니다.</p>
+              <!-- // [수정] 2026-10-26 텍스트 추가 -->
+              <div class="tbl-area">
+                <table class="table-type01">
+                  <caption>
+                    이름, 사업자등록번호, 주민등록번호, 휴대전화번호, 인증번호에
+                    대한 구성 테이블입니다.
+                  </caption>
+                  <colgroup>
+                    <col style="width: 160px" />
+                    <col style="width: auto" />
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="row">
+                        <span class="required"><label for="input-ftsr80">이름</label></span>
+                      </th>
+                      <td>
+                        <input type="text" id="input-ftsr80" class="input size-lg wSize-lg" aria-label="이름 입력" placeholder="입력해주세요">
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span class="required">사업자등록번호</span>
+                      </th>
+                      <td>
+                        <div class="tbl-flex">
+                          <input type="text" class="input size-lg wSize-smMd" aria-label="사업자등록번호 입력" placeholder="3자리 입력">
+                          -
+                          <input type="text" class="input size-lg wSize-smMd" aria-label="사업자등록번호 입력" placeholder="2자리 입력">
+                          -
+                          <input type="text" class="input size-lg wSize-smMd" aria-label="사업자등록번호 입력" placeholder="5자리 입력">
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span class="required">주민등록번호</span>
+                      </th>
+                      <td>
+                        <div class="tbl-flex">
+                          <input type="text" id="input-ib8jcj" class="input size-lg wSize-md" aria-label="주민등록번호 입력" placeholder="앞번호 입력">
+                          -
+                          <div class="input-box wSize-md">
+                            <input type="password" id="cardLastNumB" class="input" placeholder="뒷번호 입력" aria-label="뒷번호 입력">
+                            <button type="button" class="btn">
+                              <i class="ico-keypad ico-size-smMd"></i>
+                              <span class="blind">보안 키패드 열기</span>
+                            </button>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span class="required">휴대전화번호</span>
+                      </th>
+                      <td>
+                        <div class="tbl-flex">
+                          <div class="box-select wSize-sm">
+                            <button type="button" id="input-7hrze8" class="select size-lg" role="combobox" aria-expanded="true" aria-haspopup="listbox" aria-controls="comp-18xqxr" aria-label="항목 1 선택">
+                              <span class="text">KT</span>
+                              <span class="blind">펼침</span>
+                            </button>
+                            <div id="comp-18xqxr" class="box-list-select">
+                              <ul class="list-select" role="listbox" aria-label="항목 1">
+                                <li class="item-select selected" role="option" aria-selected="true"><span class="btn-item-select">KT</span></li>
+                                <li class="item-select" role="option" aria-selected="false"><span class="btn-item-select">SK</span></li>
+                                <li class="item-select" role="option" aria-selected="false"><span class="btn-item-select">LG</span></li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div class="box-select wSize-sm">
+                            <button type="button" id="phonePrefixBtn" class="select size-lg" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="selectDropdown01" aria-labelledby="phone-label" aria-required="true">
+                              <span class="text">010</span>
+                            </button>
+                            <div id="selectDropdown01" class="box-list-select">
+                              <ul class="list-select" role="listbox" aria-label="휴대전화번호 앞자리 선택">
+                                <li class="item-select" role="option" aria-selected="true" tabindex="0"><span class="btn-item-select">010</span></li>
+                                <li class="item-select" role="option" aria-selected="false" tabindex="-1"><span class="btn-item-select">011</span></li>
+                              </ul>
+                            </div>
+                          </div>
+                          <span aria-hidden="true">-</span>
+                          <input type="text" class="input size-lg wSize-sm" value="" maxlength="4" aria-label="휴대전화번호 중간자리" aria-required="true">
+                          <span aria-hidden="true">-</span>
+                          <input type="text" class="input size-lg wSize-sm" value="" maxlength="4" aria-label="휴대전화번호 뒷자리" aria-required="true">
+
+                          <button type="button" class="btn type-line-secondary size-lg">
+                            <span class="text">인증번호 요청</span>
+                          </button>
+                          <button type="button" class="btn type-line-secondary size-lg">
+                            <span class="text">인증번호 재요청</span>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span class="required">인증번호</span>
+                      </th>
+                      <td>
+                        <input type="text" id="input-hat8eh" class="input size-lg wSize-smMd" aria-label="인증번호 입력" placeholder="6자리 입력">
+                        <button type="button" class="btn type-line-secondary size-lg">
+                          <span class="text">인증확인</span>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="btn-wrap center lg-bot">
+                <button type="button" class="btn type-bg-primary size-xxl">
+                  <span class="text">다음</span>
+                </button>
+              </div>
+            </div>
+            <!--// -->
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
+</html>
+<script></script>

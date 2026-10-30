@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/bop.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
+
+      <div id="container" class="container">
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="bop">
+              <button type="button" class="btn type-bg-primary size-md btn-modal" data-target="modal-16">
+                <span class="text">인출가능금액조회</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+    <div id="modal-16" class="modal is-active" data-dim="true" data-backdrop-close="false" data-alert="true" data-size="sm" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc">
+      <div class="modal-wrapper">
+        <div class="modal-title">
+          <h4 class="typeH4">외화송금인출가능금액조회내역서</h4>
+        </div>
+        <div class="modal-slot">
+          <div id="modal-desc">
+            <div class="tbl-area">
+              <div class="tbl-head">
+                <div class="left-area">
+                  <h4 class="typeH6">기본 정보</h4>
+                </div>
+              </div>
+              <table class="table-type01">
+                <caption>
+                  외화송금내역서 인쇄 테이블
+                </caption>
+                <colgroup>
+                  <col width="160px" />
+                  <col width="272px" />
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th scope="row">예금주명</th>
+                    <td>
+                      <span class="typeMd">홍길동</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">계좌번호</th>
+                    <td>
+                      <span class="typeMd">0000-0000-0000</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">상품종류</th>
+                    <td>
+                      <span class="typeMd">보통예금</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">계좌상태</th>
+                    <td>
+                      <span class="typeMd">활동</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="tbl-area">
+              <table class="table-type03">
+                <div class="tbl-head">
+                  <div class="left-area">
+                    <h4 class="typeH6">통화별 잔액조회</h4>
+                  </div>
+                </div>
+                <caption>
+                  외화송금내역서 인쇄 테이블
+                </caption>
+                <colgroup>
+                  <col width="170px" />
+                  <col width="170px" />
+                  <col width="170px" />
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th>통화</th>
+                    <!--[dev]:20261028 공통 col table th 금액단위표시(원)-->
+                    <th>잔액(원)</th>
+                    <th>인출가능금액(원)</th>
+                    <!--//[dev]:20261028 공통 col table th 금액단위표시(원)-->
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="typeMd">원</span></td>
+                    <td class="text-right"><span class="typeMd">1,000,000</span></td>
+                    <td class="text-right"><span class="typeMd">1,000,000</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer flex items-center justify-center gap-8">
+          <button type="button" class="btn type-bg-primary size-lg">
+            <span class="text">닫기</span>
+          </button>
+        </div>
+        <button type="button" class="ico btn-close" aria-label="모달 닫기">
+          <i class="ico-close ico-size-smMd" aria-hidden="true"></i>
+          <span class="blind">닫기</span>
+        </button>
+      </div>
+    </div>
+  </body>
+</html>

@@ -14,15 +14,10 @@
 
   <body>
     <div class="wrapper">
-      <div id="header">
-        @@include('static/html/pub/layout/skipNavigation.html')
-        @@include('static/html/pub/layout/header_sub.html')
-      </div>
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
 
       <div id="container" class="container">
-        <div id="leftArea">
-          @@include('static/html/pub/layout/leftArea.html')
-        </div>
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
         <div id="contents">
           <div class="content">
             @@include('static/html/pub/layout/breadcrumb.html')
@@ -55,10 +50,7 @@
                   <div class="card-top-content">
                     <div class="flex gap-16">
                       <div class="flex justify-center items-center">
-                        <i
-                          class="bank-007 circle ico-size-2xl"
-                          aria-hidden="true"
-                        ></i>
+                        <i class="bank-007 circle ico-size-2xl" aria-hidden="true"></i>
                       </div>
                       <div class="flex flex-column">
                         <span class="type2XlMedium">Sh평생주거래우대통장</span>
@@ -98,8 +90,7 @@
                 </div>
                 <table class="table-type01">
                   <caption>
-                    입금계좌, 입금금액, 세금, 이자금액, 세후이자, 입금예정액
-                    정보 테이블
+                    입금계좌, 입금금액, 세금, 이자금액, 세후이자, 입금예정액 정보 테이블
                   </caption>
                   <!-- [수정] 20260903 col width 값 추가  -->
                   <!-- [수정] 20260909 col width style 수정  -->
@@ -148,15 +139,42 @@
                   </tbody>
                 </table>
               </div>
-              <div class="text-center">otp 공통 영역</div>
+              <!-- [dev] otp공통 내용추가 20261026 -->
+              <div class="tbl-area">
+                <!--tbl-area로 감싸고 안에 필요한 테이블 넣어주세요.-->
+                <!-- [dev] (공통)OTP인증 ui CIBCMN340101001M-->
+                <div class="wrap-board-grid">
+                  <div class="board-grid">
+                    <!-- [dev] (공통)OTP인증 ui CIBCMN340101001M 영역 : 작업 시 삭제-->
+                    <i style="display: block; border: var(--borderWidthMd) solid var(--colorBorderBase); border-radius: var(--radiusMd); padding: var(--spacing2Xl)">(공통)OTP인증 ui CIBCMN340101001M</i>
+                    <!-- //[dev] (공통)OTP인증 ui CIBCMN340101001M 영역 : 작업 시 삭제 -->
+                  </div>
+                </div>
+                <!-- //[dev] (공통)OTP인증 ui CIBCMN340101001M -->
+                <!--//tbl-area로 감싸고 안에 필요한 테이블 넣어주세요.-->
+              </div>
+
+              <!-- //[dev] otp공통 내용추가 20261026 -->
+
+              <!-- [dev] 버튼 추가 20261026 -->
               <div class="btn-wrap center lg-bot">
-                <button type="button" class="btn type-line-neutral size-xxl">
+                <button type="button" class="btn type-bg-primary-tint size-xxl">
                   <span class="text">취소</span>
                 </button>
                 <button type="button" class="btn type-bg-primary size-xxl">
                   <span class="text">이체</span>
                 </button>
+                <!-- [dev] 버튼추가 20261019 -->
+                <button type="button" class="btn type-bg-primary size-xxl">
+                  <span class="text">결제요청</span>
+                </button>
+                <button type="button" class="btn type-bg-primary size-xxl">
+                  <span class="text">승인요청</span>
+                </button>
+                <!-- //[dev] 버튼추가 20261019 -->
               </div>
+
+              <!-- //[dev] 버튼 추가 20261026 -->
             </div>
           </div>
         </div>

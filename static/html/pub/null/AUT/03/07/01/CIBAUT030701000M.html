@@ -1,0 +1,182 @@
+<!-- for dev) 9월10일 디자인 가이드 반영 테이블 간격 및 글자 정렬 , 이용안내 위치 변경 (실수)-->
+
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/aut.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
+
+      <div id="container" class="container">
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="aut">
+              <h2 class="typeH2">
+                인증서 효력정지/회복
+
+                <div class="box-steps">
+                  <ol class="list-steps">
+                    <li class="item-steps current" aria-current="step">
+                      <span class="blind">1</span>
+                      <i class="icon" aria-hidden="true">1</i>
+                      <span class="text">인증서 선택 / 사용자 정보 입력 </span>
+                    </li>
+                    <li class="item-steps">
+                      <span class="blind">2</span>
+                      <i class="icon" aria-hidden="true">2</i>
+                    </li>
+                    <li class="item-steps">
+                      <span class="blind">3</span>
+                      <i class="icon" aria-hidden="true">3</i>
+                    </li>
+                    <li class="item-steps">
+                      <span class="blind">4</span>
+                      <i class="icon" aria-hidden="true">4</i>
+                    </li>
+                  </ol>
+                </div>
+              </h2>
+              <div class="tbl-area">
+                <h4 class="typeH4">정지여부 선택</h4>
+                <table class="table-type01">
+                  <caption>
+                    인증서 정지/회복에 대한 구성 테이블입니다.
+                  </caption>
+                  <colgroup>
+                    <col style="width: 160px" />
+                    <col style="width: auto" />
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="row">
+                        <span class="required">인증서 정지/회복</span>
+                      </th>
+                      <td>
+                        <div class="form-box-wrap" role="radiogroup" aria-label="조회구분">
+                          <span class="form-box">
+                            <input type="radio" name="radio_comp-ov63be" id="radio_comp-ov63be_01" class="form-radio size-md" checked="" />
+                            <label for="radio_comp-ov63be_01" class="form-label">정지</label>
+                          </span>
+                          <span class="form-box">
+                            <input type="radio" name="radio_comp-ov63be" id="radio_comp-ov63be_02" class="form-radio size-md" />
+                            <label for="radio_comp-ov63be_02" class="form-label">회복</label>
+                          </span>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="tbl-area">
+                <h4 class="typeH4">공동인증서 종류 선택</h4>
+                <table class="table-type01">
+                  <caption>
+                    인증서 종류에 대한 구성 테이블입니다.
+                  </caption>
+                  <colgroup>
+                    <col style="width: 160px" />
+                    <col style="width: auto" />
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="row">
+                        <span>인증서 종류</span>
+                      </th>
+                      <td>
+                        <div class="tbl-flex">
+                          <div class="form-box-wrap" role="radiogroup" aria-label="조회구분">
+                            <span class="form-box">
+                              <input type="radio" name="radioType" id="radioType_01" class="form-radio size-md" checked="" />
+                              <label for="radioType_01" class="form-label">은행/신용카드/보험용 기업 </label>
+                            </span>
+                            <span class="form-box">
+                              <input type="radio" name="radioType" id="radioType_02" class="form-radio size-md" />
+                              <label for="radioType_02" class="form-label">용도제한용 기업인증서 </label>
+                            </span>
+                            <span class="form-box">
+                              <input type="radio" name="radioType" id="radioType_03" class="form-radio size-md" />
+                              <label for="radioType_03" class="form-label">전자거래범용 기업(코스콤 SignKorea) </label>
+                            </span>
+                            <span class="form-box">
+                              <input type="radio" name="radioType" id="radioType_04" class="form-radio size-md" />
+                              <label for="radioType_04" class="form-label">전자세금계산서용 인증서 </label>
+                            </span>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="tbl-area">
+                <h4 class="typeH4">사용자 정보</h4>
+                <table class="table-type01">
+                  <caption>
+                    사용자 ID, 사업자등록번호에 대한 구성 테이블입니다.
+                  </caption>
+                  <colgroup>
+                    <col style="width: 160px" />
+                    <col style="width: auto" />
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th>
+                        <span class="required">사용자 ID</span>
+                      </th>
+                      <td colspan="3">
+                        <div class="tbl-flex">
+                          <input type="text" id="userDeptInput" class="input size-lg wSize-md" value="" placeholder="인터넷뱅킹 사용자 ID입력" aria-label="사용자 ID" />
+                          <button type="button" class="btn type-line-secondary size-lg">
+                            <span class="text">ID조회</span>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span class="required">사업자등록번호</span>
+                      </th>
+                      <td>
+                        <div class="tbl-flex">
+                          <input type="text" class="input size-lg wSize-smMd" aria-label="사업자등록번호 입력" placeholder="3자리 입력" />
+                          -
+                          <input type="text" class="input size-lg wSize-smMd" aria-label="사업자등록번호 입력" placeholder="2자리 입력" />
+                          -
+                          <input type="text" class="input size-lg wSize-smMd" aria-label="사업자등록번호 입력" placeholder="5자리 입력" />
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="btn-wrap center lg-bot">
+                <button type="button" class="btn type-bg-primary-tint size-xxl">
+                  <span class="text">취소</span>
+                </button>
+                <button type="button" class="btn type-bg-primary size-xxl">
+                  <span class="text">다음</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
+</html>

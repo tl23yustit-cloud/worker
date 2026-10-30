@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/fin.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">
+        @@include('static/html/pub/layout/skipNavigation.html')
+        @@include('static/html/pub/layout/header_sub.html')
+      </div>
+
+      <div id="container" class="container">
+        <div id="leftArea">
+          @@include('static/html/pub/layout/leftArea.html')
+        </div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="fin">
+              <button
+                type="button"
+                class="btn type-bg-primary size-md btn-modal"
+                data-target="modal-01"
+              >
+                <span class="text">모달버튼</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <div
+      id="modal-01"
+      class="modal is-active"
+      data-dim="true"
+      data-backdrop-close="false"
+      data-alert="true"
+      data-size="sm"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modal-title"
+      aria-describedby="modal-desc"
+    >
+      <div class="modal-wrapper">
+        <div class="modal-title" id="modal-title">
+          <h4 class="typeH4">꼭 확인하세요!</h4>
+        </div>
+        <div id="modal-desc" class="blind">꼭 확인하세요! 모달입니다.</div>
+        <div class="modal-slot">
+
+          <div class="modal-desc">
+            <div class="text-must-check">
+                <p class="typeMd">
+                  <strong>RIA(국내시장복귀계좌)를 활용해 세제혜택을 받고자 하는 고객께서는</strong> 2026년 한해동안 RIA가 아닌 다른 금융계좌에서 해외주식형 펀드등을 순매수하는 경우, RIA 에서의 해외주식 양도소득세 감면 혜택이 축소되오니 RIA가 아닌 금융계좌를 통해 <strong>해외주식형 펀드 등을 매수하실 때 유의하시기 바랍니다.</strong>
+                </p>
+
+                <div class="flex items-center justify-center">
+                  <button type="button" class="btn type-line-secondary size-sm">
+                    <i class="ico solid ico-size-xs ico-play" aria-hidden="true"></i>
+                    <span class="text">                      
+                      유의사항 자세히보기
+                    </span>
+                  </button>
+                </div>
+            </div>
+          </div>
+          
+        </div>
+
+        <div class="modal-footer flex items-center justify-center gap-8">
+          <button type="button" class="btn type-bg-primary size-lg">
+            <span class="text">확인</span>
+          </button>
+        </div>
+        <button type="button" class="ico btn-close" aria-label="모달 닫기">
+          <i class="ico-close ico-size-smMd" aria-hidden="true"></i>
+          <span class="blind">닫기</span>
+        </button>
+      </div>
+    </div>
+
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
+</html>

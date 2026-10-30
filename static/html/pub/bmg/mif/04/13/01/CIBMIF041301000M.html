@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/bmg.css" />
+</head>
+
+<body>
+    <div class="wrapper">
+        <div id="header">
+            @@include('static/html/pub/layout/skipNavigation.html')
+            @@include('static/html/pub/layout/header_sub.html')
+        </div>
+
+        <div id="container" class="container">
+            <div id="leftArea">
+                @@include('static/html/pub/layout/leftArea.html')
+            </div>
+            <div id="contents">
+                <div class="content">
+                    @@include('static/html/pub/layout/breadcrumb.html')
+                    <div class="bmg">
+                        <h2 class="typeH2">OTP보정</h2>
+
+                        <div class="tbl-area">
+                            <table class="table-type01 fixed">
+                                <caption></caption>
+                                <colgroup>
+                                    <col style="width: 160px" />
+                                    <col style="width: auto" />
+                                </colgroup>
+                                <tbody>
+
+                                    <tr>
+                                        <th scope="row">
+                                            OTP 응답번호1
+
+                                        </th>
+                                        <td>
+                                            <div class="tbl-flex">
+                                                <input type="text" class="input size-lg wSize-md" placeholder=""
+                                                    title="OTP 응답번호1" />
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">
+                                            OTP 응답번호2
+
+                                        </th>
+                                        <td>
+                                            <div class="tbl-flex">
+                                                <input type="text" class="input size-lg wSize-md" placeholder=""
+                                                    title="OTP 응답번호2" />
+                                            </div>
+                                            <p class="error-message">
+                                                첫번째 응답번호를 입력한 후 1분뒤에 새로 나오는 응답번호를 입력하세요.
+                                            </p>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- 하단 확인 버튼 영역 -->
+                        <div class="btn-wrap center lg-bot">
+                            <button type="button" class="btn type-bg-primary size-xxl">
+                                <span class="text">확인</span>
+                            </button>
+                        </div>
+
+                        <!-- 이용안내 -->
+                        <div class="line-box size-xl mt-48">
+                            <span class="typeLgSemibold">이용안내</span>
+                            <div class="list type-dotted">
+                                <ul>
+                                    <li class="typeMd">
+                                        OTP시스템과 OTP토큰이 동기화 되지 않아 연속해서 인증실패가 날경우 동기화 시킬 수 있습니다.
+                                    </li>
+                                    <li class="typeMd">
+                                        당행 및 타기관발급 OTP에 대해서 처리가능합니다.
+                                    </li>
+                                    <li class="typeMd">
+                                        OTP토큰의 응답번호를 입력하시고 TIME방식은 1분후 바뀐 응답번호를 이벤트방식은 1회버튼을 누른후 바뀐 OTP응답번호를 입력하세요.
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+        </div>
+        <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+</body>
+
+</html>

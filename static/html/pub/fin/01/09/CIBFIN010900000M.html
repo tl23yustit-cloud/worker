@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/fin.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">
+        @@include('static/html/pub/layout/skipNavigation.html')
+        @@include('static/html/pub/layout/header_sub.html')
+      </div>
+
+      <div id="container" class="container">
+        <div id="leftArea">
+          @@include('static/html/pub/layout/leftArea.html')
+        </div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="fin">
+              <h2 class="typeH2">
+                법인명의 계좌인증
+                <div class="box-steps">
+                  <ol class="list-steps">
+                    <li class="item-steps passed">
+                      <span class="blind">1</span>
+                      <i class="icon" aria-hidden="true">1</i>
+                    </li>
+                    <li class="item-steps passed">
+                      <span class="blind">2</span>
+                      <i class="icon" aria-hidden="true">2</i>
+                    </li>
+                    <li class="item-steps current" aria-current="step">
+                      <span class="blind">3</span>
+                      <i class="icon" aria-hidden="true">3</i>
+                      <span class="text">비대면 본인확인(3/4)</span>
+                    </li>
+                    <li class="item-steps">
+                      <span class="blind">4</span>
+                      <i class="icon" aria-hidden="true">4</i>
+                      <span class="text">4</span>
+                    </li>
+                    <li class="item-steps">
+                      <span class="blind">5</span>
+                      <i class="icon" aria-hidden="true">5</i>
+                      <span class="text">5</span>
+                    </li>
+                    <li class="item-steps">
+                      <span class="blind">6</span>
+                      <i class="icon" aria-hidden="true">6</i>
+                      <span class="text">6</span>
+                    </li>
+                  </ol>
+                </div>
+              </h2>
+            </div>
+            <h4 class="typeH4">법인 사업자인증서를 조회해서 확인합니다</h4>
+            <p class="typeLg mt-8">홈택스에 등록된 사업자용 인증서를 통해 고객님의 사업자 정보를 조회합니다.</p><!-- [수정] 2026-10-27 class 수정 -->
+            <!-- 아이콘 이미지 추후 교체예정 -->
+            <div class="method-list mt-24"><!-- [수정] 2026-10-27 class 수정 -->
+              <span class="form-box">
+                <input type="radio" name="methodType" id="type01" class="form-radio" checked="">
+                <label for="type01" class="method-item">
+                  <i class="ico etc ico-size-6xl ico-method" aria-hidden="true"></i><!-- [수정] 2026-10-27 class 수정 -->
+                  <strong class="title">공동인증서</strong>
+                  <span class="typeMd mt-4">(구)공동인증서로 인증하기</span><!-- [수정] 2026-10-27 html 수정 -->
+                </label>
+              </span>
+
+              <span class="form-box">
+                <input type="radio" name="methodType" id="type02" class="form-radio">
+                <label for="type02" class="method-item">
+                  <i class="ico etc ico-size-6xl ico-method type2" aria-hidden="true"></i><!-- [수정] 2026-10-27 class 수정 -->
+                  <strong class="title">금융인증서</strong>
+                </label>
+              </span>
+            </div>
+            <div class="list type-dotted mt-12">
+              <ul>
+                <li class="typeMd">
+                  사업자등록번호로 발급된 인증서가 아닌 경우 다음단계로 진행할
+                  수 없습니다
+                </li>
+              </ul>
+            </div>
+            <div class="btn-wrap center lg-bot">
+              <button type="button" class="btn type-bg-primary size-xxl">
+                <span class="text">다음</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
+</html>
+<script></script>

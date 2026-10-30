@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>수협은행</title>
+  <link rel="stylesheet" href="/static/css/reset.css" />
+  <link rel="stylesheet" href="/static/css/layout.css" />
+  <link rel="stylesheet" href="/static/css/component.css" />
+  <link rel="stylesheet" href="/static/css/common.css" />
+  <link rel="stylesheet" href="/static/css/bop.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <div id="header">
+      @@include('static/html/pub/layout/skipNavigation.html')
+      @@include('static/html/pub/layout/header_sub.html')
+    </div>
+
+    <div id="container" class="container">
+      <div id="leftArea">
+        @@include('static/html/pub/layout/leftArea.html')
+      </div>
+      <div id="contents">
+        <div class="content">
+          @@include('static/html/pub/layout/breadcrumb.html')
+          <div class="bop">
+            <h2 class="typeH2">사업장정보 변경</h2>
+
+            <div class="tbl-area">
+              <div class="tbl-head">
+                <!--[dev] : 20260903 추가-->
+                <!-- <h6 class="typeH6">조회조건</h6> -->
+                <div class="right-area">
+                  <button type="button" class="btn type-line-neutral size-md">
+                    <span class="text">청구서수령방법 변경</span>
+                  </button>
+                  <span class="required typeMd">필수 항목</span>
+                </div>
+                <!--//[dev] : 20260903 추가-->
+              </div>
+
+              <table class="table-type01">
+                <caption></caption>
+                <!-- [수정] 20260907 col width 값 추가  -->
+                <colgroup>
+                  <col style="width: 160px" />
+                  <col style="width: 368px" />
+                  <col style="width: 160px" />
+                  <col style="width: 368px" />
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th scope="row">사업장 회원번호</th>
+                    <td>
+                      <span class="typeMd">110-2111-1121</span>
+                    </td>
+                    <th scope="row">
+                      <span class="required">사업장명</span>
+                    </th>
+                    <td>
+                      <input type="text" class="input size-lg wSize-md" placeholder="Hint Text" title="사업장명"
+                        value="명도조선" />
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <th scope="row">
+                      <span class="required">사업장명(영문)</span>
+                    </th>
+                    <td>
+                      <input type="text" class="input size-lg wSize-md" placeholder="Hint Text" title="사업장명 영문"
+                        value="YOUNGDOJOSUN" />
+                    </td>
+                    <th scope="row">
+                      <span class="required">청구서수령방법</span>
+                    </th>
+                    <td>
+                      <div class="box-select wSize-md">
+                        <button type="button" class="select size-lg" role="combobox" aria-expanded="false"
+                          aria-haspopup="listbox" aria-controls="selectDropdownTypeA" title="청구서수령방법 선택"
+                          aria-required="true">
+                          <span class="text">청구서수령 방법을 선택하세요</span>
+                          <span class="blind">펼침</span>
+                        </button>
+                        <div id="selectDropdownTypeA" class="box-list-select">
+                          <ul class="list-select" role="listbox" aria-label="청구서수령방법 선택 항목 리스트">
+                            <li class="item-select" role="option" aria-selected="true">
+                              <button type="button" class="btn-item-select">
+                                우편
+                              </button>
+                            </li>
+                            <li class="item-select" role="option" aria-selected="false">
+                              <button type="button" class="btn-item-select">
+                                1
+                              </button>
+                            </li>
+                            <li class="item-select" role="option" aria-selected="false">
+                              <button type="button" class="btn-item-select">
+                                2
+                              </button>
+                            </li>
+                            <li class="item-select" role="option" aria-selected="false">
+                              <button type="button" class="btn-item-select">
+                                3
+                              </button>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">사업장 전화번호</th>
+                    <td>
+                      <div class="tbl-flex">
+                        <div class="box-select wSize-sm">
+                          <button type="button" id="phonePrefixBtn" class="select size-lg" role="combobox"
+                            aria-expanded="false" aria-haspopup="listbox" aria-controls="selectDropdown01"
+                            aria-labelledby="phone-label" aria-describedby="phone-guide">
+                            <span class="text">010</span>
+                          </button>
+                          <div id="selectDropdown01" class="box-list-select">
+                            <ul class="list-select" role="listbox" aria-label="휴대전화번호 앞자리 선택">
+                              <li class="item-select" role="option" aria-selected="true" tabindex="0">
+                                <span class="btn-item-select">02</span>
+                              </li>
+                              <li class="item-select" role="option" aria-selected="false" tabindex="-1">
+                                <span class="btn-item-select">010</span>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                        <span aria-hidden="true">-</span>
+                        <!-- [수정] 20260904 title 값 추가  -->
+                        <input type="text" class="input size-lg wSize-sm" value="1234" maxlength="4"
+                          title="사업장 전화번호 중간자리" aria-labelledby="label-phone" aria-label="사업장 전화번호 중간자리"
+                          aria-required="true" aria-describedby="phone-guide" />
+                        <span aria-hidden="true">-</span>
+                        <!-- [수정] 20260904 title 값 추가  -->
+                        <input type="text" class="input size-lg wSize-sm" value="5678" maxlength="4"
+                          title="사업장 전화번호 뒷자리" aria-labelledby="label-phone" aria-label="사업장 전화번호 뒷자리"
+                          aria-required="true" aria-describedby="phone-guide" />
+                      </div>
+                    </td>
+                    <th scope="row">사업장 이메일주소</th>
+                    <td>
+                      <input type="text" class="input size-lg wSize-md" placeholder="Hint Text" title="사업장 이메일주소"
+                        value="samdo94@gmail.com" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">사업장 휴대전화번호</th>
+                    <td>
+                      <div class="tbl-flex">
+                        <div class="box-select wSize-sm">
+                          <button type="button" id="phonePrefixBtn" class="select size-lg" role="combobox"
+                            aria-expanded="false" aria-haspopup="listbox" aria-controls="selectDropdown01"
+                            aria-labelledby="phone-label" aria-describedby="phone-guide">
+                            <span class="text">010</span>
+                          </button>
+                          <div id="selectDropdown01" class="box-list-select">
+                            <ul class="list-select" role="listbox" aria-label="휴대전화번호 앞자리 선택">
+                              <li class="item-select" role="option" aria-selected="true" tabindex="0">
+                                <span class="btn-item-select">010</span>
+                              </li>
+                              <li class="item-select" role="option" aria-selected="false" tabindex="-1">
+                                <span class="btn-item-select">011</span>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                        <span aria-hidden="true">-</span>
+                        <!-- [수정] 20260904 title 값 추가  -->
+                        <input type="text" class="input size-lg wSize-sm" value="1734" maxlength="4" title="휴대전화번호 중간자리"
+                          aria-labelledby="label-phone" aria-label="휴대전화번호 중간자리" aria-required="true"
+                          aria-describedby="phone-guide" />
+                        <span aria-hidden="true">-</span>
+                        <!-- [수정] 20260904 title 값 추가  -->
+                        <input type="text" class="input size-lg wSize-sm" value="5884" maxlength="4" title="휴대전화번호 뒷자리"
+                          aria-labelledby="label-phone" aria-label="휴대전화번호 뒷자리" aria-required="true"
+                          aria-describedby="phone-guide" />
+                      </div>
+                    </td>
+                    <th scope="row">
+                      <span class="required">사업장 팩스번호</span>
+                    </th>
+                    <td>
+                      <div class="tbl-flex">
+                        <div class="box-select wSize-sm">
+                          <button type="button" id="phonePrefixBtn" class="select size-lg" role="combobox"
+                            aria-expanded="false" aria-haspopup="listbox" aria-controls="selectDropdown01"
+                            aria-labelledby="fax-label" aria-describedby="fax-guide">
+                            <span class="text">010</span>
+                          </button>
+                          <div id="selectDropdown01" class="box-list-select">
+                            <ul class="list-select" role="listbox" aria-label="팩스번호 앞자리 선택">
+                              <li class="item-select" role="option" aria-selected="true" tabindex="0">
+                                <span class="btn-item-select">02</span>
+                              </li>
+                              <li class="item-select" role="option" aria-selected="false" tabindex="-1">
+                                <span class="btn-item-select">010</span>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                        <span aria-hidden="true">-</span>
+                        <!-- [수정] 20260904 title 값 추가  -->
+                        <input type="text" class="input size-lg wSize-sm" value="1234" maxlength="4" title="팩스번호 중간자리"
+                          aria-labelledby="label-fax" aria-label="팩스번호 중간자리" aria-required="true"
+                          aria-describedby="fax-guide" />
+                        <span aria-hidden="true">-</span>
+                        <!-- [수정] 20260904 title 값 추가  -->
+                        <input type="text" class="input size-lg wSize-sm" value="5678" maxlength="4" title="팩스번호 뒷자리"
+                          aria-labelledby="label-fax" aria-label="팩스번호 뒷자리" aria-required="true"
+                          aria-describedby="fax-guide" />
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <label for="senderAddr">주소</label>
+                    </th>
+                    <td colspan="3">
+                      <div class="tbl-column">
+                        <button type="button" class="btn type-line-secondary size-lg">
+                          주소검색
+                        </button>
+                        <div class="wSize-full tbl-column">
+                          <input type="text" id="senderAddr" class="input size-lg"
+                            value="Seoul gangbuk-gu sandamro-gil, 00-00, 1, Korea" aria-label="검색된 주소"
+                            aria-required="true" aria-describedby="address-guide" readonly="">
+                          <input type="text" id="senderAddr" class="input size-lg" value="SH Park 123동 456호"
+                            aria-label="입력한 상세 주소" aria-required="true" aria-describedby="address-guide">
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="tbl-area">
+              <div class="tbl-head">
+                <div class="left-area">
+                  <h6 class="typeH6">OTP 비밀번호 입력</h6>
+                </div>
+              </div>
+              <table class="table-type01">
+                <caption>
+                  OTP에 대한 구성 테이블입니다.
+                </caption>
+                <colgroup>
+                  <col />
+                  <col />
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th scope="row" rowspan="2" class="noradius">
+                      <label for="OTP">OTP </label>
+                    </th>
+                    <td>
+                      <div class="otp-text-wrap">
+                        <!-- [수정] 20260908 title 값 추가  -->
+                        <input type="password" id="OTP" class="input wSize-smMd size-lg" placeholder="숫자 6자리"
+                          title="OTP, 숫자 6자리" aria-label="숫자 6자리" />
+                        <div class="typeMd">
+                          OTP 만료 기한이 <span>14</span>일 남았습니다.
+                          <span>(2026-04-30)</span>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="otp-noti">
+                        <div class="list type-dotted">
+                          <ul>
+                            <li class="typeMd">
+                              OTP에 생성된 숫자 6자리를 입력하세요
+                            </li>
+                            <li class="typeMd">
+                              OTP는 1분마다 새로운 비밀번호가 생성됩니다
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="btn-wrap center lg-bot">
+              <button type="button" class="btn type-bg-primary size-xxl">
+                <span class="text">변경하기</span>
+              </button>
+            </div>
+
+            <div class="line-box size-xl mt-48">
+              <span class="typeLgSemibold">이용안내</span>
+              <div class="list type-dotted">
+                <ul>
+                  <li class="typeMd">
+                    사업장의 정보를 변경 할 수 있는 화면입니다.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+    </div>
+    <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+  </div>
+  <script src="/static/js/ui/cib_ui_common.js"></script>
+</body>
+
+</html>
+<script></script>

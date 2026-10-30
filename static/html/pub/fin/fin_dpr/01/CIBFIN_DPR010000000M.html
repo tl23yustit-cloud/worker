@@ -1,0 +1,454 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/fin.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
+
+      <div id="container" class="container">
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="fin">
+              <div class="box-tab">
+                <div class="box-tab-top">
+                  <h2 class="typeH2">
+                    <span class="blind">예금 전체상품 타이틀 </span>
+                    예금 전체상품
+                  </h2>
+                  <ul class="list-tab-button type-toggle" role="tablist" title="선택됨" aria-label="수협종류 선택">
+                    <li class="item-tab-button">
+                      <button type="button" class="btn btn-tab active" 샷 id="tabBtnTypeButton01" role="tab" aria-selected="true" aria-controls="tabPanelTypeButton01">
+                        <span class="typeMdSemibold">수협은행</span>
+                      </button>
+                    </li>
+                    <li class="item-tab-button type-toggle">
+                      <button type="button" class="btn btn-tab" id="tabBtnTypeButton02" role="tab" aria-selected="false" aria-controls="tabPanelTypeButton02">
+                        <span class="typeMdSemibold">회원수협</span>
+                      </button>
+                    </li>
+                  </ul>
+                </div>
+                <div class="box-tab-content" id="tabPanelTypeButton01" role="tabpanel" aria-labelledby="tabBtnTypeButton01" style="display: block">
+                  <h3 class="blind">Tab1</h3>
+                  <div class="box-search-detail mb-64">
+                    <div class="box-top-visual">
+                      <div class="box-input-search size-xl">
+                        <input type="search" class="input" placeholder="상품명을 검색하세요" title="키워드 입력" />
+                        <div class="group-button">
+                          <button type="button" class="btn-search">
+                            <span class="blind">검색</span>
+                          </button>
+                        </div>
+                      </div>
+                      <button type="button" class="btn type-bg-neutral size-xl" aria-expanded="false" aria-controls="detailSearchPanel01">
+                        <span class="text">상세검색</span>
+                        <i class="ico-arrow" aria-hidden="true"></i>
+                        <span class="blind">펼침</span>
+                      </button>
+                    </div>
+                    <div id="detailSearchPanel01" class="box-bottom-hidden">
+                      <div class="group-list">
+                        <dl class="list-row">
+                          <dt class="list-row-title typeSmMedium">가입방법</dt>
+                          <dd class="list-row-detail">
+                            <span class="form-chip">
+                              <input type="checkbox" checked name="" id="SAMPLE01" />
+                              <label class="chip-toggle" for="SAMPLE01">
+                                <span class="text">전체</span>
+                              </label>
+                            </span>
+                            <span class="form-chip">
+                              <input type="checkbox" name="" id="SAMPLE0101" title="인터넷가입" />
+                              <label class="chip-toggle" for="SAMPLE0101">
+                                <span class="text">인터넷가입</span>
+                              </label>
+                            </span>
+                            <span class="form-chip">
+                              <input type="checkbox" name="" id="SAMPLE0102" title="스마트가입" />
+                              <label class="chip-toggle" for="SAMPLE0102">
+                                <span class="text">스마트가입</span>
+                              </label>
+                            </span>
+                            <span class="form-chip">
+                              <input type="checkbox" name="" id="SAMPLE0103" title="영업점가입" />
+                              <label class="chip-toggle" for="SAMPLE0103">
+                                <span class="text">영업점가입</span>
+                              </label>
+                            </span>
+                          </dd>
+                        </dl>
+                        <dl class="list-row">
+                          <dt class="list-row-title typeSmMedium">상품유형</dt>
+                          <dd class="list-row-detail">
+                            <span class="form-chip">
+                              <input type="checkbox" checked name="" id="SAMPLE011" />
+                              <label class="chip-toggle" for="SAMPLE011">
+                                <span class="text">전체</span>
+                              </label>
+                            </span>
+                            <span class="form-chip">
+                              <input type="checkbox" name="" id="SAMPLE01011" title="입출금" />
+                              <label class="chip-toggle" for="SAMPLE01011">
+                                <span class="text">입출금</span>
+                              </label>
+                            </span>
+                            <span class="form-chip">
+                              <input type="checkbox" name="" id="SAMPLE01021" title="예금" />
+                              <label class="chip-toggle" for="SAMPLE01021">
+                                <span class="text">예금</span>
+                              </label>
+                            </span>
+                            <span class="form-chip">
+                              <input type="checkbox" name="" id="SAMPLE01031" title="적금" />
+                              <label class="chip-toggle" for="SAMPLE01031">
+                                <span class="text">적금</span>
+                              </label>
+                            </span>
+                            <span class="form-chip">
+                              <input type="checkbox" name="" id="SAMPLE01041" title="외화" />
+                              <label class="chip-toggle" for="SAMPLE01041">
+                                <span class="text">외화</span>
+                              </label>
+                            </span>
+                          </dd>
+                        </dl>
+                        <dl class="list-row">
+                          <dt class="list-row-title typeSmMedium">가입대상</dt>
+                          <dd class="list-row-detail">
+                            <span class="form-chip">
+                              <input type="checkbox" checked name="" id="SAMPLE0111" />
+                              <label class="chip-toggle" for="SAMPLE0111">
+                                <span class="text">전체</span>
+                              </label>
+                            </span>
+                            <span class="form-chip">
+                              <input type="checkbox" name="" id="SAMPLE010111" title="개인사업자" />
+                              <label class="chip-toggle" for="SAMPLE010111">
+                                <span class="text">개인사업자</span>
+                              </label>
+                            </span>
+                            <span class="form-chip">
+                              <input type="checkbox" name="" id="SAMPLE010211" title="법인" />
+                              <label class="chip-toggle" for="SAMPLE010211">
+                                <span class="text">법인</span>
+                              </label>
+                            </span>
+                          </dd>
+                        </dl>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="product-wrapper">
+                    <div class="table-header">
+                      <div class="total"><span>총</span><span class="count">999</span></div>
+                      <div class="sort-btn-wrapper">
+                        <button type="button" class="btn type-bg-neutral size-sm" aria-pressed="true">
+                          <span class="text">추천수</span>
+                          <i class="ico-arrow" aria-hidden="true"></i>
+                        </button>
+                        <button type="button" class="btn type-line-neutral size-sm" aria-pressed="false">
+                          <span class="text">금리순</span>
+                          <i class="ico-arrow" aria-hidden="true"></i>
+                        </button>
+                        <button type="button" class="btn type-line-neutral size-sm" aria-pressed="false">
+                          <span class="text">상품명순</span>
+                          <i class="ico-arrow" aria-hidden="true"></i>
+                        </button>
+                      </div>
+                    </div>
+                    <div class="table-type02">
+                      <table class="product-list">
+                        <caption>
+                          금융상품목록
+                        </caption>
+                        <colgroup>
+                          <col width="auto" />
+                          <col width="200px" />
+                          <col width="160px" />
+                        </colgroup>
+                        <thead>
+                          <tr>
+                            <th>
+                              <span class="typeSmMedium">상품정보</span>
+                            </th>
+                            <th><span class="typeSmMedium">잔액(원)</span></th>
+                            <th>
+                              <span class="typeSmMedium">바로가기</span>
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>
+                              <h4 class="title">
+                                Sh모두행복海기업적금
+                                <!-- 활성화일떄 is-active 클래스 추가 -->
+                                <button class="fav-btn is-active" aria-pressed="false">
+                                  <i aria-hidden="true"></i>
+                                  <span class="blind">관심버튼</span>
+                                </button>
+                              </h4>
+                              <p class="des">가족친화인증서 또는 가족친화정책 증빙자료 제출, 신규금액, 월평잔, 자동이체실적에 따라 <br />우대금리를 제공하는 적립식 예금</p>
+                              <ul class="flex gap-4">
+                                <li>
+                                  <span class="badge-outline size-md type-blue">
+                                    <span class="text">개인</span>
+                                  </span>
+                                </li>
+                                <li>
+                                  <span class="badge-outline size-md type-blue">
+                                    <span class="text">개인사업자</span>
+                                  </span>
+                                </li>
+                                <li>
+                                  <span class="badge-outline size-md type-blue">
+                                    <span class="text">법인사업자</span>
+                                  </span>
+                                </li>
+                                <li>
+                                  <span class="badge-light size-md type-cyan">
+                                    <span class="text">인터넷</span>
+                                  </span>
+                                </li>
+                                <li>
+                                  <span class="badge-light size-md type-fuchsia">
+                                    <span class="text">영업점</span>
+                                  </span>
+                                </li>
+                                <li>
+                                  <span class="badge-light size-md type-blue">
+                                    <span class="text">스마트폰</span>
+                                  </span>
+                                </li>
+                              </ul>
+                            </td>
+                            <td>
+                              <div class="tbl-rate">
+                                <dl class="tbl-rate-inner">
+                                  <div class="rate-max">
+                                    <dt class="blind">최고 연 이율</dt>
+                                    <dd class="typeLg flex"><span class="typeLg">최고 연</span> <span class="typeH2">2.50%</span></dd>
+                                  </div>
+                                  <div class="rate-base">
+                                    <dt class="blind">기본 이율</dt>
+                                    <dd class="typeLg flex">기본 <span class="typeH4">1.90%</span></dd>
+                                  </div>
+                                  <div class="rate-period">
+                                    <dt class="blind">적용 기간</dt>
+                                    <dd class="typeMd">(1년 기준)</dd>
+                                  </div>
+                                </dl>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="flex justify-center items-stretch">
+                                <button type="button" class="btn type-bg-primary-tint size-sm ml-4">
+                                  <span class="text">가입하기</span>
+                                </button>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <h4 class="title">
+                                Sh모두행복海기업적금<button class="fav-btn" aria-pressed="false">
+                                  <i aria-hidden="true"></i>
+                                  <span class="blind">관심버튼</span>
+                                </button>
+                              </h4>
+                              <p class="des">가족친화인증서 또는 가족친화정책 증빙자료 제출, 신규금액, 월평잔, 자동이체실적에 따라 <br />우대금리를 제공하는 적립식 예금</p>
+                              <ul class="flex gap-4">
+                                <li>
+                                  <span class="badge-outline size-md type-blue">
+                                    <span class="text">개인</span>
+                                  </span>
+                                </li>
+                                <li>
+                                  <span class="badge-outline size-md type-blue">
+                                    <span class="text">개인사업자</span>
+                                  </span>
+                                </li>
+                                <li>
+                                  <span class="badge-outline size-md type-blue">
+                                    <span class="text">법인사업자</span>
+                                  </span>
+                                </li>
+                                <li>
+                                  <span class="badge-light size-md type-cyan">
+                                    <span class="text">인터넷</span>
+                                  </span>
+                                </li>
+                                <li>
+                                  <span class="badge-light size-md type-fuchsia">
+                                    <span class="text">영업점</span>
+                                  </span>
+                                </li>
+                                <li>
+                                  <span class="badge-light size-md type-blue">
+                                    <span class="text">스마트폰</span>
+                                  </span>
+                                </li>
+                              </ul>
+                            </td>
+                            <td>
+                              <div class="tbl-rate">
+                                <dl class="tbl-rate-inner">
+                                  <div class="rate-max">
+                                    <dt class="blind">최고 연 이율</dt>
+                                    <dd class="typeLg flex"><span class="typeLg">최고 연</span> <span class="typeH2">2.50%</span></dd>
+                                  </div>
+                                  <div class="rate-base">
+                                    <dt class="blind">기본 이율</dt>
+                                    <dd class="typeLg flex">기본 <span class="typeH4">1.90%</span></dd>
+                                  </div>
+                                  <div class="rate-period">
+                                    <dt class="blind">적용 기간</dt>
+                                    <dd class="typeMd">(1년 기준)</dd>
+                                  </div>
+                                </dl>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="flex justify-center items-stretch">
+                                <button type="button" class="btn type-bg-primary-tint size-sm ml-4">
+                                  <span class="text">가입하기</span>
+                                </button>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <h4 class="title">
+                                Sh모두행복海기업적금<button class="fav-btn" aria-pressed="false">
+                                  <i aria-hidden="true"></i>
+                                  <span class="blind">관심버튼</span>
+                                </button>
+                              </h4>
+                              <p class="des">가족친화인증서 또는 가족친화정책 증빙자료 제출, 신규금액, 월평잔, 자동이체실적에 따라 <br />우대금리를 제공하는 적립식 예금</p>
+                              <ul class="flex gap-4">
+                                <li>
+                                  <span class="badge-outline size-md type-blue">
+                                    <span class="text">개인</span>
+                                  </span>
+                                </li>
+                                <li>
+                                  <span class="badge-outline size-md type-blue">
+                                    <span class="text">개인사업자</span>
+                                  </span>
+                                </li>
+                                <li>
+                                  <span class="badge-outline size-md type-blue">
+                                    <span class="text">법인사업자</span>
+                                  </span>
+                                </li>
+                                <li>
+                                  <span class="badge-light size-md type-cyan">
+                                    <span class="text">인터넷</span>
+                                  </span>
+                                </li>
+                                <li>
+                                  <span class="badge-light size-md type-fuchsia">
+                                    <span class="text">영업점</span>
+                                  </span>
+                                </li>
+                                <li>
+                                  <span class="badge-light size-md type-blue">
+                                    <span class="text">스마트폰</span>
+                                  </span>
+                                </li>
+                              </ul>
+                            </td>
+                            <td>
+                              <div class="tbl-rate">
+                                <dl class="tbl-rate-inner">
+                                  <div class="rate-max">
+                                    <dt class="blind">최고 연 이율</dt>
+                                    <dd class="typeLg flex"><span class="typeLg">최고 연</span> <span class="typeH2">2.50%</span></dd>
+                                  </div>
+                                  <div class="rate-base">
+                                    <dt class="blind">기본 이율</dt>
+                                    <dd class="typeLg flex">기본 <span class="typeH4">1.90%</span></dd>
+                                  </div>
+                                  <div class="rate-period">
+                                    <dt class="blind">적용 기간</dt>
+                                    <dd class="typeMd">(1년 기준)</dd>
+                                  </div>
+                                </dl>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="flex justify-center items-stretch">
+                                <button type="button" class="btn type-bg-primary-tint size-sm ml-4">
+                                  <span class="text">가입하기</span>
+                                </button>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <nav class="pagination size-md" aria-label="페이지네이션">
+                      <button type="button" class="btn-nav first" disabled="" aria-disabled="true" aria-label="첫 페이지">
+                        <span class="blind">첫 페이지</span>
+                      </button>
+                      <button type="button" class="btn-nav prev" disabled="" aria-disabled="true" aria-label="이전 페이지">
+                        <span class="blind">이전 페이지</span>
+                      </button>
+
+                      <ol class="list-pagination">
+                        <li>
+                          <button type="button" class="btn-page active" aria-current="page" title="현재 페이지">1</button>
+                        </li>
+                        <li>
+                          <button type="button" class="btn-page" aria-label="2페이지">2</button>
+                        </li>
+                        <li>
+                          <button type="button" class="btn-page" aria-label="3페이지">3</button>
+                        </li>
+                        <li>
+                          <button type="button" class="btn-page" aria-label="4페이지">4</button>
+                        </li>
+                        <li>
+                          <button type="button" class="btn-page" aria-label="5페이지">5</button>
+                        </li>
+                      </ol>
+
+                      <button type="button" class="btn-nav next" aria-label="다음 페이지">
+                        <span class="blind">다음 페이지</span>
+                      </button>
+                      <button type="button" class="btn-nav last" aria-label="마지막 페이지">
+                        <span class="blind">마지막 페이지</span>
+                      </button>
+                    </nav>
+                  </div>
+
+                  <div class="box-tab-content active" id="tabPanelTypeButton02" role="tabpanel" aria-labelledby="tabBtnTypeButton02" style="display: none">
+                    <h3 class="blind">텝2</h3>
+
+                    텝내용 2
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
+</html>

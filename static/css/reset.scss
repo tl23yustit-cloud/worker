@@ -3,710 +3,711 @@
 @import url(./font/font.css);
 
 :root {
-    /* Seed variable */
-    // color - monochrome
-    --colorWhite: #ffffff;
-    --colorBlack: #000000;
-    --colorGray25: #f9fafc;
-    --colorGray50: #f2f5fa;
-    --colorGray60: #F5F6F8;
-    --colorGray100: #eceef4;
-    --colorGray200: #dee1e8;
-    --colorGray300: #d0d4dd;
-    --colorGray400: #a7afbe;
-    --colorGray500: #667085;
-    --colorGray600: #475267;
-    --colorGray700: #343f54;
-    --colorGray800: #1d2639;
-    --colorGray900: #101828;
-    // color - yellow
-    --colorYellow25: #fefdf0;
-    --colorYellow50: #fefbe8;
-    --colorYellow100: #fef7c3;
-    --colorYellow200: #feee95;
-    --colorYellow300: #fde272;
-    --colorYellow400: #fac515;
-    --colorYellow500: #eaaa08;
-    --colorYellow600: #ca8504;
-    --colorYellow700: #a15c07;
-    --colorYellow800: #854a0e;
-    --colorYellow900: #713b12;
-    // color - orange
-    --colorOrange25: #fffaf5;
-    --colorOrange50: #fff4eb;
-    --colorOrange100: #fee1c7;
-    --colorOrange200: #ffd0ab;
-    --colorOrange300: #ffb984;
-    --colorOrange400: #fb9f59;
-    --colorOrange500: #f77316;
-    --colorOrange600: #ea6100;
-    --colorOrange700: #b54708;
-    --colorOrange800: #93370d;
-    --colorOrange900: #7a2e0e;
-    // color - red
-    --colorRed25: #fffbfa;
-    --colorRed50: #fef3f2;
-    --colorRed100: #fee4e2;
-    --colorRed200: #fecdca;
-    --colorRed300: #fda29b;
-    --colorRed400: #f97066;
-    --colorRed500: #D33128;
-    --colorRed600: #d92d20;
-    --colorRed700: #b42318;
-    --colorRed800: #912018;
-    --colorRed900: #7a271a;
-    // color - rose
-    --colorRose25: #fff5f6;
-    --colorRose50: #fff1f3;
-    --colorRose100: #ffe4e8;
-    --colorRose200: #fecdd6;
-    --colorRose300: #fea3b4;
-    --colorRose400: #fd6f8e;
-    --colorRose500: #f63d68;
-    --colorRose600: #e31b54;
-    --colorRose700: #c01048;
-    --colorRose800: #a11043;
-    --colorRose900: #89123e;
-    // color - fuchsia
-    --colorFuchsia25: #fefaff;
-    --colorFuchsia50: #fdf4ff;
-    --colorFuchsia100: #fbe8ff;
-    --colorFuchsia200: #f6d0fe;
-    --colorFuchsia300: #eeaafd;
-    --colorFuchsia400: #e478fa;
-    --colorFuchsia500: #BD0AE5;
-    --colorFuchsia600: #ba24d5;
-    --colorFuchsia700: #9f1ab1;
-    --colorFuchsia800: #821890;
-    --colorFuchsia900: #6f1877;
-    // color - gray cool
-    --colorGrayCool25: #f4f8fd;
-    --colorGrayCool50: #ecf1f8;
-    --colorGrayCool100: #d6dfed;
-    --colorGrayCool200: #b4c4de;
-    --colorGrayCool300: #87a1c4;
-    --colorGrayCool400: #6d8bb7;
-    --colorGrayCool500: #4b6a95;
-    --colorGrayCool600: #395479;
-    --colorGrayCool700: #2b3e5a;
-    --colorGrayCool800: #1c293b;
-    --colorGrayCool900: #0f151f;
-    // color - violet
-    --colorViolet25: #fbfaff;
-    --colorViolet50: #f5f3ff;
-    --colorViolet100: #ece9fe;
-    --colorViolet200: #ddd6fe;
-    --colorViolet300: #c3b5fd;
-    --colorViolet400: #a48afb;
-    --colorViolet500: #875bf7;
-    --colorViolet600: #7839ee;
-    --colorViolet700: #6927da;
-    --colorViolet800: #5720b7;
-    --colorViolet900: #491c96;
-    // color - blue
-    --colorBlue25: #edf4fd;
-    --colorBlue50: #dceafe;
-    --colorBlue100: #cde1fe;
-    --colorBlue200: #a4c2fe;
-    --colorBlue300: #598eff;
-    --colorBlue400: #4579fc;
-    --colorBlue500: #0F62FD;
-    --colorBlue600: #0657e4;
-    --colorBlue700: #0543bc;
-    --colorBlue800: #041d55;
-    --colorBlue900: #020f2c;
-    // color - indigo
-    --colorIndigo25: #f5f8ff;
-    --colorIndigo50: #eef4ff;
-    --colorIndigo100: #e0eaff;
-    --colorIndigo200: #c7d7fe;
-    --colorIndigo300: #a4bcfd;
-    --colorIndigo400: #8098f9;
-    --colorIndigo500: #6172f3;
-    --colorIndigo600: #444ce7;
-    --colorIndigo700: #3538cd;
-    --colorIndigo800: #2d31a6;
-    --colorIndigo900: #2d3282;
-    // color - cyan
-    --colorCyan25: #f5feff;
-    --colorCyan50: #ecfdff;
-    --colorCyan100: #cff9fe;
-    --colorCyan200: #a5f0fc;
-    --colorCyan300: #67e3f9;
-    --colorCyan400: #22ccee;
-    --colorCyan500: #0C7F90;
-    --colorCyan600: #088ab2;
-    --colorCyan700: #0e7090;
-    --colorCyan800: #155b75;
-    --colorCyan900: #164c63;
-    // color - teal
-    --colorTeal25: #f6fefc;
-    --colorTeal50: #f3fffb;
-    --colorTeal100: #d8f5ed;
-    --colorTeal200: #99f6e0;
-    --colorTeal300: #5fe9d0;
-    --colorTeal400: #2ed3b7;
-    --colorTeal500: #15b79e;
-    --colorTeal600: #0e9384;
-    --colorTeal700: #107569;
-    --colorTeal800: #125d56;
-    --colorTeal900: #134e48;
-    // color - light green
-    --colorLightGreen25: #fafef5;
-    --colorLightGreen50: #f3fee7;
-    --colorLightGreen100: #e3fbcc;
-    --colorLightGreen200: #d0f8ab;
-    --colorLightGreen300: #a6ef67;
-    --colorLightGreen400: #85e13a;
-    --colorLightGreen500: #66c61c;
-    --colorLightGreen600: #4ca30d;
-    --colorLightGreen700: #3b7c0f;
-    --colorLightGreen800: #326212;
-    --colorLightGreen900: #2b5314;
-    // color - green
-    --colorGreen25: #f6fef9;
-    --colorGreen50: #ecfdf3;
-    --colorGreen100: #d1fadf;
-    --colorGreen200: #a6f4c5;
-    --colorGreen300: #6ce9a6;
-    --colorGreen400: #32d583;
-    --colorGreen500: #008447;
-    --colorGreen600: #039855;
-    --colorGreen700: #027a48;
-    --colorGreen800: #05603a;
-    --colorGreen900: #054f31;
-    // alpha color - monochrome
-    --colorAlphaWhite80: #ffffffcc;
-    --colorAlphaBlack30: #0000004d;
-    --colorAlphaBlack90: #000000e5;
-    --colorAlphaGray3: #4b6a9508;
-    --colorAlphaGray12: #4b6a951f;
-    --colorAlphaGray16: #4b6a9529;
-    // alpha color blue
-    --colorAlphaBlue5: #2f69fc0d;
-    --colorAlphaBlue12: #2f69fc1f;
-    --colorAlphaBlue16: #2f69fc29;
-    --colorAlphaBlue50: #2f69fc80;
-    // alpha color red
-    --colorAlphaRed5: #d92d200d;
-    --colorAlphaRed12: #d92d201f;
-    --colorAlphaRed16: #d92d2029;
-    // alpha color green
-    --colorAlphaGreen5: #0398550d;
-    --colorAlphaGreen12: #0398551f;
-    --colorAlphaGreen16: #03985529;
-    // alpha color yellow
-    --colorAlphaYellow5: #eaaa080d;
-    --colorAlphaYellow12: #eaaa081f;
-    --colorAlphaYellow16: #eaaa0829;
-    // unit size
-    --numUnit0: 0;
-    --numUnit05: 2px;
-    --numUnit1: 4px;
-    --numUnit15: 6px;
-    --numUnit2: 8px;
-    --numUnit3: 12px;
-    --numUnit4: 16px;
-    --numUnit5: 20px;
-    --numUnit6: 24px;
-    --numUnit7: 28px;
-    --numUnit8: 32px;
-    --numUnit9: 36px;
-    --numUnit10: 40px;
-    --numUnit12: 48px;
-    --numUnit14: 56px;
-    --numUnit16: 64px;
-    --numUnit18: 72px;
-    --numUnit20: 80px;
-    --numUnit24: 96px;
-    --numUnit32: 128px;
-    --numUnit40: 160px;
-    // opacity
-    --opacity30: .3;
-    --opacity50: .5;
-    --opacity70: .7;
-    --opacity100: 1;
-    // border radius unit
-    --borderRadiusUnit0: 0;
-    --borderRadiusUnit05: 2px;
-    --borderRadiusUnit1: 4px;
-    --borderRadiusUnit15: 6px;
-    --borderRadiusUnit2: 8px;
-    --borderRadiusUnit3: 12px;
-    --borderRadiusUnit4: 16px;
-    --borderRadiusUnit5: 20px;
-    --borderRadiusUnit6: 24px;
-    --borderRadiusUnit250: 1000px;
-    // border width unit
-    --borderWidthUnit0: 0;
-    --borderWidthUnit05: .5px;
-    --borderWidthUnit1: 1px;
-    --borderWidthUnit2: 2px;
-    --borderWidthUnit3: 3px;
-    --borderWidthUnit4: 4px;
-    --borderWidthUnit6: 6px;
-    --borderWidthUnit8: 8px;
+  /* Seed variable */
+  // color - monochrome
+  --colorWhite: #ffffff;
+  --colorBlack: #000000;
+  --colorGray25: #f9fafc;
+  --colorGray50: #f2f5fa;
+  --colorGray60: #f5f6f8;
+  --colorGray100: #eceef4;
+  --colorGray200: #dee1e8;
+  --colorGray300: #d0d4dd;
+  --colorGray400: #a7afbe;
+  --colorGray500: #667085;
+  --colorGray600: #475267;
+  --colorGray700: #343f54;
+  --colorGray800: #1d2639;
+  --colorGray900: #101828;
+  // color - yellow
+  --colorYellow25: #fefdf0;
+  --colorYellow50: #fefbe8;
+  --colorYellow100: #fef7c3;
+  --colorYellow200: #feee95;
+  --colorYellow300: #fde272;
+  --colorYellow400: #fac515;
+  --colorYellow500: #eaaa08;
+  --colorYellow600: #ca8504;
+  --colorYellow700: #a15c07;
+  --colorYellow800: #854a0e;
+  --colorYellow900: #713b12;
+  // color - orange
+  --colorOrange25: #fffaf5;
+  --colorOrange50: #fff4eb;
+  --colorOrange100: #fee1c7;
+  --colorOrange200: #ffd0ab;
+  --colorOrange300: #ffb984;
+  --colorOrange400: #fb9f59;
+  --colorOrange500: #f77316;
+  --colorOrange600: #ea6100;
+  --colorOrange700: #b54708;
+  --colorOrange800: #93370d;
+  --colorOrange900: #7a2e0e;
+  // color - red
+  --colorRed25: #fffbfa;
+  --colorRed50: #fef3f2;
+  --colorRed100: #fee4e2;
+  --colorRed200: #fecdca;
+  --colorRed300: #fda29b;
+  --colorRed400: #f97066;
+  --colorRed500: #d33128;
+  --colorRed600: #d92d20;
+  --colorRed700: #b42318;
+  --colorRed800: #912018;
+  --colorRed900: #7a271a;
+  // color - rose
+  --colorRose25: #fff5f6;
+  --colorRose50: #fff1f3;
+  --colorRose100: #ffe4e8;
+  --colorRose200: #fecdd6;
+  --colorRose300: #fea3b4;
+  --colorRose400: #fd6f8e;
+  --colorRose500: #f63d68;
+  --colorRose600: #e31b54;
+  --colorRose700: #c01048;
+  --colorRose800: #a11043;
+  --colorRose900: #89123e;
+  // color - fuchsia
+  --colorFuchsia25: #fefaff;
+  --colorFuchsia50: #fdf4ff;
+  --colorFuchsia100: #fbe8ff;
+  --colorFuchsia200: #f6d0fe;
+  --colorFuchsia300: #eeaafd;
+  --colorFuchsia400: #e478fa;
+  --colorFuchsia500: #bd0ae5;
+  --colorFuchsia600: #ba24d5;
+  --colorFuchsia700: #9f1ab1;
+  --colorFuchsia800: #821890;
+  --colorFuchsia900: #6f1877;
+  // color - gray cool
+  --colorGrayCool25: #f4f8fd;
+  --colorGrayCool50: #ecf1f8;
+  --colorGrayCool100: #d6dfed;
+  --colorGrayCool200: #b4c4de;
+  --colorGrayCool300: #87a1c4;
+  --colorGrayCool400: #6d8bb7;
+  --colorGrayCool500: #4b6a95;
+  --colorGrayCool600: #395479;
+  --colorGrayCool700: #2b3e5a;
+  --colorGrayCool800: #1c293b;
+  --colorGrayCool900: #0f151f;
+  // color - violet
+  --colorViolet25: #fbfaff;
+  --colorViolet50: #f5f3ff;
+  --colorViolet100: #ece9fe;
+  --colorViolet200: #ddd6fe;
+  --colorViolet300: #c3b5fd;
+  --colorViolet400: #a48afb;
+  --colorViolet500: #875bf7;
+  --colorViolet600: #7839ee;
+  --colorViolet700: #6927da;
+  --colorViolet800: #5720b7;
+  --colorViolet900: #491c96;
+  // color - blue
+  --colorBlue25: #edf4fd;
+  --colorBlue50: #dceafe;
+  --colorBlue100: #cde1fe;
+  --colorBlue200: #a4c2fe;
+  --colorBlue300: #598eff;
+  --colorBlue400: #4579fc;
+  --colorBlue500: #0f62fd;
+  --colorBlue600: #0657e4;
+  --colorBlue700: #0543bc;
+  --colorBlue800: #041d55;
+  --colorBlue900: #020f2c;
+  // color - indigo
+  --colorIndigo25: #f5f8ff;
+  --colorIndigo50: #eef4ff;
+  --colorIndigo100: #e0eaff;
+  --colorIndigo200: #c7d7fe;
+  --colorIndigo300: #a4bcfd;
+  --colorIndigo400: #8098f9;
+  --colorIndigo500: #6172f3;
+  --colorIndigo600: #444ce7;
+  --colorIndigo700: #3538cd;
+  --colorIndigo800: #2d31a6;
+  --colorIndigo900: #2d3282;
+  // color - cyan
+  --colorCyan25: #f5feff;
+  --colorCyan50: #ecfdff;
+  --colorCyan100: #cff9fe;
+  --colorCyan200: #a5f0fc;
+  --colorCyan300: #67e3f9;
+  --colorCyan400: #22ccee;
+  --colorCyan500: #0c7f90;
+  --colorCyan600: #088ab2;
+  --colorCyan700: #0e7090;
+  --colorCyan800: #155b75;
+  --colorCyan900: #164c63;
+  // color - teal
+  --colorTeal25: #f6fefc;
+  --colorTeal50: #f3fffb;
+  --colorTeal100: #d8f5ed;
+  --colorTeal200: #99f6e0;
+  --colorTeal300: #5fe9d0;
+  --colorTeal400: #2ed3b7;
+  --colorTeal500: #15b79e;
+  --colorTeal600: #0e9384;
+  --colorTeal700: #107569;
+  --colorTeal800: #125d56;
+  --colorTeal900: #134e48;
+  // color - light green
+  --colorLightGreen25: #fafef5;
+  --colorLightGreen50: #f3fee7;
+  --colorLightGreen100: #e3fbcc;
+  --colorLightGreen200: #d0f8ab;
+  --colorLightGreen300: #a6ef67;
+  --colorLightGreen400: #85e13a;
+  --colorLightGreen500: #66c61c;
+  --colorLightGreen600: #4ca30d;
+  --colorLightGreen700: #3b7c0f;
+  --colorLightGreen800: #326212;
+  --colorLightGreen900: #2b5314;
+  // color - green
+  --colorGreen25: #f6fef9;
+  --colorGreen50: #ecfdf3;
+  --colorGreen100: #d1fadf;
+  --colorGreen200: #a6f4c5;
+  --colorGreen300: #6ce9a6;
+  --colorGreen400: #32d583;
+  --colorGreen500: #008447;
+  --colorGreen600: #039855;
+  --colorGreen700: #027a48;
+  --colorGreen800: #05603a;
+  --colorGreen900: #054f31;
+  // alpha color - monochrome
+  --colorAlphaWhite80: #ffffffcc;
+  --colorAlphaBlack30: #0000004d;
+  --colorAlphaBlack90: #000000e5;
+  --colorAlphaGray3: #4b6a9508;
+  --colorAlphaGray12: #4b6a951f;
+  --colorAlphaGray16: #4b6a9529;
+  // alpha color blue
+  --colorAlphaBlue5: #2f69fc0d;
+  --colorAlphaBlue12: #2f69fc1f;
+  --colorAlphaBlue16: #2f69fc29;
+  --colorAlphaBlue50: #2f69fc80;
+  // alpha color red
+  --colorAlphaRed5: #d92d200d;
+  --colorAlphaRed12: #d92d201f;
+  --colorAlphaRed16: #d92d2029;
+  // alpha color green
+  --colorAlphaGreen5: #0398550d;
+  --colorAlphaGreen12: #0398551f;
+  --colorAlphaGreen16: #03985529;
+  // alpha color yellow
+  --colorAlphaYellow5: #eaaa080d;
+  --colorAlphaYellow12: #eaaa081f;
+  --colorAlphaYellow16: #eaaa0829;
+  // unit size
+  --numUnit0: 0;
+  --numUnitQuarter: 1px;
+  --numUnit05: 2px;
+  --numUnit1: 4px;
+  --numUnit15: 6px;
+  --numUnit2: 8px;
+  --numUnit3: 12px;
+  --numUnit4: 16px;
+  --numUnit5: 20px;
+  --numUnit6: 24px;
+  --numUnit7: 28px;
+  --numUnit8: 32px;
+  --numUnit9: 36px;
+  --numUnit10: 40px;
+  --numUnit12: 48px;
+  --numUnit14: 56px;
+  --numUnit16: 64px;
+  --numUnit18: 72px;
+  --numUnit20: 80px;
+  --numUnit24: 96px;
+  --numUnit32: 128px;
+  --numUnit40: 160px;
+  // opacity
+  --opacity30: 0.3;
+  --opacity50: 0.5;
+  --opacity70: 0.7;
+  --opacity100: 1;
+  // border radius unit
+  --borderRadiusUnit0: 0;
+  --borderRadiusUnit05: 2px;
+  --borderRadiusUnit1: 4px;
+  --borderRadiusUnit15: 6px;
+  --borderRadiusUnit2: 8px;
+  --borderRadiusUnit3: 12px;
+  --borderRadiusUnit4: 16px;
+  --borderRadiusUnit5: 20px;
+  --borderRadiusUnit6: 24px;
+  --borderRadiusUnit250: 1000px;
+  // border width unit
+  --borderWidthUnit0: 0;
+  --borderWidthUnit05: 0.5px;
+  --borderWidthUnit1: 1px;
+  --borderWidthUnit2: 2px;
+  --borderWidthUnit3: 3px;
+  --borderWidthUnit4: 4px;
+  --borderWidthUnit6: 6px;
+  --borderWidthUnit8: 8px;
 
-    /* 0. Typography */
-    --baseFontFamily: "Pretendard", "맑은 고딕", "Malgun Gothic", sans-serif;
-    --headingFontFamily: 'Pretendard Variable';
-    --contentFontFamily: 'Pretendard Variable';
-    --fontFamilyCode: 'Roboto Mono';
-    --headingFontSizeH0: 40px;
-    --headingFontSizeH1: 32px;
-    --headingFontSizeH2: 28px;
-    --headingFontSizeH3: 24px;
-    --headingFontSizeH4: 20px;
-    --headingFontSizeH5: 18px;
-    --headingFontSizeH6: 16px;
-    --headingFontSizeH7: 14px;
-    --contentFontSize2Xs: 10px;
-    --contentFontSizeXs: 12px;
-    --contentFontSizeSm: 13px;
-    --contentFontSizeMd: 14px;
-    --contentFontSizeTable: 15px;
-    --contentFontSizeLg: 16px;
-    --contentFontSizeXl: 18px;
-    --contentFontSize2Xl: 20px;
-    --contentFontSize3Xl: 24px;
-    --fontWeightRegular: 400;
-    --fontWeightMedium: 500;
-    --fontWeightSemibold: 600;
-    --fontWeightBold: 700;
-    --headingLineHeightH0: 56px;
-    --headingLineHeightH1: 48px;
-    --headingLineHeightH2: 40px;
-    --headingLineHeightH3: 32px;
-    --headingLineHeightH4: 28px;
-    --headingLineHeightH5: 24px;
-    --headingLineHeightH6: 20px;
-    --headingLineHeightH7: 16px;
-    --contentLineHeightXs: 16px;
-    --contentLineHeightSm: 18px;
-    --contentLineHeightMd: 20px;
-    --contentLineHeightLg: 24px;
-    --contentLineHeightXl: 28px;
-    --contentLineHeight2Xl: 32px;
+  /* 0. Typography */
+  --baseFontFamily: "Pretendard", "맑은 고딕", "Malgun Gothic", sans-serif;
+  --headingFontFamily: "Pretendard Variable";
+  --contentFontFamily: "Pretendard Variable";
+  --fontFamilyCode: "Roboto Mono";
+  --headingFontSizeH0: 40px;
+  --headingFontSizeH1: 32px;
+  --headingFontSizeH2: 28px;
+  --headingFontSizeH3: 24px;
+  --headingFontSizeH4: 20px;
+  --headingFontSizeH5: 18px;
+  --headingFontSizeH6: 16px;
+  --headingFontSizeH7: 14px;
+  --contentFontSize2Xs: 10px;
+  --contentFontSizeXs: 12px;
+  --contentFontSizeSm: 13px;
+  --contentFontSizeMd: 14px;
+  --contentFontSizeTable: 15px;
+  --contentFontSizeLg: 16px;
+  --contentFontSizeXl: 18px;
+  --contentFontSize2Xl: 20px;
+  --contentFontSize3Xl: 24px;
+  --fontWeightRegular: 400;
+  --fontWeightMedium: 500;
+  --fontWeightSemibold: 600;
+  --fontWeightBold: 700;
+  --headingLineHeightH0: 56px;
+  --headingLineHeightH1: 48px;
+  --headingLineHeightH2: 40px;
+  --headingLineHeightH3: 32px;
+  --headingLineHeightH4: 28px;
+  --headingLineHeightH5: 24px;
+  --headingLineHeightH6: 20px;
+  --headingLineHeightH7: 16px;
+  --contentLineHeightXs: 16px;
+  --contentLineHeightSm: 18px;
+  --contentLineHeightMd: 20px;
+  --contentLineHeightLg: 24px;
+  --contentLineHeightXl: 28px;
+  --contentLineHeight2Xl: 32px;
 
-    /* 1. Color */
-    --colorFgBase: var(--colorGray900);
-    --colorFgSecondary: var(--colorGrayCool600);
-    --colorFgTertiary: var(--colorGray500);
-    --colorFgDisabled: var(--colorGrayCool200);
-    --colorFgHint: var(--colorFgTertiary);
-    --colorFgLightSolid: var(--colorWhite);
-    --colorFgBaseInvert: var(--colorGrayCool25);
-    --colorFgBaseInvertDisabled: var(--colorGrayCool500);
-    --colorFgPrimary: var(--colorBlue500);
-    --colorFgPrimaryHover: var(--colorBlue600);
-    --colorFgPrimaryAccent: var(--colorBlue700);
-    --colorFgPrimaryDisabled: var(--colorBlue200);
-    --colorFgPrimaryInvert: var(--colorBlue300);
-    --colorFgNeutral: var(--colorGray700);
-    --colorFgNeutralHover: var(--colorGray800);
-    --colorFgNeutralAccent: var(--colorGray800);
-    --colorFgNeutralDisabled: var(--colorGray300);
-    --colorFgError: var(--colorRed500);
-    --colorFgErrorHover: var(--colorRed600);
-    --colorFgErrorDisabled: var(--colorRed300);
-    --colorFgErrorAccent: var(--colorRed700);
-    --colorFgSuccess: var(--colorGreen500);
-    --colorFgSuccessHover: var(--colorGreen600);
-    --colorFgSuccessAccent: var(--colorGreen700);
-    --colorFgSuccessDisabled: var(--colorGreen300);
-    --colorFgWarning: var(--colorYellow500);
-    --colorFgWarningHover: var(--colorYellow600);
-    --colorFgWarningAccent: var(--colorYellow700);
-    --colorFgWarningDisabled: var(--colorYellow300);
-    --colorFgHighlight: var(--colorOrange500);
-    --colorFgHighlightAccent: var(--colorOrange600);
-    --colorFgHighlightInvert: var(--colorOrange300);
-    --colorBgNone: transparent;
-    --colorBgBase: var(--colorWhite);
-    --colorBgSecondary: var(--colorGrayCool25);
-    --colorBgTertiary: var(--colorGrayCool50);
-    --colorBgQuaternary: var(--colorGrayCool100);
-    --colorBgDisabled: var(--colorGray100);
-    --colorBgReadOnly: var(--colorAlphaGray3);
-    --colorBgHover: var(--colorAlphaGray3);
-    --colorBgAccent: var(--colorGrayCool50);
-    --colorBgPrimaryHover: var(--colorBlue25);
-    --colorBgPrimaryAccent: var(--colorBlue50);
-    --colorBgPrimaryStrong: var(--colorBlue100);
-    --colorBgSelected: var(--colorBlue50);
-    --colorBgSelectedHover: var(--colorBlue100);
-    --colorBgSelectedAccent: var(--colorBlue200);
-    --colorBgHoverInvert: var(--colorGray800);
-    --colorBgBaseInvert: var(--colorBlack);
-    --colorBgPrimary: var(--colorBlue500);
-    --colorBgPrimaryDarkHover: var(--colorBlue600);
-    --colorBgPrimaryDarkAccent: var(--colorBlue700);
-    --colorBgPrimaryDisabled: var(--colorBlue200);
-    --colorBgNeutral: var(--colorGray600);
-    --colorBgNeutralHover: var(--colorGray700);
-    --colorBgNeutralAccent: var(--colorGray800);
-    --colorBgNeutralDisabled: var(--colorGray300);
-    --colorBgError: var(--colorRed500);
-    --colorBgErrorHover: var(--colorRed600);
-    --colorBgErrorAccent: var(--colorRed700);
-    --colorBgErrorDisabled: var(--colorRed300);
-    --colorBgSuccess: var(--colorGreen500);
-    --colorBgSuccessHover: var(--colorGreen600);
-    --colorBgSuccessAccent: var(--colorGreen700);
-    --colorBgSuccessDisabled: var(--colorGreen300);
-    --colorBgWarning: var(--colorYellow500);
-    --colorBgWarningHover: var(--colorYellow600);
-    --colorBgWarningAccent: var(--colorOrange700);
-    --colorBgWarningDisabled: var(--colorYellow200);
-    --colorBgHighlight: var(--colorYellow50);
-    --colorBgHighlightHover: var(--colorYellow100);
-    --colorBgNeutralTint: var(--colorAlphaGray12);
-    --colorBgNeutralTintAccent: var(--colorAlphaGray16);
-    --colorBgNeutralTintHover: #E4E9EE;
-    --colorBgPrimaryTint: var(--colorBlue25);
-    --colorBgPrimaryTintAccent: var(--colorAlphaBlue16);
-    --colorBgErrorTint: var(--colorRed50);
-    --colorBgErrorTintAccent: var(--colorAlphaRed16);
-    --colorBgSuccessTint: var(--colorLightGreen50);
-    --colorBgSuccessTintAccent: var(--colorAlphaGreen16);
-    --colorBgWarningTint: var(--colorAlphaYellow12);
-    --colorBgWarningTintAccent: var(--colorAlphaYellow16);
-    --colorBgBackdrop: var(--colorGrayCool25);
-    --colorBgNavigation: #F6FAFF;
-    --colorBorderBase: var(--colorGrayCool200);
-    --colorBorderSecondary: var(--colorGrayCool100);
-    --colorBorderTertiary: var(--colorGrayCool50);
-    --colorBorderDisabled: var(--colorGrayCool100);
-    --colorBorderBaseInvert: var(--colorWhite);
-    --colorBorderHover: var(--colorGrayCool400);
-    --colorBorderPrimary: var(--colorBlue500);
-    --colorBorderPrimaryHover: var(--colorBlue600);
-    --colorBorderPrimaryDisabled: var(--colorBlue200);
-    --colorBorderNeutral: var(--colorGray700);
-    --colorBorderNeutralHover: var(--colorGray800);
-    --colorBorderNeutralDisabled: var(--colorGray300);
-    --colorBorderBaseInvertDisabled: var(--colorGray500);
-    --colorBorderError: var(--colorRed500);
-    --colorBorderErrorHover: var(--colorRed600);
-    --colorBorderErrorDisabled: var(--colorRed300);
-    --colorBorderSuccess: var(--colorGreen500);
-    --colorBorderSuccessHover: var(--colorGreen600);
-    --colorBorderSuccessDisabled: var(--colorGreen300);
-    --colorBorderWarning: var(--colorYellow500);
-    --colorBorderWarningHover: var(--colorYellow600);
-    --colorBorderWarningDisabled: var(--colorYellow300);
-    --colorBorderHighlight: var(--colorOrange500);
-    --colorBorderFocusIndicator: var(--colorBlack);
-    --colorBorderFocusIndicatorInvert: var(--colorWhite);
-    --colorAccentRed: var(--colorRed500);
-    --colorAccentRedHover: var(--colorRed600);
-    --colorAccentOrange: var(--colorOrange500);
-    --colorAccentOrangeHover: var(--colorOrange600);
-    --colorAccentYellow: var(--colorYellow400);
-    --colorAccentYellowHover: var(--colorYellow500);
-    --colorAccentLightGreen: var(--colorLightGreen500);
-    --colorAccentLightGreenHover: var(--colorLightGreen600);
-    --colorAccentGreen: var(--colorGreen500);
-    --colorAccentGreenHover: var(--colorGreen600);
-    --colorAccentTeal: var(--colorTeal500);
-    --colorAccentTealHover: var(--colorTeal600);
-    --colorAccentCyan: var(--colorCyan500);
-    --colorAccentCyanHover: var(--colorCyan600);
-    --colorAccentBlue: var(--colorBlue500);
-    --colorAccentBlueHover: var(--colorBlue600);
-    --colorAccentIndigo: var(--colorIndigo500);
-    --colorAccentIndigoStrong: var(--colorIndigo600);
-    --colorAccentIndigoHover: var(--colorIndigo700);
-    --colorAccentViolet: var(--colorViolet500);
-    --colorAccentVioletHover: var(--colorViolet600);
-    --colorAccentFuchsia: var(--colorFuchsia500);
-    --colorAccentFuchsiaHover: var(--colorFuchsia600);
-    --colorAccentRose: var(--colorRose500);
-    --colorAccentRoseHover: var(--colorRose600);
-    --colorAccentRedTint: var(--colorRed50);
-    --colorAccentRedTintHover: var(--colorRed100);
-    --colorAccentOrangeTint: var(--colorOrange50);
-    --colorAccentOrangeTintHover: var(--colorOrange100);
-    --colorAccentYellowTint: var(--colorYellow50);
-    --colorAccentYellowTintHover: var(--colorYellow100);
-    --colorAccentLightGreenTint: var(--colorLightGreen50);
-    --colorAccentLightGreenTintHover: var(--colorLightGreen100);
-    --colorAccentGreenTint: var(--colorGreen50);
-    --colorAccentGreenTintHover: var(--colorGreen100);
-    --colorAccentTealTint: var(--colorTeal50);
-    --colorAccentTealTintHover: var(--colorTeal100);
-    --colorAccentCyanTint: var(--colorCyan50);
-    --colorAccentCyanTintHover: var(--colorCyan100);
-    --colorAccentBlueTint: var(--colorBlue25);
-    --colorAccentBlueTintHover: var(--colorBlue100);
-    --colorAccentIndigoTint: var(--colorIndigo50);
-    --colorAccentIndigoTintHover: var(--colorIndigo100);
-    --colorAccentVioletTint: var(--colorViolet50);
-    --colorAccentVioletTintHover: var(--colorViolet100);
-    --colorAccentFuchsiaTint: var(--colorFuchsia50);
-    --colorAccentFuchsiaTintHover: var(--colorFuchsia100);
-    --colorAccentRoseTint: var(--colorRose50);
-    --colorAccentRoseTintHover: var(--colorRose100);
-    --colorBgScroll: var(--colorGrayCool100);
-    --colorBgScrollHover: var(--colorGrayCool200);
-    --colorBgScrollFocus: var(--colorGrayCool300);
-    --colorBgScrolDisabled: var(--colorGrayCool50);
-    --colorBgCalendarBase: var(--colorWhite);
-    --colorBgCalendarHover: var(--colorBlue100);
-    --colorBgCalendarSelected: var(--colorBlue500);
-    --colorBgCalendarSelectedHover: var(--colorBlue600);
-    --colorBgCalendarSelectedDisabled: var(--colorBlue200);
-    --colorBgCalendarInRange: var(--colorBlue100);
-    --colorBgCalendarInRangeHover: var(--colorBlue200);
-    --colorBgCalendarInRangeDisabled: var(--colorBlue50);
-    --colorBgToggleBase: var(--colorGray400);
-    --colorBgToggleHover: var(--colorGray500);
-    --colorBgToggleDisabled: var(--colorGray200);
-    --colorBgToggleSelected: var(--colorBlue500);
-    --colorBgToggleSelectedHover: var(--colorBlue600);
-    --colorBgToggleSelectedDisabled: var(--colorBlue200);
-    --colorBgProgress: var(--colorGray200);
-    --colorFgProgressActive: var(--colorBlue500);
-    --colorBgSliderRail: var(--colorGray200);
-    --colorBgSliderRailDisabled: var(--colorGray100);
-    --colorBgBubbleContainer: var(--colorBlue25);
-    --colorBgBubbleOutgoing: var(--colorBlue100);
-    --colorBgBubbleOutgoingHover: var(--colorBlue200);
-    --colorBgBubbleIncoming: var(--colorWhite);
-    --colorBgBubbleIncomingHover: var(--colorGrayCool100);
-    --colorBgBubbleHighlight: var(--colorYellow50);
-    --colorBgBubbleHighlightHover: var(--colorYellow100);
-    --colorBgBubbleActive: var(--colorBlue500);
-    --colorBgBubbleActiveHover: var(--colorBlue600);
-    --colorFgBubbleHighlight: var(--colorOrange500);
-    --colorFgBubbleHighlightInvert: var(--colorYellow400);
-    --colorBorderBubbleHighlight: var(--colorOrange100);
-    --colorChartPurpleLight: var(--colorViolet200);
-    --colorChartPurpleMedium: var(--colorViolet500);
-    --colorChartPurpleDark: var(--colorViolet700);
-    --colorChartPinkLight: var(--colorFuchsia200);
-    --colorChartRedLight: var(--colorRose200);
-    --colorChartRedMedium: var(--colorRose400);
-    --colorChartRedDark: var(--colorRose700);
-    --colorChartOrangeLight: var(--colorOrange200);
-    --colorChartOrangeMedium: var(--colorOrange500);
-    --colorChartOrangeDark: var(--colorOrange700);
-    --colorChartYellowLight: var(--colorYellow200);
-    --colorChartYellowMedium: var(--colorYellow400);
-    --colorChartYellowDark: var(--colorYellow600);
-    --colorChartGreenLight: var(--colorGreen200);
-    --colorChartGreenMedium: var(--colorGreen400);
-    --colorChartGreenDark: var(--colorGreen600);
-    --colorChartTealLight: var(--colorTeal200);
-    --colorChartTealMedium: var(--colorTeal400);
-    --colorChartTealDark: var(--colorTeal600);
-    --colorChartCyanLight: var(--colorCyan200);
-    --colorChartCyanMedium: var(--colorCyan400);
-    --colorChartCyanDark: var(--colorCyan600);
-    --colorChartBlueLight: var(--colorBlue200);
-    --colorChartBlueMedium: var(--colorBlue400);
-    --colorChartBlueDark: var(--colorBlue600);
-    --colorChartIndigoLight: var(--colorIndigo200);
-    --colorChartIndigoMedium: var(--colorIndigo400);
-    --colorChartIndigoDark: var(--colorIndigo600);
-    --colorChartGrayLight: var(--colorGray300);
-    --colorChartGrayMedium: var(--colorGray400);
-    --colorChartGrayDark: var(--colorGray600);
-    --colorChartBase: var(--colorGray100);
-    --colorBgTableBase: var(--colorWhite);
-    --colorBgTableHover: var(--colorAlphaGray3);
-    --colorBgTableSelected: var(--colorBlue25);
-    --colorBgTableSelectedHover: var(--colorBlue100);
-    --colorBgTableHighlight: var(--colorYellow50);
-    --colorBgTableHighlightHover: var(--colorYellow100);
-    --colorBgTableHeader: var(--colorGrayCool25);
-    --colorBgTableError: var(--colorBgErrorTint);
-    --colorBorderTableBase: var(--colorGrayCool50);
-    --colorBgPopoverDark: var(--colorAlphaBlack90);
-    --colorFgRatingBase: var(--colorGray300);
-    --colorFgRatingHover: var(--colorGray400);
-    --colorFgRatingButtonActive: var(--colorOrange400);
-    --colorFgRatingButtonActiveHover: var(--colorOrange500);
-    --colorFgRatingIndicatorActive: var(--colorGray800);
-    --colorBgOverlayBlack: var(--colorBlack);
-    --colorBgOverlayWhite: var(--colorAlphaWhite80);
-    --colorBgOverlayPrimary: var(--colorAlphaBlue50);
-    --colorBgOverlayNeutral: var(--colorAlphaGray12);
-    --colorBgCustomCardBase: var(--colorWhite);
-    --colorBgCustomCardHover: var(--colorBlue25);
-    --colorBgCustomCardError: var(--colorRed50);
-    --colorBgCustomCardErrorHover: var(--colorRed100);
-    --colorBgCustomCardStandby: var(--colorGray50);
-    --colorBgCustomCardStandbyby: var(--colorGray60);
-    --colorBgCustomCardStandbyHover: var(--colorGray100);
-    --colorBorderCustomCardBase: var(--colorGray300);
-    --colorBorderCustomCardHover: var(--colorGray400);
-    --colorBorderCustomCardError: var(--colorRed300);
-    --colorBorderCustomCardErrorHover: var(--colorRed400);
-    --colorBorderCustomCardStandby: var(--colorGray300);
+  /* 1. Color */
+  --colorFgBase: var(--colorGray900);
+  --colorFgSecondary: var(--colorGrayCool600);
+  --colorFgTertiary: var(--colorGray500);
+  --colorFgDisabled: var(--colorGrayCool200);
+  --colorFgHint: var(--colorFgTertiary);
+  --colorFgLightSolid: var(--colorWhite);
+  --colorFgBaseInvert: var(--colorGrayCool25);
+  --colorFgBaseInvertDisabled: var(--colorGrayCool500);
+  --colorFgPrimary: var(--colorBlue500);
+  --colorFgPrimaryHover: var(--colorBlue600);
+  --colorFgPrimaryAccent: var(--colorBlue700);
+  --colorFgPrimaryDisabled: var(--colorBlue200);
+  --colorFgPrimaryInvert: var(--colorBlue300);
+  --colorFgNeutral: var(--colorGray700);
+  --colorFgNeutralHover: var(--colorGray800);
+  --colorFgNeutralAccent: var(--colorGray800);
+  --colorFgNeutralDisabled: var(--colorGray300);
+  --colorFgError: var(--colorRed500);
+  --colorFgErrorHover: var(--colorRed600);
+  --colorFgErrorDisabled: var(--colorRed300);
+  --colorFgErrorAccent: var(--colorRed700);
+  --colorFgSuccess: var(--colorGreen500);
+  --colorFgSuccessHover: var(--colorGreen600);
+  --colorFgSuccessAccent: var(--colorGreen700);
+  --colorFgSuccessDisabled: var(--colorGreen300);
+  --colorFgWarning: var(--colorYellow500);
+  --colorFgWarningHover: var(--colorYellow600);
+  --colorFgWarningAccent: var(--colorYellow700);
+  --colorFgWarningDisabled: var(--colorYellow300);
+  --colorFgHighlight: var(--colorOrange500);
+  --colorFgHighlightAccent: var(--colorOrange600);
+  --colorFgHighlightInvert: var(--colorOrange300);
+  --colorBgNone: transparent;
+  --colorBgBase: var(--colorWhite);
+  --colorBgSecondary: var(--colorGrayCool25);
+  --colorBgTertiary: var(--colorGrayCool50);
+  --colorBgQuaternary: var(--colorGrayCool100);
+  --colorBgDisabled: var(--colorGray100);
+  --colorBgReadOnly: var(--colorAlphaGray3);
+  --colorBgHover: var(--colorAlphaGray3);
+  --colorBgAccent: var(--colorGrayCool50);
+  --colorBgPrimaryHover: var(--colorBlue25);
+  --colorBgPrimaryAccent: var(--colorBlue50);
+  --colorBgPrimaryStrong: var(--colorBlue100);
+  --colorBgSelected: var(--colorBlue50);
+  --colorBgSelectedHover: var(--colorBlue100);
+  --colorBgSelectedAccent: var(--colorBlue200);
+  --colorBgHoverInvert: var(--colorGray800);
+  --colorBgBaseInvert: var(--colorBlack);
+  --colorBgPrimary: var(--colorBlue500);
+  --colorBgPrimaryDarkHover: var(--colorBlue600);
+  --colorBgPrimaryDarkAccent: var(--colorBlue700);
+  --colorBgPrimaryDisabled: var(--colorBlue200);
+  --colorBgNeutral: var(--colorGray600);
+  --colorBgNeutralHover: var(--colorGray700);
+  --colorBgNeutralAccent: var(--colorGray800);
+  --colorBgNeutralDisabled: var(--colorGray300);
+  --colorBgError: var(--colorRed500);
+  --colorBgErrorHover: var(--colorRed600);
+  --colorBgErrorAccent: var(--colorRed700);
+  --colorBgErrorDisabled: var(--colorRed300);
+  --colorBgSuccess: var(--colorGreen500);
+  --colorBgSuccessHover: var(--colorGreen600);
+  --colorBgSuccessAccent: var(--colorGreen700);
+  --colorBgSuccessDisabled: var(--colorGreen300);
+  --colorBgWarning: var(--colorYellow500);
+  --colorBgWarningHover: var(--colorYellow600);
+  --colorBgWarningAccent: var(--colorOrange700);
+  --colorBgWarningDisabled: var(--colorYellow200);
+  --colorBgHighlight: var(--colorYellow50);
+  --colorBgHighlightHover: var(--colorYellow100);
+  --colorBgNeutralTint: var(--colorAlphaGray12);
+  --colorBgNeutralTintAccent: var(--colorAlphaGray16);
+  --colorBgNeutralTintHover: #e4e9ee;
+  --colorBgPrimaryTint: var(--colorBlue25);
+  --colorBgPrimaryTintAccent: var(--colorAlphaBlue16);
+  --colorBgErrorTint: var(--colorRed50);
+  --colorBgErrorTintAccent: var(--colorAlphaRed16);
+  --colorBgSuccessTint: var(--colorLightGreen50);
+  --colorBgSuccessTintAccent: var(--colorAlphaGreen16);
+  --colorBgWarningTint: var(--colorAlphaYellow12);
+  --colorBgWarningTintAccent: var(--colorAlphaYellow16);
+  --colorBgBackdrop: var(--colorGrayCool25);
+  --colorBgNavigation: #f6faff;
+  --colorBorderBase: var(--colorGrayCool200);
+  --colorBorderSecondary: var(--colorGrayCool100);
+  --colorBorderTertiary: var(--colorGrayCool50);
+  --colorBorderDisabled: var(--colorGrayCool100);
+  --colorBorderBaseInvert: var(--colorWhite);
+  --colorBorderHover: var(--colorGrayCool400);
+  --colorBorderPrimary: var(--colorBlue500);
+  --colorBorderPrimaryHover: var(--colorBlue600);
+  --colorBorderPrimaryDisabled: var(--colorBlue200);
+  --colorBorderNeutral: var(--colorGray700);
+  --colorBorderNeutralHover: var(--colorGray800);
+  --colorBorderNeutralDisabled: var(--colorGray300);
+  --colorBorderBaseInvertDisabled: var(--colorGray500);
+  --colorBorderError: var(--colorRed500);
+  --colorBorderErrorHover: var(--colorRed600);
+  --colorBorderErrorDisabled: var(--colorRed300);
+  --colorBorderSuccess: var(--colorGreen500);
+  --colorBorderSuccessHover: var(--colorGreen600);
+  --colorBorderSuccessDisabled: var(--colorGreen300);
+  --colorBorderWarning: var(--colorYellow500);
+  --colorBorderWarningHover: var(--colorYellow600);
+  --colorBorderWarningDisabled: var(--colorYellow300);
+  --colorBorderHighlight: var(--colorOrange500);
+  --colorBorderFocusIndicator: var(--colorBlack);
+  --colorBorderFocusIndicatorInvert: var(--colorWhite);
+  --colorAccentRed: var(--colorRed500);
+  --colorAccentRedHover: var(--colorRed600);
+  --colorAccentOrange: var(--colorOrange500);
+  --colorAccentOrangeHover: var(--colorOrange600);
+  --colorAccentYellow: var(--colorYellow400);
+  --colorAccentYellowHover: var(--colorYellow500);
+  --colorAccentLightGreen: var(--colorLightGreen500);
+  --colorAccentLightGreenHover: var(--colorLightGreen600);
+  --colorAccentGreen: var(--colorGreen500);
+  --colorAccentGreenHover: var(--colorGreen600);
+  --colorAccentTeal: var(--colorTeal500);
+  --colorAccentTealHover: var(--colorTeal600);
+  --colorAccentCyan: var(--colorCyan500);
+  --colorAccentCyanHover: var(--colorCyan600);
+  --colorAccentBlue: var(--colorBlue500);
+  --colorAccentBlueHover: var(--colorBlue600);
+  --colorAccentIndigo: var(--colorIndigo500);
+  --colorAccentIndigoStrong: var(--colorIndigo600);
+  --colorAccentIndigoHover: var(--colorIndigo700);
+  --colorAccentViolet: var(--colorViolet500);
+  --colorAccentVioletHover: var(--colorViolet600);
+  --colorAccentFuchsia: var(--colorFuchsia500);
+  --colorAccentFuchsiaHover: var(--colorFuchsia600);
+  --colorAccentRose: var(--colorRose500);
+  --colorAccentRoseHover: var(--colorRose600);
+  --colorAccentRedTint: var(--colorRed50);
+  --colorAccentRedTintHover: var(--colorRed100);
+  --colorAccentOrangeTint: var(--colorOrange50);
+  --colorAccentOrangeTintHover: var(--colorOrange100);
+  --colorAccentYellowTint: var(--colorYellow50);
+  --colorAccentYellowTintHover: var(--colorYellow100);
+  --colorAccentLightGreenTint: var(--colorLightGreen50);
+  --colorAccentLightGreenTintHover: var(--colorLightGreen100);
+  --colorAccentGreenTint: var(--colorGreen50);
+  --colorAccentGreenTintHover: var(--colorGreen100);
+  --colorAccentTealTint: var(--colorTeal50);
+  --colorAccentTealTintHover: var(--colorTeal100);
+  --colorAccentCyanTint: var(--colorCyan50);
+  --colorAccentCyanTintHover: var(--colorCyan100);
+  --colorAccentBlueTint: var(--colorBlue25);
+  --colorAccentBlueTintHover: var(--colorBlue100);
+  --colorAccentIndigoTint: var(--colorIndigo50);
+  --colorAccentIndigoTintHover: var(--colorIndigo100);
+  --colorAccentVioletTint: var(--colorViolet50);
+  --colorAccentVioletTintHover: var(--colorViolet100);
+  --colorAccentFuchsiaTint: var(--colorFuchsia50);
+  --colorAccentFuchsiaTintHover: var(--colorFuchsia100);
+  --colorAccentRoseTint: var(--colorRose50);
+  --colorAccentRoseTintHover: var(--colorRose100);
+  --colorBgScroll: var(--colorGrayCool100);
+  --colorBgScrollHover: var(--colorGrayCool200);
+  --colorBgScrollFocus: var(--colorGrayCool300);
+  --colorBgScrolDisabled: var(--colorGrayCool50);
+  --colorBgCalendarBase: var(--colorWhite);
+  --colorBgCalendarHover: var(--colorBlue100);
+  --colorBgCalendarSelected: var(--colorBlue500);
+  --colorBgCalendarSelectedHover: var(--colorBlue600);
+  --colorBgCalendarSelectedDisabled: var(--colorBlue200);
+  --colorBgCalendarInRange: var(--colorBlue100);
+  --colorBgCalendarInRangeHover: var(--colorBlue200);
+  --colorBgCalendarInRangeDisabled: var(--colorBlue50);
+  --colorBgToggleBase: var(--colorGray400);
+  --colorBgToggleHover: var(--colorGray500);
+  --colorBgToggleDisabled: var(--colorGray200);
+  --colorBgToggleSelected: var(--colorBlue500);
+  --colorBgToggleSelectedHover: var(--colorBlue600);
+  --colorBgToggleSelectedDisabled: var(--colorBlue200);
+  --colorBgProgress: var(--colorGray200);
+  --colorFgProgressActive: var(--colorBlue500);
+  --colorBgSliderRail: var(--colorGray200);
+  --colorBgSliderRailDisabled: var(--colorGray100);
+  --colorBgBubbleContainer: var(--colorBlue25);
+  --colorBgBubbleOutgoing: var(--colorBlue100);
+  --colorBgBubbleOutgoingHover: var(--colorBlue200);
+  --colorBgBubbleIncoming: var(--colorWhite);
+  --colorBgBubbleIncomingHover: var(--colorGrayCool100);
+  --colorBgBubbleHighlight: var(--colorYellow50);
+  --colorBgBubbleHighlightHover: var(--colorYellow100);
+  --colorBgBubbleActive: var(--colorBlue500);
+  --colorBgBubbleActiveHover: var(--colorBlue600);
+  --colorFgBubbleHighlight: var(--colorOrange500);
+  --colorFgBubbleHighlightInvert: var(--colorYellow400);
+  --colorBorderBubbleHighlight: var(--colorOrange100);
+  --colorChartPurpleLight: var(--colorViolet200);
+  --colorChartPurpleMedium: var(--colorViolet500);
+  --colorChartPurpleDark: var(--colorViolet700);
+  --colorChartPinkLight: var(--colorFuchsia200);
+  --colorChartRedLight: var(--colorRose200);
+  --colorChartRedMedium: var(--colorRose400);
+  --colorChartRedDark: var(--colorRose700);
+  --colorChartOrangeLight: var(--colorOrange200);
+  --colorChartOrangeMedium: var(--colorOrange500);
+  --colorChartOrangeDark: var(--colorOrange700);
+  --colorChartYellowLight: var(--colorYellow200);
+  --colorChartYellowMedium: var(--colorYellow400);
+  --colorChartYellowDark: var(--colorYellow600);
+  --colorChartGreenLight: var(--colorGreen200);
+  --colorChartGreenMedium: var(--colorGreen400);
+  --colorChartGreenDark: var(--colorGreen600);
+  --colorChartTealLight: var(--colorTeal200);
+  --colorChartTealMedium: var(--colorTeal400);
+  --colorChartTealDark: var(--colorTeal600);
+  --colorChartCyanLight: var(--colorCyan200);
+  --colorChartCyanMedium: var(--colorCyan400);
+  --colorChartCyanDark: var(--colorCyan600);
+  --colorChartBlueLight: var(--colorBlue200);
+  --colorChartBlueMedium: var(--colorBlue400);
+  --colorChartBlueDark: var(--colorBlue600);
+  --colorChartIndigoLight: var(--colorIndigo200);
+  --colorChartIndigoMedium: var(--colorIndigo400);
+  --colorChartIndigoDark: var(--colorIndigo600);
+  --colorChartGrayLight: var(--colorGray300);
+  --colorChartGrayMedium: var(--colorGray400);
+  --colorChartGrayDark: var(--colorGray600);
+  --colorChartBase: var(--colorGray100);
+  --colorBgTableBase: var(--colorWhite);
+  --colorBgTableHover: var(--colorAlphaGray3);
+  --colorBgTableSelected: var(--colorBlue25);
+  --colorBgTableSelectedHover: var(--colorBlue100);
+  --colorBgTableHighlight: var(--colorYellow50);
+  --colorBgTableHighlightHover: var(--colorYellow100);
+  --colorBgTableHeader: var(--colorGrayCool25);
+  --colorBgTableError: var(--colorBgErrorTint);
+  --colorBorderTableBase: var(--colorGrayCool50);
+  --colorBgPopoverDark: var(--colorAlphaBlack90);
+  --colorFgRatingBase: var(--colorGray300);
+  --colorFgRatingHover: var(--colorGray400);
+  --colorFgRatingButtonActive: var(--colorOrange400);
+  --colorFgRatingButtonActiveHover: var(--colorOrange500);
+  --colorFgRatingIndicatorActive: var(--colorGray800);
+  --colorBgOverlayBlack: var(--colorBlack);
+  --colorBgOverlayWhite: var(--colorAlphaWhite80);
+  --colorBgOverlayPrimary: var(--colorAlphaBlue50);
+  --colorBgOverlayNeutral: var(--colorAlphaGray12);
+  --colorBgCustomCardBase: var(--colorWhite);
+  --colorBgCustomCardHover: var(--colorBlue25);
+  --colorBgCustomCardError: var(--colorRed50);
+  --colorBgCustomCardErrorHover: var(--colorRed100);
+  --colorBgCustomCardStandby: var(--colorGray50);
+  --colorBgCustomCardStandbyby: var(--colorGray60);
+  --colorBgCustomCardStandbyHover: var(--colorGray100);
+  --colorBorderCustomCardBase: var(--colorGray300);
+  --colorBorderCustomCardHover: var(--colorGray400);
+  --colorBorderCustomCardError: var(--colorRed300);
+  --colorBorderCustomCardErrorHover: var(--colorRed400);
+  --colorBorderCustomCardStandby: var(--colorGray300);
 
-    /* 2. Size */
-    --sizeBase4Xs: var(--numUnit1);
-    --sizeBase3Xs: var(--numUnit2);
-    --sizeBase2Xs: var(--numUnit3);
-    --sizeBaseXs: var(--numUnit4);
-    --sizeBaseXsSm: var(--numUnit5);
-    --sizeBaseSm: var(--numUnit6);
-    --sizeBaseSmMd: var(--numUnit7);
-    --sizeBaseMd: var(--numUnit8);
-    --sizeBaseLg: var(--numUnit10);
-    --sizeBaseXl: var(--numUnit12);
-    --sizeBase2Xl: var(--numUnit14);
-    --sizeBase3Xl: var(--numUnit16);
-    --sizeBase4Xl: var(--numUnit18);
-    --sizeBase5Xl: var(--numUnit24);
-    --sizeBase6Xl: var(--numUnit32);
-    --sizeBase7Xl: var(--numUnit40);
-    --sizeIconXs: var(--numUnit3);
-    --sizeIconSm: var(--numUnit4);
-    --sizeIconSmMd: var(--numUnit5);
-    --sizeIconMd: var(--numUnit6);
-    --sizeIconMdLg: var(--numUnit7);
-    --sizeIconLg: var(--numUnit8);
-    --sizeIconXl: var(--numUnit10);
-    --sizeIcon2Xl: var(--numUnit12);
-    --sizeIcon3Xl: var(--numUnit14);
-    --sizeIcon4Xl: var(--numUnit16);
-    --sizeIcon5Xl: var(--numUnit18);
-    --sizeIcon6Xl: var(--numUnit20);
+  /* 2. Size */
+  --sizeBase4Xs: var(--numUnit1);
+  --sizeBase3Xs: var(--numUnit2);
+  --sizeBase2Xs: var(--numUnit3);
+  --sizeBaseXs: var(--numUnit4);
+  --sizeBaseXsSm: var(--numUnit5);
+  --sizeBaseSm: var(--numUnit6);
+  --sizeBaseSmMd: var(--numUnit7);
+  --sizeBaseMd: var(--numUnit8);
+  --sizeBaseLg: var(--numUnit10);
+  --sizeBaseXl: var(--numUnit12);
+  --sizeBase2Xl: var(--numUnit14);
+  --sizeBase3Xl: var(--numUnit16);
+  --sizeBase4Xl: var(--numUnit18);
+  --sizeBase5Xl: var(--numUnit24);
+  --sizeBase6Xl: var(--numUnit32);
+  --sizeBase7Xl: var(--numUnit40);
+  --sizeIconXs: var(--numUnit3);
+  --sizeIconSm: var(--numUnit4);
+  --sizeIconSmMd: var(--numUnit5);
+  --sizeIconMd: var(--numUnit6);
+  --sizeIconMdLg: var(--numUnit7);
+  --sizeIconLg: var(--numUnit8);
+  --sizeIconXl: var(--numUnit10);
+  --sizeIcon2Xl: var(--numUnit12);
+  --sizeIcon3Xl: var(--numUnit14);
+  --sizeIcon4Xl: var(--numUnit16);
+  --sizeIcon5Xl: var(--numUnit18);
+  --sizeIcon6Xl: var(--numUnit20);
 
-    /* 3. Spacing */
-    --spacingNone: var(--numUnit0);
-    --spacing2Xs: var(--numUnit05);
-    --spacingXs: var(--numUnit1);
-    --spacingXsSm: var(--numUnit15);
-    --spacingSm: var(--numUnit2);
-    --spacingMd: var(--numUnit3);
-    --spacingLg: var(--numUnit4);
-    --spacingLgXl: var(--numUnit5);
-    --spacingXl: var(--numUnit6);
-    --spacing2Xl: var(--numUnit8);
-    --spacing3Xl: var(--numUnit10);
-    --spacing4Xl: var(--numUnit12);
-    --spacing5Xl: var(--numUnit16);
-    --spacing6Xl: var(--numUnit20);
-    --spacing7Xl: var(--numUnit24);
+  /* 3. Spacing */
+  --spacingNone: var(--numUnit0);
+  --spacing2Xs: var(--numUnit05);
+  --spacingXs: var(--numUnit1);
+  --spacingXsSm: var(--numUnit15);
+  --spacingSm: var(--numUnit2);
+  --spacingMd: var(--numUnit3);
+  --spacingLg: var(--numUnit4);
+  --spacingLgXl: var(--numUnit5);
+  --spacingXl: var(--numUnit6);
+  --spacing2Xl: var(--numUnit8);
+  --spacing3Xl: var(--numUnit10);
+  --spacing4Xl: var(--numUnit12);
+  --spacing5Xl: var(--numUnit16);
+  --spacing6Xl: var(--numUnit20);
+  --spacing7Xl: var(--numUnit24);
 
-    /* 4. Border Radius */
-    --radiusNone: var(--borderRadiusUnit0);
-    --radius2Xs: var(--borderRadiusUnit05);
-    --radiusXs: var(--borderRadiusUnit1);
-    --radiusSm: var(--borderRadiusUnit15);
-    --radiusMd: var(--borderRadiusUnit2);
-    --radiusLg: var(--borderRadiusUnit3);
-    --radiusXl: var(--borderRadiusUnit4);
-    --radius2Xl: var(--borderRadiusUnit5);
-    --radius3Xl: var(--borderRadiusUnit6);
-    --radiusFull: var(--borderRadiusUnit250);
+  /* 4. Border Radius */
+  --radiusNone: var(--borderRadiusUnit0);
+  --radius2Xs: var(--borderRadiusUnit05);
+  --radiusXs: var(--borderRadiusUnit1);
+  --radiusSm: var(--borderRadiusUnit15);
+  --radiusMd: var(--borderRadiusUnit2);
+  --radiusLg: var(--borderRadiusUnit3);
+  --radiusXl: var(--borderRadiusUnit4);
+  --radius2Xl: var(--borderRadiusUnit5);
+  --radius3Xl: var(--borderRadiusUnit6);
+  --radiusFull: var(--borderRadiusUnit250);
 
-    /* 5. Border Width */
-    --borderWidthNone: var(--borderWidthUnit0);
-    --borderWidthSm: var(--borderWidthUnit05);
-    --borderWidthMd: var(--borderWidthUnit1);
-    --borderWidthLg: var(--borderWidthUnit2);
-    --borderWidthXl: var(--borderWidthUnit3);
-    --borderWidth2Xl: var(--borderWidthUnit4);
+  /* 5. Border Width */
+  --borderWidthNone: var(--borderWidthUnit0);
+  --borderWidthSm: var(--borderWidthUnit05);
+  --borderWidthMd: var(--borderWidthUnit1);
+  --borderWidthLg: var(--borderWidthUnit2);
+  --borderWidthXl: var(--borderWidthUnit3);
+  --borderWidth2Xl: var(--borderWidthUnit4);
 
-    /* 6. Opacity */
-    --opacityDimmed: var(--opacity30);
-    --opacityDisabled: var(--opacity50);
-    --opacityOverlay: var(--opacity50);
-    --opacityFull: var(--opacity100);
+  /* 6. Opacity */
+  --opacityDimmed: var(--opacity30);
+  --opacityDisabled: var(--opacity50);
+  --opacityOverlay: var(--opacity50);
+  --opacityFull: var(--opacity100);
 
-    /* 7. Shadow */
-    --shadowXs: 0 1px 2px 0 rgba(16, 24, 40, .05);
-    --shadowSm: 0 1px 1px -3px rgba(16, 24, 40, .06), 0 1px 4px 0 rgba(16, 24, 40, .1);
-    --shadowMd: 0 2px 4px -2px rgba(16, 24, 40, .06), 0 4px 8px -2px rgba(16, 24, 40, .06);
-    --shadowLg: 0 4px 6px -2px rgba(16, 24, 40, .03), 0 12px 16px -4px rgba(16, 24, 40, .08);
-    --shadowXl: 0 8px 8px -4px rgba(16, 24, 40, .03), 0 20px 24px -4px rgba(16, 24, 40, .08);
-    --shadow2Xl: 0 24px 48px -12px rgba(16, 24, 40, .18), 0 24px 48px -12px rgba(16, 24, 40, .18);
-    --shadow3Xl: 0 32px 64px -12px rgba(16, 24, 40, .14), 0 32px 64px -12px rgba(16, 24, 40, .14);
+  /* 7. Shadow */
+  --shadowXs: 0 1px 2px 0 rgba(16, 24, 40, 0.05);
+  --shadowSm: 0 1px 1px -3px rgba(16, 24, 40, 0.06), 0 1px 4px 0 rgba(16, 24, 40, 0.1);
+  --shadowMd: 0 2px 4px -2px rgba(16, 24, 40, 0.06), 0 4px 8px -2px rgba(16, 24, 40, 0.06);
+  --shadowLg: 0 4px 6px -2px rgba(16, 24, 40, 0.03), 0 12px 16px -4px rgba(16, 24, 40, 0.08);
+  --shadowXl: 0 8px 8px -4px rgba(16, 24, 40, 0.03), 0 20px 24px -4px rgba(16, 24, 40, 0.08);
+  --shadow2Xl: 0 24px 48px -12px rgba(16, 24, 40, 0.18), 0 24px 48px -12px rgba(16, 24, 40, 0.18);
+  --shadow3Xl: 0 32px 64px -12px rgba(16, 24, 40, 0.14), 0 32px 64px -12px rgba(16, 24, 40, 0.14);
 
-    /* 8. gradient */
-    --gradientAIPrimary: linear-gradient(101deg, #2F69FC 0%, #1284FF 30%, #00C1A1 100%);
-    --gradientAIPrimaryAccent: linear-gradient(101deg, #0075F5 0%, #009A85 95%);
-    --gradientAISkeleton: linear-gradient(270deg, rgba(47, 105, 252, 0.12) 24.44%, rgba(0, 193, 161, 0.12) 48.34%, rgba(33, 119, 253, 0.12) 71.99%);
+  /* 8. gradient */
+  --gradientAIPrimary: linear-gradient(101deg, #2f69fc 0%, #1284ff 30%, #00c1a1 100%);
+  --gradientAIPrimaryAccent: linear-gradient(101deg, #0075f5 0%, #009a85 95%);
+  --gradientAISkeleton: linear-gradient(270deg, rgba(47, 105, 252, 0.12) 24.44%, rgba(0, 193, 161, 0.12) 48.34%, rgba(33, 119, 253, 0.12) 71.99%);
 
-    /* 9. content width */
-    --contentLayoutWidth: 1440px;
+  /* 9. content width */
+  --contentLayoutWidth: 1440px;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    font-family: var(--baseFontFamily);
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    font-size: inherit;
+  margin: 0;
+  padding: 0;
+  font-family: var(--baseFontFamily);
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: inherit;
 }
 
 :after,
 :before {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html {
-    scrollbar-color: var(--colorBgScroll);
+  scrollbar-color: var(--colorBgScroll);
 }
 
 picture,
 video {
-    display: block;
+  display: block;
 }
 
 button {
-    border: 0;
-    background: transparent;
-    cursor: pointer;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
 
-    &:disabled {
-        cursor: default;
-    }
+  &:disabled {
+    cursor: default;
+  }
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 p {
-    margin: 0;
+  margin: 0;
 }
 
 table {
-    border-collapse: collapse;
-    border-spacing: 0;
-    width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
 }
 
 legend,
 caption,
 .blind {
-    overflow: hidden;
-    position: absolute;
-    margin: -1px;
-    padding: 0;
-    border: 0;
-    width: 1px;
-    height: 1px;
-    clip: rect(0, 0, 0, 0);
+  overflow: hidden;
+  position: absolute;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  width: 1px;
+  height: 1px;
+  clip: rect(0, 0, 0, 0);
 }
 
 ul,
 ol,
 li {
-    list-style: none;
+  list-style: none;
 }
 
 fieldset {
-    margin: 0;
-    padding: 0;
-    border: none;
+  margin: 0;
+  padding: 0;
+  border: none;
 }
 
 p,
@@ -732,191 +733,191 @@ input,
 textarea,
 button,
 select {
-    margin: 0;
-    padding: 0;
-    -webkit-text-size-adjust: none
+  margin: 0;
+  padding: 0;
+  -webkit-text-size-adjust: none;
 }
 
 a {
-    color: inherit;
-    text-decoration: none;
+  color: inherit;
+  text-decoration: none;
 }
 
 img,
 fieldset,
 iframe {
-    border: 0 none
+  border: 0 none;
 }
 
 img {
-    vertical-align: top
+  vertical-align: top;
 }
 
 i,
 em,
 address {
-    font-style: normal
+  font-style: normal;
 }
 
-input[type=text],
-input[type=password],
-input[type=image],
+input[type="text"],
+input[type="password"],
+input[type="image"],
 textarea,
 button {
-    font-family: inherit;
-    -webkit-text-size-adjust: none;
-    appearance: none;
-    -webkit-appearance: none;
+  font-family: inherit;
+  -webkit-text-size-adjust: none;
+  appearance: none;
+  -webkit-appearance: none;
 }
 
 select {
-    color: inherit;
-    font-family: inherit;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    background-color: transparent;
+  color: inherit;
+  font-family: inherit;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: transparent;
 }
 
 hr {
-    display: none
+  display: none;
 }
 
 /* scrollbar */
 ::-webkit-scrollbar {
-    width: var(--sizeBase4Xs);
-    height: var(--sizeBase4Xs);
+  width: var(--sizeBase4Xs);
+  height: var(--sizeBase4Xs);
 }
 
 ::-webkit-scrollbar-track {
-    background-color: transparent;
+  background-color: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-    border-radius: var(--radiusLg);
-    background-color: var(--colorBgScroll);
+  border-radius: var(--radiusLg);
+  background-color: var(--colorBgScroll);
 
-    &:hover {
-        background-color: var(--colorBgScrollHover);
-    }
+  &:hover {
+    background-color: var(--colorBgScrollHover);
+  }
 
-    &:active {
-        background-color: var(--colorBgScrollFocus);
-    }
+  &:active {
+    background-color: var(--colorBgScrollFocus);
+  }
 
-    &:disabled {
-        background-color: var(--colorBgScrolDisabled);
-    }
+  &:disabled {
+    background-color: var(--colorBgScrolDisabled);
+  }
 }
-
 
 /* placeholder */
 ::placeholder {
-    overflow: hidden;
-    color: var(--colorFgHint);
-    text-overflow: ellipsis;
+  overflow: hidden;
+  color: var(--colorFgHint);
+  text-overflow: ellipsis;
 }
 
 :-ms-input-placeholder {
-    overflow: hidden;
-    color: var(--colorFgHint);
-    text-overflow: ellipsis;
+  overflow: hidden;
+  color: var(--colorFgHint);
+  text-overflow: ellipsis;
 }
 
 ::-ms-input-placeholder {
-    overflow: hidden;
-    color: var(--colorFgHint);
-    text-overflow: ellipsis;
-}
-
-
-.w-100 {
-    width: 100%;
+  overflow: hidden;
+  color: var(--colorFgHint);
+  text-overflow: ellipsis;
 }
 
 .h-100 {
-    height: 100%;
+  height: 100%;
 }
 
-$widths: 80, 100, 160, 170, 188, 200, 250, 300 ,392;
+$widths: 80, 100, 120, 160, 170, 188, 200, 250, 300, 392;
 
 @each $width in $widths {
-    .w-#{$width} {
-        width: #{$width}px;
-    }
+  .w-#{$width} {
+    width: #{$width}px !important;
+  }
 }
 
 .text- {
-    &left {
-        text-align: left !important;
-    }
+  &left {
+    text-align: left !important;
+  }
 
-    &center {
-        text-align: center !important;
-    }
+  &center {
+    text-align: center !important;
+  }
 
-    &right {
-        text-align: right !important;
-    }
+  &right {
+    text-align: right !important;
+  }
 }
-
+.flex-1 {
+  flex: 1;
+}
+.block {
+  display: block !important;
+}
+.hidden {
+  display: none !important;
+}
 // flex
 .flex {
-    display: flex;
+  display: flex !important;
 
-    &.inline-flex {
-        display: inline-flex;
+  &.inline-flex {
+    display: inline-flex;
+  }
+
+  &.items-center {
+    align-items: center;
+  }
+
+  &.items-stretch {
+    align-items: stretch;
+  }
+
+  &.justify-start {
+    justify-content: flex-start;
+  }
+
+  &.justify-center {
+    justify-content: center;
+  }
+
+  &.justify-end {
+    justify-content: flex-end;
+  }
+
+  &.justify-between {
+    justify-content: space-between;
+  }
+
+  &.flex-column {
+    flex-direction: column;
+  }
+
+  &.flex-1 {
+    flex: 1;
+  }
+
+  @for $i from 0 through 30 {
+    $value: $i * 2;
+
+    &.gap-#{$value} {
+      gap: #{$value}px !important;
     }
-
-    &.items-center {
-        align-items: center;
-    }
-
-    &.items-stretch {
-        align-items: stretch;
-    }
-
-    &.justify-start {
-        justify-content: flex-start;
-    }
-
-    &.justify-center {
-        justify-content: center;
-    }
-
-    &.justify-end {
-        justify-content: flex-end;
-    }
-
-    &.justify-between {
-        justify-content: space-between;
-    }
-
-    &.flex-column {
-        flex-direction: column;
-    }
-
-    &.flex-1 {
-        flex: 1;
-
-    }
-
-    @for $i from 0 through 30 {
-        $value: $i * 2;
-
-        &.gap-#{$value} {
-            gap: #{$value}px;
-        }
-
-    }
+  }
 }
 
 // overflow
 .truncate {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
 }
 
 // 설정: 2px 단위로 80px까지 생성
@@ -924,1128 +925,1127 @@ $max-px: 96;
 
 // 유틸리티 클래스 생성 믹스인
 @mixin generate-spacing($prefix, $property) {
-    @for $i from 1 through math.div($max-px, 2) {
-        $val: $i * 2;
+  @for $i from 0 through math.div($max-px, 2) {
+    $val: $i * 2;
 
-        .#{$prefix}-#{$val} {
-            #{$property}: #{$val}px !important;
-        }
+    .#{$prefix}-#{$val} {
+      #{$property}: #{$val}px !important;
     }
+  }
 }
 
 // 1. 전체 패딩/마진 (pa, ma)
-@include generate-spacing('pa', 'padding');
-@include generate-spacing('ma', 'margin');
+@include generate-spacing("pa", "padding");
+@include generate-spacing("ma", "margin");
 
 // 2. 단방향 패딩 (pt, pb, pl, pr)
-@include generate-spacing('pt', 'padding-top');
-@include generate-spacing('pb', 'padding-bottom');
-@include generate-spacing('pl', 'padding-left');
-@include generate-spacing('pr', 'padding-right');
+@include generate-spacing("pt", "padding-top");
+@include generate-spacing("pb", "padding-bottom");
+@include generate-spacing("pl", "padding-left");
+@include generate-spacing("pr", "padding-right");
 
 // 3. 단방향 마진 (mt, mb, ml, mr)
-@include generate-spacing('mt', 'margin-top');
-@include generate-spacing('mb', 'margin-bottom');
-@include generate-spacing('ml', 'margin-left');
-@include generate-spacing('mr', 'margin-right');
+@include generate-spacing("mt", "margin-top");
+@include generate-spacing("mb", "margin-bottom");
+@include generate-spacing("ml", "margin-left");
+@include generate-spacing("mr", "margin-right");
 
 // 4. 가로/세로 축 패딩 및 마진 (px, py, mx, my)
-@for $i from 1 through math.div($max-px, 4) {
-    $val: $i * 2;
+@for $i from 0 through math.div($max-px, 4) {
+  $val: $i * 2;
 
-    .px-#{$val} {
-        padding-left: #{$val}px !important;
-        padding-right: #{$val}px !important;
-    }
+  .px-#{$val} {
+    padding-left: #{$val}px !important;
+    padding-right: #{$val}px !important;
+  }
 
-    .py-#{$val} {
-        padding-top: #{$val}px !important;
-        padding-bottom: #{$val}px !important;
-    }
+  .py-#{$val} {
+    padding-top: #{$val}px !important;
+    padding-bottom: #{$val}px !important;
+  }
 
-    .mx-#{$val} {
-        margin-left: #{$val}px !important;
-        margin-right: #{$val}px !important;
-    }
+  .mx-#{$val} {
+    margin-left: #{$val}px !important;
+    margin-right: #{$val}px !important;
+  }
 
-    .my-#{$val} {
-        margin-top: #{$val}px !important;
-        margin-bottom: #{$val}px !important;
-    }
+  .my-#{$val} {
+    margin-top: #{$val}px !important;
+    margin-bottom: #{$val}px !important;
+  }
 }
 
 // 5단위 .min-h-5vh  .min-h-10vh ....
 @for $i from 1 through 20 {
-    $value: $i * 5;
+  $value: $i * 5;
 
-    .min-h-#{$value}vh {
-        min-height: #{$value}vh;
-    }
+  .min-h-#{$value}vh {
+    min-height: #{$value}vh;
+  }
 }
 
 // color.scss
 .color {
-
-    // ==========================================
-    // 1. Foreground (텍스트/아이콘 색상)
-    // ==========================================
-    &-fg {
-        &-base {
-            color: var(--colorFgBase);
-        }
-
-        &-secondary {
-            color: var(--colorFgSecondary);
-        }
-
-        &-tertiary {
-            color: var(--colorFgTertiary);
-        }
-
-        &-disabled {
-            color: var(--colorFgDisabled);
-        }
-
-        &-hint {
-            color: var(--colorFgHint);
-        }
-
-        &-lightSolid {
-            color: var(--colorFgLightSolid);
-        }
-
-        &-baseInvert {
-            color: var(--colorFgBaseInvert);
-
-            &-disabled {
-                color: var(--colorFgBaseInvertDisabled);
-            }
-        }
-
-        &-primary {
-            color: var(--colorFgPrimary);
-
-            &-hover {
-                color: var(--colorFgPrimaryHover);
-            }
-
-            &-accent {
-                color: var(--colorFgPrimaryAccent);
-            }
-
-            &-disabled {
-                color: var(--colorFgPrimaryDisabled);
-            }
-
-            &-invert {
-                color: var(--colorFgPrimaryInvert);
-            }
-        }
-
-        &-neutral {
-            color: var(--colorFgNeutral);
-
-            &-hover {
-                color: var(--colorFgNeutralHover);
-            }
-
-            &-accent {
-                color: var(--colorFgNeutralAccent);
-            }
-
-            &-disabled {
-                color: var(--colorFgNeutralDisabled);
-            }
-        }
-
-        &-error {
-            color: var(--colorFgError);
-
-            &-hover {
-                color: var(--colorFgErrorHover);
-            }
-
-            &-disabled {
-                color: var(--colorFgErrorDisabled);
-            }
-
-            &-accent {
-                color: var(--colorFgErrorAccent);
-            }
-        }
-
-        &-success {
-            color: var(--colorFgSuccess);
-
-            &-hover {
-                color: var(--colorFgSuccessHover);
-            }
-
-            &-accent {
-                color: var(--colorFgSuccessAccent);
-            }
-
-            &-disabled {
-                color: var(--colorFgSuccessDisabled);
-            }
-        }
-
-        &-warning {
-            color: var(--colorFgWarning);
-
-            &-hover {
-                color: var(--colorFgWarningHover);
-            }
-
-            &-accent {
-                color: var(--colorFgWarningAccent);
-            }
-
-            &-disabled {
-                color: var(--colorFgWarningDisabled);
-            }
-        }
-
-        &-highlight {
-            color: var(--colorFgHighlight);
-
-            &-accent {
-                color: var(--colorFgHighlightAccent);
-            }
-
-            &-invert {
-                color: var(--colorFgHighlightInvert);
-            }
-        }
-
-        &-progressActive {
-            color: var(--colorFgProgressActive);
-        }
-
-        &-bubbleHighlight {
-            color: var(--colorFgBubbleHighlight);
-
-            &-invert {
-                color: var(--colorFgBubbleHighlightInvert);
-            }
-        }
-
-        &-rating {
-            &-base {
-                color: var(--colorFgRatingBase);
-            }
-
-            &-hover {
-                color: var(--colorFgRatingHover);
-            }
-
-            &-buttonActive {
-                color: var(--colorFgRatingButtonActive);
-
-                &-hover {
-                    color: var(--colorFgRatingButtonActiveHover);
-                }
-            }
-
-            &-indicatorActive {
-                color: var(--colorFgRatingIndicatorActive);
-            }
-        }
+  // ==========================================
+  // 1. Foreground (텍스트/아이콘 색상)
+  // ==========================================
+  &-fg {
+    &-base {
+      color: var(--colorFgBase) !important;
     }
 
-    // ==========================================
-    // 2. Background (배경 색상)
-    // ==========================================
-    &-bg {
-        &-none {
-            background-color: var(--colorBgNone);
-        }
+    &-secondary {
+      color: var(--colorFgSecondary) !important;
+    }
 
-        &-base {
-            background-color: var(--colorBgBase);
+    &-tertiary {
+      color: var(--colorFgTertiary);
+    }
 
-            &-invert {
-                background-color: var(--colorBgBaseInvert);
-            }
-        }
+    &-disabled {
+      color: var(--colorFgDisabled);
+    }
 
-        &-secondary {
-            background-color: var(--colorBgSecondary);
-        }
+    &-hint {
+      color: var(--colorFgHint);
+    }
 
-        &-tertiary {
-            background-color: var(--colorBgTertiary);
-        }
+    &-lightSolid {
+      color: var(--colorFgLightSolid);
+    }
 
-        &-quaternary {
-            background-color: var(--colorBgQuaternary);
-        }
+    &-baseInvert {
+      color: var(--colorFgBaseInvert);
 
-        &-disabled {
-            background-color: var(--colorBgDisabled);
-        }
+      &-disabled {
+        color: var(--colorFgBaseInvertDisabled);
+      }
+    }
 
-        &-readOnly {
-            background-color: var(--colorBgReadOnly);
-        }
+    &-primary {
+      color: var(--colorFgPrimary) !important;
+
+      &-hover {
+        color: var(--colorFgPrimaryHover);
+      }
+
+      &-accent {
+        color: var(--colorFgPrimaryAccent);
+      }
+
+      &-disabled {
+        color: var(--colorFgPrimaryDisabled);
+      }
+
+      &-invert {
+        color: var(--colorFgPrimaryInvert);
+      }
+    }
+
+    &-neutral {
+      color: var(--colorFgNeutral);
+
+      &-hover {
+        color: var(--colorFgNeutralHover);
+      }
+
+      &-accent {
+        color: var(--colorFgNeutralAccent);
+      }
+
+      &-disabled {
+        color: var(--colorFgNeutralDisabled);
+      }
+    }
+
+    &-error {
+      color: var(--colorFgError);
+
+      &-hover {
+        color: var(--colorFgErrorHover);
+      }
+
+      &-disabled {
+        color: var(--colorFgErrorDisabled);
+      }
+
+      &-accent {
+        color: var(--colorFgErrorAccent);
+      }
+    }
+
+    &-success {
+      color: var(--colorFgSuccess);
+
+      &-hover {
+        color: var(--colorFgSuccessHover);
+      }
+
+      &-accent {
+        color: var(--colorFgSuccessAccent);
+      }
+
+      &-disabled {
+        color: var(--colorFgSuccessDisabled);
+      }
+    }
+
+    &-warning {
+      color: var(--colorFgWarning);
+
+      &-hover {
+        color: var(--colorFgWarningHover);
+      }
+
+      &-accent {
+        color: var(--colorFgWarningAccent);
+      }
+
+      &-disabled {
+        color: var(--colorFgWarningDisabled);
+      }
+    }
+
+    &-highlight {
+      color: var(--colorFgHighlight);
+
+      &-accent {
+        color: var(--colorFgHighlightAccent);
+      }
+
+      &-invert {
+        color: var(--colorFgHighlightInvert);
+      }
+    }
+
+    &-progressActive {
+      color: var(--colorFgProgressActive);
+    }
+
+    &-bubbleHighlight {
+      color: var(--colorFgBubbleHighlight);
+
+      &-invert {
+        color: var(--colorFgBubbleHighlightInvert);
+      }
+    }
+
+    &-rating {
+      &-base {
+        color: var(--colorFgRatingBase);
+      }
+
+      &-hover {
+        color: var(--colorFgRatingHover);
+      }
+
+      &-buttonActive {
+        color: var(--colorFgRatingButtonActive);
 
         &-hover {
-            background-color: var(--colorBgHover);
-
-            &-invert {
-                background-color: var(--colorBgHoverInvert);
-            }
+          color: var(--colorFgRatingButtonActiveHover);
         }
+      }
+
+      &-indicatorActive {
+        color: var(--colorFgRatingIndicatorActive);
+      }
+    }
+  }
+
+  // ==========================================
+  // 2. Background (배경 색상)
+  // ==========================================
+  &-bg {
+    &-none {
+      background-color: var(--colorBgNone);
+    }
+
+    &-base {
+      background-color: var(--colorBgBase);
+
+      &-invert {
+        background-color: var(--colorBgBaseInvert);
+      }
+    }
+
+    &-secondary {
+      background-color: var(--colorBgSecondary);
+    }
+
+    &-tertiary {
+      background-color: var(--colorBgTertiary);
+    }
+
+    &-quaternary {
+      background-color: var(--colorBgQuaternary);
+    }
+
+    &-disabled {
+      background-color: var(--colorBgDisabled);
+    }
+
+    &-readOnly {
+      background-color: var(--colorBgReadOnly);
+    }
+
+    &-hover {
+      background-color: var(--colorBgHover);
+
+      &-invert {
+        background-color: var(--colorBgHoverInvert);
+      }
+    }
+
+    &-accent {
+      background-color: var(--colorBgAccent);
+    }
+
+    &-primary {
+      background-color: var(--colorBgPrimary);
+
+      &-hover {
+        background-color: var(--colorBgPrimaryHover);
+      }
+
+      &-accent {
+        background-color: var(--colorBgPrimaryAccent);
+      }
+
+      &-strong {
+        background-color: var(--colorBgPrimaryStrong);
+      }
+
+      &-darkHover {
+        background-color: var(--colorBgPrimaryDarkHover);
+      }
+
+      &-darkAccent {
+        background-color: var(--colorBgPrimaryDarkAccent);
+      }
+
+      &-disabled {
+        background-color: var(--colorBgPrimaryDisabled);
+      }
+    }
+
+    &-selected {
+      background-color: var(--colorBgSelected);
+
+      &-hover {
+        background-color: var(--colorBgSelectedHover);
+      }
+
+      &-accent {
+        background-color: var(--colorBgSelectedAccent);
+      }
+    }
+
+    &-neutral {
+      background-color: var(--colorBgNeutral);
+
+      &-hover {
+        background-color: var(--colorBgNeutralHover);
+      }
+
+      &-accent {
+        background-color: var(--colorBgNeutralAccent);
+      }
+
+      &-disabled {
+        background-color: var(--colorBgNeutralDisabled);
+      }
+
+      &-tint {
+        background-color: var(--colorBgNeutralTint);
 
         &-accent {
-            background-color: var(--colorBgAccent);
-        }
-
-        &-primary {
-            background-color: var(--colorBgPrimary);
-
-            &-hover {
-                background-color: var(--colorBgPrimaryHover);
-            }
-
-            &-accent {
-                background-color: var(--colorBgPrimaryAccent);
-            }
-
-            &-strong {
-                background-color: var(--colorBgPrimaryStrong);
-            }
-
-            &-darkHover {
-                background-color: var(--colorBgPrimaryDarkHover);
-            }
-
-            &-darkAccent {
-                background-color: var(--colorBgPrimaryDarkAccent);
-            }
-
-            &-disabled {
-                background-color: var(--colorBgPrimaryDisabled);
-            }
-        }
-
-        &-selected {
-            background-color: var(--colorBgSelected);
-
-            &-hover {
-                background-color: var(--colorBgSelectedHover);
-            }
-
-            &-accent {
-                background-color: var(--colorBgSelectedAccent);
-            }
-        }
-
-        &-neutral {
-            background-color: var(--colorBgNeutral);
-
-            &-hover {
-                background-color: var(--colorBgNeutralHover);
-            }
-
-            &-accent {
-                background-color: var(--colorBgNeutralAccent);
-            }
-
-            &-disabled {
-                background-color: var(--colorBgNeutralDisabled);
-            }
-
-            &-tint {
-                background-color: var(--colorBgNeutralTint);
-
-                &-accent {
-                    background-color: var(--colorBgNeutralTintAccent);
-                }
-
-                &-hover {
-                    background-color: var(--colorBgNeutralTintHover);
-                }
-            }
-        }
-
-        &-error {
-            background-color: var(--colorBgError);
-
-            &-hover {
-                background-color: var(--colorBgErrorHover);
-            }
-
-            &-accent {
-                background-color: var(--colorBgErrorAccent);
-            }
-
-            &-disabled {
-                background-color: var(--colorBgErrorDisabled);
-            }
-
-            &-tint {
-                background-color: var(--colorBgErrorTint);
-
-                &-accent {
-                    background-color: var(--colorBgErrorTintAccent);
-                }
-            }
-        }
-
-        &-success {
-            background-color: var(--colorBgSuccess);
-
-            &-hover {
-                background-color: var(--colorBgSuccessHover);
-            }
-
-            &-accent {
-                background-color: var(--colorBgSuccessAccent);
-            }
-
-            &-disabled {
-                background-color: var(--colorBgSuccessDisabled);
-            }
-
-            &-tint {
-                background-color: var(--colorBgSuccessTint);
-
-                &-accent {
-                    background-color: var(--colorBgSuccessTintAccent);
-                }
-            }
-        }
-
-        &-warning {
-            background-color: var(--colorBgWarning);
-
-            &-hover {
-                background-color: var(--colorBgWarningHover);
-            }
-
-            &-accent {
-                background-color: var(--colorBgWarningAccent);
-            }
-
-            &-disabled {
-                background-color: var(--colorBgWarningDisabled);
-            }
-
-            &-tint {
-                background-color: var(--colorBgWarningTint);
-
-                &-accent {
-                    background-color: var(--colorBgWarningTintAccent);
-                }
-            }
-        }
-
-        &-highlight {
-            background-color: var(--colorBgHighlight);
-
-            &-hover {
-                background-color: var(--colorBgHighlightHover);
-            }
-        }
-
-        &-primaryTint {
-            background-color: var(--colorBgPrimaryTint);
-
-            &-accent {
-                background-color: var(--colorBgPrimaryTintAccent);
-            }
-        }
-
-        &-backdrop {
-            background-color: var(--colorBgBackdrop);
-        }
-
-        &-navigation {
-            background-color: var(--colorBgNavigation);
-        }
-
-        &-scroll {
-            background-color: var(--colorBgScroll);
-
-            &-hover {
-                background-color: var(--colorBgScrollHover);
-            }
-
-            &-focus {
-                background-color: var(--colorBgScrollFocus);
-            }
-
-            &-disabled {
-                // 오타(ScrolDisabled) 유지 또는 수정 (여기서는 변수명 그대로 작성)
-                background-color: var(--colorBgScrolDisabled);
-            }
-        }
-
-        &-calendar {
-            &-base {
-                background-color: var(--colorBgCalendarBase);
-            }
-
-            &-hover {
-                background-color: var(--colorBgCalendarHover);
-            }
-
-            &-selected {
-                background-color: var(--colorBgCalendarSelected);
-
-                &-hover {
-                    background-color: var(--colorBgCalendarSelectedHover);
-                }
-
-                &-disabled {
-                    background-color: var(--colorBgCalendarSelectedDisabled);
-                }
-            }
-
-            &-inRange {
-                background-color: var(--colorBgCalendarInRange);
-
-                &-hover {
-                    background-color: var(--colorBgCalendarInRangeHover);
-                }
-
-                &-disabled {
-                    background-color: var(--colorBgCalendarInRangeDisabled);
-                }
-            }
-        }
-
-        &-toggle {
-            &-base {
-                background-color: var(--colorBgToggleBase);
-            }
-
-            &-hover {
-                background-color: var(--colorBgToggleHover);
-            }
-
-            &-disabled {
-                background-color: var(--colorBgToggleDisabled);
-            }
-
-            &-selected {
-                background-color: var(--colorBgToggleSelected);
-
-                &-hover {
-                    background-color: var(--colorBgToggleSelectedHover);
-                }
-
-                &-disabled {
-                    background-color: var(--colorBgToggleSelectedDisabled);
-                }
-            }
-        }
-
-        &-progress {
-            background-color: var(--colorBgProgress);
-        }
-
-        &-sliderRail {
-            background-color: var(--colorBgSliderRail);
-
-            &-disabled {
-                background-color: var(--colorBgSliderRailDisabled);
-            }
-        }
-
-        &-bubble {
-            &-container {
-                background-color: var(--colorBgBubbleContainer);
-            }
-
-            &-outgoing {
-                background-color: var(--colorBgBubbleOutgoing);
-
-                &-hover {
-                    background-color: var(--colorBgBubbleOutgoingHover);
-                }
-            }
-
-            &-incoming {
-                background-color: var(--colorBgBubbleIncoming);
-
-                &-hover {
-                    background-color: var(--colorBgBubbleIncomingHover);
-                }
-            }
-
-            &-highlight {
-                background-color: var(--colorBgBubbleHighlight);
-
-                &-hover {
-                    background-color: var(--colorBgBubbleHighlightHover);
-                }
-            }
-
-            &-active {
-                background-color: var(--colorBgBubbleActive);
-
-                &-hover {
-                    background-color: var(--colorBgBubbleActiveHover);
-                }
-            }
-        }
-
-        &-table {
-            &-base {
-                background-color: var(--colorBgTableBase);
-            }
-
-            &-hover {
-                background-color: var(--colorBgTableHover);
-            }
-
-            &-selected {
-                background-color: var(--colorBgTableSelected);
-
-                &-hover {
-                    background-color: var(--colorBgTableSelectedHover);
-                }
-            }
-
-            &-highlight {
-                background-color: var(--colorBgTableHighlight);
-
-                &-hover {
-                    background-color: var(--colorBgTableHighlightHover);
-                }
-            }
-
-            &-header {
-                background-color: var(--colorBgTableHeader);
-            }
-
-            &-error {
-                background-color: var(--colorBgTableError);
-            }
-        }
-
-        &-popoverDark {
-            background-color: var(--colorBgPopoverDark);
-        }
-
-        &-overlay {
-            &-black {
-                background-color: var(--colorBgOverlayBlack);
-            }
-
-            &-white {
-                background-color: var(--colorBgOverlayWhite);
-            }
-
-            &-primary {
-                background-color: var(--colorBgOverlayPrimary);
-            }
-
-            &-neutral {
-                background-color: var(--colorBgOverlayNeutral);
-            }
-        }
-
-        &-customCard {
-            &-base {
-                background-color: var(--colorBgCustomCardBase);
-
-                &-hover {
-                    background-color: var(--colorBgCustomCardHover);
-                }
-            }
-
-            &-error {
-                background-color: var(--colorBgCustomCardError);
-
-                &-hover {
-                    background-color: var(--colorBgCustomCardErrorHover);
-                }
-            }
-
-            &-standby {
-                background-color: var(--colorBgCustomCardStandby);
-
-                &-by {
-                    // 변수명 오타(--colorBgCustomCardStandbyby) 반영
-                    background-color: var(--colorBgCustomCardStandbyby);
-                }
-
-                &-hover {
-                    background-color: var(--colorBgCustomCardStandbyHover);
-                }
-            }
-        }
-    }
-
-    // ==========================================
-    // 3. Border (테두리 색상)
-    // ==========================================
-    &-border {
-        &-base {
-            border-color: var(--colorBorderBase);
-
-            &-invert {
-                border-color: var(--colorBorderBaseInvert);
-
-                &-disabled {
-                    border-color: var(--colorBorderBaseInvertDisabled);
-                }
-            }
-        }
-
-        &-secondary {
-            border-color: var(--colorBorderSecondary);
-        }
-
-        &-tertiary {
-            border-color: var(--colorBorderTertiary);
-        }
-
-        &-disabled {
-            border-color: var(--colorBorderDisabled);
+          background-color: var(--colorBgNeutralTintAccent);
         }
 
         &-hover {
-            border-color: var(--colorBorderHover);
+          background-color: var(--colorBgNeutralTintHover);
         }
-
-        &-primary {
-            border-color: var(--colorBorderPrimary);
-
-            &-hover {
-                border-color: var(--colorBorderPrimaryHover);
-            }
-
-            &-disabled {
-                border-color: var(--colorBorderPrimaryDisabled);
-            }
-        }
-
-        &-neutral {
-            border-color: var(--colorBorderNeutral);
-
-            &-hover {
-                border-color: var(--colorBorderNeutralHover);
-            }
-
-            &-disabled {
-                border-color: var(--colorBorderNeutralDisabled);
-            }
-        }
-
-        &-error {
-            border-color: var(--colorBorderError);
-
-            &-hover {
-                border-color: var(--colorBorderErrorHover);
-            }
-
-            &-disabled {
-                border-color: var(--colorBorderErrorDisabled);
-            }
-        }
-
-        &-success {
-            border-color: var(--colorBorderSuccess);
-
-            &-hover {
-                border-color: var(--colorBorderSuccessHover);
-            }
-
-            &-disabled {
-                border-color: var(--colorBorderSuccessDisabled);
-            }
-        }
-
-        &-warning {
-            border-color: var(--colorBorderWarning);
-
-            &-hover {
-                border-color: var(--colorBorderWarningHover);
-            }
-
-            &-disabled {
-                border-color: var(--colorBorderWarningDisabled);
-            }
-        }
-
-        &-highlight {
-            border-color: var(--colorBorderHighlight);
-        }
-
-        &-focusIndicator {
-            border-color: var(--colorBorderFocusIndicator);
-
-            &-invert {
-                border-color: var(--colorBorderFocusIndicatorInvert);
-            }
-        }
-
-        &-bubbleHighlight {
-            border-color: var(--colorBorderBubbleHighlight);
-        }
-
-        &-tableBase {
-            border-color: var(--colorBorderTableBase);
-        }
-
-        &-customCard {
-            &-base {
-                border-color: var(--colorBorderCustomCardBase);
-
-                &-hover {
-                    border-color: var(--colorBorderCustomCardHover);
-                }
-            }
-
-            &-error {
-                border-color: var(--colorBorderCustomCardError);
-
-                &-hover {
-                    border-color: var(--colorBorderCustomCardErrorHover);
-                }
-            }
-
-            &-standby {
-                border-color: var(--colorBorderCustomCardStandby);
-            }
-        }
+      }
     }
 
-    // ==========================================
-    // 4. Accent (포인트 색상)
-    // ==========================================
-    &-accent {
-        &-red {
-            color: var(--colorAccentRed);
+    &-error {
+      background-color: var(--colorBgError);
 
-            &-hover {
-                color: var(--colorAccentRedHover);
-            }
+      &-hover {
+        background-color: var(--colorBgErrorHover);
+      }
 
-            &-tint {
-                color: var(--colorAccentRedTint);
+      &-accent {
+        background-color: var(--colorBgErrorAccent);
+      }
 
-                &-hover {
-                    color: var(--colorAccentRedTintHover);
-                }
-            }
+      &-disabled {
+        background-color: var(--colorBgErrorDisabled);
+      }
+
+      &-tint {
+        background-color: var(--colorBgErrorTint);
+
+        &-accent {
+          background-color: var(--colorBgErrorTintAccent);
         }
-
-        &-orange {
-            color: var(--colorAccentOrange);
-
-            &-hover {
-                color: var(--colorAccentOrangeHover);
-            }
-
-            &-tint {
-                color: var(--colorAccentOrangeTint);
-
-                &-hover {
-                    color: var(--colorAccentOrangeTintHover);
-                }
-            }
-        }
-
-        &-yellow {
-            color: var(--colorAccentYellow);
-
-            &-hover {
-                color: var(--colorAccentYellowHover);
-            }
-
-            &-tint {
-                color: var(--colorAccentYellowTint);
-
-                &-hover {
-                    color: var(--colorAccentYellowTintHover);
-                }
-            }
-        }
-
-        &-lightGreen {
-            color: var(--colorAccentLightGreen);
-
-            &-hover {
-                color: var(--colorAccentLightGreenHover);
-            }
-
-            &-tint {
-                color: var(--colorAccentLightGreenTint);
-
-                &-hover {
-                    color: var(--colorAccentLightGreenTintHover);
-                }
-            }
-        }
-
-        &-green {
-            color: var(--colorAccentGreen);
-
-            &-hover {
-                color: var(--colorAccentGreenHover);
-            }
-
-            &-tint {
-                color: var(--colorAccentGreenTint);
-
-                &-hover {
-                    color: var(--colorAccentGreenTintHover);
-                }
-            }
-        }
-
-        &-teal {
-            color: var(--colorAccentTeal);
-
-            &-hover {
-                color: var(--colorAccentTealHover);
-            }
-
-            &-tint {
-                color: var(--colorAccentTealTint);
-
-                &-hover {
-                    color: var(--colorAccentTealTintHover);
-                }
-            }
-        }
-
-        &-cyan {
-            color: var(--colorAccentCyan);
-
-            &-hover {
-                color: var(--colorAccentCyanHover);
-            }
-
-            &-tint {
-                color: var(--colorAccentCyanTint);
-
-                &-hover {
-                    color: var(--colorAccentCyanTintHover);
-                }
-            }
-        }
-
-        &-blue {
-            color: var(--colorAccentBlue);
-
-            &-hover {
-                color: var(--colorAccentBlueHover);
-            }
-
-            &-tint {
-                color: var(--colorAccentBlueTint);
-
-                &-hover {
-                    color: var(--colorAccentBlueTintHover);
-                }
-            }
-        }
-
-        &-indigo {
-            color: var(--colorAccentIndigo);
-
-            &-strong {
-                color: var(--colorAccentIndigoStrong);
-            }
-
-            &-hover {
-                color: var(--colorAccentIndigoHover);
-            }
-
-            &-tint {
-                color: var(--colorAccentIndigoTint);
-
-                &-hover {
-                    color: var(--colorAccentIndigoTintHover);
-                }
-            }
-        }
-
-        &-violet {
-            color: var(--colorAccentViolet);
-
-            &-hover {
-                color: var(--colorAccentVioletHover);
-            }
-
-            &-tint {
-                color: var(--colorAccentVioletTint);
-
-                &-hover {
-                    color: var(--colorAccentVioletTintHover);
-                }
-            }
-        }
-
-        &-fuchsia {
-            color: var(--colorAccentFuchsia);
-
-            &-hover {
-                color: var(--colorAccentFuchsiaHover);
-            }
-
-            &-tint {
-                color: var(--colorAccentFuchsiaTint);
-
-                &-hover {
-                    color: var(--colorAccentFuchsiaTintHover);
-                }
-            }
-        }
-
-        &-rose {
-            color: var(--colorAccentRose);
-
-            &-hover {
-                color: var(--colorAccentRoseHover);
-            }
-
-            &-tint {
-                color: var(--colorAccentRoseTint);
-
-                &-hover {
-                    color: var(--colorAccentRoseTintHover);
-                }
-            }
-        }
+      }
     }
 
-    // ==========================================
-    // 5. Chart (차트 색상)
-    // ==========================================
-    &-chart {
-        &-base {
-            color: var(--colorChartBase);
-        }
+    &-success {
+      background-color: var(--colorBgSuccess);
 
-        &-purpleLight {
-            color: var(--colorChartPurpleLight);
-        }
+      &-hover {
+        background-color: var(--colorBgSuccessHover);
+      }
 
-        &-purpleMedium {
-            color: var(--colorChartPurpleMedium);
-        }
+      &-accent {
+        background-color: var(--colorBgSuccessAccent);
+      }
 
-        &-purpleDark {
-            color: var(--colorChartPurpleDark);
-        }
+      &-disabled {
+        background-color: var(--colorBgSuccessDisabled);
+      }
 
-        &-pinkLight {
-            color: var(--colorChartPinkLight);
-        }
+      &-tint {
+        background-color: var(--colorBgSuccessTint);
 
-        &-redLight {
-            color: var(--colorChartRedLight);
+        &-accent {
+          background-color: var(--colorBgSuccessTintAccent);
         }
-
-        &-redMedium {
-            color: var(--colorChartRedMedium);
-        }
-
-        &-redDark {
-            color: var(--colorChartRedDark);
-        }
-
-        &-orangeLight {
-            color: var(--colorChartOrangeLight);
-        }
-
-        &-orangeMedium {
-            color: var(--colorChartOrangeMedium);
-        }
-
-        &-orangeDark {
-            color: var(--colorChartOrangeDark);
-        }
-
-        &-yellowLight {
-            color: var(--colorChartYellowLight);
-        }
-
-        &-yellowMedium {
-            color: var(--colorChartYellowMedium);
-        }
-
-        &-yellowDark {
-            color: var(--colorChartYellowDark);
-        }
-
-        &-greenLight {
-            color: var(--colorChartGreenLight);
-        }
-
-        &-greenMedium {
-            color: var(--colorChartGreenMedium);
-        }
-
-        &-greenDark {
-            color: var(--colorChartGreenDark);
-        }
-
-        &-tealLight {
-            color: var(--colorChartTealLight);
-        }
-
-        &-tealMedium {
-            color: var(--colorChartTealMedium);
-        }
-
-        &-tealDark {
-            color: var(--colorChartTealDark);
-        }
-
-        &-cyanLight {
-            color: var(--colorChartCyanLight);
-        }
-
-        &-cyanMedium {
-            color: var(--colorChartCyanMedium);
-        }
-
-        &-cyanDark {
-            color: var(--colorChartCyanDark);
-        }
-
-        &-blueLight {
-            color: var(--colorChartBlueLight);
-        }
-
-        &-blueMedium {
-            color: var(--colorChartBlueMedium);
-        }
-
-        &-blueDark {
-            color: var(--colorChartBlueDark);
-        }
-
-        &-indigoLight {
-            color: var(--colorChartIndigoLight);
-        }
-
-        &-indigoMedium {
-            color: var(--colorChartIndigoMedium);
-        }
-
-        &-indigoDark {
-            color: var(--colorChartIndigoDark);
-        }
-
-        &-grayLight {
-            color: var(--colorChartGrayLight);
-        }
-
-        &-grayMedium {
-            color: var(--colorChartGrayMedium);
-        }
-
-        &-grayDark {
-            color: var(--colorChartGrayDark);
-        }
+      }
     }
+
+    &-warning {
+      background-color: var(--colorBgWarning);
+
+      &-hover {
+        background-color: var(--colorBgWarningHover);
+      }
+
+      &-accent {
+        background-color: var(--colorBgWarningAccent);
+      }
+
+      &-disabled {
+        background-color: var(--colorBgWarningDisabled);
+      }
+
+      &-tint {
+        background-color: var(--colorBgWarningTint);
+
+        &-accent {
+          background-color: var(--colorBgWarningTintAccent);
+        }
+      }
+    }
+
+    &-highlight {
+      background-color: var(--colorBgHighlight);
+
+      &-hover {
+        background-color: var(--colorBgHighlightHover);
+      }
+    }
+
+    &-primaryTint {
+      background-color: var(--colorBgPrimaryTint);
+
+      &-accent {
+        background-color: var(--colorBgPrimaryTintAccent);
+      }
+    }
+
+    &-backdrop {
+      background-color: var(--colorBgBackdrop);
+    }
+
+    &-navigation {
+      background-color: var(--colorBgNavigation);
+    }
+
+    &-scroll {
+      background-color: var(--colorBgScroll);
+
+      &-hover {
+        background-color: var(--colorBgScrollHover);
+      }
+
+      &-focus {
+        background-color: var(--colorBgScrollFocus);
+      }
+
+      &-disabled {
+        // 오타(ScrolDisabled) 유지 또는 수정 (여기서는 변수명 그대로 작성)
+        background-color: var(--colorBgScrolDisabled);
+      }
+    }
+
+    &-calendar {
+      &-base {
+        background-color: var(--colorBgCalendarBase);
+      }
+
+      &-hover {
+        background-color: var(--colorBgCalendarHover);
+      }
+
+      &-selected {
+        background-color: var(--colorBgCalendarSelected);
+
+        &-hover {
+          background-color: var(--colorBgCalendarSelectedHover);
+        }
+
+        &-disabled {
+          background-color: var(--colorBgCalendarSelectedDisabled);
+        }
+      }
+
+      &-inRange {
+        background-color: var(--colorBgCalendarInRange);
+
+        &-hover {
+          background-color: var(--colorBgCalendarInRangeHover);
+        }
+
+        &-disabled {
+          background-color: var(--colorBgCalendarInRangeDisabled);
+        }
+      }
+    }
+
+    &-toggle {
+      &-base {
+        background-color: var(--colorBgToggleBase);
+      }
+
+      &-hover {
+        background-color: var(--colorBgToggleHover);
+      }
+
+      &-disabled {
+        background-color: var(--colorBgToggleDisabled);
+      }
+
+      &-selected {
+        background-color: var(--colorBgToggleSelected);
+
+        &-hover {
+          background-color: var(--colorBgToggleSelectedHover);
+        }
+
+        &-disabled {
+          background-color: var(--colorBgToggleSelectedDisabled);
+        }
+      }
+    }
+
+    &-progress {
+      background-color: var(--colorBgProgress);
+    }
+
+    &-sliderRail {
+      background-color: var(--colorBgSliderRail);
+
+      &-disabled {
+        background-color: var(--colorBgSliderRailDisabled);
+      }
+    }
+
+    &-bubble {
+      &-container {
+        background-color: var(--colorBgBubbleContainer);
+      }
+
+      &-outgoing {
+        background-color: var(--colorBgBubbleOutgoing);
+
+        &-hover {
+          background-color: var(--colorBgBubbleOutgoingHover);
+        }
+      }
+
+      &-incoming {
+        background-color: var(--colorBgBubbleIncoming);
+
+        &-hover {
+          background-color: var(--colorBgBubbleIncomingHover);
+        }
+      }
+
+      &-highlight {
+        background-color: var(--colorBgBubbleHighlight);
+
+        &-hover {
+          background-color: var(--colorBgBubbleHighlightHover);
+        }
+      }
+
+      &-active {
+        background-color: var(--colorBgBubbleActive);
+
+        &-hover {
+          background-color: var(--colorBgBubbleActiveHover);
+        }
+      }
+    }
+
+    &-table {
+      &-base {
+        background-color: var(--colorBgTableBase);
+      }
+
+      &-hover {
+        background-color: var(--colorBgTableHover);
+      }
+
+      &-selected {
+        background-color: var(--colorBgTableSelected);
+
+        &-hover {
+          background-color: var(--colorBgTableSelectedHover);
+        }
+      }
+
+      &-highlight {
+        background-color: var(--colorBgTableHighlight);
+
+        &-hover {
+          background-color: var(--colorBgTableHighlightHover);
+        }
+      }
+
+      &-header {
+        background-color: var(--colorBgTableHeader);
+      }
+
+      &-error {
+        background-color: var(--colorBgTableError);
+      }
+    }
+
+    &-popoverDark {
+      background-color: var(--colorBgPopoverDark);
+    }
+
+    &-overlay {
+      &-black {
+        background-color: var(--colorBgOverlayBlack);
+      }
+
+      &-white {
+        background-color: var(--colorBgOverlayWhite);
+      }
+
+      &-primary {
+        background-color: var(--colorBgOverlayPrimary);
+      }
+
+      &-neutral {
+        background-color: var(--colorBgOverlayNeutral);
+      }
+    }
+
+    &-customCard {
+      &-base {
+        background-color: var(--colorBgCustomCardBase);
+
+        &-hover {
+          background-color: var(--colorBgCustomCardHover);
+        }
+      }
+
+      &-error {
+        background-color: var(--colorBgCustomCardError);
+
+        &-hover {
+          background-color: var(--colorBgCustomCardErrorHover);
+        }
+      }
+
+      &-standby {
+        background-color: var(--colorBgCustomCardStandby);
+
+        &-by {
+          // 변수명 오타(--colorBgCustomCardStandbyby) 반영
+          background-color: var(--colorBgCustomCardStandbyby);
+        }
+
+        &-hover {
+          background-color: var(--colorBgCustomCardStandbyHover);
+        }
+      }
+    }
+  }
+
+  // ==========================================
+  // 3. Border (테두리 색상)
+  // ==========================================
+  &-border {
+    &-base {
+      border-color: var(--colorBorderBase);
+
+      &-invert {
+        border-color: var(--colorBorderBaseInvert);
+
+        &-disabled {
+          border-color: var(--colorBorderBaseInvertDisabled);
+        }
+      }
+    }
+
+    &-secondary {
+      border-color: var(--colorBorderSecondary);
+    }
+
+    &-tertiary {
+      border-color: var(--colorBorderTertiary);
+    }
+
+    &-disabled {
+      border-color: var(--colorBorderDisabled);
+    }
+
+    &-hover {
+      border-color: var(--colorBorderHover);
+    }
+
+    &-primary {
+      border-color: var(--colorBorderPrimary);
+
+      &-hover {
+        border-color: var(--colorBorderPrimaryHover);
+      }
+
+      &-disabled {
+        border-color: var(--colorBorderPrimaryDisabled);
+      }
+    }
+
+    &-neutral {
+      border-color: var(--colorBorderNeutral);
+
+      &-hover {
+        border-color: var(--colorBorderNeutralHover);
+      }
+
+      &-disabled {
+        border-color: var(--colorBorderNeutralDisabled);
+      }
+    }
+
+    &-error {
+      border-color: var(--colorBorderError);
+
+      &-hover {
+        border-color: var(--colorBorderErrorHover);
+      }
+
+      &-disabled {
+        border-color: var(--colorBorderErrorDisabled);
+      }
+    }
+
+    &-success {
+      border-color: var(--colorBorderSuccess);
+
+      &-hover {
+        border-color: var(--colorBorderSuccessHover);
+      }
+
+      &-disabled {
+        border-color: var(--colorBorderSuccessDisabled);
+      }
+    }
+
+    &-warning {
+      border-color: var(--colorBorderWarning);
+
+      &-hover {
+        border-color: var(--colorBorderWarningHover);
+      }
+
+      &-disabled {
+        border-color: var(--colorBorderWarningDisabled);
+      }
+    }
+
+    &-highlight {
+      border-color: var(--colorBorderHighlight);
+    }
+
+    &-focusIndicator {
+      border-color: var(--colorBorderFocusIndicator);
+
+      &-invert {
+        border-color: var(--colorBorderFocusIndicatorInvert);
+      }
+    }
+
+    &-bubbleHighlight {
+      border-color: var(--colorBorderBubbleHighlight);
+    }
+
+    &-tableBase {
+      border-color: var(--colorBorderTableBase);
+    }
+
+    &-customCard {
+      &-base {
+        border-color: var(--colorBorderCustomCardBase);
+
+        &-hover {
+          border-color: var(--colorBorderCustomCardHover);
+        }
+      }
+
+      &-error {
+        border-color: var(--colorBorderCustomCardError);
+
+        &-hover {
+          border-color: var(--colorBorderCustomCardErrorHover);
+        }
+      }
+
+      &-standby {
+        border-color: var(--colorBorderCustomCardStandby);
+      }
+    }
+  }
+
+  // ==========================================
+  // 4. Accent (포인트 색상)
+  // ==========================================
+  &-accent {
+    &-red {
+      color: var(--colorAccentRed);
+
+      &-hover {
+        color: var(--colorAccentRedHover);
+      }
+
+      &-tint {
+        color: var(--colorAccentRedTint);
+
+        &-hover {
+          color: var(--colorAccentRedTintHover);
+        }
+      }
+    }
+
+    &-orange {
+      color: var(--colorAccentOrange);
+
+      &-hover {
+        color: var(--colorAccentOrangeHover);
+      }
+
+      &-tint {
+        color: var(--colorAccentOrangeTint);
+
+        &-hover {
+          color: var(--colorAccentOrangeTintHover);
+        }
+      }
+    }
+
+    &-yellow {
+      color: var(--colorAccentYellow);
+
+      &-hover {
+        color: var(--colorAccentYellowHover);
+      }
+
+      &-tint {
+        color: var(--colorAccentYellowTint);
+
+        &-hover {
+          color: var(--colorAccentYellowTintHover);
+        }
+      }
+    }
+
+    &-lightGreen {
+      color: var(--colorAccentLightGreen);
+
+      &-hover {
+        color: var(--colorAccentLightGreenHover);
+      }
+
+      &-tint {
+        color: var(--colorAccentLightGreenTint);
+
+        &-hover {
+          color: var(--colorAccentLightGreenTintHover);
+        }
+      }
+    }
+
+    &-green {
+      color: var(--colorAccentGreen);
+
+      &-hover {
+        color: var(--colorAccentGreenHover);
+      }
+
+      &-tint {
+        color: var(--colorAccentGreenTint);
+
+        &-hover {
+          color: var(--colorAccentGreenTintHover);
+        }
+      }
+    }
+
+    &-teal {
+      color: var(--colorAccentTeal);
+
+      &-hover {
+        color: var(--colorAccentTealHover);
+      }
+
+      &-tint {
+        color: var(--colorAccentTealTint);
+
+        &-hover {
+          color: var(--colorAccentTealTintHover);
+        }
+      }
+    }
+
+    &-cyan {
+      color: var(--colorAccentCyan);
+
+      &-hover {
+        color: var(--colorAccentCyanHover);
+      }
+
+      &-tint {
+        color: var(--colorAccentCyanTint);
+
+        &-hover {
+          color: var(--colorAccentCyanTintHover);
+        }
+      }
+    }
+
+    &-blue {
+      color: var(--colorAccentBlue);
+
+      &-hover {
+        color: var(--colorAccentBlueHover);
+      }
+
+      &-tint {
+        color: var(--colorAccentBlueTint);
+
+        &-hover {
+          color: var(--colorAccentBlueTintHover);
+        }
+      }
+    }
+
+    &-indigo {
+      color: var(--colorAccentIndigo);
+
+      &-strong {
+        color: var(--colorAccentIndigoStrong);
+      }
+
+      &-hover {
+        color: var(--colorAccentIndigoHover);
+      }
+
+      &-tint {
+        color: var(--colorAccentIndigoTint);
+
+        &-hover {
+          color: var(--colorAccentIndigoTintHover);
+        }
+      }
+    }
+
+    &-violet {
+      color: var(--colorAccentViolet);
+
+      &-hover {
+        color: var(--colorAccentVioletHover);
+      }
+
+      &-tint {
+        color: var(--colorAccentVioletTint);
+
+        &-hover {
+          color: var(--colorAccentVioletTintHover);
+        }
+      }
+    }
+
+    &-fuchsia {
+      color: var(--colorAccentFuchsia);
+
+      &-hover {
+        color: var(--colorAccentFuchsiaHover);
+      }
+
+      &-tint {
+        color: var(--colorAccentFuchsiaTint);
+
+        &-hover {
+          color: var(--colorAccentFuchsiaTintHover);
+        }
+      }
+    }
+
+    &-rose {
+      color: var(--colorAccentRose);
+
+      &-hover {
+        color: var(--colorAccentRoseHover);
+      }
+
+      &-tint {
+        color: var(--colorAccentRoseTint);
+
+        &-hover {
+          color: var(--colorAccentRoseTintHover);
+        }
+      }
+    }
+  }
+
+  // ==========================================
+  // 5. Chart (차트 색상)
+  // ==========================================
+  &-chart {
+    &-base {
+      color: var(--colorChartBase);
+    }
+
+    &-purpleLight {
+      color: var(--colorChartPurpleLight);
+    }
+
+    &-purpleMedium {
+      color: var(--colorChartPurpleMedium);
+    }
+
+    &-purpleDark {
+      color: var(--colorChartPurpleDark);
+    }
+
+    &-pinkLight {
+      color: var(--colorChartPinkLight);
+    }
+
+    &-redLight {
+      color: var(--colorChartRedLight);
+    }
+
+    &-redMedium {
+      color: var(--colorChartRedMedium);
+    }
+
+    &-redDark {
+      color: var(--colorChartRedDark);
+    }
+
+    &-orangeLight {
+      color: var(--colorChartOrangeLight);
+    }
+
+    &-orangeMedium {
+      color: var(--colorChartOrangeMedium);
+    }
+
+    &-orangeDark {
+      color: var(--colorChartOrangeDark);
+    }
+
+    &-yellowLight {
+      color: var(--colorChartYellowLight);
+    }
+
+    &-yellowMedium {
+      color: var(--colorChartYellowMedium);
+    }
+
+    &-yellowDark {
+      color: var(--colorChartYellowDark);
+    }
+
+    &-greenLight {
+      color: var(--colorChartGreenLight);
+    }
+
+    &-greenMedium {
+      color: var(--colorChartGreenMedium);
+    }
+
+    &-greenDark {
+      color: var(--colorChartGreenDark);
+    }
+
+    &-tealLight {
+      color: var(--colorChartTealLight);
+    }
+
+    &-tealMedium {
+      color: var(--colorChartTealMedium);
+    }
+
+    &-tealDark {
+      color: var(--colorChartTealDark);
+    }
+
+    &-cyanLight {
+      color: var(--colorChartCyanLight);
+    }
+
+    &-cyanMedium {
+      color: var(--colorChartCyanMedium);
+    }
+
+    &-cyanDark {
+      color: var(--colorChartCyanDark);
+    }
+
+    &-blueLight {
+      color: var(--colorChartBlueLight);
+    }
+
+    &-blueMedium {
+      color: var(--colorChartBlueMedium);
+    }
+
+    &-blueDark {
+      color: var(--colorChartBlueDark);
+    }
+
+    &-indigoLight {
+      color: var(--colorChartIndigoLight);
+    }
+
+    &-indigoMedium {
+      color: var(--colorChartIndigoMedium);
+    }
+
+    &-indigoDark {
+      color: var(--colorChartIndigoDark);
+    }
+
+    &-grayLight {
+      color: var(--colorChartGrayLight);
+    }
+
+    &-grayMedium {
+      color: var(--colorChartGrayMedium);
+    }
+
+    &-grayDark {
+      color: var(--colorChartGrayDark);
+    }
+  }
 }

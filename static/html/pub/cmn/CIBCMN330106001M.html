@@ -1,0 +1,149 @@
+<!-- 1.05v 수정 -->
+
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/cmn.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
+
+      <div id="container" class="container">
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="cmn">
+              <h2 class="typeH2">대 타이틀</h2>
+              <div class="tbl-area">
+                <h4 class="typeH4">보안매체 입력</h4>
+                <table class="table-type01">
+                  <caption></caption>
+                  <colgroup>
+                    <col />
+                    <col />
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th>이체비밀번호</th>
+                      <td>
+                        <div class="tbl-flex">
+                          <div class="clear-type">
+                            <input type="password" id="이체비밀번호" class="input size-lg wSize-md" value="" placeholder="이체비밀번호 입력" aria-label="이체비밀번호" />
+                            <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                              <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                              <span class="blind">닫기</span>
+                            </button>
+                          </div>
+                          <button class="btn-mouse-keypad">
+                            <!-- 키패드 활성화시 is-active 클래스 추가 -->
+                            <i class="ico ico-size-smMd" aria-hidden="true"></i>
+                            <span class="blind">마우스 입력 열기</span>
+                          </button>
+                          <button class="btn-mouse-keypad is-active">
+                            <!-- 키패드 비활성화시 is-active 클래스 삭제 -->
+                            <i class="ico ico-size-smMd" aria-hidden="true"></i>
+                            <span class="blind">마우스 입력 닫기</span>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row" rowspan="2"><span>OPIN번호</span></th>
+                      <td>
+                        <div class="form-box">
+                          <button type="button" class="btn type-line-secondary size-lg">
+                            <span class="text">조회</span>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="tbl-flex">
+                          <div class="span-wrap">
+                            <span class="typeMd">5</span>
+                            <span class="typeMd">2</span>
+                            <span class="typeMd">9</span>
+                            <span class="typeMd">1</span>
+                          </div>
+                          <div class="form-box">
+                            <button type="button" class="btn type-line-secondary size-lg">
+                              <span class="text">다시조회</span>
+                            </button>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row" rowspan="2" class="noradius01">OTP응답번호</th>
+                      <td>
+                        <div class="tbl-flex">
+                          <input type="password" id="OTP응답번호" class="input wSize-md size-lg" placeholder="6자리 입력" aria-label="OTP응답번호" />
+                          <button class="btn-mouse-keypad">
+                            <!-- 키패드 활성화시 is-active 클래스 추가 -->
+                            <i class="ico ico-size-smMd" aria-hidden="true"></i>
+                            <span class="blind">마우스 입력 열기</span>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="typeMd mb-16">Time OTP카드 비밀번호 입력 예시</div>
+                        <div class="otp-noti">
+                          <div class="otp-noti-inner">
+                            <div class="list type-dotted">
+                              <ul>
+                                <li class="typeMd">이용일자에 관계없이 OTP응답번호 입력 오류가 연속하여 10회 누적될 경우 서비스가 제한됩니다.</li>
+                                <li class="typeMd">OTP응답번호는 모든 항목을 입력하신 후 마지막으로 입력하시기 바랍니다.</li>
+                                <li class="typeMd">OTP는 정당한 전자금융거래시에만 사용하셔야 하며 응답번호를 발생시킨 후 가급적 즉시 입력하시기 바랍니다.</li>
+                              </ul>
+                            </div>
+                            <div class="list type-reference">
+                              <ul>
+                                <li class="typeMd">본 화면은 이해를 돕기 위한 입력 예시 참조화면 입니다. 고객님께서 보유하신 카드의 해당 번호를 입력해 주시기 바랍니다.</li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="btn-wrap center lg-bot">
+                <button type="button" class="btn type-bg-primary size-xxl">
+                  <span class="text">이체</span>
+                </button>
+              </div>
+              <div class="line-box size-xl mt-48">
+                <span class="typeLgSemibold">이용안내</span>
+                <div class="list type-dotted">
+                  <ul>
+                    <li class="typeMd">입력하신 정보는 본인 확인용으로만 사용됩니다.</li>
+                    <li class="typeMd">계좌비밀번호 오류 3회 초과시 서비스가 제한됩니다.</li>
+                    <li class="typeMd">영업점에 방문하셔서 계좌 비밀번호 오류 횟수를 삭제하거나 변경하신 후 이용하실 수 있습니다.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
+</html>
+<script></script>

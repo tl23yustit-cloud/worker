@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>수협은행</title>
+  <link rel="stylesheet" href="/static/css/reset.css" />
+  <link rel="stylesheet" href="/static/css/layout.css" />
+  <link rel="stylesheet" href="/static/css/component.css" />
+  <link rel="stylesheet" href="/static/css/common.css" />
+  <link rel="stylesheet" href="/static/css/bop.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <div id="header">
+      @@include('static/html/pub/layout/skipNavigation.html')
+      @@include('static/html/pub/layout/header_sub.html')
+    </div>
+
+    <div id="container" class="container">
+      <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+      <div id="contents">
+        <div class="content">
+          @@include('static/html/pub/layout/breadcrumb.html')
+          <div class="bop">
+            <button type="button" class="btn type-bg-primary size-md btn-modal" data-target="modal-16">
+              <span class="text">실행번호선택</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+    </div>
+    <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+  </div>
+  <script src="/static/js/ui/cib_ui_common.js"></script>
+  <div id="modal-16" class="modal is-active" data-dim="true" data-backdrop-close="false" data-alert="true"
+    data-size="md" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc">
+    <div class="modal-wrapper">
+      <div class="modal-title">
+        <h4 class="typeH4">실행번호선택</h4>
+      </div>
+      <div class="modal-slot">
+        <div id="modal-desc">
+          <div class="tbl-area">
+            <table class="table-type03">
+              <caption>
+                실행번호선택
+              </caption>
+              <colgroup>
+                <col width="20px">
+                <col width="180px">
+                <col width="180px">
+                <col width="180px">
+                <col width="180px">
+                <col width="180px">
+                <col width="180px">
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>선택</th>
+                  <th>신규일</th>
+                  <th>최초대출액</th>
+                  <th>대출잔액</th>
+                  <th>만기일</th>
+                  <th>이자납입상태</th>
+                  <th>다음이자납입일</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td>
+                    <span class="form-box">
+                      <input type="checkbox" name="" id="SampleCheckbox0201" class="form-checkbox" checked="">
+                      <label for="SampleCheckbox0201" class="form-label"></label>
+                    </span>
+                  </td>
+                  <td><span class="typeMd">2026-05-18</span></td>
+                  <td class="text-right">
+                    <span class="typeMd">100,000,000원</span>
+                  </td>
+                  <td class="text-right">
+                    <span class="typeMd">100,000,000원</span>
+                  </td>
+                  <td><span class="typeMd">2026-05-18</span></td>
+                  <td><span class="typeMd">정상</span></td>
+                  <td><span class="typeMd">2026-08-18</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer flex items-center justify-center gap-8">
+        <button type="button" class="btn type-bg-primary size-xl">
+          <span class="text">선택</span>
+          <span class="blind">선택</span>
+        </button>
+      </div>
+      <nav class="pagination size-md" aria-label="페이지네이션">
+        <button type="button" class="btn-nav first" disabled="" aria-disabled="true" aria-label="첫 페이지">
+          <span class="blind">첫 페이지</span>
+        </button>
+        <button type="button" class="btn-nav prev" disabled="" aria-disabled="true" aria-label="이전 페이지">
+          <span class="blind">이전 페이지</span>
+        </button>
+
+        <ol class="list-pagination">
+          <li>
+            <button type="button" class="btn-page active" aria-current="page" aria-label="1페이지">
+              1
+            </button>
+          </li>
+          <li>
+            <button type="button" class="btn-page" aria-label="2페이지">
+              2
+            </button>
+          </li>
+          <li>
+            <button type="button" class="btn-page" aria-label="3페이지">
+              3
+            </button>
+          </li>
+          <li>
+            <button type="button" class="btn-page" aria-label="4페이지">
+              4
+            </button>
+          </li>
+          <li>
+            <button type="button" class="btn-page" aria-label="5페이지">
+              5
+            </button>
+          </li>
+        </ol>
+
+        <button type="button" class="btn-nav next" aria-label="다음 페이지">
+          <span class="blind">다음 페이지</span>
+        </button>
+        <button type="button" class="btn-nav last" aria-label="마지막 페이지">
+          <span class="blind">마지막 페이지</span>
+        </button>
+      </nav>
+      <button type="button" class="ico btn-close" aria-label="모달 닫기">
+        <i class="ico-close ico-size-smMd" aria-hidden="true"></i>
+        <span class="blind">닫기</span>
+      </button>
+    </div>
+  </div>
+</body>
+
+</html>

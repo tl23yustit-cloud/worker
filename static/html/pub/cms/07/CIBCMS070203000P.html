@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/cms.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">
+        @@include('static/html/pub/layout/skipNavigation.html')
+        @@include('static/html/pub/layout/header_sub.html')
+      </div>
+
+      <div id="container" class="container">
+        <div id="leftArea">
+          @@include('static/html/pub/layout/leftArea.html')
+        </div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="cms">
+              <button
+                type="button"
+                class="btn type-bg-primary size-md btn-modal"
+                data-target="modal-01"
+              >
+                <span class="text">모달 버튼</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+    <div
+      id="modal-01"
+      class="modal is-active"
+      data-dim="true"
+      data-backdrop-close="false"
+      data-alert="true"
+      data-size="md"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modal-title"
+      aria-describedby="modal-desc"
+    >
+      <div class="modal-wrapper cms">
+        <div class="modal-title">
+          <h4 class="typeH4">계좌수정</h4>
+        </div>
+        <div class="modal-slot">
+          <div id="modal-desc">
+            <div class="tbl-area">
+              <table class="table-type01 mt-0">
+                <caption>
+                  사업장, 금융사, 계좌종류, 계좌번호 정보를 제공합니다.
+                </caption>
+                <colgroup>
+                  <col width="160px" />
+                  <col width="272px" />
+                  <col width="160px" />
+                  <col width="*" />
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th scope="row">사업장</th>
+                    <td><span class="typeMd">본사</span></td>
+                    <th scope="row">금융사</th>
+                    <td><span class="typeMd">농협</span></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">계좌종류</th>
+                    <td><span class="typeMd">수시입출</span></td>
+                    <th scope="row">계좌번호</th>
+                    <td><span class="typeMd">3010000598441</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="tbl-area">
+              <table class="table-type01 mt-0">
+                <caption>
+                  집금계좌여부, 계좌별칭 정보를 제공합니다.
+                </caption>
+                <colgroup>
+                  <col width="160px" />
+                  <col width="*" />
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th scope="row">집금계좌여부</th>
+                    <td class="tbl-column">
+                      <div
+                        class="form-box-wrap"
+                        role="radiogroup"
+                        aria-label="집금계좌여부"
+                      >
+                        <span class="form-box">
+                          <input
+                            type="radio"
+                            name="SampleRadio0602"
+                            id="SampleRadio0602_01"
+                            class="form-radio size-md"
+                            disabled
+                          />
+                          <label for="SampleRadio0602" class="form-label"
+                            >모계좌</label
+                          >
+                        </span>
+                        <span class="form-box">
+                          <input
+                            type="radio"
+                            name="SampleRadio0602"
+                            id="SampleRadio0602_02"
+                            class="form-radio size-md"
+                          />
+                          <label for="SampleRadio0602" class="form-label"
+                            >자계좌</label
+                          >
+                        </span>
+                        <span class="form-box">
+                          <input
+                            type="radio"
+                            name="SampleRadio0602"
+                            id="SampleRadio0602_03"
+                            class="form-radio size-md"
+                          />
+                          <label for="SampleRadio0602" class="form-label"
+                            >사용안함</label
+                          >
+                        </span>
+                      </div>
+                      <div class="list type-reference">
+                        <ul>
+                          <li class="typeSm">
+                            모계좌는 수협은행 계좌만 가능합니다.
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">계좌별칭</th>
+                    <td>
+                      <input
+                        type="text"
+                        id=""
+                        class="input size-lg wSize-full"
+                        value=""
+                        placeholder="입력했던 계좌별칭이 보여집니다"
+                        aria-label="계좌별칭"
+                      />
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer flex items-center justify-center gap-8">
+          <button type="button" class="btn type-bg-primary-tint size-lg">
+            <span class="text">취소</span>
+          </button>
+          <button type="button" class="btn type-bg-primary size-lg">
+            <span class="text">저장</span>
+          </button>
+        </div>
+        <button type="button" class="ico btn-close" aria-label="모달 닫기">
+          <i class="ico-close ico-size-smMd" aria-hidden="true"></i>
+          <span class="blind">닫기</span>
+        </button>
+      </div>
+    </div>
+  </body>
+</html>

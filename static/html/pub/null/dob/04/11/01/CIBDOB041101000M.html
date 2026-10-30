@@ -1,0 +1,459 @@
+<!-- 1.08v -->
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/dob.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
+
+      <div id="container" class="container">
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="dob">
+              <h2 class="typeH2">법인지방소득세 특별징수명세서 발급확인</h2>
+              <h4 class="typeH4">증명서 발급확인에 필요한 정보를 입력해주세요</h4>
+              <div class="tbl-area">
+                <div class="tbl-head">
+                  <div class="left-area">
+                    <h4 class="typeH4">발급정보 입력</h4>
+                  </div>
+                  <div class="right-area">
+                    <span class="required typeMd">필수 항목</span>
+                  </div>
+                </div>
+                <table class="table-type01">
+                  <colgroup>
+                    <col style="width: 160px" />
+                    <col style="width: auto" />
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="row">
+                        <span>사업자등록번호</span>
+                      </th>
+                      <td>
+                        <div class="tbl-flex">
+                          <div class="clear-type">
+                            <input type="text" class="input size-lg wSize-smMd" aria-label="사업자등록번호 첫번째 입력" />
+                            <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                              <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                              <span class="blind">닫기</span>
+                            </button>
+                          </div>
+                          -
+                          <div class="clear-type">
+                            <input type="text" class="input size-lg wSize-smMd" aria-label="사업자등록번호 입력" />
+
+                            <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                              <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                              <span class="blind">닫기</span>
+                            </button>
+                          </div>
+                          -
+                          <div class="clear-type">
+                            <input type="text" class="input size-lg wSize-smMd" aria-label="사업자등록번호 입력" />
+
+                            <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                              <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                              <span class="blind">닫기</span>
+                            </button>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span>계좌번호</span>
+                      </th>
+                      <td>
+                        <div class="clear-type">
+                          <input type="text" id="input-joah2e" class="input size-lg wSize-lg" aria-label="계좌번호" placeholder="계좌번호입력" />
+
+                          <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                            <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                            <span class="blind">닫기</span>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span>계좌비밀번호</span>
+                      </th>
+                      <td>
+                        <div class="tbl-flex">
+                          <input type="password" id="input-m160g1" class="input size-lg wSize-smMd" aria-label="계좌비밀번호 입력" placeholder="계좌번호입력" />
+
+                          <button class="btn-mouse-keypad">
+                            <!-- 키패드 활성화시 is-active 클래스 추가 -->
+                            <i class="ico ico-size-smMd" aria-hidden="true"></i>
+                            <span class="blind">마우스 입력 열기</span>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <th scope="row">
+                        <span><label for="input-akxwqx">조회기간</label></span>
+                      </th>
+                      <td>
+                        <div class="tbl-flex">
+                          <div class="box-select wSize-smMd">
+                            <button type="button" class="select size-lg" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="selectDropdown01" aria-labelledby="label-account" aria-required="true">
+                              <span class="text">반기별</span>
+                              <span class="blind">목록 열기</span>
+                            </button>
+                            <div id="selectDropdown01" class="box-list-select">
+                              <ul class="list-select" role="listbox" aria-label="조회기간">
+                                <li class="item-select" role="group" aria-selected="true">
+                                  <span class="btn-item-select"> 반기별</span>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div>
+                            <!-- 반기별 -->
+                            <div>
+                              <div class="box-select wSize-smMd">
+                                <button type="button" class="select size-lg" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="selectDropdown01" aria-labelledby="search_perio">
+                                  <span class="text">2026년</span>
+                                  <span class="blind">목록 열기</span>
+                                </button>
+                                <div id="selectDropdown01" class="box-list-select">
+                                  <ul class="list-select" role="listbox" aria-label="반기별 시작">
+                                    <li class="item-select" role="option" aria-selected="true">
+                                      <span class="form-box">2026년</span>
+                                    </li>
+                                  </ul>
+                                </div>
+                              </div>
+                              <div class="box-select wSize-smMd">
+                                <button type="button" class="select size-lg" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="selectDropdown01" aria-labelledby="search_perio">
+                                  <span class="text">기간</span>
+                                  <span class="blind">목록 열기</span>
+                                </button>
+                                <div id="selectDropdown01" class="box-list-select">
+                                  <ul class="list-select" role="listbox" aria-label="기간">
+                                    <li class="item-select" role="option" aria-selected="true">
+                                      <span class="form-box">2026년</span>
+                                    </li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                            <!-- 반기별 -->
+                            <!-- <div>
+                                  <div class="box-select wSize-smMd">
+                                    <button type="button" class="select size-lg" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="selectDropdown01" aria-labelledby="search_perio">
+                                      <span class="text">2026년</span>
+                                      <span class="blind">목록 열기</span>
+                                    </button>
+                                    <div id="selectDropdown01" class="box-list-select">
+                                      <ul class="list-select" role="listbox" aria-label="분기별 시작">
+                                        <li class="item-select" role="option" aria-selected="true">
+                                          <span class="form-box">2026년</span>
+                                        </li>
+                                      </ul>
+                                    </div>
+                                  </div>
+                                  <div class="box-select wSize-smMd">
+                                    <button type="button" class="select size-lg" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="selectDropdown01" aria-labelledby="search_perio">
+                                      <span class="text">2026년</span>
+                                      <span class="blind">목록 열기</span>
+                                    </button>
+                                    <div id="selectDropdown01" class="box-list-select">
+                                      <ul class="list-select" role="listbox" aria-label="분기별 종료">
+                                        <li class="item-select" role="option" aria-selected="true">
+                                          <span class="form-box">2026년</span>
+                                        </li>
+                                      </ul>
+                                    </div>
+                                  </div>
+                                </div> -->
+                            <!-- 시작일/ 종료일 -->
+                            <!-- <div class="calendar-wrap">
+                                  <div class="input-box">
+                                    <input type="text" class="input" placeholder="조회 시작일" aria-label="조회 시작일" value="2026-01-06" />
+                                    <button type="button" class="btn">
+                                      <i class="ico-calendar ico-size-smMd" aria-hidden="true"></i>
+                                      <span class="blind"> 시작일 달력 열기</span>
+                                    </button>
+                                  </div>
+                                  <span aria-hidden="true">~</span>
+                                  <div class="input-box">
+                                    <input type="text" class="input" placeholder="조회 종료일" aria-label="조회 종료일" value="2026-01-06" />
+                                    <button type="button" class="btn">
+                                      <i class="ico-calendar ico-size-smMd" aria-hidden="true"></i>
+                                      <span class="blind"> 종료일 달력 열기</span>
+                                    </button>
+                                  </div>
+                                  <div class="box-select wSize-smMd">
+                                    <button type="button" class="select size-lg" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="selectDropdown01" aria-labelledby="search_perio">
+                                      <span class="text">월별선택</span>
+                                      <span class="blind">목록 열기</span>
+                                    </button>
+                                    <div id="selectDropdown01" class="box-list-select">
+                                      <ul class="list-select" role="listbox" aria-label="월별 선택 목록">
+                                        <li class="item-select" role="option" aria-selected="true">
+                                          <span class="form-box">월별선택</span>
+                                        </li>
+                                        <li class="item-select" role="option" aria-selected="false">
+                                          <span class="form-box">1월</span>
+                                        </li>
+                                        <li class="item-select" role="option" aria-selected="false">
+                                          <span class="form-box">2월</span>
+                                        </li>
+                                      </ul>
+                                    </div>
+                                  </div>
+                                </div> -->
+                          </div>
+                        </div>
+                        <!-- 에러메세지 영역 -->
+                        <div class="list type-reference mt-8">
+                          <ul>
+                            <li class="typeMd color-fg-error">조회기간은 최대 1년으로 같은 년도 내에서만 가능합니다.</li>
+                          </ul>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span>사업자등록번호 표시</span>
+                      </th>
+                      <td>
+                        <div class="form-box-wrap" role="radiogroup" aria-label="사업자등록번호 표시">
+                          <span class="form-box">
+                            <input type="radio" name="radio_comp-eqqm14" id="radio_comp-eqqm14_01" class="form-radio size-md" checked="" />
+                            <label for="radio_comp-eqqm14_01" class="form-label">공개</label>
+                          </span>
+                          <span class="form-box">
+                            <input type="radio" name="radio_comp-eqqm14" id="radio_comp-eqqm14_02" class="form-radio size-md" />
+                            <label for="radio_comp-eqqm14_02" class="form-label">비공개</label>
+                          </span>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="tbl-area">
+                <div class="tbl-head">
+                  <div class="left-area">
+                    <h4 class="typeH4">발급정보 입력</h4>
+                  </div>
+                  <div class="right-area">
+                    <span class="required typeMd">필수 항목</span>
+                  </div>
+                </div>
+                <table class="table-type01">
+                  <colgroup>
+                    <col style="width: 160px" />
+                    <col style="width: auto" />
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="row">
+                        <span>계좌번호</span>
+                      </th>
+                      <td>
+                        <div class="tbl-flex">
+                          <div class="clear-type">
+                            <input type="text" id="input-joah2e" class="input size-lg wSize-lg" aria-label="계좌번호" placeholder="계좌번호입력" />
+
+                            <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                              <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                              <span class="blind">닫기</span>
+                            </button>
+                          </div>
+                          <button class="btn-mouse-keypad">
+                            <!-- 키패드 활성화시 is-active 클래스 추가 -->
+                            <i class="ico ico-size-smMd" aria-hidden="true"></i>
+                            <span class="blind">마우스 입력 열기</span>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <th scope="row">
+                        <span><label for="input-akxwqx">조회기간</label></span>
+                      </th>
+                      <td>
+                        <div class="tbl-flex">
+                          <div class="box-select wSize-smMd">
+                            <button type="button" class="select size-lg" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="selectDropdown01" aria-labelledby="label-account" aria-required="true">
+                              <span class="text">반기별</span>
+                              <span class="blind">목록 열기</span>
+                            </button>
+                            <div id="selectDropdown01" class="box-list-select">
+                              <ul class="list-select" role="listbox" aria-label="조회기간">
+                                <li class="item-select" role="group" aria-selected="true">
+                                  <span class="btn-item-select"> 반기별</span>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div>
+                            <!-- 반기별 -->
+                            <div>
+                              <div class="box-select wSize-smMd">
+                                <button type="button" class="select size-lg" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="selectDropdown01" aria-labelledby="search_perio">
+                                  <span class="text">2026년</span>
+                                  <span class="blind">목록 열기</span>
+                                </button>
+                                <div id="selectDropdown01" class="box-list-select">
+                                  <ul class="list-select" role="listbox" aria-label="반기별 시작">
+                                    <li class="item-select" role="option" aria-selected="true">
+                                      <span class="form-box">2026년</span>
+                                    </li>
+                                  </ul>
+                                </div>
+                              </div>
+                              <div class="box-select wSize-smMd">
+                                <button type="button" class="select size-lg" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="selectDropdown01" aria-labelledby="search_perio">
+                                  <span class="text">기간</span>
+                                  <span class="blind">목록 열기</span>
+                                </button>
+                                <div id="selectDropdown01" class="box-list-select">
+                                  <ul class="list-select" role="listbox" aria-label="기간">
+                                    <li class="item-select" role="option" aria-selected="true">
+                                      <span class="form-box">2026년</span>
+                                    </li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                            <!-- 반기별 -->
+                            <!-- <div>
+                                  <div class="box-select wSize-smMd">
+                                    <button type="button" class="select size-lg" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="selectDropdown01" aria-labelledby="search_perio">
+                                      <span class="text">2026년</span>
+                                      <span class="blind">목록 열기</span>
+                                    </button>
+                                    <div id="selectDropdown01" class="box-list-select">
+                                      <ul class="list-select" role="listbox" aria-label="분기별 시작">
+                                        <li class="item-select" role="option" aria-selected="true">
+                                          <span class="form-box">2026년</span>
+                                        </li>
+                                      </ul>
+                                    </div>
+                                  </div>
+                                  <div class="box-select wSize-smMd">
+                                    <button type="button" class="select size-lg" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="selectDropdown01" aria-labelledby="search_perio">
+                                      <span class="text">2026년</span>
+                                      <span class="blind">목록 열기</span>
+                                    </button>
+                                    <div id="selectDropdown01" class="box-list-select">
+                                      <ul class="list-select" role="listbox" aria-label="분기별 종료">
+                                        <li class="item-select" role="option" aria-selected="true">
+                                          <span class="form-box">2026년</span>
+                                        </li>
+                                      </ul>
+                                    </div>
+                                  </div>
+                                </div> -->
+                            <!-- 시작일/ 종료일 -->
+                            <!-- <div class="calendar-wrap">
+                                  <div class="input-box">
+                                    <input type="text" class="input" placeholder="조회 시작일" aria-label="조회 시작일" value="2026-01-06" />
+                                    <button type="button" class="btn">
+                                      <i class="ico-calendar ico-size-smMd" aria-hidden="true"></i>
+                                      <span class="blind"> 시작일 달력 열기</span>
+                                    </button>
+                                  </div>
+                                  <span aria-hidden="true">~</span>
+                                  <div class="input-box">
+                                    <input type="text" class="input" placeholder="조회 종료일" aria-label="조회 종료일" value="2026-01-06" />
+                                    <button type="button" class="btn">
+                                      <i class="ico-calendar ico-size-smMd" aria-hidden="true"></i>
+                                      <span class="blind"> 종료일 달력 열기</span>
+                                    </button>
+                                  </div>
+                                  <div class="box-select wSize-smMd">
+                                    <button type="button" class="select size-lg" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="selectDropdown01" aria-labelledby="search_perio">
+                                      <span class="text">월별선택</span>
+                                      <span class="blind">목록 열기</span>
+                                    </button>
+                                    <div id="selectDropdown01" class="box-list-select">
+                                      <ul class="list-select" role="listbox" aria-label="월별 선택 목록">
+                                        <li class="item-select" role="option" aria-selected="true">
+                                          <span class="form-box">월별선택</span>
+                                        </li>
+                                        <li class="item-select" role="option" aria-selected="false">
+                                          <span class="form-box">1월</span>
+                                        </li>
+                                        <li class="item-select" role="option" aria-selected="false">
+                                          <span class="form-box">2월</span>
+                                        </li>
+                                      </ul>
+                                    </div>
+                                  </div>
+                                </div> -->
+                          </div>
+                        </div>
+                        <!-- 에러메세지 영역 -->
+                        <div class="list type-reference mt-8">
+                          <ul>
+                            <li class="typeMd color-fg-error">조회기간은 최대 1년으로 같은 년도 내에서만 가능합니다.</li>
+                          </ul>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span>사업자등록번호 표시</span>
+                      </th>
+                      <td>
+                        <div class="form-box-wrap" role="radiogroup" aria-label="사업자등록번호 표시">
+                          <span class="form-box">
+                            <input type="radio" name="radio_comp-eqqm14" id="radio_comp-eqqm14_01" class="form-radio size-md" checked="" />
+                            <label for="radio_comp-eqqm14_01" class="form-label">공개</label>
+                          </span>
+                          <span class="form-box">
+                            <input type="radio" name="radio_comp-eqqm14" id="radio_comp-eqqm14_02" class="form-radio size-md" />
+                            <label for="radio_comp-eqqm14_02" class="form-label">비공개</label>
+                          </span>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!-- 하단 확인 버튼 영역 -->
+              <div class="btn-wrap center lg-bot">
+                <button type="button" class="btn type-bg-primary size-xxl">
+                  <span class="text">확인</span>
+                </button>
+              </div>
+              <div class="line-box size-xl mt-48">
+                <span class="typeLgSemibold">이용안내</span>
+                <div class="list type-dotted">
+                  <ul>
+                    <li class="typeMd">계좌번호 입력시 &quot;-&quot; 없이 입력해 주세요.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
+</html>

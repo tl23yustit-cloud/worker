@@ -1,0 +1,495 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>수협은행</title>
+  <link rel="stylesheet" href="/static/css/reset.css" />
+  <link rel="stylesheet" href="/static/css/layout.css" />
+  <link rel="stylesheet" href="/static/css/component.css" />
+  <link rel="stylesheet" href="/static/css/common.css" />
+  <link rel="stylesheet" href="/static/css/b2b.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <div id="header">
+      @@include('static/html/pub/layout/skipNavigation.html')
+      @@include('static/html/pub/layout/header_sub.html')
+    </div>
+
+    <div id="container" class="container">
+      <div id="leftArea">
+        @@include('static/html/pub/layout/leftArea.html')
+      </div>
+      <div id="contents">
+        <div class="content">
+          @@include('static/html/pub/layout/breadcrumb.html')
+          <div class="b2b">
+            <h2 class="typeH2">상환청구</h2>
+            <!-- 어음내역 섹션 -->
+            <div class="tbl-area">
+              <h4 class="typeH4">어음정보</h4>
+              <table class="table-type01">
+                <caption>
+                  전자어음번호, 접수번호, 어음종류, 발행일자, 발행지, 금액,
+                  만기일자(지급기일), 지급은행 및 지점명 정보가 포함된
+                  어음내역 테이블
+                </caption>
+                <colgroup>
+                  <col style="width: 180px" />
+                  <col style="width: 360px" />
+                  <col style="width: 180px" />
+                  <col style="width: 360px" />
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th scope="row">전자어음번호</th>
+                    <td>
+                      <span class="typeMd">00720161118026000137</span>
+                    </td>
+                    <th scope="row">분할번호</th>
+                    <td>
+                      <span class="typeMd">00</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">어음종류</th>
+                    <td colspan="3">
+                      <span class="typeMd">전자어음</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">어음처리상태</th>
+                    <td colspan="3">
+                      <span class="typeMd">처리상태</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">발행일자</th>
+                    <td colspan="3">
+                      <span class="typeMd">2026-08-20</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">발행지</th>
+                    <td colspan="3">
+                      <span class="typeMd">서울특별시 송파구 잠실동 </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">금액</th>
+                    <td class="text-right" colspan="3">
+                      <span class="typeMd" data-formatted="true">1,000,000,000원</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">만기일자</th>
+                    <td colspan="3">
+                      <span class="typeMd">2026-08-20</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">지급은행 및 지점명</th>
+                    <td colspan="3">
+                      <span class="typeMd" data-formatted="true">수협 잠실점</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">총배서 횟수</th>
+                    <td colspan="3">
+                      <span class="typeMd" data-formatted="true">10</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- 발행인정보 섹션 -->
+            <div class="tbl-area">
+              <div class="tbl-head">
+                <div class="left-area">
+                  <h2 class="typeH4">발행인정보</h2>
+                </div>
+                <div class="right-area">
+                  <button type="button" class="btn type-bg-neutral-tint size-sm">
+                    <span class="text">발행인 상환청구</span>
+                  </button>
+                </div>
+              </div>
+              <table class="table-type01 ">
+                <caption>
+                  법인/개인구분, 사업자(주민)등록번호, 법인명, 성명(대표자명)
+                  정보가 포함된 발행인 정보 테이블
+                </caption>
+                <colgroup>
+                  <col style="width: 180px" />
+                  <col style="width: 360px" />
+                  <col style="width: 180px" />
+                  <col style="width: 360px" />
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th scope="row">법인/개인구분</th>
+                    <td>
+                      <span class="typeMd">법인</span>
+                    </td>
+                    <th scope="row">사업자(주민)등록번호</th>
+                    <td>
+                      <span class="typeMd">620-81-*****</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">법인명</th>
+                    <td colspan="3">
+                      <span class="typeMd">홍길상사</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">성명(대표자명)</th>
+                    <td colspan="3">
+                      <span class="typeMd">대표자명</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">주소</th>
+                    <td colspan="3">
+                      <span class="typeMd" data-formatted="true">서울특별시 송파구 잠실동 </span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- 소구인정보 섹션 -->
+            <div class="tbl-area">
+              <div class="tbl-head">
+                <div class="left-area">
+                  <h2 class="typeH4">발행보증인정보</h2>
+                </div>
+                <div class="right-area">
+                  <button type="button" class="btn type-bg-neutral-tint size-sm">
+                    <span class="text">발행보증인 상환청구</span>
+                  </button>
+                </div>
+              </div>
+              <table class="table-type01 ">
+                <caption>
+                  법인/개인구분, 사업자(주민)등록번호, 법인명, 성명(대표자명)
+                  정보가 포함된 발행인 정보 테이블
+                </caption>
+                <colgroup>
+                  <col style="width: 180px" />
+                  <col style="width: 360px" />
+                  <col style="width: 180px" />
+                  <col style="width: 360px" />
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th scope="row">법인/개인구분</th>
+                    <td>
+                      <span class="typeMd">법인</span>
+                    </td>
+                    <th scope="row">사업자(주민)등록번호</th>
+                    <td>
+                      <span class="typeMd">620-81-*****</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">법인명</th>
+                    <td colspan="3">
+                      <span class="typeMd">홍길상사</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">성명(대표자명)</th>
+                    <td colspan="3">
+                      <span class="typeMd">홍길동</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">은행 및 계좌번호</th>
+                    <td colspan="3">
+                      <span class="typeMd">수협 706-01-00000</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">주소</th>
+                    <td colspan="3">
+                      <span class="typeMd" data-formatted="true">서울특별시 송파구 잠실동 </span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- 소구금액 섹션 -->
+            <div class="tbl-area">
+              <h4 class="typeH4">소구금액</h4>
+              <table class="table-type01 ">
+                <caption>
+                  법인/개인구분, 사업자(주민)등록번호, 법인명, 성명(대표자명)
+                  정보가 포함된 발행인 정보 테이블
+                </caption>
+                <colgroup>
+                  <col style="width: 180px" />
+                  <col style="width: auto" />
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th scope="row">소구금액</th>
+                    <td class="text-right">
+                      <span class="typeMd">1,000,000,000 원</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- 상대방(소구의무인) 조회 및 지정 섹션 -->
+            <div class="tbl-area">
+              <h4 class="typeH4">상대방(소구의무인) 조회 및 지정</h4>
+              <table class="table-type01 ">
+                <caption>
+                  법인/개인구분, 사업자(주민)등록번호, 법인명, 성명(대표자명)
+                  정보가 포함된 발행인 정보 테이블
+                </caption>
+                <colgroup>
+                  <col style="width: 180px" />
+                  <col style="width: auto" />
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th scope="row">총 건수</th>
+                    <td>
+                      <span class="typeMd">00 건</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="tbl-area">
+              <h4 class="typeH4">배서인정보</h4>
+              <table class="table-type03">
+                <caption>전자어음번호, 분할번호, 배서번호, 금액(원), 밸행일자, 만기일자, 지급은행, 부도일자, 상세에 대한 구성 테이블입니다.</caption>
+                <colgroup>
+                  <col width="100px">
+                  <col width="80px">
+                  <col width="80px">
+                  <col width="110px">
+                  <col width="110px">
+                  <col width="110px">
+                  <col width="110px">
+                  <col width="80px">
+                  <col width="100px">
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th scope="col">배서번호</th>
+                    <th scope="col">성명(대표자명)</th>
+                    <th scope="col">법인명</th>
+                    <th scope="col">사업자(주민)등록번호</th>
+                    <th scope="col">배서금액(원)</th>
+                    <th scope="col">무담보배서여부</th>
+                    <th scope="col">배서금지배서여부</th>
+                    <th scope="col">배서보증여부</th>
+                    <th scope="col">상환청구</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <span class="typeMd">00</span>
+                    </td>
+                    <td>
+                      <span class="typeMd">김수협</span>
+                    </td>
+                    <td>
+                      <span class="typeMd">남해어업</span>
+                    </td>
+                    <td>
+                      <span class="typeMd">732-27-*****</span>
+                    </td>
+                    <td class="text-right">
+                      <span class="typeMd">1,234,567</span>
+                    </td>
+                    <td>
+                      <span class="typeMd">Y</span>
+                    </td>
+                    <td>
+                      <span class="typeMd">N</span>
+                    </td>
+                    <td>
+                      <span class="typeMd">N</span>
+                    </td>
+                    <td>
+                      <button type="button" class="btn type-line-neutral size-sm">
+                        <span class="text">요청</span>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span class="typeMd">00</span>
+                    </td>
+                    <td>
+                      <span class="typeMd">김수협</span>
+                    </td>
+                    <td>
+                      <span class="typeMd">남해어업</span>
+                    </td>
+                    <td>
+                      <span class="typeMd">732-27-*****</span>
+                    </td>
+                    <td class="text-right">
+                      <span class="typeMd">1,234,567</span>
+                    </td>
+                    <td>
+                      <span class="typeMd">Y</span>
+                    </td>
+                    <td>
+                      <span class="typeMd">N</span>
+                    </td>
+                    <td>
+                      <span class="typeMd">N</span>
+                    </td>
+                    <td>
+                      <button type="button" class="btn type-line-neutral size-sm">
+                        <span class="text">요청</span>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="9">
+                      <div class="empty-page">
+                        <i class="ico-info" aria-hidden="true"></i>
+                        <div class="typeLg">조회하신 내역이 없습니다.</div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <!--배서보증인정보 섹션-->
+            <div class="tbl-area">
+              <h4 class="typeH4">배서보증인정보</h4>
+              <table class="table-type03">
+                <caption>전자어음번호, 분할번호, 배서번호, 금액(원), 밸행일자, 만기일자, 지급은행, 부도일자, 상세에 대한 구성 테이블입니다.</caption>
+                <colgroup>
+                  <col width="100px">
+                  <col width="80px">
+                  <col width="80px">
+                  <col width="110px">
+                  <col width="110px">
+                  <col width="110px">
+                  <col width="110px">
+                  <col width="100px">
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th scope="col">배서번호</th>
+                    <th scope="col">성명(대표자명)</th>
+                    <th scope="col">법인명</th>
+                    <th scope="col">사업자(주민)등록번호</th>
+                    <th scope="col">배서금액(원)</th>
+                    <th scope="col">무담보배서여부</th>
+                    <th scope="col">배서금지배서여부</th>
+                    <th scope="col">상환청구</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <span class="typeMd">-</span>
+                    </td>
+                    <td>
+                      <span class="typeMd">-</span>
+                    </td>
+                    <td>
+                      <span class="typeMd">-</span>
+                    </td>
+                    <td>
+                      <span class="typeMd">-</span>
+                    </td>
+                    <td class="text-right">
+                      <span class="typeMd">-</span>
+                    </td>
+                    <td>
+                      <span class="typeMd">-</span>
+                    </td>
+                    <td>
+                      <span class="typeMd">-</span>
+                    </td>
+                    <td>
+                      <button type="button" class="btn type-line-neutral size-sm">
+                        <span class="text">요청</span>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="8">
+                      <div class="empty-page">
+                        <i class="ico-info" aria-hidden="true"></i>
+                        <div class="typeLg">조회하신 내역이 없습니다.</div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <nav class="pagination size-md" aria-label="페이지네이션">
+              <button type="button" class="btn-nav first" disabled="" aria-disabled="true" aria-label="첫 페이지">
+                <span class="blind">첫 페이지</span>
+              </button>
+              <button type="button" class="btn-nav prev" disabled="" aria-disabled="true" aria-label="이전 페이지">
+                <span class="blind">이전 페이지</span>
+              </button>
+
+              <ol class="list-pagination">
+                <li>
+                  <button type="button" class="btn-page active" aria-current="page" title="현재 페이지">
+                    1
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="btn-page" aria-label="2페이지">
+                    2
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="btn-page" aria-label="3페이지">
+                    3
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="btn-page" aria-label="4페이지">
+                    4
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="btn-page" aria-label="5페이지">
+                    5
+                  </button>
+                </li>
+              </ol>
+
+              <button type="button" class="btn-nav next" aria-label="다음 페이지">
+                <span class="blind">다음 페이지</span>
+              </button>
+              <button type="button" class="btn-nav last" aria-label="마지막 페이지">
+                <span class="blind">마지막 페이지</span>
+              </button>
+            </nav>
+            <div class="btn-wrap center lg-bot">
+              <button type="button" class="btn type-bg-primary size-xxl">
+                <span class="text">확인</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+    </div>
+    <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+  </div>
+  <script src="/static/js/ui/cib_ui_common.js"></script>
+</body>
+
+</html>

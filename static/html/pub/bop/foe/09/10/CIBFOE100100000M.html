@@ -15,15 +15,10 @@
 
   <body>
     <div class="wrapper">
-      <div id="header">
-        @@include('static/html/pub/layout/skipNavigation.html')
-        @@include('static/html/pub/layout/header_sub.html')
-      </div>
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
 
       <div id="container" class="container">
-        <div id="leftArea">
-          @@include('static/html/pub/layout/leftArea.html')
-        </div>
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
         <div id="contents">
           <div class="content">
             @@include('static/html/pub/layout/breadcrumb.html')
@@ -45,29 +40,16 @@
                     <tr>
                       <th scope="row">처리구분</th>
                       <td>
-                        <div class="form-box-wrap">
+                        <!--[dev]:20261029 aria-label 추가-->
+                        <div class="form-box-wrap" aria-label="처리구분">
+                          <!--//[dev]:20261029 role aria-label 추가-->
                           <span class="form-box">
-                            <input
-                              type="radio"
-                              name="processType"
-                              id="processType01"
-                              class="form-radio size-md"
-                              checked
-                            />
-                            <label for="processType01" class="form-label"
-                              >접수일</label
-                            >
+                            <input type="radio" name="processType" id="processType01" class="form-radio size-md" checked />
+                            <label for="processType01" class="form-label">접수일</label>
                           </span>
                           <span class="form-box">
-                            <input
-                              type="radio"
-                              name="processType"
-                              id="processType02"
-                              class="form-radio size-md"
-                            />
-                            <label for="processType02" class="form-label"
-                              >매입번호</label
-                            >
+                            <input type="radio" name="processType" id="processType02" class="form-radio size-md" />
+                            <label for="processType02" class="form-label">매입번호</label>
                           </span>
                         </div>
                       </td>
@@ -76,94 +58,36 @@
                       <th scope="row">조회기간</th>
                       <td>
                         <div class="tbl-column">
-                          <div class="radio-group">
+                          <!--[dev]:20261029 role aria-label 추가-->
+                          <div class="radio-group" role="radiogroup" aria-label="조회기간">
                             <span class="form-box">
-                              <input
-                                type="radio"
-                                name="dateType"
-                                id="dateType01"
-                                class="radio-btn"
-                                checked
-                              />
-                              <label for="dateType01" class="form-label"
-                                >당일</label
-                              >
-                              <input
-                                type="radio"
-                                name="dateType"
-                                id="dateType02"
-                                class="radio-btn"
-                              />
-                              <label for="dateType02" class="form-label"
-                                >1주일</label
-                              >
-                              <input
-                                type="radio"
-                                name="dateType"
-                                id="dateType03"
-                                class="radio-btn"
-                              />
-                              <label for="dateType03" class="form-label"
-                                >1개월</label
-                              >
-                              <input
-                                type="radio"
-                                name="dateType"
-                                id="dateType04"
-                                class="radio-btn"
-                              />
-                              <label for="dateType04" class="form-label"
-                                >3개월</label
-                              >
-                              <input
-                                type="radio"
-                                name="dateType"
-                                id="dateType05"
-                                class="radio-btn"
-                              />
-                              <label for="dateType05" class="form-label"
-                                >6개월</label
-                              >
-                              <input
-                                type="radio"
-                                name="dateType"
-                                id="dateType06"
-                                class="radio-btn"
-                              />
-                              <label for="dateType06" class="form-label"
-                                >12개월</label
-                              >
+                              <input type="radio" name="dateType" id="dateType01" class="radio-btn" checked />
+                              <label for="dateType01" class="form-label">당일</label>
+                              <input type="radio" name="dateType" id="dateType02" class="radio-btn" />
+                              <label for="dateType02" class="form-label">1주일</label>
+                              <input type="radio" name="dateType" id="dateType03" class="radio-btn" />
+                              <label for="dateType03" class="form-label">1개월</label>
+                              <input type="radio" name="dateType" id="dateType04" class="radio-btn" />
+                              <label for="dateType04" class="form-label">3개월</label>
+                              <input type="radio" name="dateType" id="dateType05" class="radio-btn" />
+                              <label for="dateType05" class="form-label">6개월</label>
+                              <input type="radio" name="dateType" id="dateType06" class="radio-btn" />
+                              <label for="dateType06" class="form-label">12개월</label>
                             </span>
                           </div>
                           <div class="calendar-wrap">
                             <div class="input-box">
-                              <input
-                                type="text"
-                                class="input"
-                                title="조회시작일"
-                                value="2026-10-01"
-                              />
+                              <input type="text" class="input" title="조회시작일" value="2026-10-01" />
                               <button type="button" class="btn">
-                                <i
-                                  class="ico-calendar ico-size-smMd"
-                                  aria-hidden="true"
-                                ></i>
+                                <i class="ico-calendar ico-size-smMd" aria-hidden="true"></i>
                                 <span class="blind">날짜 열기</span>
                               </button>
                             </div>
                             ~
                             <div class="input-box">
-                              <input
-                                type="text"
-                                class="input"
-                                title="조회종료일"
-                                value="2026-10-30"
-                              />
+                              <input type="text" class="input" title="조회종료일" value="2026-10-30" />
                               <button type="button" class="btn">
-                                <i
-                                  class="ico-calendar ico-size-smMd"
-                                  aria-hidden="true"
-                                ></i>
+                                <i class="ico-calendar ico-size-smMd" aria-hidden="true"></i>
                                 <span class="blind">날짜 열기</span>
                               </button>
                             </div>
@@ -190,29 +114,15 @@
                     <tr>
                       <th scope="row">처리구분</th>
                       <td>
-                        <div class="form-box-wrap">
+                        <!--[dev]:20261029 aria-label추가 -->
+                        <div class="form-box-wrap" aria-label="처리구분">
                           <span class="form-box">
-                            <input
-                              type="radio"
-                              name="processTypeAlt"
-                              id="processTypeAlt01"
-                              class="form-radio size-md"
-                            />
-                            <label for="processTypeAlt01" class="form-label"
-                              >접수일</label
-                            >
+                            <input type="radio" name="processTypeAlt" id="processTypeAlt01" class="form-radio size-md" />
+                            <label for="processTypeAlt01" class="form-label">접수일</label>
                           </span>
                           <span class="form-box">
-                            <input
-                              type="radio"
-                              name="processTypeAlt"
-                              id="processTypeAlt02"
-                              class="form-radio size-md"
-                              checked
-                            />
-                            <label for="processTypeAlt02" class="form-label"
-                              >매입번호</label
-                            >
+                            <input type="radio" name="processTypeAlt" id="processTypeAlt02" class="form-radio size-md" checked />
+                            <label for="processTypeAlt02" class="form-label">매입번호</label>
                           </span>
                         </div>
                       </td>
@@ -220,16 +130,12 @@
                     <tr>
                       <th scope="row">매입번호</th>
                       <td>
-                        <div class="tbl-flex">
-                          <input
-                            type="text"
-                            class="input wSize-md size-lg"
-                            placeholder="매입번호를 입력하세요."
-                            title="매입번호"
-                          />
-                          <span class="typeSm color-neutral"
-                            >('-' 없이 입력하세요)</span
-                          >
+                        <div class="clear-type">
+                          <input type="text" class="input wSize-md size-lg" placeholder="매입번호를 입력하세요." aria-label="매입번호" />
+                          <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                            <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                            <span class="blind">닫기</span>
+                          </button>
                         </div>
                       </td>
                     </tr>
@@ -284,13 +190,13 @@
                     <h4 class="typeH4">내역조회</h4>
                   </div>
                   <div class="right-area">
-                    <span class="typeSm">조회기간 : YYYY-MM-DD~YYYY-MM-DD</span>
+                    <!--[dev]:20261029 class color-fg-secondary 추가-->
+                    <span class="color-fg-secondary typeSm">조회기간 : YYYY-MM-DD~YYYY-MM-DD</span>
                   </div>
                 </div>
                 <table class="table-type03">
                   <caption>
-                    외화수표조회 내역 목록 (매입번호, 매입일, 만기일, 통화,
-                    매입금액, 미결제금액, 적요, 종류 정보 제공)
+                    외화수표조회 내역 목록 (매입번호, 매입일, 만기일, 통화, 매입금액, 미결제금액, 적요, 종류 정보 제공)
                   </caption>
                   <colgroup>
                     <col style="width: 20%" />
@@ -305,12 +211,16 @@
                       <th id="col_1" scope="col" rowspan="2">매입번호</th>
                       <th id="col_2" scope="col">매입일</th>
                       <th id="col_3" scope="col">통화</th>
-                      <th id="col_4" scope="col">미결제금액</th>
+                      <!--[dev]:20261028 공통 col table th 금액단위표시(원)-->
+                      <th id="col_4" scope="col">미결제금액(원)</th>
+                      <!--//[dev]:20261028 공통 col table th 금액단위표시(원)-->
                       <th id="col_5" scope="col" rowspan="2">종류</th>
                     </tr>
                     <tr>
                       <th id="col_2_1" scope="col">만기일</th>
-                      <th id="col_3_1" scope="col">매입금액</th>
+                      <!--[dev]:20261028 공통 col table th 금액단위표시(원)-->
+                      <th id="col_3_1" scope="col">매입금액(원)</th>
+                      <!--//[dev]:20261028 공통 col table th 금액단위표시(원)-->
                       <th id="col_4_1" scope="col">적요</th>
                     </tr>
                   </thead>
@@ -323,7 +233,7 @@
                       <td headers="row_1 col_5" rowspan="2">개인수표</td>
                     </tr>
                     <tr>
-                      <td headers="row_1 col_2_1">YYYY-MM-DD</td>
+                      <td headers="row_1 col_2_1" class="tbl-border-left">YYYY-MM-DD</td>
                       <td headers="row_1 col_3_1" class="text-right">1,000.00</td>
                       <td headers="row_1 col_4_1">추심</td>
                     </tr>
@@ -332,86 +242,35 @@
 
                 <!-- 페이지네이션 -->
                 <nav class="pagination size-md" aria-label="페이지네이션">
-                  <button
-                    type="button"
-                    class="btn-nav first"
-                    disabled
-                    aria-disabled="true"
-                    aria-label="첫 페이지"
-                  >
+                  <button type="button" class="btn-nav first" disabled aria-disabled="true" aria-label="첫 페이지">
                     <span class="blind">첫 페이지</span>
                   </button>
-                  <button
-                    type="button"
-                    class="btn-nav prev"
-                    disabled
-                    aria-disabled="true"
-                    aria-label="이전 페이지"
-                  >
+                  <button type="button" class="btn-nav prev" disabled aria-disabled="true" aria-label="이전 페이지">
                     <span class="blind">이전 페이지</span>
                   </button>
 
                   <ol class="list-pagination">
                     <li>
-                      <button
-                        type="button"
-                        class="btn-page active"
-                        aria-current="page"
-                        aria-label="1페이지"
-                      >
-                        1
-                      </button>
+                      <button type="button" class="btn-page active" aria-current="page" aria-label="1페이지">1</button>
                     </li>
                     <li>
-                      <button
-                        type="button"
-                        class="btn-page"
-                        aria-label="2페이지"
-                      >
-                        2
-                      </button>
+                      <button type="button" class="btn-page" aria-label="2페이지">2</button>
                     </li>
                     <li>
-                      <button
-                        type="button"
-                        class="btn-page"
-                        aria-label="3페이지"
-                      >
-                        3
-                      </button>
+                      <button type="button" class="btn-page" aria-label="3페이지">3</button>
                     </li>
                     <li>
-                      <button
-                        type="button"
-                        class="btn-page"
-                        aria-label="4페이지"
-                      >
-                        4
-                      </button>
+                      <button type="button" class="btn-page" aria-label="4페이지">4</button>
                     </li>
                     <li>
-                      <button
-                        type="button"
-                        class="btn-page"
-                        aria-label="5페이지"
-                      >
-                        5
-                      </button>
+                      <button type="button" class="btn-page" aria-label="5페이지">5</button>
                     </li>
                   </ol>
 
-                  <button
-                    type="button"
-                    class="btn-nav next"
-                    aria-label="다음 페이지"
-                  >
+                  <button type="button" class="btn-nav next" aria-label="다음 페이지">
                     <span class="blind">다음 페이지</span>
                   </button>
-                  <button
-                    type="button"
-                    class="btn-nav last"
-                    aria-label="마지막 페이지"
-                  >
+                  <button type="button" class="btn-nav last" aria-label="마지막 페이지">
                     <span class="blind">마지막 페이지</span>
                   </button>
                 </nav>

@@ -319,7 +319,8 @@
           <option value="size-lg">Large</option>
         </select>
         <label class="title">옵션 리스트 (줄마다 1개)</label>
-        <textarea id="radio-list" placeholder="사업자&#10;사업장&#10;카드">사업자
+        <textarea id="radio-list" placeholder="
+        &#10;사업장&#10;카드">사업자
 사업장
 카드</textarea>
       </div>
@@ -672,7 +673,7 @@
                 const radioName = `radio_${uuid}`; 
                 const optList = it.list ? it.list.split("\n").filter(Boolean) : ["옵션1", "옵션2"];
                 
-                grpContent += `          <!-- radiogroup에 aria-labelledby -->\n`;
+             
                 grpContent += `          <div class="form-box-wrap" role="radiogroup" aria-label="${this.escape(ariaLabel)}">\n`;
                 
                 optList.forEach((opt, optIdx) => {

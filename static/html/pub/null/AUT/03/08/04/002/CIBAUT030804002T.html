@@ -1,0 +1,204 @@
+<!-- 1.01v -->
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/aut.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
+
+      <div id="container" class="container">
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="aut">
+              <h2 class="typeH2">서비스 이용 절차</h2>
+              <div class="box-tab">
+                <ul class="list-tab-button type-outline" role="tablist" aria-label="탭 이름">
+                  <li class="item-tab-button">
+                    <button type="button" class="btn-tab" id="tabBtnTypeOutline01" role="tab" aria-selected="false" aria-controls="tabPanelTypeOutline01">
+                      <span class="text">휴대폰에 인증서 저장 </span>
+                    </button>
+                  </li>
+                  <li class="item-tab-button">
+                    <button type="button" class="btn-tab active" id="tabBtnTypeOutline02" title="선택됨" role="tab" aria-selected="true" aria-controls="tabPanelTypeOutline02">
+                      <span class="text">휴대폰인증서 사용 </span>
+                    </button>
+                  </li>
+                  <li class="item-tab-button">
+                    <button type="button" class="btn-tab" id="tabBtnTypeOutline03" role="tab" aria-selected="false" aria-controls="tabPanelTypeOutline03">
+                      <span class="text">인증서 관리 </span>
+                    </button>
+                  </li>
+                </ul>
+
+                <div class="box-tab-content" id="tabPanelTypeOutline01" role="tabpanel" aria-labelledby="tabBtnTypeOutline01" style="display: none">
+                  <h3 class="blind">휴대폰에 인증서 저장</h3>
+                  <div class="step-grid-box">
+                    <h4 class="typeH4">인증서 저장 순서</h4>
+                    <ol class="step-grid-items">
+                      <li class="grid-item">
+                        <i class="ico etc ico-size-xl ico-monitor" aria-hidden="true"></i>
+                        <div class="text-area">
+                          <span class="step">STEP 01</span>
+                          <div class="title">[PC] ‘인증서 저장하기’ 버튼 클릭</div>
+                        </div>
+                      </li>
+                      <li class="grid-item">
+                        <i class="ico etc ico-size-xl ico-lock" aria-hidden="true"></i>
+                        <div class="text-area">
+                          <span class="step">STEP 02</span>
+                          <div class="title">[PC] 저장할 인증서 선택</div>
+                        </div>
+                      </li>
+                      <li class="grid-item">
+                        <i class="ico etc ico-size-xl ico-user type3" aria-hidden="true"></i>
+                        <div class="text-area">
+                          <span class="step">STEP 03</span>
+                          <div class="title">[PC] 인증서 암호 휴대폰 번호 입력</div>
+                        </div>
+                      </li>
+                      <li class="grid-item">
+                        <i class="ico etc ico-size-xl ico-file" aria-hidden="true"></i>
+                        <div class="text-area">
+                          <span class="step">STEP 04</span>
+                          <div class="title">[PC] 휴대폰에서 SMS 수신 (Ubikey 메뉴 실행)</div>
+                        </div>
+                      </li>
+                      <li class="grid-item">
+                        <i class="ico etc ico-size-xl ico-folederbox" aria-hidden="true"></i>
+                        <div class="text-area">
+                          <span class="step">STEP 05</span>
+                          <div class="title">[PC] 휴대폰 인증번호를 PC에 입력</div>
+                        </div>
+                      </li>
+                      <li class="grid-item">
+                        <i class="ico etc ico-size-xl ico-file type1" aria-hidden="true"></i>
+                        <div class="text-area">
+                          <span class="step">STEP 06</span>
+                          <div class="title">PC > 휴대폰으로 인증서 전송(복사)</div>
+                        </div>
+                      </li>
+                    </ol>
+                  </div>
+
+                  <h4 class="typeH4 mt-48">서비스 사용이 가능한 휴대폰</h4>
+                  <div class="list type-dotted mt-12">
+                    <ul>
+                      <li class="typeLg">2003년 이후 출시된 컬러휴대폰은 이용가능합니다. 단, 몇가지 기종은 제외입니다.</li>
+                      <li class="typeLg">이용가능한 휴대폰에 대한 자세한 문의는 해당 통신사 콜센터로 문의하시기 바랍니다.</li>
+                    </ul>
+                  </div>
+                  <div class="line-box size-xl mt-48">
+                    <span class="typeLgSemibold">이용안내</span>
+                    <div class="list type-dotted">
+                      <ul>
+                        <li class="typeMd">PC → 휴대폰으로 무선인터넷을 통하여 인증서를 저장합니다.</li>
+                        <li class="typeMd">휴대폰을 이용한 편리하고, 안전한 인증서 관리! 휴대폰인증서 서비스로 시작하세요.</li>
+                        <li class="typeMd">인증서는 안전한 방법으로 이동됩니다. (휴대폰 인증번호를 이용한 휴대폰사용자 본인확인, PC와 휴대폰간의 End-to-End 암호화)</li>
+                        <li class="typeMd">휴대폰에 설치된 휴대폰에 저장된 인증서 관리 프로그램(VM 혹은 APP)을 삭제하시거나 새로 다운로드를 받은 경우, 저장된 인증서가 삭제됩니다.<br />이 경우 PC → 휴대폰으로 인증서를 다시 저장 하셔야 합니다.</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="box-tab-content active" id="tabPanelTypeOutline02" role="tabpanel" aria-labelledby="tabBtnTypeOutline02">
+                  <h3 class="blind">휴대폰인증서 사용 탭</h3>
+                  <div class="step-grid-box">
+                    <h4 class="typeH4">인증서 저장 순서</h4>
+                    <ol class="step-grid-items columns-4">
+                      <li class="grid-item">
+                        <i class="ico etc ico-size-xl ico-document-01" aria-hidden="true"></i>
+                        <div class="text-area">
+                          <span class="step">STEP 01</span>
+                          <div class="title">[PC] ‘인증서 저장하기’ 버튼 클릭</div>
+                        </div>
+                      </li>
+                      <li class="grid-item">
+                        <i class="ico etc ico-size-xl ico-fold-01" aria-hidden="true"></i>
+                        <div class="text-area">
+                          <span class="step">STEP 02</span>
+                          <div class="title">[PC] 저장매체로 휴대폰 선택</div>
+                        </div>
+                      </li>
+                      <li class="grid-item">
+                        <i class="ico etc ico-size-xl ico-clock-01 type3" aria-hidden="true"></i>
+                        <div class="text-area">
+                          <span class="step">STEP 03</span>
+                          <div class="title">[PC] 휴대폰번호 입력</div>
+                        </div>
+                      </li>
+                      <li class="grid-item">
+                        <i class="ico etc ico-size-xl ico-document-check" aria-hidden="true"></i>
+                        <div class="text-area">
+                          <span class="step">STEP 04</span>
+                          <div class="title">[PC] 휴대폰에서 SMS수신(Ubikey 메뉴 실행)</div>
+                        </div>
+                      </li>
+                      <li class="grid-item">
+                        <i class="ico etc ico-size-xl ico-document-01" aria-hidden="true"></i>
+                        <div class="text-area">
+                          <span class="step">STEP 05</span>
+                          <div class="title">인터넷뱅킹 로그인</div>
+                        </div>
+                      </li>
+                      <li class="grid-item">
+                        <i class="ico etc ico-size-xl ico-fold-01 type1" aria-hidden="true"></i>
+                        <div class="text-area">
+                          <span class="step">STEP 06</span>
+                          <div class="title">[PC] 휴대폰 인증번호 를 PC에 입력</div>
+                        </div>
+                      </li>
+                      <li class="grid-item">
+                        <i class="ico etc ico-size-xl ico-clock-01 type1" aria-hidden="true"></i>
+                        <div class="text-area">
+                          <span class="step">STEP 07</span>
+                          <div class="title">[PC] 인증서 PC전송 성공</div>
+                        </div>
+                      </li>
+                      <li class="grid-item">
+                        <i class="ico etc ico-size-xl ico-document-check type1" aria-hidden="true"></i>
+                        <div class="text-area">
+                          <span class="step">STEP 08</span>
+                          <div class="title">인터넷뱅킹 로그인</div>
+                        </div>
+                      </li>
+                    </ol>
+                  </div>
+                  <div class="line-box size-xl mt-48">
+                    <span class="typeLgSemibold">이용안내</span>
+                    <div class="list type-dotted">
+                      <ul>
+                        <li class="typeMd">PC → 휴대폰으로 무선인터넷을 통하여 인증서를 저장합니다.</li>
+                        <li class="typeMd">휴대폰을 이용한 편리하고, 안전한 인증서 관리! 휴대폰인증서 서비스로 시작하세요.</li>
+                        <li class="typeMd">인증서는 안전한 방법으로 이동됩니다. (휴대폰 인증번호를 이용한 휴대폰사용자 본인확인, PC와 휴대폰간의 End-to-End 암호화)</li>
+                        <li class="typeMd">휴대폰에 설치된 휴대폰에 저장된 인증서 관리 프로그램(VM 혹은 APP)을 삭제하시거나 새로 다운로드를 받은 경우, 저장된 인증서가 삭제됩니다.<br />이 경우 PC → 휴대폰으로 인증서를 다시 저장 하셔야 합니다.</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="box-tab-content" id="tabPanelTypeOutline03" role="tabpanel" aria-labelledby="tabBtnTypeOutline03" style="display: none">
+                  <h3 class="blind">인증서 관리 탭</h3>
+                  Tab 본문 03
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
+</html>

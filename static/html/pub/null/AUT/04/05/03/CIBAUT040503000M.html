@@ -1,0 +1,124 @@
+<!-- for dev) 9월10일 디자인 가이드 반영 테이블 간격 및 글자 정렬 , 이용안내 위치 변경 (실수)-->
+
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/aut.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">
+        @@include('static/html/pub/layout/skipNavigation.html')
+        @@include('static/html/pub/layout/header_sub.html')
+      </div>
+
+      <div id="container" class="container">
+        <div id="leftArea">
+          @@include('static/html/pub/layout/leftArea.html')
+        </div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="aut">
+              <h2 class="typeH2">
+                인증서 갱신
+                <div class="box-steps">
+                  <ol class="list-steps">
+                    <li class="item-steps passed">
+                      <span class="blind">1</span>
+                      <i class="icon" aria-hidden="true">1</i>
+                    </li>
+                    <li class="item-steps current" aria-current="step">
+                      <span class="blind">2</span>
+                      <i class="icon" aria-hidden="true">2</i>
+                      <span class="text">인증서 갱신 신청 </span>
+                    </li>
+                    <li class="item-steps">
+                      <span class="blind">3</span>
+                      <i class="icon" aria-hidden="true">3</i>
+                    </li>
+                  </ol>
+                </div>
+              </h2>
+              <h4 class="typeH4">인증서 갱신 신청</h4>
+
+              <div class="tbl-area">
+                <h4 class="typeH4">수수료 출금정보 확인</h4>
+                <table class="table-type01">
+                  <caption>
+                    인증서 종류, 수수료 출금계좌, 납부금액에 대한 구성
+                    테이블입니다.
+                  </caption>
+                  <colgroup>
+                    <col style="width: 160px" />
+                    <col style="width: auto" />
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="row">
+                        <span>인증서 종류</span>
+                      </th>
+                      <td>
+                        <span class="typeMd">사업자 금융인증서 1년 </span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span>수수료 출금계좌</span>
+                      </th>
+                      <td>
+                        <span class="typeMd">110-234-56****</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span>납부금액</span>
+                      </th>
+                      <td class="text-right">
+                        <span class="typeMd">4,400원(부가세 포함)</span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="text-wrap">
+                <div class="typeLgMedium">
+                  아래의 ‘인증서 갱신‘ 버튼을 눌러
+                  <span class="color-fg-primary"
+                    >금융인증서 갱신 신청을 해주세요</span
+                  >.
+                </div>
+
+                <div class="btn-wrap center lg-bot">
+                  <button
+                    type="button"
+                    class="btn type-bg-primary-tint size-xxl"
+                  >
+                    <span class="text">취소</span>
+                  </button>
+
+                  <button type="button" class="btn type-bg-primary size-xxl">
+                    <span class="text">인증서 갱신</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
+</html>

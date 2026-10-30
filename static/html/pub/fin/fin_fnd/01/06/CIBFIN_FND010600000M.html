@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>계좌 통합관리서비스(어카운트인포) 조회해지 | 수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/fin.css" />
+</head>
+
+<body>
+    <div class="wrapper">
+        <div id="header">
+            @@include('static/html/pub/layout/skipNavigation.html')
+            @@include('static/html/pub/layout/header_sub.html')
+        </div>
+
+        <div id="container" class="container">
+            <div id="leftArea">
+                @@include('static/html/pub/layout/leftArea.html')
+            </div>
+            <div id="contents">
+                <div class="content">
+                    @@include('static/html/pub/layout/breadcrumb.html')
+                    <div class="fin">
+                        <h2 class="typeH2">인터넷전용펀드</h2>
+                        <iframe
+                            src="iframe00.html"
+                            title="인터넷전용펀드 목록"
+                            width="100%"
+                            scrolling="no"
+                            style="display:block; width:100%; border:0; overflow:hidden;"
+                            onload="fitIframeHeight(this)"></iframe>
+
+                        <script>
+                            function fitIframeHeight(iframe) {
+                                if (!iframe || !iframe.contentWindow) return;
+                                try {
+                                    var doc = iframe.contentWindow.document;
+                                    var height = Math.max(
+                                        doc.body ? doc.body.scrollHeight : 0,
+                                        doc.documentElement ? doc.documentElement.scrollHeight : 0
+                                    );
+                                    if (height) iframe.style.height = height + "px";
+                                } catch (err) {}
+                            }
+                        </script>
+
+                        <div class="line-box size-xl mt-48">
+                            <span class="typeLgSemibold">이용안내</span>
+                            <div class="list type-dotted">
+                                <ul>
+                                    <li class="typeMd">
+                                        <span class="typeMd">
+                                            <span class="color-fg-primary">%고객명%</span> 님의 투자성향은 <span
+                                                class="color-fg-primary">%투자성향분석결과%</span> 입니다.</span>
+                                    </li>
+                                    <li class="typeMd">
+                                        <span class="typeMd">
+                                            투자성향에 적합한 <span class="color-fg-primary">%등급별 상품%</span>만 조회됩니다.
+                                        </span>
+
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+
+
+
+                    </div>
+                </div>
+            </div>
+            <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+        </div>
+        <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+</body>
+
+</html>

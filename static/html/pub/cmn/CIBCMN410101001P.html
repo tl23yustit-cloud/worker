@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/cmn.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
+
+      <div id="container" class="container">
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="bop">
+              <button type="button" class="btn type-bg-primary size-md btn-modal" data-target="modal-16">
+                <span class="text">Fax</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+    <div id="modal-16" class="modal is-active" data-dim="true" data-backdrop-close="false" data-alert="true" data-size="sm" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc">
+      <div class="modal-wrapper">
+        <div class="modal-title">
+          <h4 class="typeH4">FAX 발송</h4>
+        </div>
+        <div class="modal-slot">
+          <div id="modal-desc">
+            <table class="table-type01">
+              <caption>
+                FAX 발송 테이블
+              </caption>
+              <colgroup>
+                <col style="width: 160px" />
+                <col style="width: auto" />
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th scope="row">FAX 번호</th>
+                  <td>
+                    <div class="tbl-flex">
+                      <div class="box-select fax">
+                        <button type="button" class="select size-lg" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="selectDropdown01" aria-labelledby="label-account" aria-required="true">
+                          <span class="text">앞자리</span>
+                          <span class="blind">목록 열기</span>
+                        </button>
+                        <div id="selectDropdown01" class="box-list-select">
+                          <ul class="list-select" role="listbox" aria-label="FAX 번호 앞자리 선택 리스트">
+                            <li class="item-select" role="group" aria-selected="true">
+                              <span class="btn-item-select"> 02</span>
+                            </li>
+                            <li class="item-select" role="group" aria-selected="false">
+                              <span class="btn-item-select">032</span>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <span>-</span>
+                      <div class="clear-type">
+                        <input type="text" class="input fax size-lg" placeholder="중간자리" title="FAX 번호 중간자리" size="4" value="" />
+                        <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                          <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                          <span class="blind">닫기</span>
+                        </button>
+                      </div>
+                      <span>-</span>
+                      <div class="clear-type">
+                        <input type="text" class="input fax size-lg" placeholder="뒷자리" title="FAX 번호 마지막자리" size="4" value="" />
+                        <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                          <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                          <span class="blind">닫기</span>
+                        </button>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">보내는 사람</th>
+                  <td>
+                    <div class="clear-type">
+                      <input type="text" class="input wSize-md size-lg" title="보내는 사람" value="" placeholder="입력해주세요." />
+                      <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                        <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                        <span class="blind">닫기</span>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="modal-footer flex items-center justify-center gap-6">
+          <button type="button" class="btn type-bg-primary-tint size-lg">
+            <span class="text">취소</span>
+          </button>
+          <button type="button" class="btn type-bg-primary size-lg">
+            <span class="text">확인</span>
+          </button>
+        </div>
+        <button type="button" class="ico btn-close" aria-label="모달 닫기">
+          <i class="ico-close ico-size-smMd" aria-hidden="true"></i>
+          <span class="blind">닫기</span>
+        </button>
+      </div>
+    </div>
+  </body>
+</html>

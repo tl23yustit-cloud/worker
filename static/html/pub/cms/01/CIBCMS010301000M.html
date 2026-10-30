@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/cms.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">
+        @@include('static/html/pub/layout/skipNavigation.html')
+        @@include('static/html/pub/layout/header_sub.html')
+      </div>
+
+      <div id="container" class="container">
+        <div id="leftArea">
+          @@include('static/html/pub/layout/leftArea.html')
+        </div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="cms">
+              <h2 class="typeH2">
+                서비스해지
+                <div class="box-steps">
+                  <ol class="list-steps">
+                    <li class="item-steps current" aria-current="step">
+                      <span class="blind">1</span>
+                      <i class="icon" aria-hidden="true">1</i>
+                      <span class="text">해지신청</span>
+                    </li>
+                    <li class="item-steps">
+                      <span class="blind">2</span>
+                      <i class="icon" aria-hidden="true">2</i>
+                      <span class="text">해지완료</span>
+                    </li>
+                  </ol>
+                </div>
+              </h2>
+
+              <div class="tbl-area">
+                <h4 class="typeH4">
+                  <span class="text">고객정보</span>
+                </h4>
+                <table class="table-type01">
+                  <caption>
+                    아이디, 사업자번호, 고객명, 신청일 정보를 제공합니다.
+                  </caption>
+                  <colgroup>
+                    <col width="160px" />
+                    <col width="*" />
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="row">아이디</th>
+                      <td>
+                        <span class="typeMd">WEBCASH123</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">사업자번호</th>
+                      <td>
+                        <span class="typeMd">214-86-35102</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">고객명</th>
+                      <td>
+                        <span class="typeMd">㈜웹케시</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">신청일</th>
+                      <td>
+                        <span class="typeMd">2026-06-08</span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="tbl-area mt-24">
+                <table class="table-type01">
+                  <caption>
+                    해지사유 정보를 제공합니다.
+                  </caption>
+                  <colgroup>
+                    <col width="160px" />
+                    <col width="*" />
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="row">
+                        <span class="required">해지사유</span>
+                      </th>
+                      <td>
+                        <div class="tbl-flex">
+                          <div class="box-select wSize-lg">
+                            <button
+                              type="button"
+                              class="select size-lg"
+                              role="combobox"
+                              aria-expanded="false"
+                              aria-haspopup="listbox"
+                              aria-controls="selectEmailDomain"
+                              title="해지사유 선택"
+                            >
+                              <span class="text">해지사유 선택</span>
+                              <span class="blind">펼침</span>
+                            </button>
+                            <div id="selectEmailDomain" class="box-list-select">
+                              <ul
+                                class="list-select"
+                                role="listbox"
+                                aria-label="해지사유"
+                              >
+                                <li
+                                  class="item-select"
+                                  role="option"
+                                  aria-selected="true"
+                                >
+                                  <span class="form-box"
+                                    >회사 규모 및 업무구조상 적합하지
+                                    않습니다.</span
+                                  >
+                                </li>
+                                <li
+                                  class="item-select"
+                                  role="option"
+                                  aria-selected="false"
+                                >
+                                  <span class="form-box"
+                                    >기능이 너무 복잡하거나 어렵습니다.</span
+                                  >
+                                </li>
+                                <li
+                                  class="item-select"
+                                  role="option"
+                                  aria-selected="false"
+                                >
+                                  <span class="form-box"
+                                    >다른 시스템을 사용할 예정입니다.</span
+                                  >
+                                </li>
+                                <li
+                                  class="item-select"
+                                  role="option"
+                                  aria-selected="false"
+                                >
+                                  <span class="form-box"
+                                    >필요한 기능이 없습니다.</span
+                                  >
+                                </li>
+                                <li
+                                  class="item-select"
+                                  role="option"
+                                  aria-selected="false"
+                                >
+                                  <span class="form-box">기타</span>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                          <input
+                            type="text"
+                            class="input size-lg wSize-lg"
+                            placeholder="기타해지사유 입력"
+                            title="기타해지사유 입력"
+                            aria-label="기타해지사유 입력"
+                          />
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p class="typeMd error-message mt-12">
+                ※ 해지시 CMS 이용을 위해 등록된 모든 데이터가 삭제됩니다.
+              </p>
+              <div class="text-wrap">
+                <div class="typeLgMedium">
+                  <span class="form-box">
+                    <input
+                      type="checkbox"
+                      name="authority"
+                      id="auth-4-2"
+                      class="form-checkbox size-lg"
+                    />
+                    <label for="auth-4-2" class="form-label"
+                      >서비스 해지 신청 및 데이터 삭제 동의
+                    </label>
+                  </span>
+                </div>
+                <div class="btn-wrap center lg-bot">
+                  <button type="button" class="btn type-bg-primary size-xxl">
+                    <span class="text">서비스해지</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
+</html>
+<script></script>

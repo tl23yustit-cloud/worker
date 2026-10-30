@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/pcg.css" />
+</head>
+
+<body>
+    <div class="wrapper">
+        <div id="header">
+            @@include('static/html/pub/layout/skipNavigation.html')
+            @@include('static/html/pub/layout/header_sub.html')
+        </div>
+        <div id="container" class="container">
+            <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+            <div id="contents">
+                <div class="content">
+                    @@include('static/html/pub/layout/breadcrumb.html')
+                    <div class="pcg">
+                        <h2 class="typeH2">
+                            전기요금
+                        </h2>
+                        <div class="box-tab">
+                            <ul class="list-tab-button type-outline" role="tablist" aria-label="탭 이름">
+                                <li class="item-tab-button">
+                                    <button type="button" class="btn-tab active" id="tabBtnTypeOutline01" role="tab"
+                                        aria-selected="true" aria-controls="tabPanelTypeOutline01">
+                                        <span class="text">전기요금납부</span>
+                                    </button>
+                                </li>
+                                <li class="item-tab-button">
+                                    <button type="button" class="btn-tab" title="선택됨" id="tabBtnTypeOutline02"
+                                        role="tab" aria-selected="false" aria-controls="tabPanelTypeOutline02">
+                                        <span class="text">납부조회/취소</span>
+                                    </button>
+                                </li>
+
+                            </ul>
+
+
+
+                            <div class="box-tab-content" id="tabPanelTypeOutline01" role="tabpanel"
+                                aria-labelledby="tabBtnTypeOutline01" style="display: block;">
+
+                                <div class="tbl-area">
+                                    <table class="table-type01">
+                                        <caption></caption>
+                                        <colgroup>
+                                            <col style="width: 160px">
+                                            <col style="width: auto">
+                                        </colgroup>
+                                        <tbody>
+
+
+                                            <tr>
+                                                <th scope="row">
+                                                    전자납부번호
+                                                </th>
+                                                <td>
+
+                                                    <input type="text" class="input size-lg wSize-md"
+                                                        placeholder="입력하세요" title="전자납부번호" value="">
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="btn-wrap center lg-bot">
+                                    <button type="button" class="btn type-bg-primary size-xxl">
+                                        <span class="text">확인</span>
+                                    </button>
+                                </div>
+
+
+
+                                <div class="line-box size-xl mt-48">
+                                    <span class="typeLgSemibold">이용안내</span>
+                                    <div class="list type-dotted">
+                                        <ul>
+                                            <li class="typeMd">
+                                                한국전력에서 부과한 전기요금/TV수신료 고지서에 표시된 전자납부번호(고객번호) 10자리를 입력하여 고지내역을 확인한 후 납부하시기
+                                                바랍니다.
+                                            </li>
+
+                                        </ul>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="box-tab-content active" id="tabPanelTypeOutline02" role="tabpanel"
+                                aria-labelledby="tabBtnTypeOutline02" style="display: none;">
+
+
+
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+        </div>
+        <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+</body>
+
+</html>

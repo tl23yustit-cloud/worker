@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/fin.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">
+        @@include('static/html/pub/layout/skipNavigation.html')
+        @@include('static/html/pub/layout/header_sub.html')
+      </div>
+
+      <div id="container" class="container">
+        <div id="leftArea">
+          @@include('static/html/pub/layout/leftArea.html')
+        </div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="fin">
+              <h2 class="typeH2">
+                회원구분 및 상품 선택
+                <div class="box-steps">
+                  <ol class="list-steps">
+                    <li class="item-steps passed">
+                      <span class="blind">1</span>
+                      <i class="icon" aria-hidden="true">1</i>
+                    </li>
+                    <li class="item-steps current" aria-current="step">
+                      <span class="blind">2</span>
+                      <i class="icon" aria-hidden="true">2</i>
+                      <span class="text">가입정보선택(2/2) </span>
+                    </li>
+                    <li class="item-steps">
+                      <span class="blind">3</span>
+                      <i class="icon" aria-hidden="true">3</i>
+                      <span class="text">3</span>
+                    </li>
+                    <li class="item-steps">
+                      <span class="blind">4</span>
+                      <i class="icon" aria-hidden="true">4</i>
+                      <span class="text">4</span>
+                    </li>
+                    <li class="item-steps">
+                      <span class="blind">5</span>
+                      <i class="icon" aria-hidden="true">5</i>
+                      <span class="text">5</span>
+                    </li>
+                    <li class="item-steps">
+                      <span class="blind">6</span>
+                      <i class="icon" aria-hidden="true">6</i>
+                      <span class="text">6</span>
+                    </li>
+                  </ol>
+                </div>
+              </h2>
+            </div>
+            <h4 class="typeH4">가입하실 회원구분을 선택해 주세요</h4>
+            <p class="typeLg mt-8">고객확인(CDD/EDD) 확인이 필요한 경우 수협은행 계좌만 개설할 수 있으며, 계좌개설과 함께 고객확인 절차가 진행됩니다</p><!-- [수정] 2026-10-27 class 수정 -->
+            <div class="method-list mt-24"><!-- [수정] 2026-10-27 class 수정 -->
+              <span class="form-box">
+                <input type="radio" name="methodType" id="type01" class="form-radio" disabled>
+                <label for="type01" class="method-item">
+                  <i class="ico etc ico-size-6xl ico-pocket blue" aria-hidden="true"></i><!-- [수정] 2026-10-27 class 수정 -->
+                  <strong class="title">수협은행</strong>
+                  <span class="desc">수협은행 금융서비스를 이용하는 고객</span><!-- [수정] 2026-10-26 텍스트 수정 -->
+                </label>
+              </span>
+
+              <span class="form-box">
+                <input type="radio" name="methodType" id="type02" class="form-radio">
+                <label for="type02" class="method-item">
+                  <i class="ico etc ico-size-6xl ico-pocket green" aria-hidden="true"></i><!-- [수정] 2026-10-27 class 수정 -->
+                  <strong class="title">회원수협 </strong>
+                  <span class="desc">회원수협 조합에 가입하며, 회원수협 서비스를 이용하는 고객</span><!-- [수정] 2026-10-26 텍스트 수정 -->
+                </label>
+              </span>
+            </div>
+            <!-- for dev ) 데이터 채워질때  brach-finder 에  filled 클래스 추가 -->
+            <div class="brach-finder">
+              <h3 class="typeH3">영업점검색</h3>
+              <div class="brach-finder-wrapper">
+                <button class="finder-button">
+                  <i class="ico etc ico-size-md ico-location-mark" aria-hidden="true"></i>
+                  <p class="typeMdMedium">영업점을 선택해주세요</p>
+                  <i class="ico line ico-size-smMd ico-chevron-right" aria-hidden="true"></i>
+                </button>
+              </div>
+            </div>
+            <div class="brach-finder filled">
+              <h3 class="typeH3">영업점검색</h3>
+              <div class="brach-finder-wrapper">
+                <button class="finder-button">
+                  <i class="ico etc ico-size-md ico-location-mark" aria-hidden="true"></i>
+                  <p class="typeMdMedium">수협은행 잠실점</p>
+                  <i class="ico line ico-size-smMd ico-chevron-right" aria-hidden="true"></i>
+                </button>
+              </div>
+            </div>
+            <h3 class="typeH3 mt-48 mb-24">상품선택</h3><!-- [수정] 2026-10-26 class 수정 -->
+            <ul class="product-selection">
+              <li>
+                <span class="form-box">
+                  <div class="product-item">
+                    <input type="radio" name="product-radio1" id="product-radio1-1" class="form-radio">
+                    <div class="product-content">
+                      <h4 class="typeH4">
+                        회원수협_비대면 신청 가능 계좌 상품명1
+                      </h4>
+                      <p class="typeLg mt-8">서비스 설명</p><!-- [수정] 2026-10-26 mt-8 class 추가 -->
+                    </div>
+                    <button type="button" class="btn type-line-neutral size-md">
+                      <span class="text">상세보기</span>
+                    </button>
+                  </div>
+                </span>
+              </li>
+              <li>
+                <span class="form-box">
+                  <div class="product-item">
+                    <input type="radio" name="product-radio1" id="product-radio1-2" class="form-radio">
+                    <div class="product-content">
+                      <h4 class="typeH4">
+                        회원수협_비대면 신청 가능 계좌 상품명1
+                      </h4>
+                      <p class="typeLg mt-8">서비스 설명</p><!-- [수정] 2026-10-26 mt-8 class 추가 -->
+                    </div>
+                    <button type="button" class="btn type-line-neutral size-md">
+                      <span class="text">상세보기</span>
+                    </button>
+                  </div>
+                </span>
+              </li>
+              <li>
+                <span class="form-box">
+                  <div class="product-item">
+                    <input type="radio" name="product-radio1" id="product-radio1-3" class="form-radio">
+                    <div class="product-content">
+                      <h4 class="typeH4">
+                        회원수협_비대면 신청 가능 계좌 상품명1
+                      </h4>
+                      <p class="typeLg mt-8">서비스 설명</p><!-- [수정] 2026-10-26 mt-8 class 추가 -->
+                    </div>
+                    <button type="button" class="btn type-line-neutral size-md">
+                      <span class="text">상세보기</span>
+                    </button>
+                  </div>
+                </span>
+              </li>
+            </ul>
+            <div class="btn-wrap center lg-bot">
+              <button type="button" class="btn type-bg-primary-tint size-xxl">
+                <span class="text">이전</span>
+              </button>
+              <button type="button" class="btn type-bg-primary size-xxl">
+                <span class="text">다음</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
+</html>
+<script></script>

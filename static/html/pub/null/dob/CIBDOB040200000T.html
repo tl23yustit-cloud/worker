@@ -1,0 +1,311 @@
+<!-- 디자인 가이드 필요 -->
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/dob.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">
+        @@include('static/html/pub/layout/skipNavigation.html')
+        @@include('static/html/pub/layout/header_sub.html')
+      </div>
+
+      <div id="container" class="container">
+        <div id="leftArea">
+          @@include('static/html/pub/layout/leftArea.html')
+        </div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="dob">
+              <h2 class="typeH2">증명서 검증(진위확인)프로그램</h2>
+
+              <div class="verification-banner">
+                <div class="banner-desc">
+                  <h1 class="typeH1 mb-12">
+                    증명서 검증(진위확인) 프로그램이란?
+                  </h1>
+                  <p class="type2XlMedium mb-24">
+                    고출력된 증명서의 2D바코드를 이용하여 오프라인에서도
+                    스캐너를 이용하여 증명서의 위/변조 여부를 확인할 수 있으며,
+                    복사방지 코드를 이용하여 원본 증명서인지 복사된 증명서인지를
+                    확인 가능한 프로그램 입니다.
+                  </p>
+                  <button type="button" class="btn type-bg-primary size-xl">
+                    <span class="text">프로그램 다운로드</span>
+                  </button>
+                </div>
+                <div class="banner-image-area"></div>
+              </div>
+              <div class="box-tab">
+                <ul
+                  class="list-tab-button type-outline"
+                  role="tablist"
+                  aria-label="증명서 검증(진위확인)프로그램 안내 탭"
+                >
+                  <li class="item-tab-button">
+                    <button
+                      type="button"
+                      class="btn-tab"
+                      id="tabBtnTypeOutline01"
+                      role="tab"
+                      aria-selected="false"
+                      aria-controls="tabPanelTypeOutline01"
+                    >
+                      <span class="text">프로그램 설치방법 안내</span>
+                    </button>
+                  </li>
+                  <li class="item-tab-button">
+                    <button
+                      type="button"
+                      class="btn-tab active"
+                      title="선택됨"
+                      id="tabBtnTypeOutline02"
+                      role="tab"
+                      aria-selected="true"
+                      aria-controls="tabPanelTypeOutline02"
+                    >
+                      <span class="text">프로그램 삭제방법 안내</span>
+                    </button>
+                  </li>
+                  <li class="item-tab-button">
+                    <button
+                      type="button"
+                      class="btn-tab"
+                      id="tabBtnTypeOutline03"
+                      role="tab"
+                      aria-selected="false"
+                      aria-controls="tabPanelTypeOutline03"
+                    >
+                      <span class="text">검증절차 안내</span>
+                    </button>
+                  </li>
+                </ul>
+                <div
+                  class="box-tab-content"
+                  id="tabPanelTypeOutline01"
+                  role="tabpanel"
+                  aria-labelledby="tabBtnTypeOutline01"
+                  style="display: none"
+                >
+                  <h3 class="blind">프로그램 설치방법 안내</h3>
+                  <div class="guide-wrapper">
+                    <ol class="guide">
+                      <li>
+                        <div class="guide-step">
+                          <div class="guide-number">1</div>
+
+                          <div class="guide-desc">
+                            <h5 class="typeH5">지원범위</h5>
+                            <div class="list type-dotted mt-12">
+                              <ul>
+                                <li class="typeMd">
+                                  “[MarkAny] e-PageSAFER_검증프로그램.zip”
+                                  파일을 C:\ 아래에서 압축해제합니다.
+                                </li>
+                                <li class="typeMd">
+                                  “DetectorX.exe”를 실행하여 설치과정을
+                                  진행합니다.
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div class="guide-image">
+                            <img src="/static/images/dob/guide1-1.png" />
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="guide-step">
+                          <div class="guide-number">2</div>
+                          <div class="guide-desc">
+                            <h5 class="typeH5">검증 프로그램 실행</h5>
+                            <div class="list type-dotted mt-12">
+                              <ul>
+                                <li class="typeMd">
+                                  다운로드 받은 검증 프로그램을 더블 클릭하여
+                                  실행합니다.
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div class="guide-image">
+                            <img src="/static/images/dob/guide1-2.png" />
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="guide-step">
+                          <div class="guide-number">3</div>
+                          <div class="guide-desc">
+                            <h5 class="typeH5">설치 선택</h5>
+                            <div class="list type-dotted mt-12">
+                              <ul>
+                                <li class="typeMd">
+                                  프로그램을 설치할 위치를 선택하고 [설치]
+                                  버튼을 클릭합니다.
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div class="guide-image">
+                            <img src="/static/images/dob/guide1-3.png" />
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="guide-step">
+                          <div class="guide-number">4</div>
+                          <div class="guide-desc">
+                            <h5 class="typeH5">확인 선택</h5>
+                            <div class="list type-dotted mt-12">
+                              <ul>
+                                <li class="typeMd">
+                                  설치가 완료된 후 [확인] 버튼을 클릭합니다.
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div class="guide-image">
+                            <img src="/static/images/dob/guide1-4.png" />
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="guide-step">
+                          <div class="guide-number">5</div>
+                          <div class="guide-desc">
+                            <h5 class="typeH5">확인 선택</h5>
+                            <div class="list type-dotted mt-12">
+                              <ul>
+                                <li class="typeMd">
+                                  정상적으로 설치가 완료되면 바탕화면에 검증
+                                  프로그램의 바로가기가 생성됩니다.
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div class="guide-image">
+                            <img src="/static/images/dob/guide1-5.png" />
+                          </div>
+                        </div>
+                      </li>
+                    </ol>
+                  </div>
+                </div>
+                <div
+                  class="box-tab-content active"
+                  id="tabPanelTypeOutline02"
+                  role="tabpanel"
+                  aria-labelledby="tabBtnTypeOutline02"
+                >
+                  <h3 class="blind">프로그램 삭제방법 안내</h3>
+                  <div class="guide-wrapper">
+                    <ol class="guide">
+                      <li>
+                        <div class="guide-step">
+                          <div class="guide-number">1</div>
+
+                          <div class="guide-desc">
+                            <h5 class="typeH5">검증프로그램 삭제</h5>
+                            <div class="list type-dotted mt-12">
+                              <ul>
+                                <li class="typeMd">
+                                  [Uninstall.exe] 항목을 선택하여 검증
+                                  프로그램을 삭제합니다.
+                                </li>
+                              </ul>
+                            </div>
+                            <div class="list type-bar ml-10">
+                              <ul>
+                                <li class="typeMd">
+                                  32bit: C:\Program File\DetectorX_NOAX
+                                </li>
+                                <li class="typeMd">
+                                  64bit: C:\Program File (x86)\DetectorX_NOAX
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div class="guide-image">
+                            <img src="/static/images/dob/guide2-1.png" />
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="guide-step">
+                          <div class="guide-number">2</div>
+                          <div class="guide-desc">
+                            <h5 class="typeH5">삭제 선택</h5>
+                            <div class="list type-dotted mt-12">
+                              <ul>
+                                <li class="typeMd">
+                                  아래와 같이 삭제를 확인하는 창에서 [삭제
+                                  ]버튼을 클릭합니다.
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div class="guide-image">
+                            <img src="/static/images/dob/guide2-2.png" />
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="guide-step">
+                          <div class="guide-number">3</div>
+                          <div class="guide-desc">
+                            <h5 class="typeH5">확인 선택</h5>
+                            <div class="list type-dotted mt-12">
+                              <ul>
+                                <li class="typeMd">
+                                  삭제가 완료되면 [확인] 버튼을 클릭하여 삭제
+                                  프로그램을 닫습니다.
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div class="guide-image">
+                            <img src="/static/images/dob/guide2-3.png" />
+                          </div>
+                        </div>
+                      </li>
+                    </ol>
+                  </div>
+                </div>
+                <div
+                  class="box-tab-content"
+                  id="tabPanelTypeOutline03"
+                  role="tabpanel"
+                  aria-labelledby="tabBtnTypeOutline03"
+                  style="display: none"
+                >
+                  <h3 class="blind">검증절차 안내</h3>
+                  Tab 본문 03
+                </div>
+              </div>
+              <div class="btn-wrap center lg-bot">
+                <button type="button" class="btn type-bg-primary size-xxl">
+                  <span class="text">프로그램 다운로드</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
+</html>
+<script></script>

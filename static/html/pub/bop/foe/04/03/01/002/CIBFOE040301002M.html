@@ -4,155 +4,142 @@
 <!-- 기획서에 2번째 테이블 입금계좌번호 , 금액 매칭안맞음 확인필요 -->
 <!doctype html>
 <html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/bop.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>수협은행</title>
-  <link rel="stylesheet" href="/static/css/reset.css" />
-  <link rel="stylesheet" href="/static/css/layout.css" />
-  <link rel="stylesheet" href="/static/css/component.css" />
-  <link rel="stylesheet" href="/static/css/common.css" />
-  <link rel="stylesheet" href="/static/css/bop.css" />
-</head>
+  <body>
+    <div class="wrapper">
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
 
-<body>
-  <div class="wrapper">
-    <div id="header">
-      @@include('static/html/pub/layout/skipNavigation.html')
-      @@include('static/html/pub/layout/header_sub.html')
-    </div>
-
-    <div id="container" class="container">
-      <div id="leftArea">
-        @@include('static/html/pub/layout/leftArea.html')
-      </div>
-      <div id="contents">
-        <div class="content">
-          @@include('static/html/pub/layout/breadcrumb.html')
-          <div class="bop">
-            <h2 class="typeH2">
-              해외송금취소
-            </h2>
-            <div class="result-box">
-              <div class="result-banner">
-                <div class="inner-img"></div>
-                <!--[dev]:result-message삭제-->
-                <!-- <div class="result-message">
-                  <h4 class="typeH4 color-blueMd">
-                    알립니다.
-                  </h4> -->
-                  <!--//[dev]:result-message삭제-->
-                  <span class="typeMd">해외송금(기업송금)이 취소되었습니다.</span>
+      <div id="container" class="container">
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="bop">
+              <h2 class="typeH2">해외송금취소</h2>
+              <div class="result-box">
+                <!--[dev]:20261027 텍스트타입 수정-->
+                <div class="result-banner">
+                  <div class="inner-img"></div>
+                  <div class="result-message">
+                    <h4 class="typeH4 color-blueMd">해외송금(기업송금)이 취소되었습니다.</h4>
+                  </div>
+                </div>
+                <!--//[dev]:20261027 텍스트타입 수정-->
+                <div class="tbl-area">
+                  <h4 class="typeH4">
+                    <span class="text">취소 송금정보확인</span>
+                  </h4>
+                  <table class="table-type01">
+                    <caption>
+                      취소 송금정보확인 제공 테이블
+                    </caption>
+                    <!-- [수정] 20260908 col width 값 수정  -->
+                    <colgroup>
+                      <col style="width: 160px" />
+                      <col style="width: 368px" />
+                      <col style="width: 160px" />
+                      <col style="width: 368px" />
+                    </colgroup>
+                    <tbody>
+                      <tr>
+                        <th scope="row">송금등록번호</th>
+                        <td>
+                          <span class="typeMd">CS0000000000000000</span>
+                        </td>
+                        <th scope="row">송금등록일</th>
+                        <!-- [수정] 20260908 날짜 text-right 클래스 삭제  -->
+                        <td>
+                          <span class="typeMd">2026-07-23</span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">통화</th>
+                        <td>
+                          <span class="typeMd">USD-미국(달러)</span>
+                        </td>
+                        <th scope="row">송금액</th>
+                        <td class="text-right">
+                          <span class="typeMd">1,000.00</span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">송금수수료</th>
+                        <td class="text-right">
+                          <span class="typeMd">3,000원</span>
+                        </td>
+                        <th scope="row">전신료</th>
+                        <td class="text-right">
+                          <span class="typeMd">1,000</span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">송금목적</th>
+                        <td>
+                          <span class="typeMd">무역송금 사전통관(일반수입)방식</span>
+                        </td>
+                        <th scope="row">중계수수료</th>
+                        <td>
+                          <span class="typeMd">송금인부담</span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">수취인성명</th>
+                        <td>
+                          <span class="typeMd">BANKCO MUNNICIPAL DE ROSARIO</span>
+                        </td>
+                        <th scope="row">수취인계좌번호</th>
+                        <td>
+                          <span class="typeMd">0000000</span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">SWIFT CODE</th>
+                        <td>
+                          <span class="typeMd">MUNRARXXX</span>
+                        </td>
+                        <th scope="row">수취인은행명</th>
+                        <td>
+                          <span class="typeMd">BANKCO MUNNICIPAL DE ROSARIO</span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">수취인주소</th>
+                        <td colspan="3">
+                          <span class="typeMd">BANKCO MUNNICIPAL DE ROSARIO</span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">수취인도시</th>
+                        <td colspan="3">
+                          <span class="typeMd">SIMUNG</span>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="btn-wrap center lg-bot">
+                  <button type="button" class="btn type-bg-primary size-xxl">
+                    <span class="text">확인</span>
+                  </button>
                 </div>
               </div>
             </div>
-
-            <div class="tbl-area">
-              <h4 class="typeH4">
-                <span class="text">취소 송금정보확인</span>
-              </h4>
-              <table class="table-type01">
-                <caption>
-                  취소 송금정보확인 제공 테이블
-                </caption>
-                <!-- [수정] 20260908 col width 값 수정  -->
-                <colgroup>
-                  <col style="width: 160px" />
-                  <col style="width: 368px" />
-                  <col style="width: 160px" />
-                  <col style="width: 368px" />
-                </colgroup>
-                <tbody>
-                  <tr>
-                    <th scope="row">송금등록번호</th>
-                    <td>
-                      <span class="typeMd">CS0000000000000000</span>
-                    </td>
-                    <th scope="row">송금등록일</th>
-                    <!-- [수정] 20260908 날짜 text-right 클래스 삭제  -->
-                    <td>
-                      <span class="typeMd">2026-07-23</span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">통화</th>
-                    <td>
-                      <span class="typeMd">USD-미국(달러)</span>
-                    </td>
-                    <th scope="row">송금액</th>
-                    <td class="text-right">
-                      <span class="typeMd">1,000.00</span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">송금수수료</th>
-                    <td class="text-right">
-                      <span class="typeMd">3,000원</span>
-                    </td>
-                    <th scope="row">전신료</th>
-                    <td class="text-right">
-                      <span class="typeMd">1,000</span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">송금목적</th>
-                    <td>
-                      <span class="typeMd">무역송금 사전통관(일반수입)방식</span>
-                    </td>
-                    <th scope="row">중계수수료</th>
-                    <td>
-                      <span class="typeMd">송금인부담</span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">수취인성명</th>
-                    <td>
-                      <span class="typeMd">BANKCO MUNNICIPAL DE ROSARIO</span>
-                    </td>
-                    <th scope="row">수취인계좌번호</th>
-                    <td>
-                      <span class="typeMd">0000000</span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">SWIFT CODE</th>
-                    <td>
-                      <span class="typeMd">MUNRARXXX</span>
-                    </td>
-                    <th scope="row">수취인은행명</th>
-                    <td>
-                      <span class="typeMd">BANKCO MUNNICIPAL DE ROSARIO</span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">수취인주소</th>
-                    <td colspan="3">
-                      <span class="typeMd">BANKCO MUNNICIPAL DE ROSARIO</span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">수취인도시</th>
-                    <td colspan="3">
-                      <span class="typeMd">SIMUNG</span>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>            
-            <div class="btn-wrap center lg-bot">
-              <button type="button" class="btn type-bg-primary size-xxl">
-                <span class="text">확인</span>
-              </button>
-            </div>
           </div>
         </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
       </div>
-      <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
     </div>
-    <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
-  </div>
-  <script src="/static/js/ui/cib_ui_common.js"></script>
-</body>
-
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
 </html>

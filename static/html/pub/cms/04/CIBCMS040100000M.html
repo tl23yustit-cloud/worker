@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/cms.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">
+        @@include('static/html/pub/layout/skipNavigation.html')
+        @@include('static/html/pub/layout/header_sub.html')
+      </div>
+
+      <div id="container" class="container">
+        <div id="leftArea">
+          @@include('static/html/pub/layout/leftArea.html')
+        </div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+
+            <div class="cms">
+              <h2 class="typeH2">법인카드조회</h2>
+              <div class="tbl-area">
+                <table class="table-type01">
+                  <caption>
+                    사업장, 회원사 정보를 제공합니다.
+                  </caption>
+                  <colgroup>
+                    <col width="160px" />
+                    <col width="*" />
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="row">사업장</th>
+                      <td>
+                        <div class="box-select wSize-lg">
+                          <button
+                            type="button"
+                            class="select size-lg"
+                            role="combobox"
+                            aria-expanded="false"
+                            aria-haspopup="listbox"
+                            aria-controls="selectDropdown01"
+                          >
+                            <span class="text">전체</span>
+                            <span class="blind">펼침</span>
+                          </button>
+                          <div id="selectDropdown01" class="box-list-select">
+                            <ul
+                              class="list-select"
+                              role="listbox"
+                              aria-label="선택 항목 리스트"
+                            >
+                              <li class="item-select" role="group">
+                                <button class="btn-item-select">전체</button>
+                              </li>
+                              <li class="item-select" role="group">
+                                <button class="btn-item-select">1</button>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">회원사</th>
+                      <td>
+                        <div class="box-select wSize-lg">
+                          <button
+                            type="button"
+                            class="select size-lg"
+                            role="combobox"
+                            aria-expanded="false"
+                            aria-haspopup="listbox"
+                            aria-controls="selectDropdown01"
+                          >
+                            <span class="text">전체</span>
+                            <span class="blind">펼침</span>
+                          </button>
+                          <div id="selectDropdown01" class="box-list-select">
+                            <ul
+                              class="list-select"
+                              role="listbox"
+                              aria-label="선택 항목 리스트"
+                            >
+                              <li class="item-select" role="group">
+                                <button class="btn-item-select">전체</button>
+                              </li>
+                              <li class="item-select" role="group">
+                                <button class="btn-item-select">1</button>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="btn-wrap center sm-mid">
+                <button type="button" class="btn type-line-neutral size-xl">
+                  <span class="text">초기화</span>
+                </button>
+                <button type="button" class="btn type-bg-neutral size-xl">
+                  <span class="text">조회</span>
+                </button>
+              </div>
+              <div class="tbl-area">
+                <h4 class="typeH4 mb-12">조회결과</h4>
+                <div class="tbl-head">
+                  <div class="left-area flex items-center gap-8">
+                    <span class="typeSm">총 <span class="num">$n$</span></span>
+                  </div>
+                  <div class="right-area">
+                    <button type="button" class="btn type-line-neutral size-lg">
+                      <span class="text">최신정보조회</span>
+                      <i
+                        class="ico line ico-size-sm ico-refresh"
+                        aria-hidden="true"
+                      ></i>
+                    </button>
+                  </div>
+                </div>
+                <table class="table-type03">
+                  <caption>
+                    사업장, 회원사, 카드명, 카드번호, 결제일, 당월결제액,
+                    최종정보조회일시, 상태 정보를 제공합니다.
+                  </caption>
+                  <colgroup>
+                    <col width="110px" />
+                    <col width="110px" />
+                    <col width="160px" />
+                    <col width="200px" />
+                    <col width="64px" />
+                    <col width="160px" />
+                    <col width="*" />
+                    <col width="74px" />
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th scope="col">사업장</th>
+                      <th scope="col">회원사</th>
+                      <th scope="col">카드명</th>
+                      <th scope="col">카드번호</th>
+                      <th scope="col">결제일</th>
+                      <th scope="col">당월결제액(원)</th>
+                      <th scope="col">최종정보조회일시</th>
+                      <th scope="col">상태</th>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                    <tr>
+                      <td><span class="typeMd">강남지점</span></td>
+                      <td><span class="typeMd">BC카드</span></td>
+                      <td><span class="typeMd">Biz MG 법인체크카드</span></td>
+                      <td><span class="typeMd">1234-5678-9784-1234</span></td>
+                      <td><span class="typeMd">23</span></td>
+                      <td class="text-right">
+                        <span class="typeMd">26,740</span>
+                      </td>
+                      <td><span class="typeMd">2026-02-04 17:46:02</span></td>
+                      <td><span class="typeMd">정상</span></td>
+                    </tr>
+                    <tr>
+                      <td><span class="typeMd">강남지점</span></td>
+                      <td><span class="typeMd">BC카드</span></td>
+                      <td><span class="typeMd">Biz MG 법인체크카드</span></td>
+                      <td><span class="typeMd">1234-5678-9784-1234</span></td>
+                      <td><span class="typeMd">23</span></td>
+                      <td class="text-right">
+                        <span class="typeMd">26,740</span>
+                      </td>
+                      <td><span class="typeMd">2026-02-04 17:46:02</span></td>
+                      <td><span class="typeMd">정상</span></td>
+                    </tr>
+                    <tr>
+                      <td><span class="typeMd">강남지점</span></td>
+                      <td><span class="typeMd">BC카드</span></td>
+                      <td><span class="typeMd">Biz MG 법인체크카드</span></td>
+                      <td><span class="typeMd">1234-5678-9784-1234</span></td>
+                      <td><span class="typeMd">23</span></td>
+                      <td class="text-right">
+                        <span class="typeMd">38,435,765</span>
+                      </td>
+                      <td><span class="typeMd">2026-02-04 17:46:02</span></td>
+                      <td class="flex items-center justify-center">
+                        <span class="color-fg-error">오류</span>
+                        <div class="box-tooltip tail-top-end type-hover pl-4">
+                          <button
+                            type="button"
+                            class="btn type-ghost-neutral size-Xs"
+                            aria-describedby="tooltipBoxTop0101"
+                          >
+                            <i
+                              class="ico line ico-size-sm ico-alert-circle"
+                              aria-hidden="true"
+                            ></i>
+                            <span class="blind">오류 상세보기</span>
+                          </button>
+
+                          <div
+                            id="tooltipBoxTop0101"
+                            class="layer-tooltip"
+                            role="tooltip"
+                            aria-hidden="true"
+                          >
+                            <div class="content-tooltip">
+                              <span class="text"
+                                >잘못된 조회기준 정보입니다.<br />
+                                확인후 다시 거래하십시오.
+                              </span>
+                            </div>
+                            <button type="button" class="btn-close">
+                              <i
+                                class="ico-close ico-size-sm"
+                                aria-hidden="true"
+                              ></i>
+                              <span class="blind">툴팁 닫기</span>
+                            </button>
+                            <i class="ico-tail-tooltip" aria-hidden="true"></i>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colspan="8">
+                        <div class="empty-page">
+                          <i class="ico-info" aria-hidden="true"></i>
+                          <div class="typeLg">조회 결과가 없습니다.</div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <nav class="pagination size-md" aria-label="페이지네이션">
+                <button
+                  type="button"
+                  class="btn-nav first"
+                  disabled=""
+                  aria-disabled="true"
+                  aria-label="첫 페이지"
+                >
+                  <span class="blind">첫 페이지</span>
+                </button>
+                <button
+                  type="button"
+                  class="btn-nav prev"
+                  disabled=""
+                  aria-disabled="true"
+                  aria-label="이전 페이지"
+                >
+                  <span class="blind">이전 페이지</span>
+                </button>
+
+                <ol class="list-pagination">
+                  <li>
+                    <button
+                      type="button"
+                      class="btn-page active"
+                      aria-current="page"
+                      aria-label="1페이지"
+                    >
+                      1
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button" class="btn-page" aria-label="2페이지">
+                      2
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button" class="btn-page" aria-label="3페이지">
+                      3
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button" class="btn-page" aria-label="4페이지">
+                      4
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button" class="btn-page" aria-label="5페이지">
+                      5
+                    </button>
+                  </li>
+                </ol>
+
+                <button
+                  type="button"
+                  class="btn-nav next"
+                  aria-label="다음 페이지"
+                >
+                  <span class="blind">다음 페이지</span>
+                </button>
+                <button
+                  type="button"
+                  class="btn-nav last"
+                  aria-label="마지막 페이지"
+                >
+                  <span class="blind">마지막 페이지</span>
+                </button>
+              </nav>
+              <div class="btn-wrap center lg-mid">
+                <button type="button" class="btn type-line-neutral size-xl">
+                  <span class="text">파일저장</span>
+                </button>
+                <button type="button" class="btn type-line-neutral size-xl">
+                  <span class="text">인쇄</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
+</html>
+<script></script>

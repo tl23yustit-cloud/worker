@@ -1,0 +1,256 @@
+<!-- 1.1v -->
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/bop.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
+
+      <div id="container" class="container">
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="bop">
+              <h2 class="typeH2">다단계 결재 알림</h2>
+
+              <div class="tbl-area">
+                <table class="table-type01">
+                  <caption>
+                    알림받을 연락처, 알림 가능 요일, 알림 가능 시간, 자신에게 온 결재 요청에 대한 알림, 자신이 요청한 결재에 대한 완료, 반려시 알림에 대한 구성 테이블입니다.
+                  </caption>
+                  <colgroup>
+                    <col style="width: 160px" />
+                    <col style="width: auto" />
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="row">
+                        <span>알림받을 연락처</span>
+                      </th>
+                      <td>
+                        <div class="tbl-flex">
+                          <span class="typeMd">010-****-2000</span>
+                          <button type="button" class="btn type-line-primary size-lg">
+                            <span class="text">연락처 변경</span>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span>알림 가능 요일</span>
+                      </th>
+                      <td>
+                        <div class="tbl-column">
+                          <div class="radio-group" role="radiogroup" aria-label="전체/주중">
+                            <span class="form-box">
+                              <input type="radio" name="전체/주중" id="전체" class="radio-btn" checked="" />
+                              <label for="전체" class="form-label">전체</label>
+                            </span>
+                            <span class="form-box">
+                              <input type="radio" name="전체/주중" id="주중" class="radio-btn" />
+                              <label for="주중" class="form-label">주중</label>
+                            </span>
+                          </div>
+                          <div class="radio-group" role="radiogroup" aria-label="요일">
+                            <span class="form-box">
+                              <input type="radio" name="searchPeriod" id="월" class="radio-btn" checked="" />
+                              <label for="월" class="form-label">월</label>
+                            </span>
+                            <span class="form-box">
+                              <input type="radio" name="searchPeriod" id="화" class="radio-btn" />
+                              <label for="화" class="form-label">화</label>
+                            </span>
+                            <span class="form-box">
+                              <input type="radio" name="요일" id="수" class="radio-btn" />
+                              <label for="수" class="form-label">수</label>
+                            </span>
+                            <span class="form-box">
+                              <input type="radio" name="요일" id="목" class="radio-btn" />
+                              <label for="목" class="form-label">목</label>
+                            </span>
+                            <span class="form-box">
+                              <input type="radio" name="요일" id="금" class="radio-btn" />
+                              <label for="금" class="form-label">금</label>
+                            </span>
+                            <span class="form-box">
+                              <input type="radio" name="요일" id="토" class="radio-btn" />
+                              <label for="토" class="form-label">토</label>
+                            </span>
+                            <span class="form-box">
+                              <input type="radio" name="요일" id="일" class="radio-btn" />
+                              <label for="일" class="form-label">일</label>
+                            </span>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span>알림 가능 시간</span>
+                      </th>
+                      <td>
+                        <div class="tbl-flex">
+                          <span class="form-chip">
+                            <input type="checkbox" name="" id="" />
+                            <label class="chip-toggle size-md">
+                              <span class="text">전체</span>
+                            </label>
+                          </span>
+                          <div class="box-select wSize-sm">
+                            <button type="button" id="input-r56tyn" class="select size-lg" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="comp-h3x46r" aria-label="알림 가능 시간 선택">
+                              <span class="text">09</span>
+                              <span class="blind">펼침</span>
+                            </button>
+                            <div id="comp-h3x46r" class="box-list-select">
+                              <ul class="list-select" role="listbox" aria-label="알림 가능 시간">
+                                <li class="item-select" role="option" aria-selected="false"><span class="btn-item-select">00</span></li>
+                                <li class="item-select" role="option" aria-selected="false"><span class="btn-item-select">01</span></li>
+                                <li class="item-select" role="option" aria-selected="false"><span class="btn-item-select">02</span></li>
+                                <li class="item-select" role="option" aria-selected="false"><span class="btn-item-select">03</span></li>
+                                <li class="item-select" role="option" aria-selected="false"><span class="btn-item-select">04</span></li>
+                                <li class="item-select" role="option" aria-selected="false"><span class="btn-item-select">05</span></li>
+                                <li class="item-select" role="option" aria-selected="false"><span class="btn-item-select">06</span></li>
+                                <li class="item-select" role="option" aria-selected="false"><span class="btn-item-select">07</span></li>
+                                <li class="item-select" role="option" aria-selected="false"><span class="btn-item-select">08</span></li>
+                                <li class="item-select" role="option" aria-selected="false"><span class="btn-item-select">09</span></li>
+                                <li class="item-select" role="option" aria-selected="false"><span class="btn-item-select">10</span></li>
+                                <li class="item-select" role="option" aria-selected="false"><span class="btn-item-select">11</span></li>
+                                <li class="item-select" role="option" aria-selected="false"><span class="btn-item-select">12</span></li>
+                                <li class="item-select" role="option" aria-selected="false"><span class="btn-item-select">13</span></li>
+                                <li class="item-select" role="option" aria-selected="false"><span class="btn-item-select">14</span></li>
+                                <li class="item-select" role="option" aria-selected="false"><span class="btn-item-select">15</span></li>
+                                <li class="item-select" role="option" aria-selected="false"><span class="btn-item-select">16</span></li>
+                                <li class="item-select" role="option" aria-selected="false"><span class="btn-item-select">17</span></li>
+                                <li class="item-select" role="option" aria-selected="false"><span class="btn-item-select">18</span></li>
+                                <li class="item-select" role="option" aria-selected="false"><span class="btn-item-select">19</span></li>
+                                <li class="item-select" role="option" aria-selected="false"><span class="btn-item-select">20</span></li>
+                                <li class="item-select" role="option" aria-selected="false"><span class="btn-item-select">21</span></li>
+                                <li class="item-select" role="option" aria-selected="false"><span class="btn-item-select">22</span></li>
+                                <li class="item-select" role="option" aria-selected="false"><span class="btn-item-select">23</span></li>
+                              </ul>
+                            </div>
+                          </div>
+                          <span>시</span>
+                          <span>~</span>
+                          <div class="box-select wSize-sm">
+                            <button type="button" id="input-r56tyn" class="select size-lg" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="comp-h3x46r" aria-label="알림 가능 시간 선택">
+                              <span class="text">09</span>
+                              <span class="blind">펼침</span>
+                            </button>
+                            <div id="comp-h3x46222r" class="box-list-select">
+                              <ul class="list-select" role="listbox" aria-label="알림 가능 시간">
+                                <li class="item-select" role="option" aria-selected="false"><span class="btn-item-select">00</span></li>
+                                <li class="item-select" role="option" aria-selected="false"><span class="btn-item-select">01</span></li>
+                                <li class="item-select" role="option" aria-selected="false"><span class="btn-item-select">02</span></li>
+                                <li class="item-select" role="option" aria-selected="false"><span class="btn-item-select">03</span></li>
+                                <li class="item-select" role="option" aria-selected="false"><span class="btn-item-select">04</span></li>
+                                <li class="item-select" role="option" aria-selected="false"><span class="btn-item-select">05</span></li>
+                                <li class="item-select" role="option" aria-selected="false"><span class="btn-item-select">06</span></li>
+                                <li class="item-select" role="option" aria-selected="false"><span class="btn-item-select">07</span></li>
+                                <li class="item-select" role="option" aria-selected="false"><span class="btn-item-select">08</span></li>
+                                <li class="item-select" role="option" aria-selected="false"><span class="btn-item-select">09</span></li>
+                                <li class="item-select" role="option" aria-selected="false"><span class="btn-item-select">10</span></li>
+                                <li class="item-select" role="option" aria-selected="false"><span class="btn-item-select">11</span></li>
+                                <li class="item-select" role="option" aria-selected="false"><span class="btn-item-select">12</span></li>
+                                <li class="item-select" role="option" aria-selected="false"><span class="btn-item-select">13</span></li>
+                                <li class="item-select" role="option" aria-selected="false"><span class="btn-item-select">14</span></li>
+                                <li class="item-select" role="option" aria-selected="false"><span class="btn-item-select">15</span></li>
+                                <li class="item-select" role="option" aria-selected="false"><span class="btn-item-select">16</span></li>
+                                <li class="item-select" role="option" aria-selected="false"><span class="btn-item-select">17</span></li>
+                                <li class="item-select" role="option" aria-selected="false"><span class="btn-item-select">18</span></li>
+                                <li class="item-select" role="option" aria-selected="false"><span class="btn-item-select">19</span></li>
+                                <li class="item-select" role="option" aria-selected="false"><span class="btn-item-select">20</span></li>
+                                <li class="item-select" role="option" aria-selected="false"><span class="btn-item-select">21</span></li>
+                                <li class="item-select" role="option" aria-selected="false"><span class="btn-item-select">22</span></li>
+                                <li class="item-select" role="option" aria-selected="false"><span class="btn-item-select">23</span></li>
+                              </ul>
+                            </div>
+                          </div>
+                          <span>시</span>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span>자신에게 온 결재 요청에 대한 알림</span>
+                      </th>
+                      <td>
+                        <!-- radiogroup에 aria-labelledby -->
+                        <div class="form-box-wrap" role="radiogroup" aria-label="조회구분">
+                          <span class="form-box">
+                            <input type="radio" name="radio_comp-3xa0nz" id="radio_comp-3xa0nz_01" class="form-radio size-md" checked="" />
+                            <label for="radio_comp-3xa0nz_01" class="form-label">ON</label>
+                          </span>
+                          <span class="form-box">
+                            <input type="radio" name="radio_comp-3xa0nz" id="radio_comp-3xa0nz_02" class="form-radio size-md" />
+                            <label for="radio_comp-3xa0nz_02" class="form-label">OFF</label>
+                          </span>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span>자신이 요청한 결재에 대한 완료, 반려시 알림</span>
+                      </th>
+                      <td>
+                        <!-- radiogroup에 aria-labelledby -->
+                        <div class="form-box-wrap" role="radiogroup" aria-label="조회구분">
+                          <span class="form-box">
+                            <input type="radio" name="radio_comp-2vvw2s" id="radio_comp-2vvw2s_01" class="form-radio size-md" checked="" />
+                            <label for="radio_comp-2vvw2s_01" class="form-label">ON</label>
+                          </span>
+                          <span class="form-box">
+                            <input type="radio" name="radio_comp-2vvw2s" id="radio_comp-2vvw2s_02" class="form-radio size-md" />
+                            <label for="radio_comp-2vvw2s_02" class="form-label">OFF</label>
+                          </span>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="btn-wrap center lg-bot">
+                <button type="button" class="btn type-bg-primary size-xxl">
+                  <span class="text">확인</span>
+                </button>
+              </div>
+              <div class="line-box size-xl mt-48">
+                <span class="typeLgSemibold">이용안내</span>
+                <div class="list type-dotted">
+                  <ul>
+                    <li class="typeMd">다단계 결재 요청, 완료, 반려 사항에 대한 알림 설정할 수 있습니다.</li>
+                    <li class="typeMd">
+                      <div class="list-button">
+                        PUSH알림 관리는 파트너뱅크 앱을 이용해 주세요.
+
+                        <button type="button" class="btn type-line-secondary size-sm">
+                          <span class="text">PUSH 이용안내 </span>
+                        </button>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
+</html>

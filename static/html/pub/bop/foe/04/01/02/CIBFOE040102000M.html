@@ -2,151 +2,169 @@
 <!-- 뱅킹업무 > 외환 > 해외송금 > 무증빙해외송금 -->
 <!doctype html>
 <html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>뱅킹업무 &gt; 외환 &gt; 해외송금 &gt; 무증빙해외송금 | 수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/foe.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>뱅킹업무 &gt; 외환 &gt; 해외송금 &gt; 무증빙해외송금 | 수협은행</title>
-  <link rel="stylesheet" href="/static/css/reset.css" />
-  <link rel="stylesheet" href="/static/css/layout.css" />
-  <link rel="stylesheet" href="/static/css/component.css" />
-  <link rel="stylesheet" href="/static/css/common.css" />
-  <link rel="stylesheet" href="/static/css/foe.css" />
-</head>
+  <body>
+    <div class="wrapper">
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
 
-<body>
-  <div class="wrapper">
-    <div id="header">
-      @@include('static/html/pub/layout/skipNavigation.html')
-      @@include('static/html/pub/layout/header_sub.html')
-    </div>
-
-    <div id="container" class="container">
-      <div id="leftArea">
-        @@include('static/html/pub/layout/leftArea.html')
-      </div>
-      <div id="contents">
-        <div class="content">
-          @@include('static/html/pub/layout/breadcrumb.html')
-          <div class="foe">
-            <h2 class="typeH2">
-              무증빙해외송금
-              <div class="box-steps">
-                <ol class="list-steps">
-                  <li class="item-steps current" aria-current="step">
-                    <span class="blind">영문고객정보</span>
-                    <i class="icon" aria-hidden="true">1</i>
-                    <span class="text">영문고객정보</span>
-                  </li>
-                  <li class="item-steps"><i class="icon" aria-hidden="true">2</i><span class="text">2</span></li>
-                  <li class="item-steps"><i class="icon" aria-hidden="true">3</i><span class="text">3</span></li>
-                  <li class="item-steps"><i class="icon" aria-hidden="true">4</i><span class="text">4</span></li>
-                  <li class="item-steps"><i class="icon" aria-hidden="true">5</i><span class="text">5</span></li>
-                </ol>
-              </div>
-            </h2>
-
-            <div class="tbl-area">
-              <div class="tbl-head">
-                <div class="left-area">
-                  <h4 class="typeH4">영문고객정보확인</h4>
+      <div id="container" class="container">
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="foe">
+              <h2 class="typeH2">
+                무증빙해외송금
+                <div class="box-steps">
+                  <ol class="list-steps">
+                    <li class="item-steps current" aria-current="step">
+                      <span class="blind">영문고객정보</span>
+                      <i class="icon" aria-hidden="true">1</i>
+                      <span class="text">영문고객정보</span>
+                    </li>
+                    <li class="item-steps"><i class="icon" aria-hidden="true">2</i><span class="text">2</span></li>
+                    <li class="item-steps"><i class="icon" aria-hidden="true">3</i><span class="text">3</span></li>
+                    <li class="item-steps"><i class="icon" aria-hidden="true">4</i><span class="text">4</span></li>
+                    <li class="item-steps"><i class="icon" aria-hidden="true">5</i><span class="text">5</span></li>
+                  </ol>
                 </div>
-              </div>
-              <table class="table-type01">
-                <caption>송금인명, 주소, 도시, 전화번호 정보 입력테이블</caption>
-                <!-- [수정] 20260907 col width 값 수정  -->
-                <colgroup>
-                  <col style="width: 160px" />
-                  <col style="width: auto" />
-                </colgroup>
-                <tbody>
-                  <tr>
-                    <th scope="row"><label for="senderName">송금인명</label></th>
-                    <td>
-                      <input type="text" id="senderName" class="input size-lg wSize-md" value="Song kum in d" readonly
-                        title="송금인명" />
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row"><label for="senderAddr">주소</label></th>
-                    <td>
-                      <div class="tbl-column">
-                        <button type="button" class="btn type-line-secondary size-lg">주소입력</button>
-                        <div class="wSize-full">
-                          <input type="text" id="senderAddr" class="input size-lg" title="주소" value="" readonly />
+              </h2>
+
+              <div class="tbl-area">
+                <div class="tbl-head">
+                  <div class="left-area">
+                    <h4 class="typeH4">영문고객정보확인</h4>
+                  </div>
+                </div>
+                <table class="table-type01">
+                  <caption>
+                    송금인명, 주소, 도시, 전화번호 정보 입력테이블
+                  </caption>
+                  <!-- [수정] 20260907 col width 값 수정  -->
+                  <colgroup>
+                    <col style="width: 160px" />
+                    <col style="width: auto" />
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="row"><label for="senderName">송금인명</label></th>
+                      <td>
+                        <!--[dev]:20261026 title 삭제 aria-label로 변경-->
+                        <input type="text" id="senderName" class="input size-lg wSize-md" aria-label="송금인명" value="Song kum in d" readonly />
+                        <!--//[dev]:20261026 title 삭제 aria-label로 변경-->
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row"><label for="senderAddr">주소</label></th>
+                      <td>
+                        <div class="tbl-column">
+                          <!--[dev]:20261026 버튼 텍스트 수정-->
+                          <button type="button" class="btn type-line-secondary size-lg">주소검색</button>
+                          <!--//[dev]:20261026 버튼 텍스트 수정-->
+                          <div class="wSize-full">
+                            <!--[dev]:20261026 title 삭제 aria-label로 변경-->
+                            <input type="text" id="senderAddr" class="input size-lg" aria-label="주소" value="" readonly />
+                            <!--//[dev]:20261026 title 삭제 aria-label로 변경-->
+                          </div>
                         </div>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row"><label for="senderCity">도시</label></th>
-                    <td>
-                      <div class="wSize-full">
-                        <input type="text" id="senderCity" class="input size-lg" placeholder="입력해주세요" title="도시"
-                          aria-required="true" />
-                        <!--[dev]:20260831 디자인변경-->
-                        <p class="input-guide-text">Ex) SEOUL(공백포함 영문 30자 이내로 입력하세요)</p>
-                        <!--//[dev]:20260831 디자인변경-->
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">전화번호</th>
-                    <td>
-                      <div class="tbl-cloum">
-                        <div class="tbl-flex">
-                          <div class="box-select wSize-sm">
-                            <button type="button" id="phonePrefixBtn" class="select size-lg" role="combobox"
-                              aria-expanded="false" aria-haspopup="listbox" aria-controls="selectDropdown01">
-                              <span class="text">010</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row"><label for="senderCity">도시</label></th>
+                      <td>
+                        <div class="">
+                          <div class="clear-type wSize-full">
+                            <input type="text" id="senderCity" class="input size-lg" placeholder="입력해주세요" aria-label="도시" aria-required="true" />
+                            <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                              <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                              <span class="blind">닫기</span>
                             </button>
-                            <div id="selectDropdown01" class="box-list-select">
-                              <ul class="list-select" role="listbox" aria-label="전화번호 앞자리 선택">
-                                <li class="item-select" role="presentation"><button type="button"
-                                    class="btn-item-select">010</button></li>
-                              </ul>
+                          </div>
+
+                          <!--[dev]:20260831 디자인변경-->
+                          <p class="input-guide-text">Ex) SEOUL(공백포함 영문 30자 이내로 입력하세요)</p>
+                          <!--//[dev]:20260831 디자인변경-->
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">전화번호</th>
+                      <td>
+                        <div class="tbl-cloum">
+                          <div class="tbl-flex">
+                            <div class="box-select wSize-sm">
+                              <button type="button" id="phonePrefixBtn" class="select size-lg" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="selectDropdown01">
+                                <span class="text">010</span>
+                              </button>
+                              <div id="selectDropdown01" class="box-list-select">
+                                <ul class="list-select" role="listbox" aria-label="전화번호 앞자리 선택">
+                                  <li class="item-select" role="presentation" aria-selected="true"><span class="btn-item-select">010</span></li>
+                                </ul>
+                              </div>
+                            </div>
+                            <span aria-hidden="true">-</span>
+                            <div class="wSize-sm">
+                              <div class="clear-type">
+                                <input type="text" class="input size-lg" placeholder="입력" aria-label="전화번호 중간자리" value="1234" aria-required="true" />
+                                <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                                  <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                                  <span class="blind">닫기</span>
+                                </button>
+                              </div>
+                            </div>
+                            <span aria-hidden="true">-</span>
+                            <div class="wSize-sm">
+                              <div class="clear-type">
+                                <input type="text" class="input size-lg" placeholder="입력" aria-label="전화번호 마지막자리" value="1234" aria-required="true" />
+                                <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                                  <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                                  <span class="blind">닫기</span>
+                                </button>
+                              </div>
                             </div>
                           </div>
-                          <span aria-hidden="true">-</span>
-                          <div class="wSize-sm">
-                            <input type="text" class="input size-lg" placeholder="입력" title="전화번호 중간자리" value="1234"
-                              aria-required="true" />
-                          </div>
-                          <span aria-hidden="true">-</span>
-                          <div class="wSize-sm">
-                            <input type="text" class="input size-lg" placeholder="입력" title="전화번호 마지막자리" value="1234"
-                              aria-required="true" />
-                          </div>
+                          <!--[dev]:20261026 mt-8 추가-->
+                          <p class="input-guide-text mt-8">송금처리 불가 시 연락 가능한 전화번호를 반드시 입력하세요.</p>
+                          <!--//[dev]:20261026 mt-8 추가-->
                         </div>
-                        <!--[dev]:20260831 디자인변경-->
-                        <p class="input-guide-text">송금처리 불가 시 연락 가능한 전화번호를 반드시 입력하세요.</p>
-                        <!--//[dev]:20260831 디자인변경-->
-                      </div>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <!--[dev]:20260831 디자인변경으로 mt-6 추가-->
-            <div class="list type-star mt-6">
-              <ul>
-                <li class="typeMd">법인 성명(영문) 수정은 영업점에 방문하시기 바랍니다.</li>
-                <li class="typeMd">영문 주소 변경 시 한글 주소는 변경되지 않으며 'MY정보&gt;고객정보관리&gt;고객정보 조회/변경' 에서 한글 주소 수정이 가능합니다.</li>
-              </ul>
-            </div>
-            <!--//[dev]:20260831 디자인변경 mt-6 추가-->
-            <div class="btn-wrap center lg-bot">
-              <button type="button" class="btn type-line-neutral size-xxl"><span class="text">이전</span></button>
-              <button type="button" class="btn type-bg-primary size-xxl"><span class="text">다음</span></button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!--[dev]:20260831 디자인변경으로 mt-6 추가-->
+              <!--[dev]:20261026 리스트타입 type-dotted로 변경-->
+              <div class="list type-dotted mt-6">
+                <ul>
+                  <li class="typeMd">법인 성명(영문) 수정은 영업점에 방문하시기 바랍니다.</li>
+                  <li class="typeMd">영문 주소 변경 시 한글 주소는 변경되지 않으며 'MY정보&gt;고객정보관리&gt;고객정보 조회/변경' 에서 한글 주소 수정이 가능합니다.</li>
+                </ul>
+              </div>
+              <!--//[dev]:20261026 리스트타입 type-dotted로 변경-->
+              <!--//[dev]:20260831 디자인변경 mt-6 추가-->
+              <div class="btn-wrap center lg-bot">
+                <!--[dev]:20261026 버튼 스타일 변경-->
+                <button type="button" class="btn type-bg-primary-tint size-xxl"><span class="text">이전</span></button>
+                <!--//[dev]:20261026 버튼 스타일 변경-->
+                <button type="button" class="btn type-bg-primary size-xxl"><span class="text">다음</span></button>
+              </div>
             </div>
           </div>
         </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
       </div>
-      <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
     </div>
-    <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
-  </div>
-  <script src="/static/js/ui/cib_ui_common.js"></script>
-</body>
-
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
 </html>

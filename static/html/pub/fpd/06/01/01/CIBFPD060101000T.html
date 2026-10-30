@@ -1,0 +1,921 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>수협은행</title>
+  <link rel="stylesheet" href="/static/css/reset.css" />
+  <link rel="stylesheet" href="/static/css/layout.css" />
+  <link rel="stylesheet" href="/static/css/component.css" />
+  <link rel="stylesheet" href="/static/css/common.css" />
+  <link rel="stylesheet" href="/static/css/fpd.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <div id="header">
+      @@include('static/html/pub/layout/skipNavigation.html')
+      @@include('static/html/pub/layout/header_sub.html')
+    </div>
+
+    <div id="container" class="container">
+      <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+      <div id="contents">
+        <div class="content">
+          @@include('static/html/pub/layout/breadcrumb.html')
+          <div class="fpd">
+            <h2 class="typeH2">
+              서비스수수료
+            </h2>
+            <div class="box-tab">
+              <ul class="list-tab-button type-outline" role="tablist" aria-label="탭 이름">
+                <li class="item-tab-button">
+                  <button type="button" class="btn-tab active" id="tabBtnTypeOutline01" role="tab" aria-selected="true"
+                    aria-controls="tabPanelTypeOutline01">
+                    <span class="text">예금/신탁</span>
+                  </button>
+                </li>
+                <li class="item-tab-button">
+                  <button type="button" class="btn-tab" title="선택됨" id="tabBtnTypeOutline02" role="tab"
+                    aria-selected="false" aria-controls="tabPanelTypeOutline02">
+                    <span class="text">대출</span>
+                  </button>
+                </li>
+                <li class="item-tab-button">
+                  <button type="button" class="btn-tab" title="선택됨" id="tabBtnTypeOutline02" role="tab"
+                    aria-selected="false" aria-controls="tabPanelTypeOutline02">
+                    <span class="text">외환</span>
+                  </button>
+                </li>
+                <li class="item-tab-button">
+                  <button type="button" class="btn-tab" title="선택됨" id="tabBtnTypeOutline02" role="tab"
+                    aria-selected="false" aria-controls="tabPanelTypeOutline02">
+                    <span class="text">카드</span>
+                  </button>
+                </li>
+              </ul>
+              <div class="box-tab-content" id="tabPanelTypeOutline01" role="tabpanel"
+                aria-labelledby="tabBtnTypeOutline01" style="display: block;">
+                <div class="box-tab">
+                  <ul class="list-tab-button type-chip size-md" role="tablist" aria-label="공시자료 탭">
+                    <li class="item-tab-button">
+                      <button type="button" class="btn-tab active" title="선택됨" id="tabBtnTypeHighlightFull01" role="tab"
+                        aria-selected="true" aria-controls="tabPanelTypeHighlightFull01">
+                        <span class="text">송금수수료</span>
+                      </button>
+                    </li>
+                    <li class="item-tab-button">
+                      <button type="button" class="btn-tab" id="tabBtnTypeHighlightFull02" role="tab"
+                        aria-selected="false" aria-controls="tabPanelTypeHighlightFull02">
+                        <span class="text">기타수수료</span>
+                      </button>
+                    </li>
+                    <li class="item-tab-button">
+                      <button type="button" class="btn-tab" id="tabBtnTypeHighlightFull02" role="tab"
+                        aria-selected="false" aria-controls="tabPanelTypeHighlightFull02">
+                        <span class="text">파트너뱅킹 수수료</span>
+                      </button>
+                    </li>
+                  </ul>
+                  <div class="box-tab-content autoH active" id="tabPanelTypeHighlightFull01" role="tabpanel"
+                    aria-labelledby="tabBtnTypeHighlightFull01" style="display: block;">
+                    <div class="tbl-area">
+                      <div class="tbl-head">
+                        <div class="typeH6">창구송금 수수료</div>
+                      </div>
+                      <table class="table-type03">
+                        <caption>순번, 수수료구분, 수수료, 매매계약일자, 판매기업명, MP명, 징수일자, 상세, MP구분, 매매계약금액, 매매계약번호, 판매기업사업자번호, MP사업자번호,
+                          수수료징수구분에 대한 구성 테이블입니다.</caption>
+                        <colgroup>
+                          <col>
+                          <col>
+                          <col>
+                          <col>
+                          <col>
+                        </colgroup>
+                        <thead>
+                          <tr>
+                            <th rowspan="2" id="th-01">수수료 종류</th>
+                            <th rowspan="2" id="th-02">징수기준</th>
+                            <th colspan="2" id="th-03">금액</th>
+                            <th rowspan="2" id="th-04">비고</th>
+                          </tr>
+                          <tr>
+                            <th id="th-03-01">정상수수료</th>
+                            <th id="th-04-02">할인(20%)</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td headers="th-01"><span class="typeMd">창구 송금수수료<br />(같은 은행으로 보낼 때)</span></td>
+                            <td headers="th-02"><span class="typeMd">-</span></td>
+                            <td headers="th-03 th-03-01 th-04-02" colspan="2"><span class="typeMd">면제</span></td>
+                            <td headers="th-04"><span class="typeMd">-</span></td>
+                          </tr>
+                          <tr>
+                            <td rowspan="3" headers="th-01"><span class="typeMd">창구 송금수수료<br />(다른 은행으로 보낼 때)</span>
+                            </td>
+                            <td headers="th-02"><span class="typeMd">10만원 이하</span></td>
+                            <td headers="th-02 th-03-01" class="text-right"><span class="typeMd">1,000원</span></td>
+                            <td headers="th-02 th-03-02" class="text-right"><span class="typeMd">800원</span></td>
+                            <td headets="th-04" rowspan="3"><span class="typeMd">타행환공동망수수료<br />1회 송금 최고한도 5억원 이하</span>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td headers="th-02" class="tbl-border-left"><span class="typeMd">100만원 이하</span></td>
+                            <td headers="th-02 th-03-01" class="text-right"><span class="typeMd">2,000원</span></td>
+                            <td headers="th-02 th-03-02" class="text-right"><span class="typeMd">1,600원</span></td>
+                          </tr>
+                          <tr>
+                            <td headers="th-02" class="tbl-border-left"><span class="typeMd">100만원 초과</span></td>
+                            <td headers="th-02 th-03-02" class="text-right"><span class="typeMd">3,000원</span></td>
+                            <td headers="th-02 th-03-02" class="text-right"><span class="typeMd">2,400원</span></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <div class="list-lg-wrap">
+                        <h4 class="typeH4 color-fg-primary">창구 송금수수료 면제대상(다른 은행으로 보낼 때)</h4>
+                        <div class="list type-bar mt-12">
+                          <ul>
+                            <li class="typeLg">
+                              대행계약 거래처
+                            </li>
+                            <li class="typeLg">
+                              정부기관 지원금, 재단의 지원금 등 기타성금 및 환수수료 담당 부서장이 정하는 송금
+                            </li>
+                            <li class="typeLg">
+                              입금불능 거래가 발생시 반환
+                            </li>
+                            <li class="typeLg">
+                              더 퍼스트 고객
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="list-lg-wrap">
+                        <h4 class="typeH4">창구 송금수수료 20% 할인(다른 은행으로 보낼 때)</h4>
+                        <div class="list type-dotted">
+                          <ul>
+                            <li class="typeLg">대상자
+                              <div class="list type-bar">
+                                <ul>
+                                  <li class="typeLg">
+                                    미성년자(만18세 이하)
+                                  </li>
+                                  <li class="typeLg">
+                                    경로우대자(65세 이상)
+                                  </li>
+                                  <li class="typeLg">
+                                    장애인 : 장애인등록증 제시
+                                  </li>
+                                  <li class="typeLg">
+                                    국가유공상이자 : 국가보훈처장이 발급한 상이등급이 기재된 국가유공자증 제시
+                                  </li>
+                                </ul>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="tbl-area">
+                      <div class="tbl-head">
+                        <div class="typeH6">수협CD/ATM기 이용서비스 수수료</div>
+                      </div>
+                      <table class="table-type03">
+                        <caption>순번, 수수료구분, 수수료, 매매계약일자, 판매기업명, MP명, 징수일자, 상세, MP구분, 매매계약금액, 매매계약번호, 판매기업사업자번호, MP사업자번호,
+                          수수료징수구분에 대한 구성 테이블입니다.</caption>
+                        <colgroup>
+                          <col>
+                          <col>
+                          <col>
+                          <col>
+                          <col>
+                        </colgroup>
+                        <thead>
+                          <tr>
+                            <th rowspan="2">수수료 종류</th>
+                            <th rowspan="2">징수기준</th>
+                            <th colspan="2">수수료</th>
+                            <th rowspan="2">비고</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td rowspan="3"><span class="typeMd">자동화기기 출금수수료<br />
+                                (같은 은행 기기 이용시)</span></td>
+                            <td><span class="typeMd">마감전</span></td>
+                            <td colspan="2"><span class="typeMd">면제</span></td>
+                            <td rowspan="6"><span class="typeMd">*마감전 거래시간<br />
+                                평일 08:30~18:00<br />
+                                토요일 08:30~14:00<br />
+                                <br />
+
+                                *마감후 거래시간<br />
+                                마감전 이외의 시간과 일요일 및 공휴일
+                              </span></td>
+                          </tr>
+                          <tr>
+                            <td rowspan="2" class="tbl-border-left"><span class="typeMd">마감후</span></td>
+                            <td><span class="typeMd">1회 출금</span></td>
+                            <td><span class="typeMd">600원</span></td>
+                          </tr>
+                          <tr>
+                            <td class="tbl-border-left"><span class="typeMd">연속출금*</span></td>
+                            <td><span class="typeMd">350원</span></td>
+                          </tr>
+                          <tr>
+                            <td rowspan="3"><span class="typeMd">자동화기기 이체수수료<br />
+                                (같은 은행 기기 이용시)
+                              </span>
+                            </td>
+                            <td><span class="typeMd">마감전</span></td>
+                            <td colspan="2"><span class="typeMd">면제</span></td>
+                          </tr>
+                          <tr>
+                            <td class="tbl-border-left"><span class="typeMd">마감후</span></td>
+                            <td colspan="2"><span class="typeMd">면제</span></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <div class="list-lg-wrap">
+                        <h4 class="typeH4 color-fg-primary">자동화기기 출금수수료 면제</h4>
+                        <div class="list type-dotted">
+                          <ul>
+                            <li class="typeLg">대상자
+                              <div class="list type-bar">
+                                <ul>
+                                  <li class="typeLg">
+                                    수협은행 고객(카드)중 기초생활수급권자, 장애인, 소년소녀가장(만19세미만), 영세어업인
+                                  </li>
+                                  <li class="typeLg">
+                                    수협은행 고객(카드)중 국가보훈처장이 발급한 상이등급이 기재된 국가유공상이자 증 소지자
+                                    <div class="list type-dotted">
+                                      <ul>
+                                        <li class="typeMd">
+                                          전상군경, 공상군경, 전투종사군무원, 고엽제후유증환자, 5.18민주화운동 부상자, 6.18자유상이자 등
+                                        </li>
+
+                                      </ul>
+                                    </div>
+                                  </li>
+                                </ul>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                        <div class="list type-star">
+                          <ul>
+                            <li class="typeMd">연속출금 : 연속출금이란 당행 자동화기기 이용 100만원 초과 연속 2회 이상 인출 시 계좌당 2회째부터 적용하며,
+                              당일 00:00을 기준으로 1회 출금이 100만원을 인출한 경우 이후부터 당일 24:00까지 연속출금 수수료 적용
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="tbl-area">
+                      <div class="tbl-head">
+                        <div class="typeH6">CD공동망 이용서비스 수수료</div>
+                      </div>
+                      <table class="table-type03">
+                        <caption>순번, 수수료구분, 수수료, 매매계약일자, 판매기업명, MP명, 징수일자, 상세, MP구분, 매매계약금액, 매매계약번호, 판매기업사업자번호, MP사업자번호,
+                          수수료징수구분에 대한 구성 테이블입니다.</caption>
+                        <colgroup>
+                          <col>
+                          <col>
+                          <col>
+                          <col>
+                          <col>
+                        </colgroup>
+                        <thead>
+                          <tr>
+                            <th rowspan="2">수수료 종류</th>
+                            <th colspan="2" rowspan="2">징수기준</th>
+                            <th>수수료</th>
+                            <th rowspan="2">비고</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td rowspan="2"><span class="typeMd">자동화기기 출금수수료<br />(다른 은행 기기 이용시)</span></td>
+                            <td colspan="2"><span class="typeMd">마감전</span></td>
+                            <td><span class="typeMd">800원</span></td>
+                            <td rowspan="6"><span class="typeMd">*마감전 거래시간<br />
+                                평일 08:30~18:00<br />
+                                토요일 08:30~14:00<br /><br />
+
+
+                                *마감후 거래시간<br />
+                                마감전 이외의 시간과 일요일 및 공휴일<br />
+
+                                ※ 수협은행 고객(카드)이 수협은행기기를 이용하여 다른 은행 계좌로 이체시 포함
+                              </span></td>
+                          </tr>
+                          <tr>
+                            <td colspan="2" class="tbl-border-left"><span class="typeMd">마감후</span></td>
+                            <td><span class="typeMd">1,000원</span></td>
+                          </tr>
+                          <tr>
+                            <td rowspan="4"><span class="typeMd">자동화기기 이체수수료<br />(다른 은행 기기 이용시)</span>
+                            </td>
+                            <td rowspan="2"><span class="typeMd">10만원까지</span></td>
+                            <td><span class="typeMd">마감전</span></td>
+                            <td><span class="typeMd">700원</span></td>
+                          </tr>
+                          <tr>
+                            <td class="tbl-border-left"><span class="typeMd">마감후</span></td>
+                            <td><span class="typeMd">950원</span></td>
+                          </tr>
+                          <tr>
+                            <td rowspan="2" class="tbl-border-left"><span class="typeMd">10만원초과</span></td>
+                            <td><span class="typeMd">마감전</span></td>
+                            <td><span class="typeMd">1,000원</span></td>
+                          </tr>
+                          <tr>
+                            <td class="tbl-border-left"><span class="typeMd">마감후</span></td>
+                            <td><span class="typeMd">1,100원</span></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <div class="list-lg-wrap">
+                        <h4 class="typeH4"><span class="color-fg-primary">자동화기기 이체수수료 면제</span>[수협은행 고객(카드)이 수협은행 기기를
+                          이용하여 다른 은행 계좌로 이체시]</h4>
+                        <div class="list type-dotted">
+                          <ul>
+                            <li class="typeLg">대상자
+                              <div class="list type-bar">
+                                <ul>
+                                  <li class="typeLg">
+                                    수협은행 고객(카드)중 기초생활수급권자, 장애인, 소년소녀가장(만19세미만), 영세어업인
+                                  </li>
+                                  <li class="typeLg">
+                                    수협은행 고객(카드)중 국가보훈처장이 발급한 상이등급이 기재된 국가유공상이자 증 소지자
+                                    <div class="list type-dotted">
+                                      <ul>
+                                        <li class="typeMd">
+                                          전상군경, 공상군경, 전투종사군무원, 고엽제후유증환자, 5.18민주화운동 부상자, 6.18자유상이자 등
+                                        </li>
+                                      </ul>
+                                    </div>
+                                  </li>
+                                  <li class="typeLg">
+                                    더 퍼스트 고객
+                                  </li>
+                                </ul>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="box-tab-content autoH" id="tabPanelTypeHighlightFull02" role="tabpanel"
+                    aria-labelledby="tabBtnTypeHighlightFull02" style="display: none;">
+
+                  </div>
+                </div>
+              </div>
+              <div class="box-tab-content autoH" id="tabPanelTypeHighlightFull02" role="tabpanel"
+                aria-labelledby="tabBtnTypeHighlightFull02" style="display: none;">
+                ㄴㅇㄹ
+              </div>
+            </div>
+            <div class="box-tab-content active" id="tabPanelTypeOutline02" role="tabpanel"
+              aria-labelledby="tabBtnTypeOutline02" style="display: none;">
+              <div class="box-tab">
+                <ul class="list-tab-button type-chip size-md" role="tablist" aria-label="공시자료 탭">
+                  <li class="item-tab-button">
+                    <button type="button" class="btn-tab active" title="선택됨" id="tabBtnTypeHighlightFull01" role="tab"
+                      aria-selected="true" aria-controls="tabPanelTypeHighlightFull01">
+                      <span class="text">적용약관</span>
+                    </button>
+                  </li>
+                  <li class="item-tab-button">
+                    <button type="button" class="btn-tab" id="tabBtnTypeHighlightFull02" role="tab"
+                      aria-selected="false" aria-controls="tabPanelTypeHighlightFull02">
+                      <span class="text">상품설명서</span>
+                    </button>
+                  </li>
+                </ul>
+                <div class="box-tab-content autoH active" id="tabPanelTypeHighlightFull01" role="tabpanel"
+                  aria-labelledby="tabBtnTypeHighlightFull01" style="display: block;">
+                  <div class="tbl-area">
+                    <div class="table-header flex items-center justify-between">
+                      <div class="left-area flex items-center">
+                        <span class="typeSm">총</span><span class="typeSmSemibold"> 30</span><span
+                          class="typeSm">건</span>
+                      </div>
+                    </div>
+                    <table class="table-type03">
+                      <caption>순번, 수수료구분, 수수료, 매매계약일자, 판매기업명, MP명, 징수일자, 상세, MP구분, 매매계약금액, 매매계약번호, 판매기업사업자번호,
+                        MP사업자번호,
+                        수수료징수구분에 대한 구성 테이블입니다.</caption>
+                      <colgroup>
+                        <col>
+                        <col>
+                        <col>
+                        <col>
+                        <col>
+                        <col>
+                        <col>
+                      </colgroup>
+                      <thead>
+                        <tr>
+                          <th rowspan="2">순번</th>
+                          <th>수수료구분</th>
+                          <th>수수료</th>
+                          <th>매매계약일자</th>
+                          <th>판매기업명</th>
+                          <th>MP명</th>
+                          <th>징수일자</th>
+                          <th rowspan="2">상세</th>
+                        </tr>
+                        <tr>
+                          <th>MP구분</th>
+                          <th>매매계약금액</th>
+                          <th>매매계약번호</th>
+                          <th>판매기업사업자번호</th>
+                          <th>MP사업자번호</th>
+                          <th>수수료징수구분</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td rowspan="2"><span class="typeMd">1</span></td>
+                          <td><span class="typeMd">중계수수료</span></td>
+                          <td class="text-right"><span class="typeMd">115,500</span></td>
+                          <td><span class="typeMd">2026-07-20</span></td>
+                          <td><span class="typeMd">(고)황중문박인</span></td>
+                          <td><span class="typeMd">우밤용김돌팡전왕</span></td>
+                          <td><span class="typeMd">2026-07-20</span></td>
+                          <td rowspan="2">
+                            <button type="button" class="btn type-line-neutral size-sm">
+                              <span class="text">상세보기</span>
+                            </button>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td><span class="typeMd">신용보증기금</span></td>
+                          <td><span class="typeMd">70,000,000원</span></td>
+                          <td><span class="typeMd">KF202605261727419B2B</span></td>
+                          <td><span class="typeMd">602-81-30804</span></td>
+                          <td><span class="typeMd">219-82-01711</span></td>
+                          <td><span class="typeMd">징수</span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="box-tab-content autoH" id="tabPanelTypeHighlightFull02" role="tabpanel"
+                  aria-labelledby="tabBtnTypeHighlightFull02" style="display: none;">
+                  2
+                </div>
+              </div>
+
+              <div class="tbl-area">
+                <table class="table-type01">
+                  <caption>
+                    직장정보
+                  </caption>
+                  <colgroup>
+                    <col>
+                    <col>
+                    <col>
+                    <col>
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="row">계좌번호 </th>
+                      <td colspan="3" class="flex flex-column gap-8">
+                        <div class="box-select wSize-lg">
+                          <button type="button" class="select size-lg" role="combobox" aria-expanded="false"
+                            aria-haspopup="listbox" aria-controls="selectDropdown01">
+                            <span class="text">0000-0000-0000 (기업운전일반자금대출)</span>
+                            <span class="blind">펼침</span>
+                          </button>
+                          <div id="selectDropdown01" class="box-list-select">
+                            <ul class="list-select" role="listbox" aria-label="선택 항목 리스트">
+                              <li class="item-select" role="group" aria-label="선택 항목 리스트">
+                                <!-- {dev} <span class="form-box">-> <button class="btn-item-select">로 변경(모든 드롭은 이렇게 변경)  -->
+                                <button class="btn-item-select">0000-0000-0000 (기업운전일반자금대출)</button>
+                              </li>
+                              <li class="item-select" role="group" aria-label="선택 항목 리스트">
+                                <!-- {dev} <span class="form-box">-> <button class="btn-item-select">로 변경(모든 드롭은 이렇게 변경)  -->
+                                <button class="btn-item-select">1</button>
+                              </li>
+                              <li class="item-select" role="group" aria-label="선택 항목 리스트">
+                                <!-- {dev} <span class="form-box">-> <button class="btn-item-select">로 변경(모든 드롭은 이렇게 변경)  -->
+                                <button class="btn-item-select">1</button>
+                              </li>
+                              <li class="item-select" role="group" aria-label="선택 항목 리스트">
+                                <!-- {dev} <span class="form-box">-> <button class="btn-item-select">로 변경(모든 드롭은 이렇게 변경)  -->
+                                <button class="btn-item-select">1</button>
+                              </li>
+                              <li class="item-select" role="group" aria-label="선택 항목 리스트">
+                                <!-- {dev} <span class="form-box">-> <button class="btn-item-select">로 변경(모든 드롭은 이렇게 변경)  -->
+                                <button class="btn-item-select">1</button>
+                              </li>
+                              <li class="item-select" role="group" aria-label="선택 항목 리스트">
+                                <!-- {dev} <span class="form-box">-> <button class="btn-item-select">로 변경(모든 드롭은 이렇게 변경)  -->
+                                <button class="btn-item-select">1</button>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">거래구분</th>
+                      <td>
+                        <div class="form-box-wrap">
+                          <span class="form-box">
+                            <input type="radio" name="SampleRadio0302" id="SampleRadio0302" class="form-radio size-md"
+                              checked="" />
+                            <label for="SampleRadio0302" class="form-label">전체</label>
+                          </span>
+                          <span class="form-box">
+                            <input type="radio" name="SampleRadio0302" id="SampleRadio0302"
+                              class="form-radio size-md" />
+                            <label for="SampleRadio0302" class="form-label">입금내역</label>
+                          </span>
+                          <span class="form-box">
+                            <input type="radio" name="SampleRadio0302" id="SampleRadio0302"
+                              class="form-radio size-md" />
+                            <label for="SampleRadio0302" class="form-label">출금내역</label>
+                          </span>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">정렬방식</th>
+                      <td>
+                        <div class="form-box-wrap">
+                          <span class="form-box">
+                            <input type="radio" name="nameOfDeposit" id="name" class="form-radio size-md" checked="" />
+                            <label for="nameOfDeposit" class="form-label">최근 거래 내역이 위로</label>
+                          </span>
+                          <span class="form-box">
+                            <input type="radio" name="nameOfDeposit" id="nameOfDeposit" class="form-radio size-md" />
+                            <label for="SampleRadio0302" class="form-label">과거 거래 내역이 위로</label>
+                          </span>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">출력건수</th>
+                      <td>
+                        <div class="form-box-wrap">
+                          <span class="form-box">
+                            <input type="radio" name="prints" id="name" class="form-radio size-md" checked="" />
+                            <label for="nameOfDeposit" class="form-label">15</label>
+                          </span>
+                          <span class="form-box">
+                            <input type="radio" name="prints" id="nameOfDeposit" class="form-radio size-md" />
+                            <label for="SampleRadio0302" class="form-label">30</label>
+                          </span>
+                          <span class="form-box">
+                            <input type="radio" name="prints" id="nameOfDeposit" class="form-radio size-md" />
+                            <label for="SampleRadio0302" class="form-label">50</label>
+                          </span>
+                          <span class="form-box">
+                            <input type="radio" name="prints" id="nameOfDeposit" class="form-radio size-md" />
+                            <label for="SampleRadio0302" class="form-label">100</label>
+                          </span>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">조회기간</th>
+                      <td>
+                        <div class="tbl-column">
+                          <div class="radio-group">
+                            <span class="form-box">
+                              <input type="radio" name="SampleRadio0302_01" id="SampleRadio0302_01" class="radio-btn"
+                                checked="" />
+                              <label for="SampleRadio0302_01" class="form-label">당일</label>
+                              <input type="radio" name="SampleRadio0302_01" id="SampleRadio0302_02" class="radio-btn" />
+                              <label for="SampleRadio0302_02" class="form-label">전일</label>
+                              <input type="radio" name="SampleRadio0302_01" id="SampleRadio0302_03" class="radio-btn" />
+                              <label for="SampleRadio0302_03" class="form-label">3일전</label>
+                              <input type="radio" name="SampleRadio0302_01" id="SampleRadio0302_04" class="radio-btn" />
+                              <label for="SampleRadio0302_04" class="form-label">1주일전</label>
+                              <input type="radio" name="SampleRadio0302_01" id="SampleRadio0302_05" class="radio-btn" />
+                              <label for="SampleRadio0302_05" class="form-label">1달전</label>
+                              <input type="radio" name="SampleRadio0302_01" id="SampleRadio0302_06" class="radio-btn" />
+                              <label for="SampleRadio0302_06" class="form-label">3달전</label>
+                              <input type="radio" name="SampleRadio0302_01" id="SampleRadio0302_07" class="radio-btn" />
+                              <label for="SampleRadio0302_07" class="form-label">6달전</label>
+                              <input type="radio" name="SampleRadio0302_01" id="SampleRadio0302_08" class="radio-btn" />
+                              <label for="SampleRadio0302_08" class="form-label">1년전</label>
+                            </span>
+                          </div>
+                          <div class="calendar-wrap">
+                            <div class="input-box">
+                              <input type="text" class="input" placeholder="이쳬예약일" title="" aria-label="이쳬예약일"
+                                value="2026-01-06">
+                              <button type="button" class="btn">
+                                <i class="ico-calendar ico-size-smMd" aria-hidden="true"></i>
+                                <span class="blind">날짜 열기</span>
+                              </button>
+                            </div>
+                            ~
+                            <div class="input-box">
+                              <input type="text" class="input" placeholder="이쳬예약일" title="" aria-label="이쳬예약일"
+                                value="2026-01-06">
+                              <button type="button" class="btn">
+                                <i class="ico-calendar ico-size-smMd" aria-hidden="true"></i>
+                                <span class="blind">날짜 열기</span>
+                              </button>
+                            </div>
+                            <div class="box-select wSize-smMd">
+                              <button type="button" class="select size-lg" role="combobox" aria-expanded="false"
+                                aria-haspopup="listbox" aria-controls="selectDropdown01">
+                                <span class="text">월별선택</span>
+                                <span class="blind">펼침</span>
+                              </button>
+                              <div id="selectDropdown01" class="box-list-select">
+                                <ul class="list-select" role="listbox" aria-label="선택 항목 리스트">
+                                  <li class="item-select" role="group" aria-label="선택 항목 리스트">
+                                    <!-- {dev} <span class="form-box">-> <button class="btn-item-select">로 변경(모든 드롭은 이렇게 변경)  -->
+                                    <button class="btn-item-select">월별선택</button>
+                                  </li>
+                                  <li class="item-select" role="group" aria-label="선택 항목 리스트">
+                                    <!-- {dev} <span class="form-box">-> <button class="btn-item-select">로 변경(모든 드롭은 이렇게 변경)  -->
+                                    <button class="btn-item-select">1</button>
+                                  </li>
+                                  <li class="item-select" role="group" aria-label="선택 항목 리스트">
+                                    <!-- {dev} <span class="form-box">-> <button class="btn-item-select">로 변경(모든 드롭은 이렇게 변경)  -->
+                                    <button class="btn-item-select">1</button>
+                                  </li>
+                                  <li class="item-select" role="group" aria-label="선택 항목 리스트">
+                                    <!-- {dev} <span class="form-box">-> <button class="btn-item-select">로 변경(모든 드롭은 이렇게 변경)  -->
+                                    <button class="btn-item-select">1</button>
+                                  </li>
+                                  <li class="item-select" role="group" aria-label="선택 항목 리스트">
+                                    <!-- {dev} <span class="form-box">-> <button class="btn-item-select">로 변경(모든 드롭은 이렇게 변경)  -->
+                                    <button class="btn-item-select">1</button>
+                                  </li>
+                                  <li class="item-select" role="group" aria-label="선택 항목 리스트">
+                                    <!-- {dev} <span class="form-box">-> <button class="btn-item-select">로 변경(모든 드롭은 이렇게 변경)  -->
+                                    <button class="btn-item-select">1</button>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">추가검색</th>
+                      <td>
+                        <div class="tbl-column">
+                          <div class="form-wrap">
+                            <span class="form-box">
+                              <input type="checkbox" name="" id="SampleCheckbox0201" class="form-checkbox">
+                              <label for="SampleCheckbox0201" class="form-label">조회대상금액</label>
+                            </span>
+                            <div class="input-box-wrap">
+                              <div class="input-box gap-10">
+                                <input type="text" class="input" placeholder="" title="">
+                                <span class="typeMd">원</span>
+                              </div>
+                              ~
+                              <div class="input-box gap-10">
+                                <input type="text" class="input" placeholder="" title="">
+                                <span class="typeMd">원</span>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-wrap">
+                            <span class="form-box">
+                              <input type="checkbox" name="" id="SampleCheckbox0201" class="form-checkbox">
+                              <label for="SampleCheckbox0201" class="form-label">보낸분/받는분 표시내용</label>
+                            </span>
+                            <input type="text" class="input wSize-md size-lg" title="성명(영문)" value=""
+                              placeholder="입력해주세요">
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="btn-wrap center sm-mid mb-10">
+                <button type="button" class="btn type-line-neutral size-xl">
+                  <span class="text">초기화</span>
+                </button>
+                <button type="button" class="btn type-bg-neutral size-xl">
+                  <span class="text">조회</span>
+                </button>
+              </div>
+              <div class="tbl-area">
+                <h4 class="typeH4">
+                  <span class="text">조회결과</span>
+                </h4>
+                <div class="table-type02">
+                  <table class="inq-result-list">
+                    <caption>
+                      조회결과
+                    </caption>
+                    <colgroup>
+                      <col width="33.3%">
+                      <col width="33.3%">
+                      <col width="33.4%">
+                    </colgroup>
+                    <thead>
+                      <tr>
+                        <th colspan="3">
+                          <div class="th-wrap">
+                            <div class="th-left-area">
+                              <span class="ico-text">
+                                <i class="bank-kb ico-size-xs"></i>
+                                oo은행 보통예금
+                              </span> 1010-27330979
+                            </div>
+                            <div class="th-right-area">
+                              <button type="button" class="btn type-line-neutral size-sm">
+                                <span class="text">이체</span>
+                              </button>
+                            </div>
+                          </div>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          <div class="result-total-wrap">
+                            <span class="typeMdSemibold">입금합계액</span>
+                            <div class="result-total">
+                              <strong class="type2XlBold">12,100,000</strong>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="result-total-wrap">
+                            <span class="typeMdSemibold">출금합계액</span>
+                            <div class="result-total">
+                              <strong class="type2XlBold">12,100,000</strong>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="result-total-wrap">
+                            <span class="typeMdSemibold">인출가능잔액</span>
+                            <div class="result-total">
+                              <strong class="type2XlBold type-blue">2,010,000</strong>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="tbl-area js-check-table">
+                <div class="table-header flex items-center justify-between">
+                  <div class="left-area flex items-center">
+                    <span class="typeSm">총</span><span class="typeSmSemibold"> 30</span>
+                  </div>
+                </div>
+                <table class="table-type03">
+                  <caption>
+                    거래내역조회
+                  </caption>
+                  <colgroup>
+                    <col width="172px" />
+                    <col width="141px" />
+                    <col width="141px" />
+                    <col width="141px" />
+                    <col width="141px" />
+                    <col width="64px" />
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th>거래일시</th>
+                      <th>거래내용</th>
+                      <th>출금액</th>
+                      <th>입금액</th>
+                      <th>잔액</th>
+                      <th>방법</th>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                    <tr>
+                      <td><span class="typeMd">2025-12-15 14:10:10</span></td>
+                      <td><span class="typeMd">1445(Sh수협)</span></td>
+                      <td class="text-right"><span class="typeMd">100,000,000</span></td>
+                      <td class="text-right"><span class="typeMd">100,000,000</span></td>
+                      <td class="text-right"><span class="typeMd">100,000,000</span></td>
+                      <td><span class="typeMd">인터넷</span></td>
+                    </tr>
+                    <tr>
+                      <td><span class="typeMd">2025-12-15 14:10:10</span></td>
+                      <td><span class="typeMd">1445(Sh수협)</span></td>
+                      <td class="text-right"><span class="typeMd">100,000,000</span></td>
+                      <td class="text-right"><span class="typeMd">100,000,000</span></td>
+                      <td class="text-right"><span class="typeMd">100,000,000</span></td>
+                      <td><span class="typeMd">인터넷</span></td>
+                    </tr>
+                    <tr>
+                      <td><span class="typeMd">2025-12-15 14:10:10</span></td>
+                      <td><span class="typeMd">1445(Sh수협)</span></td>
+                      <td class="text-right"><span class="typeMd">100,000,000</span></td>
+                      <td class="text-right"><span class="typeMd">100,000,000</span></td>
+                      <td class="text-right"><span class="typeMd">100,000,000</span></td>
+                      <td><span class="typeMd">인터넷</span></td>
+                    </tr>
+                    <tr>
+                      <td><span class="typeMd">2025-12-15 14:10:10</span></td>
+                      <td><span class="typeMd">1445(Sh수협)</span></td>
+                      <td class="text-right"><span class="typeMd">100,000,000</span></td>
+                      <td class="text-right"><span class="typeMd">100,000,000</span></td>
+                      <td class="text-right"><span class="typeMd">100,000,000</span></td>
+                      <td><span class="typeMd">인터넷</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <nav class="pagination size-md" aria-label="페이지네이션">
+                <button type="button" class="btn-nav first" disabled="" aria-disabled="true" aria-label="첫 페이지">
+                  <span class="blind">첫 페이지</span>
+                </button>
+                <button type="button" class="btn-nav prev" disabled="" aria-disabled="true" aria-label="이전 페이지">
+                  <span class="blind">이전 페이지</span>
+                </button>
+
+                <ol class="list-pagination">
+                  <li>
+                    <button type="button" class="btn-page active" aria-current="page" aria-label="1페이지">
+                      1
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button" class="btn-page" aria-label="2페이지">
+                      2
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button" class="btn-page" aria-label="3페이지">
+                      3
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button" class="btn-page" aria-label="4페이지">
+                      4
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button" class="btn-page" aria-label="5페이지">
+                      5
+                    </button>
+                  </li>
+                </ol>
+
+                <button type="button" class="btn-nav next" aria-label="다음 페이지">
+                  <span class="blind">다음 페이지</span>
+                </button>
+                <button type="button" class="btn-nav last" aria-label="마지막 페이지">
+                  <span class="blind">마지막 페이지</span>
+                </button>
+              </nav>
+              <div class="btn-wrap center lg-bot">
+                <button type="button" class="btn type-line-neutral size-xl">
+                  <span class="text">파일저장</span>
+                </button>
+                <button type="button" class="btn type-line-neutral size-xl">
+                  <span class="text">인쇄</span>
+                </button>
+              </div>
+              <div class="line-box size-xl mt-48">
+                <span class="typeLgSemibold">이용안내</span>
+                <div class="list type-dotted">
+                  <ul>
+                    <li class="typeMd">
+                      거래 구분에서 입·출금내역 및 입금내역, 출금내역, 현금IC카드결제내역을 확인할 수 있습니다.
+                    </li>
+                    <li class="typeMd">
+                      조회기간 확인 필요 ########################################################
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+  </div>
+  <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+  </div>
+  <script src="/static/js/ui/cib_ui_common.js"></script>
+</body>
+
+</html>
+<script>
+
+</script>

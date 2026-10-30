@@ -2,154 +2,156 @@
 
 <!doctype html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>수협은행</title>
-    <link rel="stylesheet" href="/static/css/reset.css" />
-    <link rel="stylesheet" href="/static/css/layout.css" />
-    <link rel="stylesheet" href="/static/css/component.css" />
-    <link rel="stylesheet" href="/static/css/common.css" />
-    <link rel="stylesheet" href="/static/css/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="/static/css/trn.css" />
-  </head>
 
-  <body>
-    <div class="wrapper">
-      <div id="header">
-        @@include('static/html/pub/layout/skipNavigation.html')
-        @@include('static/html/pub/layout/header_sub.html')
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>수협은행</title>
+  <link rel="stylesheet" href="/static/css/reset.css" />
+  <link rel="stylesheet" href="/static/css/layout.css" />
+  <link rel="stylesheet" href="/static/css/component.css" />
+  <link rel="stylesheet" href="/static/css/common.css" />
+  <link rel="stylesheet" href="/static/css/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="/static/css/trn.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <div id="header">
+      @@include('static/html/pub/layout/skipNavigation.html')
+      @@include('static/html/pub/layout/header_sub.html')
+    </div>
+
+    <div id="container" class="container">
+      <div id="leftArea">
+        @@include('static/html/pub/layout/leftArea.html')
       </div>
+      <div id="contents">
+        <div class="content">
+          @@include('static/html/pub/layout/breadcrumb.html')
+          <div class="trn">
+            <h2 class="typeH2">
+              MMT출금이체
+              <div class="box-steps">
+                <ol class="list-steps">
+                  <li class="item-steps passed" aria-current="step">
+                    <span class="blind">1</span>
+                    <i class="icon" aria-hidden="true">1</i>
+                  </li>
+                  <li class="item-steps passed">
+                    <i class="icon" aria-hidden="true">2</i>
+                    <span class="text">2</span>
+                  </li>
+                  <li class="item-steps current">
+                    <i class="icon" aria-hidden="true">3</i>
+                    <span class="text">완료</span>
+                  </li>
+                </ol>
+              </div>
+            </h2>
+            <div class="result-box">
+              <div class="result-banner">
+                <div class="inner-img"></div>
+                <div class="result-message">
+                  <h4 class="typeH4 color-blueMd">
+                    정상적으로 이체를 완료하였습니다.
+                  </h4>
+                  <span class="typeMd">결재요청이 정상처리되었습니다.</span>
+                </div>
+              </div>
+            </div>
 
-      <div id="container" class="container">
-        <div id="leftArea">
-          @@include('static/html/pub/layout/leftArea.html')
-        </div>
-        <div id="contents">
-          <div class="content">
-            @@include('static/html/pub/layout/breadcrumb.html')
-            <div class="trn">
-              <h2 class="typeH2">
-                MMT출금이체
-                <div class="box-steps">
-                  <ol class="list-steps">
-                    <li class="item-steps passed" aria-current="step">
-                      <span class="blind">1</span>
-                      <i class="icon" aria-hidden="true">1</i>
-                    </li>
-                    <li class="item-steps passed">
-                      <i class="icon" aria-hidden="true">2</i>
-                      <span class="text">2</span>
-                    </li>
-                    <li class="item-steps current">
-                      <i class="icon" aria-hidden="true">3</i>
-                      <span class="text">완료</span>
-                    </li>
-                  </ol>
-                </div>
-              </h2>
-              <div class="result-box">
-                <div class="result-banner">
-                  <div class="inner-img"></div>
-                  <div class="result-message">
-                    <h4 class="typeH4 color-blueMd">
-                      정상적으로 이체를 완료하였습니다.
-                    </h4>
-                    <span class="typeMd">결재요청이 정상처리되었습니다.</span>
-                  </div>
-                </div>
+            <div class="tbl-area">
+              <div class="tbl-head">
+                <h4 class="typeH4">출금정보</h4>
               </div>
-
-              <div class="tbl-area">
-                <div class="tbl-head">
-                  <h4 class="typeH4">출금정보</h4>
-                </div>
-                <table class="table-type01 fixed">
-                  <caption>
-                    출금계좌번호, 이체후 잔액 정보 테이블
-                  </caption>
-                  <!-- [수정] 20260903 col width 값 수정  -->
-                  <!-- [수정] 20260909 col width style 수정  -->
-                  <colgroup>
-                    <col style="width: 160px" />
-                    <col style="width: 368px" />
-                    <col style="width: 160px" />
-                    <col style="width: 368px" />
-                  </colgroup>
-                  <tbody>
-                    <tr>
-                      <th scope="row">출금계좌번호</th>
-                      <td>
-                        <span class="typeMd">1000-0000-0000</span>
-                      </td>
-                      <th scope="row">이체후 잔액</th>
-                      <td class="text-right">
-                        <span class="typeMd">1,900,000,000원</span>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+              <table class="table-type01 fixed">
+                <caption>
+                  출금계좌번호, 이체후 잔액 정보 테이블
+                </caption>
+                <!-- [수정] 20260903 col width 값 수정  -->
+                <!-- [수정] 20260909 col width style 수정  -->
+                <colgroup>
+                  <col style="width: 160px" />
+                  <col style="width: 368px" />
+                  <col style="width: 160px" />
+                  <col style="width: 368px" />
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th scope="row">출금계좌번호</th>
+                    <td>
+                      <span class="typeMd">1000-0000-0000</span>
+                    </td>
+                    <th scope="row">이체후 잔액</th>
+                    <td class="text-right">
+                      <span class="typeMd">1,900,000,000원</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="tbl-area">
+              <div class="tbl-head">
+                <h4 class="typeH4">입금정보</h4>
               </div>
-              <div class="tbl-area">
-                <div class="tbl-head">
-                  <h4 class="typeH4">입금정보</h4>
-                </div>
-                <table class="table-type01 fixed">
-                  <caption>
-                    입금계좌, 입금게좌예금주명, 입금금액, 수수료 정보 테이블
-                  </caption>
-                  <!-- [수정] 20260903 col width 값 수정  -->
-                  <!-- [수정] 20260909 col width style 수정  -->
-                  <colgroup>
-                    <col style="width: 160px" />
-                    <col style="width: 368px" />
-                    <col style="width: 160px" />
-                    <col style="width: 368px" />
-                  </colgroup>
-                  <tbody>
-                    <tr>
-                      <th scope="row">입금계좌</th>
-                      <td>
-                        <div class="tbl-flex">
-                          <i class="bank-004 circle ico-size-md"></i>
-                          <span class="typeMd"> 국민은행 0010-0000-0000 </span>
-                        </div>
-                      </td>
-                      <th scope="row">입금게좌예금주명</th>
-                      <td>
-                        <span class="typeMd">(고)약황팡말대</span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">입금금액</th>
-                      <td class="text-right">
-                        <span class="typeMd">10,000,000원</span>
-                      </td>
-                      <th scope="row">수수료</th>
-                      <td class="text-right">
-                        <span class="typeMd">10,000,000원</span>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <div class="btn-wrap center lg-bot">
-                <button type="button" class="btn type-line-neutral size-xxl">
-                  <span class="text">이체확인증 인쇄</span>
-                </button>
-                <button type="button" class="btn type-bg-primary size-xxl">
-                  <span class="text">이체 계속하기</span>
-                </button>
-              </div>
+              <table class="table-type01 fixed">
+                <caption>
+                  입금계좌, 입금게좌예금주명, 입금금액, 수수료 정보 테이블
+                </caption>
+                <!-- [수정] 20260903 col width 값 수정  -->
+                <!-- [수정] 20260909 col width style 수정  -->
+                <colgroup>
+                  <col style="width: 160px" />
+                  <col style="width: 368px" />
+                  <col style="width: 160px" />
+                  <col style="width: 368px" />
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th scope="row">입금계좌</th>
+                    <td>
+                      <div class="tbl-flex">
+                        <i class="bank-004 circle ico-size-md"></i>
+                        <span class="typeMd"> 국민은행 0010-0000-0000 </span>
+                      </div>
+                    </td>
+                    <th scope="row">입금게좌예금주명</th>
+                    <td>
+                      <span class="typeMd">(고)약황팡말대</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">입금금액</th>
+                    <td class="text-right">
+                      <span class="typeMd">10,000,000원</span>
+                    </td>
+                    <th scope="row">수수료</th>
+                    <td class="text-right">
+                      <span class="typeMd">10,000,000원</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="btn-wrap center lg-bot">
+              <button type="button" class="btn type-line-neutral size-xxl">
+                <span class="text">이체확인증 인쇄</span>
+              </button>
+              <button type="button" class="btn type-bg-primary size-xxl">
+                <span class="text">이체 계속하기</span>
+              </button>
             </div>
           </div>
         </div>
-        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
       </div>
-      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+      <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
     </div>
+    <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+  </div>
 
-    <script src="/static/js/ui/cib_ui_common.js"></script>
-    <script src="/static/js/ui/swiper.min.js"></script>
-  </body>
+  <script src="/static/js/ui/cib_ui_common.js"></script>
+  <script src="/static/js/ui/swiper.min.js"></script>
+</body>
+
 </html>

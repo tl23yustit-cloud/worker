@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/fpd.css" />
+</head>ㅋ
+
+<body>
+    <div class="wrapper">
+        <div id="header">
+            @@include('static/html/pub/layout/skipNavigation.html')
+            @@include('static/html/pub/layout/header_sub.html')
+        </div>
+
+        <div id="container" class="container">
+            <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+            <div id="contents">
+                <div class="content">
+                    @@include('static/html/pub/layout/breadcrumb.html')
+                    <div class="fpd">
+                        <h2 class="typeH2">
+                            예금금리
+                        </h2>
+                        <div class="box-tab">
+                            <ul class="list-tab-button type-outline" role="tablist" aria-label="탭 이름">
+                                <li class="item-tab-button">
+                                    <button type="button" class="btn-tab active" title="선택됨" id="tabBtnTypeOutline01"
+                                        role="tab" aria-selected="true" aria-controls="tabPanelTypeOutline01">
+                                        <span class="text">수협은행</span>
+                                    </button>
+                                </li>
+                                <li class="item-tab-button">
+                                    <button type="button" class="btn-tab" id="tabBtnTypeOutline02" role="tab"
+                                        aria-selected="false" aria-controls="tabPanelTypeOutline02">
+                                        <span class="text">회원수협</span>
+                                    </button>
+                                </li>
+
+                            </ul>
+                            <!-- 첫번째 탭 -->
+                            <div class="box-tab-content" id="tabPanelTypeOutline01" role="tabpanel"
+                                aria-labelledby="tabBtnTypeOutline01" style="display: block;">
+                                <div class="box-tab">
+                                    <ul class="list-tab-button type-chip size-md" role="tablist" aria-label="예금금리 탭">
+                                        <li class="item-tab-button">
+                                            <button type="button" class="btn-tab  active" title="선택됨"
+                                                id="tabBtnTypeHighlightFull01" role="tab" aria-selected="true"
+                                                aria-controls="tabPanelTypeHighlightFull01">
+                                                <span class="text">입출금</span>
+                                            </button>
+                                        </li>
+                                        <li class="item-tab-button">
+                                            <button type="button" class="btn-tab" id="tabBtnTypeHighlightFull02"
+                                                role="tab" aria-selected="false"
+                                                aria-controls="tabPanelTypeHighlightFull02">
+                                                <span class="text">예금</span>
+                                            </button>
+                                        </li>
+                                        <li class="item-tab-button">
+                                            <button type="button" class="btn-tab" id="tabBtnTypeHighlightFull03"
+                                                role="tab" aria-selected="false"
+                                                aria-controls="tabPanelTypeHighlightFull03">
+                                                <span class="text">적금</span>
+                                            </button>
+                                        </li>
+                                    </ul>
+
+
+                                    <!-- 입출금 -->
+                                    <div class="box-tab-content autoH active" id="tabPanelTypeHighlightFull01"
+                                        role="tabpanel" aria-labelledby="tabBtnTypeHighlightFull01"
+                                        style="display: block;">
+
+                                        <div class="tbl-area">
+                                            <table class="table-type01">
+                                                <caption></caption>
+                                                <colgroup>
+                                                    <col style="width: 160px">
+                                                    <col style="width: auto">
+                                                </colgroup>
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">
+                                                            <span class="required">조회일자</span>
+                                                        </th>
+                                                        <td>
+                                                            <div class="tbl-flex">
+                                                                <div class="input-box gap-10">
+                                                                    <input type="text" class="input" placeholder="발급기준일"
+                                                                        title="" aria-label="발급기준일" value="2026-01-06">
+                                                                    <button type="button" class="btn">
+                                                                        <i class="ico-calendar ico-size-smMd"
+                                                                            aria-hidden="true"></i>
+                                                                        <span class="blind">날짜 열기</span>
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="btn-wrap center sm-mid">
+                                            <button type="button" class="btn type-bg-neutral size-xl">
+                                                <span class="text">조회</span>
+                                            </button>
+                                        </div>
+
+                                        <!-- 테이블 -->
+                                        <div class="tbl-area">
+
+                                            <div class="tbl-head">
+                                                <div class="left-area">
+                                                    <h3 class="typeH4">
+                                                        <span class="text">판매중인 상품</span>
+                                                    </h3>
+                                                </div>
+                                                <div class="right-area">
+                                                    <span class="typeMd">(단위 : 세금공제전, 연%)</span>
+                                                </div>
+                                            </div>
+
+
+                                            <table class="table-type03">
+                                                <caption>상품명, 구분, 기간, 금리, 연수일률, 비교에 대한 구성 테이블입니다.</caption>
+                                                <colgroup>
+                                                    <col width="172px">
+                                                    <col width="314px">
+                                                    <col width="285px">
+                                                    <col width="95px">
+                                                    <col width="95px">
+                                                    <col width="95px">
+                                                </colgroup>
+                                                <thead>
+                                                    <tr>
+                                                        <th>상품명</th>
+                                                        <th>구분</th>
+                                                        <th>기간</th>
+                                                        <th>금리</th>
+                                                        <th>연수일률</th>
+                                                        <th>비교</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td rowspan="4">
+                                                            <span class="typeMd">%상품명%</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="typeMd">%구간내용%</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="typeMd">%n.nn%</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="typeMd">-</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="typeMd">-</span>
+                                                        </td>
+                                                        <td rowspan="4"><span class="typeMd">-</span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="tbl-border-left">
+                                                            <span class="typeMd">%구간내용%</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="typeMd">%n.nn%</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="typeMd">-</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="typeMd">-</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="tbl-border-left">
+                                                            <span class="typeMd">%구간내용%</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="typeMd">%n.nn%</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="typeMd">-</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="typeMd">-</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="tbl-border-left">
+                                                            <span class="typeMd">%구간내용%</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="typeMd">%n.nn%</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="typeMd">-</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="typeMd">-</span>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+
+
+                                        </div>
+                                        <!-- //테이블 -->
+
+                                        <div class="tbl-area">
+                                            <div class="tbl-head">
+                                                <div class="left-area">
+                                                    <h3 class="typeH4">
+                                                        <!--[dev]:텍스트 수정 결재대상내역->결제대상내역-->
+                                                        <span class="text">판매중인 상품</span>
+                                                        <!--//[dev]:텍스트 수정 결재대상내역->결제대상내역-->
+                                                    </h3>
+                                                </div>
+                                                <div class="right-area">
+                                                    <span class="typeMd">(단위 : 세금공제전, 연%)</span>
+                                                </div>
+                                            </div>
+                                            <table class="table-type03">
+                                                <caption></caption>
+                                                <colgroup>
+                                                    <col width="172px">
+                                                    <col width="314px">
+                                                    <col width="285px">
+                                                    <col width="95px">
+                                                    <col width="95px">
+                                                    <col width="95px">
+                                                </colgroup>
+                                                <thead>
+                                                    <tr>
+                                                        <th>상품명</th>
+                                                        <th>구분</th>
+                                                        <th>기간</th>
+                                                        <th>금리</th>
+                                                        <th>연수일률</th>
+                                                        <th>비교</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td colspan="6">
+                                                            <div class="empty-page">
+                                                                <i class="ico-info" aria-hidden="true"></i>
+                                                                <div class="typeMd">조회하신 거래내역이 없습니다.</div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+                                        <div class="list mt-12">
+                                            <ul>
+                                                <li class="typeMd">
+                                                    (주) 이자지급시기 등의 자세한 내용은 금융상품페이지 참고
+                                                </li>
+
+
+                                            </ul>
+                                        </div>
+
+
+                                    </div>
+
+
+
+
+
+
+
+
+                                    <!-- 예금 -->
+
+                                    <div class="box-tab-content autoH" id="tabPanelTypeHighlightFull02" role="tabpanel"
+                                        aria-labelledby="tabBtnTypeHighlightFull02" style="display: none;">
+
+                                        예금내용
+                                    </div>
+
+
+
+
+
+
+                                    <!-- 적금 -->
+                                    <div class="box-tab-content autoH" id="tabPanelTypeHighlightFull03" role="tabpanel"
+                                        aria-labelledby="tabBtnTypeHighlightFull03" style="display: none;">
+                                        적금내용
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                            <!-- 두번째 탭 -->
+
+                            <div class="box-tab-content active" id="tabPanelTypeOutline02" role="tabpanel"
+                                aria-labelledby="tabBtnTypeOutline02" style="display: none;">
+
+                            </div>
+
+
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+    </div>
+    <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+</body>
+
+</html>
+<script>
+
+</script>

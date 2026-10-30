@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>수협은행</title>
+  <link rel="stylesheet" href="/static/css/reset.css" />
+  <link rel="stylesheet" href="/static/css/layout.css" />
+  <link rel="stylesheet" href="/static/css/component.css" />
+  <link rel="stylesheet" href="/static/css/common.css" />
+  <link rel="stylesheet" href="/static/css/bop.scss" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <div id="header">
+      @@include('static/html/pub/layout/skipNavigation.html')
+      @@include('static/html/pub/layout/header_sub.html')
+    </div>
+
+    <div id="container" class="container">
+      <div id="leftArea">
+        @@include('static/html/pub/layout/leftArea.html')
+      </div>
+      <div id="contents">
+        <div class="content">
+          @@include('static/html/pub/layout/breadcrumb.html')
+          <div class="bop">
+            <h2 class="typeH2">맞춤형채무조정(소상공인119PLUS)
+              <div class="box-steps">
+                <ol class="list-steps">
+                  <!-- 
+												[dev] 상태값 class 안내
+												class="item-steps" 기본 숫자 표기
+												class="item-steps passed" 완료
+												class="item-steps current" 현재
+											 -->
+                  <li class="item-steps current" aria-current="step">
+                    <i class="icon" aria-hidden="true">1</i>
+                    <span class="text">채무조정 대출조회</span>
+                  </li>
+                  <li class="item-steps">
+                    <i class="icon" aria-hidden="true">2</i>
+                    <span class="text">채무조정 대출확인</span>
+                  </li>
+
+                  <li class="item-steps">
+                    <i class="icon" aria-hidden="true">3</i>
+                    <span class="text">채무조정 신청 완료</span>
+                  </li>
+                </ol>
+              </div>
+            </h2>
+            <div class="list-lg-wrap">
+              <h4 class="typeH4">채무조정대상 대출조회</h4>
+              <div class="list type-dotted mt-12">
+                <ul>
+                  <li class="typeLg">
+                    고객님의 현재 채무조정 신청 가능 대출 목록은 다음과 같습니다.
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="tbl-area">
+              <table class="table-type03">
+                <caption>선택, 신규일, 최초대출액, 대출잔액, 만기일, 이자납입상태, 다음이자납입일에 대한 구성 테이블입니다.</caption>
+                <colgroup>
+                  <col width="20px">
+                  <col width="180px">
+                  <col width="180px">
+                  <col width="180px">
+                  <col width="180px">
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th>선택</th>
+                    <th>계좌번호</th>
+                    <th>상품명</th>
+                    <th>대출잔액</th>
+                    <th>관리영업점</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <tr>
+                    <td>
+                      <span class="form-box">
+                        <input type="checkbox" name="" id="SampleCheckbox0201" class="form-checkbox" checked="">
+                        <label for="SampleCheckbox0201" class="form-label"></label>
+                      </span>
+                    </td>
+                    <td><span class="typeMd">0000-0000-0000</span></td>
+                    <td>
+                      <span class="typeMd">기업운전일반자금대출 (순수일반자금)</span>
+                    </td>
+                    <td class="text-right">
+                      <span class="typeMd">100,000,000원</span>
+                    </td>
+                    <td><span class="typeMd">역삼종합금융본부</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="btn-wrap lg-bot">
+              <button type="button" class="btn type-bg-primary size-xxl">
+                <span class="text">다음</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+  </div>
+  <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+  </div>
+  <script src="/static/js/ui/cib_ui_common.js"></script>
+</body>
+
+</html>

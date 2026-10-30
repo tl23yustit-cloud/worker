@@ -3,188 +3,161 @@
 <!-- 디자인 미확정 테이블 컬럼 넓이-->
 <!doctype html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>수협은행</title>
-    <link rel="stylesheet" href="/static/css/reset.css" />
-    <link rel="stylesheet" href="/static/css/layout.css" />
-    <link rel="stylesheet" href="/static/css/component.css" />
-    <link rel="stylesheet" href="/static/css/common.css" />
-     <link rel="stylesheet" href="/static/css/inq.css" />
-  </head>
 
-  <body>
-    <div class="wrapper">
-      <div id="header">
-        @@include('static/html/pub/layout/skipNavigation.html')
-        @@include('static/html/pub/layout/header_sub.html')
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>수협은행</title>
+  <link rel="stylesheet" href="/static/css/reset.css" />
+  <link rel="stylesheet" href="/static/css/layout.css" />
+  <link rel="stylesheet" href="/static/css/component.css" />
+  <link rel="stylesheet" href="/static/css/common.css" />
+  <link rel="stylesheet" href="/static/css/inq.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <div id="header">
+      @@include('static/html/pub/layout/skipNavigation.html')
+      @@include('static/html/pub/layout/header_sub.html')
+    </div>
+
+    <div id="container" class="container">
+      <div id="leftArea">
+        @@include('static/html/pub/layout/leftArea.html')
       </div>
-
-      <div id="container" class="container">
-        <div id="leftArea">
-          @@include('static/html/pub/layout/leftArea.html')
-        </div>
-        <div id="contents">
-          <div class="content">
-            @@include('static/html/pub/layout/breadcrumb.html')
-            <div class="inq">
-              <h2 class="typeH2">보관어음조회</h2>
-              <div class="tbl-area">
-                <div class="tbl-head">
-                  <div class="left-area flex items-center">
-                    <span class="typeSm">총 </span
-                    ><span class="typeSmSemibold"> $4$</span>
-                  </div>
+      <div id="contents">
+        <div class="content">
+          @@include('static/html/pub/layout/breadcrumb.html')
+          <div class="inq">
+            <h2 class="typeH2">보관어음조회</h2>
+            <div class="tbl-area">
+              <!--[dev]:20261020 총건수영역 삭제-->
+              <!-- <div class="tbl-head">
+                <div class="left-area flex items-center">
+                  <span class="typeSm">총 </span><span class="typeSmSemibold"> $4$</span>
                 </div>
-                <table class="table-type03">
-                  <caption>
-                    자주쓰는송금계좌관리
-                  </caption>
-                  <colgroup>
-                    <col />
-                    <col />
-                    <col />
-                    <col />
-                    <col />
-                    <col />
-                    <col />
-                    <col />
-                  </colgroup>
-                  <thead>
-                    <!-- [수정] 20260903 th scope 추가 -->
-                    <tr>
-                      <th scope="col">보관어음 계좌번호</th>
-                      <th scope="col">보관어음 입금계좌번호</th>
-                      <th scope="col">최초 거래일자</th>
-                      <th scope="col">최종 거래일자</th>
-                      <th scope="col">총건수</th>
-                      <th scope="col">총금액</th>
-                      <th scope="col">이용상태</th>
-                      <th scope="col">비고</th>
-                    </tr>
-                  </thead>
+              </div> -->
+              <!--//[dev]:20261020 총건수영역 삭제-->
+              <table class="table-type03">
+                <caption>
+                  자주쓰는송금계좌관리
+                </caption>
+                <colgroup>
+                  <col />
+                  <col />
+                  <col />
+                  <col />
+                  <col />
+                  <col />
+                  <col />
+                  <col />
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th scope="col">보관어음 계좌번호</th>
+                    <th scope="col">보관어음 입금계좌번호</th>
+                    <th scope="col">최초 거래일자</th>
+                    <th scope="col">최종 거래일자</th>
+                    <th scope="col">총건수</th>
+                    <th scope="col">총금액</th>
+                    <!--[dev]:20261019 텍스트수정-->
+                    <th scope="col">어음상태</th>
+                    <!--//[dev]:20261019 텍스트수정-->
+                    <th scope="col">비고</th>
+                  </tr>
+                </thead>
 
-                  <tbody>
-                    <tr>
-                      <td>1000-0000-2000</td>
-                      <td>1000-0000-2000</td>
-                      <td>2026-07-12</td>
-                      <td>2026-07-12</td>
-                      <td>10</td>
-                      <td class="text-right">1,000,000,000</td>
-                      <td></td>
-                      <td>
-                        <button
-                          type="button"
-                          class="btn type-line-primary size-sm"
-                        >
-                          <span class="text">보관내역</span>
-                        </button>
-                        <button
-                          type="button"
-                          class="btn type-line-primary size-sm"
-                        >
-                          <span class="text">만기도래</span>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td colspan="8">
-                        <div class="empty-page">
-                          <i class="ico-info" aria-hidden="true"></i>
-                          <div class="typeMd">
-                            조회하신 거래내역이 없습니다.
-                          </div>
+                <tbody>
+                  <tr>
+                    <td>1000-0000-2000</td>
+                    <td>1000-0000-2000</td>
+                    <td>2026-07-12</td>
+                    <td>2026-07-12</td>
+                    <td>10</td>
+                    <td class="text-right">1,000,000,000</td>
+                    <td></td>
+                    <td>
+                      <button type="button" class="btn type-line-primary size-sm">
+                        <span class="text">보관내역</span>
+                      </button>
+                      <button type="button" class="btn type-line-primary size-sm">
+                        <span class="text">만기도래</span>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="8">
+                      <div class="empty-page">
+                        <i class="ico-info" aria-hidden="true"></i>
+                        <div class="typeMd">
+                          조회하신 거래내역이 없습니다.
                         </div>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <nav class="pagination size-md" aria-label="페이지네이션">
-                <button
-                  type="button"
-                  class="btn-nav first"
-                  disabled=""
-                  aria-disabled="true"
-                  aria-label="첫 페이지"
-                >
-                  <span class="blind">첫 페이지</span>
-                </button>
-                <button
-                  type="button"
-                  class="btn-nav prev"
-                  disabled=""
-                  aria-disabled="true"
-                  aria-label="이전 페이지"
-                >
-                  <span class="blind">이전 페이지</span>
-                </button>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <nav class="pagination size-md" aria-label="페이지네이션">
+              <button type="button" class="btn-nav first" disabled="" aria-disabled="true" aria-label="첫 페이지">
+                <span class="blind">첫 페이지</span>
+              </button>
+              <button type="button" class="btn-nav prev" disabled="" aria-disabled="true" aria-label="이전 페이지">
+                <span class="blind">이전 페이지</span>
+              </button>
 
-                <ol class="list-pagination">
-                  <li>
-                    <button
-                      type="button"
-                      class="btn-page active"
-                      aria-current="page"
-                      aria-label="1페이지"
-                    >
-                      1
-                    </button>
-                  </li>
-                  <li>
-                    <button type="button" class="btn-page" aria-label="2페이지">
-                      2
-                    </button>
-                  </li>
-                  <li>
-                    <button type="button" class="btn-page" aria-label="3페이지">
-                      3
-                    </button>
-                  </li>
-                  <li>
-                    <button type="button" class="btn-page" aria-label="4페이지">
-                      4
-                    </button>
-                  </li>
-                  <li>
-                    <button type="button" class="btn-page" aria-label="5페이지">
-                      5
-                    </button>
-                  </li>
-                </ol>
+              <ol class="list-pagination">
+                <li>
+                  <button type="button" class="btn-page active" aria-current="page" aria-label="1페이지">
+                    1
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="btn-page" aria-label="2페이지">
+                    2
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="btn-page" aria-label="3페이지">
+                    3
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="btn-page" aria-label="4페이지">
+                    4
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="btn-page" aria-label="5페이지">
+                    5
+                  </button>
+                </li>
+              </ol>
 
-                <button
-                  type="button"
-                  class="btn-nav next"
-                  aria-label="다음 페이지"
-                >
-                  <span class="blind">다음 페이지</span>
-                </button>
-                <button
-                  type="button"
-                  class="btn-nav last"
-                  aria-label="마지막 페이지"
-                >
-                  <span class="blind">마지막 페이지</span>
-                </button>
-              </nav>
-              <div class="line-box size-xl mt-48">
-                <span class="typeLgSemibold">이용안내</span>
-                <div class="list type-dotted">
-                  <ul>
-                    <li class="typeMd">고객님의 보관어음 내역입니다.</li>
-                  </ul>
-                </div>
+              <button type="button" class="btn-nav next" aria-label="다음 페이지">
+                <span class="blind">다음 페이지</span>
+              </button>
+              <button type="button" class="btn-nav last" aria-label="마지막 페이지">
+                <span class="blind">마지막 페이지</span>
+              </button>
+            </nav>
+            <div class="line-box size-xl mt-48">
+              <span class="typeLgSemibold">이용안내</span>
+              <div class="list type-dotted">
+                <ul>
+                  <li class="typeMd">고객님의 보관어음 내역입니다.</li>
+                </ul>
               </div>
             </div>
           </div>
         </div>
-        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
       </div>
-      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+      <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
     </div>
-    <script src="/static/js/ui/cib_ui_common.js"></script>
-  </body>
+    <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+  </div>
+  <script src="/static/js/ui/cib_ui_common.js"></script>
+</body>
+
 </html>

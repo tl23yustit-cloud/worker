@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>뱅킹업무 &gt; 예금/신탁 &gt; 예금 &gt; 해지계좌조회 &gt; 2단계</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/fin.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
+
+      <div id="container" class="container">
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="fin">
+              <h2 class="typeH2">
+                투자성향분석
+                <div class="box-steps">
+                  <ol class="list-steps">
+                    <!-- 
+												[dev] 상태값 class 안내
+												class="item-steps" 기본 숫자 표기
+												class="item-steps passed" 완료
+												class="item-steps current" 현재
+											 -->
+                    <li class="item-steps passed">
+                      <span class="blind">1</span>
+                      <i class="icon" aria-hidden="true">1</i>
+                      <span class="text">사전문답</span>
+                    </li>
+                    <li class="item-steps passed">
+                      <span class="blind">2</span>
+                      <i class="icon" aria-hidden="true">2</i>
+                      <span class="text">투자자 정보 확인</span>
+                    </li>
+                    <li class="item-steps current" aria-current="step">
+                      <i class="icon" aria-hidden="true">3</i>
+                      <span class="text">투자 성향 설문지</span>
+                    </li>
+                    <li class="item-steps">
+                      <i class="icon" aria-hidden="true">4</i>
+                      <span class="text">투자성향분석 결과</span>
+                    </li>
+                  </ol>
+                </div>
+              </h2>
+
+              <h3 class="typeH3">투자 성향 설문지</h3>
+
+              <div class="verification-banner">
+                <div class="img-left">
+                  <span class="blind">이미지영역</span>
+                </div>
+                <p class="text-rig">
+                  투자성향에 적합한 상품 조회를 위해 투자성향 분석을 시작합니다.<br />
+                  다음 질문은 재무적 상황, 투자경험, 금융지식에 대한 이해도 등 <span>일반 투자성향</span>에 관한 질문입니다.
+                </p>
+              </div>
+
+              <div class="surver-box">
+                <!-- q1(s) -->
+                <section class="surver-quest-box">
+                  <article>
+                    <header>
+                      <h3><strong>Q4</strong> 현재 고객님의 <span>매출액</span>은 얼마입니까?</h3>
+                    </header>
+
+                    <div class="surver-group">
+                      <div class="surver-card">
+                        <input type="radio" id="loan-status0101" name="loan-qa0101" value="surver-val0101" class="radio-input" checked />
+                        <label for="loan-status0101" class="surver-label"> 3억 이하 </label>
+                      </div>
+                      <div class="surver-card">
+                        <input type="radio" id="loan-status0102" name="loan-qa0101" value="surver-val0102" class="radio-input" />
+                        <label for="loan-status0102" class="surver-label"> 5억 이하 </label>
+                      </div>
+                      <div class="surver-card">
+                        <input type="radio" id="loan-status0103" name="loan-qa0101" value="surver-val0103" class="radio-input" />
+                        <label for="loan-status0103" class="surver-label"> 10억 이하 </label>
+                      </div>
+                      <div class="surver-card">
+                        <input type="radio" id="loan-status0104" name="loan-qa0101" value="surver-val0104" class="radio-input" />
+                        <label for="loan-status0104" class="surver-label"> 10억 초과 </label>
+                      </div>
+                    </div>
+                  </article>
+                </section>
+                <!-- q1(e) -->
+
+                <!-- q2(s) -->
+                <section class="surver-quest-box">
+                  <article>
+                    <header>
+                      <h3><strong>Q2</strong> 고객님의 금융자산 중 <span>금융투자 상품의 비중</span>은 얼마입니까?</h3>
+                    </header>
+
+                    <div class="surver-group">
+                      <div class="surver-card">
+                        <input type="radio" id="loan-status0201" name="loan-qa0201" value="surver-val0201" class="radio-input" checked />
+                        <label for="loan-status0201" class="surver-label"> 5% 이하 </label>
+                      </div>
+                      <div class="surver-card">
+                        <input type="radio" id="loan-status0202" name="loan-qa0201" value="surver-val0202" class="radio-input" />
+                        <label for="loan-status0202" class="surver-label"> 10% 이하 </label>
+                      </div>
+                      <div class="surver-card">
+                        <input type="radio" id="loan-status0203" name="loan-qa0201" value="surver-val0203" class="radio-input" />
+                        <label for="loan-status0203" class="surver-label"> 20% 이하 </label>
+                      </div>
+                      <div class="surver-card">
+                        <input type="radio" id="loan-status0204" name="loan-qa0201" value="surver-val0204" class="radio-input" />
+                        <label for="loan-status0204" class="surver-label"> 30% 이하 </label>
+                      </div>
+                      <div class="surver-card">
+                        <input type="radio" id="loan-status0205" name="loan-qa0201" value="surver-val0205" class="radio-input" />
+                        <label for="loan-status0205" class="surver-label"> 50% 이하 </label>
+                      </div>
+                    </div>
+                  </article>
+                </section>
+                <!-- q2(e) -->
+
+                <!-- q3(s) -->
+                <section class="surver-quest-box">
+                  <article>
+                    <header>
+                      <h3><strong>Q6</strong> 고객님의 수입원을 가장 잘 나타낸 것은 어느것입니까?</h3>
+                    </header>
+
+                    <div class="surver-group">
+                      <div class="surver-card">
+                        <input type="radio" id="loan-status0301" name="loan-qa0301" value="surver-val0301" class="radio-input" checked />
+                        <label for="loan-status0301" class="surver-label"> 현재 일정한 수입이 발생하고 있으며, 향후 현재 수준을 유지하거나 증가할 것으로 예상 </label>
+                      </div>
+                      <div class="surver-card">
+                        <input type="radio" id="loan-status0302" name="loan-qa0301" value="surver-val0302" class="radio-input" />
+                        <label for="loan-status0302" class="surver-label"> 현재 일정한 수입이 발생하고 있으나, 향후 감소하거나 불안정할 것으로 예상 </label>
+                      </div>
+                      <div class="surver-card">
+                        <input type="radio" id="loan-status0303" name="loan-qa0301" value="surver-val0303" class="radio-input" />
+                        <label for="loan-status0303" class="surver-label"> 현재 일정한 수입이 없거나, 연금 등이 주 수입원임 </label>
+                      </div>
+                    </div>
+                  </article>
+                </section>
+                <!-- q3(e) -->
+
+                <!-- q4(s) -->
+                <section class="surver-quest-box">
+                  <article>
+                    <header>
+                      <h3><strong>Q7</strong> 고객님의 투자경험과 가장 가까운 것은 어느것입니까? (중복선택가능)</h3>
+                    </header>
+
+                    <div class="surver-group">
+                      <div class="surver-card">
+                        <input type="checkbox" id="loan-status0401" name="loan-chkb" value="surver-val0401" class="check-input" checked />
+                        <label for="loan-status0401" class="surver-chk-label">
+                          <span class="check-text"> 은행, 예·적금, 국채, 지방채, 보증채, MMF 등 </span>
+                          <i class="icon-chk">
+                            <em class="blind">체크아이콘</em>
+                          </i>
+                        </label>
+                      </div>
+                      <div class="surver-card">
+                        <input type="checkbox" id="loan-status0402" name="loan-chkb" value="surver-val0402" class="check-input" />
+                        <label for="loan-status0402" class="surver-chk-label">
+                          <span class="check-text"> 금융채, 신용도가 높은 회사채, 채권형펀드, 원금보장형 ELS 등 </span>
+                          <i class="icon-chk">
+                            <em class="blind">체크아이콘</em>
+                          </i>
+                        </label>
+                      </div>
+                      <div class="surver-card">
+                        <input type="checkbox" id="loan-status0403" name="loan-chkb" value="surver-val0403" class="check-input" />
+                        <label for="loan-status0403" class="surver-chk-label">
+                          <span class="check-text"> 신용도 중간 등급의 회사채, 원금의 일부만 보장 되는 ELS, 혼합형 펀드 등 </span>
+                          <i class="icon-chk">
+                            <em class="blind">체크아이콘</em>
+                          </i>
+                        </label>
+                      </div>
+                      <div class="surver-card">
+                        <input type="checkbox" id="loan-status0404" name="loan-chkb" value="surver-val0404" class="check-input" />
+                        <label for="loan-status0404" class="surver-chk-label">
+                          <span class="check-text"> 신용도 낮은 회사채, 주식, 원금이 보장 되지 않는 ELS, 시장수익률 수준의 수익을 추구하는 주식형펀드 등 </span>
+                          <i class="icon-chk">
+                            <em class="blind">체크아이콘</em>
+                          </i>
+                        </label>
+                      </div>
+                      <div class="surver-card">
+                        <input type="checkbox" id="loan-status0405" name="loan-chkb" value="surver-val0405" class="check-input" />
+                        <label for="loan-status0405" class="surver-chk-label">
+                          <span class="check-text"> ELW, 선물옵션, 시장수익률 이상의 수익을 추구하는 주식형 펀드, 파생상품펀드, 주식 신용거래 등 </span>
+                          <i class="icon-chk">
+                            <em class="blind">체크아이콘</em>
+                          </i>
+                        </label>
+                      </div>
+                    </div>
+                  </article>
+                </section>
+                <!-- q4(e) -->
+
+                <!-- q5(s) -->
+                <section class="surver-quest-box">
+                  <article>
+                    <header>
+                      <h3><strong>Q8</strong> 고객님께서 금융상품 투자에 대한 본인의 지식수준이 어느정도라고 생각하십니까?</h3>
+                    </header>
+
+                    <div class="surver-group">
+                      <div class="surver-card">
+                        <input type="radio" id="loan-status0501" name="loan-qa0501" value="surver-val0501" class="radio-input" checked />
+                        <label for="loan-status0501" class="surver-label"> 금융상품 중 예·적금에 대해서만 알고 있다. </label>
+                      </div>
+                      <div class="surver-card">
+                        <input type="radio" id="loan-status0502" name="loan-qa0501" value="surver-val0502" class="radio-input" />
+                        <label for="loan-status0502" class="surver-label"> 주식과 채권, 펀드와 예금의 차이점을 알고 구별할 수 있다. </label>
+                      </div>
+                      <div class="surver-card">
+                        <input type="radio" id="loan-status0503" name="loan-qa0501" value="surver-val0503" class="radio-input" />
+                        <label for="loan-status0503" class="surver-label"> 주식, 채권 및 펀드 등이의 구조와 위험을 깊이 있게 이해하고 있음 </label>
+                      </div>
+                      <div class="surver-card">
+                        <input type="radio" id="loan-status0504" name="loan-qa0501" value="surver-val0504" class="radio-input" />
+                        <label for="loan-status0504" class="surver-label"> 파생상품을 포함한 대부분의 금융투자상품의 구조 및 위험을 이해하고 있음 </label>
+                      </div>
+                    </div>
+                  </article>
+                </section>
+                <!-- q5(e) -->
+
+                <!-- q5(s) -->
+                <section class="surver-quest-box">
+                  <article>
+                    <header>
+                      <h3><strong>Q9</strong> 고객님은 파생상품, 파생결합증권 또는 파생투자상품(ELF, ELT 등)에 투자한 경험이 얼마나 되십니까?</h3>
+                    </header>
+
+                    <div class="surver-group">
+                      <div class="surver-card">
+                        <input type="radio" id="loan-status0601" name="loan-qa0601" value="surver-val0601" class="radio-input" checked />
+                        <label for="loan-status0601" class="surver-label"> 없음 </label>
+                      </div>
+                      <div class="surver-card">
+                        <input type="radio" id="loan-status0602" name="loan-qa0601" value="surver-val0602" class="radio-input" />
+                        <label for="loan-status0602" class="surver-label"> 1년 미만 </label>
+                      </div>
+                      <div class="surver-card">
+                        <input type="radio" id="loan-status0603" name="loan-qa0601" value="surver-val0603" class="radio-input" />
+                        <label for="loan-status0603" class="surver-label"> 1년 이상 ~ 3년 미만 </label>
+                      </div>
+                      <div class="surver-card">
+                        <input type="radio" id="loan-status0604" name="loan-qa0601" value="surver-val0604" class="radio-input" />
+                        <label for="loan-status0604" class="surver-label"> 3년 이상 </label>
+                      </div>
+                    </div>
+                  </article>
+                </section>
+                <!-- q5(e) -->
+              </div>
+
+              <dl class="info-consent">
+                <dt>고객(투자자)정보 제공 동의확인</dt>
+                <dd class="typeMd">
+                  본인은 상기의 투자권유 희망 여부 및 투자자 정보제공 여부에 대해 작성하였으며,<br />
+                  투자성향 분석을 위한 투자목적과 재산상황 및 투자경험 등의 제보를 정확하게 제공하였음을 확인합니다.
+                </dd>
+              </dl>
+              <p class="info-chk">
+                <span class="form-box">
+                  <input type="checkbox" name="" id="SampleCheckbox0201" class="form-checkbox" />
+                  <label for="SampleCheckbox0201" class="form-label">위 내용에 동의 하십니까?</label>
+                </span>
+              </p>
+
+              <div class="btn-wrap center lg-bot">
+                <button type="button" class="btn type-bg-primary-tint size-xxl">
+                  <span class="text">취소</span>
+                </button>
+                <button type="button" class="btn type-bg-primary size-xxl">
+                  <span class="text">확인</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
+</html>

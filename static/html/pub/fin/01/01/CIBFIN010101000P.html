@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/fin.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">
+        @@include('static/html/pub/layout/skipNavigation.html')
+        @@include('static/html/pub/layout/header_sub.html')
+      </div>
+
+      <div id="container" class="container">
+        <div id="leftArea">
+          @@include('static/html/pub/layout/leftArea.html')
+        </div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="fin">
+              <button
+                type="button"
+                class="btn type-bg-primary size-md btn-modal"
+                data-target="modal-01"
+              >
+                <span class="text">모달버튼</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <div id="modal-01" class="modal is-active" data-dim="true" data-backdrop-close="false" data-alert="true" data-size="md" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc">
+      <div class="modal-wrapper">
+        <div class="modal-title" id="modal-title">
+          <h4 class="typeH4">가입자격확인</h4>
+        </div>
+        <div id="modal-desc" class="blind">가입자격확인 모달입니다.</div>
+        <div class="modal-slot">
+          <div class="list-lg-wrap">
+            <h4 class="typeH6">신청 가능한 법인 유형</h4><!-- [수정] 2026-10-26 class 수정 -->
+            <div class="list type-dotted mt-12">
+              <ul>
+                <li class="typeLg">본 법인은 조세 목적상 국내법인으로, 국내 소재 주식회사입니다.</li><!-- [수정] 2026-10-26 class 수정 -->
+                <li class="typeLg">본 법인은 금융회사가 아닌 ‘능동적 비금융 법인‘<!-- [수정] 2026-10-26 class 수정 -->
+                  <div class="box-tooltip tail-bottom-start">
+                    <button type="button" class="btn type-ghost-neutral size-Xs" aria-describedby="tooltipBoxTop0101">
+                      <i class="ico line ico-size-sm ico-info-circle colorFgNetral" aria-hidden="true"></i>
+                      <span class="blind">신청 가능한 법인 유형 툴팁 열기</span>
+                    </button>
+                    <div id="tooltipBoxTop0101" class="layer-tooltip size-244" role="tooltip" aria-hidden="true">
+                      <div class="content-tooltip whitespace-normal">
+                        <span class="text">직전 연도 또는 그 외의 적절한 보고기간 동안 총 수입의 100분의 50 미만이 수동적 수입(이자, 배당, 임대료, 연금, 자산의 매각·교환에서 발생한 이익, 선도·선물거래에서 발생한 이익 및 현금가치보험계약으로 부터 수취한 금액 등을 말함)이고, 직전 연도 또는 그 외의 적절한 보고기간 동안 비금융외국법인 보유한 자산의 100분의 50 미만이 수동적 수입을 창출하거나 수동적 수입의 창출을 위하여 보유된 경우</span>
+                      </div>
+                      <button type="button" class="btn-close">
+                        <i class="ico-close ico-size-sm" aria-hidden="true"></i>
+                        <span class="blind">툴팁 닫기</span>
+                      </button>
+                      <i class="ico-tail-tooltip" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                  으로 가상통화를 취급하지 않습니다.
+                </li>
+                <li class="typeLg">본 법인은 대기업, 중소기업으로, 본점(사업자등록번호 4,5번째 자리 81, 86, 87, 88) 설립 1년 이상 입니다.</li><!-- [수정] 2026-10-26 class 수정 -->
+                <li class="typeLg">본 법인은 카지노사업자, 대부업자, 환전영업자, 소액해외송금업자, 가상자산사업자, 귀금속판매상, 상품권매매사업자가 아닙니다.</li><!-- [수정] 2026-10-26 class 수정 -->
+              </ul>
+            </div>
+          </div>
+          <div class="list-lg-wrap">
+            <h4 class="typeH6">신청인(대표자) 자격</h4><!-- [수정] 2026-10-26 class 수정 -->
+            <div class="list type-dotted mt-12">
+              <ul>
+                <li class="typeLg">본 거래 신청자는 ‘주주명부’상에 의결권 25%이상 최대 지분을 보유한 실제 소유자이자, 법인의 사실상 지배자<!-- [수정] 2026-10-26 class 수정 -->
+                  <div class="box-tooltip tail-left">
+                    <button type="button" class="btn type-ghost-neutral size-Xs" aria-describedby="tooltipBoxTop0101">
+                      <i class="ico line ico-size-sm ico-info-circle colorFgNetral" aria-hidden="true"></i>
+                      <span class="blind">신청인(대표자) 툴팁 열기</span>
+                    </button>
+
+                    <div id="tooltipBoxTop0101" class="layer-tooltip size-244" role="tooltip" aria-hidden="true">
+                      <div class="content-tooltip whitespace-normal">
+                        <span class="text">법인의 주요 경영사항에 대하여 사실상의 영향력을 행사하는 경우로서 ‘사실상 지배자 판단 기준＇에 해당하는 자 (지분율 무관)</span>
+                      </div>
+                      <button type="button" class="btn-close">
+                        <i class="ico-close ico-size-sm" aria-hidden="true"></i>
+                        <span class="blind">툴팁 닫기</span>
+                      </button>
+                      <i class="ico-tail-tooltip" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                  로서 한국 국적의 단독 대표입니다.
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="list-lg-wrap">
+            <h4 class="typeH6">해외 납세자 포함 여부</h4><!-- [수정] 2026-10-26 class 수정 -->
+            <div class="list type-dotted mt-12">
+              <ul>
+                <li class="typeLg">본 법인에는 지분율 25%이상인 해외납세자(외국인 또는 국외법인)가 없습니다.</li><!-- [수정] 2026-10-26 class 수정 -->
+              </ul>
+            </div>
+          </div>
+          <div class="line-box size-xl mt-24"><!-- [수정] 2026-10-26 mt-24 class 수정 -->
+            <span class="typeLgSemibold">이용안내</span>
+            <div class="list type-dotted">
+              <ul>
+                <li class="typeMd color-fg-base"><!-- [수정] 2026-10-26 color-fg-base class 추가 -->
+                  법인 비대면 실명확인을 통한 금융거래는 아래에 모두 해당하는
+                  법인만 가능하오니 꼭 확인 후 신청하시기 바랍니다.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer flex items-center justify-center gap-8">
+          <button type="button" class="btn type-bg-primary size-lg">
+            <span class="text">확인</span>
+          </button>
+        </div>
+        <button type="button" class="ico btn-close" aria-label="모달 닫기">
+          <i class="ico-close ico-size-smMd" aria-hidden="true"></i>
+          <span class="blind">닫기</span>
+        </button>
+      </div>
+    </div>
+
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
+</html>

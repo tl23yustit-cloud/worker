@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/trn.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
+
+      <div id="container" class="container">
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="van">
+              <button type="button" class="btn type-bg-primary size-md btn-modal" data-target="modal-01">
+                <span class="text">모달버튼</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <div id="modal-01" class="modal is-active" data-dim="true" data-backdrop-close="false" data-alert="true" data-size="sm" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc">
+      <div class="modal-wrapper">
+        <div class="modal-title" id="modal-title">
+          <h4 class="typeH4">파일등록</h4>
+        </div>
+        <div id="modal-desc" class="blind">업체담당자 정보 수정 모달입니다.</div>
+        <div class="modal-slot">
+          <div class="tbl-area">
+            <table class="table-type01">
+              <caption>
+                업체코드, 업체명, 이름, E-Mail, 전화번호, 휴대폰번호에 대한 구성 테이블입니다.
+              </caption>
+              <colgroup>
+                <col style="width: 160px" />
+                <col style="width: auto" />
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th scope="row">
+                    <label for="input-1rw2x6">파일명</label>
+                  </th>
+                  <td>
+                    <div class="clear-type">
+                      <input type="text" id="input-1rw2x6" class="input size-lg wSize-smMd" aria-label="파일명" value="2026.02.급여.xlsx" readonly />
+                      <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                        <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                        <span class="blind">닫기</span>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="tbl-area">
+            <!-- [dev] 문구삭제20261022 -->
+            <div class="wrap-board-grid">
+              <!-- [dev] 그리드 -->
+              <div class="board-grid">
+                <!-- [dev] 그리드 컨텐츠 영역 : 작업 시 삭제-->
+                <i style="display: block; border: var(--borderWidthMd) solid var(--colorBorderBase); border-radius: var(--radiusMd); padding: var(--spacing2Xl)">임시 그리드 영역</i>
+                <!-- //[dev] 그리드 컨텐츠 영역 : 작업 시 삭제 -->
+              </div>
+              <!-- //[dev] 그리드 -->
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer flex items-center justify-center gap-8">
+          <button type="button" class="btn type-bg-primary-tint size-lg">
+            <span class="text">취소</span>
+          </button>
+          <button type="button" class="btn type-bg-primary size-lg">
+            <span class="text">확인</span>
+          </button>
+        </div>
+        <button type="button" class="ico btn-close" aria-label="모달 닫기">
+          <i class="ico-close ico-size-smMd" aria-hidden="true"></i>
+          <span class="blind">닫기</span>
+        </button>
+      </div>
+    </div>
+
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
+</html>

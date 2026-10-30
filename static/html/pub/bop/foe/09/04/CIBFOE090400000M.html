@@ -1,68 +1,67 @@
 <!doctype html>
 <html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/bop.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>수협은행</title>
-  <link rel="stylesheet" href="/static/css/reset.css" />
-  <link rel="stylesheet" href="/static/css/layout.css" />
-  <link rel="stylesheet" href="/static/css/component.css" />
-  <link rel="stylesheet" href="/static/css/common.css" />
-  <link rel="stylesheet" href="/static/css/bop.css" />
-</head>
+  <body>
+    <div class="wrapper">
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
 
-<body>
-  <div class="wrapper">
-    <div id="header">
-      @@include('static/html/pub/layout/skipNavigation.html')
-      @@include('static/html/pub/layout/header_sub.html')
-    </div>
-
-    <div id="container" class="container">
-      <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
-      <div id="contents">
-        <div class="content">
-          @@include('static/html/pub/layout/breadcrumb.html')
-          <div class="bop">
-            <h2 class="typeH2">
-              계좌(REF)조회
-            </h2>
-            <div class="tbl-area">
-              <table class="table-type01">
-                <caption>
-                  계좌(REF)조회 테이블
-                </caption>
-                <!-- [수정] 20260907 col width 값 추가  -->
-                <colgroup>
-                  <col style="width: 160px" />
-                  <col style="width: auto" />
-                </colgroup>
-                <tbody>
-                  <tr>
-                    <th scope="row"><label for="계좌(REF)번호">계좌(REF)번호</label></th>
-                    <td>
-                      <!-- [수정] 20260907 title 값 수정  -->
-                      <input type="text" class="input size-lg wSize-md" placeholder="SWIFT CODE" title="계좌(REF)번호, SWIFT CODE">
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+      <div id="container" class="container">
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="bop">
+              <h2 class="typeH2">계좌(REF)조회</h2>
+              <div class="tbl-area">
+                <table class="table-type01">
+                  <caption>
+                    계좌(REF)조회 테이블
+                  </caption>
+                  <!-- [수정] 20260907 col width 값 추가  -->
+                  <colgroup>
+                    <col style="width: 160px" />
+                    <col style="width: auto" />
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="row"><label for="계좌(REF)번호">계좌(REF)번호</label></th>
+                      <td>
+                        <!-- [수정] 20260907 title 값 수정  -->
+                        <div class="clear-type">
+                          <input type="text" class="input size-lg wSize-md" placeholder="SWIFT CODE" aria-label="계좌(REF)번호, SWIFT CODE" />
+                          <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                            <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                            <span class="blind">닫기</span>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="btn-wrap center lg-bot">
+                <button type="button" class="btn type-bg-primary size-xl">
+                  <span class="text">확인</span>
+                </button>
+              </div>
             </div>
-            <div class="btn-wrap center lg-bot">
-              <button type="button" class="btn type-bg-primary size-xl">
-                <span class="text">확인</span>
-              </button>
-            </div>            
           </div>
         </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
       </div>
-      <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
     </div>
-
-    <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
-  </div>
-  <script src="/static/js/ui/cib_ui_common.js"></script>
-</body>
-
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
 </html>

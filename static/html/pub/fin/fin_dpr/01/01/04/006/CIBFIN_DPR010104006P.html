@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/fin.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
+
+      <div id="container" class="container">
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="fin">
+              <button type="button" class="btn type-bg-primary size-md btn-modal" data-target="modal-02">
+                <span class="text">수취어음조회 상세</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+
+    <div id="modal-02" class="modal is-active" data-dim="true" data-backdrop-close="false" data-alert="false" data-size="sm" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc">
+      <div class="modal-wrapper">
+        <div class="modal-title">
+          <h4 class="typeH4">예금상품 중요사항</h4>
+        </div>
+        <div class="modal-slot">
+          <h5 class="typeH3">예금상품의 중요한 사항을 확인해 주세요.</h5>
+          <div class="list-lg-wrap mt-24">
+            <h6 class="typeH6">예금상품 중요한 사항</h6>
+            <div class="list type-dotted mt-12">
+              <ul>
+                <li class="typeLg">상품의 내용(계약기간, 이자의 지급시기 및 지급제한사유)</li>
+                <li class="typeLg">이율(수익률, 중도해지이율, 만기해지이율, 만기후이율 및 각 이율에 대한 산출근거 포함), 수수료 등 부대비용, 계약해지 시 불이익, 계좌이체 제한 등 거래제한사항</li>
+                <li class="typeLg">계약금의 해제-해지, 위법계약해지권, 민원처리 절차 및 분쟁조정, 예금자보호 여부 및 그 내용</li>
+                <li class="typeLg">(연계·제휴서비스 제공 상품인 경우) 연계·제휴서비스의 내용, 제공받을 수 있는 요건, 제공기간, 이행책임, 변경 시 변경내용 및 그 사유 등을 사전에 알린다는 사실 및 알리는 방법</li>
+              </ul>
+            </div>
+          </div>
+          <div class="exception-case-btn01">            
+            <div class="typeXlSemibold">예금상품 중요사항에 관련하여 이해하셨나요?</div>
+            <div class="btn-wrap center">
+              <button type="button" class="btn type-bg-primary-tint size-xxl">
+                <span class="text">이해했어요</span>
+              </button>
+              <button type="button" class="btn type-bg-primary size-xxl">
+                <span class="text">아니요</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer flex items-center justify-center gap-8">
+          <button type="button" class="btn type-bg-primary size-lg">
+            <span class="text">확인</span>
+          </button>
+        </div>
+        <button type="button" class="ico btn-close" aria-label="모달 닫기">
+          <i class="ico-close ico-size-smMd" aria-hidden="true"></i>
+          <span class="blind">닫기</span>
+        </button>
+      </div>
+    </div>
+  </body>
+</html>
+<script src="/static/js/ui/cib_ui_common.js"></script>

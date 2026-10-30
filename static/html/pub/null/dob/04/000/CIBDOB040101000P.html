@@ -1,0 +1,425 @@
+<!-- 1.07v -->
+
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/dob.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
+
+      <div id="container" class="container">
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="dob">
+              <button type="button" class="btn type-bg-primary size-md btn-modal" data-target="modal-01">
+                <span class="text">모달 버튼</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <div id="modal-01" class="modal is-active" data-dim="true" data-backdrop-close="false" data-alert="true" data-size="md" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc">
+      <div class="modal-wrapper">
+        <div class="modal-title" id="modal-title">
+          <h4 class="typeH4">발급정보 선택</h4>
+        </div>
+        <div id="modal-desc" class="blind">발급정보 선택 모달입니다.</div>
+        <div class="modal-slot">
+          <!-- 발급정보 입력 추가 -->
+          <div class="tbl-area">
+            <div class="tbl-head">
+              <div class="left-area">
+                <h4 class="typeH4"><span class="color-fg-primary">[잔액잔고증명서]</span> 발급정보를 입력해주세요.</h4>
+              </div>
+
+              <div class="right-area">
+                <span class="required typeMd">필수 항목</span>
+              </div>
+            </div>
+            <table class="table-type01">
+              <caption>
+                발급 기준일에 대한 구성 테이블입니다.
+              </caption>
+              <colgroup>
+                <col style="width: 160px" />
+                <col style="width: auto" />
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th scope="row">
+                    <span class="required"><span class="blind">필수</span>발급 기준일</span>
+                  </th>
+                  <td>
+                    <div class="input-box">
+                      <input type="text" class="input" placeholder="조회 시작일" aria-label="조회 시작일" value="2026-01-06" />
+                      <button type="button" class="btn">
+                        <i class="ico-calendar ico-size-smMd" aria-hidden="true"></i>
+                        <span class="blind">조회 시작일 달력 열기</span>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- 발급가능계좌 컬럼 수정 -->
+          <div class="tbl-area">
+            <h4 class="typeH4"><span class="color-fg-primary">[잔액잔고증명서]</span> 발급 가능 계좌</h4>
+            <table class="table-type03">
+              <caption>
+                선택, 계좌번호 계좌명에 대한 구성 테이블입니다.
+              </caption>
+              <colgroup>
+                <col style="width: 90px" />
+                <col style="width: auto" />
+                <col style="width: auto" />
+                <col style="width: auto" />
+                <col style="width: auto" />
+              </colgroup>
+              <thead>
+                <tr>
+                  <th scope="col"><span>선택</span></th>
+                  <th scope="col"><span>계좌번호</span></th>
+                  <th scope="col"><span>계좌명</span></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <span class="form-box">
+                      <input type="checkbox" name="" id="comp-8lr5mo"  class="form-checkbox size-lg" title="계좌번호 10000 선택" />
+                    </span>
+                  </td>
+                  <td>
+                    <span class="typeMd">10000</span>
+                  </td>
+                  <td>
+                    <span class="typeMd">업무계좌</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="list type-dotted mt-12">
+            <ul>
+              <li class="typeMd">보유하신 입출금 계좌 중 증명서/확인증 발급받을 계좌를 최대 10개까지 선택 할 수 있습니다.</li>
+              <li class="typeMd"><span class="color-fg-error">해지계좌는 개별로 증명서 발급을 받으시기 바랍니다.</span></li>
+            </ul>
+          </div>
+          <!-- 내용수정 -->
+          <div class="tbl-area">
+            <h4 class="typeH4">추가정보입력</h4>
+            <table class="table-type01">
+              <caption>
+                잔액잔고증명서(영문) 통화코드에 대한 구성 테이블입니다.
+              </caption>
+              <colgroup>
+                <col style="width: 160px" />
+                <col style="width: auto" />
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th scope="row">
+                    <span><label for="input-zkkgj6">잔액잔고증명서(영문) 통화코드</label></span>
+                  </th>
+                  <td>
+                    <div class="box-select wSize-lg">
+                      <button type="button" id="input-zkkgj6" class="select size-lg" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="comp-a7v4r7" aria-label="잔액잔고증명서(영문) 통화코드 선택">
+                        <span class="text">통화선택</span>
+                        <span class="blind">펼침</span>
+                      </button>
+                      <div id="comp-a7v4r7" class="box-list-select">
+                        <ul class="list-select" role="listbox" aria-label="잔액잔고증명서(영문) 통화코드">
+                          <li class="item-select" role="option" aria-selected="false">
+                            <span class="btn-item-select">Option01</span>
+                          </li>
+                          <li class="item-select" role="option" aria-selected="false">
+                            <span class="btn-item-select">Option02</span>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- 신규 컨텐츠 -->
+          <div class="tbl-area">
+            <div class="tbl-head">
+              <div class="left-area">
+                <h4 class="typeH4"><span class="color-fg-primary">[잔액잔고증명서]</span> 발급정보를 입력해주세요.</h4>
+              </div>
+              <div class="right-area">
+                <span class="required typeMd">필수 항목</span>
+              </div>
+            </div>
+
+            <table class="table-type01">
+              <caption>
+                발급 기준일, 발급용도에 대한 구성 테이블입니다.
+              </caption>
+              <colgroup>
+                <col style="width: 160px" />
+                <col style="width: auto" />
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th scope="row">
+                    <span class="required"> <span class="blind">필수</span>발급 기준일</span>
+                  </th>
+                  <td>
+                    <div class="tbl-column">
+                      <!-- 1. radiogroup에 aria-label 추가 -->
+                      <div class="radio-group" role="radiogroup" aria-label="조회기간">
+                        <span class="form-box">
+                          <input type="radio" name="searchPeriod" id="period_01" class="radio-btn" checked="" />
+                          <label for="period_01" class="form-label">현재일자</label>
+                        </span>
+                        <span class="form-box">
+                          <input type="radio" name="searchPeriod" id="period_02" class="radio-btn" />
+                          <label for="period_02" class="form-label">전일자</label>
+                        </span>
+                        <span class="form-box">
+                          <input type="radio" name="searchPeriod" id="period_03" class="radio-btn" />
+                          <label for="period_03" class="form-label">전월말일</label>
+                        </span>
+                      </div>
+
+                      <div class="calendar-wrap">
+                        <!-- 날짜 입력 영역 -->
+                        <div class="input-box">
+                          <input type="text" class="input" placeholder="조회 시작일" aria-label="조회 시작일" value="2026-01-06" />
+                          <button type="button" class="btn">
+                            <i class="ico-calendar ico-size-smMd" aria-hidden="true"></i>
+                            <span class="blind">조회 시작일 달력 열기</span>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <span class="required"> <span class="blind">필수</span>발급용도</span>
+                  </th>
+                  <td>
+                    <div class="box-select wSize-md">
+                      <button type="button" id="input-egubxb" class="select size-lg" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="comp-lzaraq" aria-label="항목 1 선택">
+                        <span class="text">발급용도 선택</span>
+                        <span class="blind">펼침</span>
+                      </button>
+                      <div id="comp-lzaraq" class="box-list-select">
+                        <ul class="list-select" role="listbox" aria-label="항목 1">
+                          <li class="item-select" role="option" aria-selected="false"><span class="btn-item-select">Option01</span></li>
+                          <li class="item-select" role="option" aria-selected="false"><span class="btn-item-select">Option02</span></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- for dev 만약 부채증명서 처럼 최상단에 올라갈경우 mt-48삭제해야함 -->
+          <h4 class="typeH4 mt-48 mb-12"><span class="color-fg-primary">[부채증명서]</span> 발급을 진행합니다.</h4>
+
+          <div class="tbl-area">
+            <div class="tbl-head">
+              <div class="left-area">
+                <h4 class="typeH4"><span class="color-fg-primary">[원천징수명세서]</span> 발급정보를 입력해주세요.</h4>
+              </div>
+              <div class="right-area">
+                <span class="required typeMd">필수 항목</span>
+              </div>
+            </div>
+            <table class="table-type01">
+              <caption>
+                조회구분, 조회기간, 사업자등록번호 표시에 대한 구성 테이블입니다.
+              </caption>
+              <colgroup>
+                <col style="width: 160px" />
+                <col style="width: auto" />
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th scope="row">
+                    <span>조회구분</span>
+                  </th>
+                  <td>
+                    <div class="form-box-wrap" role="radiogroup" aria-label="조회구분">
+                      <span class="form-box">
+                        <input type="radio" name="radio_comp-g13ici" id="radio_comp-g13ici_01" class="form-radio size-md" checked="" />
+                        <label for="radio_comp-g13ici_01" class="form-label">금융상품</label>
+                      </span>
+                      <span class="form-box">
+                        <input type="radio" name="radio_comp-g13ici" id="radio_comp-g13ici_02" class="form-radio size-md" />
+                        <label for="radio_comp-g13ici_02" class="form-label">공제상품</label>
+                      </span>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <span class="required"><span class="blind">필수</span>조회기간</span>
+                  </th>
+                  <td>
+                    <div class="box-select wSize-smMd">
+                      <button type="button" id="input-i745wa" class="select size-lg" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="comp-djgd8m" aria-label="조회기간 선택">
+                        <span class="text">구분</span>
+                        <span class="blind">펼침</span>
+                      </button>
+                      <div id="comp-djgd8m" class="box-list-select">
+                        <ul class="list-select" role="listbox" aria-label="조회기간">
+                          <li class="item-select" role="option" aria-selected="false"><span class="btn-item-select">Option01</span></li>
+                          <li class="item-select" role="option" aria-selected="false"><span class="btn-item-select">Option02</span></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="list type-reference mt-8">
+                      <ul>
+                        <li class="typeMd color-fg-primary">기준일자가 경과한 이후 연체금액은 변동됨을 알려드립니다.</li>
+                      </ul>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <span>사업자등록번호 표시</span>
+                  </th>
+                  <td>
+                    <div class="form-box-wrap" role="radiogroup" aria-label="조회구분">
+                      <span class="form-box">
+                        <input type="radio" name="radio_comp-d9ily6" id="radio_comp-d9ily6_01" class="form-radio size-md" checked="" />
+                        <label for="radio_comp-d9ily6_01" class="form-label">공개</label>
+                      </span>
+                      <span class="form-box">
+                        <input type="radio" name="radio_comp-d9ily6" id="radio_comp-d9ily6_02" class="form-radio size-md" />
+                        <label for="radio_comp-d9ily6_02" class="form-label">비공개</label>
+                      </span>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="tbl-area">
+            <div class="tbl-head">
+              <div class="left-area">
+                <h4 class="typeH4"><span class="color-fg-primary">[대출이자납입증명서]</span> 발급정보를 입력해주세요.</h4>
+              </div>
+              <div class="right-area">
+                <span class="required typeMd">필수 항목</span>
+              </div>
+            </div>
+            <table class="table-type01">
+              <caption>
+                계좌번호 선택, 대출실행번호, 기준년도에 대한 구성 테이블입니다.
+              </caption>
+              <colgroup>
+                <col style="width: 160px" />
+                <col style="width: auto" />
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th scope="row">
+                    <span class="required">계좌번호 선택</span>
+                  </th>
+                  <td>
+                    <div class="box-select wSize-lg">
+                      <button type="button" id="input-7meh0s" class="select size-lg" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="comp-jfx5ds" aria-label="계좌번호 선택">
+                        <span class="text">Placeholder Text</span>
+                        <span class="blind">펼침</span>
+                      </button>
+                      <div id="comp-jfx5ds" class="box-list-select">
+                        <ul class="list-select" role="listbox" aria-label="계좌번호">
+                          <li class="item-select" role="option" aria-selected="false"><span class="btn-item-select">Option01</span></li>
+                          <li class="item-select" role="option" aria-selected="false"><span class="btn-item-select">Option02</span></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <span class="required">대출실행번호</span>
+                  </th>
+                  <td>
+                    <div class="tbl-flex">
+                      <div class="clear-type">
+                        <input type="text" id="input-1jy6jn" class="input size-lg wSize-smMd" aria-label="대출 실행번호" value="000003" readonly />
+                        <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                          <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                          <span class="blind">닫기</span>
+                        </button>
+                      </div>
+                      <button type="button" class="btn type-line-secondary size-lg">
+                        <span class="text">조회</span>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <span class="required">기준년도</span>
+                  </th>
+                  <td>
+                    <div class="box-select wSize-smMd">
+                      <button type="button" class="select size-lg" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="selectDropdown01" aria-labelledby="search_perio">
+                        <span class="text">월별선택</span>
+                        <span class="blind">목록 열기</span>
+                      </button>
+                      <div id="selectDropdown01" class="box-list-select">
+                        <ul class="list-select" role="listbox" aria-label="월별 선택 목록">
+                          <!-- li에 role="option" 및 aria-selected 부여 -->
+                          <li class="item-select" role="option" aria-selected="true">
+                            <span class="form-box">2026년</span>
+                          </li>
+                          <li class="item-select" role="option" aria-selected="false">
+                            <span class="form-box">2026년</span>
+                          </li>
+                          <li class="item-select" role="option" aria-selected="false">
+                            <span class="form-box">2025년</span>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="modal-footer flex items-center justify-center mt-16 gap-8">
+            <button type="button" class="btn type-bg-primary-tint size-lg">
+              <span class="text">취소</span>
+            </button>
+            <button type="button" class="btn type-bg-primary size-lg">
+              <span class="text">다음</span>
+            </button>
+          </div>
+        </div>
+
+        <button type="button" class="ico btn-close" aria-label="모달 닫기">
+          <i class="ico-close ico-size-smMd" aria-hidden="true"></i>
+          <span class="blind">닫기</span>
+        </button>
+      </div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
+</html>

@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>수협은행</title>
+	<link rel="stylesheet" href="/static/css/reset.css" />
+	<link rel="stylesheet" href="/static/css/layout.css" />
+	<link rel="stylesheet" href="/static/css/component.css" />
+	<link rel="stylesheet" href="/static/css/common.css" />
+	<link rel="stylesheet" href="/static/css/dts.css" />
+</head>
+
+<body>
+	<div class="wrapper">
+		<div id="header">
+			@@include('static/html/pub/layout/skipNavigation.html')
+			@@include('static/html/pub/layout/header_sub.html')
+		</div>
+
+		<div id="container" class="container">
+			<div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+			<div id="contents">
+				<div class="content">
+					@@include('static/html/pub/layout/breadcrumb.html')
+					<div class="dts">
+						<h2 class="typeH2">
+							만기자동해지/재예치 신청
+							<div class="box-steps">
+								<ol class="list-steps">
+									<!-- 
+												[dev] 상태값 class 안내
+												class="item-steps" 기본 숫자 표기
+												class="item-steps passed" 완료
+												class="item-steps current" 현재
+											 -->
+									<li class="item-steps passed" aria-current="step">
+										<span class="blind">완료된 단계</span>
+										<i class="icon" aria-hidden="true">1</i>
+										<span class="text">정보입력</span>
+									</li>
+									<li class="item-steps">
+										<i class="icon" aria-hidden="true">2</i>
+										<span class="text">정보확인</span>
+									</li>
+									<li class="item-steps">
+										<i class="icon" aria-hidden="true">3</i>
+										<span class="text">완료</span>
+									</li>
+								</ol>
+							</div>
+						</h2>
+						<div class="tbl-area">
+							<table class="table-type01">
+								<caption>
+									만기자동해지 취소 테이블
+								</caption>
+								<colgroup>
+									<col>
+									<col>
+								</colgroup>
+								<tbody>
+									<tr>
+										<th scope="row">업무구분</th>
+										<td><span class="typeMd">만기자동해지 취소</span></td>
+									</tr>
+									<tr>
+										<th scope="row">대상계좌번호</th>
+										<td><span class="typeMd">1400-1212-1010</span></td>
+									</tr>
+									<tr>
+										<th scope="row">만기일</th>
+										<td><span class="typeMd">2026-10-26</span></td>
+									</tr>
+									<tr>
+										<th scope="row">입금계좌번호</th>
+										<td><span class="typeMd">1400-1212-1010</span></td>
+									</tr>
+								</tbody>
+							</table>
+							<table class="table-type01">
+								<caption>OTP에 대한 구성 테이블입니다.</caption>
+								<colgroup>
+									<col>
+									<col>
+								</colgroup>
+								<tbody>
+									<tr>
+										<th scope="row" rowspan="2" class="noradius">
+											<label for="OTP">OTP
+											</label>
+										</th>
+										<td>
+											<div class="otp-text-wrap">
+												<input type="password" id="OTP" class="input wSize-smMd size-lg"
+													placeholder="숫자 6자리" title="OTP 숫자 6자리" aria-label="OTP 숫자 6자리">
+												<div class="typeMd">OTP 만료 기한이 <span>14</span>일 남았습니다.
+													<span>(2026-04-30)</span>
+												</div>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<div class="otp-noti">
+												<div class="list type-dotted">
+													<ul>
+														<li class="typeMd">
+															OTP에 생성된 숫자 6자리를 입력하세요
+														</li>
+														<li class="typeMd">
+															OTP는 1분마다 새로운 비밀번호가 생성됩니다
+														</li>
+													</ul>
+												</div>
+											</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+							<div class="btn-wrap center lg-bot">
+								<button type="button" class="btn type-bg-primary size-xxl">
+									<span class="text">다음</span>
+								</button>
+							</div>
+							<div class="line-box size-xl mt-48">
+								<span class="typeLgSemibold">이용안내</span>
+								<div class="list type-dotted">
+									<ul>
+										<li class="typeMd">
+											예·적금 상품 가입 후 만기일에 자동 해지되어 지정해둔 계좌로 입금되는 서비스
+										</li>
+										<li class="typeMd">
+											수협은행 및 회원수협의 비대면(영업점 포함)으로 가입한 예/적금 계좌
+										</li>
+										<li class="typeMd">
+											평일 오전 04시~08시 입금(토요일, 일요일, 법정 공휴일 만기 시는 다음 영업일에 입금). 단 정액적금은 매월 계약일에 납입하도록 설정된 계좌이므로 납입이 지연되어 만기일이 늦어진 경우 해당 만기일에 입금
+										</li>
+										<li class="typeMd">
+											해지금액 입금계좌는 예금주 본인의 인터넷(스마트폰) 뱅킹 출금계좌로 지정된 계좌
+										</li>
+										<li class="typeMd">
+											자동해지 등록 제한: 주택청약관련상품, 공동명의 계좌, 입,지급정지계좌, 만기일이 경과된 계좌, 질권설정계좌(당행 및 타행기관), 압류 등 법적처분이 있는 계좌
+										</li>
+										<li class="typeMd">
+											해지금액 입금계좌는 대상계좌가 수협은행 계좌인 경우에는 수협은행 계좌만, 회원수협 계좌인 경우에는 회원수협 계좌만 가능합니다. 
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+		</div>
+		<div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+	</div>
+	<script src="/static/js/ui/cib_ui_common.js"></script>
+</body>
+
+</html>
+<script>
+
+</script>

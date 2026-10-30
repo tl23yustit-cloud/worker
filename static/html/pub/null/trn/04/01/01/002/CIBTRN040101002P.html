@@ -1,0 +1,250 @@
+<!-- CIBTRN010112000P.html -->
+<!doctype html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/trn.css" />
+</head>
+
+<body>
+    <div class="wrapper">
+        <div id="header">
+            @@include('static/html/pub/layout/skipNavigation.html')
+            @@include('static/html/pub/layout/header_sub.html')
+        </div>
+
+        <div id="container" class="container">
+            <div id="leftArea">
+                @@include('static/html/pub/layout/leftArea.html')
+            </div>
+            <div id="contents">
+                <div class="content">
+                    @@include('static/html/pub/layout/breadcrumb.html')
+                    <div class="trn">
+                        <button type="button" class="btn type-bg-primary size-md btn-modal" data-target="modal-01">
+                            <span class="text">모달 버튼</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+        </div>
+        <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+
+    <!-- 모달 팝업 영역 -->
+    <div id="modal-01" class="modal is-active" data-dim="true" data-backdrop-close="false" data-alert="true"
+        data-size="md" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc">
+        <div class="modal-wrapper">
+            <div class="modal-title" id="modal-title">
+                <h4 class="typeH4">환율조회</h4>
+            </div>
+            <div class="modal-slot" id="modal-desc">
+                <div class="modal-desc">
+
+                    <div class="tbl-area">
+                        <table class="table-type01">
+                            <caption>지정일자, 회차, 최종회차에 대한 구성 테이블입니다.</caption>
+                            <colgroup>
+                                <col style="width: 160px">
+                                <col style="width: 368px">
+                                <col style="width: 160px">
+                                <col style="width: 368px">
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">
+                                        <span>지정일자</span>
+                                    </th>
+
+                                    <td colspan="3">
+                                        <div class="input-box wSize-md">
+                                            <input type="text" class="input" placeholder="지정일자" aria-label="지정일자"
+                                                value="2026-01-06">
+                                            <button type="button" class="btn">
+                                                <i class="ico-calendar ico-size-smMd" aria-hidden="true"></i>
+                                                <span class="blind">지정일자 달력 열기</span>
+                                            </button>
+                                        </div>
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        <span>회차</span>
+                                    </th>
+                                    <td>
+                                        <div class="box-select wSize-md">
+                                            <button type="button" class="select size-lg" role="combobox"
+                                                aria-expanded="true" aria-haspopup="listbox"
+                                                aria-controls="selectDropdown01" aria-required="true">
+                                                <span class="text">회차선택</span>
+                                                <span class="blind">접힘</span>
+                                            </button>
+                                            <div id="selectDropdown01" class="box-list-select">
+                                                <ul class="list-select" role="listbox" aria-label="선택 항목 리스트">
+                                                    <li class="item-select" role="group" aria-selected="true">
+                                                        <span class="btn-item-select">
+                                                            1회차
+                                                        </span>
+                                                    </li>
+                                                    <li class="item-select" role="group" aria-selected="false">
+                                                        <span class="btn-item-select">2회차</span>
+                                                    </li>
+                                                    <li class="item-select" role="group" aria-selected="false">
+                                                        <span class="btn-item-select">3회차</span>
+                                                    </li>
+                                                    <li class="item-select" role="group" aria-selected="false">
+                                                        <span class="btn-item-select">4회차</span>
+                                                    </li>
+                                                    <li class="item-select" role="group">
+                                                        <button class="btn-item-select">
+                                                            5회차
+                                                        </button>
+                                                    </li>
+                                                    <li class="item-select" role="group" aria-selected="false">
+                                                        <span class="btn-item-select">6회차</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <th scope="row">
+                                        <span>최종회차</span>
+                                    </th>
+                                    <td>
+                                        <span class="typeMd">149 회차</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                    <!-- 버튼 -->
+
+                    <div class="btn-wrap center sm-mid">
+                        <button type="button" class="btn type-bg-primary size-lg">
+                            <span class="text">확인</span>
+                        </button>
+
+                    </div>
+
+                    <div class="tbl-area">
+                        <table class="table-type01">
+                            <caption>일자, 조회회차에 대한 구성 테이블입니다.</caption>
+                            <colgroup>
+                                <col style="width: 160px">
+                                <col style="width: 368px">
+                                <col style="width: 160px">
+                                <col style="width: 368px">
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">
+                                        <span>일자</span>
+                                    </th>
+                                    <td>
+                                        <span class="typeMd">2026-08-16
+                                        </span>
+                                    </td>
+                                    <th scope="row">
+                                        <span>조회회차</span>
+                                    </th>
+                                    <td>
+                                        <span class="typeMd">149 회차
+                                        </span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!--  -->
+
+                    <div class="tbl-area">
+
+                        <table class="table-type03">
+                            <caption>할부기간 구간별 할부수수료율</caption>
+                            <colgroup>
+                                <col style="width: auto">
+                                <col style="width: auto">
+                                <col style="width: auto">
+                                <col style="width: auto">
+                                <col style="width: auto">
+                                <col style="width: auto">
+                                <col style="width: auto">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th rowspan="2" id="th-1-1" scope="col">통화코드</th>
+                                    <th rowspan="2" id="th-1-2" scope="col" headers="th-1-1">기준환율</th>
+                                    <th colspan="2" id="th-1-3" scope="colgroup" headers="th-2-3 th-1-1">전신환율</th>
+                                    <th colspan="2" id="th-1-5" scope="colgroup" headers="th-2-5 th-1-1">현찰</th>
+                                    <th rowspan="2" id="th-1-7" scope="col" headers="th-1-1">외화수표 파실때</th>
+                                </tr>
+                                <tr>
+                                    <th id="th-2-3" scope="col" headers="th-1-3 th-1-1" class="allnoradius left-line">
+                                        사실때</th>
+                                    <th id="th-2-4" scope="col" headers="th-1-3 th-1-1">파실때</th>
+                                    <th id="th-2-5" scope="col" headers="th-1-5 th-1-1">사실때</th>
+                                    <th id="th-2-6" scope="col" headers="th-1-5 th-1-1">파실때</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td headers="th-1-1"><span class="typeMd">미국달러(USD)<br></span></td>
+                                    <td headers="th-1-2" class="text-right"><span class="typeMd">1,400.76<br></span>
+                                    </td>
+                                    <td headers="th-1-3 th-2-3" class="text-right"><span
+                                            class="typeMd">1,141.40<br></span></td>
+                                    <td headers="th-1-3 th-2-4" class="text-right"><span
+                                            class="typeMd">1,387.00<br></span></td>
+                                    <td headers="th-1-5 th-2-5" class="text-right"><span
+                                            class="typeMd">1.427.00<br></span></td>
+                                    <td headers="th-1-5 th-2-6" class="text-right"><span
+                                            class="typeMd">1,374.09<br></span></td>
+                                    <td headers="th-1-7" class="text-right"><span class="typeMd">1,387.00<br></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td headers="th-1-1"><span class="typeMd">일본 100엔(JPY)<br></span></td>
+                                    <td headers="th-1-2" class="text-right"><span class="typeMd">898.98<br></span></td>
+                                    <td headers="th-1-3 th-2-3" class="text-right"><span
+                                            class="typeMd">887.56<br></span></td>
+                                    <td headers="th-1-3 th-2-4" class="text-right"><span
+                                            class="typeMd">870.31<br></span></td>
+                                    <td headers="th-1-5 th-2-5" class="text-right"><span
+                                            class="typeMd">895.61<br></span></td>
+                                    <td headers="th-1-5 th-2-6" class="text-right"><span
+                                            class="typeMd">862.23<br></span></td>
+                                    <td headers="th-1-7" class="text-right"><span class="typeMd">870.11<br></span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="modal-footer flex items-center justify-center gap-8">
+
+                </div>
+
+            </div>
+
+            <button type="button" class="ico btn-close" aria-label="모달 닫기">
+                <i class="ico-close ico-size-smMd" aria-hidden="true"></i>
+                <span class="blind">닫기</span>
+            </button>
+        </div>
+</body>
+
+</html>

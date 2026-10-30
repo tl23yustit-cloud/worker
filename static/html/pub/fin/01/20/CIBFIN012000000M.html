@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>수협은행</title>
+	<link rel="stylesheet" href="/static/css/reset.css" />
+	<link rel="stylesheet" href="/static/css/layout.css" />
+	<link rel="stylesheet" href="/static/css/component.css" />
+	<link rel="stylesheet" href="/static/css/common.css" />
+	<link rel="stylesheet" href="/static/css/bmg.css" />
+</head>
+
+<body>
+	<div class="wrapper">
+		<div id="header">
+			@@include('static/html/pub/layout/skipNavigation.html')
+			@@include('static/html/pub/layout/header_sub.html')
+		</div>
+
+		<div id="container" class="container">
+			<div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+			<div id="contents">
+				<div class="content">
+					@@include('static/html/pub/layout/breadcrumb.html')
+                    <div class="fin">
+                        <h2 class="typeH2">진행상태조회</h2>
+                        
+                        <!-- [dev] 신청 내역이 없는 Case -->
+                        <div class="result-box">
+                            <div class="result-banner">
+                                <div class="inner-img type-warning"></div>
+                                <div class="result-message">
+                                    <!-- [수정] 2026-10-27 html 수정 -->
+                                    <h4 class="typeH3 color-blueMd">신청내역이 없습니다.</h4>
+                                    <span class="typeLg mt-4">입력하신 정보로 조회되는 신청내역이 없습니다. <br>확인 후 정보를 다시 입력해 주세요.</span>
+                                    <!-- // [수정] 2026-10-27 html 수정 -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn-wrap center lg-bot">
+                            <button type="button" class="btn type-line-neutral size-xxl">
+                                <span class="text">다시 조회하기</span>
+                            </button>
+                            <button type="button" class="btn type-bg-primary size-xxl">
+                                <span class="text">메인이동 </span>
+                            </button>
+                        </div>
+                        <!-- // [dev] 신청 내역이 없는 Case -->
+                        
+                        <!-- [dev] 신청 내역이 없는 Case 시 미노출 -->
+                        <!-- for dev 이미지 활성화 비활성화 이미지 케이스 추후 전달받을예정  현재 임시 이미지 상태임-->
+                        <ul class="one-stop-step step-list document" aria-label="진행 단계">
+                            <!--완료된 step엔 active 추가-->
+                            <li class="step1 active">
+                                <div class="type-column">
+                                    <i class="step-icon" aria-hidden="true"></i>
+                                    <div class="step-content">
+                                        <span class="step-badge">STEP 01</span>
+                                        <p class="step-title">비대면 본인확인</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="step2 active">
+                                <div class="type-column">
+                                    <i class="step-icon" aria-hidden="true"></i>
+                                    <div class="step-content">
+                                        <span class="step-badge">STEP 02</span>
+                                        <p class="step-title">가입정보입력</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="step3 active"><!-- [수정] 2026-10-27 active class 추가 -->
+                                <div class="type-column">
+                                    <i class="step-icon" aria-hidden="true"></i>
+                                    <div class="step-content">
+                                        <span class="step-badge">STEP 03</span>
+                                        <p class="step-title">비대면 서류제출</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="step4">
+                                <div class="type-column">
+                                    <i class="step-icon" aria-hidden="true"></i>
+                                    <div class="step-content">
+                                        <span class="step-badge">STEP 04</span>
+                                        <p class="step-title">입출금 계좌개설</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="step5">
+                                <div class="type-column">
+                                    <i class="step-icon" aria-hidden="true"></i>
+                                    <div class="step-content">
+                                        <span class="step-badge">STEP 05</span>
+                                        <p class="step-title">기업뱅킹 가입</p>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <!-- // [dev] 신청 내역이 없는 Case 시 미노출 -->
+                        <!-- [dev] 이어하기 진행상태 Case -->
+                        <div class="result-box">
+                            <div class="result-banner">
+                                <div class="inner-img"></div>
+                                <div class="result-message">
+                                    <!-- [수정] 2026-10-27 html 수정 -->
+                                    <h4 class="typeH3 color-blueMd">진행중인 가입 신청이 있습니다.</h4>
+                                    <span class="typeLg mt-4">이어서 진행해 주세요.</span>
+                                    <!-- // [수정] 2026-10-27 html 수정 -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tbl-area mt-48">
+                            <table class="table-type01">
+                                <caption>
+                                    신청내용, 신청일시, 처리결과에 대한 구성 테이블입니다.
+                                </caption>
+                                <colgroup>
+                                    <col style="width: 160px" />
+                                    <col style="width: auto" />
+                                    <col style="width: 160px" />
+                                    <col style="width: auto" />
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row"><span>신청내용</span></th>
+                                        <td><span class="typeMd">%가입유형%</span></td>
+                                        <th scope="row"><span>신청일시</span></th>
+                                        <td><span class="typeMd">2026-06-09 11:40</span></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row"><span>처리결과</span></th>
+                                        <td colspan="3"><span class="typeMd">%계좌인증완료%</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="list type-dotted mt-12">
+                            <ul>
+                                <li class="typeMd">이어하기 정보는 신청일 24시까지 유지됩니다.</li>
+                            </ul>
+                        </div>
+                        <div class="btn-wrap center lg-bot">
+                            <button type="button" class="btn type-line-neutral size-xxl">
+                                <span class="text">처음부터 다시하기</span>
+                            </button>
+                            <button type="button" class="btn type-bg-primary size-xxl">
+                                <span class="text">이어하기</span>
+                            </button>
+                        </div>
+                        <!-- // [dev] 이어하기 진행상태 Case -->
+                        <!-- [dev] 이어하기 진행상태 - 40 서류제출완료 Case -->
+                        <div class="result-box">
+                            <div class="result-banner">
+                                <div class="inner-img"></div>
+                                <div class="result-message">
+                                    <h4 class="typeH3 color-blueMd">심사가 진행 중입니다.</h4>
+                                    <span class="typeLg mt-4">진행상태 및 보완서류 제출 등 관련 사항은 SMS로 안내 드립니다. <br>제출하신 서류 검토를 위해 최대 5영업일이 소요될 수 있습니다.</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tbl-area mt-48">
+                            <table class="table-type01">
+                                <caption>
+                                    신청내용, 신청일시, 처리결과, 심사 영업점에 대한 구성 테이블입니다.
+                                </caption>
+                                <colgroup>
+                                    <col style="width: 160px" />
+                                    <col style="width: auto" />
+                                    <col style="width: 160px" />
+                                    <col style="width: auto" />
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row"><span>신청내용</span></th>
+                                        <td><span class="typeMd">%가입유형%</span></td>
+                                        <th scope="row"><span>신청일시</span></th>
+                                        <td><span class="typeMd">2026-06-09 11:40</span></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row"><span>처리결과</span></th>
+                                        <td><span class="typeMd">서류제출완료</span></td>
+                                        <th scope="row"><span>심사 영업점</span></th>
+                                        <td><span class="typeMd">잠실점 (02-345-6789)</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="btn-wrap center lg-bot">
+                            <button type="button" class="btn type-line-neutral size-xxl">
+                                <span class="text">신청취소</span>
+                            </button>
+                        </div>
+                        <!-- // [dev] 이어하기 진행상태 - 40 서류제출완료 Case -->
+                        <!-- [dev] 이어하기 진행상태 - 41 심사승인(계좌) Case -->
+                        <div class="result-box">
+                            <div class="result-banner">
+                                <div class="inner-img"></div>
+                                <div class="result-message">
+                                    <h4 class="typeH3 color-blueMd">심사가 완료되었습니다.</h4>
+                                    <span class="typeLg mt-4">[다음] 버튼을 선택해 <br>다음 단계에서 계좌개설을 완료해주세요</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tbl-area mt-48">
+                            <table class="table-type01">
+                                <caption>
+                                    신청내용, 신청일시, 처리결과, 심사 영업점에 대한 구성 테이블입니다.
+                                </caption>
+                                <colgroup>
+                                    <col style="width: 160px" />
+                                    <col style="width: auto" />
+                                    <col style="width: 160px" />
+                                    <col style="width: auto" />
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row"><span>신청내용</span></th>
+                                        <td><span class="typeMd">%가입유형%</span></td>
+                                        <th scope="row"><span>신청일시</span></th>
+                                        <td><span class="typeMd">2026-06-09 11:40</span></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row"><span>처리결과</span></th>
+                                        <td><span class="typeMd">심사승인</span></td>
+                                        <th scope="row"><span>심사 영업점</span></th>
+                                        <td><span class="typeMd">잠실점 (02-345-6789)</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="btn-wrap center lg-bot">
+                            <button type="button" class="btn type-line-neutral size-xxl">
+                                <span class="text">신청취소</span>
+                            </button>
+                            <button type="button" class="btn type-bg-primary size-xxl">
+                                <span class="text">다음</span>
+                            </button>
+                        </div>
+                        <!-- // [dev] 이어하기 진행상태 - 41 심사승인(계좌) Case -->
+                        <!-- [dev] 진행상태조회 부분승인 Case -->
+                        <div class="result-box">
+                            <div class="result-banner">
+                                <div class="inner-img"></div>
+                                <div class="result-message">
+                                    <h4 class="typeH3 color-blueMd">신청 내용 중 일부만 승인되었습니다.</h4>
+                                    <span class="typeLg mt-4 color-fg-error">심사결과에 따라 전자금융 가입이 제한되었습니다.</span>
+                                    <span class="typeLg">계좌개설은 계속해서 진행이 가능합니다. [다음] 버튼을 선택해 다음 단계에서 계좌개설을 완료해주세요.</span>
+                                </div>
+                                <div class="result-summary-box">
+                                    <p>
+                                        <span class="typeLgSemibold">계좌개설</span>
+                                        <span class="typeH4 color-fg-primary">승인</span>
+                                    </dl>
+                                    <p>
+                                        <span class="typeLgSemibold">전자금융</span>
+                                        <span class="typeH4 color-fg-error">불승인</span>
+                                    </dl>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tbl-area mt-48">
+                            <table class="table-type01">
+                                <caption>
+                                    신청내용, 신청일시, 처리결과, 심사 영업점에 대한 구성 테이블입니다.
+                                </caption>
+                                <colgroup>
+                                    <col style="width: 160px" />
+                                    <col style="width: auto" />
+                                    <col style="width: 160px" />
+                                    <col style="width: auto" />
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row"><span>신청내용</span></th>
+                                        <td><span class="typeMd">%가입유형%</span></td>
+                                        <th scope="row"><span>신청일시</span></th>
+                                        <td><span class="typeMd">2026-06-09 11:40</span></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row"><span>처리결과</span></th>
+                                        <td>
+                                            <span class="typeMd">심사부분승인(계좌)</span>
+                                            <span class="flex gap-4 typeMd color-fg-primary mt-4"><i class="ico line ico-size-smMd ico-info-circle color-fg-primary" aria-hidden="true"></i> 영업점 심사결과 및 안내가 발송됩니다.</span>
+                                        </td>
+                                        <th scope="row"><span>심사 영업점</span></th>
+                                        <td><span class="typeMd">잠실점 (02-345-6789)</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="btn-wrap center lg-bot">
+                            <button type="button" class="btn type-line-neutral size-xxl">
+                                <span class="text">신청취소</span>
+                            </button>
+                            <button type="button" class="btn type-bg-primary size-xxl">
+                                <span class="text">다음</span>
+                            </button>
+                        </div>
+                        <!-- // [dev] 진행상태조회 부분승인 Case -->
+                        <!-- [dev] 이어하기 진행상태 - 44 심사불승인 Case -->
+                        <div class="result-box">
+                            <div class="result-banner">
+                                <div class="inner-img type-warning"></div>
+                                <div class="result-message">
+                                    <h4 class="typeH3 color-blueMd">심사가 불승인되었습니다.</h4>
+                                    <span class="typeLg mt-4">자세한 내용은 영업점에 문의해주세요.</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tbl-area mt-48">
+                            <table class="table-type01">
+                                <caption>
+                                    신청내용, 신청일시, 처리결과, 심사 영업점에 대한 구성 테이블입니다.
+                                </caption>
+                                <colgroup>
+                                    <col style="width: 160px" />
+                                    <col style="width: auto" />
+                                    <col style="width: 160px" />
+                                    <col style="width: auto" />
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row"><span>신청내용</span></th>
+                                        <td><span class="typeMd">%가입유형%</span></td>
+                                        <th scope="row"><span>신청일시</span></th>
+                                        <td><span class="typeMd">2026-06-09 11:40</span></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row"><span>처리결과</span></th>
+                                        <td><span class="typeMd">심사불승인</span></td>
+                                        <th scope="row"><span>심사 영업점</span></th>
+                                        <td><span class="typeMd">잠실점 (02-345-6789)</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="btn-wrap center lg-bot">
+                            <button type="button" class="btn type-line-neutral size-xxl">
+                                <span class="text">메인이동</span>
+                            </button>
+                        </div>
+                        <!-- // [dev] 이어하기 진행상태 - 44 심사불승인 Case -->
+                        <!-- [dev] 이어하기 진행상태 - 45 심사보완 Case -->
+                        <div class="result-box">
+                            <div class="result-banner">
+                                <div class="inner-img type-warning"></div>
+                                <div class="result-message">
+                                    <h4 class="typeH3 color-blueMd">심사가 반려되었습니다.</h4>
+                                    <span class="typeLg mt-4">[제출서류확인] 버튼을 선택해 반려서류 및 사유를 확인 후 보완서류를 업로드 해주세요.</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tbl-area mt-48">
+                            <table class="table-type01">
+                                <caption>
+                                    신청내용, 신청일시, 처리결과, 심사 영업점에 대한 구성 테이블입니다.
+                                </caption>
+                                <colgroup>
+                                    <col style="width: 160px" />
+                                    <col style="width: auto" />
+                                    <col style="width: 160px" />
+                                    <col style="width: auto" />
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row"><span>신청내용</span></th>
+                                        <td><span class="typeMd">%가입유형%</span></td>
+                                        <th scope="row"><span>신청일시</span></th>
+                                        <td><span class="typeMd">2026-06-09 11:40</span></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row"><span>처리결과</span></th>
+                                        <td><span class="typeMd">심사반려</span></td>
+                                        <th scope="row"><span>심사 영업점</span></th>
+                                        <td><span class="typeMd">잠실점 (02-345-6789)</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="btn-wrap center lg-bot">
+                            <button type="button" class="btn type-line-neutral size-xxl">
+                                <span class="text">신청취소</span>
+                            </button>
+                            <button type="button" class="btn type-bg-primary size-xxl">
+                                <span class="text">제출서류확인</span>
+                            </button>
+                        </div>
+                        <!-- // [dev] 이어하기 진행상태 - 45 심사보완 Case -->
+                        <!-- [dev] 이어하기 진행상태 - 46 심사기간 취소 Case -->
+                        <div class="result-box">
+                            <div class="result-banner">
+                                <div class="inner-img type-warning"></div>
+                                <div class="result-message">
+                                    <h4 class="typeH3 color-blueMd">비대면 실명확인 유효기간이 만료되어 <br>심사가 취소되었습니다.</h4>
+                                    <span class="typeLg mt-4">필요하신 경우 해당 업무를 다시 신청해 주시기 바랍니다.</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tbl-area mt-48">
+                            <table class="table-type01">
+                                <caption>
+                                    신청내용, 신청일시, 처리결과, 심사 영업점에 대한 구성 테이블입니다.
+                                </caption>
+                                <colgroup>
+                                    <col style="width: 160px" />
+                                    <col style="width: auto" />
+                                    <col style="width: 160px" />
+                                    <col style="width: auto" />
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row"><span>신청내용</span></th>
+                                        <td><span class="typeMd">%가입유형%</span></td>
+                                        <th scope="row"><span>신청일시</span></th>
+                                        <td><span class="typeMd">2026-06-09 11:40</span></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row"><span>처리결과</span></th>
+                                        <td><span class="typeMd color-fg-error">심사취소</span></td>
+                                        <th scope="row"><span>심사 영업점</span></th>
+                                        <td><span class="typeMd">잠실점 (02-345-6789)</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="btn-wrap center lg-bot">
+                            <button type="button" class="btn type-line-neutral size-xxl">
+                                <span class="text">메인이동</span>
+                            </button>
+                        </div>
+                        <!-- // [dev] 이어하기 진행상태 - 46 심사기간 취소 Case -->
+                    </div>
+				</div>
+			</div>
+			<div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+		</div>
+		<div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+	</div>
+	<script src="/static/js/ui/cib_ui_common.js"></script>
+</body>
+
+</html>
+<script>
+
+</script>

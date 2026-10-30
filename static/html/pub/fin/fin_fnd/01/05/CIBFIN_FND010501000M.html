@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>뱅킹업무 &gt; 예금/신탁 &gt; 예금 &gt; 해지계좌조회 &gt; 2단계</title>
+  <link rel="stylesheet" href="/static/css/reset.css" />
+  <link rel="stylesheet" href="/static/css/layout.css" />
+  <link rel="stylesheet" href="/static/css/component.css" />
+  <link rel="stylesheet" href="/static/css/common.css" />
+  <link rel="stylesheet" href="/static/css/fin.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <div id="header">
+      @@include('static/html/pub/layout/skipNavigation.html')
+      @@include('static/html/pub/layout/header_sub.html')
+    </div>
+
+    <div id="container" class="container">
+      <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+      <div id="contents">
+        <div class="content">
+          @@include('static/html/pub/layout/breadcrumb.html')
+          <div class="fin">
+            <h2 class="typeH2">
+              투자성향분석
+              <div class="box-steps">
+                <ol class="list-steps">
+                  <!-- 
+												[dev] 상태값 class 안내
+												class="item-steps" 기본 숫자 표기
+												class="item-steps passed" 완료
+												class="item-steps current" 현재
+											 -->
+                  <li class="item-steps current" aria-current="step">
+                    <i class="icon" aria-hidden="true">1</i>
+                    <span class="text">사전문답</span>
+                  </li>
+                  <li class="item-steps">
+                    <i class="icon" aria-hidden="true">2</i>
+                    <span class="text">투자자 정보 확인</span>
+                  </li>
+                  <li class="item-steps">
+                    <i class="icon" aria-hidden="true">3</i>
+                    <span class="text">투자 성향 설문지</span>
+                  </li>
+                  <li class="item-steps">
+                    <i class="icon" aria-hidden="true">4</i>
+                    <span class="text">투자성향분석 결과</span>
+                  </li>
+                </ol>
+              </div>
+            </h2>
+            
+            <div class="surver-box">
+              <!-- q1(s) -->
+              <section class="surver-quest-box">
+                <article>
+                  <header>
+                    <span class="bedeg">
+                      Q1 투자자 구분
+                    </span>
+                    <h3>
+                      고객님의 투자자 유형이 어떻게 되시나요?
+                    </h3>
+                  </header>
+
+                  <div class="surver-group">
+                    <div class="surver-card">
+                      <input type="radio" id="loan-status0101" name="loan-qa0101" value="surver-val0101" class="radio-input" disabled>
+                      <label for="loan-status0101" class="surver-label">
+                        일반 투자자
+                      </label>
+                    </div>
+                    <div class="surver-card">
+                      <input type="radio" id="loan-status0102" name="loan-qa0101" value="surver-val0102" class="radio-input">
+                      <label for="loan-status0102" class="surver-label">
+                        전문 투자자
+                      </label>
+                    </div>
+                  </div>
+                </article>
+              </section>
+              <!-- q1(e) -->
+
+              <!-- q2(s) -->
+              <section class="surver-quest-box">
+                <article>
+                  <header>
+                    <span class="bedeg">
+                      Q2 대출거래관련 금융투자상품 가입 안내
+                    </span>
+                    <h3>
+                      「금융소비자보호에 관한 법률」에 따라 대출 거래 전후 1개월 이내에는 금융투자상품을 가입하실 수 없습니다.
+                      최근 1개월 이내 대출을 받으셨거나, 향후 1개월 이내 대출을 받을 예정이신가요?
+                    </h3>
+                  </header>
+
+                  <div class="surver-group">
+                    <div class="surver-card">
+                      <input type="radio" id="loan-status0201" name="loan-qa0201" value="surver-val0201" class="radio-input" checked>
+                      <label for="loan-status0201" class="surver-label">
+                        예
+                      </label>
+                    </div>
+                    <div class="surver-card">
+                      <input type="radio" id="loan-status0202" name="loan-qa0201" value="surver-val0202" class="radio-input">
+                      <label for="loan-status0202" class="surver-label">
+                        아니오
+                      </label>
+                    </div>
+                  </div>
+                </article>
+              </section>
+              <!-- q2(e) -->
+
+              <!-- q3(s) -->
+              <section class="surver-quest-box">
+                <article>
+                  <header>
+                    <span class="bedeg">
+                      Q3 금융취약소비자 우선 설명 안내
+                    </span>
+                    <h3>
+                      취약금융소비자에 해당하시는 경우 금융투자상품 거래시 &lt;금융소비자 불이익 사항&gt;에 대해 <span>우선적으로 설명</span>을 드리고 있습니다.
+                      아래 금융 취약 소비자에 해당하십니까?
+                    </h3>
+                  </header>
+
+                  <div class="surver-group">
+                    <div class="surver-card">
+                      <input type="radio" id="loan-status0301" name="loan-qa0301" value="surver-val0301" class="radio-input" checked>
+                      <label for="loan-status0301" class="surver-label">
+                        금융취약투자자 (65세 이상, 은퇴자, 주부)
+                      </label>
+                    </div>
+                    <div class="surver-card">
+                      <input type="radio" id="loan-status0302" name="loan-qa0301" value="surver-val0302" class="radio-input">
+                      <label for="loan-status0302" class="surver-label">
+                        금융투자상품 무경험자
+                      </label>
+                    </div>
+                    <div class="surver-card">
+                      <input type="radio" id="loan-status0303" name="loan-qa0301" value="surver-val0303" class="radio-input">
+                      <label for="loan-status0303" class="surver-label">
+                        우선설명 요청
+                      </label>
+                    </div>
+                    <div class="surver-card">
+                      <input type="radio" id="loan-status0304" name="loan-qa0301" value="surver-val0304" class="radio-input">
+                      <label for="loan-status0304" class="surver-label">
+                        해당없음
+                      </label>
+                    </div>
+                  </div>
+                </article>
+              </section>
+              <!-- q3(e) -->
+            </div>
+
+            <div class="btn-wrap center lg-bot">
+                <button type="button" class="btn type-bg-primary-tint size-xxl">
+                    <span class="text">취소</span>
+                </button>
+                <button type="button" class="btn type-bg-primary size-xxl">
+                    <span class="text">확인</span>
+                </button>
+            </div>
+
+            <div class="line-box size-xl mt-48">
+              <span class="typeLgSemibold">이용안내</span>
+              <div class="list type-dotted">
+                <ul>
+                  <li class="typeMd">
+                    자본시장법에 따라 펀드를 포함한 금융투자상품을 가입하시기 전에 투자성향을 확인하셔야 합니다.
+                  </li>
+                  <li class="typeMd">
+                    투자성향 분석자료가 없는 고객은 적합한 상품을 안내드릴 수 없습니다.
+                  </li>
+                  <li class="typeMd">
+                    고객에게 적합한 펀드를 확인하기 위하여 필요한 절차입니다.
+                  </li>
+                  <li class="typeMd">
+                    유효일자 경과 후에는 투자성향분석을 다시 하여야 펀드 신규개설이 가능합니다.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+    </div>
+    <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+  </div>
+  <script src="/static/js/ui/cib_ui_common.js"></script>
+</body>
+
+</html>

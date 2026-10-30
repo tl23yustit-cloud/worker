@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/trn.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">
+        @@include('static/html/pub/layout/skipNavigation.html')
+        @@include('static/html/pub/layout/header_sub.html')
+      </div>
+
+      <div id="container" class="container">
+        <div id="leftArea">
+          @@include('static/html/pub/layout/leftArea.html')
+        </div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="trn">
+              <h2 class="typeH2">결제계좌 변경</h2>
+
+              <div class="tbl-area">
+                <div class="tbl-head">
+                  <h6 class="typeH6">OTP 비밀번호 입력</h6>
+                </div>
+                <div class="wrap-board-grid">
+                  <!-- [dev] 공통UI 미정 -->
+                  <div class="board-grid">
+                    <!-- [dev] 공통UI 미정 영역 : 작업 시 삭제-->
+                    <i
+                      style="
+                        display: block;
+                        border: var(--borderWidthMd) solid
+                          var(--colorBorderBase);
+                        border-radius: var(--radiusMd);
+                        padding: var(--spacing2Xl);
+                      "
+                      >공통UI 적용</i
+                    >
+                    <!-- //[dev] 공통UI 미정 영역 : 작업 시 삭제 -->
+                  </div>
+                  <!-- //[dev] 공통UI 미정 -->
+                </div>
+              </div>
+
+              <div class="btn-wrap center lg-bot">
+                <button type="button" class="btn type-line-neutral size-xxl">
+                  <span class="text">이전</span>
+                </button>
+                <button type="button" class="btn type-bg-primary size-xxl">
+                  <span class="text">결제계좌 변경</span>
+                </button>
+              </div>
+
+              <div class="line-box size-xl mt-48">
+                <span class="typeLgSemibold">이용안내</span>
+                <div class="list type-dotted mt-12">
+                  <ul>
+                    <li class="typeMd">
+                      결제계좌를 변경 할 수 있는 화면입니다.
+                    </li>
+                    <li class="typeMd">
+                      개인사업자의 경우 대표가 개인계좌로도 변경가능힙니다.
+                    </li>
+                    <li class="typeMd">
+                      저축은행은 BC사와 제휴되어 있지 않아 결제계좌 등록이
+                      불가능합니다.
+                    </li>
+                    <li class="typeMd">
+                      주류구매전용카드는 결제계좌변경이 불가합니다.
+                    </li>
+                    <li class="typeMd">
+                      결제계좌 변경은 가능일은 아래와 같습니다.
+                      <div class="list type-bar mt-4">
+                        <ul>
+                          <li class="typeMd">
+                            변경 가능일 : 1일 ~ 25일 중 7, 8, 9, 16, 17, 18일을
+                            제외한 일자중 선택 가능
+                          </li>
+                          <li class="typeMd">
+                            변경 가능시간 : (평일) 04:00 ~ 22:00
+                          </li>
+                          <li class="typeMd">변경 제한 : 1일 1회 변경가능</li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="typeMd">
+                      결제일 1영업일전까지 변경 가능하나 해당 결제일에
+                      결제금액이 없는 경우 제한없이 변경가능합니다.
+                    </li>
+                    <li class="typeMd">
+                      수협→수협계좌로 변경 시, 현금카드 겸용 예금인출 기능은
+                      영업점으로 내점하여 등록 후 이용 가능합니다.
+                    </li>
+                    <li class="typeMd">
+                      타행맞춤계좌는 결제계좌로 이용이 불가합니다.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
+</html>

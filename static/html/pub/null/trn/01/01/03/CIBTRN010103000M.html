@@ -1,5 +1,3 @@
-<!-- CIBTRN010103000M -->
- 
 <!doctype html>
 <html lang="ko">
   <head>
@@ -16,15 +14,10 @@
 
   <body>
     <div class="wrapper">
-      <div id="header">
-        @@include('static/html/pub/layout/skipNavigation.html')
-        @@include('static/html/pub/layout/header_sub.html')
-      </div>
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
 
       <div id="container" class="container">
-        <div id="leftArea">
-          @@include('static/html/pub/layout/leftArea.html')
-        </div>
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
         <div id="contents">
           <div class="content">
             @@include('static/html/pub/layout/breadcrumb.html')
@@ -56,10 +49,7 @@
                 <div class="card-top-content">
                   <div class="flex gap-16">
                     <div class="flex justify-center items-center">
-                      <i
-                        class="bank-007 circle ico-size-2xl"
-                        aria-hidden="true"
-                      ></i>
+                      <i class="bank-007 circle ico-size-2xl" aria-hidden="true"></i>
                     </div>
                     <div class="flex flex-column">
                       <span class="type2XlMedium">Sh평생주거래우대통장</span>
@@ -70,29 +60,52 @@
                   </div>
                 </div>
               </div>
-
+              <!-- [dev] 내용추가 20261020 -->
               <div class="tbl-area">
-                <h4 class="typeH4">입금정보</h4>
                 <div class="tbl-area">
-                  <div class="total-summary-box">
-                    <div class="total">총 <strong>999 건</strong></div>
-                    <dl>
-                      <dt>총 이체금액</dt>
-                      <dd>
-                        <span class="color-fg-primary">20,000,000,000</span>원
-                      </dd>
-                    </dl>
+                  <h4 class="typeH4">입금정보</h4>
+                  <div class="total-container">
+                    <div class="total-summary-box renew">
+                      <div class="top-item">
+                        <div class="left-con">
+                          <div class="total">전체 <strong>2건</strong></div>
+                          <dl>
+                            <dt>정상처리</dt>
+                            <dd><span class="color-fg-primary">1</span>건</dd>
+                          </dl>
+                          <dl>
+                            <dt>에러처리</dt>
+                            <dd><span class="color-fg-error">1</span>건</dd>
+                          </dl>
+                        </div>
+                        <dl>
+                          <dt class="total-money">총 이체금액</dt>
+                          <dd><span class="color-fg-primary">20,000,000,000 </span>원</dd>
+                        </dl>
+                      </div>
+
+                      <div class="total-summay-box-under">
+                        <dl>
+                          <dt><i class="ico solid ico-size-sm ico-clock02 type3" aria-hidden="true"></i>이체예정시간</dt>
+
+                          <dd>2026-08-26 09:00</dd>
+                        </dl>
+                      </div>
+                    </div>
                   </div>
                   <table class="table-type03">
                     <caption>
                       입금정보 테이블
                     </caption>
                     <colgroup>
-                      <col />
-                      <col />
-                      <col />
-                      <col />
-                      <col />
+                      <!-- [dev]:20261026 가로사이즈 조정 -->
+                      <col style="width: 250px" />
+                      <col style="width: 150px" />
+                      <col style="width: 80px" />
+                      <col style="width: 80px" />
+                      <col style="width: 80px" />
+                      <col style="width: 100px" />
+                      <!-- //[dev]:20261026 가로사이즈 조정 -->
                     </colgroup>
                     <thead>
                       <!-- [수정] 20260903 th scope 추가 -->
@@ -101,66 +114,127 @@
                         <th scope="col">이체금액</th>
                         <th scope="col">수수료</th>
                         <th scope="col">CMS번호</th>
-                        <th scope="col">통장표시내용(내통장/받는분)</th>
+                        <!-- [dev] 이체방식 td추가 20261019 -->
+                        <th scope="col">이체방식</th>
+                        <!-- //[dev] 이체방식 td추가 20261019 -->
+                        <!-- [dev] 내용수정 20261020 <br />추가 -->
+                        <!--  -->
+                        <th scope="col">통장표시내용<br />(보내는분/받는분)</th>
+                        <!-- //[dev] 내용수정 20261020 -->
                       </tr>
                     </thead>
 
                     <tbody>
                       <tr>
                         <td>
-                          <div class="ico-bank-wrap">
-                            <i class="bank-004 circle ico-size-md"></i>국민은행
-                            0010-0000-0000 (타고조)
-                          </div>
+                          <div class="ico-bank-wrap"><i class="bank-004 circle ico-size-md"></i>국민은행 0010-0000-0000 (타고조)</div>
                         </td>
                         <td class="text-right">10,000,000,000원</td>
                         <td class="text-right">500원</td>
                         <td>-</td>
+
+                        <td>지연이체</td>
+
                         <td>타고조 / 최만장</td>
                       </tr>
                       <tr>
                         <td>
-                          <div class="ico-bank-wrap">
-                            <i
-                              class="bank-004 circle ico-size-md"
-                              aria-hidden="true"
-                            ></i
-                            >국민은행 0010-0000-0000 (타고조)
-                          </div>
+                          <div class="ico-bank-wrap"><i class="bank-004 circle ico-size-md" aria-hidden="true"></i>국민은행 0010-0000-0000 (타고조)</div>
                         </td>
                         <td class="text-right">10,000,000,000원</td>
                         <td class="text-right">500원</td>
                         <td>-</td>
-                        <td>타고조 / 최만장</td>
+                        <td>-</td>
+                        <td>
+                          <button type="button" class="btn type-line-neutral size-sm">
+                            <span class="text">상세조회</span>
+                          </button>
+                        </td>
                       </tr>
                     </tbody>
                   </table>
                 </div>
               </div>
-              <div class="text-center">OTP 영역 (디자인 미정)</div>
+              <!-- //[dev] 내용추가 20261020 -->
+
+              <!-- [dev] otp인증 공통영역 추가 20261019 -->
+
+              <div class="tbl-area">
+                <table class="table-type01">
+                  <caption>
+                    이체비밀번호에 대한 구성 테이블입니다.
+                  </caption>
+                  <colgroup>
+                    <col />
+                    <col />
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="row">
+                        <label for="OTP">이체비밀번호</label>
+                      </th>
+                      <td>
+                        <div class="tbl-flex">
+                          <div class="input-box">
+                            <input type="password" class="input" placeholder="숫자 4자리" title="이체비밀번호 숫자 4자리" aria-label="이체비밀번호 숫자 4자리" />
+                          </div>
+                          <button class="btn-mouse-keypad">
+                            <!-- 키패드 활성화시 is-active 클래스 추가 -->
+                            <i class="ico ico-size-smMd" aria-hidden="true"></i>
+                            <span class="blind">마우스 입력 열기</span>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <table class="table-type01">
+                  <caption>
+                    OTP에 대한 구성 테이블입니다.
+                  </caption>
+                  <colgroup>
+                    <col />
+                    <col />
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="row" rowspan="2" class="noradius">
+                        <label for="OTP">OTP </label>
+                      </th>
+                      <td>
+                        <div class="otp-text-wrap">
+                          <input type="password" id="OTP" class="input wSize-smMd size-lg" placeholder="숫자 6자리" title="" aria-label="OTP숫자 6자리" />
+                          <div class="typeMd">
+                            OTP 만료 기한이 <span>14</span>일 남았습니다.
+                            <span>(2026-04-30)</span>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="otp-noti">
+                          <div class="list type-dotted">
+                            <ul>
+                              <li class="typeMd">OTP에 생성된 숫자 6자리를 입력하세요</li>
+                              <li class="typeMd">OTP는 1분마다 새로운 비밀번호가 생성됩니다</li>
+                            </ul>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!-- //[dev] otp인증 공통영역 추가 20261019 -->
+
               <div class="list type-dotted mt-16">
                 <ul>
-                  <li class="typeMd">
-                    고객님이 입력하신 이체정보입니다. 최종거래 전에 입금은행
-                    계좌번호와 이체금액, 받는분 성함을 다시한번 확인 후 이체하여
-                    주시기 바랍니다.
-                  </li>
-                  <li class="typeMd">
-                    지연이체 가입 시 0시부터 19시 30분까지는 정하신 지연시간으로
-                    이체가 처리됩니다.
-                  </li>
-                  <li class="typeMd">
-                    단, 지연예외계좌, 본인소유의 수협계좌, 시간 외, 휴일,
-                    즉시이체 가능한도 내에서는 즉시이체 됩니다.
-                  </li>
-                  <li class="typeMd">
-                    실제 이체를 원하시면 아래의 이체버튼을, 취소를 원하시면
-                    취소버튼을 눌러주세요.
-                  </li>
-                  <li class="typeMd">
-                    결제요청을 원하시면 아래의 결재요청버튼을, 취소를 원하시면
-                    취소버튼을 선택하십시오
-                  </li>
+                  <li class="typeMd">고객님이 입력하신 이체정보입니다. 최종거래 전에 입금은행 계좌번호와 이체금액, 받는분 성함을 다시한번 확인 후 이체하여 주시기 바랍니다.</li>
+                  <li class="typeMd">지연이체 가입 시 0시부터 18시 30분까지는 정하신 지연시간으로 이체가 처리됩니다.</li>
+                  <li class="typeMd">단, 지연예외계좌, 본인소유의 수협계좌, 시간 외, 휴일, 즉시이체 가능한도 내에서는 즉시이체 됩니다.</li>
+                  <li class="typeMd">실제 이체를 원하시면 아래의 이체버튼을, 취소를 원하시면 취소버튼을 눌러주세요.</li>
+                  <li class="typeMd">결재요청을 원하시면 아래의 결재요청버튼을, 취소를 원하시면 취소버튼을 선택하십시오</li>
                 </ul>
               </div>
               <div class="btn-wrap center lg-bot">
@@ -170,12 +244,28 @@
                 <button type="button" class="btn type-bg-primary size-xxl">
                   <span class="text">이체</span>
                 </button>
+                <!-- [dev] 버튼추가 20261019 -->
+                <div class="ml-8 mr-8">
+                  <span class="form-box">
+                    <input type="checkbox" name="DownloadSelectSave" id="긴급" class="form-checkbox size-lg" />
+                    <label for="긴급" class="form-label">긴급</label>
+                  </span>
+                </div>
+
+                <button type="button" class="btn type-bg-primary size-xxl">
+                  <span class="text">결재요청</span>
+                </button>
+                <button type="button" class="btn type-bg-primary size-xxl">
+                  <span class="text">승인요청</span>
+                </button>
+                <!-- //[dev] 버튼추가 20261019 -->
               </div>
             </div>
           </div>
         </div>
         <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
       </div>
+      
       <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
     </div>
 
@@ -186,9 +276,7 @@
       document.addEventListener("DOMContentLoaded", function () {
         var swiperInstances = {};
 
-        var swiperContainers = document.querySelectorAll(
-          ".card-swiper-container",
-        );
+        var swiperContainers = document.querySelectorAll(".card-swiper-container");
 
         swiperContainers.forEach(function (container, index) {
           var prevBtn = container.querySelector(".btn-slide-prev");
@@ -223,9 +311,7 @@
 
           swiperInstances[index] = cardSwiper;
 
-          var cardButtons = container.querySelectorAll(
-            ".account-card-container",
-          );
+          var cardButtons = container.querySelectorAll(".account-card-container");
           cardButtons.forEach(function (btn) {
             btn.addEventListener("click", function () {
               cardButtons.forEach(function (otherBtn) {
@@ -245,10 +331,7 @@
 
             if (swiperInstance.isBeginning) {
               prev.setAttribute("disabled", "true");
-              if (
-                prevIcon &&
-                !prevIcon.classList.contains("color-fg-disabled")
-              ) {
+              if (prevIcon && !prevIcon.classList.contains("color-fg-disabled")) {
                 prevIcon.classList.add("color-fg-disabled");
               }
             } else {
@@ -260,10 +343,7 @@
 
             if (swiperInstance.isEnd) {
               next.setAttribute("disabled", "true");
-              if (
-                nextIcon &&
-                !nextIcon.classList.contains("color-fg-disabled")
-              ) {
+              if (nextIcon && !nextIcon.classList.contains("color-fg-disabled")) {
                 nextIcon.classList.add("color-fg-disabled");
               }
             } else {
@@ -276,9 +356,7 @@
         });
 
         var tabButtons = document.querySelectorAll(".list-tab-button .btn-tab");
-        var tabContents = document.querySelectorAll(
-          ".box-card-wrapper .box-tab-content",
-        );
+        var tabContents = document.querySelectorAll(".box-card-wrapper .box-tab-content");
 
         tabButtons.forEach(function (btn, index) {
           btn.addEventListener("click", function () {
@@ -307,9 +385,7 @@
               targetContent.classList.add("active");
               targetContent.style.display = "block";
 
-              var currentSwiperContainer = targetContent.querySelector(
-                ".card-swiper-container",
-              );
+              var currentSwiperContainer = targetContent.querySelector(".card-swiper-container");
               if (currentSwiperContainer && currentSwiperContainer.swiper) {
                 currentSwiperContainer.swiper.update();
                 currentSwiperContainer.swiper.slideTo(0, 0);

@@ -14,24 +14,15 @@
 
   <body>
     <div class="wrapper">
-      <div id="header">
-        @@include('static/html/pub/layout/skipNavigation.html')
-        @@include('static/html/pub/layout/header_sub.html')
-      </div>
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
 
       <div id="container" class="container">
-        <div id="leftArea">
-          @@include('static/html/pub/layout/leftArea.html')
-        </div>
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
         <div id="contents">
           <div class="content">
             @@include('static/html/pub/layout/breadcrumb.html')
             <div class="bop">
-              <button
-                type="button"
-                class="btn type-bg-primary size-md btn-modal"
-                data-target="modal-01"
-              >
+              <button type="button" class="btn type-bg-primary size-md btn-modal" data-target="modal-01">
                 <span class="text">모달 버튼</span>
               </button>
             </div>
@@ -44,18 +35,7 @@
     <script src="/static/js/ui/cib_ui_common.js"></script>
 
     <!-- 모달 팝업 영역 -->
-    <div
-      id="modal-01"
-      class="modal is-active"
-      data-dim="true"
-      data-backdrop-close="false"
-      data-alert="true"
-      data-size="sm"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="modal-title"
-      aria-describedby="modal-desc"
-    >
+    <div id="modal-01" class="modal is-active" data-dim="true" data-backdrop-close="false" data-alert="true" data-size="sm" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc">
       <div class="modal-wrapper">
         <div class="modal-title" id="modal-title">
           <h4 class="typeH4">채우기</h4>
@@ -73,9 +53,7 @@
             <div class="tbl-area">
               <div class="typeH6">입금계좌</div>
               <table class="table-type01">
-                <caption>
-                  계좌번호, 수수료로 구성된 표
-                </caption>
+                <caption></caption>
                 <!-- [수정] 20260903 col width 값 수정  -->
                 <!-- [수정] 20260909 col width style 수정  -->
                 <colgroup>
@@ -89,6 +67,14 @@
                       <span class="typeMd">수협은행 010901-000-000</span>
                     </td>
                   </tr>
+                  <!-- [dev] 추가 20261021-->
+                  <tr>
+                    <th scope="row">채우기 후 잔액</th>
+                    <td class="text-right">
+                      <span class="typeMd">10,000,000 원 </span>
+                    </td>
+                  </tr>
+                  <!-- //[dev] 추가 20261021-->
                   <tr>
                     <th scope="row">수수료</th>
                     <td class="text-right">
@@ -134,6 +120,12 @@
             <span class="text">확인</span>
           </button>
         </div>
+        <!-- [dev] 추가 20261021-->
+        <button type="button" class="ico btn-close" aria-label="모달 닫기">
+          <i class="ico-close ico-size-smMd" aria-hidden="true"></i>
+          <span class="blind">닫기</span>
+        </button>
+        <!--// [dev] 추가 20261021-->
       </div>
     </div>
   </body>

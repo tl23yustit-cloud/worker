@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/fin.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
+
+      <div id="container" class="container">
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="fin">
+              <button type="button" class="btn type-bg-primary size-md btn-modal" data-target="modal-02">
+                <span class="text">수취어음조회 상세</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+
+    <div id="modal-02" class="modal is-active" data-dim="true" data-backdrop-close="false" data-alert="false" data-size="sm" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc">
+      <div class="modal-wrapper">
+        <div class="modal-title">
+          <h4 class="typeH4">상품설명 이해확인</h4>
+        </div>
+        <div class="modal-slot">
+          <span class="typeMd">
+            상품설명서를 확인하고, 금융소비자의 권리 및 의무사항을 이해 하셨습니까?<br />
+            <em class="color-fg-primary">충분한 이해 없이 확인 답변하실 경우, 추후 소송이나 분쟁에서 소비자에게 불리하게 작용할 수 있습니다. </em>
+          </span>
+        </div>
+        <div class="modal-footer flex items-center justify-center gap-8">
+          <button type="button" class="btn type-bg-primary-tint size-lg">
+            <span class="text">아니오</span>
+          </button>
+          <button type="button" class="btn type-bg-primary size-lg">
+            <span class="text">예</span>
+          </button>
+        </div>
+        <button type="button" class="ico btn-close" aria-label="모달 닫기">
+          <i class="ico-close ico-size-smMd" aria-hidden="true"></i>
+          <span class="blind">닫기</span>
+        </button>
+      </div>
+    </div>
+  </body>
+</html>
+<script src="/static/js/ui/cib_ui_common.js"></script>

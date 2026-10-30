@@ -1,0 +1,175 @@
+<!-- CIBTRN010112000P.html -->
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>수협은행</title>
+  <link rel="stylesheet" href="/static/css/reset.css" />
+  <link rel="stylesheet" href="/static/css/layout.css" />
+  <link rel="stylesheet" href="/static/css/component.css" />
+  <link rel="stylesheet" href="/static/css/common.css" />
+  <link rel="stylesheet" href="/static/css/inq.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <div id="header">
+      @@include('static/html/pub/layout/skipNavigation.html')
+      @@include('static/html/pub/layout/header_sub.html')
+    </div>
+
+    <div id="container" class="container">
+      <div id="leftArea">
+        @@include('static/html/pub/layout/leftArea.html')
+      </div>
+      <div id="contents">
+        <div class="content">
+          @@include('static/html/pub/layout/breadcrumb.html')
+          <div class="inq">
+            <button type="button" class="btn type-bg-primary size-md btn-modal" data-target="modal-01">
+              <span class="text">모달 버튼</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+    </div>
+    <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+  </div>
+  <script src="/static/js/ui/cib_ui_common.js"></script>
+
+  <!-- 모달 팝업 영역 -->
+  <div id="modal-01" class="modal is-active" data-dim="true" data-backdrop-close="false" data-alert="true"
+    data-size="sm" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc">
+    <div class="modal-wrapper">
+      <div class="modal-title" id="modal-title">
+        <h4 class="typeH4">계좌상세조회</h4>
+      </div>
+      <div class="modal-slot" id="modal-desc">
+        <div class="modal-desc">
+          <div class="tbl-area">
+            <h6 class="typeH6">외환계좌조회</h6>
+            <table class="table-type01">
+              <caption>
+                계좌번호, 수수료로 구성된 표
+              </caption>
+              <colgroup>
+                <col style="width: 160px" />
+                <col style="width: 200px" />
+                <col style="width: 160px" />
+                <col style="width: 200px" />
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th scope="row">고객명</th>
+                  <td colspan="3">
+                    <span class="typeMd">김수협</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">계좌번호</th>
+                  <td colspan="3">
+                    <span class="typeMd">1234-0000-0000</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">상품종류</th>
+                  <td colspan="3">
+                    <span class="typeMd">샐러리맨리치예금(저축예금)</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">계좌상태</th>
+                  <td colspan="3">
+                    <span class="typeMd">활동</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">신규일</th>
+                  <td>
+                    <span class="typeMd">2024-12-01</span>
+                  </td>
+                  <th scope="row">만기일</th>
+                  <td>
+                    <span class="typeMd">2024-12-01</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">기본이율</th>
+                  <td>
+                    <span class="typeMd">4.7770 %</span>
+                  </td>
+                  <th scope="row">우대이율</th>
+                  <td>
+                    <span class="typeMd">0.000 %</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="tbl-area">
+            <h6 class="typeH6">최종거래 내역 명세</h6>
+            <table class="table-type03">
+              <caption>회차, 상환여부, 상환일자, 분할상환금액에 대한 구성 테이블입니다.</caption>
+              <colgroup>
+                <col width="180px">
+                <col width="180px">
+                <col width="180px">
+                <col width="180px">
+                <col width="180px">
+                <col width="180px">
+              </colgroup>
+              <thead>
+                <tr>
+                  <th scope="col">통화</th>
+                  <th scope="col">거래일</th>
+                  <th scope="col">구분</th>
+                  <th scope="col">거래금액</th>
+                  <th scope="col">거래후잔액</th>
+                  <th scope="col">은행지점명</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="typeMd">USD</span></td>
+                  <td><span class="typeMd">2023-11-23</span></td>
+                  <td><span class="typeMd">입금</span></td>
+                  <td class="text-right">
+                    <span class="typeMd">1.07</span>
+                  </td>
+                  <td class="text-right">
+                    <span class="typeMd">5.18</span>
+                  </td>
+                  <td><span class="typeMd">본점영업부</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="bank-box">
+            <h6 class="typeH6">예금자보호안내</h6>
+            <div class="line-box size-xl">
+              <span class="typeLg">
+                이 예금은 예금자보호법에 따라 원금과 소정의 이자를 합하여 1인당 "1억원까지"(본 은행의 여타 보호상품과 합산) 보호됩니다.
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--[dev]:20261020하단 버튼 삭제-->
+      <!-- <div class="modal-footer flex items-center justify-center gap-8">
+        <button type="button" class="btn type-bg-primary size-lg">
+          <span class="text">인쇄</span>
+        </button>
+      </div> -->
+      <!--//[dev]:20261020하단 버튼 삭제-->
+      <button type="button" class="ico btn-close" aria-label="모달 닫기">
+        <i class="ico-close ico-size-smMd" aria-hidden="true"></i>
+        <span class="blind">닫기</span>
+      </button>
+    </div>
+  </div>
+</body>
+
+</html>

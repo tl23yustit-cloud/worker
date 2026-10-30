@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/van.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">
+        @@include('static/html/pub/layout/skipNavigation.html')
+        @@include('static/html/pub/layout/header_sub.html')
+      </div>
+
+      <div id="container" class="container">
+        <div id="leftArea">
+          @@include('static/html/pub/layout/leftArea.html')
+        </div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="van">
+              <h2 class="typeH2">조회대상 계좌관리</h2>
+              <div class="box-tab">
+                <ul
+                  class="list-tab-button type-chip size-lg"
+                  role="tablist"
+                  aria-label="조회대상 계좌관리 탭"
+                >
+                  <li class="item-tab-button">
+                    <button
+                      type="button"
+                      class="btn-tab active"
+                      title="선택됨"
+                      id="tabBtnTypeChip01"
+                      role="tab"
+                      aria-selected="true"
+                      aria-controls="tabPanelTypeChip01"
+                    >
+                      <span class="text">입출금</span>
+                    </button>
+                  </li>
+                  <li class="item-tab-button">
+                    <button
+                      type="button"
+                      class="btn-tab"
+                      id="tabBtnTypeChip02"
+                      role="tab"
+                      aria-selected="false"
+                      aria-controls="tabPanelTypeChip02"
+                    >
+                      <span class="text">예적금</span>
+                    </button>
+                  </li>
+                  <li class="item-tab-button">
+                    <button
+                      type="button"
+                      class="btn-tab"
+                      id="tabBtnTypeChip03"
+                      role="tab"
+                      aria-selected="false"
+                      aria-controls="tabPanelTypeChip03"
+                    >
+                      <span class="text">펀드</span>
+                    </button>
+                  </li>
+                </ul>
+                <div
+                  class="box-tab-content active"
+                  id="tabPanelTypeChip01"
+                  role="tabpanel"
+                  aria-labelledby="tabBtnTypeChip01"
+                >
+                  <h3 class="blind">Tab Content01</h3>
+                  <div class="tbl-area">
+                    <table class="table-type03">
+                      <caption>
+                        NO., 구분, 금융사, 별칭, 계좌번호, 만기일, 상태, 등록,
+                        해지에 대한 구성 테이블입니다.
+                      </caption>
+                      <colgroup>
+                        <col style="width: auto" />
+                        <col style="width: auto" />
+                        <col style="width: auto" />
+                        <col style="width: auto" />
+                        <col style="width: auto" />
+                        <col style="width: auto" />
+                        <col style="width: auto" />
+                        <col style="width: auto" />
+                        <col style="width: auto" />
+                      </colgroup>
+                      <thead>
+                        <tr>
+                          <th scope="col"><span> NO.</span></th>
+                          <th scope="col"><span>구분</span></th>
+                          <th scope="col"><span>금융사</span></th>
+                          <th scope="col"><span>별칭</span></th>
+                          <th scope="col"><span>계좌번호</span></th>
+                          <th scope="col"><span>만기일</span></th>
+                          <th scope="col"><span>상태</span></th>
+                          <th scope="col">
+                            <div class="th-checkbox">
+                              <label for="comp-l4qw23h">등록</label>
+                              <span class="form-box">
+                                <input
+                                  type="checkbox"
+                                  name="등록 전체선택"
+                                  id="comp-l4qw23hd"
+                                  class="form-checkbox size-lg"
+                                />
+                              </span>
+                            </div>
+                          </th>
+                          <th scope="col">
+                            <div class="th-checkbox">
+                              <label for="comp-l4qw23h">해지</label>
+                              <span class="form-box">
+                                <input
+                                  type="checkbox"
+                                  name="해지 전체선택"
+                                  id="comp-l4qw232h"
+                                  class="form-checkbox size-lg"
+                                />
+                              </span>
+                            </div>
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>
+                            <span class="typeMd">1</span>
+                          </td>
+                          <td>
+                            <span class="typeMd">입출금</span>
+                          </td>
+                          <td>
+                            <span class="typeMd">Sh 수협은행</span>
+                          </td>
+                          <td>
+                            <span class="typeMd">부모님용돈</span>
+                          </td>
+                          <td>
+                            <span class="typeMd">1010-1226-2624</span>
+                          </td>
+                          <td>
+                            <span class="typeMd">2028-12-25</span>
+                          </td>
+                          <td>
+                            <span class="typeMd">등록완료</span>
+                          </td>
+                          <td>
+                            <span class="form-box">
+                              <input
+                                type="checkbox"
+                                name="1010-1226-2624 등록"
+                                title=""
+                                id="comp-l4qw2h"
+                                class="form-checkbox size-lg"
+                              />
+                            </span>
+                          </td>
+                          <td>
+                            <span class="form-box">
+                              <input
+                                type="checkbox"
+                                name=""
+                                id="comp-i2cl09"
+                                class="form-checkbox size-lg"
+                              />
+                            </span>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div
+                  class="box-tab-content"
+                  id="tabPanelTypeChip02"
+                  role="tabpanel"
+                  aria-labelledby="tabBtnTypeChip02"
+                  style="display: none"
+                >
+                  <h3 class="blind">Tab Content02</h3>
+                  Tab 본문 02
+                </div>
+                <div
+                  class="box-tab-content"
+                  id="tabPanelTypeChip03"
+                  role="tabpanel"
+                  aria-labelledby="tabBtnTypeChip03"
+                  style="display: none"
+                >
+                  <h3 class="blind">Tab Content03</h3>
+                  <div class="tbl-area">
+                    <table class="table-type03">
+                      <caption>
+                        No., 펀드명, 계좌번호, 상태, 등록, 해지에 대한 구성
+                        테이블입니다.
+                      </caption>
+                      <colgroup>
+                        <col style="width: auto" />
+                        <col style="width: 450px" />
+                        <col style="width: auto" />
+                        <col style="width: auto" />
+                        <col style="width: auto" />
+                        <col style="width: auto" />
+                      </colgroup>
+                      <thead>
+                        <tr>
+                          <th scope="col"><span>No.</span></th>
+                          <th scope="col"><span>펀드명</span></th>
+                          <th scope="col"><span>계좌번호</span></th>
+                          <th scope="col"><span>상태</span></th>
+                          <th scope="col">
+                            <div class="th-checkbox">
+                              <label for="comp-l4qw23h">등록</label>
+                              <span class="form-box">
+                                <input
+                                  type="checkbox"
+                                  name="등록 전체선택"
+                                  id="comp-l4qw23hd222"
+                                  class="form-checkbox size-lg"
+                                />
+                              </span>
+                            </div>
+                          </th>
+                          <th scope="col">
+                            <div class="th-checkbox">
+                              <label for="comp-l4qw23h">해지</label>
+                              <span class="form-box">
+                                <input
+                                  type="checkbox"
+                                  name="해지 전체선택"
+                                  id="comp-l4qw2dasd3hd"
+                                  class="form-checkbox size-lg"
+                                />
+                              </span>
+                            </div>
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>
+                            <span class="typeMd">1</span>
+                          </td>
+                          <td>
+                            <span class="typeMd"
+                              >한국밸류글로벌배당인컴증권자투자신탁(주식)종류A-E</span
+                            >
+                          </td>
+                          <td>
+                            <span class="typeMd">1900-0419-5187</span>
+                          </td>
+                          <td>
+                            <span class="typeMd">등록완료</span>
+                          </td>
+                          <td>
+                            <span class="form-box">
+                              <input
+                                type="checkbox"
+                                name=""
+                                id="comp-ez0thd"
+                                class="form-checkbox size-lg"
+                              />
+                            </span>
+                          </td>
+                          <td>
+                            <span class="form-box">
+                              <input
+                                type="checkbox"
+                                name=""
+                                id="comp-r6btaa"
+                                class="form-checkbox size-lg"
+                              />
+                            </span>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <div class="btn-wrap center lg-bot">
+                  <button type="button" class="btn type-line-neutral size-xxl">
+                    <span class="text">등록해지</span>
+                  </button>
+                  <button type="button" class="btn type-bg-primary size-xxl">
+                    <span class="text">계좌등록</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
+</html>

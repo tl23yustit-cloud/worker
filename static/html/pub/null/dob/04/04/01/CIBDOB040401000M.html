@@ -1,3 +1,4 @@
+<!-- 1.08v -->
 <!doctype html>
 <html lang="ko">
   <head>
@@ -13,15 +14,10 @@
 
   <body>
     <div class="wrapper">
-      <div id="header">
-        @@include('static/html/pub/layout/skipNavigation.html')
-        @@include('static/html/pub/layout/header_sub.html')
-      </div>
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
 
       <div id="container" class="container">
-        <div id="leftArea">
-          @@include('static/html/pub/layout/leftArea.html')
-        </div>
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
         <div id="contents">
           <div class="content">
             @@include('static/html/pub/layout/breadcrumb.html')
@@ -43,15 +39,12 @@
                       <i class="icon" aria-hidden="true">3</i>
                       <span class="text">3</span>
                     </li>
-                  
                   </ol>
                 </div>
               </h2>
               <div class="tbl-area">
                 <h4 class="typeH4">증명서 구분 선택</h4>
-                <table class="table-type01 fixed">
-                  <!-- [수정] 20260904 col width 값 수정  -->
-                  <!-- [수정] 20260908 col width style 수정  -->
+                <table class="table-type01">
                   <colgroup>
                     <col style="width: 160px" />
                     <col style="width: auto" />
@@ -59,133 +52,18 @@
                   <tbody>
                     <tr>
                       <th scope="row">
-                        <span>발급방법</span>
-                      </th>
-                      <!-- [수정] 20260904 2단 colspan=3 삭제  -->
-                      <td>
-                        <div class="tbl-column">
-                          <div
-                            class="form-box-wrap"
-                            role="radiogroup"
-                            aria-labelledby="label-issue-method"
-                          >
-                            <span class="form-box">
-                              <input
-                                type="radio"
-                                name="issueMethod"
-                                id="issueMethod_01"
-                                class="form-radio size-md"
-                                checked
-                              />
-                              <label for="issueMethod_01" class="form-label"
-                                >이메일로 받기</label
-                              >
-                            </span>
-                            <span class="form-box">
-                              <input
-                                type="radio"
-                                name="issueMethod"
-                                id="issueMethod_02"
-                                class="form-radio size-md"
-                              />
-                              <label for="issueMethod_02" class="form-label"
-                                >PDF 저장</label
-                              >
-                            </span>
-                          </div>
-                          <div class="tbl-flex mt-10">
-                            <!-- [수정] 20260908 title 값 수정  -->
-                            <input
-                              type="text"
-                              class="input size-lg wSize-lg"
-                              placeholder="이메일 입력"
-                              title="이메일"
-                              aria-label="이메일 입력"
-                            />
-                            <span aria-hidden="true">@</span>
-                            <div class="box-select wSize-md">
-                              <button
-                                type="button"
-                                class="select size-lg"
-                                role="combobox"
-                                aria-expanded="false"
-                                aria-haspopup="listbox"
-                                aria-controls="selectEmailDomain"
-                                title="이메일주소 선택"
-                              >
-                                <span class="text">이메일주소 선택</span>
-                                <span class="blind">펼침</span>
-                              </button>
-                              <div
-                                id="selectEmailDomain"
-                                class="box-list-select"
-                              >
-                                <ul
-                                  class="list-select"
-                                  role="listbox"
-                                  aria-label="이메일주소 선택 리스트"
-                                >
-                                  <li
-                                    class="item-select"
-                                    role="option"
-                                    aria-selected="true"
-                                  >
-                                    <span class="form-box">직접입력</span>
-                                  </li>
-                                  <li
-                                    class="item-select"
-                                    role="option"
-                                    aria-selected="false"
-                                  >
-                                    <span class="form-box">naver.com</span>
-                                  </li>
-                                  <li
-                                    class="item-select"
-                                    role="option"
-                                    aria-selected="false"
-                                  >
-                                    <span class="form-box">gmail.com</span>
-                                  </li>
-                                </ul>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </td>
-                    </tr>
-
-                    <tr>
-                      <th scope="row">
                         <span>계좌번호 선택</span>
                       </th>
                       <td>
                         <div class="box-select wSize-lg">
-                          <button
-                            type="button"
-                            class="select size-lg"
-                            role="combobox"
-                            aria-expanded="false"
-                            aria-haspopup="listbox"
-                            aria-controls="comp-9p1v87"
-                            aria-label="계좌번호 선택"
-                          >
+                          <button type="button" class="select size-lg" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="comp-9p1v87" aria-label="계좌번호 선택">
                             <span class="text">계좌번호 선택</span>
                             <span class="blind">펼침</span>
                           </button>
                           <div id="comp-9p1v87" class="box-list-select">
-                            <ul
-                              class="list-select"
-                              role="listbox"
-                              aria-label="계좌번호 선택"
-                            >
-                              <li
-                                class="item-select"
-                                role="option"
-                                aria-selected="true"
-                              >
-                                <button class="btn-item-select">
-                                  계좌번호 선택
-                                </button>
+                            <ul class="list-select" role="listbox" aria-label="계좌번호 선택">
+                              <li class="item-select" role="option" aria-selected="true">
+                                <button class="btn-item-select">계좌번호 선택</button>
                               </li>
                             </ul>
                           </div>
@@ -198,20 +76,36 @@
                       </th>
                       <td>
                         <div class="tbl-flex">
-                          <!-- [수정] 20260908 title 값 추가  -->
-                          <input
-                            type="text"
-                            class="input size-lg wSize-smMd"
-                            title="대출실행번호"
-                            aria-label="대출실행번호"
-                            value="00003"
-                            readonly
-                          />
-                          <button
-                            type="button"
-                            class="btn type-line-secondary size-lg"
-                          >
+                          <div class="clear-type">
+                            <input type="text" class="input size-lg wSize-smMd" aria-label="대출실행번호" aria-label="대출실행번호" value="00003" readonly />
+                            <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                              <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                              <span class="blind">닫기</span>
+                            </button>
+                          </div>
+                          <button type="button" class="btn type-line-secondary size-lg">
                             <span class="text">조회</span>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span>대출실행번호</span>
+                      </th>
+                      <td>
+                        <div class="tbl-flex">
+                          <div class="clear-type">
+                            <input type="text" class="input size-lg wSize-smMd" aria-label="대출실행번호" placeholder="숫자만 입력해주세요." aria-label="대출실행번호" />
+                            <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                              <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                              <span class="blind">닫기</span>
+                            </button>
+                          </div>
+                          <button class="btn-mouse-keypad">
+                            <!-- 키패드 활성화시 is-active 클래스 추가 -->
+                            <i class="ico ico-size-smMd" aria-hidden="true"></i>
+                            <span class="blind">마우스 입력 열기</span>
                           </button>
                         </div>
                       </td>
@@ -225,35 +119,17 @@
                           <div class="calendar-wrap">
                             <!-- 날짜 입력 영역 -->
                             <div class="input-box">
-                              <input
-                                type="text"
-                                class="input"
-                                placeholder="조회 시작일"
-                                aria-label="조회 시작일"
-                                value="2026-01-06"
-                              />
+                              <input type="text" class="input" placeholder="조회 시작일" aria-label="조회 시작일" value="2026-01-06" />
                               <button type="button" class="btn">
-                                <i
-                                  class="ico-calendar ico-size-smMd"
-                                  aria-hidden="true"
-                                ></i>
+                                <i class="ico-calendar ico-size-smMd" aria-hidden="true"></i>
                                 <span class="blind">조회 시작일 달력 열기</span>
                               </button>
                             </div>
                             <span aria-hidden="true">~</span>
                             <div class="input-box">
-                              <input
-                                type="text"
-                                class="input"
-                                placeholder="조회 종료일"
-                                aria-label="조회 종료일"
-                                value="2026-01-06"
-                              />
+                              <input type="text" class="input" placeholder="조회 종료일" aria-label="조회 종료일" value="2026-01-06" />
                               <button type="button" class="btn">
-                                <i
-                                  class="ico-calendar ico-size-smMd"
-                                  aria-hidden="true"
-                                ></i>
+                                <i class="ico-calendar ico-size-smMd" aria-hidden="true"></i>
                                 <span class="blind">조회 종료일 달력 열기</span>
                               </button>
                             </div>

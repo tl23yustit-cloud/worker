@@ -10,19 +10,14 @@
     <link rel="stylesheet" href="/static/css/component.css" />
     <link rel="stylesheet" href="/static/css/common.css" />
     <link rel="stylesheet" href="/static/css/foe.css" />
-  </head> 
+  </head>
 
   <body>
     <div class="wrapper">
-      <div id="header">
-        @@include('static/html/pub/layout/skipNavigation.html')
-        @@include('static/html/pub/layout/header_sub.html')
-      </div>
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
 
       <div id="container" class="container">
-        <div id="leftArea">
-          @@include('static/html/pub/layout/leftArea.html')
-        </div>
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
         <div id="contents">
           <div class="content">
             @@include('static/html/pub/layout/breadcrumb.html')
@@ -32,7 +27,9 @@
               <!-- 사업장명 테이블 영역 -->
               <div class="tbl-area">
                 <table class="table-type01">
-                  <caption>사업장명 정보 입력 테이블</caption>
+                  <caption>
+                    사업장명 정보 입력 테이블
+                  </caption>
                   <!-- [수정] 20260907 col width 값 수정  -->
                   <colgroup>
                     <col style="width: 160px" />
@@ -56,7 +53,9 @@
                     <h4 class="typeH4">여신한도조회내역</h4>
                   </div>
                   <div class="right-area">
-                    <span class="typeSm">조회기준일시 YYYY-MM-DD 00:00:00</span>
+                    <!--[dev]:20261029 color-fg-secondary 클래스 추가-->
+                    <span class="color-fg-secondary typeSm">조회기준일시 YYYY-MM-DD 00:00:00</span>
+                    <!--//[dev]:20261029 color-fg-secondary 클래스 추가-->
                   </div>
                 </div>
                 <table class="table-type03">
@@ -80,9 +79,11 @@
                       <th scope="col">한도계좌번호</th>
                       <th scope="col">한도(약정)만기일</th>
                       <th scope="col">통화</th>
-                      <th scope="col">한도약정금액</th>
-                      <th scope="col">한도사용액</th>
-                      <th scope="col">한도여유액</th>
+                      <!--[dev]:20261028 공통 col table th 금액단위표시(원)-->
+                      <th scope="col">한도약정금액(원)</th>
+                      <th scope="col">한도사용액(원)</th>
+                      <th scope="col">한도여유액(원)</th>
+                      <!--//[dev]:20261028 공통 col table th 금액단위표시(원)-->
                     </tr>
                   </thead>
                   <tbody>
@@ -113,7 +114,6 @@
                   </tbody>
                 </table>
               </div>
-
             </div>
           </div>
         </div>

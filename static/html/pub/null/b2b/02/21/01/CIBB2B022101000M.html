@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/b2b.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
+
+      <div id="container" class="container">
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="b2b">
+              <h2 class="typeH2">만기전 지급제시 신청</h2>
+              <table class="table-type01">
+                <caption></caption>
+                <colgroup>
+                  <col style="width: 160px" />
+                  <col style="width: auto" />
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th>주민(사업자)등록번호</th>
+                    <td><span class="typeMd">000-00-00000</span></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <span>계좌번호</span>
+                    </th>
+                    <td colspan="3">
+                      <div class="box-select wSize-lg">
+                        <button type="button" class="select size-lg" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="selectDropdown01" aria-labelledby="label-account" aria-required="true">
+                          <span class="text">0000-0000-0000 (기업운전일반자금대출)</span>
+                          <span class="blind">목록 열기</span>
+                        </button>
+                        <div id="selectDropdown01" class="box-list-select">
+                          <ul class="list-select" role="listbox" aria-label="계좌번호 선택 리스트">
+                            <li class="item-select" role="group" aria-selected="true">
+                              <span class="btn-item-select"> 외화보통예금 1010-27330000</span>
+                            </li>
+                            <li class="item-select" role="group" aria-selected="false">
+                              <span class="btn-item-select">1</span>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <span>전자어음 상태구분</span>
+                    </th>
+                    <td>
+                      <div class="form-box-wrap" role="radiogroup" aria-label="전자어음 상태구분">
+                        <span class="form-box">
+                          <input type="radio" name="searchType1" id="searchType_011" class="form-radio size-md" />
+                          <label for="searchType_011" class="form-label">전자어음번호</label>
+                        </span>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <span>정렬조건</span>
+                    </th>
+                    <td>
+                      <div class="form-box-wrap" role="radiogroup" aria-label="정렬조건">
+                        <span class="form-box">
+                          <input type="radio" name="searchType" id="searchType_01" class="form-radio size-md" checked="" />
+                          <label for="searchType_01" class="form-label">전자어음번호</label>
+                        </span>
+                        <span class="form-box">
+                          <input type="radio" name="searchType" id="searchType_02" class="form-radio size-md" />
+                          <label for="searchType_02" class="form-label">전자어음발행일자</label>
+                        </span>
+                        <span class="form-box">
+                          <input type="radio" name="searchType" id="searchType_03" class="form-radio size-md" />
+                          <label for="searchType_03" class="form-label">전자어음만기일자</label>
+                        </span>
+                        <span class="form-box">
+                          <input type="radio" name="searchType" id="searchType_04" class="form-radio size-md" />
+                          <label for="searchType_04" class="form-label">최종결제일자</label>
+                        </span>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">조회기간</th>
+                    <td colspan="3">
+                      <div class="tbl-column">
+                        <div class="radio-group" role="radiogroup" aria-label="조회기간">
+                          <span class="form-box">
+                            <input type="radio" name="SampleRadio0302_01" id="SampleRadio0302_01" class="radio-btn" checked="" />
+                            <label for="SampleRadio0302_01" class="form-label">당일</label>
+                            <input type="radio" name="SampleRadio0302_01" id="SampleRadio0302_02" class="radio-btn" />
+                            <label for="SampleRadio0302_02" class="form-label">전일</label>
+                            <input type="radio" name="SampleRadio0302_01" id="SampleRadio0302_03" class="radio-btn" />
+                            <label for="SampleRadio0302_03" class="form-label">1주일</label>
+                            <input type="radio" name="SampleRadio0302_01" id="SampleRadio0302_04" class="radio-btn" />
+                            <label for="SampleRadio0302_04" class="form-label">1개월</label>
+                          </span>
+                        </div>
+                        <div class="calendar-wrap">
+                          <div class="input-box gap-10">
+                            <input type="text" class="input" placeholder="조회기간" title="" aria-label="조회기간 시작일" value="2026-01-06" />
+                            <button type="button" class="btn">
+                              <i class="ico-calendar ico-size-smMd" aria-hidden="true"></i>
+                              <span class="blind">조회기간 시작일 날짜 열기</span>
+                            </button>
+                          </div>
+                          ~
+                          <div class="input-box">
+                            <input type="text" class="input" placeholder="조회기간" title="" aria-label="조회기간 종료일" value="2026-01-06" />
+                            <button type="button" class="btn">
+                              <i class="ico-calendar ico-size-smMd" aria-hidden="true"></i>
+                              <span class="blind">조회기간 종료일 날짜 열기</span>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="btn-wrap center sm-mid">
+                <button type="button" class="btn type-bg-primary size-xl">
+                  <span class="text">조회</span>
+                </button>
+              </div>
+              <div class="tbl-area">
+                <h4 class="typeH4">조회결과</h4>
+                <div class="tbl-head">
+                  <div class="left-area">
+                    <span class="total typeMd">총 <span class="num">$n$</span></span>
+                  </div>
+                  <div class="right-area">
+                    <span class="color-fg-secondary typeMd">조회기간 : 2026-07-01 ~ 2026-07-01</span>
+                  </div>
+                </div>
+                <table class="table-type03">
+                  <caption>
+                    계좌번호, 상품명, 계좌별칭, 비고에 대한 구성 테이블입니다.
+                  </caption>
+                  <colgroup>
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th scope="col" rowspan="2" id="th-01">전자어음번호</th>
+                      <th scope="col" id="th-02">분할번호</th>
+                      <th scope="col" rowspan="2" id="th-03">처리상태</th>
+                      <th scope="col" rowspan="2" id="th-04">배서금액</th>
+                      <th scope="col" id="th-05">발행일자</th>
+                      <th scope="col" rowspan="2" id="th-06">발행인명</th>
+                      <th scope="col" id="th-07">지금은행</th>
+                      <th scope="col" rowspan="2" id="th-08">만기전<br />지급제시<br />신청일자</th>
+                      <th scope="col" rowspan="2" id="th-09">만기전<br />지급제시<br />일자</th>
+                      <th scope="col" rowspan="2" id="th-10">상세보기</th>
+                    </tr>
+                    <tr>
+                      <th scope="col" id="th-02-01" class="tbl-border-left">배서번호</th>
+                      <th scope="col" id="th-05-01">만기일자</th>
+                      <th scope="col" id="th-07-01">보증여부</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td rowspan="2" headers="th-01"><span class="typeMd"></span>00720260818409000000</td>
+                      <td headers="th-02"><span class="typeMd">00</span></td>
+                      <td rowspan="2" headers="th-03"><span class="typeMd">유통중</span></td>
+                      <td rowspan="2" headers="th-04" class="tex-right"><span class="typeMd">400,000 원</span></td>
+                      <td headers="th-05"><span class="typeMd">2026-08-19</span></td>
+                      <td rowspan="2" headers="th-06"><span class="typeMd">홍남길</span></td>
+                      <td headers="th-07"><span class="typeMd">수협</span></td>
+                      <td rowspan="2" headers="th-08">
+                        <span class="typeMd">-</span>
+                      </td>
+                      <td rowspan="2" headers="th-09">
+                        <span class="typeMd">-</span>
+                      </td>
+                      <td rowspan="2" headers="th-10">
+                        <button type="button" class="btn type-line-neutral size-sm">
+                          <span class="text">상세보기</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td headers="th-02-01" class="tbl-border-left"><span class="typeMd">00</span></td>
+                      <td headers="th-05-01"><span class="typeMd">2026-09-19</span></td>
+                      <td headers="th-07-01"><span class="typeMd">N</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <nav class="pagination size-md" aria-label="페이지네이션">
+                <button type="button" class="btn-nav first" disabled="" aria-disabled="true" aria-label="첫 페이지">
+                  <span class="blind">첫 페이지</span>
+                </button>
+                <button type="button" class="btn-nav prev" disabled="" aria-disabled="true" aria-label="이전 페이지">
+                  <span class="blind">이전 페이지</span>
+                </button>
+
+                <ol class="list-pagination">
+                  <li>
+                    <button type="button" class="btn-page active" aria-current="page" title="현재 페이지">1</button>
+                  </li>
+                  <li>
+                    <button type="button" class="btn-page" aria-label="2페이지">2</button>
+                  </li>
+                  <li>
+                    <button type="button" class="btn-page" aria-label="3페이지">3</button>
+                  </li>
+                  <li>
+                    <button type="button" class="btn-page" aria-label="4페이지">4</button>
+                  </li>
+                  <li>
+                    <button type="button" class="btn-page" aria-label="5페이지">5</button>
+                  </li>
+                </ol>
+
+                <button type="button" class="btn-nav next" aria-label="다음 페이지">
+                  <span class="blind">다음 페이지</span>
+                </button>
+                <button type="button" class="btn-nav last" aria-label="마지막 페이지">
+                  <span class="blind">마지막 페이지</span>
+                </button>
+              </nav>
+              <div class="line-box size-xl mt-48">
+                <span class="typeLgSemibold">이용안내</span>
+                <div class="list type-dotted">
+                  <ul>
+                    <li class="typeMd">‘발행인 거래정지처분’ 의 경우에 한하여 소지인이 만기전 지급제시 신청</li>
+                    <li class="typeMd">
+                      지급제시 희망일자
+                      <div class="list type-bar">
+                        <ul>
+                          <li class="typeMd">최초 신청시 : 신청일의 익영업일로부터 만기일의 전영업일까지</li>
+                          <li class="typeMd">재신청시 : 신청일의 익영업일부터 만기일까지</li>
+                        </ul>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
+</html>

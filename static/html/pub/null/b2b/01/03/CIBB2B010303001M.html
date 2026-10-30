@@ -1,446 +1,289 @@
 <!doctype html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>수협은행</title>
-    <link rel="stylesheet" href="/static/css/reset.css" />
-    <link rel="stylesheet" href="/static/css/layout.css" />
-    <link rel="stylesheet" href="/static/css/component.css" />
-    <link rel="stylesheet" href="/static/css/common.css" />
-    <link rel="stylesheet" href="/static/css/b2b.css" />
-  </head>
 
-  <body>
-    <div class="wrapper">
-      <div id="header">
-        @@include('static/html/pub/layout/skipNavigation.html')
-        @@include('static/html/pub/layout/header_sub.html')
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>수협은행</title>
+  <link rel="stylesheet" href="/static/css/reset.css" />
+  <link rel="stylesheet" href="/static/css/layout.css" />
+  <link rel="stylesheet" href="/static/css/component.css" />
+  <link rel="stylesheet" href="/static/css/common.css" />
+  <link rel="stylesheet" href="/static/css/b2b.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <div id="header">
+      @@include('static/html/pub/layout/skipNavigation.html')
+      @@include('static/html/pub/layout/header_sub.html')
+    </div>
+
+    <div id="container" class="container">
+      <div id="leftArea">
+        @@include('static/html/pub/layout/leftArea.html')
       </div>
+      <div id="contents">
+        <div class="content">
+          @@include('static/html/pub/layout/breadcrumb.html')
+          <div class="b2b">
+            <h2 class="typeH2">추심의뢰등록내역조회</h2>
+            <div class="tbl-area">
+              <table class="table-type01">
+                <caption>
+                  추심의뢰 조회구분, 조회기간, 구매기업 사업자번호,
+                  추심의뢰번호 입력 표
+                </caption>
+                <!-- [수정] 20260904 col width 값 추가  -->
+                <!-- [수정] 20260910 col width style 수정  -->
+                <colgroup>
+                  <col style="width: 160px" />
+                  <col style="width: auto" />
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th scope="row">조회구분</th>
+                    <td>
+                      <div class="form-box-wrap">
+                        <span class="form-box">
+                          <input type="radio" name="SampleRadio0302" id="SampleRadio0302_01" class="form-radio size-md"
+                            checked />
+                          <label for="SampleRadio0302_01" class="form-label">추심의뢰일</label>
+                        </span>
+                        <span class="form-box">
+                          <input type="radio" name="SampleRadio0302" id="SampleRadio0302_02"
+                            class="form-radio size-md" />
+                          <label for="SampleRadio0302_02" class="form-label">결제예정일</label>
+                        </span>
+                      </div>
+                    </td>
+                  </tr>
 
-      <div id="container" class="container">
-        <div id="leftArea">
-          @@include('static/html/pub/layout/leftArea.html')
-        </div>
-        <div id="contents">
-          <div class="content">
-            @@include('static/html/pub/layout/breadcrumb.html')
-            <div class="b2b">
-              <h2 class="typeH2">추심의뢰등록내역조회</h2>
-              <div class="tbl-area">
-                <table class="table-type01">
-                  <caption>
-                    추심의뢰 조회구분, 조회기간, 구매기업 사업자번호,
-                    추심의뢰번호 입력 표
-                  </caption>
-                  <!-- [수정] 20260904 col width 값 추가  -->
-                  <!-- [수정] 20260910 col width style 수정  -->
-                  <colgroup>
-                    <col style="width: 160px" />
-                    <col style="width: auto" />
-                  </colgroup>
-                  <tbody>
-                    <tr>
-                      <th scope="row">조회구분</th>
-                      <td>
-                        <div class="form-box-wrap">
+                  <tr>
+                    <th scope="row">조회기간</th>
+                    <td>
+                      <div class="tbl-column">
+                        <div class="radio-group">
                           <span class="form-box">
-                            <input
-                              type="radio"
-                              name="SampleRadio0302"
-                              id="SampleRadio0302_01"
-                              class="form-radio size-md"
-                              checked
-                            />
-                            <label for="SampleRadio0302_01" class="form-label"
-                              >추심의뢰일</label
-                            >
-                          </span>
-                          <span class="form-box">
-                            <input
-                              type="radio"
-                              name="SampleRadio0302"
-                              id="SampleRadio0302_02"
-                              class="form-radio size-md"
-                            />
-                            <label for="SampleRadio0302_02" class="form-label"
-                              >결제예정일</label
-                            >
+                            <input type="radio" name="SampleRadio0302_01" id="date_range_01" class="radio-btn"
+                              checked />
+                            <label for="date_range_01" class="form-label">오늘</label>
+                            <input type="radio" name="SampleRadio0302_01" id="date_range_02" class="radio-btn" />
+                            <label for="date_range_02" class="form-label">어제</label>
+                            <input type="radio" name="SampleRadio0302_01" id="date_range_03" class="radio-btn" />
+                            <label for="date_range_03" class="form-label">3일</label>
+                            <input type="radio" name="SampleRadio0302_01" id="date_range_04" class="radio-btn" />
+                            <label for="date_range_04" class="form-label">1주일</label>
+                            <input type="radio" name="SampleRadio0302_01" id="date_range_05" class="radio-btn" />
+                            <label for="date_range_05" class="form-label">1개월</label>
+                            <input type="radio" name="SampleRadio0302_01" id="date_range_06" class="radio-btn" />
+                            <label for="date_range_06" class="form-label">3개월</label>
+                            <input type="radio" name="SampleRadio0302_01" id="date_range_07" class="radio-btn" />
+                            <label for="date_range_07" class="form-label">6개월</label>
+                            <input type="radio" name="SampleRadio0302_01" id="date_range_08" class="radio-btn" />
+                            <label for="date_range_08" class="form-label">12개월</label>
                           </span>
                         </div>
-                      </td>
-                    </tr>
-
-                    <tr>
-                      <th scope="row">조회기간</th>
-                      <td>
-                        <div class="tbl-column">
-                          <div class="radio-group">
-                            <span class="form-box">
-                              <input
-                                type="radio"
-                                name="SampleRadio0302_01"
-                                id="date_range_01"
-                                class="radio-btn"
-                                checked
-                              />
-                              <label for="date_range_01" class="form-label"
-                                >오늘</label
-                              >
-                              <input
-                                type="radio"
-                                name="SampleRadio0302_01"
-                                id="date_range_02"
-                                class="radio-btn"
-                              />
-                              <label for="date_range_02" class="form-label"
-                                >어제</label
-                              >
-                              <input
-                                type="radio"
-                                name="SampleRadio0302_01"
-                                id="date_range_03"
-                                class="radio-btn"
-                              />
-                              <label for="date_range_03" class="form-label"
-                                >3일</label
-                              >
-                              <input
-                                type="radio"
-                                name="SampleRadio0302_01"
-                                id="date_range_04"
-                                class="radio-btn"
-                              />
-                              <label for="date_range_04" class="form-label"
-                                >1주일</label
-                              >
-                              <input
-                                type="radio"
-                                name="SampleRadio0302_01"
-                                id="date_range_05"
-                                class="radio-btn"
-                              />
-                              <label for="date_range_05" class="form-label"
-                                >1개월</label
-                              >
-                              <input
-                                type="radio"
-                                name="SampleRadio0302_01"
-                                id="date_range_06"
-                                class="radio-btn"
-                              />
-                              <label for="date_range_06" class="form-label"
-                                >3개월</label
-                              >
-                              <input
-                                type="radio"
-                                name="SampleRadio0302_01"
-                                id="date_range_07"
-                                class="radio-btn"
-                              />
-                              <label for="date_range_07" class="form-label"
-                                >6개월</label
-                              >
-                              <input
-                                type="radio"
-                                name="SampleRadio0302_01"
-                                id="date_range_08"
-                                class="radio-btn"
-                              />
-                              <label for="date_range_08" class="form-label"
-                                >12개월</label
-                              >
-                            </span>
+                        <div class="calendar-wrap">
+                          <div class="input-box">
+                            <input type="text" class="input" id="startDate" title="조회 시작일" aria-label="조회 시작일"
+                              value="2026-01-06" />
+                            <button type="button" class="btn">
+                              <i class="ico-calendar ico-size-smMd" aria-hidden="true"></i>
+                              <span class="blind">조회 시작일 날짜 열기</span>
+                            </button>
                           </div>
-                          <div class="calendar-wrap">
-                            <div class="input-box">
-                              <input
-                                type="text"
-                                class="input"
-                                id="startDate"
-                                title="조회 시작일"
-                                aria-label="조회 시작일"
-                                value="2026-01-06"
-                              />
-                              <button type="button" class="btn">
-                                <i
-                                  class="ico-calendar ico-size-smMd"
-                                  aria-hidden="true"
-                                ></i>
-                                <span class="blind">조회 시작일 날짜 열기</span>
-                              </button>
-                            </div>
-                            ~
-                            <div class="input-box">
-                              <input
-                                type="text"
-                                class="input"
-                                id="endDate"
-                                title="조회 종료일"
-                                aria-label="조회 종료일"
-                                value="2026-01-06"
-                              />
-                              <button type="button" class="btn">
-                                <i
-                                  class="ico-calendar ico-size-smMd"
-                                  aria-hidden="true"
-                                ></i>
-                                <span class="blind">조회 종료일 날짜 열기</span>
-                              </button>
-                            </div>
+                          ~
+                          <div class="input-box">
+                            <input type="text" class="input" id="endDate" title="조회 종료일" aria-label="조회 종료일"
+                              value="2026-01-06" />
+                            <button type="button" class="btn">
+                              <i class="ico-calendar ico-size-smMd" aria-hidden="true"></i>
+                              <span class="blind">조회 종료일 날짜 열기</span>
+                            </button>
                           </div>
                         </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">
-                        <span id="bizNoLabel">구매기업 사업자번호</span>
-                      </th>
-                      <td>
-                        <div
-                          class="tbl-flex"
-                          role="group"
-                          aria-labelledby="bizNoLabel"
-                        >
-                          <input
-                            type="text"
-                            class="input wSize-smMd size-lg"
-                            title="구매기업 사업자번호 첫 번째 자리"
-                            aria-label="구매기업 사업자번호 첫 번째 자리"
-                            size="4"
-                            value="1234"
-                          />
-                          <span>-</span>
-                          <input
-                            type="text"
-                            class="input wSize-smMd size-lg"
-                            title="구매기업 사업자번호 가운데 자리"
-                            aria-label="구매기업 사업자번호 가운데 자리"
-                            size="4"
-                            value="1234"
-                          />
-                          <span>-</span>
-                          <input
-                            type="text"
-                            class="input wSize-smMd size-lg"
-                            title="구매기업 사업자번호 마지막 자리"
-                            aria-label="구매기업 사업자번호 마지막 자리"
-                            size="4"
-                            value="5678"
-                          />
-                          <button
-                            type="button"
-                            class="btn type-line-secondary size-lg"
-                          >
-                            <span class="text">자주쓰는 사업자번호</span>
-                          </button>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">
-                        <label for="collectionReqNo">추심의뢰번호</label>
-                      </th>
-                      <td>
-                        <!-- [수정] 20260904 title 값 추가  -->
-                        <input
-                          type="text"
-                          class="input size-lg wSize-md"
-                          id="collectionReqNo"
-                          title="추심의뢰번호"
-                          placeholder="입력해주세요"
-                          value=""
-                        />
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <div class="btn-wrap center sm-mid">
-                <button type="button" class="btn type-bg-primary size-xxl">
-                  <span class="text">확인</span>
-                </button>
-              </div>
-              <div class="tbl-area">
-                <div class="tbl-head">
-                  <div class="left-area flex items-center">
-                    <span class="typeSm">총</span><span class="typeSmSemibold"> 30</span><span class="typeSm">건</span>
-                  </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <span id="bizNoLabel">구매기업 사업자번호</span>
+                    </th>
+                    <td>
+                      <div class="tbl-flex" role="group" aria-labelledby="bizNoLabel">
+                        <input type="text" class="input wSize-smMd size-lg" title="구매기업 사업자번호 첫 번째 자리"
+                          aria-label="구매기업 사업자번호 첫 번째 자리" size="4" value="1234" />
+                        <span>-</span>
+                        <input type="text" class="input wSize-smMd size-lg" title="구매기업 사업자번호 가운데 자리"
+                          aria-label="구매기업 사업자번호 가운데 자리" size="4" value="1234" />
+                        <span>-</span>
+                        <input type="text" class="input wSize-smMd size-lg" title="구매기업 사업자번호 마지막 자리"
+                          aria-label="구매기업 사업자번호 마지막 자리" size="4" value="5678" />
+                        <button type="button" class="btn type-line-secondary size-lg">
+                          <span class="text">자주쓰는 사업자번호</span>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <label for="collectionReqNo">추심의뢰번호</label>
+                    </th>
+                    <td>
+                      <!-- [수정] 20260904 title 값 추가  -->
+                      <input type="text" class="input size-lg wSize-md" id="collectionReqNo" title="추심의뢰번호"
+                        placeholder="입력해주세요" value="" />
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="btn-wrap center sm-mid">
+              <button type="button" class="btn type-bg-primary size-xxl">
+                <span class="text">확인</span>
+              </button>
+            </div>
+            <div class="tbl-area">
+              <div class="tbl-head">
+                <div class="left-area flex items-center">
+                  <span class="typeSm">총</span><span class="typeSmSemibold"> 30</span><span class="typeSm">건</span>
                 </div>
-                <table class="table-type03">
-                  <caption>
-                    추심의뢰등록내역조회 결과 목록 (순번, 추심의뢰번호, 추심금액, 추심의뢰일/결제예정일, 인수/거절일/세금계산서발행일, 구매기업명/사업자번호, 추심상태, 상세 정보 제공)
-                  </caption>
-                  <colgroup>
-                    <col style="width: 70px;" />
-                    <col style="width: 140px;" />
-                    <col style="width: 130px;" />
-                    <col style="width: 150px;" />
-                    <col style="width: 150px;" />
-                    <col style="width: 160px;" />
-                    <col style="width: 110px;" />
-                    <col style="width: 90px;" />
-                  </colgroup>
-                  <!-- [수정] 20260910 복합테이블 headers-id 적용  -->
-                  <thead>
-                    <tr>
-                      <th id="col_1" scope="col" rowspan="2">순번</th>
-                      <th id="col_2" scope="col" rowspan="2">추심의뢰번호</th>
-                      <th id="col_3" scope="col" rowspan="2">추심금액</th>
-                      <th id="col_4" scope="col">추심의뢰일</th>
-                      <th id="col_5" scope="col">인수/거절일</th>
-                      <th id="col_6" scope="col">구매기업명</th>
-                      <th id="col_7" scope="col" rowspan="2">추심상태</th>
-                      <th id="col_8" scope="col" rowspan="2">상세</th>
-                    </tr>
-                    <tr>
-                      <th id="col_4_1" scope="col">결제예정일</th>
-                      <th id="col_5_1" scope="col">세금계산서발행일</th>
-                      <th id="col_6_1" scope="col">구매기업 사업자번호</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <!-- 첫 번째 데이터 행 -->
-                    <tr>
-                      <td id="row_1" rowspan="2">1</td>
-                      <td headers="row_1 col_2" rowspan="2">1000000</td>
-                      <td headers="row_1 col_3" rowspan="2" class="text-right">1,000,000 원</td>
-                      <td headers="row_1 col_4">2026-07-20</td>
-                      <td headers="row_1 col_5">2026-07-20</td>
-                      <td headers="row_1 col_6">제일협동조합</td>
-                      <td headers="row_1 col_7" rowspan="2">
-                        <button type="button" class="btn type-line-neutral size-sm" title="추심의뢰번호 1000000 취소">
-                          <span class="text">취소</span>
-                        </button>
-                      </td>
-                      <td headers="row_1 col_8" rowspan="2">
-                        <button type="button" class="btn type-line-neutral size-sm" title="추심의뢰번호 1000000 상세보기">
-                          <span class="text">상세보기</span>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td headers="row_1 col_4_1">2026-07-20</td>
-                      <td headers="row_1 col_5_1">2026-07-20</td>
-                      <td headers="row_1 col_6_1">732-00-00000</td>
-                    </tr>
-
-                    <!-- 두 번째 데이터 행 -->
-                    <tr>
-                      <td id="row_2" rowspan="2">1</td>
-                      <td headers="row_2 col_2" rowspan="2">1000000</td>
-                      <td headers="row_2 col_3" rowspan="2" class="text-right">1,000,000 원</td>
-                      <td headers="row_2 col_4">2026-07-20</td>
-                      <td headers="row_2 col_5">2026-07-20</td>
-                      <td headers="row_2 col_6">제일협동조합</td>
-                      <td headers="row_2 col_7" rowspan="2">추심인수승인</td>
-                      <td headers="row_2 col_8" rowspan="2">
-                        <button type="button" class="btn type-line-neutral size-sm" title="추심의뢰번호 1000000 상세보기">
-                          <span class="text">상세보기</span>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td headers="row_2 col_4_1">2026-07-20</td>
-                      <td headers="row_2 col_5_1">2026-07-20</td>
-                      <td headers="row_2 col_6_1">732-00-00000</td>
-                    </tr>
-                  </tbody>
-                  <!-- //[수정] 20260910 복합테이블 headers-id 적용  -->
-                </table>
-
-                <nav class="pagination size-md" aria-label="페이지네이션">
-                  <button
-                    type="button"
-                    class="btn-nav first"
-                    disabled=""
-                    aria-disabled="true"
-                    aria-label="첫 페이지"
-                  >
-                    <span class="blind">첫 페이지</span>
-                  </button>
-                  <button
-                    type="button"
-                    class="btn-nav prev"
-                    disabled=""
-                    aria-disabled="true"
-                    aria-label="이전 페이지"
-                  >
-                    <span class="blind">이전 페이지</span>
-                  </button>
-
-                  <ol class="list-pagination">
-                    <li>
-                      <button
-                        type="button"
-                        class="btn-page active"
-                        aria-current="page"
-                        aria-label="1페이지"
-                      >
-                        1
-                      </button>
-                    </li>
-                    <li>
-                      <button
-                        type="button"
-                        class="btn-page"
-                        aria-label="2페이지"
-                      >
-                        2
-                      </button>
-                    </li>
-                    <li>
-                      <button
-                        type="button"
-                        class="btn-page"
-                        aria-label="3페이지"
-                      >
-                        3
-                      </button>
-                    </li>
-                    <li>
-                      <button
-                        type="button"
-                        class="btn-page"
-                        aria-label="4페이지"
-                      >
-                        4
-                      </button>
-                    </li>
-                    <li>
-                      <button
-                        type="button"
-                        class="btn-page"
-                        aria-label="5페이지"
-                      >
-                        5
-                      </button>
-                    </li>
-                  </ol>
-
-                  <button
-                    type="button"
-                    class="btn-nav next"
-                    aria-label="다음 페이지"
-                  >
-                    <span class="blind">다음 페이지</span>
-                  </button>
-                  <button
-                    type="button"
-                    class="btn-nav last"
-                    aria-label="마지막 페이지"
-                  >
-                    <span class="blind">마지막 페이지</span>
-                  </button>
-                </nav>
               </div>
+              <table class="table-type03">
+                <caption>
+                  추심의뢰등록내역조회 결과 목록 (순번, 추심의뢰번호, 추심금액, 추심의뢰일/결제예정일, 인수/거절일/세금계산서발행일, 구매기업명/사업자번호, 추심상태, 상세 정보 제공)
+                </caption>
+                <colgroup>
+                  <col style="width: 70px;" />
+                  <col style="width: 140px;" />
+                  <col style="width: 130px;" />
+                  <col style="width: 150px;" />
+                  <col style="width: 150px;" />
+                  <col style="width: 160px;" />
+                  <col style="width: 110px;" />
+                  <col style="width: 90px;" />
+                </colgroup>
+                <!-- [수정] 20260910 복합테이블 headers-id 적용  -->
+                <thead>
+                  <tr>
+                    <th id="col_1" scope="col" rowspan="2">순번</th>
+                    <th id="col_2" scope="col" rowspan="2">추심의뢰번호</th>
+                    <th id="col_3" scope="col" rowspan="2">추심금액</th>
+                    <th id="col_4" scope="col">추심의뢰일</th>
+                    <th id="col_5" scope="col">인수/거절일</th>
+                    <th id="col_6" scope="col">구매기업명</th>
+                    <th id="col_7" scope="col" rowspan="2">추심상태</th>
+                    <th id="col_8" scope="col" rowspan="2">상세</th>
+                  </tr>
+                  <tr>
+                    <th id="col_4_1" scope="col">결제예정일</th>
+                    <th id="col_5_1" scope="col">세금계산서발행일</th>
+                    <th id="col_6_1" scope="col">구매기업 사업자번호</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- 첫 번째 데이터 행 -->
+                  <tr>
+                    <td id="row_1" rowspan="2">1</td>
+                    <td headers="row_1 col_2" rowspan="2">1000000</td>
+                    <td headers="row_1 col_3" rowspan="2" class="text-right">1,000,000 원</td>
+                    <td headers="row_1 col_4">2026-07-20</td>
+                    <td headers="row_1 col_5">2026-07-20</td>
+                    <td headers="row_1 col_6">제일협동조합</td>
+                    <td headers="row_1 col_7" rowspan="2">
+                      <button type="button" class="btn type-line-neutral size-sm" title="추심의뢰번호 1000000 취소">
+                        <span class="text">취소</span>
+                      </button>
+                    </td>
+                    <td headers="row_1 col_8" rowspan="2">
+                      <button type="button" class="btn type-line-neutral size-sm" title="추심의뢰번호 1000000 상세보기">
+                        <span class="text">상세보기</span>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td headers="row_1 col_4_1">2026-07-20</td>
+                    <td headers="row_1 col_5_1">2026-07-20</td>
+                    <td headers="row_1 col_6_1">732-00-00000</td>
+                  </tr>
+
+                  <!-- 두 번째 데이터 행 -->
+                  <tr>
+                    <td id="row_2" rowspan="2">1</td>
+                    <td headers="row_2 col_2" rowspan="2">1000000</td>
+                    <td headers="row_2 col_3" rowspan="2" class="text-right">1,000,000 원</td>
+                    <td headers="row_2 col_4">2026-07-20</td>
+                    <td headers="row_2 col_5">2026-07-20</td>
+                    <td headers="row_2 col_6">제일협동조합</td>
+                    <td headers="row_2 col_7" rowspan="2">추심인수승인</td>
+                    <td headers="row_2 col_8" rowspan="2">
+                      <button type="button" class="btn type-line-neutral size-sm" title="추심의뢰번호 1000000 상세보기">
+                        <span class="text">상세보기</span>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td headers="row_2 col_4_1">2026-07-20</td>
+                    <td headers="row_2 col_5_1">2026-07-20</td>
+                    <td headers="row_2 col_6_1">732-00-00000</td>
+                  </tr>
+                </tbody>
+                <!-- //[수정] 20260910 복합테이블 headers-id 적용  -->
+              </table>
+
+              <nav class="pagination size-md" aria-label="페이지네이션">
+                <button type="button" class="btn-nav first" disabled="" aria-disabled="true" aria-label="첫 페이지">
+                  <span class="blind">첫 페이지</span>
+                </button>
+                <button type="button" class="btn-nav prev" disabled="" aria-disabled="true" aria-label="이전 페이지">
+                  <span class="blind">이전 페이지</span>
+                </button>
+
+                <ol class="list-pagination">
+                  <li>
+                    <button type="button" class="btn-page active" aria-current="page" aria-label="1페이지">
+                      1
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button" class="btn-page" aria-label="2페이지">
+                      2
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button" class="btn-page" aria-label="3페이지">
+                      3
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button" class="btn-page" aria-label="4페이지">
+                      4
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button" class="btn-page" aria-label="5페이지">
+                      5
+                    </button>
+                  </li>
+                </ol>
+
+                <button type="button" class="btn-nav next" aria-label="다음 페이지">
+                  <span class="blind">다음 페이지</span>
+                </button>
+                <button type="button" class="btn-nav last" aria-label="마지막 페이지">
+                  <span class="blind">마지막 페이지</span>
+                </button>
+              </nav>
             </div>
           </div>
         </div>
-        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
       </div>
-      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+      <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
     </div>
-    <script src="/static/js/ui/cib_ui_common.js"></script>
-  </body>
+    <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+  </div>
+  <script src="/static/js/ui/cib_ui_common.js"></script>
+</body>
+
 </html>

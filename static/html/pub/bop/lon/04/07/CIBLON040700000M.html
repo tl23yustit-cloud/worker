@@ -1,0 +1,128 @@
+<!-- CIBUMG020500000M.html -->
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>수협은행</title>
+  <link rel="stylesheet" href="/static/css/reset.css" />
+  <link rel="stylesheet" href="/static/css/layout.css" />
+  <link rel="stylesheet" href="/static/css/component.css" />
+  <link rel="stylesheet" href="/static/css/common.css" />
+  <link rel="stylesheet" href="/static/css/bop.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <div id="header">
+      @@include('static/html/pub/layout/skipNavigation.html')
+      @@include('static/html/pub/layout/header_sub.html')
+    </div>
+
+    <div id="container" class="container">
+      <div id="leftArea">
+        @@include('static/html/pub/layout/leftArea.html')
+      </div>
+      <div id="contents">
+        <div class="content">
+          @@include('static/html/pub/layout/breadcrumb.html')
+          <div class="bop">
+            <h2 class="typeH2">스크래핑 실패 서류 보완</h2>
+            <ul class="step-list" aria-label="진행 단계">
+              <!--완료된 step엔 active 추가-->
+              <li class="step1 active">
+                <div class="type-column">
+                  <i class="step-icon" aria-hidden="true"></i>
+                  <div class="step-content">
+                    <span class="step-badge">STEP 01</span>
+                    <p class="step-title">약관동의 및 본인인증</p>
+                  </div>
+                </div>
+              </li>
+              <li class="step2 active">
+                <div class="type-column">
+                  <i class="step-icon" aria-hidden="true"></i>
+                  <div class="step-content">
+                    <span class="step-badge">STEP 02</span>
+                    <p class="step-title">기간연장 서류 수집</p>
+                  </div>
+                </div>
+              </li>
+              <li class="step3">
+                <div class="type-column">
+                  <i class="step-icon" aria-hidden="true"></i>
+                  <div class="step-content">
+                    <span class="step-badge">STEP 03</span>
+                    <p class="step-title">기간연장 신청/심사</p>
+                  </div>
+                </div>
+              </li>
+              <li class="step4">
+                <div class="type-column">
+                  <i class="step-icon" aria-hidden="true"></i>
+                  <div class="step-content">
+                    <span class="step-badge">STEP 04</span>
+                    <p class="step-title">기간연장 약정 신청/완료</p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+            <div class="left-area">
+              <span class="typeLg">아래의 서류를 직접 제출하시거나, 스크래핑을 재시도 해주세요.</span>
+            </div>
+            <div class="withdrawal-section01">
+              <div class="card-top-content">
+                <span class="type2XlSemibold">Sh평생주거래우대통장</span>
+                <span class="typeLg">1010-12454-123</span>
+              </div>
+              <div class="info-section">
+                <div class="file-upload-wrap">
+                  <span class="typeLg" id="file-label">사업자등록증명원</span>
+                  <div class="file-upload">
+                    <input type="file" id="fileInput" class="input-hidden" aria-labelledby="file-label" />
+                    <input type="text" id="fileNameInput" class="input size-lg wSize-lg" placeholder="업로드 서류를 등록하세요"
+                      tabindex="1" aria-hidden="true" readonly />
+                    <label for="fileInput" class="btn type-line-secondary size-lg" role="button" tabindex="0">
+                      <span class="text">파일찾기</span>
+                    </label>
+                  </div>
+                  <p class="error-message">
+                    $서류명$ 을(를) 등록해주세요.
+                  </p>
+                </div>
+                <div class="file-upload-wrap">
+                  <span class="typeLg" id="file-label">지방세완납증명서</span>
+                  <div class="file-upload">
+                    <input type="file" id="fileInput" class="input-hidden" aria-labelledby="file-label" />
+                    <input type="text" id="fileNameInput" class="input size-lg wSize-lg" placeholder="업로드 서류를 등록하세요"
+                      tabindex="1" aria-hidden="true" readonly />
+                    <label for="fileInput" class="btn type-line-secondary size-lg" role="button" tabindex="0">
+                      <span class="text">파일찾기</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="btn-wrap center lg-bot">
+              <button type="button" class="btn type-line-neutral size-xxl">
+                <span class="text">이전</span>
+              </button>
+              <button type="button" class="btn type-bg-primary-tint size-xxl">
+                <span class="text">서류제출</span>
+              </button>
+              <button type="button" class="btn type-bg-primary size-xxl">
+                <span class="text">확인</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+    </div>
+    <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+  </div>
+  <script src="/static/js/ui/cib_ui_common.js"></script>
+</body>
+
+</html>

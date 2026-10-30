@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>수협은행</title>
+  <link rel="stylesheet" href="/static/css/reset.css" />
+  <link rel="stylesheet" href="/static/css/layout.css" />
+  <link rel="stylesheet" href="/static/css/component.css" />
+  <link rel="stylesheet" href="/static/css/common.css" />
+  <link rel="stylesheet" href="/static/css/aut.scss" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <div id="header">
+      @@include('static/html/pub/layout/skipNavigation.html')
+      @@include('static/html/pub/layout/header_sub.html')
+    </div>
+
+    <div id="container" class="container">
+      <div id="leftArea">
+        @@include('static/html/pub/layout/leftArea.html')
+      </div>
+      <div id="contents">
+        <div class="content">
+          @@include('static/html/pub/layout/breadcrumb.html')
+          <div class="aut">
+            <h2 class="typeH2">인증서 갱신
+              <div class="box-steps">
+                <ol class="list-steps">
+                  <!-- 
+												[dev] 상태값 class 안내
+												class="item-steps" 기본 숫자 표기
+												class="item-steps passed" 완료
+												class="item-steps current" 현재
+											 -->
+                  <li class="item-steps current" aria-current="step">
+                    <i class="icon" aria-hidden="true">1</i>
+                    <span class="text">사용자 정보 입력</span>
+                  </li>
+                  <li class="item-steps">
+                    <i class="icon" aria-hidden="true">2</i>
+                    <span class="text">인증서 갱신 정보</span>
+                  </li>
+                  <li class="item-steps">
+                    <i class="icon" aria-hidden="true">2</i>
+                    <span class="text">인증서 갱신 완료</span>
+                  </li>
+                </ol>
+              </div>
+            </h2>
+            <h4 class="typeH4">사용자 정보입력</h4>
+            <p class="typeLg mt-12">
+              결재를 위한 용도제한용 인증서에 대한 유효기간을 갱신 할 수 있습니다.
+            </p>
+            <div class="tbl-area">
+              <div class="tbl-head">
+                <div class="right-area">
+                  <span class="required typeMd">필수 항목</span>
+                </div>
+              </div>
+              <table class="table-type01">
+                <caption>인증서 종류, 사용자 ID, 사업자등록번호, 출금계좌번호, 출금계좌 비밀번호에 대한 구성 테이블입니다.</caption>
+                <colgroup>
+                  <col style="width: 180px">
+                  <col style="width: auto">
+                </colgroup>
+                <tbody>                  
+                  <tr>
+                    <th scope="row">
+                      <span class="required">승인자(결재자) ID
+                        <div class="box-tooltip tail-bottom-center">
+                            <button type="button" class="btn type-ghost-neutral size-Xs active"
+                              aria-describedby="tooltipBoxTop0202">
+                              <i class="ico line ico-size-sm ico-info-circle colorFgNetral" aria-hidden="true"></i>
+                              <span class="blind">승인자(결재자) ID 안내 툴팁 열기</span>
+                            </button>
+                            <div id="tooltipBoxTop0202" class="layer-tooltip" role="tooltip" aria-hidden="false">
+                              <div class="content-tooltip">
+                                <span class="text">ID는 5~10자리 입력</span>
+                              </div>
+                              <button type="button" class="btn-close">
+                                <i class="ico-close ico-size-sm" aria-hidden="true"></i>
+                                <span class="blind">툴팁 닫기</span>
+                              </button>
+                              <i class="ico-tail-tooltip" aria-hidden="true"></i>
+                            </div>
+                          </div>
+                      </span>
+                    </th>
+                    <td>
+                      <input type="text" id="승인자(결재자) ID" class="input size-lg wSize-md" aria-label="승인자(결재자) ID"
+                        placeholder="승인자(결재자) ID 입력">                     
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <span class="required">
+                        <label for="사업자등록번호">
+                          사업자등록번호
+                        </label>
+                      </span>
+                    </th>
+                    <td>
+                       <div class="tbl-flex">
+                        <input type="text" class="input size-lg wSize-smMd" aria-label="사업자등록번호 입력"
+                          placeholder="3자리 입력">
+                        -
+                        <input type="text" class="input size-lg wSize-smMd" aria-label="사업자등록번호 입력"
+                          placeholder="2자리 입력">
+                        -
+                        <input type="text" class="input size-lg wSize-smMd" aria-label="사업자등록번호 입력"
+                          placeholder="5자리 입력">
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <label for="이름" class="required">이름</label>
+                    </th>
+                    <td>
+                      <input type="text" id="이름" class="input size-lg wSize-md" aria-label="이름 입력"
+                        placeholder="이름 입력">
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>            
+            <div class="btn-wrap center lg-bot">
+              <button type="button" class="btn type-bg-primary-tint size-xxl">
+                <span class="text">취소</span>
+              </button>
+              <button type="button" class="btn type-bg-primary size-xxl">
+                <span class="text">다음</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+    </div>
+    <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+  </div>
+  <script src="/static/js/ui/cib_ui_common.js"></script>
+</body>
+
+</html>

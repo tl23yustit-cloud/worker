@@ -1,0 +1,110 @@
+<!-- [dev]20261023 기획 페이지 누락 CIBFND010101000P -->
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/bop.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
+
+      <div id="container" class="container">
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="bop">
+              <button type="button" class="btn type-bg-primary size-md btn-modal" data-target="modal-16">
+                <span class="text">인출가능금액조회</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+    <div id="modal-16" class="modal is-active" data-dim="true" data-backdrop-close="false" data-alert="true" data-size="sm" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc">
+      <div class="modal-wrapper">
+        <div class="modal-title">
+          <h4 class="typeH4">인출가능금액조회</h4>
+        </div>
+        <div class="modal-slot">
+          <div id="modal-desc">
+            <div class="tbl-area">
+              <h4 class="typeH6">기본 정보</h4>
+              <table class="table-type01">
+                <caption>
+                  외화송금내역서 인쇄 테이블
+                </caption>
+                <colgroup>
+                  <col width="160px" />
+                  <col width="272px" />
+                  <col width="160px" />
+                  <col width="272px" />
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th scope="row">펀드명</th>
+                    <td colspan="3">
+                      <span class="typeMd">미래에셋한국헬스케어증권자투자신탁1호(주식)A-e </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">평가금액</th>
+                    <td class="text-right">
+                      <p class="typeMd">1,001,000 원</p>
+                      <p class="typeMd red-arrow color-fg-error">1,000 원</p>
+                    </td>
+                    <th scope="row">원금</th>
+                    <td class="text-right">
+                      <span class="typeMd">1,000,000 원</span>
+                    </td>
+                  </tr>
+                  <tr>                    
+                    <th scope="row">잔고좌수</th>
+                    <td>
+                      <span class="typeMd">1,000 좌</span>
+                    </td>
+                    <th scope="row">기준가격</th>
+                    <td class="text-right">
+                      <span class="typeMd">1,000,000 원</span>
+                    </td>
+                  </tr>
+                  <tr>                    
+                    <th scope="row">과표</th>
+                    <td>
+                      <span class="typeMd">0.00 원</span>
+                    </td>
+                    <th scope="row">과표기준가격</th>
+                    <td class="text-right">
+                      <span class="typeMd">1,000.00 원</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer flex items-center justify-center gap-8">
+          <button type="button" class="btn type-bg-primary size-lg">
+            <span class="text">닫기</span>
+          </button>
+        </div>
+        <button type="button" class="ico btn-close" aria-label="모달 닫기">
+          <i class="ico-close ico-size-smMd" aria-hidden="true"></i>
+          <span class="blind">닫기</span>
+        </button>
+      </div>
+    </div>
+  </body>
+</html>

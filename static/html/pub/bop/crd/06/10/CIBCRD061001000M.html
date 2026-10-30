@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>카드기본정보 조회 &gt; 사용자관리 &gt; 뱅킹관리 | 수협은행</title>
+  <link rel="stylesheet" href="/static/css/reset.css" />
+  <link rel="stylesheet" href="/static/css/layout.css" />
+  <link rel="stylesheet" href="/static/css/component.css" />
+  <link rel="stylesheet" href="/static/css/common.css" />
+  <link rel="stylesheet" href="/static/css/crd.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <div id="header">
+      @@include('static/html/pub/layout/skipNavigation.html')
+      @@include('static/html/pub/layout/header_sub.html')
+    </div>
+
+    <div id="container" class="container">
+      <div id="leftArea">
+        @@include('static/html/pub/layout/leftArea.html')
+      </div>
+      <div id="contents">
+        <div class="content">
+          @@include('static/html/pub/layout/breadcrumb.html')
+          <div class="crd">
+            <h2 class="typeH2">가상결제계좌 관리</h2>
+            <div class="tbl-area">
+              <div class="tbl-head">
+                <div class="right-area">
+                  <span class="required typeMd">필수 항목</span>
+                </div>
+              </div>
+              <table class="table-type01">
+                <caption>조회구분, 사업장명, 카드유형, 카드상품명, 카드번호 뒷4자리에 대한 구성 테이블입니다.</caption>
+                <colgroup>
+                  <col style="width: 160px" />
+                  <col style="width: auto" />
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th scope="row">
+                      <span class="required">조회기간</span>
+                    </th>
+                    <td>
+                      <div class="tbl-column">
+                        <div class="radio-group" role="radiogroup" aria-label="조회기간">
+                          <span class="form-box">
+                            <input type="radio" name="searchPeriod" id="period_01" class="radio-btn" checked="">
+                            <label for="period_01" class="form-label">당일</label>
+                          </span>
+                          <span class="form-box">
+                            <input type="radio" name="searchPeriod" id="period_02" class="radio-btn">
+                            <label for="period_02" class="form-label">1개월</label>
+                          </span>
+                          <span class="form-box">
+                            <input type="radio" name="searchPeriod" id="period_03" class="radio-btn">
+                            <label for="period_03" class="form-label">3개월</label>
+                          </span>
+                          <span class="form-box">
+                            <input type="radio" name="searchPeriod" id="period_04" class="radio-btn">
+                            <label for="period_04" class="form-label">6개월</label>
+                          </span>
+                          <span class="form-box">
+                            <input type="radio" name="searchPeriod" id="period_05" class="radio-btn">
+                            <label for="period_05" class="form-label">1년</label>
+                          </span>
+                        </div>
+                        <div class="calendar-wrap">
+                          <!-- 날짜 입력 영역 -->
+                          <div class="input-box">
+                            <input type="text" class="input" placeholder="조회 시작일" aria-label="조회 시작일"
+                              value="2026-01-06">
+                            <button type="button" class="btn">
+                              <i class="ico-calendar ico-size-smMd" aria-hidden="true"></i>
+                              <span class="blind">조회 시작일 달력 열기</span>
+                            </button>
+                          </div>
+                          <span aria-hidden="true">~</span>
+                          <div class="input-box">
+                            <input type="text" class="input" placeholder="조회 종료일" aria-label="조회 종료일"
+                              value="2026-01-06">
+                            <button type="button" class="btn">
+                              <i class="ico-calendar ico-size-smMd" aria-hidden="true"></i>
+                              <span class="blind">조회 종료일 달력 열기</span>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="btn-wrap center sm-mid">
+            <button type="button" class="btn type-bg-primary size-xxl">
+              <span class="text">조회</span>
+            </button>
+          </div>
+          <div class="tbl-area">
+            <div class="wrap-board-grid">
+              <!-- [dev] 그리드 -->
+              <div class="board-grid">
+                <!-- [dev] 그리드 컨텐츠 영역 : 작업 시 삭제-->
+                <i style="
+                            display: block;
+                            border: var(--borderWidthMd) solid
+                              var(--colorBorderBase);
+                            border-radius: var(--radiusMd);
+                            padding: var(--spacing2Xl);
+                          ">임시 그리드 영역</i>
+                <!-- //[dev] 그리드 컨텐츠 영역 : 작업 시 삭제 -->
+              </div>
+              <!-- //[dev] 그리드 -->
+            </div>
+          </div>
+          <div class="tbl-area">
+            <div class="tbl-head">
+              <h6 class="typeH6">OTP 비밀번호 입력</h6>
+            </div>
+            <div class="wrap-board-grid">
+              <!-- [dev] 공통UI 미정 -->
+              <div class="board-grid">
+                <!-- [dev] 공통UI 미정 영역 : 작업 시 삭제-->
+                <i style="
+                        display: block;
+                        border: var(--borderWidthMd) solid
+                          var(--colorBorderBase);
+                        border-radius: var(--radiusMd);
+                        padding: var(--spacing2Xl);
+                      ">공통UI 적용</i>
+                <!-- //[dev] 공통UI 미정 영역 : 작업 시 삭제 -->
+              </div>
+              <!-- //[dev] 공통UI 미정 -->
+            </div>
+          </div>
+          <div class="line-box size-xl mt-48">
+            <span class="typeLgSemibold">이용안내</span>
+            <div class="list type-dotted mt-12">
+              <ul>
+                <li class="typeMd">
+                  발급된 가상결제계좌 내역을 조회하고 가상결제계좌의 발급취소 업무를 위한 기능을 제공합니다.
+                </li>
+                <li class="typeMd">
+                  발급된 가상결제계좌의 발급 취소 처리만 가능하며, 이미 가상계좌를 통해 결제가 완료 된 건은 해당 화면에서는 취소처리가 불가능합니다.
+                </li>
+                <li class="typeMd">
+                  결제된 건의 취소처리 관련 문의는 영업점에 문의 바랍니다.
+                </li>
+                <li class="typeMd">
+                  서비스이용시간 : 매일 06:00 ~ 23:00 (23:00까지 입금에 한해 당일 납부 처리되므로, 23시 이후 입금 시 연체가 발생될 수 있습니다)
+                </li>
+              </ul>
+            </div>
+            <span class="typeLgSemibold mt-24">유의사항</span>
+            <div class="list type-dotted mt-12">
+              <ul>
+                <li class="typeMd">
+                  고객님의 결제계좌 잔액을 비워두셔야 연체금액 및 결제금액이 이중으로 출금되지 않습니다.
+                </li>
+                <li class="typeMd">
+                  가상계좌번호를 잘못 기재하시는 경우 다른회원에게 입금처리되어 회수가 어려울 수 있으므로 예금주를 반드시 확인하시기 바랍니다.
+                </li>
+                <li class="typeMd">
+                  가상계좌 예금주는 고객님의 성함으로 확인되며, 예약 후 발송되는 메시지의 금액을 입금해주시기 바랍니다.
+                </li>
+                <li class="typeMd">
+                  가상계좌 입금예약은 결제그룹별로 1일 1회 가능하며, 예약일 당일에만 입금 가능합니다.
+                </li>
+                <li class="typeMd">
+                  입금완료 이후 취소거래는 영업점을 내점하여 가능하므로 결제건을 정확히 확인 후 거래하시기 바랍니다.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+  </div>
+  <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+  </div>
+  <script src="/static/js/ui/cib_ui_common.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/trn.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
+
+      <div id="container" class="container">
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="trn">
+              <!-- [dev] 문구수정 20261022 -->
+              <h2 class="typeH2">
+                10억초과 타행이체
+                <!--// [dev] 문구수정 20261022 -->
+                <div class="box-steps">
+                  <ol class="list-steps">
+                    <li class="item-steps passed">
+                      <span class="blind">1</span>
+                      <i class="icon" aria-hidden="true">1</i>
+                      <span class="text">1</span>
+                    </li>
+                    <li class="item-steps passed">
+                      <i class="icon" aria-hidden="true">2</i>
+                      <span class="text">2</span>
+                    </li>
+                    <li class="item-steps current" aria-current="step">
+                      <i class="icon" aria-hidden="true">3</i>
+                      <span class="text">결재요청완료</span>
+                    </li>
+                  </ol>
+                </div>
+              </h2>
+              <!-- [dev] 일반사용자인 경우와 다단계 사용자인 경우 구분 20261022 -->
+              <div class="result-box">
+                <div class="result-banner">
+                  <div class="inner-img"></div>
+                  <div class="result-message">
+                    <h4 class="typeH4 color-blueMd">거액이체에 대한 결과입니다.</h4>
+                    <span class="typeMd">상태가 정상이 아닌 경우는 반드시 출금계좌의 입출금 내역을 확인하시기 바랍니다.</span>
+                  </div>
+                </div>
+                <div class="total-summary-box">
+                  <div class="total">총 <strong>999 건</strong></div>
+                  <ul>
+                    <li>
+                      <dl>
+                        <dt>정상처리</dt>
+                        <dd><span class="color-fg-primary">1</span>건</dd>
+                      </dl>
+                    </li>
+                    <li>
+                      <dl>
+                        <dt>예외처리</dt>
+                        <dd><span class="color-fg-error">1</span>건</dd>
+                      </dl>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="result-box">
+                <div class="result-banner">
+                  <div class="inner-img"></div>
+                  <div class="result-message">
+                    <h4 class="typeH4 color-blueMd">거액이체에 대한 결재요청 결과입니다.</h4>
+                  </div>
+                </div>
+                <div class="total-summary-box">
+                  <div class="total">총 <strong>999 건</strong></div>
+                  <ul>
+                    <li>
+                      <dl>
+                        <dt>정상처리</dt>
+                        <dd><span class="color-fg-primary">1</span>건</dd>
+                      </dl>
+                    </li>
+                    <li>
+                      <dl>
+                        <dt>예외처리</dt>
+                        <dd><span class="color-fg-error">1</span>건</dd>
+                      </dl>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- //[dev] 일반사용자인 경우와 다단계 사용자인 경우 구분 20261022 -->
+
+              <div class="tbl-area">
+                <div class="tbl-head">
+                  <h4 class="typeH4">출금정보</h4>
+                </div>
+                <table class="table-type01">
+                  <!-- [수정] 20260902 caption 수정 -->
+                  <caption></caption>
+                  <colgroup>
+                    <!-- [수정] 20260901 col width 값 추가 -->
+                    <col width="160px" />
+                    <col width="368px" />
+                    <col width="160px" />
+                    <col width="368px" />
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="row">출금계좌번호</th>
+                      <td>
+                        <span class="typeMd">1000-0000-0000</span>
+                      </td>
+                      <th scope="row">출금계좌예금주</th>
+                      <td>
+                        <span class="typeMd">김수협</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">정상출금액</th>
+                      <td class="text-right">
+                        <span class="typeMd">10,000,000원</span>
+                      </td>
+                      <th scope="row">이체후 잔액</th>
+                      <td class="text-right">
+                        <span class="typeMd">10,000,000원</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">지급가능 잔액</th>
+                      <td class="text-right" colspan="3">
+                        <span class="typeMd">10,000,000원</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">결재요청액</th>
+                      <td colspan="3" class="text-right">
+                        <span class="typeMd">10,000,000원</span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="tbl-area">
+                <!--[dev]:20261026 텍스트 수정-->
+                <h4 class="typeH4">다계좌 이체 정보</h4>
+                <!--//[dev]:20261026 텍스트 수정-->
+                <table class="table-type03">
+                  <caption>
+                    NO, 입금은행, 입금계좌, 입금예금주, 금액, 수수료, 상태에 대한 구성 테이블입니다.
+                  </caption>
+                  <colgroup>
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th scope="col"><span>NO</span></th>
+                      <th scope="col"><span>입금은행</span></th>
+                      <th scope="col"><span>입금계좌</span></th>
+                      <th scope="col"><span>입금예금주</span></th>
+                      <th scope="col"><span>금액</span></th>
+                      <th scope="col"><span>수수료</span></th>
+                      <th scope="col"><span>상태</span></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <span class="typeMd">1</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">수협</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">1000-0000-0000</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">김수협</span>
+                      </td>
+                      <td class="text-right">
+                        <span class="typeMd">10,000,000,000 원</span>
+                      </td>
+                      <td class="text-right">
+                        <span class="typeMd">10,000,000,000 원</span>
+                      </td>
+                      <td>
+                        <span class="color-fg-success">정상</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span class="typeMd">2</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">수협</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">1000-0000-0000</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">김수협</span>
+                      </td>
+                      <td class="text-right">
+                        <span class="typeMd">10,000,000,000 원</span>
+                      </td>
+                      <td class="text-right">
+                        <span class="typeMd">0</span>
+                      </td>
+                      <td class="text-center">
+                        <div class="table-tootip-wrapper">
+                          <span class="color-fg-error">에러</span>
+                          <div class="box-tooltip tail-top-start">
+                            <button type="button" class="btn type-ghost-neutral size-Xs active" aria-describedby="tooltipBoxTop0101">
+                              <i class="ico line ico-size-sm ico-help-circle colorFgNetral" aria-hidden="true"></i>
+                              <span class="blind">오류메세지 열기</span>
+                            </button>
+
+                            <div id="tooltipBoxTop0101" class="layer-tooltip size-244" role="tooltip" aria-hidden="false">
+                              <div class="content-tooltip whitespace-normal">
+                                <span class="text">오류 메세지 </span>
+                              </div>
+                              <button type="button" class="btn-close">
+                                <i class="ico-close ico-size-sm" aria-hidden="true"></i>
+                                <span class="blind">툴팁 닫기</span>
+                              </button>
+                              <i class="ico-tail-tooltip" aria-hidden="true"></i>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="btn-wrap center lg-bot">
+                <button type="button" class="btn type-bg-primary size-xxl">
+                  <span class="text">확인</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
+</html>

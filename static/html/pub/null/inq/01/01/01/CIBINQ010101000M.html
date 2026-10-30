@@ -1,0 +1,1079 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/inq.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
+
+      <div id="container" class="container">
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="inq">
+              <h2 class="typeH2">전체계좌조회</h2>
+              <div class="box-tab">
+                <ul class="list-tab-button type-outline" role="tablist" aria-label="탭 이름">
+                  <li class="item-tab-button">
+                    <button type="button" class="btn-tab active" title="선택됨" id="tabBtnTypeOutline01" role="tab" aria-selected="false" aria-controls="tabPanelTypeOutline01">
+                      <span class="text">수협은행</span>
+                    </button>
+                  </li>
+                  <li class="item-tab-button">
+                    <button type="button" class="btn-tab" id="tabBtnTypeOutline02" role="tab" aria-selected="true" aria-controls="tabPanelTypeOutline02">
+                      <span class="text">다른금융</span>
+                    </button>
+                  </li>
+                </ul>
+                <!-- 첫번째 탭 -->
+                <div class="box-tab-content active" id="tabPanelTypeOutline01" role="tabpanel" aria-labelledby="tabBtnTypeOutline01" style="display: block">
+                  <div class="tbl-area">
+                    <!--[dev]:20261020 영역추가-->
+                    <div class="tbl-area mb-48">
+                      <div class="tbl-head">
+                        <div class="right-area">
+                          <!--[dev]:20261020 텍스트 수정-->
+                          <span class="typeMd color-fg-secondary">조회시간 : 2026-05-26 13:11:07</span>
+                          <!--//[dev]:20261020 텍스트 수정-->
+                        </div>
+                      </div>
+                      <table class="table-type01">
+                        <caption>
+                          거래번호, 거래일자, 출금계좌번호, 출금요청등록금액, 예약일자에 대한 구성 테이블입니다.
+                        </caption>
+                        <colgroup>
+                          <col style="width: 160px" />
+                          <col style="width: 368px" />
+                          <col style="width: 160px" />
+                          <col style="width: 368px" />
+                        </colgroup>
+                        <tbody>
+                          <tr>
+                            <th scope="row">
+                              <span>사업자 선택</span>
+                            </th>
+                            <td>
+                              <div class="box-select wSize-lg">
+                                <button type="button" class="select size-lg" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="selectDropdown07" aria-labelledby="label-account" aria-required="true">
+                                  <span class="text">플립커뮤니케이션즈 123-12-12345</span>
+                                  <span class="blind">목록 열기</span>
+                                </button>
+                                <div id="selectDropdown07" class="box-list-select">
+                                  <ul class="list-select" role="listbox" aria-label="사업자 선택 리스트">
+                                    <li class="item-select" role="group" aria-selected="true">
+                                      <span class="btn-item-select"> 플립커뮤니케이션즈 123-12-12345 </span>
+                                    </li>
+                                    <li class="item-select" role="group" aria-selected="false">
+                                      <span class="btn-item-select">1</span>
+                                    </li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <!--//[dev]:20261020 영역추가-->
+                  </div>
+                  <div class="box-tab">
+                    <ul class="list-tab-button type-chip size-md" role="tablist" aria-label="공시자료 탭">
+                      <li class="item-tab-button">
+                        <button type="button" class="btn-tab active" title="선택됨" id="tabBtnTypeHighlightFull01" role="tab" aria-selected="true" aria-controls="tabPanelTypeHighlightFull01">
+                          <span class="text">입출금</span>
+                        </button>
+                      </li>
+                      <li class="item-tab-button">
+                        <button type="button" class="btn-tab" id="tabBtnTypeHighlightFull02" role="tab" aria-selected="false" aria-controls="tabPanelTypeHighlightFull02">
+                          <span class="text">예·적금·신탁</span>
+                        </button>
+                      </li>
+                      <li class="item-tab-button">
+                        <button type="button" class="btn-tab" id="tabBtnTypeHighlightFull03" role="tab" aria-selected="false" aria-controls="tabPanelTypeHighlightFull03">
+                          <span class="text">대출</span>
+                        </button>
+                      </li>
+                      <li class="item-tab-button">
+                        <button type="button" class="btn-tab" id="tabBtnTypeHighlightFull03" role="tab" aria-selected="false" aria-controls="tabPanelTypeHighlightFull03">
+                          <span class="text">펀드</span>
+                        </button>
+                      </li>
+                      <li class="item-tab-button">
+                        <button type="button" class="btn-tab" id="tabBtnTypeHighlightFull03" role="tab" aria-selected="false" aria-controls="tabPanelTypeHighlightFull03">
+                          <span class="text">공제</span>
+                        </button>
+                      </li>
+                      <li class="item-tab-button">
+                        <button type="button" class="btn-tab" id="tabBtnTypeHighlightFull03" role="tab" aria-selected="false" aria-controls="tabPanelTypeHighlightFull03">
+                          <span class="text">외화</span>
+                        </button>
+                      </li>
+                    </ul>
+                    <!-- 입출금 -->
+                    <div class="box-tab-content autoH active" id="tabPanelTypeHighlightFull01" role="tabpanel" aria-labelledby="tabBtnTypeHighlightFull01" style="display: block">
+                      <div class="tbl-area">
+                        <div class="tbl-head">
+                          <h4 class="typeH4">
+                            <div class="tbl-top-cont">
+                              <ul>
+                                <li><span class="typeSm">입출금</span><span class="typeSmSemibold"> 30</span><span class="typeSm">건</span></li>
+                                <li><span class="typeSm">총</span><span class="typeSmSemibold"> 9,000,000</span><span class="typeSm">원</span></li>
+                              </ul>
+                            </div>
+                          </h4>
+                        </div>
+                        <!-- 테이블 -->
+                        <table class="table-type03">
+                          <caption>
+                            상품명, 구분, 기간, 금리, 연수일율, 비교에 대한 구성 테이블입니다.
+                          </caption>
+                          <colgroup>
+                            <col width="80px" />
+                            <col width="314px" />
+                            <col width="95px" />
+                            <col width="95px" />
+                            <col width="130px" />
+                            <col width="285px" />
+                          </colgroup>
+                          <thead>
+                            <tr>
+                              <th>NO.</th>
+                              <th>상품종류/계좌번호</th>
+                              <th>기관</th>
+                              <th>별칭</th>
+                              <th>잔액(원)</th>
+                              <th>바로가기</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>
+                                <span class="typeMd">1</span>
+                              </td>
+                              <td>
+                                <div class="tbl-flex justify-center">
+                                  <i class="bank-007 circle ico-size-sm" aria-hidden="true"></i>
+                                  <span class="bank-name">보통예금 1010-0000-20000</span>
+                                  <span class="badge-light type-red">
+                                    <span class="text">한도제한</span>
+                                  </span>
+                                </div>
+                              </td>
+                              <td>
+                                <span class="typeMd">수협은행</span>
+                              </td>
+                              <td>
+                                <span class="typeMd">부모님용돈</span>
+                              </td>
+                              <td class="text-right">
+                                <span class="typeMd">119,999,500,000</span>
+                              </td>
+                              <td>
+                                <div class="tbl-flex justify-center">
+                                  <button type="button" class="btn type-line-neutral size-sm">
+                                    <span class="text">이체</span>
+                                  </button>
+                                  <button type="button" class="btn type-line-neutral size-sm">
+                                    <span class="text">거래내역</span>
+                                  </button>
+                                  <div class="drop-btn tail-bottom-center">
+                                    <button type="button" class="btn ico-line-rounded sizeXs" aria-describedby="dropBox">
+                                      <i class="ico line ico-size-sm ico-plus" aria-hidden="true"></i>
+                                      <span class="blind">추가</span>
+                                    </button>
+                                    <div id="dropBox" class="drop-layer" role="dropbox" aria-hidden="false">
+                                      <div class="drop-content">
+                                        <ul>
+                                          <li>
+                                            <a href="javascript:;" class="btn-link type-neutral"><span class="text">계좌상세</span></a>
+                                          </li>
+                                          <li>
+                                            <a href="javascript:;" class="btn-link type-neutral"><span class="text">계좌별명관리</span></a>
+                                          </li>
+                                          <li>
+                                            <a href="javascript:;" class="btn-link type-neutral"><span class="text">계좌비밀번호 변경</span></a>
+                                          </li>
+                                          <li>
+                                            <a href="javascript:;" class="btn-link type-neutral"><span class="text">통장사본</span></a>
+                                          </li>
+                                          <li>
+                                            <a href="javascript:;" class="btn-link type-neutral"><span class="text">신계좌전환</span></a>
+                                          </li>
+                                          <li>
+                                            <a href="javascript:;" class="btn-link type-neutral"><span class="text">신(구)계좌보기</span></a>
+                                          </li>
+                                          <li>
+                                            <a href="javascript:;" class="btn-link type-neutral"><span class="text">충전</span></a>
+                                          </li>
+                                        </ul>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <span class="typeMd">2</span>
+                              </td>
+                              <td>
+                                <div class="tbl-flex justify-center">
+                                  <i class="bank-007 circle ico-size-sm" aria-hidden="true"></i>
+                                  <span class="bank-name">보통예금 1010-0000-20000</span>
+                                  <span class="badge-light type-orange">
+                                    <span class="text">거래중지</span>
+                                  </span>
+                                </div>
+                              </td>
+                              <td>
+                                <span class="typeMd">수협은행</span>
+                              </td>
+                              <td>
+                                <span class="typeMd">부모님용돈</span>
+                              </td>
+                              <td>
+                                <span class="typeMd">119,999,500,000</span>
+                              </td>
+                              <td>
+                                <div class="tbl-flex justify-center">
+                                  <button type="button" class="btn type-line-neutral size-sm">
+                                    <span class="text">이체</span>
+                                  </button>
+                                  <button type="button" class="btn type-line-neutral size-sm">
+                                    <span class="text">거래내역</span>
+                                  </button>
+                                  <div class="drop-btn tail-bottom-center">
+                                    <button type="button" class="btn ico-line-rounded sizeXs" aria-describedby="dropBox">
+                                      <i class="ico line ico-size-sm ico-plus" aria-hidden="true"></i>
+                                      <span class="blind">추가</span>
+                                    </button>
+                                    <div id="dropBox" class="drop-layer" role="dropbox" aria-hidden="false">
+                                      <div class="drop-content">
+                                        <ul>
+                                          <li>
+                                            <a href="javascript:;" class="btn-link type-neutral"><span class="text">계좌상세</span></a>
+                                          </li>
+                                          <li>
+                                            <a href="javascript:;" class="btn-link type-neutral"><span class="text">계좌별명관리</span></a>
+                                          </li>
+                                          <li>
+                                            <a href="javascript:;" class="btn-link type-neutral"><span class="text">계좌비밀번호 변경</span></a>
+                                          </li>
+                                          <li>
+                                            <a href="javascript:;" class="btn-link type-neutral"><span class="text">통장사본</span></a>
+                                          </li>
+                                          <li>
+                                            <a href="javascript:;" class="btn-link type-neutral"><span class="text">신계좌전환</span></a>
+                                          </li>
+                                          <li>
+                                            <a href="javascript:;" class="btn-link type-neutral"><span class="text">신(구)계좌보기</span></a>
+                                          </li>
+                                          <li>
+                                            <a href="javascript:;" class="btn-link type-neutral"><span class="text">충전</span></a>
+                                          </li>
+                                        </ul>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <!-- //테이블 -->
+                        <div class="tbl-area">
+                          <table class="table-type03">
+                            <caption>
+                              상품명, 구분, 기간, 금리, 연수일율, 비교에 대한 구성 테이블입니다.
+                            </caption>
+                            <colgroup>
+                              <col width="80px" />
+                              <col width="314px" />
+                              <col width="95px" />
+                              <col width="95px" />
+                              <col width="130px" />
+                              <col width="285px" />
+                            </colgroup>
+                            <thead>
+                              <tr>
+                                <th>NO.</th>
+                                <th>상품종류/계좌번호</th>
+                                <th>기관</th>
+                                <th>별칭</th>
+                                <th>잔액(원)</th>
+                                <th>바로가기</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td colspan="6">
+                                  <div class="empty-page">
+                                    <i class="ico-info"></i>
+                                    <div class="typeMd">보유하신 계좌가 없습니다. <br />새로운 입출금 계좌를 개설해보세요.</div>
+                                    <button type="button" class="btn type-line-secondary size-lg">
+                                      <span class="text">입출금 상품 바로가기</span>
+                                    </button>
+                                  </div>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                    <!--예적금신탁-->
+                    <div class="box-tab-content autoH" id="tabPanelTypeHighlightFull01" role="tabpanel" aria-labelledby="tabBtnTypeHighlightFull01" style="display: none">
+                      <div class="tbl-area">
+                        <div class="tbl-head">
+                          <h4 class="typeH4">
+                            <div class="tbl-top-cont">
+                              <ul>
+                                <li><span class="typeSm">예적금·신탁</span><span class="typeSmSemibold"> 30</span><span class="typeSm">건</span></li>
+                                <li><span class="typeSm">총</span><span class="typeSmSemibold"> 9,000,000</span><span class="typeSm">원</span></li>
+                              </ul>
+                            </div>
+                          </h4>
+                        </div>
+
+                        <table class="table-type03">
+                          <caption>
+                            상품명, 구분, 기간, 금리, 연수일율, 비교에 대한 구성 테이블입니다.
+                          </caption>
+                          <colgroup>
+                            <col width="80px" />
+                            <col width="314px" />
+                            <col width="95px" />
+                            <col width="95px" />
+                            <col width="130px" />
+                            <col width="285px" />
+                          </colgroup>
+                          <thead>
+                            <tr>
+                              <th>NO.</th>
+                              <th>상품종류/계좌번호</th>
+                              <!--[dev]:20261020 텍스트 수정-->
+                              <th>금융사</th>
+                              <!--//[dev]:20261020 텍스트 수정-->
+                              <th>별칭</th>
+                              <th>잔액(원)</th>
+                              <th>바로가기</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>
+                                <span class="typeMd">1</span>
+                              </td>
+                              <td>
+                                <div class="tbl-flex justify-center">
+                                  <span class="typeMd">보통예금 1010-0000-20000</span>
+                                </div>
+                              </td>
+                              <td>
+                                <span class="typeMd">수협은행</span>
+                              </td>
+                              <td>
+                                <span class="typeMd">부모님용돈</span>
+                              </td>
+                              <td class="text-right">
+                                <span class="typeMd">119,999,500,000</span>
+                              </td>
+                              <td>
+                                <div class="tbl-flex justify-center">
+                                  <button type="button" class="btn type-line-neutral size-sm">
+                                    <span class="text">입금</span>
+                                  </button>
+                                  <button type="button" class="btn type-line-neutral size-sm">
+                                    <span class="text">거래내역</span>
+                                  </button>
+                                  <div class="drop-btn tail-bottom-center">
+                                    <button type="button" class="btn ico-line-rounded sizeXs" aria-describedby="dropBox">
+                                      <i class="ico line ico-size-sm ico-plus" aria-hidden="true"></i>
+                                      <span class="blind">추가</span>
+                                    </button>
+                                    <div id="dropBox" class="drop-layer" role="dropbox" aria-hidden="false">
+                                      <div class="drop-content">
+                                        <ul>
+                                          <li>
+                                            <a href="javascript:;" class="btn-link type-neutral"><span class="text">계좌상세</span></a>
+                                          </li>
+                                          <li>
+                                            <a href="javascript:;" class="btn-link type-neutral"><span class="text">계좌별명관리</span></a>
+                                          </li>
+                                          <li>
+                                            <a href="javascript:;" class="btn-link type-neutral"><span class="text">계좌비밀번호 변경</span></a>
+                                          </li>
+                                          <li>
+                                            <a href="javascript:;" class="btn-link type-neutral"><span class="text">통장사본</span></a>
+                                          </li>
+                                          <li>
+                                            <a href="javascript:;" class="btn-link type-neutral"><span class="text">신계좌전환</span></a>
+                                          </li>
+                                          <li>
+                                            <a href="javascript:;" class="btn-link type-neutral"><span class="text">신(구)계좌보기</span></a>
+                                          </li>
+                                          <li>
+                                            <a href="javascript:;" class="btn-link type-neutral"><span class="text">충전</span></a>
+                                          </li>
+                                        </ul>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <!-- //테이블 -->
+                        <div class="tbl-area">
+                          <table class="table-type03">
+                            <caption>
+                              상품명, 구분, 기간, 금리, 연수일율, 비교에 대한 구성 테이블입니다.
+                            </caption>
+                            <colgroup>
+                              <col width="80px" />
+                              <col width="314px" />
+                              <col width="95px" />
+                              <col width="95px" />
+                              <col width="130px" />
+                              <col width="285px" />
+                            </colgroup>
+                            <thead>
+                              <tr>
+                                <th>NO.</th>
+                                <th>상품종류/계좌번호</th>
+                                <!--[dev]:20261020 텍스트 수정-->
+                                <th>금융사</th>
+                                <!--//[dev]:20261020 텍스트 수정-->
+                                <th>별칭</th>
+                                <th>잔액(원)</th>
+                                <th>바로가기</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td colspan="6">
+                                  <div class="empty-page">
+                                    <i class="ico-info"></i>
+                                    <!--[dev]:20261026 텍스트수정-->
+                                    <div class="typeMd">보유하신 계좌가 없습니다. <br />새로운 입출금 계좌를 가입해보세요.</div>
+                                    <!--//[dev]:20261026 텍스트수정-->
+                                    <button type="button" class="btn type-line-secondary size-lg">
+                                      <span class="text">예적금 상품 바로가기</span>
+                                    </button>
+                                  </div>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                    <!--대출-->
+                    <div class="box-tab-content autoH" id="tabPanelTypeHighlightFull01" role="tabpanel" aria-labelledby="tabBtnTypeHighlightFull01" style="display: none">
+                      <div class="tbl-area">
+                        <div class="tbl-head">
+                          <h4 class="typeH4">
+                            <div class="tbl-top-cont">
+                              <ul>
+                                <li><span class="typeSm">대출</span><span class="typeSmSemibold"> 30</span><span class="typeSm">건</span></li>
+                                <li><span class="typeSm">총</span><span class="typeSmSemibold"> 9,000,000</span><span class="typeSm">원</span></li>
+                              </ul>
+                            </div>
+                          </h4>
+                        </div>
+
+                        <table class="table-type03">
+                          <caption>
+                            상품명, 구분, 기간, 금리, 연수일율, 비교에 대한 구성 테이블입니다.
+                          </caption>
+                          <colgroup>
+                            <col width="80px" />
+                            <col width="314px" />
+                            <col width="130px" />
+                            <col width="285px" />
+                          </colgroup>
+                          <thead>
+                            <tr>
+                              <th>NO.</th>
+                              <th>상품종류/계좌번호</th>
+                              <th>잔액(원)</th>
+                              <th>바로가기</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>
+                                <span class="typeMd">1</span>
+                              </td>
+                              <td>
+                                <div class="tbl-flex justify-center">
+                                  <span class="typeMd">보통예금 1010-0000-20000</span>
+                                </div>
+                              </td>
+                              <td class="text-right">
+                                <span class="typeMd">119,999,500,000</span>
+                              </td>
+                              <td>
+                                <div class="tbl-flex justify-center">
+                                  <button type="button" class="btn type-line-neutral size-sm">
+                                    <span class="text">이자납입</span>
+                                  </button>
+                                  <button type="button" class="btn type-line-neutral size-sm">
+                                    <span class="text">거래내역</span>
+                                  </button>
+                                  <div class="drop-btn tail-bottom-center">
+                                    <button type="button" class="btn ico-line-rounded sizeXs" aria-describedby="dropBox">
+                                      <i class="ico line ico-size-sm ico-plus" aria-hidden="true"></i>
+                                      <span class="blind">추가</span>
+                                    </button>
+                                    <div id="dropBox" class="drop-layer" role="dropbox" aria-hidden="false">
+                                      <div class="drop-content">
+                                        <ul>
+                                          <li>
+                                            <a href="javascript:;" class="btn-link type-neutral"><span class="text">계좌상세</span></a>
+                                          </li>
+                                          <li>
+                                            <a href="javascript:;" class="btn-link type-neutral"><span class="text">계좌별명관리</span></a>
+                                          </li>
+                                          <li>
+                                            <a href="javascript:;" class="btn-link type-neutral"><span class="text">계좌비밀번호 변경</span></a>
+                                          </li>
+                                          <li>
+                                            <a href="javascript:;" class="btn-link type-neutral"><span class="text">통장사본</span></a>
+                                          </li>
+                                          <li>
+                                            <a href="javascript:;" class="btn-link type-neutral"><span class="text">신계좌전환</span></a>
+                                          </li>
+                                          <li>
+                                            <a href="javascript:;" class="btn-link type-neutral"><span class="text">신(구)계좌보기</span></a>
+                                          </li>
+                                          <li>
+                                            <a href="javascript:;" class="btn-link type-neutral"><span class="text">충전</span></a>
+                                          </li>
+                                        </ul>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <!-- //테이블 -->
+                        <div class="tbl-area">
+                          <table class="table-type03">
+                            <caption>
+                              상품명, 구분, 기간, 금리, 연수일율, 비교에 대한 구성 테이블입니다.
+                            </caption>
+                            <colgroup>
+                              <col width="80px" />
+                              <col width="314px" />
+                              <col width="130px" />
+                              <col width="285px" />
+                            </colgroup>
+                            <thead>
+                              <tr>
+                                <th>NO.</th>
+                                <th>상품종류/계좌번호</th>
+                                <th>잔액(원)</th>
+                                <th>바로가기</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td colspan="4">
+                                  <div class="empty-page">
+                                    <i class="ico-info"></i>
+                                    <!--[dev]:20261026 텍스트수정-->
+                                    <div class="typeMd">조회된 대출 상품이 없습니다.</div>
+                                    <!--//[dev]:20261026 텍스트수정-->
+                                    <button type="button" class="btn type-line-secondary size-lg">
+                                      <span class="text">대출상품 바로가기</span>
+                                    </button>
+                                  </div>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                    <!--펀드-->
+                    <div class="box-tab-content autoH" id="tabPanelTypeHighlightFull01" role="tabpanel" aria-labelledby="tabBtnTypeHighlightFull01" style="display: none">
+                      <div class="tbl-area">
+                        <div class="tbl-head">
+                          <h4 class="typeH4">
+                            <div class="tbl-top-cont">
+                              <ul>
+                                <li><span class="typeSm">펀드</span><span class="typeSmSemibold"> 30</span><span class="typeSm">건</span></li>
+                                <li><span class="typeSm">총</span><span class="typeSmSemibold"> 9,000,000</span><span class="typeSm">원</span></li>
+                              </ul>
+                            </div>
+                          </h4>
+                        </div>
+
+                        <table class="table-type03">
+                          <caption>
+                            상품명, 구분, 기간, 금리, 연수일율, 비교에 대한 구성 테이블입니다.
+                          </caption>
+                          <colgroup>
+                            <col width="80px" />
+                            <col width="214px" />
+                            <col width="95px" />
+                            <col width="130px" />
+                            <col width="285px" />
+                          </colgroup>
+                          <thead>
+                            <tr>
+                              <th>NO.</th>
+                              <th>펀드명</th>
+                              <th>계좌번호</th>
+                              <th>잔액(원)</th>
+                              <th>바로가기</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>
+                                <span class="typeMd">1</span>
+                              </td>
+                              <td>
+                                <div class="tbl-flex justify-center">
+                                  <span class="typeMd">보통예금 1010-0000-20000</span>
+                                </div>
+                              </td>
+                              <td>
+                                <span class="typeMd">1900-0419-0000</span>
+                              </td>
+                              <td class="text-right">
+                                <span class="typeMd">119,999,500,000</span>
+                              </td>
+                              <td>
+                                <div class="tbl-flex justify-center">
+                                  <button type="button" class="btn type-line-neutral size-sm">
+                                    <span class="text">거래내역</span>
+                                  </button>
+                                  <div class="drop-btn tail-bottom-center">
+                                    <button type="button" class="btn ico-line-rounded sizeXs" aria-describedby="dropBox">
+                                      <i class="ico line ico-size-sm ico-plus" aria-hidden="true"></i>
+                                      <span class="blind">추가</span>
+                                    </button>
+                                    <div id="dropBox" class="drop-layer" role="dropbox" aria-hidden="false">
+                                      <div class="drop-content">
+                                        <ul>
+                                          <li>
+                                            <a href="javascript:;" class="btn-link type-neutral"><span class="text">계좌상세</span></a>
+                                          </li>
+                                          <li>
+                                            <a href="javascript:;" class="btn-link type-neutral"><span class="text">계좌별명관리</span></a>
+                                          </li>
+                                          <li>
+                                            <a href="javascript:;" class="btn-link type-neutral"><span class="text">계좌비밀번호 변경</span></a>
+                                          </li>
+                                          <li>
+                                            <a href="javascript:;" class="btn-link type-neutral"><span class="text">통장사본</span></a>
+                                          </li>
+                                          <li>
+                                            <a href="javascript:;" class="btn-link type-neutral"><span class="text">신계좌전환</span></a>
+                                          </li>
+                                          <li>
+                                            <a href="javascript:;" class="btn-link type-neutral"><span class="text">신(구)계좌보기</span></a>
+                                          </li>
+                                          <li>
+                                            <a href="javascript:;" class="btn-link type-neutral"><span class="text">충전</span></a>
+                                          </li>
+                                        </ul>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <!-- //테이블 -->
+                        <div class="tbl-area">
+                          <table class="table-type03">
+                            <caption>
+                              상품명, 구분, 기간, 금리, 연수일율, 비교에 대한 구성 테이블입니다.
+                            </caption>
+                            <colgroup>
+                              <col width="80px" />
+                              <col width="314px" />
+                              <col width="95px" />
+                              <col width="130px" />
+                              <col width="285px" />
+                            </colgroup>
+                            <thead>
+                              <tr>
+                                <th>NO.</th>
+                                <th>펀드명</th>
+                                <th>계좌번호</th>
+                                <th>잔액(원)</th>
+                                <th>바로가기</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td colspan="6">
+                                  <div class="empty-page">
+                                    <i class="ico-info"></i>
+                                    <!--[dev]:20261026 텍스트수정-->
+                                    <div class="typeMd">조회된 펀드 상품이 없습니다.</div>
+                                    <!--//[dev]:20261026 텍스트수정-->
+                                    <button type="button" class="btn type-line-secondary size-lg">
+                                      <span class="text">펀드상품 바로가기</span>
+                                    </button>
+                                  </div>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                    <!--공제-->
+                    <div class="box-tab-content autoH" id="tabPanelTypeHighlightFull01" role="tabpanel" aria-labelledby="tabBtnTypeHighlightFull01" style="display: none">
+                      <div class="tbl-area">
+                        <div class="tbl-head">
+                          <h4 class="typeH4">
+                            <div class="tbl-top-cont">
+                              <ul>
+                                <li><span class="typeSm">공제</span><span class="typeSmSemibold"> 30</span><span class="typeSm">건</span></li>
+                                <li><span class="typeSm">총</span><span class="typeSmSemibold"> 9,000,000</span><span class="typeSm">원</span></li>
+                              </ul>
+                            </div>
+                          </h4>
+                        </div>
+
+                        <table class="table-type03">
+                          <caption>
+                            상품명, 구분, 기간, 금리, 연수일율, 비교에 대한 구성 테이블입니다.
+                          </caption>
+                          <colgroup>
+                            <col width="80px" />
+                            <col width="314px" />
+                            <col width="95px" />
+                            <col width="130px" />
+                            <col width="285px" />
+                          </colgroup>
+                          <thead>
+                            <tr>
+                              <th>NO.</th>
+                              <th>상품종류</th>
+                              <th>계좌번호</th>
+                              <th>잔액(원)</th>
+                              <th>바로가기</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>
+                                <span class="typeMd">1</span>
+                              </td>
+                              <td>
+                                <div class="tbl-flex justify-center">
+                                  <span class="typeMd">보통예금 1010-0000-20000</span>
+                                </div>
+                              </td>
+                              <td>
+                                <span class="typeMd">1000-0000-0000</span>
+                              </td>
+                              <td class="text-right">
+                                <span class="typeMd">119,999,500,000</span>
+                              </td>
+                              <td>
+                                <div class="tbl-flex justify-center">
+                                  <button type="button" class="btn type-line-neutral size-sm">
+                                    <span class="text">계좌상세</span>
+                                  </button>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <!-- //테이블 -->
+                        <div class="tbl-area">
+                          <table class="table-type03">
+                            <caption>
+                              상품명, 구분, 기간, 금리, 연수일율, 비교에 대한 구성 테이블입니다.
+                            </caption>
+                            <colgroup>
+                              <col width="80px" />
+                              <col width="314px" />
+                              <col width="95px" />
+                              <col width="130px" />
+                              <col width="285px" />
+                            </colgroup>
+                            <thead>
+                              <tr>
+                                <th>NO.</th>
+                                <th>상품종류</th>
+                                <th>계좌번호</th>
+                                <th>잔액(원)</th>
+                                <th>바로가기</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td colspan="6">
+                                  <div class="empty-page">
+                                    <i class="ico-info"></i>
+                                    <div class="typeMd">보유하신 계좌가 없습니다. <br />새로운 입출금 계좌를 가입해보세요.</div>
+                                    <button type="button" class="btn type-line-secondary size-lg">
+                                      <span class="text">공제상품 바로가기</span>
+                                    </button>
+                                  </div>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                    <!--외화-->
+                    <div class="box-tab-content autoH" id="tabPanelTypeHighlightFull01" role="tabpanel" aria-labelledby="tabBtnTypeHighlightFull01" style="display: none">
+                      <div class="tbl-area">
+                        <div class="tbl-head">
+                          <h4 class="typeH4">
+                            <div class="tbl-top-cont">
+                              <ul>
+                                <li><span class="typeSm">외화</span><span class="typeSmSemibold"> 30</span><span class="typeSm">건</span></li>
+                                <li><span class="typeSm">총</span><span class="typeSmSemibold"> 9,000,000</span><span class="typeSm">원</span></li>
+                              </ul>
+                            </div>
+                          </h4>
+                        </div>
+
+                        <table class="table-type03">
+                          <caption>
+                            상품명, 구분, 기간, 금리, 연수일율, 비교에 대한 구성 테이블입니다.
+                          </caption>
+                          <colgroup>
+                            <col width="80px" />
+                            <col width="314px" />
+                            <col width="95px" />
+                            <col width="130px" />
+                            <col width="285px" />
+                          </colgroup>
+                          <thead>
+                            <tr>
+                              <th>NO.</th>
+                              <th>상품종류/계좌번호</th>
+                              <th>별칭</th>
+                              <th>잔액(원)</th>
+                              <th>바로가기</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>
+                                <span class="typeMd">1</span>
+                              </td>
+                              <td>
+                                <div class="tbl-flex justify-center">
+                                  <span class="typeMd">보통예금 1010-0000-20000</span>
+                                </div>
+                              </td>
+                              <td>
+                                <span class="typeMd">외화전용</span>
+                              </td>
+                              <td class="text-right">
+                                <span class="typeMd">5.18 USD</span>
+                              </td>
+                              <td>
+                                <div class="tbl-flex justify-center">
+                                  <button type="button" class="btn type-line-neutral size-sm">
+                                    <span class="text">이체</span>
+                                  </button>
+                                  <button type="button" class="btn type-line-neutral size-sm">
+                                    <span class="text">해외송금</span>
+                                  </button>
+                                  <button type="button" class="btn type-line-neutral size-sm">
+                                    <span class="text">거래내역</span>
+                                  </button>
+                                  <div class="drop-btn tail-bottom-center">
+                                    <button type="button" class="btn ico-line-rounded sizeXs" aria-describedby="dropBox">
+                                      <i class="ico line ico-size-sm ico-plus" aria-hidden="true"></i>
+                                      <span class="blind">추가</span>
+                                    </button>
+                                    <div id="dropBox" class="drop-layer" role="dropbox" aria-hidden="false">
+                                      <div class="drop-content">
+                                        <ul>
+                                          <li>
+                                            <a href="javascript:;" class="btn-link type-neutral"><span class="text">계좌상세</span></a>
+                                          </li>
+                                          <li>
+                                            <a href="javascript:;" class="btn-link type-neutral"><span class="text">계좌별명관리</span></a>
+                                          </li>
+                                          <li>
+                                            <a href="javascript:;" class="btn-link type-neutral"><span class="text">계좌비밀번호 변경</span></a>
+                                          </li>
+                                          <li>
+                                            <a href="javascript:;" class="btn-link type-neutral"><span class="text">통장사본</span></a>
+                                          </li>
+                                          <li>
+                                            <a href="javascript:;" class="btn-link type-neutral"><span class="text">신계좌전환</span></a>
+                                          </li>
+                                          <li>
+                                            <a href="javascript:;" class="btn-link type-neutral"><span class="text">신(구)계좌보기</span></a>
+                                          </li>
+                                          <li>
+                                            <a href="javascript:;" class="btn-link type-neutral"><span class="text">충전</span></a>
+                                          </li>
+                                        </ul>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <!-- //테이블 -->
+                        <div class="tbl-area">
+                          <table class="table-type03">
+                            <caption>
+                              상품명, 구분, 기간, 금리, 연수일율, 비교에 대한 구성 테이블입니다.
+                            </caption>
+                            <colgroup>
+                              <col width="80px" />
+                              <col width="314px" />
+                              <col width="95px" />
+                              <col width="130px" />
+                              <col width="285px" />
+                            </colgroup>
+                            <thead>
+                              <tr>
+                                <th>NO.</th>
+                                <th>상품종류/계좌번호</th>
+                                <th>별칭</th>
+                                <th>잔액(원)</th>
+                                <th>바로가기</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td colspan="5">
+                                  <div class="empty-page">
+                                    <i class="ico-info"></i>
+                                    <div class="typeMd">보유하신 계좌가 없습니다. <br />새로운 입출금 계좌를 가입해보세요.</div>
+                                    <button type="button" class="btn type-line-secondary size-lg">
+                                      <span class="text">외화상품 바로가기</span>
+                                    </button>
+                                  </div>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                    <!--[dev]:20261020 파일다운로드 버튼 하단에만 사용으로 변경-->
+                    <div class="btn-wrap center sm-mid">
+                      <button type="button" class="btn type-bg-primary size-xxl">
+                        <span class="text">파일다운로드</span>
+                      </button>
+                    </div>
+                    <!--//[dev]:20261020 파일다운로드 버튼 하단에만 사용으로 변경-->
+                    <!--[dev]:20261020 이용안내 하단으로 이동-->
+                    <!--기본 이용안내-->
+                    <div class="line-box size-xl mt-48">
+                      <span class="typeLgSemibold">이용안내</span>
+                      <div class="list type-dotted">
+                        <ul>
+                          <li class="typeMd">‘한도제한계좌’는 금융사기 예방을 위하여 금융거래한도가 제한되는 계좌입니다.</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <!--//기본 이용안내-->
+                    <!--대출계좌인 경우에만 ‘총 대출금액 중 외화대출인 경우~’ 안내문구 추가(이하 동일)-->
+                    <div class="line-box size-xl mt-48">
+                      <span class="typeLgSemibold">이용안내</span>
+                      <div class="list type-dotted">
+                        <ul>
+                          <li class="typeMd">‘한도제한계좌’는 금융사기 예방을 위하여 금융거래한도가 제한되는 계좌입니다.</li>
+                          <li class="typeMd">총대출금액 중 외화대출인 경우는 조회당일 1회차 매매기준율을 적용해서 환산한 원화금액으로 표시됩니다.</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <!--대출계좌인 경우에만 ‘총 대출금액 중 외화대출인 경우~’ 안내문구 추가(이하 동일)-->
+                    <div class="line-box size-xl mt-48">
+                      <span class="typeLgSemibold">이용안내</span>
+                      <div class="list type-dotted">
+                        <ul>
+                          <!--[dev]:20261029:조회버튼에서 상세내용 조회 링크로 변경-->
+                          <li class="typeMd">
+                            장기 미거래 등으로 비활성화 상태인 계좌 및 휴면예금관리재단의 설립 등에 관한 법률에 따라 휴면예금관리재단에 출연된 계좌가 있습니다. <a href="javascript:;" class="btn-link"><span class="text">상세내용 조회</span></a
+                            >에서 확인하시기 바랍니다.
+                          </li>
+                          <!--//[dev]:20261029:조회버튼에서 상세내용 조회 링크로 변경-->
+                          <li class="typeMd">‘한도제한계좌’는 금융사기 예방을 위하여 금융거래한도가 제한되는 계좌입니다.</li>
+                          <li class="typeMd">총대출금액 중 외화대출인 경우는 조회당일 1회차 매매기준율을 적용해서 환산한 원화금액으로 표시됩니다.</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <!--//대출계좌인 경우에만 ‘총 대출금액 중 외화대출인 경우~’ 안내문구 추가(이하 동일)-->
+                    <!--휴면예금보유 중이나 비활성예금은 없는 경우-->
+                    <div class="line-box size-xl mt-48">
+                      <span class="typeLgSemibold">이용안내</span>
+                      <div class="list type-dotted">
+                        <ul>
+                          <!--[dev]:20261029:조회버튼에서 상세내용 조회 링크로 변경-->
+                          <li class="typeMd">
+                            휴면예금관리재단의 설립 등에 관한 법률에 따라 휴면예금관리재단에 출연된 계좌가 있습니다. <a href="javascript:;" class="btn-link"><span class="text">상세내용 조회</span></a
+                            >에서 확인하시기 바랍니다.
+                          </li>
+                          <!--//[dev]:20261029:조회버튼에서 상세내용 조회 링크로 변경-->
+                          <li class="typeMd">‘한도제한계좌’는 금융사기 예방을 위하여 금융거래한도가 제한되는 계좌입니다.</li>
+                          <li class="typeMd">총대출금액 중 외화대출인 경우는 조회당일 1회차 매매기준율을 적용해서 환산한 원화금액으로 표시됩니다.</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <!--휴면예금보유 중이나 비활성예금은 없는 경우-->
+                    <!--휴면예금보유 중이나 비활성예금은 없는 경우-->
+                    <div class="line-box size-xl mt-48">
+                      <span class="typeLgSemibold">이용안내</span>
+                      <div class="list type-dotted">
+                        <ul>
+                          <!--[dev]:20261029:조회버튼에서 상세내용 조회 링크로 변경-->
+                          <li class="typeMd">
+                            장기 미거래 등으로 비활성화 상태인 계좌 및 휴면예금관리재단의 설립 등에 관한 법률에 따라 휴면예금관리재단에 출연된 계좌가 있습니다. <a href="javascript:;" class="btn-link"><span class="text">상세내용 조회</span></a
+                            >에서 확인하시기 바랍니다.
+                          </li>
+                          <!--//[dev]:20261029:조회버튼에서 상세내용 조회 링크로 변경-->
+                          <li class="typeMd">‘한도제한계좌’는 금융사기 예방을 위하여 금융거래한도가 제한되는 계좌입니다.</li>
+                          <li class="typeMd">총대출금액 중 외화대출인 경우는 조회당일 1회차 매매기준율을 적용해서 환산한 원화금액으로 표시됩니다.</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <!--휴면예금보유 중이나 비활성예금은 없는 경우-->
+                    <!--//[dev]:20261020 이용안내 하단으로 이동-->
+                  </div>
+                </div>
+                <!-- 두번째 탭 -->
+
+                <div class="box-tab-content" id="tabPanelTypeOutline02" role="tabpanel" aria-labelledby="tabBtnTypeOutline02" style="display: none"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
+</html>
+<script></script>

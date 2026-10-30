@@ -1,175 +1,1337 @@
 <!doctype html>
 <html lang="ko">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>수협은행</title>
-		<link rel="stylesheet" href="/static/css/reset.css" />
-		<link rel="stylesheet" href="/static/css/layout.css" />
-		<link rel="stylesheet" href="/static/css/component.css" />
-		<link rel="stylesheet" href="/static/css/common.css" />
-		<link rel="stylesheet" href="/static/css/cst.css" />
-	</head>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>수협은행</title>
+        <link rel="stylesheet" href="/static/css/reset.css" />
+        <link rel="stylesheet" href="/static/css/layout.css" />
+        <link rel="stylesheet" href="/static/css/component.css" />
+        <link rel="stylesheet" href="/static/css/common.css" />
+        <link rel="stylesheet" href="/static/css/cst.css" />
+    </head>
+    <body>
+        <div class="wrapper">
+            <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
+            <div id="container" class="container">
+                <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+                <div id="contents">
+                    <div class="content">
+                        @@include('static/html/pub/layout/breadcrumb.html')
+                        <div class="cst partner">
+                            <h2 class="typeH2">파트너고객제도</h2>
+                            <h4 class="typeH4 mb-12">파트너고객제도란?</h4>
+                            <div class="list">
+                                <ul>
+                                    <li class="typeLg">고객님의 거래실적을 종합적으로 점수화 하여 점수별 등급을 부여하고, 등급에 따라 우대서비스를 제공하는 고객 우대 제도입니다.</li>
+                                </ul>
+                            </div>
+                            <h4 class="typeH4 mb-12 mt-48">대상고객</h4>
+                            <div class="list">
+                                <ul>
+                                    <li class="typeLg">수협은행 및 회원수협 이용고객 (개인, 법인)</li>
+                                </ul>
+                            </div>
+                            <h4 class="typeH4 mb-12 mt-48">선정기준일</h4>
+                            <div class="list type-dotted">
+                                <ul>
+                                    <li class="typeLg">정기선정 - 5월말, 11월말</li>
+                                    <li class="typeLg">중간선정 - 2월말, 8월말</li>
+                                </ul>
+                            </div>
+                            <h4 class="typeH4 mb-12 mt-48">실적산정기간</h4>
+                            <div class="list type-dotted">
+                                <ul>
+                                    <li class="typeLg">정기선정 - 직전 6개월 실적</li>
+                                    <li class="typeLg">중간선정 - 직전 3개월 실적</li>
+                                </ul>
+                            </div>
+                            <h4 class="typeH4 mb-12 mt-48">우대서비스 제공기간</h4>
+                            <div class="list type-dotted">
+                                <ul>
+                                    <li class="typeLg">정기선정 - 상반기 (1월1일~6월30일), 하반기 (7월1일~12월31일)</li>
+                                    <li class="typeLg">중간선정 - 2월말 (3월6영업일~6월), 8월말 (9월6영업일~12월)</li>
+                                </ul>
+                            </div>
+                            <h4 class="typeH4 mb-12 mt-48">선정방법</h4>
+                            <div class="list type-dotted">
+                                <ul>
+                                    <li class="typeLg">고객평점 평가기준 참조</li>
+                                </ul>
+                            </div>
+                            <h4 class="typeH4 mb-12 mt-48">파트너고객 선정 구분</h4>
+                            <ul class="partner-type">
+                                <li class="type-03">
+                                    <strong class="type2XlSemibold">더퍼스트</strong>
+                                    <p class="typeLg mt-4">개인 700점 이상, 법인 1,200점 이상</p>
+                                </li>
+                                <li class="type-02">
+                                    <strong class="type2XlSemibold">프리미엄</strong>
+                                    <p class="typeLg mt-4">개인 500점 이상, 법인 800점 이상</p>
+                                </li>
+                                <li class="type-01">
+                                    <strong class="type2XlSemibold">패밀리</strong>
+                                    <p class="typeLg mt-4">개인 300점 이상, 법인 600점 이상</p>
+                                </li>
+                            </ul>
+                            <h4 class="typeH4 mb-12 mt-48">선정제외기준</h4>
+                            <div class="list type-dotted">
+                                <ul>
+                                    <li class="typeLg">내부업무원가 반영 전 수익이 음수(-)인 고객은 평가에서 제외</li>
+                                    <li class="typeLg">평가항목 중 수신점수, 대출점수, 공제점수의 합산점수가 없는 경우는 평가에서 제외</li>
+                                </ul>
+                            </div>
+                            <h4 class="typeH4 mb-12 mt-48">수협은행과 회원수협은 각각의 실적기준으로 파트너고객을 선정하여 등급이 높은 기준으로 적용합니다.</h4>
 
-	<body>
-		<div class="wrapper">
-			<div id="header">
-				@@include('static/html/pub/layout/skipNavigation.html')
-				@@include('static/html/pub/layout/header_sub.html')
-			</div>
-
-			<div id="container" class="container">
-				<div id="leftArea">
-					@@include('static/html/pub/layout/leftArea.html')
-				</div>
-				<div id="contents">
-					<div class="content">
-						@@include('static/html/pub/layout/breadcrumb.html')
-						<div class="cst partner">
-								<h2 class="typeH2">파트너 고객제도</h2>
-
-								<div class="flex justify-between mb-12">
-										<h4 class="typeH4">파트너고객제도란?</h4>
-								</div>
-								<div class="list">
-										<ul>
-												<li class="typeLg">
-														고객님의 거래실적을 종합적으로 점수화 하여 점수별 등급을 부여하고, 등급에 따라 우대서비스를 제공하는 고객 우대 제도입니다.
-												</li>
-												<li class="typeLg">
-														대상고객수협은행 및 회원수협 이용고객 (개인, 법인)
-												</li>
-										</ul>
-								</div>
-
-								<div class="flex justify-between mb-12 mt-48">
-										<h4 class="typeH4">대상고객?</h4>
-								</div>
-								<div class="list">
-										<ul>
-												<li class="typeLg">
-														수협은행 및 회원수협 이용고객 (개인, 법인)
-												</li>
-										</ul>
-								</div>
-
-								<div class="flex justify-between mb-12 mt-48">
-										<h4 class="typeH4">선정기준일</h4>
-								</div>
-								<div class="list type-dotted">
-										<ul>
-												<li class="typeLg">
-														정기선정:5월말, 11월말
-												</li>
-												<li class="typeLg">
-														중간선정:2월말, 8월말
-												</li>
-										</ul>
-								</div>
-
-								<div class="flex justify-between mb-12 mt-48">
-										<h4 class="typeH4">선정기준일</h4>
-								</div>
-								<div class="list type-dotted">
-										<ul>
-												<li class="typeLg">
-														정기선정:5월말, 11월말
-												</li>
-												<li class="typeLg">
-														중간선정:2월말, 8월말
-												</li>
-										</ul>
-								</div>
-
-								<div class="flex justify-between mb-12 mt-48">
-										<h4 class="typeH4">우대서비스 제공 기간</h4>
-								</div>
-								<div class="list type-dotted">
-										<ul>
-												<li class="typeLg">
-														정기선정:상반기 (1월1일~6월30일), 하반기 (7월1일~12월31일)
-												</li>
-												<li class="typeLg">
-														중간선정:2월말 (3월6영업일~6월), 8월말 (9월6영업일~12월)
-												</li>
-										</ul>
-								</div>
-
-								<div class="flex justify-between mb-12 mt-48">
-										<h4 class="typeH4">선정방법</h4>
-								</div>
-								<div class="list type-dotted">
-										<ul>
-												<li class="typeLg">
-														고객평점 평가기준 참조
-												</li>
-										</ul>
-								</div>
-
-								<div class="flex justify-between mb-12 mt-48">
-										<h4 class="typeH4">파트너 고객 선정 구분</h4>
-								</div>
-								<ul class="partner-type">
-										<li class="type-01">
-												<b class="type2XlSemibold">패밀리</b>
-												<p class="typeLg mt-4">개인 300점 이상, 법인 600점 이상</p>
-										</li>
-										<li class="type-02">
-												<b class="type2XlSemibold">프리미엄</b>
-												<p class="typeLg mt-4">개인 500점 이상, 법인 800점 이상</p>
-										</li>
-										<li class="type-03">
-												<b class="type2XlSemibold">더퍼스트</b>
-												<p class="typeLg mt-4">개인 700점 이상, 법인 1,200점 이상</p>
-										</li>
-								</ul>
-
-								<div class="flex justify-between mb-12 mt-48">
-										<h4 class="typeH4">선정제외기준</h4>
-								</div>
-								<div class="list type-dotted">
-										<ul>
-												<li class="typeLg">
-														내부업무원가 반영 전 수익이 음수(-)인 고객은 평가에서 제외
-												</li>
-												<li class="typeLg">
-														평가항목 중 수신점수, 대출점수, 공제점수의 합산점수가 없는 경우는 평가에서 제외
-												</li>
-										</ul>
-								</div>
-
-								<div class="content-wrap mt-48">
-										<div class="box-tab">
-												<ul class="list-tab-button type-chip size-lg mb-24" role="tablist" aria-label="탭 이름">
-														<li class="item-tab-button">
-																<button type="button" class="btn-tab" title="선택됨" id="tabBtnTypeChip01" role="tab" aria-selected="true" aria-controls="tabPanelTypeChip01">
-																		<span class="text">파트너 고객 우대서비스(수협은행)</span>
-																</button>
-														</li>
-														<li class="item-tab-button">
-																<button type="button" class="btn-tab active" id="tabBtnTypeChip02" role="tab" aria-selected="false" aria-controls="tabPanelTypeChip02">
-																		<span class="text">파트너 고객우대서비스(회원수협)</span>
-																</button>
-														</li>
-												</ul>
-												<div class="box-tab-content " id="tabPanelTypeChip01" role="tabpanel" aria-labelledby="tabBtnTypeChip01" style="display:none">
-														<h3 class="blind">Tab Content01</h3>
-																Tab 본문 01
-												</div>
-												<div class="box-tab-content active" id="tabPanelTypeChip02" role="tabpanel" aria-labelledby="tabBtnTypeChip02">
-														<h3 class="blind">Tab Content02</h3>
-														Tab 본문 02
-												</div>
-										</div>
-								</div>
-							
-						</div>
-					</div>
-				</div>
-				<div id="aside">@@include('static/html/pub/layout/aside.html')</div>
-			</div>
-			<div id="footer">@@include('static/html/pub/layout/footer.html')</div>
-		</div>
-		<script src="/static/js/ui/cib_ui_common.js"></script>
-	</body>
+                            <div class="content-wrap mt-48">
+                                <div class="box-tab">
+                                    <ul class="list-tab-button type-chip size-lg mb-24" role="tablist" aria-label="파트너고객우대서비스">
+                                        <li class="item-tab-button">
+                                            <button type="button" class="btn-tab" id="tabBtnTypeOutline01" role="tab" aria-selected="false" aria-controls="tabPanelTypeOutline01"><span class="text">파트너고객우대서비스(수협은행)</span></button>
+                                        </li>
+                                        <li class="item-tab-button">
+                                            <button type="button" class="btn-tab active" id="tabBtnTypeOutline02" role="tab" aria-selected="true" aria-controls="tabPanelTypeOutline02" title="선택됨"><span class="text">파트너고객우대서비스(회원수협)</span></button>
+                                        </li>
+                                    </ul>
+                                    <div class="box-tab-content" id="tabPanelTypeOutline01" role="tabpanel" aria-labelledby="tabBtnTypeOutline01" style="display: none">
+                                        <h3 class="blind">파트너고객우대서비스(수협은행)</h3>
+                                        <h4 class="typeH4 mb-12">수수료 우대[면제]</h4>
+                                        <div class="tbl-area">
+                                            <table class="table-type03">
+                                                <caption>수수료 우대[면제] - 항목, 더퍼스트, 프리미엄, 패밀리, 일반고객, 비고</caption>
+                                                <colgroup>
+                                                    <col style="width: 22%" />
+                                                    <col style="width: 12%" />
+                                                    <col style="width: 12%" />
+                                                    <col style="width: 12%" />
+                                                    <col style="width: 20%" />
+                                                    <col style="width: 22%" />
+                                                </colgroup>
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">항목</th>
+                                                        <th scope="col">더퍼스트</th>
+                                                        <th scope="col">프리미엄</th>
+                                                        <th scope="col">패밀리</th>
+                                                        <th scope="col">일반고객</th>
+                                                        <th scope="col">비고</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="text-left"><span class="typeMd">통장증서재발급 수수료</span></td>
+                                                        <td>
+                                                            <span class="typeMd">O</span>
+                                                            <span class="blind">해당됨</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="typeMd">O</span>
+                                                            <span class="blind">해당됨</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="typeMd">O</span>
+                                                            <span class="blind">해당됨</span>
+                                                        </td>
+                                                        <td><span class="typeMd">건당2,000원</span></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-left"><span class="typeMd">파트너뱅킹서비스 수수료</span></td>
+                                                        <td>
+                                                            <span class="typeMd">O</span>
+                                                            <span class="blind">해당됨</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="typeMd">O</span>
+                                                            <span class="blind">해당됨</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="typeMd">O</span>
+                                                            <span class="blind">해당됨</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="typeMd">
+                                                                건당500원
+                                                                <br />
+                                                                건당1,000원
+                                                            </span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="typeMd">
+                                                                인터넷(스마트)뱅킹
+                                                                <br />
+                                                                텔레뱅킹
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-left"><span class="typeMd">제증명서 발급수수료</span></td>
+                                                        <td>
+                                                            <span class="typeMd">O</span>
+                                                            <span class="blind">해당됨</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="typeMd">O</span>
+                                                            <span class="blind">해당됨</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="typeMd">O</span>
+                                                            <span class="blind">해당됨</span>
+                                                        </td>
+                                                        <td><span class="typeMd">건당2,000원</span></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-left"><span class="typeMd">신용카드 SMS수수료</span></td>
+                                                        <td>
+                                                            <span class="typeMd">O</span>
+                                                            <span class="blind">해당됨</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="typeMd">O</span>
+                                                            <span class="blind">해당됨</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="typeMd">O</span>
+                                                            <span class="blind">해당됨</span>
+                                                        </td>
+                                                        <td><span class="typeMd">월300원</span></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-left"><span class="typeMd">자기앞수표발행수수료(창구)</span></td>
+                                                        <td>
+                                                            <span class="typeMd">O</span>
+                                                            <span class="blind">해당됨</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="typeMd">O</span>
+                                                            <span class="blind">해당됨</span>
+                                                        </td>
+                                                        <td></td>
+                                                        <td>
+                                                            <span class="typeMd">
+                                                                장당100원
+                                                                <br />
+                                                                장당400원
+                                                            </span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="typeMd">
+                                                                정액권
+                                                                <br />
+                                                                일반권
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-left"><span class="typeMd">OTP 발행수수료(개인)</span></td>
+                                                        <td>
+                                                            <span class="typeMd">O</span>
+                                                            <span class="blind">해당됨</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="typeMd">O</span>
+                                                            <span class="blind">해당됨</span>
+                                                        </td>
+                                                        <td></td>
+                                                        <td><span class="typeMd">5,000원</span></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-left"><span class="typeMd">당행CD·ATM기 이용수수료</span></td>
+                                                        <td>
+                                                            <span class="typeMd">O</span>
+                                                            <span class="blind">해당됨</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="typeMd">O</span>
+                                                            <span class="blind">해당됨</span>
+                                                        </td>
+                                                        <td></td>
+                                                        <td><span class="typeMd">최고1,100원</span></td>
+                                                        <td><span class="typeMd">현금인출, 수협계좌이체</span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-left"><span class="typeMd">신용카드연회비면제</span></td>
+                                                        <td>
+                                                            <span class="typeMd">O</span>
+                                                            <span class="blind">해당됨</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="typeMd">O</span>
+                                                            <span class="blind">해당됨</span>
+                                                        </td>
+                                                        <td></td>
+                                                        <td><span class="typeMd">최고15,000원</span></td>
+                                                        <td><span class="typeMd">초년도 연회비 면제 불가</span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-left"><span class="typeMd">신용카드2~3개월무이자할부주1)</span></td>
+                                                        <td>
+                                                            <span class="typeMd">O</span>
+                                                            <span class="blind">해당됨</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="typeMd">O</span>
+                                                            <span class="blind">해당됨</span>
+                                                        </td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-left"><span class="typeMd">당행대량이체수수료</span></td>
+                                                        <td>
+                                                            <span class="typeMd">O</span>
+                                                            <span class="blind">해당됨</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="typeMd">O</span>
+                                                            <span class="blind">해당됨</span>
+                                                        </td>
+                                                        <td></td>
+                                                        <td><span class="typeMd">건당100원</span></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-left"><span class="typeMd">납부자자동이체수수료</span></td>
+                                                        <td>
+                                                            <span class="typeMd">O</span>
+                                                            <span class="blind">해당됨</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="typeMd">O</span>
+                                                            <span class="blind">해당됨</span>
+                                                        </td>
+                                                        <td></td>
+                                                        <td><span class="typeMd">건당300원</span></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-left"><span class="typeMd">타행자동이체수수료</span></td>
+                                                        <td>
+                                                            <span class="typeMd">O</span>
+                                                            <span class="blind">해당됨</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="typeMd">O</span>
+                                                            <span class="blind">해당됨</span>
+                                                        </td>
+                                                        <td></td>
+                                                        <td><span class="typeMd">건당300원</span></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-left"><span class="typeMd">창구거래수수료(5종) 주2)</span></td>
+                                                        <td>
+                                                            <span class="typeMd">O</span>
+                                                            <span class="blind">해당됨</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="typeMd">O</span>
+                                                            <span class="blind">해당됨</span>
+                                                        </td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-left"><span class="typeMd">창구송금수수료(타행환)</span></td>
+                                                        <td>
+                                                            <span class="typeMd">O</span>
+                                                            <span class="blind">해당됨</span>
+                                                        </td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td><span class="typeMd">최고3,000원</span></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-left"><span class="typeMd">타행대량이체수수료</span></td>
+                                                        <td>
+                                                            <span class="typeMd">O</span>
+                                                            <span class="blind">해당됨</span>
+                                                        </td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td><span class="typeMd">건당500원</span></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-left"><span class="typeMd">당행CD·ATM기 타행이체</span></td>
+                                                        <td>
+                                                            <span class="typeMd">O</span>
+                                                            <span class="blind">해당됨</span>
+                                                        </td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td><span class="typeMd">최고1,100원</span></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-left"><span class="typeMd">신용카드2~6개월무이자할부주1)</span></td>
+                                                        <td>
+                                                            <span class="typeMd">O</span>
+                                                            <span class="blind">해당됨</span>
+                                                        </td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-left"><span class="typeMd">어음수표심사확인수수료</span></td>
+                                                        <td>
+                                                            <span class="typeMd">O</span>
+                                                            <span class="blind">해당됨</span>
+                                                        </td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td><span class="typeMd">장당1,000원</span></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-left"><span class="typeMd">타행환반환 청구수수료</span></td>
+                                                        <td>
+                                                            <span class="typeMd">O</span>
+                                                            <span class="blind">해당됨</span>
+                                                        </td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td><span class="typeMd">건당5,000원</span></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-left"><span class="typeMd">결제연장수수료</span></td>
+                                                        <td>
+                                                            <span class="typeMd">O</span>
+                                                            <span class="blind">해당됨</span>
+                                                        </td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td><span class="typeMd">최고20,000원</span></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-left"><span class="typeMd">보호예수수수료</span></td>
+                                                        <td>
+                                                            <span class="typeMd">O</span>
+                                                            <span class="blind">해당됨</span>
+                                                        </td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td><span class="typeMd">최고44,000원</span></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-left"><span class="typeMd">당좌개설 수수료</span></td>
+                                                        <td>
+                                                            <span class="typeMd">O</span>
+                                                            <span class="blind">해당됨</span>
+                                                        </td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td><span class="typeMd">건당50,000원</span></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-left"><span class="typeMd">전표 및 문서열람수수료</span></td>
+                                                        <td>
+                                                            <span class="typeMd">O</span>
+                                                            <span class="blind">해당됨</span>
+                                                        </td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td><span class="typeMd">최고5,000원</span></td>
+                                                        <td></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="list type-reference mt-12">
+                                            <ul>
+                                                <li class="typeMd">
+                                                    주1) 프리미엄 고객 2~3개월, 더퍼스트고객 2~6개월 5만원 이상 할부거래는 자동으로 무이자할부서비스를 제공함.
+                                                    <br />
+                                                    단, 대학/대학원등록금, 세금(국세, 지방세), 4대사회보험료는 제외 (법인회원은 승인 대상으로 거래 영업점에 문의하시기 바랍니다.)
+                                                </li>
+                                                <li class="typeMd">주2) 교환결제전자금화수수료, E-free예금창구이용수수료, IC현금카드발급수수료, 타행자기앞실시간처리수수료,보관어음수수료</li>
+                                            </ul>
+                                        </div>
+                                        <h4 class="typeH4 mb-12 mt-24">환율우대</h4>
+                                        <div class="tbl-area">
+                                            <table class="table-type03">
+                                                <caption>환율우대 - 항목, 더퍼스트, 프리미엄, 패밀리, 비고</caption>
+                                                <colgroup>
+                                                    <col style="width: 32%" />
+                                                    <col style="width: 18%" />
+                                                    <col style="width: 18%" />
+                                                    <col style="width: 14%" />
+                                                    <col style="width: 18%" />
+                                                </colgroup>
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">항목</th>
+                                                        <th scope="col">더퍼스트</th>
+                                                        <th scope="col">프리미엄</th>
+                                                        <th scope="col">패밀리</th>
+                                                        <th scope="col">비고</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="text-left"><span class="typeMd">USD, JPY 현찰 환전시</span></td>
+                                                        <td><span class="typeMd">80%이내</span></td>
+                                                        <td><span class="typeMd">70%이내</span></td>
+                                                        <td><span class="typeMd">60%이내</span></td>
+                                                        <td></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <h4 class="typeH4 mb-12 mt-24">금리우대</h4>
+                                        <div class="tbl-area">
+                                            <table class="table-type03">
+                                                <caption>금리우대 - 항목, 더퍼스트, 프리미엄, 패밀리, 비고</caption>
+                                                <colgroup>
+                                                    <col style="width: 32%" />
+                                                    <col style="width: 18%" />
+                                                    <col style="width: 18%" />
+                                                    <col style="width: 14%" />
+                                                    <col style="width: 18%" />
+                                                </colgroup>
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">항목</th>
+                                                        <th scope="col">더퍼스트</th>
+                                                        <th scope="col">프리미엄</th>
+                                                        <th scope="col">패밀리</th>
+                                                        <th scope="col">비고</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="text-left"><span class="typeMd">거치식(개인정기예금상품)</span></td>
+                                                        <td><span class="typeMd">최대 연 0.2% 이내</span></td>
+                                                        <td><span class="typeMd">최대 연 0.1% 이내</span></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-left"><span class="typeMd">적립식(개인적금상품)</span></td>
+                                                        <td><span class="typeMd">최대 연 0.2% 이내</span></td>
+                                                        <td><span class="typeMd">최대 연 0.1% 이내</span></td>
+                                                        <td></td>
+                                                        <td><span class="typeMd">상품별 우대항목운영</span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-left"><span class="typeMd">대출(가계신용대출)</span></td>
+                                                        <td><span class="typeMd">최대 연 0.2% 이내</span></td>
+                                                        <td><span class="typeMd">최대 연 0.1% 이내</span></td>
+                                                        <td></td>
+                                                        <td><span class="typeMd">비대면채널대출제외</span></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <h5 class="typeH5 mb-12 mt-24">장례용품지원서비스</h5>
+                                        <div class="tbl-area">
+                                            <table class="table-type03">
+                                                <caption>장례용품지원서비스 - 대상고객, 지원범위, 지원용품, 신청방법</caption>
+                                                <colgroup>
+                                                    <col style="width: 20%" />
+                                                    <col style="width: 80%" />
+                                                </colgroup>
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row"><span class="typeMd">대상고객</span></th>
+                                                        <td class="text-left"><span class="typeMd">더퍼스트 고객 (은행고객에 한함)</span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row"><span class="typeMd">지원범위</span></th>
+                                                        <td class="text-left"><span class="typeMd">배우자 및 직계존비속, 배우자의 부모</span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row"><span class="typeMd">지원용품</span></th>
+                                                        <td class="text-left"><span class="typeMd">장례용품 (200인분)</span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row"><span class="typeMd">신청방법</span></th>
+                                                        <td class="text-left"><span class="typeMd">거래영업점을 통하여 관련서류 확인 후 신청</span></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="list type-reference mt-12">
+                                            <ul>
+                                                <li class="typeMd">일부 우대서비스는 은행고객에 한하여 제공되며, 우대금리 적용은 영업점 사정에 의해 변경될 수 있습니다.</li>
+                                                <li class="typeMd">당행의 사정에 따라 사전 예고 없이 변경될 수 있습니다.</li>
+                                            </ul>
+                                        </div>
+                                        <h4 class="typeH4 mb-12 mt-24">고객평점 평가기준</h4>
+                                        <div class="tbl-area">
+                                            <table class="table-type03">
+                                                <caption>고객평점 평가기준 - 항목, 기준, 점수, 한도, 비고</caption>
+                                                <colgroup>
+                                                    <col style="width: 7%" />
+                                                    <col style="width: 14%" />
+                                                    <col style="width: 8%" />
+                                                    <col style="width: 19%" />
+                                                    <col style="width: 12%" />
+                                                    <col style="width: 10%" />
+                                                    <col style="width: 30%" />
+                                                </colgroup>
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col" colspan="2">항목</th>
+                                                        <th scope="col" colspan="2">기준</th>
+                                                        <th scope="col">점수</th>
+                                                        <th scope="col">한도</th>
+                                                        <th scope="col">비고</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td rowspan="3"><span class="typeMd">총수신평잔</span></td>
+                                                        <td><span class="typeMd">입출식</span></td>
+                                                        <td colspan="2" rowspan="3"><span class="typeMd">각 항목별 6개월평잔 1백만원당</span></td>
+                                                        <td><span class="typeMd">10점</span></td>
+                                                        <td rowspan="3"><span class="typeMd">한도없음</span></td>
+                                                        <td><span class="typeMd">수시입출식: MMF, MMT포함</span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <span class="typeMd">거치식/적립식/신탁</span>
+                                                            <!-- 설계서: "거치식/접립식/신탁"(오기) -->
+                                                        </td>
+                                                        <td><span class="typeMd">2점</span></td>
+                                                        <td><span class="typeMd">∙원화,외화 포함, 질권설정 계좌 포함</span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><span class="typeMd">펀드</span></td>
+                                                        <td><span class="typeMd">2점</span></td>
+                                                        <td><span class="typeMd">∙펀드 : MMF제외</span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="2"><span class="typeMd">대출 (원화, 외화)</span></td>
+                                                        <td colspan="2"><span class="typeMd">6개월평잔 1백만원당</span></td>
+                                                        <td><span class="typeMd">1점</span></td>
+                                                        <td><span class="typeMd">한도없음</span></td>
+                                                        <td>
+                                                            <span class="typeMd">
+                                                                ∙제외대출 : 1) 평가기간 중 매월말
+                                                                <br />
+                                                                원리금연체대출 2)대출평잔 1,000만원
+                                                                <br />
+                                                                미만인 대출
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="2" rowspan="4"><span class="typeMd">공제</span></td>
+                                                        <td rowspan="2"><span class="typeMd">적립식</span></td>
+                                                        <td><span class="typeMd">생명저축성누계</span></td>
+                                                        <td><span class="typeMd">5만원당 1점</span></td>
+                                                        <td rowspan="4"><span class="typeMd">200점</span></td>
+                                                        <td rowspan="4"><span class="typeMd">∙실효계약제외</span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><span class="typeMd">생명보장성, 손해공제누계</span></td>
+                                                        <td><span class="typeMd">1만원당 1점</span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="2"><span class="typeMd">거치식누계</span></td>
+                                                        <td><span class="typeMd">100만원당 1점</span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="2"><span class="typeMd">공제유지건당</span></td>
+                                                        <td><span class="typeMd">2점</span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="2">
+                                                            <span class="typeMd">
+                                                                외환
+                                                                <br />
+                                                                (환전,송금,수출입실적)
+                                                            </span>
+                                                        </td>
+                                                        <td colspan="2"><span class="typeMd">6개월누계실적 US$100당</span></td>
+                                                        <td><span class="typeMd">2점</span></td>
+                                                        <td><span class="typeMd">150점</span></td>
+                                                        <td>
+                                                            <span class="typeMd">
+                                                                ∙외환실적 :환전,송금,수출입실적
+                                                                <br />
+                                                                (환전,송금외화대체거래제외)
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="2" rowspan="2"><span class="typeMd">신용카드(체크포함)</span></td>
+                                                        <td colspan="2"><span class="typeMd">6개월결제(이용)실적</span></td>
+                                                        <td rowspan="2"><span class="typeMd">30점</span></td>
+                                                        <td rowspan="2"><span class="typeMd">150점</span></td>
+                                                        <td rowspan="2"><span class="typeMd">∙제외실적 : 신용불량자 및 연체자</span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="2"><span class="typeMd">1백만원당</span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="2"><span class="typeMd">급여주2), 연금</span></td>
+                                                        <td colspan="2"><span class="typeMd">반기중 이체실적있는경우</span></td>
+                                                        <td><span class="typeMd">100점</span></td>
+                                                        <td><span class="typeMd">200점</span></td>
+                                                        <td><span class="typeMd">∙급여 또는 연금 입금 (이체입금포함)</span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="2"><span class="typeMd">거래기간</span></td>
+                                                        <td colspan="2"><span class="typeMd">고객원장등록일기준</span></td>
+                                                        <td><span class="typeMd">1년당 5점</span></td>
+                                                        <td><span class="typeMd">200점</span></td>
+                                                        <td>
+                                                            <span class="typeMd">
+                                                                ∙점수산정 특례: 최초거래 후 5년까지
+                                                                <br />
+                                                                1년당 10점 인정
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="2"><span class="typeMd">자동이체</span></td>
+                                                        <td colspan="2"><span class="typeMd">이체건당</span></td>
+                                                        <td><span class="typeMd">5점</span></td>
+                                                        <td><span class="typeMd">50점</span></td>
+                                                        <td>
+                                                            <span class="typeMd">
+                                                                ∙대상자동이체종류 : 공과금(지로), 관리비
+                                                                <br />
+                                                                계좌간, 가맹점 입금, 수협신용카드결제
+                                                                <br />
+                                                                CMS/펌뱅킹출금(스쿨뱅킹포함)
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="2"><span class="typeMd">교차판매</span></td>
+                                                        <td colspan="2">
+                                                            <span class="typeMd">
+                                                                상품군 보유수 1개당(10개)
+                                                                <br />
+                                                                (상품군당 1개만 인정)
+                                                            </span>
+                                                        </td>
+                                                        <td><span class="typeMd">3점</span></td>
+                                                        <td><span class="typeMd">30점</span></td>
+                                                        <td>
+                                                            <span class="typeMd">
+                                                                ∙상품군 분류: 입출,거치,적립,신탁
+                                                                <br />
+                                                                공제,펀드,대출,스마트뱅킹
+                                                                <br />
+                                                                무역외외환거래, 신용(체크)카드
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="2"><span class="typeMd">조합원</span></td>
+                                                        <td colspan="2">
+                                                            <span class="typeMd">
+                                                                기준일 현재 회원조합의
+                                                                <br />
+                                                                조합원인 고객
+                                                            </span>
+                                                        </td>
+                                                        <td><span class="typeMd">50점</span></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="list type-reference mt-12">
+                                            <ul>
+                                                <li class="typeMd">
+                                                    주2) ① 급여 입금 실적은 계약에 의한 급여이체 또는 단체입금 중 급여이체 또는 상품(샐러리맨리치예금(공통), 달려라2030통장(은행),Sh외국인주거래통장(회원조합))에 의한 급여이체의 경우
+                                                    <br />
+                                                    ② 당행 인정 기준에 따른 타행 입금이체, 국가재정정보시스템에 의한 입금, 금융결제원 CMS입금 중 급여 및 유사급여 자금 입금, 지로입금, 재정자금입금 중 월 누계 50만원 이상일 경우 등 전산으로 확인이 가능한 경우에 한합니다.
+                                                </li>
+                                                <li class="typeMd">고객평점 평가기준은 당행의 사정에 따라 사전 예고 없이 변경될 수 있습니다.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="box-tab-content active" id="tabPanelTypeOutline02" role="tabpanel" aria-labelledby="tabBtnTypeOutline02" style="display: block">
+                                        <h3 class="blind">파트너고객우대서비스(회원수협)</h3>
+                                        <h4 class="typeH4 mb-12">수수료 우대[면제]</h4>
+                                        <div class="tbl-area">
+                                            <table class="table-type03">
+                                                <caption>수수료 우대[면제] - 항목, 더퍼스트, 프리미엄, 패밀리, 일반고객, 비고</caption>
+                                                <colgroup>
+                                                    <col style="width: 22%" />
+                                                    <col style="width: 12%" />
+                                                    <col style="width: 12%" />
+                                                    <col style="width: 12%" />
+                                                    <col style="width: 20%" />
+                                                    <col style="width: 22%" />
+                                                </colgroup>
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">항목</th>
+                                                        <th scope="col">더퍼스트</th>
+                                                        <th scope="col">프리미엄</th>
+                                                        <th scope="col">패밀리</th>
+                                                        <th scope="col">일반고객</th>
+                                                        <th scope="col">비고</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="text-left"><span class="typeMd">통장증서재발급 수수료</span></td>
+                                                        <td>
+                                                            <span class="typeMd">O</span>
+                                                            <span class="blind">해당됨</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="typeMd">O</span>
+                                                            <span class="blind">해당됨</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="typeMd">O</span>
+                                                            <span class="blind">해당됨</span>
+                                                        </td>
+                                                        <td><span class="typeMd">건당2,000원</span></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-left"><span class="typeMd">파트너뱅킹서비스 수수료</span></td>
+                                                        <td>
+                                                            <span class="typeMd">O</span>
+                                                            <span class="blind">해당됨</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="typeMd">O</span>
+                                                            <span class="blind">해당됨</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="typeMd">O</span>
+                                                            <span class="blind">해당됨</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="typeMd">
+                                                                건당500원
+                                                                <br />
+                                                                건당1,000원
+                                                            </span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="typeMd">
+                                                                인터넷(스마트)뱅킹
+                                                                <br />
+                                                                텔레뱅킹
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-left"><span class="typeMd">제증명서 발급수수료</span></td>
+                                                        <td>
+                                                            <span class="typeMd">O</span>
+                                                            <span class="blind">해당됨</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="typeMd">O</span>
+                                                            <span class="blind">해당됨</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="typeMd">O</span>
+                                                            <span class="blind">해당됨</span>
+                                                        </td>
+                                                        <td><span class="typeMd">건당2,000원</span></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-left"><span class="typeMd">신용카드 SMS수수료</span></td>
+                                                        <td>
+                                                            <span class="typeMd">O</span>
+                                                            <span class="blind">해당됨</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="typeMd">O</span>
+                                                            <span class="blind">해당됨</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="typeMd">O</span>
+                                                            <span class="blind">해당됨</span>
+                                                        </td>
+                                                        <td><span class="typeMd">월300원</span></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-left"><span class="typeMd">자기앞수표발행수수료(창구)</span></td>
+                                                        <td>
+                                                            <span class="typeMd">O</span>
+                                                            <span class="blind">해당됨</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="typeMd">O</span>
+                                                            <span class="blind">해당됨</span>
+                                                        </td>
+                                                        <td></td>
+                                                        <td>
+                                                            <span class="typeMd">
+                                                                장당100원
+                                                                <br />
+                                                                장당400원
+                                                            </span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="typeMd">
+                                                                정액권
+                                                                <br />
+                                                                일반권
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-left"><span class="typeMd">OTP 발행수수료(개인)</span></td>
+                                                        <td>
+                                                            <span class="typeMd">O</span>
+                                                            <span class="blind">해당됨</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="typeMd">O</span>
+                                                            <span class="blind">해당됨</span>
+                                                        </td>
+                                                        <td></td>
+                                                        <td><span class="typeMd">5,000원</span></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-left"><span class="typeMd">당행CD·ATM기 이용수수료</span></td>
+                                                        <td>
+                                                            <span class="typeMd">O</span>
+                                                            <span class="blind">해당됨</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="typeMd">O</span>
+                                                            <span class="blind">해당됨</span>
+                                                        </td>
+                                                        <td></td>
+                                                        <td><span class="typeMd">최고1,100원</span></td>
+                                                        <td><span class="typeMd">현금인출, 수협계좌이체</span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-left"><span class="typeMd">신용카드연회비면제</span></td>
+                                                        <td>
+                                                            <span class="typeMd">O</span>
+                                                            <span class="blind">해당됨</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="typeMd">O</span>
+                                                            <span class="blind">해당됨</span>
+                                                        </td>
+                                                        <td></td>
+                                                        <td><span class="typeMd">최고15,000원</span></td>
+                                                        <td><span class="typeMd">초년도 연회비 면제 불가</span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-left"><span class="typeMd">신용카드2~3개월무이자할부</span></td>
+                                                        <td>
+                                                            <span class="typeMd">O</span>
+                                                            <span class="blind">해당됨</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="typeMd">O</span>
+                                                            <span class="blind">해당됨</span>
+                                                        </td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-left"><span class="typeMd">당행대량이체수수료</span></td>
+                                                        <td>
+                                                            <span class="typeMd">O</span>
+                                                            <span class="blind">해당됨</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="typeMd">O</span>
+                                                            <span class="blind">해당됨</span>
+                                                        </td>
+                                                        <td></td>
+                                                        <td><span class="typeMd">건당100원</span></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-left"><span class="typeMd">창구거래수수료(5종) 주)</span></td>
+                                                        <td>
+                                                            <span class="typeMd">O</span>
+                                                            <span class="blind">해당됨</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="typeMd">O</span>
+                                                            <span class="blind">해당됨</span>
+                                                        </td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-left"><span class="typeMd">창구송금수수료(타행환)</span></td>
+                                                        <td>
+                                                            <span class="typeMd">O</span>
+                                                            <span class="blind">해당됨</span>
+                                                        </td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td><span class="typeMd">최고3,000원</span></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-left"><span class="typeMd">타행대량이체수수료</span></td>
+                                                        <td>
+                                                            <span class="typeMd">O</span>
+                                                            <span class="blind">해당됨</span>
+                                                        </td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td><span class="typeMd">건당500원</span></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-left"><span class="typeMd">당행CD·ATM기 타행이체</span></td>
+                                                        <td>
+                                                            <span class="typeMd">O</span>
+                                                            <span class="blind">해당됨</span>
+                                                        </td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td><span class="typeMd">최고1,100원</span></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-left"><span class="typeMd">신용카드2~6개월무이자할부주</span></td>
+                                                        <td>
+                                                            <span class="typeMd">O</span>
+                                                            <span class="blind">해당됨</span>
+                                                        </td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-left"><span class="typeMd">어음수표심사확인수수료</span></td>
+                                                        <td>
+                                                            <span class="typeMd">O</span>
+                                                            <span class="blind">해당됨</span>
+                                                        </td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td><span class="typeMd">장당1,000원</span></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-left"><span class="typeMd">타행환반환 청구수수료</span></td>
+                                                        <td>
+                                                            <span class="typeMd">O</span>
+                                                            <span class="blind">해당됨</span>
+                                                        </td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td><span class="typeMd">건당5,000원</span></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-left"><span class="typeMd">결제연장수수료</span></td>
+                                                        <td>
+                                                            <span class="typeMd">O</span>
+                                                            <span class="blind">해당됨</span>
+                                                        </td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td><span class="typeMd">최고20,000원</span></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-left"><span class="typeMd">보호예수수수료</span></td>
+                                                        <td>
+                                                            <span class="typeMd">O</span>
+                                                            <span class="blind">해당됨</span>
+                                                        </td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td><span class="typeMd">최고44,000원</span></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-left"><span class="typeMd">당좌개설 수수료</span></td>
+                                                        <td>
+                                                            <span class="typeMd">O</span>
+                                                            <span class="blind">해당됨</span>
+                                                        </td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td><span class="typeMd">건당50,000원</span></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-left"><span class="typeMd">전표 및 문서열람수수료</span></td>
+                                                        <td>
+                                                            <span class="typeMd">O</span>
+                                                            <span class="blind">해당됨</span>
+                                                        </td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td><span class="typeMd">최고5,000원</span></td>
+                                                        <td></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="list type-reference mt-12">
+                                            <ul>
+                                                <li class="typeMd">주1) 교환결제전자금화수수료, E-free예금창구이용수수료, 금융IC현금카드발급수수료, 타행자기앞실시간처리수수료,보관어음수수료</li>
+                                                <li class="typeMd">신용카드 무이자할부서비스는 5만원이상 할부거래시 적용되며, 단 대학/대학원등록금,세금(국세,지방세,4대사회보험료)제외</li>
+                                                <li class="typeMd">개인사업자카드인 경우 대표자변경시 변경후 대표자의 등급에 따라 서비스제한</li>
+                                            </ul>
+                                        </div>
+                                        <h4 class="typeH4 mb-12 mt-24">환율우대</h4>
+                                        <div class="tbl-area">
+                                            <table class="table-type03">
+                                                <caption>환율우대 - 항목, 더퍼스트, 프리미엄, 패밀리, 비고</caption>
+                                                <colgroup>
+                                                    <col style="width: 32%" />
+                                                    <col style="width: 18%" />
+                                                    <col style="width: 18%" />
+                                                    <col style="width: 14%" />
+                                                    <col style="width: 18%" />
+                                                </colgroup>
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">항목</th>
+                                                        <th scope="col">더퍼스트</th>
+                                                        <th scope="col">프리미엄</th>
+                                                        <th scope="col">패밀리</th>
+                                                        <th scope="col">비고</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="text-left"><span class="typeMd">USD, JPY 현찰 환전시</span></td>
+                                                        <td><span class="typeMd">80%이내</span></td>
+                                                        <td><span class="typeMd">70%이내</span></td>
+                                                        <td><span class="typeMd">60%이내</span></td>
+                                                        <td></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <h4 class="typeH4 mb-12 mt-24">고객평점 평가기준</h4>
+                                        <div class="tbl-area">
+                                            <table class="table-type03">
+                                                <caption>고객평점 평가기준 - 항목, 기준, 점수, 한도, 비고</caption>
+                                                <colgroup>
+                                                    <col style="width: 7%" />
+                                                    <col style="width: 14%" />
+                                                    <col style="width: 8%" />
+                                                    <col style="width: 19%" />
+                                                    <col style="width: 12%" />
+                                                    <col style="width: 10%" />
+                                                    <col style="width: 30%" />
+                                                </colgroup>
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col" colspan="2">항목</th>
+                                                        <th scope="col" colspan="2">기준</th>
+                                                        <th scope="col">점수</th>
+                                                        <th scope="col">한도</th>
+                                                        <th scope="col">비고</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td rowspan="3">
+                                                            <span class="typeMd">
+                                                                총수신
+                                                                <br />
+                                                                평잔
+                                                            </span>
+                                                        </td>
+                                                        <td><span class="typeMd">입출식</span></td>
+                                                        <td colspan="2" rowspan="3"><span class="typeMd">각 항목별 6개월평잔 1백만원당</span></td>
+                                                        <td><span class="typeMd">10점</span></td>
+                                                        <td rowspan="3"><span class="typeMd">한도없음</span></td>
+                                                        <td><span class="typeMd">수시입출식: MMF, MMT포함</span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <span class="typeMd">거치식/적립식/신탁</span>
+                                                            <!-- 설계서: "거치식/접립식/신탁"(오기) -->
+                                                        </td>
+                                                        <td><span class="typeMd">2점</span></td>
+                                                        <td><span class="typeMd">∙원화,외화 포함, 질권설정 계좌 포함</span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><span class="typeMd">펀드</span></td>
+                                                        <td><span class="typeMd">2점</span></td>
+                                                        <td><span class="typeMd">∙펀드 : MMF제외</span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="2"><span class="typeMd">대출 (원화, 외화)</span></td>
+                                                        <td colspan="2"><span class="typeMd">6개월평잔 1백만원당</span></td>
+                                                        <td><span class="typeMd">1점</span></td>
+                                                        <td><span class="typeMd">한도없음</span></td>
+                                                        <td>
+                                                            <span class="typeMd">
+                                                                ∙제외대출 : 1) 평가기간 중 매월말
+                                                                <br />
+                                                                원리금연체대출 2)대출평잔 1,000만원
+                                                                <br />
+                                                                미만인 대출
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="2" rowspan="4"><span class="typeMd">공제</span></td>
+                                                        <td rowspan="2"><span class="typeMd">적립식</span></td>
+                                                        <td><span class="typeMd">생명저축성누계</span></td>
+                                                        <td><span class="typeMd">5만원당 1점</span></td>
+                                                        <td rowspan="4"><span class="typeMd">200점</span></td>
+                                                        <td rowspan="4"><span class="typeMd">∙실효계약제외</span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><span class="typeMd">생명보장성, 손해공제누계</span></td>
+                                                        <td><span class="typeMd">1만원당 1점</span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="2"><span class="typeMd">거치식누계</span></td>
+                                                        <td><span class="typeMd">100만원당 1점</span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="2"><span class="typeMd">공제유지건당</span></td>
+                                                        <td><span class="typeMd">2점</span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="2">
+                                                            <span class="typeMd">
+                                                                외환
+                                                                <br />
+                                                                (환전,송금,수출입실적)
+                                                            </span>
+                                                        </td>
+                                                        <td colspan="2"><span class="typeMd">6개월누계실적 US$100당</span></td>
+                                                        <td><span class="typeMd">2점</span></td>
+                                                        <td><span class="typeMd">150점</span></td>
+                                                        <td>
+                                                            <span class="typeMd">
+                                                                ∙외환실적 :환전,송금,수출입실적
+                                                                <br />
+                                                                (환전,송금외화대체거래제외)
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="2" rowspan="2"><span class="typeMd">신용카드(체크포함)</span></td>
+                                                        <td colspan="2"><span class="typeMd">6개월결제(이용)실적</span></td>
+                                                        <td rowspan="2"><span class="typeMd">30점</span></td>
+                                                        <td rowspan="2"><span class="typeMd">150점</span></td>
+                                                        <td rowspan="2"><span class="typeMd">∙제외실적 : 신용불량자 및 연체자</span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="2"><span class="typeMd">1백만원당</span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="2"><span class="typeMd">급여, 연금주2)</span></td>
+                                                        <td colspan="2"><span class="typeMd">반기중 이체실적있는경우</span></td>
+                                                        <td><span class="typeMd">100점</span></td>
+                                                        <td><span class="typeMd">200점</span></td>
+                                                        <td><span class="typeMd">∙급여 또는 연금 입금 (이체입금포함)</span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="2"><span class="typeMd">거래기간</span></td>
+                                                        <td colspan="2"><span class="typeMd">고객원장등록일기준</span></td>
+                                                        <td><span class="typeMd">1년당 5점</span></td>
+                                                        <td><span class="typeMd">200점</span></td>
+                                                        <td>
+                                                            <span class="typeMd">
+                                                                ∙점수산정 특례: 최초거래 후 5년까지
+                                                                <br />
+                                                                1년당 10점 인정
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="2"><span class="typeMd">자동이체</span></td>
+                                                        <td colspan="2"><span class="typeMd">이체건당</span></td>
+                                                        <td><span class="typeMd">5점</span></td>
+                                                        <td><span class="typeMd">50점</span></td>
+                                                        <td>
+                                                            <span class="typeMd">
+                                                                ∙대상자동이체종류 : 공과금(지로), 관리비
+                                                                <br />
+                                                                계좌간, 가맹점 입금, 수협신용카드결제
+                                                                <br />
+                                                                CMS/펌뱅킹출금(스쿨뱅킹포함)
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="2"><span class="typeMd">교차판매</span></td>
+                                                        <td colspan="2">
+                                                            <span class="typeMd">
+                                                                상품군 보유수 1개당(10개)
+                                                                <br />
+                                                                (상품군당 1개만 인정)
+                                                            </span>
+                                                        </td>
+                                                        <td><span class="typeMd">3점</span></td>
+                                                        <td><span class="typeMd">30점</span></td>
+                                                        <td>
+                                                            <span class="typeMd">
+                                                                ∙상품군 분류: 입출,거치,적립,신탁
+                                                                <br />
+                                                                공제,펀드,대출,스마트뱅킹
+                                                                <br />
+                                                                무역외외환거래, 신용(체크)카드
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="2"><span class="typeMd">조합원</span></td>
+                                                        <td colspan="2">
+                                                            <span class="typeMd">
+                                                                기준일 현재 회원조합의
+                                                                <br />
+                                                                조합원인 고객
+                                                            </span>
+                                                        </td>
+                                                        <td><span class="typeMd">50점</span></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="list type-reference mt-12">
+                                            <ul>
+                                                <li class="typeMd">
+                                                    주2) ① 급여 입금 실적은 계약에 의한 급여이체 또는 단체입금 중 급여이체 또는 상품(샐러리맨리치예금(공통), 달려라2030통장(은행), Sh외국인주거래통장(회원조합))에 의한급여 이체의 경우
+                                                    <br />
+                                                    ② 당행 인정 기준에 따른 타행 입금이체, 국가재정정보시스템에 의한 입금, 금융결제원 CMS입금 중 급여 및 유사급여 자금 입금, 지로입금, 재정자금입금 중 월 누계 50만원 이상일 경우등 전산으로 확인이 가능한 경우에 한합니다.
+                                                </li>
+                                                <li class="typeMd">고객평점 평가기준은 당행의 사정에 따라 사전 예고 없이 변경될 수 있습니다.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+            </div>
+            <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+        </div>
+        <script src="/static/js/ui/cib_ui_common.js"></script>
+    </body>
 </html>

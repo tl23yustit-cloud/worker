@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>수협은행</title>
+  <link rel="stylesheet" href="/static/css/reset.css" />
+  <link rel="stylesheet" href="/static/css/layout.css" />
+  <link rel="stylesheet" href="/static/css/component.css" />
+  <link rel="stylesheet" href="/static/css/common.css" />
+  <link rel="stylesheet" href="/static/css/bop.scss" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <div id="header">
+      @@include('static/html/pub/layout/skipNavigation.html')
+      @@include('static/html/pub/layout/header_sub.html')
+    </div>
+
+    <div id="container" class="container">
+      <div id="leftArea">
+        @@include('static/html/pub/layout/leftArea.html')
+      </div>
+      <div id="contents">
+        <div class="content">
+          @@include('static/html/pub/layout/breadcrumb.html')
+          <div class="bop">
+            <h2 class="typeH2">완납확인서발급</h2>
+            <div class="tbl-area">
+              <h4 class="typeH4">조회조건</h4>
+              <table class="table-type01">
+                <caption>입금 모계좌번호, 수수료 모계좌번호, 신청 계좌수에 대한 구성 테이블입니다.</caption>
+                <colgroup>
+                  <col style="width: 160px">
+                  <col style="width: auto">
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th scope="row">기업명</th>
+                    <td>
+                      <span class="typeMd">수협</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">사업자등록번호</th>
+                    <td>
+                      <span class="typeMd">123-45-6****</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h4 class="typeH4 mt-48 mb-8">조회결과</h4>
+            <div class="bg-box size-2xlxl">
+              <ul class="copy-bb-inner">
+                <li>
+                  <span class="typeMd">고객명</span>
+                  <span class="typeMdMedium">김수협</span>
+                </li>
+                <li>
+                  <span class="typeMd">주민등록번호</span>
+                  <span class="typeMdMedium">403-86-*****</span>
+                </li>
+                <li>
+                  <span class="typeMd">조회일시</span>
+                  <span class="typeMdMedium">2026-06-12 13:15:23</span>
+                </li>
+              </ul>
+              <p class="typeMd">상기 고객은 현재 당사 미납금액이 없음을 확인하여 드립니다.</p>
+            </div>
+            <div class="copy-bb-seal">
+              <div class="seal-logo">
+                <img src="/static/images/common/img_logo_x3.png" alt="수협은행 로고" />
+              </div>
+              <div class="seal-img">
+                <img src="/static/images/common/img_seal_x3.png" alt="수협은행 직인" />
+              </div>
+            </div>
+            <div class="list type-dotted">
+              <ul>
+                <li class="typeMd">서울특별시 송파구 오금로 62 우편번호 05510 Tel.1588-1515/1644-1515</li>
+              </ul>
+            </div>
+            <div class="btn-wrap center lg-bot">
+              <button type="button" class="btn type-bg-primary-tint size-xxl">
+                <span class="text">FAX 발송</span>
+              </button>
+              <button type="button" class="btn type-bg-primary size-xxl">
+                <span class="text">발급</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+    </div>
+    <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+  </div>
+  <script src="/static/js/ui/cib_ui_common.js"></script>
+</body>
+
+</html>

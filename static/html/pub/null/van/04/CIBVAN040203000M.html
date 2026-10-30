@@ -1,0 +1,302 @@
+<!-- 1.05v 변경사항 적용 -->
+<!-- for dev) 10-29 체크박스 title 추가 -->
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/van.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
+
+      <div id="container" class="container">
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="van">
+              <h2 class="typeH2">
+                다른은행 계좌등록
+                <div class="box-steps">
+                  <ol class="list-steps">
+                    <li class="item-steps passed">
+                      <span class="blind">1</span>
+                      <i class="icon" aria-hidden="true">1</i>
+                    </li>
+                    <li class="item-steps current" aria-current="step">
+                      <span class="blind">2</span>
+                      <i class="icon" aria-hidden="true">2</i>
+                      <span class="text">계좌선택 </span>
+                    </li>
+                    <li class="item-steps">
+                      <span class="blind">3</span>
+                      <i class="icon" aria-hidden="true">3</i>
+                    </li>
+                  </ol>
+                </div>
+              </h2>
+              <div class="flex justify-between items-center mb-12">
+                <h3 class="typeH3">계좌번호 한번에 불러오기</h3>
+                <button type="button" class="btn type-line-neutral size-lg">
+                  <span class="text">계좌번호 직접입력하기 </span>
+                </button>
+              </div>
+              <div class="box-tab">
+                <ul class="list-tab-button type-chip size-lg mb-12" role="tablist" aria-label="계좌번호 한번에 불러오기">
+                  <li class="item-tab-button">
+                    <button type="button" class="btn-tab active" title="선택됨" id="tabBtnTypeOutline01" role="tab" aria-selected="true" aria-controls="tabPanelTypeOutline01">
+                      <span class="text">전체</span>
+                      <span class="text">(n)</span>
+                    </button>
+                  </li>
+                  <li class="item-tab-button">
+                    <button type="button" class="btn-tab" id="tabBtnTypeOutline02" role="tab" aria-selected="false" aria-controls="tabPanelTypeOutline02">
+                      <span class="text">은행 </span>
+                      <span class="text">(n)</span>
+                    </button>
+                  </li>
+                  <li class="item-tab-button">
+                    <button type="button" class="btn-tab" id="tabBtnTypeOutline03" role="tab" aria-selected="false" aria-controls="tabPanelTypeOutline03">
+                      <span class="text">제2금융권 </span>
+                      <span class="text">(n)</span>
+                    </button>
+                  </li>
+                  <li class="item-tab-button">
+                    <button type="button" class="btn-tab" id="tabBtnTypeOutline04" role="tab" aria-selected="false" aria-controls="tabPanelTypeOutline04">
+                      <span class="text">증권사</span>
+                      <span class="text">(n)</span>
+                    </button>
+                  </li>
+                </ul>
+                <div class="box-tab-content active" id="tabPanelTypeOutline01" role="tabpanel" aria-labelledby="tabBtnTypeOutline01">
+                  <h3 class="blind">전체 tab</h3>
+                  <div class="flex justify-between items-center mb-12">
+                    <div class="select-all">
+                      <input type="checkbox" name="authority" id="auth-1" class="form-checkbox size-lg" title="전체계좌선택" />
+                      <label for="auth-1-1" class="form-label"><span class="typeXlSemibold"> 전체계좌선택 </span></label>
+                    </div>
+                  </div>
+                  <div class="flex flex-column gap-8">
+                    <div class="box-accordion line is-open">
+                      <div class="box-item-list">
+                        <div class="box-title">
+                          <span class="title">신한은행 (총 2계좌)</span>
+                        </div>
+                        <button type="button" class="btn-accordion" aria-expanded="false" aria-controls="accordionContent01">
+                          <i class="ico-arrow" aria-hidden="true"></i>
+                          <span class="blind">상세내용 닫기</span>
+                        </button>
+                      </div>
+                      <div id="accordionContent01" class="content-accordion">
+                        <div class="tbl-area">
+                          <table class="table-type03">
+                            <caption></caption>
+                            <colgroup>
+                              <col style="width: auto" />
+                              <col style="width: auto" />
+                              <col style="width: auto" />
+                              <col style="width: auto" />
+                              <col style="width: auto" />
+                              <col style="width: auto" />
+                            </colgroup>
+                            <thead>
+                              <tr>
+                                <th scope="col">
+                                  <span
+                                    ><span class="form-box"> <input type="checkbox" name="전체선택" title="계좌번호 : 12321445 선택" id="comp-ao11vy" class="form-checkbox size-lg" /> </span
+                                  ></span>
+                                </th>
+                                <th scope="col"><span>계좌종류</span></th>
+                                <th scope="col"><span>계좌번호</span></th>
+                                <th scope="col"><span>계좌잔액(원)</span></th>
+                                <th scope="col"><span>등록구분</span></th>
+                                <th scope="col"><span>계좌상태</span></th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>
+                                  <span class="form-box">
+                                    <input type="checkbox" name="" title="계좌번호: 12321445 선택" id="comp-ao11vy" class="form-checkbox size-lg" />
+                                  </span>
+                                </td>
+                                <td>
+                                  <span class="typeMd">입출금</span>
+                                </td>
+                                <td>
+                                  <span class="typeMd">12321445</span>
+                                </td>
+                                <td class="text-right">
+                                  <span class="typeMd">1,000,000,000</span>
+                                </td>
+                                <td>
+                                  <span class="typeMd">등록가능</span>
+                                </td>
+                                <td>
+                                  <span class="typeMd">활동성</span>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  <span class="form-box">
+                                    <input type="checkbox" name="" id="comp-ebavvg" class="form-checkbox size-lg" />
+                                  </span>
+                                </td>
+                                <td>
+                                  <span class="typeMd">신탁</span>
+                                </td>
+                                <td>
+                                  <span class="typeMd">1551525</span>
+                                </td>
+                                <td class="text-right">
+                                  <span class="typeMd">1,000,000,000</span>
+                                </td>
+                                <td>
+                                  <span class="typeMd">등록불가</span>
+                                </td>
+                                <td>
+                                  <span class="typeMd">비활동성</span>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="box-accordion line">
+                      <div class="box-item-list">
+                        <div class="box-title">
+                          <span class="title">신한은행 (총 4계좌)</span>
+                        </div>
+                        <button type="button" class="btn-accordion" aria-expanded="false" aria-controls="accordionContent01">
+                          <i class="ico-arrow" aria-hidden="true"></i>
+                          <span class="blind">상세내용 닫기</span>
+                        </button>
+                      </div>
+                      <div id="accordionContent01" class="content-accordion">
+                        <div class="tbl-area">
+                          <table class="table-type03">
+                            <caption></caption>
+                            <colgroup>
+                              <col style="width: auto" />
+                              <col style="width: auto" />
+                              <col style="width: auto" />
+                              <col style="width: auto" />
+                              <col style="width: auto" />
+                              <col style="width: auto" />
+                            </colgroup>
+                            <thead>
+                              <tr>
+                                <th scope="col">
+                                  <span
+                                    ><span class="form-box"> <input type="checkbox" name="전체선택" id="comp-ao311vy" class="form-checkbox size-lg" /> </span
+                                  ></span>
+                                </th>
+                                <th scope="col"><span>계좌종류</span></th>
+                                <th scope="col"><span>계좌번호</span></th>
+                                <th scope="col"><span>계좌잔액(원)</span></th>
+                                <th scope="col"><span>등록구분</span></th>
+                                <th scope="col"><span>계좌상태</span></th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>
+                                  <span class="form-box">
+                                    <input type="checkbox" name="" id="comp-ao112vy" class="form-checkbox size-lg" />
+                                  </span>
+                                </td>
+                                <td>
+                                  <span class="typeMd">입출금</span>
+                                </td>
+                                <td>
+                                  <span class="typeMd">12321445</span>
+                                </td>
+                                <td class="text-right">
+                                  <span class="typeMd">1,000,000,000</span>
+                                </td>
+                                <td>
+                                  <span class="typeMd">등록가능</span>
+                                </td>
+                                <td>
+                                  <span class="typeMd">활동성</span>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  <span class="form-box">
+                                    <input type="checkbox" name="" id="comp-eba5vvg" class="form-checkbox size-lg" />
+                                  </span>
+                                </td>
+                                <td>
+                                  <span class="typeMd">신탁</span>
+                                </td>
+                                <td>
+                                  <span class="typeMd">1551525</span>
+                                </td>
+                                <td class="text-right">
+                                  <span class="typeMd">1,000,000,000</span>
+                                </td>
+                                <td>
+                                  <span class="typeMd">등록불가</span>
+                                </td>
+                                <td>
+                                  <span class="typeMd">비활동성</span>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="btn-wrap center lg-bot">
+                    <button type="button" class="btn type-bg-primary size-xxl">
+                      <span class="text">다음</span>
+                    </button>
+                  </div>
+                  <div class="line-box size-xl mt-48">
+                    <span class="typeLgSemibold">이용안내</span>
+                    <div class="list type-dotted">
+                      <ul>
+                        <li class="typeMd">어카운트인포 서비스로 불러온 다른 은행 계좌 목록입니다.</li>
+                        <li class="typeMd">입출금, 예적금, 펀드, 증권사 계좌만 등록할 수 있습니다.</li>
+                        <li class="typeMd">오픈뱅킹으로 다른 은행 계좌는 50개까지 등록 가능합니다.</li>
+                        <li class="typeMd">출금한도는 전자금융 이용한도와 별도로 오픈뱅킹 이용 금융기관 합산 1일 1천만원입니다.</li>
+                        <li class="typeMd">비활동성 계좌(거래중지계좌)는 등록할 수 없습니다.</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="box-tab-content" id="tabPanelTypeOutline02" role="tabpanel" aria-labelledby="tabBtnTypeOutline02" style="display: none">
+                  <h3 class="blind">제2금융권 tab</h3>
+                  Tab 본문 02
+                </div>
+                <div class="box-tab-content" id="tabPanelTypeOutline03" role="tabpanel" aria-labelledby="tabBtnTypeOutline03" style="display: none">
+                  <h3 class="blind">증권사 tab</h3>
+                  Tab 본문 03
+                </div>
+                <div class="box-tab-content" id="tabPanelTypeOutline04" role="tabpanel" aria-labelledby="tabBtnTypeOutline04" style="display: none">
+                  <h3 class="blind">증권사 tab</h3>
+                  Tab 본문 04
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
+</html>

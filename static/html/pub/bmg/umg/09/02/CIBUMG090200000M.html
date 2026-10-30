@@ -1,0 +1,1305 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/bmg.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">
+        @@include('static/html/pub/layout/skipNavigation.html')
+        @@include('static/html/pub/layout/header_sub.html')
+      </div>
+
+      <div id="container" class="container">
+        <div id="leftArea">
+          @@include('static/html/pub/layout/leftArea.html')
+        </div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="bmg">
+              <h2 class="typeH2">결재선 관리</h2>
+
+              <div class="tbl-area">
+                <div class="tbl-head">
+                  <div class="left-area">
+                    <h4 class="typeH4">다단계결재대상업무 결재선 지정</h4>
+                  </div>
+                  <div class="right-area">
+                    <button type="button" class="btn type-line-neutral size-md">
+                      <span class="text"
+                        >다단계결재 결재선 지정 이용가이드 다운로드
+                      </span>
+                      <i
+                        class="ico line ico-size-sm ico-download"
+                        aria-hidden="true"
+                      ></i>
+                    </button>
+                  </div>
+                </div>
+                <table class="table-type01">
+                  <caption>
+                    기안자ID(기안자명), 결재대상업무, 결재방식에 대한 구성
+                    테이블입니다.
+                  </caption>
+                  <colgroup>
+                    <col style="width: 160px" />
+                    <col style="width: auto" />
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="row">
+                        <span
+                          ><label for="input-tmp6ge"
+                            >기안자ID(기안자명)</label
+                          ></span
+                        >
+                      </th>
+                      <td>
+                        <div class="box-select wSize-lg">
+                          <button
+                            type="button"
+                            id="input-tmp6ge"
+                            class="select size-lg"
+                            role="combobox"
+                            aria-expanded="false"
+                            aria-haspopup="listbox"
+                            aria-controls="comp-8dvcsz"
+                            aria-label="기안자ID(기안자명) 선택"
+                          >
+                            <span class="text">Placeholder Text</span>
+                            <span class="blind">펼침</span>
+                          </button>
+                          <div id="comp-8dvcsz" class="box-list-select">
+                            <ul
+                              class="list-select"
+                              role="listbox"
+                              aria-label="기안자ID(기안자명)"
+                            >
+                              <li
+                                class="item-select"
+                                role="option"
+                                aria-selected="false"
+                              >
+                                <span class="btn-item-select">Option01</span>
+                              </li>
+                              <li
+                                class="item-select"
+                                role="option"
+                                aria-selected="false"
+                              >
+                                <span class="btn-item-select">Option02</span>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span>결재대상업무</span>
+                      </th>
+                      <td>
+                        <div
+                          class="form-box-wrap"
+                          role="radiogroup"
+                          aria-label="결재대상업무"
+                        >
+                          <span class="form-box">
+                            <input
+                              type="radio"
+                              name="searchType"
+                              id="searchType_01"
+                              class="form-radio size-md"
+                              checked=""
+                            />
+                            <label for="searchType_01" class="form-label"
+                              >이체</label
+                            >
+                          </span>
+                          <span class="form-box">
+                            <input
+                              type="radio"
+                              name="searchType"
+                              id="searchType_02"
+                              class="form-radio size-md"
+                            />
+                            <label for="searchType_02" class="form-label"
+                              >외환</label
+                            >
+                          </span>
+                          <span class="form-box">
+                            <input
+                              type="radio"
+                              name="searchType"
+                              id="searchType_03"
+                              class="form-radio size-md"
+                            />
+                            <label for="searchType_03" class="form-label"
+                              >B2B전자결재
+                            </label>
+                          </span>
+                          <span class="form-box">
+                            <input
+                              type="radio"
+                              name="searchType"
+                              id="searchType_04"
+                              class="form-radio size-md"
+                            />
+                            <label for="searchType_04" class="form-label"
+                              >공과금
+                            </label> </span
+                          ><span class="form-box">
+                            <input
+                              type="radio"
+                              name="searchType"
+                              id="searchType_05"
+                              class="form-radio size-md"
+                            />
+                            <label for="searchType_05" class="form-label"
+                              >금융서비스
+                            </label>
+                          </span>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span>결재방식</span>
+                      </th>
+                      <td>
+                        <div
+                          class="form-box-wrap"
+                          role="radiogroup"
+                          aria-label="결재방식"
+                        >
+                          <span class="form-box">
+                            <input
+                              type="radio"
+                              name="searchType2"
+                              id="searchType_01_1"
+                              class="form-radio size-md"
+                              checked=""
+                            />
+                            <label for="searchType_01" class="form-label"
+                              >다단계결재</label
+                            >
+                          </span>
+                          <span class="form-box">
+                            <input
+                              type="radio"
+                              name="searchType2"
+                              id="searchType2_02"
+                              class="form-radio size-md"
+                            />
+                            <label for="searchType2_02" class="form-label"
+                              >단독결재</label
+                            >
+                          </span>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="btn-wrap center mb-48">
+                <button type="button" class="btn type-bg-neutral size-xl">
+                  <span class="text">확인</span>
+                </button>
+              </div>
+              <h4 class="typeH4">결재선 템플릿</h4>
+              <ul class="template-lists">
+                <li>
+                  <dl>
+                    <dt>병렬</dt>
+                    <dd>결재단계 1단계, 단계별 결재사주 복수</dd>
+                  </dl>
+                  <div class="template-btn-wrapper">
+                    <button
+                      type="button"
+                      class="btn type-line-secondary size-sm"
+                    >
+                      <span class="text">결재자 2명</span>
+                    </button>
+                    <button
+                      type="button"
+                      class="btn type-line-secondary size-sm"
+                    >
+                      <span class="text">결재자 3명</span>
+                    </button>
+                  </div>
+                  <div></div>
+                </li>
+                <li>
+                  <dl>
+                    <dt>직렬</dt>
+                    <dd>결재단계 1~9단계, 단계별 결재자수 단수</dd>
+                  </dl>
+                  <div class="template-btn-wrapper">
+                    <button
+                      type="button"
+                      class="btn type-line-secondary size-sm"
+                    >
+                      <span class="text">2단계</span>
+                    </button>
+                    <button
+                      type="button"
+                      class="btn type-line-secondary size-sm"
+                    >
+                      <span class="text">3단계</span>
+                    </button>
+                  </div>
+                  <div></div>
+                </li>
+                <li>
+                  <dl>
+                    <dt>혼합</dt>
+                    <dd>결재단계 1~9단계, 단계별 결재자수 복수</dd>
+                  </dl>
+                  <div class="template-btn-wrapper">
+                    <button
+                      type="button"
+                      class="btn type-line-secondary size-sm"
+                    >
+                      <span class="text">2단계, 단계별 3명</span>
+                    </button>
+                    <button
+                      type="button"
+                      class="btn type-line-secondary size-sm"
+                    >
+                      <span class="text">3단계, 단계별 3명</span>
+                    </button>
+                  </div>
+                  <div></div>
+                </li>
+              </ul>
+              <div class="tbl-area">
+                <h4 class="typeH4">결재단계</h4>
+                <div class="chip-step">1단계</div>
+                <div class="tbl-head">
+                  <div class="left-area">
+                    <div class="flex gap-12 items-center">
+                      <span class="total typeMd"
+                        >총 <span class="num">$n$</span></span
+                      >
+                      <button
+                        type="button"
+                        class="btn type-line-neutral size-sm"
+                      >
+                        <span class="text">선택삭제</span>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="right-area">
+                    <button type="button" class="btn type-line-neutral size-sm">
+                      <span class="text">단계 삭제</span>
+                    </button>
+                    <button type="button" class="btn type-line-primary size-sm">
+                      <span class="text">결재자 추가</span>
+                    </button>
+                  </div>
+                </div>
+
+                <table class="table-type03">
+                  <caption>
+                    No, 사용자ID, 사용자명, 부서명, 직위, 사용자구분, 1회
+                    이체한도(원), 1일이체한도(원), 필수결재에 대한 구성
+                    테이블입니다.
+                  </caption>
+                  <colgroup>
+                    <col style="width: 48px" />
+                    <col style="width: 48px" />
+                    <col style="width: 120px" />
+                    <col style="width: 104px" />
+                    <col style="width: 104px" />
+                    <col style="width: 56px" />
+                    <col style="width: 120px" />
+                    <col style="width: 160px" />
+                    <col style="width: 160px" />
+                    <col style="width: 136px" />
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th scope="col">
+                        <span class="form-box">
+                          <input
+                            type="checkbox"
+                            name=""
+                            id="comp-3hvso4222"
+                            class="form-checkbox size-md"
+                          />
+                        </span>
+                      </th>
+                      <th scope="col"><span>No</span></th>
+                      <th scope="col"><span>사용자ID</span></th>
+                      <th scope="col"><span>사용자명</span></th>
+                      <th scope="col"><span>부서명</span></th>
+                      <th scope="col"><span>직위</span></th>
+                      <th scope="col"><span>사용자구분</span></th>
+                      <th scope="col"><span>1회 이체한도(원)</span></th>
+                      <th scope="col"><span>1일이체한도(원)</span></th>
+                      <th scope="col">
+                        <span class="form-box flex gap-8">
+                          <input
+                            type="checkbox"
+                            name=""
+                            id="comp-3hvs11o4"
+                            class="form-checkbox size-md"
+                          />
+                          <label for="comp-3hvso4" class="form-label"
+                            ><span class="th-check">필수결재</span></label
+                          >
+                        </span>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <span class="form-box">
+                          <input
+                            type="checkbox"
+                            name=""
+                            id="comp-3hvso4"
+                            class="form-checkbox size-md"
+                          />
+                        </span>
+                      </td>
+                      <td>
+                        <span class="typeMd">1</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">SUHYUP003</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">박수협</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">기획팀</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">과장</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">일반사용자</span>
+                      </td>
+                      <td class="text-right">
+                        <span class="typeMd">500,000,000</span>
+                      </td>
+                      <td class="text-right">
+                        <span class="typeMd">1,000,000,000</span>
+                      </td>
+                      <td>
+                        <span class="form-box">
+                          <input
+                            type="checkbox"
+                            name=""
+                            id="comp-klmmqu"
+                            class="form-checkbox size-md"
+                          />
+                        </span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div class="chip-step">1단계</div>
+                <div class="tbl-head">
+                  <div class="left-area">
+                    <div class="flex gap-12 items-center">
+                      <span class="total typeMd"
+                        >총 <span class="num">$n$</span></span
+                      >
+                      <button
+                        type="button"
+                        class="btn type-line-neutral size-sm"
+                      >
+                        <span class="text">선택삭제</span>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="right-area">
+                    <button type="button" class="btn type-line-neutral size-sm">
+                      <span class="text">단계 삭제</span>
+                    </button>
+                    <button type="button" class="btn type-line-primary size-sm">
+                      <span class="text">결재자 추가</span>
+                    </button>
+                  </div>
+                </div>
+
+                <table class="table-type03">
+                  <caption>
+                    No, 사용자ID, 사용자명, 부서명, 직위, 사용자구분, 1회
+                    이체한도(원), 1일이체한도(원), 필수결재에 대한 구성
+                    테이블입니다.
+                  </caption>
+                  <colgroup>
+                    <col style="width: 48px" />
+                    <col style="width: 48px" />
+                    <col style="width: 120px" />
+                    <col style="width: 104px" />
+                    <col style="width: 104px" />
+                    <col style="width: 56px" />
+                    <col style="width: 120px" />
+                    <col style="width: 160px" />
+                    <col style="width: 160px" />
+                    <col style="width: 136px" />
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th scope="col">
+                        <span class="form-box">
+                          <input
+                            type="checkbox"
+                            name=""
+                            id="comp-3hvso4222"
+                            class="form-checkbox size-md"
+                          />
+                        </span>
+                      </th>
+                      <th scope="col"><span>No</span></th>
+                      <th scope="col"><span>사용자ID</span></th>
+                      <th scope="col"><span>사용자명</span></th>
+                      <th scope="col"><span>부서명</span></th>
+                      <th scope="col"><span>직위</span></th>
+                      <th scope="col"><span>사용자구분</span></th>
+                      <th scope="col"><span>1회 이체한도(원)</span></th>
+                      <th scope="col"><span>1일이체한도(원)</span></th>
+                      <th scope="col">
+                        <span class="form-box flex gap-8">
+                          <input
+                            type="checkbox"
+                            name=""
+                            id="comp-3hvs11o4"
+                            class="form-checkbox size-md"
+                          />
+                          <label for="comp-3hvso4" class="form-label"
+                            ><span class="th-check">필수결재</span></label
+                          >
+                        </span>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <span class="form-box">
+                          <input
+                            type="checkbox"
+                            name=""
+                            id="comp-3hvso4"
+                            class="form-checkbox size-md"
+                          />
+                        </span>
+                      </td>
+                      <td>
+                        <span class="typeMd">1</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">SUHYUP003</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">박수협</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">기획팀</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">과장</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">일반사용자</span>
+                      </td>
+                      <td class="text-right">
+                        <span class="typeMd">500,000,000</span>
+                      </td>
+                      <td class="text-right">
+                        <span class="typeMd">1,000,000,000</span>
+                      </td>
+                      <td>
+                        <span class="form-box">
+                          <input
+                            type="checkbox"
+                            name=""
+                            id="comp-klmmqu"
+                            class="form-checkbox size-md"
+                          />
+                        </span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="btn-wrap center mb-48">
+                <button type="button" class="btn type-bg-neutral size-xl">
+                  <span class="text">단계추가</span>
+                </button>
+              </div>
+              <div class="approval-grid-wrapper">
+                <div class="approval-header">
+                  <div class="left-area">
+                    <h4 class="typeH4">결재선 확인</h4>
+                  </div>
+                  <div class="right-area">
+                    <ul class="legend">
+                      <li>
+                        <span
+                          class="badge purple"
+                          role="img"
+                          aria-label="필수결재자"
+                        ></span>
+                        필수결재자
+                      </li>
+                      <li>
+                        <span
+                          class="badge blue"
+                          role="img"
+                          aria-label="OTP보유"
+                        ></span>
+                        OTP보유
+                      </li>
+                      <li>
+                        <span
+                          class="badge cyan"
+                          role="img"
+                          aria-label="대리결재자"
+                        ></span>
+                        대리결재자
+                      </li>
+                      <li>
+                        <span
+                          class="badge red"
+                          role="img"
+                          aria-label="PUSH통보"
+                        ></span>
+                        PUSH통보
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="approval-border">
+                  <div class="grid-header">
+                    <div class="left-area">
+                      <div class="left-area">
+                        <!-- for Dev 아이콘 케이스별로-->
+
+                        <div class="ico-wrapper">
+                          <i
+                            class="ico etc ico-size-sm ico-payer type1"
+                            aria-hidden="true"
+                          ></i>
+                        </div>
+                        <h6>이체</h6>
+                        <div class="ico-wrapper">
+                          <i
+                            class="ico etc ico-size-sm ico-payer type2"
+                            aria-hidden="true"
+                          ></i>
+                        </div>
+                        <h6>외환</h6>
+                        <div class="ico-wrapper">
+                          <i
+                            class="ico etc ico-size-sm ico-payer type3"
+                            aria-hidden="true"
+                          ></i>
+                        </div>
+                        <h6>B2B전자결제</h6>
+                        <div class="ico-wrapper">
+                          <i
+                            class="ico etc ico-size-sm ico-payer type4"
+                            aria-hidden="true"
+                          ></i>
+                        </div>
+                        <h6>공과금</h6>
+                        <div class="ico-wrapper">
+                          <i
+                            class="ico etc ico-size-sm ico-payer type5"
+                            aria-hidden="true"
+                          ></i>
+                        </div>
+                        <h6>금융서비스</h6>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- 기본 카드 3장씩   grid-4추가하면 4장씩 -->
+                  <ul class="approval-grid grid-4">
+                    <!-- 기안자 -->
+                    <li class="card drafter">
+                      <div class="profile">
+                        <div class="profile-wrapper">
+                          <div class="profile-img">
+                            <!-- 기본이미지 -->
+                            <img
+                              src="/static/images/common/img_default_profile_x3.png"
+                              alt="사용자 프로필 이미지"
+                            />
+                          </div>
+                          <div class="profile-name">김일반</div>
+                          <div class="profile-id">(BUDDHAS08)</div>
+                        </div>
+                      </div>
+                      <div class="money-info">
+                        <div class="info-wrap">
+                          <dl>
+                            <dt>1일</dt>
+                            <dd>500,000,000</dd>
+                          </dl>
+                          <dl>
+                            <dt>1회</dt>
+                            <dd>500,000,000</dd>
+                          </dl>
+                        </div>
+                      </div>
+                      <div class="step">기안자</div>
+                    </li>
+
+                    <!-- 1단계 결재자 -->
+                    <li class="card">
+                      <div class="profile">
+                        <div class="profile-wrapper">
+                          <div class="profile-img">
+                            <img
+                              src="/static/images/common/img_default_profile_x3.png"
+                              alt="사용자 프로필 이미지"
+                            />
+                          </div>
+                          <div class="profile-name">김일반</div>
+                          <div class="profile-id">(BUDDHAS08)</div>
+                          <nav
+                            class="profile-nav"
+                            aria-label="결재자 순번 선택"
+                          >
+                            <button
+                              type="button"
+                              class="btn-prev"
+                              aria-label="이전 결재자"
+                            >
+                              <i
+                                class="ico line ico-size-xs ico-chevron-left"
+                                aria-hidden="true"
+                              ></i>
+                            </button>
+                            <span class="pagination-info">
+                              <span>1</span> <span class="total">/7</span>
+                            </span>
+                            <button
+                              type="button"
+                              class="btn-next"
+                              aria-label="다음 결재자"
+                            >
+                              <i
+                                class="ico line ico-size-xs ico-chevron-right"
+                                aria-hidden="true"
+                              ></i>
+                            </button>
+                          </nav>
+                        </div>
+                      </div>
+                      <div class="money-info">
+                        <div class="info-wrap">
+                          <dl>
+                            <dt>1일</dt>
+                            <dd>500,000,000</dd>
+                          </dl>
+                          <dl>
+                            <dt>1회</dt>
+                            <dd>500,000,000</dd>
+                          </dl>
+                        </div>
+                      </div>
+                      <div class="legend">
+                        <span
+                          class="badge purple"
+                          role="img"
+                          aria-label="필수결재자"
+                        ></span>
+                        <span
+                          class="badge blue"
+                          role="img"
+                          aria-label="OTP보유"
+                        ></span>
+                      </div>
+                      <div class="step">1단계</div>
+                    </li>
+
+                    <!-- 2단계 결재자 -->
+                    <li class="card">
+                      <div class="profile">
+                        <div class="profile-wrapper">
+                          <div class="profile-img">
+                            <img
+                              src="/static/images/common/img_default_profile_x3.png"
+                              alt="사용자 프로필 이미지"
+                            />
+                          </div>
+                          <div class="profile-name">김일반</div>
+                          <div class="profile-id">(BUDDHAS08)</div>
+                          <nav
+                            class="profile-nav"
+                            aria-label="결재자 순번 선택"
+                          >
+                            <button
+                              type="button"
+                              class="btn-prev"
+                              aria-label="이전 결재자"
+                            >
+                              <i
+                                class="ico line ico-size-xs ico-chevron-left"
+                                aria-hidden="true"
+                              ></i>
+                            </button>
+                            <span class="pagination-info">
+                              <span>1</span> <span class="total">/7</span>
+                            </span>
+                            <button
+                              type="button"
+                              class="btn-next"
+                              aria-label="다음 결재자"
+                            >
+                              <i
+                                class="ico line ico-size-xs ico-chevron-right"
+                                aria-hidden="true"
+                              ></i>
+                            </button>
+                          </nav>
+                        </div>
+                      </div>
+                      <div class="money-info">
+                        <div class="info-wrap">
+                          <dl>
+                            <dt>1일</dt>
+                            <dd>500,000,000</dd>
+                          </dl>
+                          <dl>
+                            <dt>1회</dt>
+                            <dd>500,000,000</dd>
+                          </dl>
+                        </div>
+                      </div>
+                      <div class="legend">
+                        <span
+                          class="badge purple"
+                          role="img"
+                          aria-label="필수결재자"
+                        ></span>
+                        <span
+                          class="badge blue"
+                          role="img"
+                          aria-label="OTP보유"
+                        ></span>
+                      </div>
+                      <div class="step">2단계</div>
+                    </li>
+
+                    <!-- 3단계 결재자 -->
+                    <li class="card">
+                      <div class="profile">
+                        <div class="profile-wrapper">
+                          <div class="profile-img">
+                            <img
+                              src="/static/images/common/img_default_profile_x3.png"
+                              alt="사용자 프로필 이미지"
+                            />
+                          </div>
+                          <div class="profile-name">김일반</div>
+                          <div class="profile-id">(BUDDHAS08)</div>
+                          <nav
+                            class="profile-nav"
+                            aria-label="결재자 순번 선택"
+                          >
+                            <button
+                              type="button"
+                              class="btn-prev"
+                              aria-label="이전 결재자"
+                            >
+                              <i
+                                class="ico line ico-size-xs ico-chevron-left"
+                                aria-hidden="true"
+                              ></i>
+                            </button>
+                            <span class="pagination-info">
+                              <span>1</span> <span class="total">/7</span>
+                            </span>
+                            <button
+                              type="button"
+                              class="btn-next"
+                              aria-label="다음 결재자"
+                            >
+                              <i
+                                class="ico line ico-size-xs ico-chevron-right"
+                                aria-hidden="true"
+                              ></i>
+                            </button>
+                          </nav>
+                        </div>
+                      </div>
+                      <div class="money-info">
+                        <div class="info-wrap">
+                          <dl>
+                            <dt>1일</dt>
+                            <dd>500,000,000</dd>
+                          </dl>
+                          <dl>
+                            <dt>1회</dt>
+                            <dd>500,000,000</dd>
+                          </dl>
+                        </div>
+                      </div>
+                      <div class="legend">
+                        <span
+                          class="badge purple"
+                          role="img"
+                          aria-label="필수결재자"
+                        ></span>
+                        <span
+                          class="badge blue"
+                          role="img"
+                          aria-label="OTP보유"
+                        ></span>
+                      </div>
+                      <div class="step">3단계</div>
+                    </li>
+
+                    <!-- 4단계 결재자 -->
+                    <li class="card">
+                      <div class="profile">
+                        <div class="profile-wrapper">
+                          <div class="profile-img">
+                            <img
+                              src="/static/images/common/img_default_profile_x3.png"
+                              alt="사용자 프로필 이미지"
+                            />
+                          </div>
+                          <div class="profile-name">김일반</div>
+                          <div class="profile-id">(BUDDHAS08)</div>
+                          <nav
+                            class="profile-nav"
+                            aria-label="결재자 순번 선택"
+                          >
+                            <button
+                              type="button"
+                              class="btn-prev"
+                              aria-label="이전 결재자"
+                            >
+                              <i
+                                class="ico line ico-size-xs ico-chevron-left"
+                                aria-hidden="true"
+                              ></i>
+                            </button>
+                            <span class="pagination-info">
+                              <span>1</span> <span class="total">/7</span>
+                            </span>
+                            <button
+                              type="button"
+                              class="btn-next"
+                              aria-label="다음 결재자"
+                            >
+                              <i
+                                class="ico line ico-size-xs ico-chevron-right"
+                                aria-hidden="true"
+                              ></i>
+                            </button>
+                          </nav>
+                        </div>
+                      </div>
+                      <div class="money-info">
+                        <div class="info-wrap">
+                          <dl>
+                            <dt>1일</dt>
+                            <dd>500,000,000</dd>
+                          </dl>
+                          <dl>
+                            <dt>1회</dt>
+                            <dd>500,000,000</dd>
+                          </dl>
+                        </div>
+                      </div>
+                      <div class="legend">
+                        <span
+                          class="badge purple"
+                          role="img"
+                          aria-label="필수결재자"
+                        ></span>
+                        <span
+                          class="badge blue"
+                          role="img"
+                          aria-label="OTP보유"
+                        ></span>
+                      </div>
+                      <div class="step">4단계</div>
+                    </li>
+
+                    <!-- 5단계 결재자 -->
+                    <li class="card">
+                      <div class="profile">
+                        <div class="profile-wrapper">
+                          <div class="profile-img">
+                            <img
+                              src="/static/images/common/img_default_profile_x3.png"
+                              alt="사용자 프로필 이미지"
+                            />
+                          </div>
+                          <div class="profile-name">김일반</div>
+                          <div class="profile-id">(BUDDHAS08)</div>
+                          <nav
+                            class="profile-nav"
+                            aria-label="결재자 순번 선택"
+                          >
+                            <button
+                              type="button"
+                              class="btn-prev"
+                              aria-label="이전 결재자"
+                            >
+                              <i
+                                class="ico line ico-size-xs ico-chevron-left"
+                                aria-hidden="true"
+                              ></i>
+                            </button>
+                            <span class="pagination-info">
+                              <span>1</span> <span class="total">/7</span>
+                            </span>
+                            <button
+                              type="button"
+                              class="btn-next"
+                              aria-label="다음 결재자"
+                            >
+                              <i
+                                class="ico line ico-size-xs ico-chevron-right"
+                                aria-hidden="true"
+                              ></i>
+                            </button>
+                          </nav>
+                        </div>
+                      </div>
+                      <div class="money-info">
+                        <div class="info-wrap">
+                          <dl>
+                            <dt>1일</dt>
+                            <dd>500,000,000</dd>
+                          </dl>
+                          <dl>
+                            <dt>1회</dt>
+                            <dd>500,000,000</dd>
+                          </dl>
+                        </div>
+                      </div>
+                      <div class="legend">
+                        <span
+                          class="badge purple"
+                          role="img"
+                          aria-label="필수결재자"
+                        ></span>
+                        <span
+                          class="badge blue"
+                          role="img"
+                          aria-label="OTP보유"
+                        ></span>
+                      </div>
+                      <div class="step">5단계</div>
+                    </li>
+
+                    <!-- 6단계 결재자 -->
+                    <li class="card">
+                      <div class="profile">
+                        <div class="profile-wrapper">
+                          <div class="profile-img">
+                            <img
+                              src="/static/images/common/img_default_profile_x3.png"
+                              alt="사용자 프로필 이미지"
+                            />
+                          </div>
+                          <div class="profile-name">김일반</div>
+                          <div class="profile-id">(BUDDHAS08)</div>
+                          <nav
+                            class="profile-nav"
+                            aria-label="결재자 순번 선택"
+                          >
+                            <button
+                              type="button"
+                              class="btn-prev"
+                              aria-label="이전 결재자"
+                            >
+                              <i
+                                class="ico line ico-size-xs ico-chevron-left"
+                                aria-hidden="true"
+                              ></i>
+                            </button>
+                            <span class="pagination-info">
+                              <span>1</span> <span class="total">/7</span>
+                            </span>
+                            <button
+                              type="button"
+                              class="btn-next"
+                              aria-label="다음 결재자"
+                            >
+                              <i
+                                class="ico line ico-size-xs ico-chevron-right"
+                                aria-hidden="true"
+                              ></i>
+                            </button>
+                          </nav>
+                        </div>
+                      </div>
+                      <div class="money-info">
+                        <div class="info-wrap">
+                          <dl>
+                            <dt>1일</dt>
+                            <dd>500,000,000</dd>
+                          </dl>
+                          <dl>
+                            <dt>1회</dt>
+                            <dd>500,000,000</dd>
+                          </dl>
+                        </div>
+                      </div>
+                      <div class="legend">
+                        <span
+                          class="badge purple"
+                          role="img"
+                          aria-label="필수결재자"
+                        ></span>
+                        <span
+                          class="badge blue"
+                          role="img"
+                          aria-label="OTP보유"
+                        ></span>
+                      </div>
+                      <div class="step">6단계</div>
+                    </li>
+
+                    <!-- 7단계 결재자 -->
+                    <li class="card">
+                      <div class="profile">
+                        <div class="profile-wrapper">
+                          <div class="profile-img">
+                            <img
+                              src="/static/images/common/img_default_profile_x3.png"
+                              alt="사용자 프로필 이미지"
+                            />
+                          </div>
+                          <div class="profile-name">김일반</div>
+                          <div class="profile-id">(BUDDHAS08)</div>
+                          <nav
+                            class="profile-nav"
+                            aria-label="결재자 순번 선택"
+                          >
+                            <button
+                              type="button"
+                              class="btn-prev"
+                              aria-label="이전 결재자"
+                            >
+                              <i
+                                class="ico line ico-size-xs ico-chevron-left"
+                                aria-hidden="true"
+                              ></i>
+                            </button>
+                            <span class="pagination-info">
+                              <span>1</span> <span class="total">/7</span>
+                            </span>
+                            <button
+                              type="button"
+                              class="btn-next"
+                              aria-label="다음 결재자"
+                            >
+                              <i
+                                class="ico line ico-size-xs ico-chevron-right"
+                                aria-hidden="true"
+                              ></i>
+                            </button>
+                          </nav>
+                        </div>
+                      </div>
+                      <div class="money-info">
+                        <div class="info-wrap">
+                          <dl>
+                            <dt>1일</dt>
+                            <dd>500,000,000</dd>
+                          </dl>
+                          <dl>
+                            <dt>1회</dt>
+                            <dd>500,000,000</dd>
+                          </dl>
+                        </div>
+                      </div>
+                      <div class="legend">
+                        <span
+                          class="badge purple"
+                          role="img"
+                          aria-label="필수결재자"
+                        ></span>
+                        <span
+                          class="badge blue"
+                          role="img"
+                          aria-label="OTP보유"
+                        ></span>
+                      </div>
+                      <div class="step">7단계</div>
+                    </li>
+
+                    <!-- 8단계 결재자 -->
+                    <li class="card">
+                      <div class="profile">
+                        <div class="profile-wrapper">
+                          <div class="profile-img">
+                            <img
+                              src="/static/images/common/img_default_profile_x3.png"
+                              alt="사용자 프로필 이미지"
+                            />
+                          </div>
+                          <div class="profile-name">김일반</div>
+                          <div class="profile-id">(BUDDHAS08)</div>
+                          <nav
+                            class="profile-nav"
+                            aria-label="결재자 순번 선택"
+                          >
+                            <button
+                              type="button"
+                              class="btn-prev"
+                              aria-label="이전 결재자"
+                            >
+                              <i
+                                class="ico line ico-size-xs ico-chevron-left"
+                                aria-hidden="true"
+                              ></i>
+                            </button>
+                            <span class="pagination-info">
+                              <span>1</span> <span class="total">/7</span>
+                            </span>
+                            <button
+                              type="button"
+                              class="btn-next"
+                              aria-label="다음 결재자"
+                            >
+                              <i
+                                class="ico line ico-size-xs ico-chevron-right"
+                                aria-hidden="true"
+                              ></i>
+                            </button>
+                          </nav>
+                        </div>
+                      </div>
+                      <div class="money-info">
+                        <div class="info-wrap">
+                          <dl>
+                            <dt>1일</dt>
+                            <dd>500,000,000</dd>
+                          </dl>
+                          <dl>
+                            <dt>1회</dt>
+                            <dd>500,000,000</dd>
+                          </dl>
+                        </div>
+                      </div>
+                      <div class="legend">
+                        <span
+                          class="badge purple"
+                          role="img"
+                          aria-label="필수결재자"
+                        ></span>
+                        <span
+                          class="badge blue"
+                          role="img"
+                          aria-label="OTP보유"
+                        ></span>
+                      </div>
+                      <div class="step">8단계</div>
+                    </li>
+
+                    <!-- 9단계 결재자 -->
+                    <li class="card">
+                      <div class="profile">
+                        <div class="profile-wrapper">
+                          <div class="profile-img">
+                            <img
+                              src="/static/images/common/img_default_profile_x3.png"
+                              alt="사용자 프로필 이미지"
+                            />
+                          </div>
+                          <div class="profile-name">김일반</div>
+                          <div class="profile-id">(BUDDHAS08)</div>
+                          <nav
+                            class="profile-nav"
+                            aria-label="결재자 순번 선택"
+                          >
+                            <button
+                              type="button"
+                              class="btn-prev"
+                              aria-label="이전 결재자"
+                            >
+                              <i
+                                class="ico line ico-size-xs ico-chevron-left"
+                                aria-hidden="true"
+                              ></i>
+                            </button>
+                            <span class="pagination-info">
+                              <span>1</span> <span class="total">/7</span>
+                            </span>
+                            <button
+                              type="button"
+                              class="btn-next"
+                              aria-label="다음 결재자"
+                            >
+                              <i
+                                class="ico line ico-size-xs ico-chevron-right"
+                                aria-hidden="true"
+                              ></i>
+                            </button>
+                          </nav>
+                        </div>
+                      </div>
+                      <div class="money-info">
+                        <div class="info-wrap">
+                          <dl>
+                            <dt>1일</dt>
+                            <dd>500,000,000</dd>
+                          </dl>
+                          <dl>
+                            <dt>1회</dt>
+                            <dd>500,000,000</dd>
+                          </dl>
+                        </div>
+                      </div>
+                      <div class="legend">
+                        <span
+                          class="badge purple"
+                          role="img"
+                          aria-label="필수결재자"
+                        ></span>
+                        <span
+                          class="badge blue"
+                          role="img"
+                          aria-label="OTP보유"
+                        ></span>
+                      </div>
+                      <div class="step">9단계</div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="btn-wrap center lg-bot">
+                <button type="button" class="btn type-bg-primary-tint size-xxl">
+                  <span class="text">취소 </span>
+                </button>
+                <button type="button" class="btn type-bg-primary size-xxl">
+                  <span class="text">등록</span>
+                </button>
+              </div>
+        
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
+</html>

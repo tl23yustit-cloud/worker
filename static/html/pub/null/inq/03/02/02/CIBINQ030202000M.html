@@ -11,33 +11,28 @@
     <link rel="stylesheet" href="/static/css/layout.css" />
     <link rel="stylesheet" href="/static/css/component.css" />
     <link rel="stylesheet" href="/static/css/common.css" />
-     <link rel="stylesheet" href="/static/css/inq.css" />
+    <link rel="stylesheet" href="/static/css/inq.css" />
   </head>
 
   <body>
     <div class="wrapper">
-      <div id="header">
-        @@include('static/html/pub/layout/skipNavigation.html')
-        @@include('static/html/pub/layout/header_sub.html')
-      </div>
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
 
       <div id="container" class="container">
-        <div id="leftArea">
-          @@include('static/html/pub/layout/leftArea.html')
-        </div>
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
         <div id="contents">
           <div class="content">
             @@include('static/html/pub/layout/breadcrumb.html')
             <div class="inq">
-              <h2 class="typeH2">가계앞수표조회</h2>
+              <!--[dev]:20261026텍스트 수정-->
+              <h2 class="typeH2">가계수표조회</h2>
+              <!--//[dev]:20261026텍스트 수정-->
               <div class="tbl-area">
                 <h4 class="typeH4">조회결과</h4>
                 <table class="table-type01">
                   <caption>
                     수표시작번호, 수표매수 정보 제공 테이블
                   </caption>
-                  <!-- [수정] 20260903 col width 값 추가  -->
-                  <!-- [수정] 20260909 col width style 수정  -->
                   <colgroup>
                     <col style="width: 160px" />
                     <col style="width: 368px" />
@@ -51,15 +46,19 @@
                         <span class="typeMd">1000-0000-0000</span>
                       </td>
                       <th scope="row">수표매수</th>
-                      <td class="text-right">
+                      <!--[dev]:20261020 텍스트 정렬로  class="text-right" 삭제-->
+                      <td>
                         <span class="typeMd">1 매</span>
                       </td>
+                      <!--//[dev]:20261020 텍스트 정렬로  class="text-right" 삭제-->
                     </tr>
                   </tbody>
                 </table>
               </div>
               <div class="tbl-area">
-                <h4 class="typeH4">사고정보</h4>
+                <!--[dev]:20261026텍스트 수정-->
+                <h4 class="typeH4">사고신고</h4>
+                <!--//[dev]:20261026텍스트 수정-->
                 <table class="table-type03">
                   <caption>
                     수표번호, 구분, 신고일시, 내용 정보 제공 테이블
@@ -71,7 +70,6 @@
                     <col />
                   </colgroup>
                   <thead>
-                    <!-- [수정] 20260903 th scope 추가 -->
                     <tr>
                       <th scope="col">수표번호</th>
                       <th scope="col">구분</th>
@@ -91,9 +89,7 @@
                       <td colspan="4">
                         <div class="empty-page">
                           <i class="ico-info" aria-hidden="true"></i>
-                          <div class="typeMd">
-                            조회하신 거래내역이 없습니다.
-                          </div>
+                          <div class="typeMd">조회하신 거래내역이 없습니다.</div>
                         </div>
                       </td>
                     </tr>

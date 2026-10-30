@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/bop.css" />
+</head>
+
+<body>
+    <div class="wrapper">
+        <div id="header">
+            @@include('static/html/pub/layout/skipNavigation.html')
+            @@include('static/html/pub/layout/header_sub.html')
+        </div>
+
+        <div id="container" class="container">
+            <div id="leftArea">
+                @@include('static/html/pub/layout/leftArea.html')
+            </div>
+            <div id="contents">
+                <div class="content">
+                    @@include('static/html/pub/layout/breadcrumb.html')
+                    <div class="bop">
+                        <h2 class="typeH2">이용대금명세조회</h2>
+
+
+                        <div class="tbl-area">
+                            <div class="tbl-head">
+                                <div class="left-area">
+                                    <h3 class="typeH4">
+                                        <!--[dev]:텍스트 수정 결재대상내역->결제대상내역-->
+                                        <span class="text">조회조건</span>
+                                        <!--//[dev]:텍스트 수정 결재대상내역->결제대상내역-->
+                                    </h3>
+                                </div>
+                                <div class="right-area">
+                                    <span class="required typeMd">필수 항목</span>
+                                </div>
+                            </div>
+
+                            <table class="table-type01 fixed">
+                                <caption></caption>
+                                <!-- [수정] 20260904 col width 값 수정  -->
+                                <colgroup>
+                                    <col width="160px" />
+                                    <col width="auto" />
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">
+                                            <span class="required">카드구분</span>
+                                        </th>
+                                        <td>
+                                            <div class="box-select wSize-md">
+                                                <button type="button" class="select size-lg" role="combobox"
+                                                    aria-expanded="false" aria-haspopup="listbox"
+                                                    aria-controls="selectDropdownTypeA" title="카드유형 선택">
+                                                    <span class="text">카드구분을 선택하세요</span>
+                                                    <span class="blind">펼침</span>
+                                                </button>
+                                                <div id="selectDropdownTypeA" class="box-list-select">
+                                                    <ul class="list-select" role="listbox" aria-label="카드유형 선택 항목 리스트">
+
+                                                        <li class="item-select" role="option" aria-selected="false">
+                                                            <span class="btn-item-select">
+                                                                신용카드
+                                                            </span>
+                                                        </li>
+                                                        <li class="item-select" role="option" aria-selected="false">
+                                                            <span class="btn-item-select">
+                                                                체크카드
+                                                            </span>
+                                                        </li>
+
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">
+                                            <label for="businessNameInputA">사업장명</label>
+                                        </th>
+                                        <td>
+                                            <div class="tbl-flex">
+                                                <input type="text" id="businessNameInputA"
+                                                    class="input wSize-md size-lg" title="사업장명" value=""
+                                                    placeholder="사업장명을 검색하세요">
+                                                <button type="button" class="btn type-line-secondary size-lg">
+                                                    <span class="text">검색</span>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <!-- 조건에 맞게 사용 -->
+                                    <tr>
+                                        <th scope="row">
+                                            <span class="required">조회기간</span>
+                                        </th>
+                                        <td>
+                                            <div class="tbl-column">
+                                                <div class="radio-group">
+                                                    <span class="form-box">
+                                                        <input type="radio" name="SampleRadio0302_01" id="date_range_01"
+                                                            class="radio-btn" checked="" />
+                                                        <label for="date_range_01" class="form-label">당일</label>
+                                                        <input type="radio" name="SampleRadio0302_01" id="date_range_02"
+                                                            class="radio-btn" />
+                                                        <label for="date_range_02" class="form-label">1개월</label>
+                                                        <input type="radio" name="SampleRadio0302_01" id="date_range_03"
+                                                            class="radio-btn" />
+                                                        <label for="date_range_03" class="form-label">3개월</label>
+                                                        <input type="radio" name="SampleRadio0302_01" id="date_range_04"
+                                                            class="radio-btn" />
+                                                        <label for="date_range_04" class="form-label">6개월</label>
+                                                        <input type="radio" name="SampleRadio0302_01" id="date_range_05"
+                                                            class="radio-btn" />
+                                                        <label for="date_range_05" class="form-label">1년</label>
+                                                    </span>
+                                                </div>
+                                                <div class="calendar-wrap">
+                                                    <div class="input-box">
+                                                        <input type="text" class="input" id="startDate" title="조회 시작일"
+                                                            aria-label="조회 시작일" value="2026-01-06" />
+                                                        <button type="button" class="btn">
+                                                            <i class="ico-calendar ico-size-smMd"
+                                                                aria-hidden="true"></i>
+                                                            <span class="blind">조회 시작일 날짜 열기</span>
+                                                        </button>
+                                                    </div>
+                                                    ~
+                                                    <div class="input-box">
+                                                        <input type="text" class="input" id="endDate" title="조회 종료일"
+                                                            aria-label="조회 종료일" value="2026-01-06" />
+                                                        <button type="button" class="btn">
+                                                            <i class="ico-calendar ico-size-smMd"
+                                                                aria-hidden="true"></i>
+                                                            <span class="blind">조회 종료일 날짜 열기</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+
+
+                        <div class="btn-wrap center sm-mid">
+                            <button type="button" class="btn type-line-neutral size-xl">
+                                <span class="text">초기화</span>
+                            </button>
+                            <button type="button" class="btn type-bg-neutral size-xl">
+                                <span class="text">조회</span>
+                            </button>
+                        </div>
+
+                        <div class="tbl-area">
+                            <div class="tbl-head">
+                                <h3 class="typeH6">조회결과</h3>
+                            </div>
+                            <div class="wrap-board-grid">
+                                <!-- [dev] 그리드 -->
+                                <div class="board-grid">
+                                    <!-- [dev] 그리드 컨텐츠 영역 : 작업 시 삭제-->
+                                    <i style="
+                        display: block;
+                        border: var(--borderWidthMd) solid
+                          var(--colorBorderBase);
+                        border-radius: var(--radiusMd);
+                        padding: var(--spacing2Xl);
+                      ">임시 그리드 영역</i>
+                                    <!-- //[dev] 그리드 컨텐츠 영역 : 작업 시 삭제 -->
+                                </div>
+                                <!-- //[dev] 그리드 -->
+                            </div>
+                        </div>
+
+                        <div class="btn-wrap center lg-bot">
+                            <button type="button" class="btn type-line-neutral size-xxl">
+                                <span class="text">명세서 재발행</span>
+                            </button>
+                            <button type="button" class="btn type-bg-primary size-xxl">
+                                <span class="text">결제금액 상세조회</span>
+                            </button>
+                        </div>
+
+                        <!--  -->
+
+                        <div class="line-box size-xl mt-48">
+                            <span class="typeLgSemibold">이용안내</span>
+                            <div class="list type-dotted">
+                                <ul>
+                                    <li class="typeMd">
+                                        당행은 수협만 조회 가능합니다.
+                                    </li>
+                                    <li class="typeMd">
+                                        이용대금명세서는 최근 2년이내 청구된 내역이 조회 가능합니다.
+                                    </li>
+                                    <li class="typeMd">
+                                        고객님의 결제일별 이용주기에 맞춰 당행에 접수된 기준으로 이용대금명세서가 작성됩니다.
+                                    </li>
+                                    <li class="typeMd">
+                                        이용대금명세서 작성 후 취소된 내역은 결제금액에서 차감되고 다음달 명세서에 반영될 수 있습니다.
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!--  -->
+                    </div>
+                </div>
+            </div>
+            <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+        </div>
+        <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+</body>
+
+</html>

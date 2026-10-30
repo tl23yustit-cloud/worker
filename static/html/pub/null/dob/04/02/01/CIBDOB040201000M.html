@@ -1,3 +1,4 @@
+<!-- 1.08v -->
 <!doctype html>
 <html lang="ko">
   <head>
@@ -13,15 +14,10 @@
 
   <body>
     <div class="wrapper">
-      <div id="header">
-        @@include('static/html/pub/layout/skipNavigation.html')
-        @@include('static/html/pub/layout/header_sub.html')
-      </div>
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
 
       <div id="container" class="container">
-        <div id="leftArea">
-          @@include('static/html/pub/layout/leftArea.html')
-        </div>
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
         <div id="contents">
           <div class="content">
             @@include('static/html/pub/layout/breadcrumb.html')
@@ -47,7 +43,6 @@
                       <i class="icon" aria-hidden="true">4</i>
                       <span class="text">4</span>
                     </li>
-                  
                   </ol>
                 </div>
               </h2>
@@ -55,8 +50,7 @@
                 <h4 class="typeH4">증명서 구분 선택</h4>
                 <table class="table-type01 fixed">
                   <caption>
-                    발급방법, 회원구분, 언어선택, 발급기준일, 조합선택 항목이
-                    포함된 증명서 구분 선택 테이블
+                    회원구분, 조합선택 항목이 포함된 증명서 구분 선택 테이블
                   </caption>
                   <!-- [수정] 20260904 col width 값 수정  -->
                   <!-- [수정] 20260908 col width style 수정  -->
@@ -66,132 +60,16 @@
                   </colgroup>
                   <tbody>
                     <tr>
-                      <th scope="row">
-                        <span class="required" id="label-issue-method"
-                          >발급방법</span
-                        >
-                      </th>
-                      <!-- [수정] 20260904 2단 colspan=3 삭제-->
-                      <td>
-                        <div class="tbl-column">
-                          <div
-                            class="form-box-wrap"
-                            role="radiogroup"
-                            aria-labelledby="label-issue-method"
-                          >
-                            <span class="form-box">
-                              <input
-                                type="radio"
-                                name="issueMethod"
-                                id="issueMethod_01"
-                                class="form-radio size-md"
-                                checked
-                              />
-                              <label for="issueMethod_01" class="form-label"
-                                >이메일로 받기</label
-                              >
-                            </span>
-                            <span class="form-box">
-                              <input
-                                type="radio"
-                                name="issueMethod"
-                                id="issueMethod_02"
-                                class="form-radio size-md"
-                              />
-                              <label for="issueMethod_02" class="form-label"
-                                >PDF 저장</label
-                              >
-                            </span>
-                          </div>
-                          <div class="tbl-flex mt-10">
-                            <!-- [수정] 20260908 title 값 수정  -->
-                            <input
-                              type="text"
-                              class="input size-lg wSize-lg"
-                              placeholder="이메일 입력"
-                              title="이메일"
-                              aria-label="이메일 입력"
-                            />
-                            <span aria-hidden="true">@</span>
-                            <div class="box-select wSize-md">
-                              <button
-                                type="button"
-                                class="select size-lg"
-                                role="combobox"
-                                aria-expanded="false"
-                                aria-haspopup="listbox"
-                                aria-controls="selectEmailDomain"
-                                title="이메일주소 선택"
-                              >
-                                <span class="text">이메일주소 선택</span>
-                                <span class="blind">펼침</span>
-                              </button>
-                              <div
-                                id="selectEmailDomain"
-                                class="box-list-select"
-                              >
-                                <ul
-                                  class="list-select"
-                                  role="listbox"
-                                  aria-label="이메일주소 선택 리스트"
-                                >
-                                  <li
-                                    class="item-select"
-                                    role="option"
-                                    aria-selected="true"
-                                  >
-                                    <span class="form-box">직접입력</span>
-                                  </li>
-                                  <li
-                                    class="item-select"
-                                    role="option"
-                                    aria-selected="false"
-                                  >
-                                    <span class="form-box">naver.com</span>
-                                  </li>
-                                  <li
-                                    class="item-select"
-                                    role="option"
-                                    aria-selected="false"
-                                  >
-                                    <span class="form-box">gmail.com</span>
-                                  </li>
-                                </ul>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
                       <th scope="row">회원구분</th>
-                      <td colspan="3">
-                        <div
-                          class="form-box-wrap"
-                          role="radiogroup"
-                          aria-labelledby="label-member-type"
-                        >
+                      <td 계좌번호>
+                        <div class="form-box-wrap" role="radiogroup" aria-labelledby="label-member-type">
                           <span class="form-box">
-                            <input
-                              type="radio"
-                              name="memberType"
-                              id="memberType_01"
-                              class="form-radio size-md"
-                            />
-                            <label for="memberType_01" class="form-label"
-                              >은행</label
-                            >
+                            <input type="radio" name="memberType" id="memberType_01" class="form-radio size-md" />
+                            <label for="memberType_01" class="form-label">은행</label>
                           </span>
                           <span class="form-box">
-                            <input
-                              type="radio"
-                              name="memberType"
-                              id="memberType_02"
-                              class="form-radio size-md"
-                            />
-                            <label for="memberType_02" class="form-label"
-                              >회원수협</label
-                            >
+                            <input type="radio" name="memberType" id="memberType_02" class="form-radio size-md" />
+                            <label for="memberType_02" class="form-label">회원수협</label>
                           </span>
                         </div>
                       </td>
@@ -201,71 +79,15 @@
                         <span>조합선택</span>
                       </th>
                       <td>
-                        <div class="box-select wSize-lg">
-                          <button
-                            type="button"
-                            class="select size-lg"
-                            role="combobox"
-                            aria-expanded="false"
-                            aria-haspopup="listbox"
-                            aria-controls="comp-hrvhpa"
-                            aria-label="조합선택 선택"
-                          >
+                        <div class="box-select wSize-md">
+                          <button type="button" class="select size-lg" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="comp-hrvhpa" aria-label="조합선택 선택">
                             <span class="text">군산시 조합</span>
                             <span class="blind">펼침</span>
                           </button>
                           <div id="comp-hrvhpa" class="box-list-select">
-                            <ul
-                              class="list-select"
-                              role="listbox"
-                              aria-label="조합선택"
-                            >
-                              <li
-                                class="item-select"
-                                role="option"
-                                aria-selected="true"
-                              >
-                                <button class="btn-item-select">
-                                  군산시 조합
-                                </button>
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">
-                        <span>발급용도 선택</span>
-                      </th>
-                      <td>
-                        <div class="box-select wSize-lg">
-                          <button
-                            type="button"
-                            class="select size-lg"
-                            role="combobox"
-                            aria-expanded="false"
-                            aria-haspopup="listbox"
-                            aria-controls="comp-9p1v87"
-                            aria-label="발급용도 선택 선택"
-                          >
-                            <span class="text">발급용도 선택</span>
-                            <span class="blind">펼침</span>
-                          </button>
-                          <div id="comp-9p1v87" class="box-list-select">
-                            <ul
-                              class="list-select"
-                              role="listbox"
-                              aria-label="발급용도 선택"
-                            >
-                              <li
-                                class="item-select"
-                                role="option"
-                                aria-selected="true"
-                              >
-                                <button class="btn-item-select">
-                                  발급용도 선택
-                                </button>
+                            <ul class="list-select" role="listbox" aria-label="조합선택">
+                              <li class="item-select" role="option" aria-selected="true">
+                                <button class="btn-item-select">군산시 조합</button>
                               </li>
                             </ul>
                           </div>
@@ -281,6 +103,23 @@
                 <button type="button" class="btn type-bg-primary size-xxl">
                   <span class="text">다음</span>
                 </button>
+              </div>
+              <div class="line-box size-xl mt-48">
+                <span class="typeLgSemibold">이용안내</span>
+                <div class="list type-dotted">
+                  <ul>
+                    <li class="typeMd">대상고객 : 인터넷뱅킹 가입고객</li>
+                    <li class="typeMd">
+                      발급수수료 : 3,000원(단, 파트너고객은 면제대상입니다.)
+                      <div class="list type-bar">
+                        <ul>
+                          <li class="typeMd">수수료 수납 후 당일에 한해 증명서 재발급이 가능합니다.</li>
+                        </ul>
+                      </div>
+                    </li>
+                     <li class="typeMd">현재의 부채상태를 증명해주는 양식이므로, 조회 당일자로만 발급 가능합니다.(2026.11.19일 발급 시 2026.11.19일자로만 조회, 발급됨)</li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>

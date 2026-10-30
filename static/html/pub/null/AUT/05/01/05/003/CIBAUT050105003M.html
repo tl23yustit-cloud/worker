@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/aut.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">
+        @@include('static/html/pub/layout/skipNavigation.html')
+        @@include('static/html/pub/layout/header_sub.html')
+      </div>
+
+      <div id="container" class="container">
+        <div id="leftArea">
+          @@include('static/html/pub/layout/leftArea.html')
+        </div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="aut">
+              <h2 class="typeH2">
+                인증서 폐기/정지/회복
+
+                <div class="box-steps">
+                  <ol class="list-steps">
+                    <li class="item-steps passed">
+                      <i class="icon" aria-hidden="true">1</i>
+                    </li>
+
+                    <li class="item-steps current" aria-current="step">
+                      <i class="icon" aria-hidden="true">2</i>
+                      <span class="text">서비스 구분코드 선택 </span>
+                    </li>
+                    <li class="item-steps">
+                      <i class="icon" aria-hidden="true">3</i>
+                    </li>
+                  </ol>
+                </div>
+              </h2>
+
+              <div class="tbl-area">
+                <table class="table-type01">
+                  <caption>
+                    인증서 종류, 인증서 일련번호, 가입자 CN명, 인증서 발급은행,
+                    인증서 상태, 유효기간, 서비스구분코드에 대한 구성
+                    테이블입니다.
+                  </caption>
+                  <colgroup>
+                    <col style="width: 160px" />
+                    <col style="width: auto" />
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="row">
+                        <span>인증서 종류</span>
+                      </th>
+                      <td>
+                        <span class="typeMd">용도제한용</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span>인증서 일련번호</span>
+                      </th>
+                      <td>
+                        <span class="typeMd">99099929922</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span>가입자 CN명</span>
+                      </th>
+                      <td>
+                        <span class="typeMd"
+                          >cn=홍길동(KPS33)118282829191023029181</span
+                        >
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span>인증서 발급은행</span>
+                      </th>
+                      <td>
+                        <span class="typeMd">수협</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span>서비스구분코드 </span>
+                      </th>
+                      <td>
+                        <span class="typeMd"
+                          >폐기된 인증서는 상태변경이 불가능 하오니 다시 발급을
+                          받으시기 바랍니다.
+                        </span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span>유효기간</span>
+                      </th>
+                      <td>
+                        <span class="typeMd"
+                          >2025-09-10 00:00:00 ~ 2027-10-09 00:00:00</span
+                        >
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span
+                          ><label for="input-45klp6"
+                            >서비스구분코드</label
+                          ></span
+                        >
+                      </th>
+                      <td>
+                        <div class="box-select wSize-lg">
+                          <button
+                            type="button"
+                            id="input-45klp6"
+                            class="select size-lg"
+                            role="combobox"
+                            aria-expanded="false"
+                            aria-haspopup="listbox"
+                            aria-controls="comp-ztobcs"
+                            aria-label="서비스구분코드 선택"
+                          >
+                            <span class="text">폐기</span>
+                            <span class="blind">펼침</span>
+                          </button>
+                          <div id="comp-ztobcs" class="box-list-select">
+                            <ul
+                              class="list-select"
+                              role="listbox"
+                              aria-label="서비스구분코드"
+                            >
+                              <li
+                                class="item-select"
+                                role="option"
+                                aria-selected="false"
+                              >
+                                <span class="btn-item-select">폐기</span>
+                              </li>
+                              <li
+                                class="item-select"
+                                role="option"
+                                aria-selected="false"
+                              >
+                                <span class="btn-item-select">효력정지</span>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="btn-wrap center lg-bot">
+                <button type="button" class="btn type-bg-primary-tint size-xxl">
+                  <span class="text">취소</span>
+                </button>
+                <button type="button" class="btn type-bg-primary size-xxl">
+                  <span class="text">다음</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
+</html>
+<script></script>

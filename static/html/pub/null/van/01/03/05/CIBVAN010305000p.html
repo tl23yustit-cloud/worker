@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/van.css" />
+</head>
+
+<body>
+    <div class="wrapper">
+        <div id="header">
+            @@include('static/html/pub/layout/skipNavigation.html')
+            @@include('static/html/pub/layout/header_sub.html')
+        </div>
+
+        <div id="container" class="container">
+            <div id="leftArea">
+                @@include('static/html/pub/layout/leftArea.html')
+            </div>
+            <div id="contents">
+                <div class="content">
+                    @@include('static/html/pub/layout/breadcrumb.html')
+                    <div class="van">
+                        <button type="button" class="btn type-bg-primary size-md btn-modal" data-target="modal-01">
+                            <span class="text">모달버튼</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+        </div>
+        <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <div id="modal-01" class="modal is-active" data-dim="true" data-backdrop-close="false" data-alert="true"
+        data-size="sm" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc">
+        <div class="modal-wrapper">
+            <div class="modal-title" id="modal-title">
+                <h4 class="typeH4">이용계약서 인쇄</h4>
+            </div>
+            <div id="modal-desc" class="blind">이용계약서 인쇄 모달입니다.</div>
+            <div class="modal-slot">
+
+                <div class="list-lg-wrap">
+                    <h4 class="typeH6">가상계좌서비스 이용 계약서</h4>
+
+                    <div class="list type-bar">
+                        <ul>
+                            <li class="typeLg color-fg-base">
+                                ㈜가나다상사(이하 “갑” 이라 한다)와 수협은행 디지털금융부(이하 “을” 이라 한다)은 “가상계좌서비스 이용 계약“ 을 아래와 같이 체결하며, 이 계약서에서
+                                정하지 아니한
+                                사항에 대하여는 전자금융서비스 이용약관 및 기타 관련된 업무의 각 약관을 적용하기로 한다.
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="modal-footer flex items-center justify-center gap-8">
+                <button type="button" class="btn type-bg-primary size-lg">
+                    <span class="text">인쇄</span>
+                </button>
+            </div>
+            <button type="button" class="ico btn-close" aria-label="모달 닫기">
+                <i class="ico-close ico-size-smMd" aria-hidden="true"></i>
+                <span class="blind">닫기</span>
+            </button>
+        </div>
+    </div>
+
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+</body>
+
+</html>

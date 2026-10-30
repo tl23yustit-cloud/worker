@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/aut.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
+
+      <div id="container" class="container">
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="aut">
+              <h2 class="typeH2">
+                전자세금계산서 신청
+
+                <div class="box-steps">
+                  <ol class="list-steps">
+                    <!-- 설계서 case 유의 -->
+                    <li class="item-steps passed">
+                      <span class="blind">1</span>
+                      <i class="icon" aria-hidden="true">1</i>
+                    </li>
+                    <li class="item-steps current" aria-current="step">
+                      <span class="blind">2</span>
+                      <i class="icon" aria-hidden="true">2</i>
+                      <span class="text">전자세금계산서 내용 입력 </span>
+                    </li>
+                    <li class="item-steps">
+                      <span class="blind">3</span>
+                      <i class="icon" aria-hidden="true">3</i>
+                    </li>
+                  </ol>
+                </div>
+              </h2>
+
+              <div class="list type-dotted">
+                <ul>
+                  <li class="typeLg">전자세금계산서는 발급일 포함 7일이 경과 후 처리됩니다.</li>
+                </ul>
+              </div>
+              <div class="tbl-area">
+                <h4 class="typeH4">전자세금계산서 내용 입력</h4>
+                <table class="table-type01">
+                  <caption>
+                    사업자등록번호, 상호, 대표자명, 업태, 종목, 우편번호, 주소, 담당자 명, 담당자 E-mail, 담당자 전화번호, 담당자 휴대폰번호에 대한 구성 테이블입니다.
+                  </caption>
+                  <colgroup>
+                    <col style="width: 160px" />
+                    <col style="width: auto" />
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="row">
+                        <span>사업자등록번호</span>
+                      </th>
+                      <td>
+                        <span class="typeMd">123-29-02903</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span class="required"><label for="input-phvosb"> 상호</label></span>
+                      </th>
+                      <td>
+                        <input type="text" id="input-phvosb" class="input size-lg wSize-lg" aria-label=" 상호 입력" placeholder="입력해주세요" />
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span class="required"><label for="input-5uxj9s">대표자명</label></span>
+                      </th>
+                      <td>
+                        <input type="text" id="input-5uxj9s" class="input size-lg wSize-lg" aria-label="대표자명 입력" placeholder="입력해주세요" />
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span class="required"><label for="input-prpigz">업태</label></span>
+                      </th>
+                      <td>
+                        <input type="text" id="input-prpigz" class="input size-lg wSize-lg" aria-label="업태 입력" placeholder="입력해주세요" />
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span class="required"><label for="input-b6ghj2">종목</label></span>
+                      </th>
+                      <td>
+                        <input type="text" id="input-b6ghj2" class="input size-lg wSize-lg" aria-label="종목 입력" placeholder="입력해주세요" />
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span class="required">우편번호</span>
+                      </th>
+                      <td>
+                        <div class="flex items-center gap-6">
+                          <input type="text" class="input zip size-lg" title="우편번호" value="04375" readonly="" />
+                          <button type="button" class="btn type-line-secondary size-lg">
+                            <span class="text">우편번호 찾기</span>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span class="required">주소</span>
+                      </th>
+                      <td class="flex flex-column gap-8">
+                        <div class="flex items-start gap-6 tbl-column">
+                          <div class="flex items-center gap-6">
+                            <input type="text" class="input adr1 size-lg" title="주소1" value="서울특별시 용산구 백범로99길" readonly="" />
+                          </div>
+                          <input type="text" class="input size-lg" placeholder="상세주소" title="상세주소" />
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span class="required"><label for="input-4600f1">담당자 명</label></span>
+                      </th>
+                      <td>
+                        <input type="text" id="input-4600f1" class="input size-lg wSize-lg" aria-label="담당자 명 입력" placeholder="입력해주세요" />
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span class="required">담당자 E-mail</span>
+                      </th>
+                      <td>
+                        <div class="tbl-flex">
+                          <input type="text" class="input size-lg wSize-md" aria-label="이메일 주소" placeholder="이메일 주소" />
+                          @
+                          <div class="box-select wSize-md">
+                            <button type="button" class="select size-lg" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="selectDropdown01" aria-labelledby="label-account" aria-required="true">
+                              <span class="text">이메일주소 선택</span>
+                              <span class="blind">목록 열기</span>
+                            </button>
+                            <div id="selectDropdown01" class="box-list-select">
+                              <ul class="list-select" role="listbox" aria-label="이메일 주소 선택 리스트">
+                                <li class="item-select" role="group" aria-selected="true">
+                                  <span class="btn-item-select"> 이메일주소</span>
+                                </li>
+                                <li class="item-select" role="group" aria-selected="false">
+                                  <span class="btn-item-select">1</span>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span class="required">담당자 전화번호</span>
+                      </th>
+                      <td>
+                        <div class="tbl-flex">
+                          <!-- aria-labelledby와 aria-describedby 연결 -->
+                          <input type="text" class="input size-lg wSize-sm" value="" maxlength="4" aria-label="휴대전화번호 첫자리" aria-required="true" />
+                          <span aria-hidden="true">-</span>
+                          <input type="text" class="input size-lg wSize-sm" value="" maxlength="4" aria-label="휴대전화번호 중간자리" aria-required="true" />
+                          <span aria-hidden="true">-</span>
+                          <input type="text" class="input size-lg wSize-sm" value="" maxlength="4" aria-label="휴대전화번호 뒷자리" aria-required="true" />
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span class="required">담당자 휴대폰번호</span>
+                      </th>
+                      <td>
+                        <div class="tbl-flex">
+                          <!-- aria-labelledby와 aria-describedby 연결 -->
+                          <div class="box-select wSize-sm">
+                            <button type="button" id="phonePrefixBtn" class="select size-lg" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="selectDropdown01" aria-labelledby="phone-label" aria-required="true">
+                              <span class="text">010</span>
+                            </button>
+                            <div id="selectDropdown01" class="box-list-select">
+                              <ul class="list-select" role="listbox" aria-label="휴대전화번호 앞자리 선택">
+                                <li class="item-select" role="option" aria-selected="true" tabindex="0">
+                                  <span class="btn-item-select">010</span>
+                                </li>
+                                <li class="item-select" role="option" aria-selected="false" tabindex="-1">
+                                  <span class="btn-item-select">011</span>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                          <span aria-hidden="true">-</span>
+                          <input type="text" class="input size-lg wSize-sm" value="" maxlength="4" aria-label="휴대전화번호 중간자리" aria-required="true" />
+                          <span aria-hidden="true">-</span>
+                          <input type="text" class="input size-lg wSize-sm" value="" maxlength="4" aria-label="휴대전화번호 뒷자리" aria-required="true" />
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="btn-wrap center lg-bot">
+                <button type="button" class="btn type-bg-primary-tint size-xxl">
+                  <span class="text">취소</span>
+                </button>
+                <button type="button" class="btn type-bg-primary size-xxl">
+                  <span class="text">신청</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
+</html>

@@ -1,0 +1,192 @@
+<!-- CIBTRN010112000P.html -->
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>수협은행</title>
+  <link rel="stylesheet" href="/static/css/reset.css" />
+  <link rel="stylesheet" href="/static/css/layout.css" />
+  <link rel="stylesheet" href="/static/css/component.css" />
+  <link rel="stylesheet" href="/static/css/common.css" />
+  <link rel="stylesheet" href="/static/css/inq.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <div id="header">
+      @@include('static/html/pub/layout/skipNavigation.html')
+      @@include('static/html/pub/layout/header_sub.html')
+    </div>
+
+    <div id="container" class="container">
+      <div id="leftArea">
+        @@include('static/html/pub/layout/leftArea.html')
+      </div>
+      <div id="contents">
+        <div class="content">
+          @@include('static/html/pub/layout/breadcrumb.html')
+          <div class="inq">
+            <button type="button" class="btn type-bg-primary size-md btn-modal" data-target="modal-01">
+              <span class="text">모달 버튼</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+    </div>
+    <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+  </div>
+  <script src="/static/js/ui/cib_ui_common.js"></script>
+
+  <!-- 모달 팝업 영역 -->
+  <div id="modal-01" class="modal is-active" data-dim="true" data-backdrop-close="false" data-alert="true"
+    data-size="sm" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc">
+    <div class="modal-wrapper">
+      <div class="modal-title" id="modal-title">
+        <h4 class="typeH4">계좌상세조회</h4>
+      </div>
+      <div class="modal-slot" id="modal-desc">
+        <div class="modal-desc">
+          <div class="tbl-area">
+            <h6 class="typeH6">대출계좌 기본정보 조회</h6>
+            <table class="table-type01">
+              <caption>예금주명, 계좌상태, 일부지급중지금, 최종사고등록일, 최종사고등록점에 대한 구성 테이블입니다.</caption>
+              <colgroup>
+                <col style="width: 160px">
+                <col style="width: auto">
+                <col style="width: 160px">
+                <col style="width: auto">
+              </colgroup>
+              <tbody>
+                <tr>
+                  <!--[dev]:20261020 텍스트수정-->
+                  <th scope="row">고객명</th>
+                  <!--//[dev]:20261020 텍스트수정-->
+                  <td colspan="3">
+                    <span class="typeMd">김수협</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">계좌번호</th>
+                  <td colspan="3">
+                    <span class="typeMd">1234-0000-0000</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">상품종류</th>
+                  <td colspan="3">
+                    <span class="typeMd">보통예금</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">대출이율</th>
+                  <td colspan="3">
+                    <span class="typeMd">3.45% (기준금리: 2.45 %, 가산금리: 1.00 %)</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">대출일자</th>
+                  <td colspan="3">
+                    <span class="typeMd">2024-11-22</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">대출상세내역</th>
+                  <td colspan="3">
+                    <button type="button" class="btn type-line-neutral size-sm">
+                      <span class="text">조회</span>
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">담보구분</th>
+                  <td colspan="3">
+                    <div class="tbl-flex">
+                      <span class="typeMd">아파트</span>
+                      <button type="button" class="btn type-line-neutral size-sm">
+                        <span class="text">담보상세내역</span>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">상환기일</th>
+                  <td>
+                    <span class="typeMd">2024-12-01</span>
+                  </td>
+                  <th scope="row">원금납입상태</th>
+                  <td>
+                    <span class="typeMd">정상</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">다음원금상환일</th>
+                  <td>
+                    <span class="typeMd">2024-12-01</span>
+                  </td>
+                  <th scope="row">이자납입주기</th>
+                  <td>
+                    <span class="typeMd">1개월</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">다음이자납입일</th>
+                  <td>
+                    <span class="typeMd">2024-12-01</span>
+                  </td>
+                  <th scope="row">이자납입상태</th>
+                  <td>
+                    <span class="typeMd">정상</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">대출한도승인금액</th>
+                  <td class="text-right">
+                    <span class="typeMd">3,00,000,000 원</span>
+                  </td>
+                  <th scope="row">기한이익상실일</th>
+                  <td>
+                    <span class="typeMd">-</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">대출가능한도</th>
+                  <td class="text-right">
+                    <span class="typeMd">3,00,000,000 원</span>
+                  </td>
+                  <th scope="row">예외거래여부</th>
+                  <td>
+                    <span class="typeMd">정상거래</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">대출잔액</th>
+                  <td class="text-right">
+                    <span class="typeMd">3,00,000,000 원</span>
+                  </td>
+                  <th scope="row">-</th>
+                  <td>
+                    <span class="typeMd">-</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer flex items-center justify-center gap-8">
+        <button type="button" class="btn type-line-primary size-lg">
+          <span class="text">인쇄</span>
+        </button>
+      </div>
+      <button type="button" class="ico btn-close" aria-label="모달 닫기">
+        <i class="ico-close ico-size-smMd" aria-hidden="true"></i>
+        <span class="blind">닫기</span>
+      </button>
+    </div>
+  </div>
+</body>
+
+</html>

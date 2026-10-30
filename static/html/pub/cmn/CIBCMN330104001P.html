@@ -1,0 +1,113 @@
+<!-- 1.03v추가 -->
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/cmn.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
+
+      <div id="container" class="container">
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="cmn">
+              <button type="button" class="btn type-bg-primary size-md btn-modal" data-target="modal-01">
+                <span class="text">모달버튼</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <div id="modal-01" class="modal is-active" data-dim="true" data-backdrop-close="false" data-alert="true" data-size="sm" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc">
+      <div class="modal-wrapper">
+        <div class="modal-title" id="modal-title">
+          <h4 class="typeH4">ARS 추가인증</h4>
+        </div>
+        <div id="modal-desc" class="blind">ARS 추가인증 모달</div>
+        <div class="modal-slot">
+          <div class="tbl-area">
+            <table class="table-type01">
+              <caption>
+                휴대전화번호에 대한 구성 테이블입니다.
+              </caption>
+              <colgroup>
+                <col style="width: 160px" />
+                <col style="width: auto" />
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th scope="row">
+                    <span>휴대전화번호</span>
+                  </th>
+                  <td>
+                    <div class="tbl-flex">
+                      <div class="box-select wSize-md">
+                        <button type="button" id="input-zqb871" class="select size-lg" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="comp-kygiwc" aria-label="휴대전화번호 선택" disabled>
+                          <span class="text">010-1111-2222</span>
+                          <span class="blind">펼침</span>
+                        </button>
+                        <div id="comp-kygiwc" class="box-list-select">
+                          <ul class="list-select" role="listbox" aria-label="휴대전화번호">
+                            <li class="item-select" role="option" aria-selected="false"><span class="btn-item-select">Option01</span></li>
+                            <li class="item-select" role="option" aria-selected="false"><span class="btn-item-select">Option02</span></li>
+                          </ul>
+                        </div>
+                      </div>
+                      <button type="button" class="btn type-line-primary size-lg">
+                        <span class="text">요청</span>
+                      </button>
+                    </div>
+                    <div class="list type-star mt-8">
+                      <ul>
+                        <li class="typeSm">
+                          [요청]버튼 클릭 후 휴대전화로 알려준 인증번호를 스마트기기<br />
+                          키패드에서 선택해 주세요.
+                        </li>
+                      </ul>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="line-box size-xl mt-48">
+            <span class="typeLgSemibold">이용안내</span>
+            <div class="list type-dotted">
+              <ul>
+                <li class="typeMd">[확인]버튼은 반드시 ARS본인인증 후 눌러주시기 바라며, 잠시후 고객님이 요청하신 전화로 ARS본인인증이 진행될 예정입니다.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer flex items-center justify-center gap-8">
+          <button type="button" class="btn type-bg-primary-tint size-lg">
+            <span class="text">취소</span>
+          </button>
+          <button type="button" class="btn type-bg-primary size-lg">
+            <span class="text">확인</span>
+          </button>
+        </div>
+        <button type="button" class="ico btn-close" aria-label="모달 닫기">
+          <i class="ico-close ico-size-smMd" aria-hidden="true"></i>
+          <span class="blind">닫기</span>
+        </button>
+      </div>
+    </div>
+
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
+</html>

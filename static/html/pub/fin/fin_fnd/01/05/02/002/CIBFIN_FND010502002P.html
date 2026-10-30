@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/fin.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
+
+      <div id="container" class="container">
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="fin">
+              <button type="button" class="btn type-bg-primary size-md btn-modal" data-target="modal-01">
+                <span class="text">모달버튼</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <div id="modal-01" class="modal is-active" data-dim="true" data-backdrop-close="false" data-alert="true" data-size="sm" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc">
+      <div class="modal-wrapper">
+        <div class="modal-title" id="modal-title">
+          <h4 class="typeH4">꼭 확인하세요!</h4>
+        </div>
+        <div id="modal-desc" class="blind">꼭 확인하세요! 모달입니다.</div>
+
+        <div class="modal-slot">
+          <div class="modal-desc">
+            <p class="top-txt-right">(최근성향분석일 : YYYY-MM-DD)</p>
+
+            <!-- top box(s) -->
+            <div class="pop-box-type01">
+              <div class="popbox-banner">
+                <div class="popbox-message">
+                  <p>나의 투자성향</p>
+                  <h5 class="typeH5 color-blueMd">공격투자형</h5>
+
+                  <i class="pop-img01">
+                    <em class="blind">공격투자형 이미지</em>
+                  </i>
+                  <!--
+                  <i class="pop-img02">
+                    <em class="blind">안정형 이미지</em>
+                  </i>
+                  <i class="pop-img03">
+                    <em class="blind">안정추구형 이미지</em>
+                  </i>
+                  <i class="pop-img04">
+                    <em class="blind">위험중립형 이미지</em>
+                  </i>
+                  <i class="pop-img05">
+                    <em class="blind">적극투자형 이미지</em>
+                  </i>
+                  -->
+
+                  <button type="button" class="btn type-bg-neutral size-sm">
+                    <span class="text">투자성향유형 전체보기</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- top box(e) -->
+
+            <section class="investment-profile-notice">
+              <h6><span>일반 투자성향 분석</span>에 관한 안내입니다.</h6>
+
+              <article class="list type-dotted">
+                <ul>
+                  <li>최초 1회 분석 후 결과는 1년 동안 사용가능합니다.</li>
+                  <li>기존에 진행하신 투자성향분석결과를 사용하여 적합한 상품을 확인하실 수 있습니다.</li>
+                  <li>가입목적, 재산투자 상황 등 투자자 정보가 변경된 경우 다시 진행해주세요.</li>
+                  <li>
+                    투자성향 재분석은<strong class="mr-4 ml-4"> 1일 1회(대면/비대면 통합)만</strong> 가능합니다.<br />
+                    <strong> (단, 이전결과 사용은 횟수제한 없습니다.)</strong>
+                  </li>
+                </ul>
+              </article>
+            </section>
+          </div>
+        </div>
+
+        <div class="modal-footer flex items-center justify-center gap-8">
+          <button type="button" class="btn type-line-neutral size-lg">
+            <span class="text">이전결과사용</span>
+          </button>
+          <button type="button" class="btn type-bg-primary size-lg">
+            <span class="text">투자성향분석</span>
+          </button>
+        </div>
+        <button type="button" class="ico btn-close" aria-label="모달 닫기">
+          <i class="ico-close ico-size-smMd" aria-hidden="true"></i>
+          <span class="blind">닫기</span>
+        </button>
+      </div>
+    </div>
+
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
+</html>

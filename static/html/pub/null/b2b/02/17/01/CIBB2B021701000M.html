@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/b2b.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
+
+      <div id="container" class="container">
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="b2b">
+              <h2 class="typeH2">어음할인신청 내역 조회</h2>
+              <div class="tbl-area">
+                <table class="table-type01">
+                  <caption>
+                    어음할인신청 조회를 위한 수취인 계좌번호 및 조회기간 입력 표
+                  </caption>
+                  <colgroup>
+                    <col style="width: 160px" />
+                    <col style="width: auto" />
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="row">
+                        <span>조회구분</span>
+                      </th>
+                      <td>
+                        <div class="form-box-wrap" role="radiogroup" aria-label="정렬조건">
+                          <span class="form-box">
+                            <input type="radio" name="searchType" id="searchType_01" class="form-radio size-md" checked="" />
+                            <label for="searchType_01" class="form-label">전체</label>
+                          </span>
+                          <span class="form-box">
+                            <input type="radio" name="searchType" id="searchType_02" class="form-radio size-md" />
+                            <label for="searchType_02" class="form-label">할인신청</label>
+                          </span>
+                          <span class="form-box">
+                            <input type="radio" name="searchType" id="searchType_03" class="form-radio size-md" />
+                            <label for="searchType_03" class="form-label">할인실행</label>
+                          </span>
+                          <span class="form-box">
+                            <input type="radio" name="searchType" id="searchType_04" class="form-radio size-md" />
+                            <label for="searchType_04" class="form-label">할인취소</label>
+                          </span>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span>조회기간</span>
+                      </th>
+                      <td>
+                        <div class="tbl-column">
+                          <!-- 1. radiogroup에 aria-label 추가 -->
+                          <div class="radio-group" role="radiogroup" aria-label="조회기간">
+                            <span class="form-box">
+                              <input type="radio" name="searchPeriod" id="period_04" class="radio-btn" />
+                              <label for="period_04" class="form-label">1주일</label>
+                            </span>
+                            <span class="form-box">
+                              <input type="radio" name="searchPeriod" id="period_05" class="radio-btn" />
+                              <label for="period_05" class="form-label">1개월</label>
+                            </span>
+                            <span class="form-box">
+                              <input type="radio" name="searchPeriod" id="period_06" class="radio-btn" />
+                              <label for="period_06" class="form-label">3개월</label>
+                            </span>
+                            <span class="form-box">
+                              <input type="radio" name="searchPeriod" id="period_07" class="radio-btn" />
+                              <label for="period_07" class="form-label">6개월</label>
+                            </span>
+                          </div>
+
+                          <div class="calendar-wrap">
+                            <!-- 날짜 입력 영역 -->
+                            <div class="input-box">
+                              <input type="text" class="input" placeholder="조회 시작일" aria-label="조회 시작일" value="2026-01-06" />
+                              <button type="button" class="btn">
+                                <i class="ico-calendar ico-size-smMd" aria-hidden="true"></i>
+                                <span class="blind">조회 시작일 달력 열기</span>
+                              </button>
+                            </div>
+                            <span aria-hidden="true">~</span>
+                            <div class="input-box">
+                              <input type="text" class="input" placeholder="조회 종료일" aria-label="조회 종료일" value="2026-01-06" />
+                              <button type="button" class="btn">
+                                <i class="ico-calendar ico-size-smMd" aria-hidden="true"></i>
+                                <span class="blind">조회 종료일 달력 열기</span>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="btn-wrap center">
+                <button type="button" class="btn type-bg-neutral size-xl">
+                  <span class="text">조회</span>
+                </button>
+              </div>
+              <!-- 결과 영역 -->
+              <div class="tbl-area">
+                <h4 class="typeH4">조회결과</h4>
+                <div class="tbl-head">
+                  <div class="left-area">
+                    <span class="total typeMd">총 <span class="num">$n$</span></span>
+                  </div>
+                  <div class="right-area"><span class="color-fg-secondary typeMd">조회기간 : 2026-06-14 ~ 2026-06-14</span></div>
+                </div>
+                <table class="table-type03">
+                  <caption>
+                    전자어음번호, 분할번호, 배서번호, 어음상태, 어음금액, 발행일자, 만기일자, 발행인명, 할인신청 버튼으로 구성된 어음할인신청 조회결과 표
+                  </caption>
+                  <colgroup>
+                    <col style="width: 200px" />
+                    <col style="width: 80px" />
+                    <col style="width: 80px" />
+                    <col style="width: 100px" />
+                    <col style="width: auto" />
+                    <col style="width: 110px" />
+                    <col style="width: 110px" />
+                    <col style="width: 100px" />
+                    <col style="width: 120px" />
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th scope="col">전자어음번호</th>
+                      <th scope="col">분할번호</th>
+                      <th scope="col">배서번호</th>
+                      <th scope="col">어음상태</th>
+                      <th scope="col">어음금액</th>
+                      <th scope="col">발행일자</th>
+                      <th scope="col">만기일자</th>
+                      <th scope="col">발행인명</th>
+                      <th scope="col">상세보기</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <span class="typeMd">00720260818409000000</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">00</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">00</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">할인가능</span>
+                      </td>
+                      <td class="text-right">
+                        <span class="typeMd">1,234,567</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">2026-07-01</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">2026-08-31</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">김나다</span>
+                      </td>
+                      <td>
+                        <button type="button" class="btn type-line-neutral size-sm" title="전자어음번호 00720260818409000000 상세보기" aria-label="전자어음번호 00720260818409000000 상세보기">
+                          <span class="text">상세보기</span>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <nav class="pagination size-md" aria-label="페이지네이션">
+                <button type="button" class="btn-nav first" disabled="" aria-disabled="true" aria-label="첫 페이지">
+                  <span class="blind">첫 페이지</span>
+                </button>
+                <button type="button" class="btn-nav prev" disabled="" aria-disabled="true" aria-label="이전 페이지">
+                  <span class="blind">이전 페이지</span>
+                </button>
+
+                <ol class="list-pagination">
+                  <li>
+                    <button type="button" class="btn-page active" aria-current="page" title="현재 페이지">1</button>
+                  </li>
+                  <li>
+                    <button type="button" class="btn-page" aria-label="2페이지">2</button>
+                  </li>
+                  <li>
+                    <button type="button" class="btn-page" aria-label="3페이지">3</button>
+                  </li>
+                  <li>
+                    <button type="button" class="btn-page" aria-label="4페이지">4</button>
+                  </li>
+                  <li>
+                    <button type="button" class="btn-page" aria-label="5페이지">5</button>
+                  </li>
+                </ol>
+
+                <button type="button" class="btn-nav next" aria-label="다음 페이지">
+                  <span class="blind">다음 페이지</span>
+                </button>
+                <button type="button" class="btn-nav last" aria-label="마지막 페이지">
+                  <span class="blind">마지막 페이지</span>
+                </button>
+              </nav>
+              <!-- 이용안내 영역 -->
+              <div class="line-box size-xl mt-48">
+                <span class="typeLgSemibold">이용안내</span>
+                <div class="list type-dotted">
+                  <ul>
+                    <li class="typeMd">전체내역, 할인신청내역, 할인실행내역, 할인취소내역을 조회 할 수 있습니다.</li>
+                    <li class="typeMd">할인신청내역을 조회 하시고 할인취소를 할 수 있습니다.</li>
+                    <li class="typeMd">조회기간 기준은 할인신청이면 할인신청일, 할인실행이면 할인실행일, 할인취소이면 할인취소일 입니다.</li>
+                    <li class="typeMd">이용가능시간 : 08:30 ~ 22:00</li>
+                  </ul>
+                </div>
+              </div>
+              <!-- // 이용안내 영역 -->
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
+</html>

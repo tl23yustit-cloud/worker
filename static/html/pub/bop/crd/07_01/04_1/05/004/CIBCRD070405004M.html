@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/bop.css" />
+</head>
+
+<body>
+    <div class="wrapper">
+        <div id="header">
+            @@include('static/html/pub/layout/skipNavigation.html')
+            @@include('static/html/pub/layout/header_sub.html')
+        </div>
+
+        <div id="container" class="container">
+            <div id="leftArea">
+                @@include('static/html/pub/layout/leftArea.html')
+            </div>
+            <div id="contents">
+                <div class="content">
+                    @@include('static/html/pub/layout/breadcrumb.html')
+                    <div class="bop">
+                        <h2 class="typeH2">
+                            재발급신청
+                            <div class="box-steps">
+                                <ol class="list-steps">
+                                    <li class="item-steps passed">
+                                        <i class="icon" aria-hidden="true">1</i>
+                                        <span class="text">1</span>
+                                    </li>
+                                    <li class="item-steps passed">
+                                        <i class="icon" aria-hidden="true">2</i>
+                                        <span class="text">2</span>
+                                    </li>
+
+                                    <li class="item-steps current" aria-current="step">
+                                        <span class="blind">신청완료</span>
+                                        <i class="icon" aria-hidden="true">3</i>
+                                        <span class="text">신청완료</span>
+                                    </li>
+
+                                </ol>
+                            </div>
+                        </h2>
+
+
+                        <div class="result-box">
+                            <div class="result-banner">
+                                <div class="inner-img"></div>
+                                <div class="result-message">
+                                    <h4 class="typeH4 color-blueMd">
+                                        재발급신청신청을 완료했습니다.
+                                    </h4>
+                                    <span class="typeMd">진행상태는 SMS로 안내 드립니다.<br />
+                                        지역에 따라 3~7영업일이 소요될 수 있습니다.<br />
+                                        재발급 완료후 카드번호가 변경되므로 통신료, 보험료 등 자동이체 등록된 카드번호는 변경 필요합니다.
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <!-- 하단 확인 버튼 영역 -->
+                        <div class="btn-wrap center lg-bot">
+                            <button type="button" class="btn type-bg-primary size-xxl">
+                                <span class="text">진행상태조회로 이동
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+        </div>
+        <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,184 @@
+<!-- for dev ) 디자인 확정아님 -->
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/van.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">
+        @@include('static/html/pub/layout/skipNavigation.html')
+        @@include('static/html/pub/layout/header_sub.html')
+      </div>
+
+      <div id="container" class="container">
+        <div id="leftArea">
+          @@include('static/html/pub/layout/leftArea.html')
+        </div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="bop">
+              <button
+                type="button"
+                class="btn type-bg-primary size-md btn-modal"
+                data-target="modal-16"
+              >
+                <span class="text">이체확인증 인쇄</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+    <div
+      id="modal-16"
+      class="modal is-active"
+      data-dim="true"
+      data-backdrop-close="false"
+      data-alert="true"
+      data-size="md"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modal-title"
+      aria-describedby="modal-desc"
+    >
+      <div class="modal-wrapper">
+        <div class="modal-title">
+          <h4 class="typeH4">영수증 발급</h4>
+        </div>
+        <div id="modal-desc" class="blind">이체확인증 확인 모달</div>
+        <div class="modal-slot">
+          <div class="list type-dotted">
+            <ul>
+              <li class="typeMd">
+                본 확인증은 변경 가능성이 있어 거래증빙으로 사용할 수 없습니다.
+              </li>
+              <li class="typeMd">
+                본 자료로 인해 귀하의 금융정보가 노출될 수 있으니 유의하시기
+                바랍니다.
+              </li>
+            </ul>
+          </div>
+          <div class="tbl-area">
+            <div class="tbl-head">
+              <div class="left-area">
+                <h4 class="typeH4">영수증</h4>
+              </div>
+              <div class="right-area">
+                <span class="typeSm">(단위 : 건/원) </span>
+              </div>
+            </div>
+            <table class="table-type03">
+              <caption>
+                번호, 대상년월, 서비스종류, 이용건수, 수수료, 수수료결제계좌,
+                의뢰건, 정상건, 불능건, 합계에 대한 구성 테이블입니다.
+              </caption>
+              <colgroup>
+                <col style="width: auto" />
+                <col style="width: auto" />
+                <col style="width: auto" />
+                <col style="width: auto" />
+                <col style="width: auto" />
+                <col style="width: auto" />
+                <col style="width: auto" />
+                <col style="width: auto" />
+              </colgroup>
+              <thead>
+                <tr>
+                  <th scope="col" rowspan="2"><span>번호</span></th>
+                  <th scope="col" rowspan="2"><span>대상년월</span></th>
+                  <th scope="col" rowspan="2"><span>서비스종류</span></th>
+                  <th scope="colgroup" colspan="3">
+                    <span>이용건수</span>
+                  </th>
+                  <th scope="col" rowspan="2"><span>수수료</span></th>
+                  <th scope="col" rowspan="2">
+                    <span>수수료결제계좌</span>
+                  </th>
+                </tr>
+                <tr>
+                  <th scope="col"><span>의뢰건</span></th>
+                  <th scope="col"><span>정상건</span></th>
+                  <th scope="col"><span>불능건</span></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <span class="typeMd">1</span>
+                  </td>
+                  <td>
+                    <span class="typeMd">2026-07</span>
+                  </td>
+                  <td>
+                    <span class="typeMd">실시간 계좌성명조회</span>
+                  </td>
+                  <td>
+                    <span class="typeMd">2,000</span>
+                  </td>
+                  <td>
+                    <span class="typeMd">1,900</span>
+                  </td>
+                  <td>
+                    <span class="typeMd">100</span>
+                  </td>
+                  <td class="text-right">
+                    <span class="typeMd">7,000</span>
+                  </td>
+                  <td>
+                    <span class="typeMd">0000-0000-0000</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="col" class="noradius tbl-border-right" colspan="3">
+                    합계
+                  </th>
+                  <td>3,000</td>
+                  <td>2,800</td>
+                  <td>200</td>
+                  <td class="text-right">10,000</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="typeLg text-center mt-12">
+            위 내용이 정상적으로 처리 되었음을 확인합니다<br />
+            2026년 08월 04일
+          </p>
+          <div class="flex justify-center mr-10">
+            <div class="logo-area mt-48">
+              <div class="logo">
+                <span class="blind">Sh수협은행</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer flex items-center justify-center gap-8">
+          <button type="button" class="btn type-line-neutral size-lg">
+            <span class="text">인쇄</span>
+          </button>
+          <button type="button" class="btn type-bg-primary size-lg">
+            <span class="text">닫기</span>
+          </button>
+        </div>
+        <button type="button" class="ico btn-close" aria-label="모달 닫기">
+          <i class="ico-close ico-size-smMd" aria-hidden="true"></i>
+          <span class="blind">닫기</span>
+        </button>
+      </div>
+    </div>
+  </body>
+</html>

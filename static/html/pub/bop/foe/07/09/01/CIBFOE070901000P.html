@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
+
+      <div id="container" class="container">
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="bop">
+              <button type="button" class="btn type-bg-primary size-md btn-modal" data-target="modal-16" aria-haspopup="dialog" aria-controls="modal-16">
+                <span class="text">매입/추심내역조회 </span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+    <div id="modal-16" class="modal is-active" data-dim="true" data-backdrop-close="false" data-alert="true" data-size="md" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc">
+      <div class="modal-wrapper">
+        <div class="modal-title">
+          <h4 class="typeH4">매입/추심내역조회</h4>
+        </div>
+        <div class="modal-slot">
+          <div id="modal-desc">
+            <div class="tbl-area">
+              <div class="tbl-head">
+                <div class="left-area">
+                  <div class="list type-dotted">
+                    <ul>
+                      <li class="typeMd">목록중에서 해당되는 항목을 클릭하세요.</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="right-area flex items-center gap-4">
+                  <span class="color-fg-secondary typeMd">조회기간 : <span>YYYY.MM.DD~YYYY.MM.DD </span></span>
+                </div>
+              </div>
+              <table class="table-type03">
+                <caption>
+                  매입번호, 매입일, 통화, 미결제금액, TENOR, 상세조회, 입금예정일, 매입금액, 적요에 대한 구성 테이블입니다.
+                </caption>
+                <colgroup>
+                  <col style="width: auto" />
+                  <col style="width: auto" />
+                  <col style="width: auto" />
+                  <col style="width: auto" />
+                  <col style="width: auto" />
+                  <col style="width: auto" />
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th rowspan="2" id="th-1-1" scope="col">매입번호</th>
+                    <th id="th-1-2" scope="col" headers="th-2-2 th-1-1">매입일</th>
+                    <th id="th-1-3" scope="col" headers="th-2-3 th-1-1">통화</th>
+                    <!--[dev]:20261028 공통 col table th 금액단위표시(원)-->
+                    <th id="th-1-4" scope="col" headers="th-2-4 th-1-1">미결제금액(원)</th>
+                    <!--//[dev]:20261028 공통 col table th 금액단위표시(원)-->
+                    <th rowspan="2" id="th-1-5" scope="col" headers="th-1-1">TENOR</th>
+                    <th rowspan="2" id="th-1-6" scope="col" headers="th-1-1">상세조회</th>
+                  </tr>
+                  <tr>
+                    <th id="th-2-2" scope="col" headers="th-1-2 th-1-1" class="allnoradius left-line">입금예정일</th>
+                    <!--[dev]:20261028 공통 col table th 금액단위표시(원)-->
+                    <th id="th-2-3" scope="col" headers="th-1-3 th-1-1">매입금액(원)</th>
+                    <!--//[dev]:20261028 공통 col table th 금액단위표시(원)-->
+                    <th id="th-2-4" scope="col" headers="th-1-4 th-1-1">적요</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td rowspan="2" headers="th-1-1"><span class="typeMd">BB003313000047</span></td>
+                    <td headers="th-1-2 th-2-2">
+                      <span class="typeMd">YYYY-MM-DD<br /></span>
+                    </td>
+                    <td headers="th-1-3 th-2-3" class="text-right"><span class="typeMd">USD</span></td>
+                    <td headers="th-1-4 th-2-4" class="text-right">
+                      <span class="typeMd">1,000.00<br /></span>
+                    </td>
+                    <td rowspan="2" headers="th-1-5">
+                      <span class="typeMd">U/S<br /></span>
+                    </td>
+                    <td rowspan="2" headers="th-1-6">
+                      <button type="button" class="btn type-line-neutral size-sm">
+                        <span class="text">선택</span>
+                        <!--[dev]:20261028 table btn blind텍스트 추가-->
+                        <span class="blind">BB003313000047 선택</span>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td headers="th-1-2 th-2-2" class="tbl-border-left">
+                      <span class="typeMd">YYYY-MM-DD<br /></span>
+                    </td>
+                    <td headers="th-1-3 th-2-3" class="text-right">
+                      <span class="typeMd">1,000.00<br /></span>
+                    </td>
+                    <td headers="th-1-4 th-2-4" class="text-right"><span class="typeMd">매입</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <nav class="pagination size-md" aria-label="페이지네이션">
+              <button type="button" class="btn-nav first" disabled="" aria-disabled="true" aria-label="첫 페이지">
+                <span class="blind">첫 페이지</span>
+              </button>
+              <button type="button" class="btn-nav prev" disabled="" aria-disabled="true" aria-label="이전 페이지">
+                <span class="blind">이전 페이지</span>
+              </button>
+
+              <ol class="list-pagination">
+                <li>
+                  <button type="button" class="btn-page active" aria-current="page" aria-label="1페이지" title="현재 페이지">1</button>
+                </li>
+                <li>
+                  <button type="button" class="btn-page" aria-label="2페이지">2</button>
+                </li>
+                <li>
+                  <button type="button" class="btn-page" aria-label="3페이지">3</button>
+                </li>
+                <li>
+                  <button type="button" class="btn-page" aria-label="4페이지">4</button>
+                </li>
+                <li>
+                  <button type="button" class="btn-page" aria-label="5페이지">5</button>
+                </li>
+              </ol>
+
+              <button type="button" class="btn-nav next" aria-label="다음 페이지">
+                <span class="blind">다음 페이지</span>
+              </button>
+              <button type="button" class="btn-nav last" aria-label="마지막 페이지">
+                <span class="blind">마지막 페이지</span>
+              </button>
+            </nav>
+          </div>
+        </div>
+        <div class="modal-footer flex items-center justify-center gap-6"></div>
+        <button type="button" class="ico btn-close" aria-label="모달 닫기">
+          <i class="ico-close ico-size-smMd" aria-hidden="true"></i>
+          <span class="blind">닫기</span>
+        </button>
+      </div>
+    </div>
+  </body>
+</html>

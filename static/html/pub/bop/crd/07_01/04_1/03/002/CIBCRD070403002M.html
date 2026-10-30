@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/aut.css" />
+</head>
+
+<body>
+    <div class="wrapper">
+        <div id="header">
+            @@include('static/html/pub/layout/skipNavigation.html')
+            @@include('static/html/pub/layout/header_sub.html')
+        </div>
+
+        <div id="container" class="container">
+            <div id="leftArea">
+                @@include('static/html/pub/layout/leftArea.html')
+            </div>
+            <div id="contents">
+                <div class="content">
+                    @@include('static/html/pub/layout/breadcrumb.html')
+                    <div class="aut">
+                        <h2 class="typeH2">
+                            카드신청
+                            <div class="box-steps">
+                                <ol class="list-steps">
+
+                                    <li class="item-steps current" aria-current="step">
+                                        <span class="blind">1</span>
+                                        <i class="icon" aria-hidden="true">1</i>
+                                        <span class="text">본인 확인</span>
+                                    </li>
+                                    <li class="item-steps">
+                                        <span class="blind">2</span>
+                                        <i class="icon" aria-hidden="true">2</i>
+                                    </li>
+                                    <li class="item-steps">
+                                        <span class="blind">3</span>
+                                        <i class="icon" aria-hidden="true">3</i>
+                                    </li>
+
+                                </ol>
+                            </div>
+                        </h2>
+
+
+                        <div class="flex flex-column gap-4">
+                            <h3 class="typeH4">
+                                사업자명의 타행계좌인증을 진행해 주세요
+                            </h3>
+                            <p class="typeLg">사업자명의 입출금 계좌 인증을 진행합니다.
+                            </p>
+                        </div>
+
+
+                        <div class="tbl-area">
+
+                            <table class="table-type01">
+                                <caption>은행구분, 수취인 계좌번호, 계좌번호, 계좌 비밀번호에 대한 구성 테이블입니다.</caption>
+                                <colgroup>
+                                    <col>
+                                    <col>
+                                </colgroup>
+                                <tbody>
+
+                                    <tr>
+                                        <th scope="row"><span class="required"> 예금주명</span></th>
+                                        <td>
+                                            <input type="text" id="userDeptInput" class="input size-lg wSize-md"
+                                                value="" placeholder="예금주명을 입력해주세요" aria-label="예금주명">
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <th scope="row">
+
+                                            <span class="required">은행</span>
+                                        </th>
+                                        <td colspan="3">
+                                            <div class="box-select wSize-md">
+                                                <button type="button" class="select size-lg" role="combobox"
+                                                    aria-expanded="false" aria-haspopup="listbox"
+                                                    aria-controls="selectDropdown01" aria-labelledby="label-account"
+                                                    aria-required="true">
+                                                    <span class="text">선택하세요</span>
+                                                    <span class="blind">목록 열기</span>
+                                                </button>
+                                                <div id="selectDropdown01" class="box-list-select">
+                                                    <ul class="list-select" role="listbox" aria-label="은행 선택 리스트">
+                                                        <li class="item-select" role="group" aria-selected="true">
+                                                            <span class="btn-item-select">
+                                                                1</span>
+                                                        </li>
+                                                        <li class="item-select" role="group" aria-selected="false">
+                                                            <span class="btn-item-select">2</span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+
+                                    <tr>
+                                        <th scope="row"><span class="required"> 계좌번호</span></th>
+                                        <td>
+                                            <div class="tbl-flex">
+                                                <input type="password" class="input size-lg wSize-smMd"
+                                                    placeholder="계좌번호를 입력하세요" aria-label="계좌번호">
+
+                                                <button type="button"
+                                                    class="btn type-line-secondary size-lg flex gap-4 items-center">
+                                                    <span class="text">계좌인증</span>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <!--  -->
+                                    <tr>
+                                        <th scope="row"><span class="required"> 인증번호</span></th>
+                                        <td>
+                                            <div class="tbl-flex">
+                                                <input type="text" id="num" class="input size-lg wSize-md" value=""
+                                                    placeholder="" aria-label="예금주명">
+                                                <div class="typeMd pl-12">
+                                                    <span>입금자명에 표시된 숫자 4자리를 확인해주세요
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+
+
+
+                        <div class="btn-wrap center lg-bot">
+                            <button type="button" class="btn type-bg-primary-tint size-xxl">
+                                <span class="text">취소</span>
+                            </button>
+                            <button type="button" class="btn type-bg-primary size-xxl">
+                                <span class="text">다음</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+        </div>
+        <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+</body>
+
+</html>

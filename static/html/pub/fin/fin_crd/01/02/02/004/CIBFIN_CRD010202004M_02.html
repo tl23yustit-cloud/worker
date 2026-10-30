@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/fin.css" />
+</head>
+
+<body>
+    <div class="wrapper">
+        <div id="header">
+            @@include('static/html/pub/layout/skipNavigation.html')
+            @@include('static/html/pub/layout/header_sub.html')
+        </div>
+
+        <div id="container" class="container">
+            <div id="leftArea">
+                @@include('static/html/pub/layout/leftArea.html')
+            </div>
+            <div id="contents">
+                <div class="content">
+                    @@include('static/html/pub/layout/breadcrumb.html')
+                    <div class="fin">
+                        <h2 class="typeH2">
+                            카드신청
+                            <div class="box-steps">
+                                <ol class="list-steps">
+                                    <!-- 
+                                        [dev] 상태값 class 안내
+                                        class="item-steps" 기본 숫자 표기
+                                        class="item-steps passed" 완료
+                                        class="item-steps current" 현재
+                                    -->
+                                    <li class="item-steps current" aria-current="step">
+                                        <i class="icon" aria-hidden="true">1</i>
+                                        <span class="text">약관동의</span>
+                                    </li>
+                                    <li class="item-steps">
+                                        <i class="icon" aria-hidden="true">2</i>
+                                        <span class="text">본인확인</span>
+                                    </li>
+                                    <li class="item-steps ">
+                                        <i class="icon" aria-hidden="true">3</i>
+                                        <span class="text">사업자정보</span>
+                                    </li>
+                                    <li class="item-steps">
+                                        <i class="icon" aria-hidden="true">4</i>
+                                        <span class="text">카드정보</span>
+                                    </li>
+                                    <li class="item-steps">
+                                        <i class="icon" aria-hidden="true">5</i>
+                                        <span class="text">추가정보</span>
+                                    </li>
+                                    <li class="item-steps">
+                                        <i class="icon" aria-hidden="true">6</i>
+                                        <span class="text">서류제출</span>
+                                    </li>
+                                    <li class="item-steps">
+                                        <i class="icon" aria-hidden="true">7</i>
+                                        <span class="text">신청완료</span>
+                                    </li>
+                                </ol>
+                            </div>
+                        </h2>
+                        
+                        <h3 class="typeH3">
+                            필수동의 및 확인
+                        </h3>
+                        <p class="typeLg mt-12">
+                            적합성 판단을 확인하고 동의해 주세요
+                        </p>
+
+                        <!-- 테이블영역 영역(s) -->
+                        <h3 class="typeH3 mt-24">
+                            소비자구분
+                        </h3>
+                        <div class="tbl-area">
+                            <table class="table-type01">
+                                <caption>소비자구분, 법인 매출액, 법인 신용등급, 신용점수에 대한 구성 테이블입니다.</caption>
+                                <colgroup>
+                                    <col style="width: 160px">
+                                    <col style="width: auto">
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">
+                                            <span class="required">소비자구분</span>
+                                        </th>
+                                        <td>
+                                            <div class="form-box-wrap" role="radiogroup" aria-label="법인 신용등급">
+                                                <span class="form-box">
+                                                    <input type="radio" name="radio_comp-c5dnkh" id="radio_comp-c5dnkh_01" class="form-radio size-md" checked="">
+                                                    <label for="radio_comp-c5dnkh_01" class="form-label">전문금융소비자 (상시근로자 5인 이상의 법인, 조합, 단체 등)</label>
+                                                </span>
+                                                <span class="form-box">
+                                                    <input type="radio" name="radio_comp-c5dnkh" id="radio_comp-c5dnkh_02" class="form-radio size-md">
+                                                    <label for="radio_comp-c5dnkh_02" class="form-label">일반금융소비자로 대우희망</label>
+                                                </span>
+                                                <span class="form-box">
+                                                    <input type="radio" name="radio_comp-c5dnkh" id="radio_comp-c5dnkh_03" class="form-radio size-md">
+                                                    <label for="radio_comp-c5dnkh_03" class="form-label">일반금융소비자</label>
+                                                </span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">
+                                            <span class="required">개인사업자 연간소득</span>
+                                        </th>
+                                        <td>
+                                            <div class="form-box-wrap" role="radiogroup" aria-label="개인사업자 매출액">
+                                                <span class="form-box">
+                                                    <input type="radio" name="radio_comp-qlafvk" id="radio_comp-qlafvk_01" class="form-radio size-md" checked="">
+                                                    <label for="radio_comp-qlafvk_01" class="form-label">5천만원 이하</label>
+                                                </span>
+                                                <span class="form-box">
+                                                    <input type="radio" name="radio_comp-qlafvk" id="radio_comp-qlafvk_02" class="form-radio size-md">
+                                                    <label for="radio_comp-qlafvk_02" class="form-label">5천만원 초과 ~ 1억원 이하</label>
+                                                </span>
+                                                <span class="form-box">
+                                                    <input type="radio" name="radio_comp-qlafvk" id="radio_comp-qlafvk_03" class="form-radio size-md">
+                                                    <label for="radio_comp-qlafvk_03" class="form-label">1억원 초과</label>
+                                                </span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">
+                                            <span class="required">개인사업자 신용등급</span>
+                                        </th>
+                                        <td>
+                                            <div class="form-box-wrap" role="radiogroup" aria-label="개인사업자 신용등급">
+                                                <span class="form-box">
+                                                    <input type="radio" name="radio_comp-a7jl2n" id="radio_comp-a7jl2n_01" class="form-radio size-md" checked="">
+                                                    <label for="radio_comp-a7jl2n_01" class="form-label">잘 모름 (당사를 통한 등급 조회 동의)</label>
+                                                </span>
+                                                <span class="form-box">
+                                                    <input type="radio" name="radio_comp-a7jl2n" id="radio_comp-a7jl2n_02" class="form-radio size-md">
+                                                    <label for="radio_comp-a7jl2n_02" class="form-label">NICE</label>
+                                                </span>
+                                                <span class="form-box">
+                                                    <input type="radio" name="radio_comp-a7jl2n" id="radio_comp-a7jl2n_03" class="form-radio size-md">
+                                                    <label for="radio_comp-a7jl2n_03" class="form-label">KCB</label>
+                                                </span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">
+                                            <span class="required"><label for="input-qauwh6">신용점수</label></span>
+                                        </th>
+                                        <td>
+                                        <div class="box-select wSize-md">
+                                                <button type="button" id="input-qauwh6" class="select size-lg" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="comp-hn8k0s" aria-label="신용점수 선택">
+                                                    <span class="text">Placeholder Text</span>
+                                                    <span class="blind">펼침</span>
+                                                </button>
+                                                <div id="comp-hn8k0s" class="box-list-select">
+                                                    <ul class="list-select" role="listbox" aria-label="신용점수">
+                                                        <li class="item-select" role="option" aria-selected="false">
+                                                            <span class="btn-item-select">Option01</span>
+                                                        </li>
+                                                        <li class="item-select" role="option" aria-selected="false">
+                                                            <span class="btn-item-select">Option02</span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- 테이블영역 영역(e) -->
+
+                        <p class="form-box mt-12">
+                            <input type="checkbox" name="" id="SampleCheckbox0202" class="form-checkbox">
+                            <label for="SampleCheckbox0202" class="form-label">
+                                금융소비자보호법 제17조에 따라 적합성판단에 필요한 위의 고객정보 내용을 작성•확인하였으며, 그 내용을 제공받았습니다.
+                            </label>
+                        </p>
+
+                        <!-- 버튼영역(s) -->
+                        <div class="btn-wrap center lg-bot">
+                            <button type="button" class="btn type-bg-primary-tint size-xxl">
+                                <span class="text">이전</span>
+                            </button>
+                            <button type="button" class="btn type-bg-primary size-xxl">
+                                <span class="text">다음</span>
+                            </button>
+                        </div>
+                        <!-- 하단 버튼영역(e) -->
+                    </div>
+                </div>
+            </div>
+            <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+        </div>
+        <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+     <!--[dev]:20261008 css링크수정-->
+    <link rel="stylesheet" href="/static/css/pcg.css" />
+    <!--//[dev]:20261008 css링크수정-->
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
+
+      <div id="container" class="container">
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <!--[dev]:20261008 class명 수정-->
+            <div class="pcg">
+            <!--[dev]:20261008 class명 수정-->
+              <h2 class="typeH2">
+                지로요금납부
+                <div class="box-steps">
+                  <ol class="list-steps">
+                    <!-- 
+												[dev] 상태값 class 안내
+												class="item-steps" 기본 숫자 표기
+												class="item-steps passed" 완료
+												class="item-steps current" 현재
+											 -->
+                    <li class="item-steps current" aria-current="step">
+                      <i class="icon" aria-hidden="true">1</i>
+                      <span class="text">납부정보입력</span>
+                    </li>
+                    <li class="item-steps">
+                      <i class="icon" aria-hidden="true">2</i>
+                      <span class="text">정보확인</span>
+                    </li>
+                    <li class="item-steps">
+                      <i class="icon" aria-hidden="true">3</i>
+                      <span class="text">채무조정 신청 완료</span>
+                    </li>
+                  </ol>
+                </div>
+              </h2>
+              <div class="giro-img-wrap mb-24"><img src="/static/images/common/giro_img02.png" alt="지로통지서 예시 이미지:1번 지로번호, 2번 전자납부번호, 3번 금액, 4번 체크디지트 위치 안내" /></div>
+              <!--[dev]:20261008 이미지 추가 -->
+              <!--QOCR -->
+              <div class="giro-img-wrap mb-24"><img src="/static/images/common/giro_img03.png" alt="지로통지서 예시 이미지:1번 지로번호, 2번 전자납부번호, 3번 금액,  위치 안내" /></div>
+              <!--//QOCR -->
+              <!--MICR -->
+              <div class="giro-img-wrap mb-24"><img src="/static/images/common/giro_img01.png" alt="지로통지서 예시 이미지:1번 지로번호, 2번 전자납부번호 위치 안내" /></div>
+              <!--//MICR -->
+              <!--//[dev]:20261008 이미지 추가 -->
+              
+              <!--[dev]:20261014 이미지 추가 -->
+              <!--어떤값에서 들어오는지 모르겠음 상위 세게중 나머지에 해당하는 곳에 사용하세요 -->
+              <div class="giro-img-wrap mb-24"><img src="/static/images/common/giro_img04.png" alt="지로통지서 예시 이미지:1번 지로번호, 2번 전자납부번호 위치 안내" /></div>
+              <!--//어떤값에서 들어오는지 모르겠음 상위 세게중 나머지에 해당하는 곳에 사용하세요 -->
+              <!--//[dev]:20261014 이미지 추가 -->
+              <div class="bg-box line size-lgXl">
+                <p class="typeLg text-center">&#x2776;지로번호 <strong>6100085</strong> 에 대한 청구기관은 <strong>텔레콤</strong> 입니다.</p>
+              </div>
+              <div class="tbl-area">
+                <h4 class="typeH4">납부정보</h4>
+                <table class="table-type01">
+                  <caption>
+                    조회기간, 수취인 계좌번호, 이메일 주소, 부서명, 외화출금계좌번호, 휴대전화번호, 조회구분, 주소에 대한 구성 테이블입니다.
+                  </caption>
+                  <colgroup>
+                    <col />
+                    <col />
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="row">&#x2777;<span>고객조회번호</span></th>
+                      <td>
+                        <input type="text" id="userDeptInput" class="input size-lg wSize-md" value="" placeholder="입력하세요" aria-label="고객조회번호" />
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">성명(사업자명)</th>
+                      <td>
+                        <span class="typeMd">홍길동</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">&#x2778;<span>납부금액</span></th>
+                      <td>
+                        <input type="text" id="userDeptInput" class="input size-lg wSize-md" value="" placeholder="입력하세요" aria-label="납부금액" />
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">&#x2779;<span>납부금액확인값</span></th>
+                      <td>
+                        <input type="text" id="userDeptInput" class="input size-lg wSize-md" value="" placeholder="입력하세요" aria-label="납부금액확인값" />
+                      </td>
+                    </tr>
+                    <!--[dev]:20261008 필드값추가-->
+                    <tr>
+                      <th scope="row"><span>납부자확인번호</span></th>
+                      <td>
+                        <input type="text" id="userDeptInput" class="input size-lg wSize-md" value="" placeholder="입력하세요" aria-label="납부금액확인값" />
+                      </td>
+                    </tr>
+                    <!--//[dev]:20261008 필드값추가-->
+                    <tr>
+                      <th scope="row">
+                        <span>납부년월일(회차)</span>
+                      </th>
+                      <td>
+                        <div class="calendar-wrap">
+                          <!-- 날짜 입력 영역 -->
+                          <div class="input-box">
+                            <input type="text" class="input" placeholder="납부년월일(회차)" aria-label="납부년월일(회차)" value="2026-01-06" />
+                            <button type="button" class="btn">
+                              <i class="ico-calendar ico-size-smMd" aria-hidden="true"></i>
+                              <span class="blind">납부년월일(회차) 달력 열기</span>
+                            </button>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <!--[dev]:20261008 필드값추가-->
+                    <tr>
+                      <th scope="row"><span>납부자확인정보</span></th>
+                      <td>
+                        <input type="text" id="userDeptInput" class="input size-lg wSize-md" value="" placeholder="입력하세요" aria-label="납부금액확인값" />
+                      </td>
+                    </tr>
+                    <!--//[dev]:20261008 필드값추가-->
+                  </tbody>
+                </table>
+              </div>
+              <div class="tbl-area">
+                <h4 class="typeH4">납부계좌정보</h4>
+                <table class="table-type01">
+                  <caption>
+                    조회기간, 수취인 계좌번호, 이메일 주소, 부서명, 외화출금계좌번호, 휴대전화번호, 조회구분, 주소에 대한 구성 테이블입니다.
+                  </caption>
+                  <colgroup>
+                    <col />
+                    <col />
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="row">
+                        <span>출금계좌번호</span>
+                      </th>
+                      <td>
+                        <div class="box-select wSize-lg">
+                          <button type="button" class="select size-lg" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="selectDropdown01" aria-labelledby="label-account" aria-required="true">
+                            <span class="text">0000-0000-0000 (기업운전일반자금대출)</span>
+                            <span class="blind">목록 열기</span>
+                          </button>
+                          <div id="selectDropdown01" class="box-list-select">
+                            <ul class="list-select" role="listbox" aria-label="출금계좌번호 선택 리스트">
+                              <li class="item-select" role="group" aria-selected="true">
+                                <span class="btn-item-select"> 외화보통예금 1010-27330000</span>
+                              </li>
+                              <li class="item-select" role="group" aria-selected="false">
+                                <span class="btn-item-select">1</span>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                        <p class="input-guide-text02">
+                          출금가능금액
+                          <strong class="color-fg-primary">2,000 원</strong>
+                        </p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">출금계좌비밀번호</th>
+                      <td>
+                        <div class="form-box">
+                          <input type="text" class="input size-lg wSize-smMd" placeholder="4자리 입력" aria-label="출금계좌비밀번호" />
+                          <button type="button" class="btn type-line-secondary size-lg">
+                            <span class="text">마우스입력</span>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span> 전화번호 </span>
+                      </th>
+                      <td>
+                        <div class="tbl-flex">
+                          <!-- aria-labelledby와 aria-describedby 연결 -->
+                          <div class="box-select wSize-sm">
+                            <button type="button" id="phonePrefixBtn" class="select size-lg" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="selectDropdown01" aria-labelledby="phone-label" aria-required="true">
+                              <span class="text">010</span>
+                            </button>
+                            <div id="selectDropdown01" class="box-list-select">
+                              <ul class="list-select" role="listbox" aria-label="휴대전화번호 앞자리 선택">
+                                <li class="item-select" role="option" aria-selected="true" tabindex="0">
+                                  <span class="btn-item-select">010</span>
+                                </li>
+                                <li class="item-select" role="option" aria-selected="false" tabindex="-1">
+                                  <span class="btn-item-select">011</span>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                          <span aria-hidden="true">-</span>
+                          <input type="text" class="input size-lg wSize-sm" value="" maxlength="4" aria-label="휴대전화번호 중간자리" aria-required="true" />
+                          <span aria-hidden="true">-</span>
+                          <input type="text" class="input size-lg wSize-sm" value="" maxlength="4" aria-label="휴대전화번호 뒷자리" aria-required="true" />
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="btn-wrap center lg-bot">
+                <button type="button" class="btn type-bg-primary-tint size-xxl">
+                  <span class="text">이전</span>
+                </button>
+                <button type="button" class="btn type-bg-primary size-xxl">
+                  <span class="text">다음</span>
+                </button>
+              </div>
+              <div class="line-box size-xl mt-48">
+                <span class="typeLgSemibold">이용안내</span>
+                <div class="list type-dotted">
+                  <ul>
+                    <li class="typeMd">납부하고자 하는 지로요금 고지서에서 예시 그림과 동일한 위치에 표시된 내용을 찾아 직접 입력하신 후 납부하시기 바랍니다.</li>
+                    <!--[dev]:20261008 이용안내 내용추가-->
+                    <li class="typeMd">납부자 확인 번호는 청구기관에서 고객의 납부사실 확인을 위하여 필요한 정보로 반드시 입력하여 주시기 바라며 미입력 시에는 청구기관에서 고객의 납부사실을 확인할 수 없어 수납처리 되지 않을 수도 있으니, 주의하여 입력하시기 바랍니다. (만약 없는 경우 주소, 전화등을 입력하시면 됩니다.)</li>
+                    <li class="typeMd">납부자확인정보는 납부자확인번호의 부가적인 고객정보로 주소, 전화번호등입니다. 단, 납부자확인번호란에 주소, 전화번호등을 입력한 경우 별도로 입력하지 않아도 됩니다.</li>
+                    <!--//[dev]:20261008 이용안내 내용추가-->
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
+</html>

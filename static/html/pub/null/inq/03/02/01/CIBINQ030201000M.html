@@ -16,28 +16,20 @@
 
   <body>
     <div class="wrapper">
-      <div id="header">
-        @@include('static/html/pub/layout/skipNavigation.html')
-        @@include('static/html/pub/layout/header_sub.html')
-      </div>
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
 
       <div id="container" class="container">
-        <div id="leftArea">
-          @@include('static/html/pub/layout/leftArea.html')
-        </div>
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
         <div id="contents">
           <div class="content">
             @@include('static/html/pub/layout/breadcrumb.html')
             <div class="inq">
               <h2 class="typeH2">가게수표조회</h2>
-              <div class="text-center">가계수표 이미지 영역</div>
+              <div class="check-img-wrap"><img src="/static/images/inq/check_img01.png" alt="자기앞수표 예시 이미지" /></div>
               <table class="table-type01">
                 <caption>
-                  수표 발행 정보 입력 표 - 수표권종, 수표매수, 수표시작번호,
-                  발행점, 발행일자 선택 및 입력
+                  수표 발행 정보 입력 표 - 수표권종, 수표매수, 수표시작번호, 발행점, 발행일자 선택 및 입력
                 </caption>
-                <!-- [수정] 20260903 col width 값 추가  -->
-                <!-- [수정] 20260909 col width style 수정  -->
                 <colgroup>
                   <col style="width: 160px" />
                   <col style="width: auto" />
@@ -47,65 +39,28 @@
                     <th scope="row">수표매수</th>
                     <td colspan="3">
                       <div class="box-select wSize-md">
-                        <button
-                          type="button"
-                          class="select size-lg"
-                          role="combobox"
-                          aria-expanded="false"
-                          aria-haspopup="listbox"
-                          aria-controls="selectDropdown02"
-                          id="btnSelectCount"
-                          title="수표매수 선택"
-                        >
+                        <button type="button" class="select size-lg" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="selectDropdown02" id="btnSelectCount" title="수표매수 선택">
                           <span class="text">선택해주세요</span>
                           <span class="blind">펼침</span>
                         </button>
                         <div id="selectDropdown02" class="box-list-select">
-                          <ul
-                            class="list-select"
-                            role="listbox"
-                            aria-label="수표매수 선택 항목 리스트"
-                          >
-                            <li
-                              class="item-select"
-                              role="option"
-                              aria-selected="false"
-                            >
-                              <span class="form-box">0000-0000-0000</span>
-                            </li>
-                            <li
-                              class="item-select"
-                              role="option"
-                              aria-selected="false"
-                            >
+                          <ul class="list-select" role="listbox" aria-label="수표매수 선택 항목 리스트">
+                            <li class="item-select" role="option" aria-selected="true">
                               <span class="form-box">1</span>
                             </li>
-                            <li
-                              class="item-select"
-                              role="option"
-                              aria-selected="false"
-                            >
+                            <li class="item-select" role="option" aria-selected="false">
                               <span class="form-box">1</span>
                             </li>
-                            <li
-                              class="item-select"
-                              role="option"
-                              aria-selected="false"
-                            >
+                            <li class="item-select" role="option" aria-selected="false">
                               <span class="form-box">1</span>
                             </li>
-                            <li
-                              class="item-select"
-                              role="option"
-                              aria-selected="false"
-                            >
+                            <li class="item-select" role="option" aria-selected="false">
                               <span class="form-box">1</span>
                             </li>
-                            <li
-                              class="item-select"
-                              role="option"
-                              aria-selected="false"
-                            >
+                            <li class="item-select" role="option" aria-selected="false">
+                              <span class="form-box">1</span>
+                            </li>
+                            <li class="item-select" role="option" aria-selected="false">
                               <span class="form-box">1</span>
                             </li>
                           </ul>
@@ -115,47 +70,56 @@
                   </tr>
                   <tr>
                     <th scope="row">
-                      <label for="checkNumber01">수표번호①</label>
+                      <!--[dev]:20261020 웹접근성 공통으로 th lable 삭제-->
+                      수표번호①
+                      <!-- <label for="checkNumber01"></label> -->
+                      <!--//[dev]:20261020 웹접근성 공통으로 th lable 삭제-->
                     </th>
                     <td colspan="3">
-                      <input
-                        type="text"
-                        id="checkNumber01"
-                        class="input wSize-md size-lg"
-                        value=""
-                        placeholder="입력해주세요"
-                        title="수표번호 입력"
-                      />
+                      <!--[dev]:20261020 웹접근성 공통으로 title->aria-label로 변경-->
+                      <div class="tbl-flex">
+                        <div class="clear-type">
+                          <input type="text" id="checkNumber01" class="input wSize-md size-lg" value="" placeholder="입력해주세요" aria-label="수표번호 입력" />
+                          <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                            <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                            <span class="blind">닫기</span>
+                          </button>
+                        </div>
+                      </div>
+                      <!--//[dev]:20261020 웹접근성 공통으로 title->aria-label로 변경-->
                     </td>
                   </tr>
                   <tr>
                     <th scope="row">계좌번호②</th>
                     <td colspan="3">
-                      <input
-                        type="text"
-                        id="checkNumber01"
-                        class="input wSize-md size-lg"
-                        value=""
-                        placeholder="입력해주세요"
-                        title="계좌번호 입력"
-                      />
+                      <!--[dev]:20261020 웹접근성 공통으로 title->aria-label로 변경-->
+
+                      <div class="tbl-flex">
+                        <div class="clear-type">
+                          <input type="text" id="checkNumber01" class="input wSize-md size-lg" value="" placeholder="입력해주세요" aria-label="계좌번호 입력" />
+                          <button type="button" class="btn-close-btn" aria-label="검색 닫기">
+                            <i class="ico solid ico-size-smMd ico-close-circle-solid" aria-hidden="true"></i>
+                            <span class="blind">닫기</span>
+                          </button>
+                        </div>
+                      </div>
+                      <!--//[dev]:20261020 웹접근성 공통으로 title->aria-label로 변경-->
                     </td>
                   </tr>
                 </tbody>
               </table>
-              <div class="btn-wrap center sm-mid">
-                <button type="button" class="btn type-bg-neutral size-xl">
+              <!--[dev]:20261026 버튼 타입수정-->
+              <div class="btn-wrap center lg-bot">
+                <button type="button" class="btn type-bg-primary size-xxl">
                   <span class="text">조회</span>
                 </button>
               </div>
+              <!--//[dev]:20261026 버튼 타입수정-->
               <div class="line-box size-xl mt-48">
                 <span class="typeLgSemibold">이용안내</span>
                 <div class="list type-dotted">
                   <ul>
-                    <li class="typeMd">
-                      가계수표에 대한 사고신고 유무만을 알렫그리며, 수표의 위조,
-                      변조 및 법적절차에 대한 실효여부등은 확인 할수 없습니다.
-                    </li>
+                    <li class="typeMd">가계수표에 대한 사고신고 유무만을 알렫그리며, 수표의 위조, 변조 및 법적절차에 대한 실효여부등은 확인 할수 없습니다.</li>
                   </ul>
                 </div>
               </div>

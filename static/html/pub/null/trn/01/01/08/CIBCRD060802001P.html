@@ -1,0 +1,715 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/bop.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">
+        @@include('static/html/pub/layout/skipNavigation.html')
+        @@include('static/html/pub/layout/header_sub.html')
+      </div>
+
+      <div id="container" class="container">
+        <div id="leftArea">
+          @@include('static/html/pub/layout/leftArea.html')
+        </div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="bop">
+              <button
+                type="button"
+                class="btn type-bg-primary size-md btn-modal"
+                data-target="modal-01"
+              >
+                <span class="text">모달 버튼</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+    <div
+      id="modal-01"
+      class="modal is-active"
+      data-dim="true"
+      data-backdrop-close="false"
+      data-alert="true"
+      data-size="sm"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modal-title"
+      aria-describedby="modal-desc"
+    >
+      <div class="modal-wrapper">
+        <div class="modal-title" id="modal-title">
+          <h4 class="typeH4">금융기관 선택</h4>
+        </div>
+        <div class="modal-slot">
+          <div class="box-tab">
+            <!-- 탭 버튼 영역 (은행, 증권사, 공과금 / 첫 번째 은행 탭 active) -->
+            <ul
+              class="list-tab-button type-chip size-md"
+              role="tablist"
+              aria-label="계좌 구분 탭"
+            >
+              <li class="item-tab-button">
+                <button
+                  type="button"
+                  class="btn-tab active"
+                  id="tabBtnTypeHighlightFull01"
+                  role="tab"
+                  aria-selected="true"
+                  aria-controls="tabPanelTypeHighlightFull01"
+                >
+                  <span class="text">은행</span>
+                </button>
+              </li>
+              <li class="item-tab-button">
+                <button
+                  type="button"
+                  class="btn-tab"
+                  id="tabBtnTypeHighlightFull02"
+                  role="tab"
+                  aria-selected="false"
+                  aria-controls="tabPanelTypeHighlightFull02"
+                >
+                  <span class="text">증권사</span>
+                </button>
+              </li>
+            </ul>
+            <div>
+              <!-- 탭 패널 1 (은행) -->
+              <div
+                class="box-tab-content active"
+                id="tabPanelTypeHighlightFull01"
+                role="tabpanel"
+                aria-labelledby="tabBtnTypeHighlightFull01"
+                style="display: block"
+              >
+                <h3 class="blind">은행 탭</h3>
+                <ul class="bank-list grid">
+                  <li>
+                    <button type="button">
+                      <i
+                        class="bank-007 square ico-size-lg"
+                        aria-hidden="true"
+                      ></i>
+                      <span class="bank-name">수협은행</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button">
+                      <i
+                        class="bank-004 square ico-size-lg"
+                        aria-hidden="true"
+                      ></i>
+                      <span class="bank-name">국민은행</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button">
+                      <i
+                        class="bank-003 square ico-size-lg"
+                        aria-hidden="true"
+                      ></i>
+                      <span class="bank-name">기업은행</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button">
+                      <i
+                        class="bank-020 square ico-size-lg"
+                        aria-hidden="true"
+                      ></i>
+                      <span class="bank-name">우리은행</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button">
+                      <i
+                        class="bank-088 square ico-size-lg"
+                        aria-hidden="true"
+                      ></i>
+                      <span class="bank-name">신한은행</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button">
+                      <i
+                        class="bank-081 square ico-size-lg"
+                        aria-hidden="true"
+                      ></i>
+                      <span class="bank-name">하나은행</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button">
+                      <i
+                        class="bank-011 square ico-size-lg"
+                        aria-hidden="true"
+                      ></i>
+                      <span class="bank-name">농협은행</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button">
+                      <i
+                        class="bank-023 square ico-size-lg"
+                        aria-hidden="true"
+                      ></i>
+                      <span class="bank-name">SC(스탠다드차타드)</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button">
+                      <i
+                        class="bank-027 square ico-size-lg"
+                        aria-hidden="true"
+                      ></i>
+                      <span class="bank-name">한국씨티(구한미)</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button">
+                      <i
+                        class="bank-071 square ico-size-lg"
+                        aria-hidden="true"
+                      ></i>
+                      <span class="bank-name">우체국</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button">
+                      <i
+                        class="bank-039 square ico-size-lg"
+                        aria-hidden="true"
+                      ></i>
+                      <span class="bank-name">경남은행</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button">
+                      <i
+                        class="bank-034 square ico-size-lg"
+                        aria-hidden="true"
+                      ></i>
+                      <span class="bank-name">광주은행</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button">
+                      <i
+                        class="bank-031 square ico-size-lg"
+                        aria-hidden="true"
+                      ></i>
+                      <span class="bank-name">IM뱅크(구 대구은행)</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button">
+                      <i
+                        class="bank-055 square ico-size-lg"
+                        aria-hidden="true"
+                      ></i>
+                      <span class="bank-name">도이치</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button">
+                      <i
+                        class="bank-032 square ico-size-lg"
+                        aria-hidden="true"
+                      ></i>
+                      <span class="bank-name">부산은행</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button">
+                      <i
+                        class="bank-002 square ico-size-lg"
+                        aria-hidden="true"
+                      ></i>
+                      <span class="bank-name">산업은행</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button">
+                      <i
+                        class="bank-037 square ico-size-lg"
+                        aria-hidden="true"
+                      ></i>
+                      <span class="bank-name">전북은행</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button">
+                      <i
+                        class="bank-035 square ico-size-lg"
+                        aria-hidden="true"
+                      ></i>
+                      <span class="bank-name">제주은행</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button">
+                      <i
+                        class="bank-045 square ico-size-lg"
+                        aria-hidden="true"
+                      ></i>
+                      <span class="bank-name">새마을금고</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button">
+                      <i
+                        class="bank-048 square ico-size-lg"
+                        aria-hidden="true"
+                      ></i>
+                      <span class="bank-name">신용협동조합</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button">
+                      <i
+                        class="bank-054 square ico-size-lg"
+                        aria-hidden="true"
+                      ></i>
+                      <span class="bank-name">홍콩상하이(HSBC)</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button">
+                      <i
+                        class="bank-050 square ico-size-lg"
+                        aria-hidden="true"
+                      ></i>
+                      <span class="bank-name">저축은행</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button">
+                      <i
+                        class="bank-060 square ico-size-lg"
+                        aria-hidden="true"
+                      ></i>
+                      <span class="bank-name">뱅크오브아메리카</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button">
+                      <i
+                        class="bank-089 square ico-size-lg"
+                        aria-hidden="true"
+                      ></i>
+                      <span class="bank-name">케이뱅크</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button">
+                      <i
+                        class="bank-090 square ico-size-lg"
+                        aria-hidden="true"
+                      ></i>
+                      <span class="bank-name">카카오뱅크</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button">
+                      <i
+                        class="bank-057 square ico-size-lg"
+                        aria-hidden="true"
+                      ></i>
+                      <span class="bank-name">제이피모간체이스</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button">
+                      <i
+                        class="bank-061 square ico-size-lg"
+                        aria-hidden="true"
+                      ></i>
+                      <span class="bank-name">비앤피파리바</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button">
+                      <i
+                        class="bank-067 square ico-size-lg"
+                        aria-hidden="true"
+                      ></i>
+                      <span class="bank-name">중국건설은행</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button">
+                      <i
+                        class="bank-064 square ico-size-lg"
+                        aria-hidden="true"
+                      ></i>
+                      <span class="bank-name">산림조합</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button">
+                      <i
+                        class="bank-062 square ico-size-lg"
+                        aria-hidden="true"
+                      ></i>
+                      <span class="bank-name">중국공상</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button">
+                      <i
+                        class="bank-063 square ico-size-lg"
+                        aria-hidden="true"
+                      ></i>
+                      <span class="bank-name">중국은행</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button">
+                      <i
+                        class="bank-092 square ico-size-lg"
+                        aria-hidden="true"
+                      ></i>
+                      <span class="bank-name">토스은행</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button">
+                      <i
+                        class="bank-090 square ico-size-lg"
+                        aria-hidden="true"
+                      ></i>
+                      <span class="bank-name">카카오은행</span>
+                    </button>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- 탭 패널 2 (증권사) -->
+              <!-- 증권사 로고이미지 디자인팀에게 받는대로 업로드예정 -->
+
+              <div
+                class="box-tab-content"
+                id="tabPanelTypeHighlightFull02"
+                role="tabpanel"
+                aria-labelledby="tabBtnTypeHighlightFull02"
+                style="display: none"
+              >
+                <h3 class="blind">증권사 탭</h3>
+                <ul class="securities-list grid">
+                  <!-- 1행 -->
+                  <li>
+                    <button type="button">
+                      <i
+                        class="securities-247 square ico-size-lg"
+                        aria-hidden="true"
+                      ></i>
+                      <span class="securitie-name">NH투자증권</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button">
+                      <i
+                        class="securities-209 square ico-size-lg"
+                        aria-hidden="true"
+                      ></i>
+                      <span class="securitie-name">유안타증권</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button">
+                      <i
+                        class="securities-218 square ico-size-lg"
+                        aria-hidden="true"
+                      ></i>
+                      <span class="securitie-name">KB증권</span>
+                    </button>
+                  </li>
+
+                  <!-- 2행 -->
+                  <li>
+                    <button type="button">
+                      <i
+                        class="securities-238 square ico-size-lg"
+                        aria-hidden="true"
+                      ></i>
+                      <span class="securitie-name">미래에셋대우</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button">
+                      <i
+                        class="securities-240 square ico-size-lg"
+                        aria-hidden="true"
+                      ></i>
+                      <span class="securitie-name">삼성증권</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button">
+                      <i
+                        class="securities-243 square ico-size-lg"
+                        aria-hidden="true"
+                      ></i>
+                      <span class="securitie-name">한국투자증권</span>
+                    </button>
+                  </li>
+
+                  <!-- 3행 -->
+                  <li>
+                    <button type="button">
+                      <i
+                        class="securities-261 square ico-size-lg"
+                        aria-hidden="true"
+                      ></i>
+                      <span class="securitie-name">교보증권</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button">
+                      <i
+                        class="securities-262 square ico-size-lg"
+                        aria-hidden="true"
+                      ></i>
+                      <span class="securitie-name">아이엠증권</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button">
+                      <i
+                        class="securities-263 square ico-size-lg"
+                        aria-hidden="true"
+                      ></i>
+                      <span class="securitie-name">현대차증권</span>
+                    </button>
+                  </li>
+
+                  <!-- 4행 -->
+                  <li>
+                    <button type="button">
+                      <i
+                        class="securities-266 square ico-size-lg"
+                        aria-hidden="true"
+                      ></i>
+                      <span class="securitie-name">SK증권</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button">
+                      <i
+                        class="securities-269 square ico-size-lg"
+                        aria-hidden="true"
+                      ></i>
+                      <span class="securitie-name">한화투자증권</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button">
+                      <i
+                        class="securities-270 square ico-size-lg"
+                        aria-hidden="true"
+                      ></i>
+                      <span class="securitie-name">하나금융투자</span>
+                    </button>
+                  </li>
+
+                  <!-- 5행 -->
+                  <li>
+                    <button type="button">
+                      <i
+                        class="securities-278 square ico-size-lg"
+                        aria-hidden="true"
+                      ></i>
+                      <span class="securitie-name">신한투자증권</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button">
+                      <i
+                        class="securities-280 square ico-size-lg"
+                        aria-hidden="true"
+                      ></i>
+                      <span class="securitie-name">유진투자증권</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button">
+                      <i
+                        class="securities-287 square ico-size-lg"
+                        aria-hidden="true"
+                      ></i>
+                      <span class="securitie-name">메리츠종합금융증권</span>
+                    </button>
+                  </li>
+
+                  <!-- 6행 -->
+                  <li>
+                    <button type="button">
+                      <i
+                        class="securities-291 square ico-size-lg"
+                        aria-hidden="true"
+                      ></i>
+                      <span class="securitie-name">신영증권</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button">
+                      <i
+                        class="securities-265 square ico-size-lg"
+                        aria-hidden="true"
+                      ></i>
+                      <span class="securitie-name">LS증권</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button">
+                      <i
+                        class="securities-292 square ico-size-lg"
+                        aria-hidden="true"
+                      ></i>
+                      <span class="securitie-name">케이프증권</span>
+                    </button>
+                  </li>
+
+                  <!-- 7행 -->
+                  <li>
+                    <button type="button">
+                      <i
+                        class="securities-290 square ico-size-lg"
+                        aria-hidden="true"
+                      ></i>
+                      <span class="securitie-name">부국증권</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button">
+                      <i
+                        class="securities-264 square ico-size-lg"
+                        aria-hidden="true"
+                      ></i>
+                      <span class="securitie-name">키움증권</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button">
+                      <i
+                        class="securities-267 square ico-size-lg"
+                        aria-hidden="true"
+                      ></i>
+                      <span class="securitie-name">대신증권</span>
+                    </button>
+                  </li>
+
+                  <!-- 8행 -->
+                  <li>
+                    <button type="button">
+                      <i
+                        class="securities-279 square ico-size-lg"
+                        aria-hidden="true"
+                      ></i>
+                      <span class="securitie-name">DB금융투자</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button">
+                      <i
+                        class="securities-294 square ico-size-lg"
+                        aria-hidden="true"
+                      ></i>
+                      <span class="securitie-name">우리투자증권</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button">
+                      <i
+                        class="securities-227 square ico-size-lg"
+                        aria-hidden="true"
+                      ></i>
+                      <span class="securitie-name">케이티비투자증권</span>
+                    </button>
+                  </li>
+
+                  <!-- 9행 -->
+                  <li>
+                    <button type="button">
+                      <i
+                        class="securities-271 square ico-size-lg"
+                        aria-hidden="true"
+                      ></i>
+                      <span class="securitie-name">토스증권</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button">
+                      <i
+                        class="securities-224 square ico-size-lg"
+                        aria-hidden="true"
+                      ></i>
+                      <span class="securitie-name">BNK투자증권</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button">
+                      <i
+                        class="securities-288 square ico-size-lg"
+                        aria-hidden="true"
+                      ></i>
+                      <span class="securitie-name">카카오페이증권</span>
+                    </button>
+                  </li>
+
+                  <!-- 10행 -->
+                  <li>
+                    <button type="button">
+                      <i
+                        class="securities-225 square ico-size-lg"
+                        aria-hidden="true"
+                      ></i>
+                      <span class="securitie-name">IBK투자증권</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button">
+                      <i
+                        class="securities-221 square ico-size-lg"
+                        aria-hidden="true"
+                      ></i>
+                      <span class="securitie-name">상상인증권</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button">
+                      <i class="square ico-size-lg" aria-hidden="true"></i>
+                      <span class="securitie-name">가상기관</span>
+                    </button>
+                  </li>
+                </ul>
+              </div>              
+            </div>
+          </div>
+        </div>
+
+        <button type="button" class="ico btn-close" aria-label="모달 닫기">
+          <i class="ico-close ico-size-smMd" aria-hidden="true"></i>
+          <span class="blind">닫기</span>
+        </button>
+      </div>
+    </div>
+  </body>
+</html>

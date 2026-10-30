@@ -1,0 +1,108 @@
+<!-- 1.2v -->
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/bmg.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
+
+      <div id="container" class="container">
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="bmg">
+              <h2 class="typeH2">결제할 내역</h2>
+              <!-- 아이콘 이미지 추후 변경예정 -->
+              <div class="approval-summary-cards">
+                <dl class="card">
+                  <dt>
+                    <i class="ico line ico-size-sm ico-check-round" aria-hidden="true"></i>
+                    <span class="title">결재할 내역 총 건수</span>
+                  </dt>
+                  <dd class="des">3건</dd>
+                </dl>
+                <dl class="card">
+                  <dt>
+                    <i class="ico line ico-size-sm ico-check-round" aria-hidden="true"></i>
+                    <span class="title">선택한 결재건수</span>
+                  </dt>
+                  <dd class="des">3건</dd>
+                </dl>
+                <dl class="card">
+                  <dt>
+                    <i class="ico line ico-size-sm ico-check-round" aria-hidden="true"></i>
+                    <span class="title">1일 이체 잔여한도</span>
+                  </dt>
+                  <dd class="des"><span class="color-fg-primary">4,000,000,000 원</span></dd>
+                </dl>
+                <dl class="card">
+                  <dt>
+                    <i class="ico line ico-size-sm ico-check-round" aria-hidden="true"></i>
+                    <span class="title">선택한 결재건 총금액수</span>
+                  </dt>
+                  <dd class="des"><span class="color-fg-error">4,000,000,000 원</span></dd>
+                </dl>
+              </div>
+              <div class="list type-dotted mt-12">
+                <ul>
+                  <li class="typeMd">1일 이체 잔여한도를 초과하였으니, 선택된 결재건 일부를 해제해 주세요.</li>
+                </ul>
+              </div>
+              <div class="wrap-board-grid">
+                <!-- [dev] 임시 grid utility 불필요 시 삭제 -->
+
+                <!-- [dev] 그리드 -->
+                <div class="board-grid">
+                  <!-- [dev] 그리드 컨텐츠 영역 : 작업 시 삭제-->
+                  <i style="display: block; border: var(--borderWidthMd) solid var(--colorBorderBase); border-radius: var(--radiusMd); padding: var(--spacing2Xl)">임시 그리드 영역</i>
+                  <!-- //[dev] 그리드 컨텐츠 영역 : 작업 시 삭제 -->
+                </div>
+                <!-- //[dev] 그리드 -->
+              </div>
+              <div class="btn-wrap center lg-bot">
+                <button type="button" class="btn type-line-neutral size-xxl">
+                  <span class="text">결재진행조회</span>
+                </button>
+                <button type="button" class="btn type-bg-primary-tint size-xxl">
+                  <span class="text">반려</span>
+                </button>
+                <button type="button" class="btn type-bg-primary size-xxl">
+                  <span class="text">결재</span>
+                </button>
+              </div>
+              <div class="line-box size-xl mt-48">
+                <span class="typeLgSemibold">이용안내</span>
+                <div class="list type-dotted">
+                  <ul>
+                    <li class="typeMd">사용자가 결재할 결재 목록입니다.</li>
+                    <li class="typeMd">결재를 하고자 할 경우 해당 결재건을 선택하고, 결재버튼을 선택하면 결재가 진행됩니다.</li>
+                    <li class="typeMd">일괄결재를 하고자 할 경우 여러건의 결재건을 선택하고 결재버튼을 선택하면 일괄결재가 진행됩니다.(외환, 내부통제는 해당되지 않습니다.)</li>
+                    <li class="typeMd">반려를 하고자 할 경우 해당 반려견을 선택하고, 반려버튼을 선택하면 반려가 처리됩니다.</li>
+                    <li class="typeMd">일괄반려를 하고자 할 경우 여러건의 결재건을 선택하고 반려버튼을 선택하면 일괄반려가 진행됩니다.(외환, 내부통제는 해당되지 않습니다.)</li>
+                    <li class="typeMd">긴급결재가 필요한 결재건은 목록의 상단에 표시됩니다.</li>
+                    <li class="typeMd">결재는 해당목록 결재요청일 당일 처리해야 최종 결재처리가 완료되며, 당일처리를 하지 않을 경우 지연취소 됩니다.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
+</html>
+<script></script>

@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>수협은행</title>
+        <link rel="stylesheet" href="/static/css/reset.css" />
+        <link rel="stylesheet" href="/static/css/layout.css" />
+        <link rel="stylesheet" href="/static/css/component.css" />
+        <link rel="stylesheet" href="/static/css/common.css" />
+        <link rel="stylesheet" href="/static/css/fin.css" />
+    </head>
+
+    <body>
+    <div class="wrapper">
+        <div id="header">
+            @@include('static/html/pub/layout/skipNavigation.html')
+            @@include('static/html/pub/layout/header_sub.html')
+        </div>
+
+        <div id="container" class="container">
+            <div id="leftArea">
+                @@include('static/html/pub/layout/leftArea.html')
+            </div>
+            <div id="contents">
+                <div class="content">
+                @@include('static/html/pub/layout/breadcrumb.html')
+                <div class="fin">
+                    <button
+                    type="button"
+                    class="btn type-bg-primary size-md btn-modal"
+                    data-target="modal-01"
+                    >
+                    <span class="text">모달버튼</span>
+                    </button>
+                </div>
+                </div>
+            </div>
+            <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+            </div>
+        <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <div id="modal-01" class="modal is-active" data-dim="true" data-backdrop-close="false" data-alert="true" data-size="sm" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc">
+        <div class="modal-wrapper">
+            <div class="modal-title" id="modal-title">
+                <h4 class="typeH4 flex items-center">
+                준비사항 확인
+                <div class="step-badge"><span class="now-step"><span class="blind">현재</span>01<span class="blind">단계</span></span>&nbsp;&nbsp;/&nbsp;&nbsp;<span class="blind">총</span>05<span class="blind">단계</span></div><!-- [수정] 2026-10-26 html 수정 -->
+                </h4>
+            </div>
+            <div id="modal-desc" class="blind">준비사항 확인 모달입니다.</div>
+            <div class="modal-slot">
+                <!-- fordev 라온이 이미지 css로 변경예정 -->
+                <div class="question-box">
+                    <!-- [수정] 2026-10-26 케이스별 문답 수정 -->
+                    <!-- [dev] case 1번 문답 -->
+                    <div class="question-text">
+                        <div class="question-number mb-4">Q1</div>
+                        본인명의 휴대전화를 가지고 계신가요?
+                    </div>
+
+                    <div class="question-content">
+                        <div class="xo">
+                        <span class="form-box">
+                            <input type="radio" name="xo-1" id="xo-1-no" class="form-radio" checked="">
+                            <label for="xo-1-no" class="x">
+                                <i class="ico laon ico-laon-x" aria-hidden="true"></i>
+                                <p class="typeLgSemibold">아니요</p>
+                                <p class="typeMd mt-2">본인명의가 아니에요</p>
+                            </label>
+                        </span>
+
+                        <span class="form-box">
+                            <input type="radio" name="xo-1" id="xo-1-yes" class="form-radio">
+                            <label for="xo-1-yes" class="o">
+                                <i class="ico laon ico-laon-o" aria-hidden="true"></i>
+                                <p class="typeLgSemibold">네</p>
+                                <p class="typeMd mt-2">본인명의 휴대전화에요</p>
+                            </label>
+                        </span>
+                        </div>
+                    </div>
+                    <!-- // [dev] case 1번 문답 -->
+                    <!-- [dev] case 2번 문답 -->
+                    <div class="question-text">
+                        <div class="question-number mb-4">Q2</div>
+                        본인 주민등록증 또는 운전면허증을 가지고 계신가요?<br><span class="typeLg">(모바일신분증 가능)</span>
+                    </div>
+
+                    <div class="question-content">
+                        <div class="xo">
+                        <span class="form-box">
+                            <input type="radio" name="xo-2" id="xo-2-no" class="form-radio" checked="">
+                            <label for="xo-2-no" class="x">
+                                <i class="ico laon ico-laon-x" aria-hidden="true"></i>
+                                <p class="typeLgSemibold">아니요</p>
+                                <p class="typeMd mt-2">가지고 있지 않아요</p>
+                            </label>
+                        </span>
+
+                        <span class="form-box">
+                            <input type="radio" name="xo-2" id="xo-2-yes" class="form-radio">
+                            <label for="xo-2-yes" class="o">
+                                <i class="ico laon ico-laon-o" aria-hidden="true"></i>
+                                <p class="typeLgSemibold">네</p>
+                                <p class="typeMd mt-2">가지고 있어요</p>
+                            </label>
+                        </span>
+                        </div>
+                    </div>
+                    <!-- // [dev] case 2번 문답 -->
+                    <!-- [dev] case 3번 문답 -->
+                    <div class="question-text">
+                        <div class="question-number mb-4">Q3</div>
+                        최근 한달 이내에 입출금 계좌를 만드셨나요?
+                    </div>
+
+                    <div class="question-content">
+                        <div class="xo">
+                        <span class="form-box">
+                            <input type="radio" name="xo-3" id="xo-3-no" class="form-radio" checked="">
+                            <label for="xo-3-no" class="x">
+                                <i class="ico laon ico-laon-x" aria-hidden="true"></i>
+                                <p class="typeLgSemibold">아니요</p>
+                                <p class="typeMd mt-2">만들지 않았어요</p>
+                            </label>
+                        </span>
+
+                        <span class="form-box">
+                            <input type="radio" name="xo-3" id="xo-3-yes" class="form-radio">
+                            <label for="xo-3-yes" class="o">
+                                <i class="ico laon ico-laon-o" aria-hidden="true"></i>
+                                <p class="typeLgSemibold">네</p>
+                                <p class="typeMd mt-2">만들었어요</p>
+                            </label>
+                        </span>
+                        </div>
+                    </div>
+                    <!-- // [dev] case 3번 문답 -->
+                    <!-- [dev] case 4번 문답 -->
+                    <div class="question-text">
+                        <div class="question-number mb-4">Q4</div>
+                        공동사업자 없이 단독으로 사업장을 운영중이신가요?
+                    </div>
+
+                    <div class="question-content">
+                        <div class="xo">
+                        <span class="form-box">
+                            <input type="radio" name="xo-4" id="xo-4-no" class="form-radio" checked="">
+                            <label for="xo-4-no" class="x">
+                                <i class="ico laon ico-laon-x" aria-hidden="true"></i>
+                                <p class="typeLgSemibold">아니요</p>
+                                <p class="typeMd mt-2">공동사업자와 운영하고 있어요</p>
+                            </label>
+                        </span>
+
+                        <span class="form-box">
+                            <input type="radio" name="xo-4" id="xo-4-yes" class="form-radio">
+                            <label for="xo-4-yes" class="o">
+                                <i class="ico laon ico-laon-o" aria-hidden="true"></i>
+                                <p class="typeLgSemibold">네</p>
+                                <p class="typeMd mt-2">단독으로 운영하고 있어요</p>
+                            </label>
+                        </span>
+                        </div>
+                    </div>
+                    <!-- // [dev] case 4번 문답 -->
+                    <!-- [dev] case 5번 문답 -->
+                    <div class="question-text">
+                        <div class="question-number mb-4">Q5</div>
+                        PC에 저장된 인증서 또는 금융인증서가 있으신가요?
+                    </div>
+
+                    <div class="question-content">
+                        <div class="xo">
+                        <span class="form-box">
+                            <input type="radio" name="xo-5" id="xo-5-no" class="form-radio" checked="">
+                            <label for="xo-5-no" class="x">
+                                <i class="ico laon ico-laon-x" aria-hidden="true"></i>
+                                <p class="typeLgSemibold">아니요</p>
+                                <p class="typeMd mt-2">인증서가 없어요</p>
+                            </label>
+                        </span>
+
+                        <span class="form-box">
+                            <input type="radio" name="xo-5" id="xo-5-yes" class="form-radio">
+                            <label for="xo-5-yes" class="o">
+                                <i class="ico laon ico-laon-o" aria-hidden="true"></i>
+                                <p class="typeLgSemibold">네</p>
+                                <p class="typeMd mt-2">인증서가 있어요</p>
+                            </label>
+                        </span>
+                        </div>
+                    </div>
+                    <!-- // [dev] case 5번 문답 -->
+                    <!-- // [수정] 2026-10-26 케이스별 문답 수정 -->
+                </div>
+            </div>
+
+            <!-- [수정] 2026-10-26 케이스별 버튼 추가 -->
+            <!-- [dev] case 1번 문답 시 -->
+            <div class="modal-footer flex items-center justify-center gap-8">
+                <button type="button" class="btn type-bg-primary size-lg">
+                <span class="text">다음</span>
+                </button>
+            </div>
+            <!-- // [dev] case 1번 문답 시 -->
+            <!-- [dev] case 2~4번 문답 시 -->
+            <div class="modal-footer flex items-center justify-center gap-8">
+                <button type="button" class="btn type-bg-primary-tint size-lg">
+                <span class="text">이전</span>
+                </button>
+                <button type="button" class="btn type-bg-primary size-lg">
+                <span class="text">다음</span>
+                </button>
+            </div>
+            <!-- // [dev] case 2~4번 문답 시 -->
+            <!-- [dev] case 5번 문답 시 -->
+            <div class="modal-footer flex items-center justify-center gap-8">
+                <button type="button" class="btn type-bg-primary-tint size-lg">
+                <span class="text">이전</span>
+                </button>
+                <button type="button" class="btn type-bg-primary size-lg">
+                <span class="text">완료</span>
+                </button>
+            </div>
+            <!-- // [dev] case 5번 문답 시 -->
+            <!-- // [수정] 2026-10-26 케이스별 버튼 추가 -->
+            <button type="button" class="ico btn-close" aria-label="모달 닫기">
+                <i class="ico-close ico-size-smMd" aria-hidden="true"></i>
+                <span class="blind">닫기</span>
+            </button>
+        </div>
+    </div>
+
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+    </body>
+</html>

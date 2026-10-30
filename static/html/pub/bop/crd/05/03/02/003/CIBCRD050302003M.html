@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>수협은행</title>
+  <link rel="stylesheet" href="/static/css/reset.css" />
+  <link rel="stylesheet" href="/static/css/layout.css" />
+  <link rel="stylesheet" href="/static/css/component.css" />
+  <link rel="stylesheet" href="/static/css/common.css" />
+  <link rel="stylesheet" href="/static/css/bop.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <div id="header">
+      @@include('static/html/pub/layout/skipNavigation.html')
+      @@include('static/html/pub/layout/header_sub.html')
+    </div>
+
+    <div id="container" class="container">
+      <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+      <div id="contents">
+        <div class="content">
+          @@include('static/html/pub/layout/breadcrumb.html')
+          <div class="bop">
+            <h2 class="typeH2">
+              선결제
+            </h2>
+            <!--오류시 노출-->
+            <div class="result-box">
+              <div class="result-banner">
+                <div class="inner-img type-warning"></div>
+                <div class="result-message">
+                  <h4 class="typeH4 color-blueMd">
+                    AS_IS 에러문구 노출영역
+                  </h4>
+                </div>
+              </div>
+            </div>
+            <!--//오류시 노출-->
+            <!--선결제가 완료된 경우 -->
+            <div class="result-box">
+              <div class="result-banner">
+                <div class="inner-img"></div>
+                <div class="result-message">
+                  <h4 class="typeH4 color-blueMd">
+                    선결제가 완료되었습니다.
+                  </h4>
+                  <span class="typeMd">
+                    해당업무 관련문의는 가까운 영업점 혹은 수협은행 고객센터(1588-1515)로 문의하시기 바랍니다.
+                  </span>
+                </div>
+              </div>
+            </div>
+            <!--//선결제가 완료된 경우 -->
+            <!--가상계좌로 결제 신청했을 경우 -->
+            <div class="result-box">
+              <div class="result-banner">
+                <div class="inner-img"></div>
+                <div class="result-message">
+                  <h4 class="typeH4 color-blueMd">
+                    선결제 신청이 완료되었습니다.
+                  </h4>
+                </div>
+              </div>
+            </div>
+            <!--//가상계좌로 결제 신청했을 경우 -->
+            <div class="tbl-area">
+              <h4 class="typeH4">결제완료 확인</h4>
+              <table class="table-type01">
+                <caption>기준일자, 사업장명, 결제수단, 출금(가상)계좌번호, 이용구분, 신청구분에 대한 구성 테이블입니다.</caption>
+                <colgroup>
+                  <col style="width: 160px">
+                  <col style="width: 368px">
+                  <col style="width: 160px">
+                  <col style="width: 368px">
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th scope="row">기준일자</th>
+                    <td>
+                      <span class="typeMd">2026-07-01</span>
+                    </td>
+                    <th scope="row">사업장명</th>
+                    <td>
+                      <span class="typeMd">일도상사</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">결제수단</th>
+                    <td>
+                      <span class="typeMd">결제계좌</span>
+                    </td>
+                    <th scope="row">출금(가상)계좌번호</th>
+                    <td>
+                      <span class="typeMd">356-12-34**** (수협은행)</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">신청구분</th>
+                    <td>
+                      <span class="typeMd">당월청구</span>
+                    </td>
+                    <th scope="row">가상계좌 입금기한</th>
+                    <td>
+                      <span class="typeMd">2026-07-10 22:00까지</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">이용구분</th>
+                    <td>
+                      <span class="typeMd">전체</span>
+                    </td>
+                    <th scope="row">신청구분</th>
+                    <td>
+                      <span class="typeMd">당월청구</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">선결제 금액합계</th>
+                    <td class="text-right">
+                      <span class="typeMd">2,425,350 원</span>
+                    </td>
+                    <th scope="row">-</th>
+                    <td>
+                      <span class="typeMd">-</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>    
+          </div>
+          <div class="btn-wrap center">
+            <!--가상계좌선택시에만 노출-->
+            <button type="button" class="btn type-bg-primary-tint size-xxl">
+              <span class="text">가상결제계좌관리</span>
+            </button>
+            <!--//가상계좌선택시에만 노출-->
+            <button type="button" class="btn type-bg-primary size-xxl">
+              <span class="text">확인</span>
+            </button>
+          </div>
+          <!--가상계좌로 결제 신청했을 경우 상단완료 문구와 함께 노출-->
+          <div class="line-box size-xl mt-48">
+            <span class="typeLgSemibold">이용안내</span>
+            <div class="list type-dotted">
+              <ul>
+                <li class="typeMd">
+                  입금기한 내 미입금 시 선결제 신청이 자동 취소됩니다. (입금기한 당일 23:00 까지)
+                </li>
+                <li class="typeMd">
+                  가상계좌번호 관련 내용은 가상결제계좌관리 메뉴를 통해 확인 가능합니다.
+                </li>
+                <li class="typeMd">
+                  해당업무 관련문의는 가까운 영업점 혹은 수협은행 고객센터(1588-1515)로 문의하시기 바랍니다.
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!--//가상계좌로 결제 신청했을 경우 상단완료 문구와 함께 노출-->
+        </div>
+      </div>
+    </div>
+    <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+  </div>
+  <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+  </div>
+  <script src="/static/js/ui/cib_ui_common.js"></script>
+</body>
+
+</html>

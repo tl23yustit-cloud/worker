@@ -1,0 +1,761 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>수협은행</title>
+        <link rel="stylesheet" href="/static/css/reset.css" />
+        <link rel="stylesheet" href="/static/css/layout.css" />
+        <link rel="stylesheet" href="/static/css/component.css" />
+        <link rel="stylesheet" href="/static/css/common.css" />
+        <link rel="stylesheet" href="/static/css/fin.css" />
+    </head>
+
+    <body>
+        <div class="wrapper">
+            <div id="header">
+                @@include('static/html/pub/layout/skipNavigation.html')
+                @@include('static/html/pub/layout/header_sub.html')
+            </div>
+
+            <div id="container" class="container">
+                <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+                <div id="contents">
+                    <div class="content">
+                        @@include('static/html/pub/layout/breadcrumb.html')
+                        <div class="fin">
+                            <h2 class="typeH2">나의 관심상품</h2>
+                            <div class="box-tab">
+                                <ul class="list-tab-button type-chip size-lg mb-24" role="tablist" aria-label="나의 관심상품 탭">
+                                    <li class="item-tab-button">
+                                        <button type="button" class="btn-tab active" title="선택됨" id="tabBtnTypeChip01" role="tab" aria-selected="true" aria-controls="tabPanelTypeChip01">
+                                            <span class="text">예금</span>
+                                        </button>
+                                    </li>
+                                    <li class="item-tab-button">
+                                        <button type="button" class="btn-tab" id="tabBtnTypeChip02" role="tab" aria-selected="false" aria-controls="tabPanelTypeChip02">
+                                            <span class="text">대출</span>
+                                        </button>
+                                    </li>
+                                    <li class="item-tab-button">
+                                        <button type="button" class="btn-tab" id="tabBtnTypeChip03" role="tab" aria-selected="false" aria-controls="tabPanelTypeChip03">
+                                            <span class="text">해양수산금융</span>
+                                        </button>
+                                    </li>
+                                    <li class="item-tab-button">
+                                        <button type="button" class="btn-tab" id="tabBtnTypeChip04" role="tab" aria-selected="false" aria-controls="tabPanelTypeChip04">
+                                            <span class="text">카드</span>
+                                        </button>
+                                    </li>
+                                    <li class="item-tab-button">
+                                        <button type="button" class="btn-tab" id="tabBtnTypeChip05" role="tab" aria-selected="false" aria-controls="tabPanelTypeChip05">
+                                            <span class="text">공제/보험</span>
+                                        </button>
+                                    </li>
+                                    <li class="item-tab-button">
+                                        <button type="button" class="btn-tab" id="tabBtnTypeChip06" role="tab" aria-selected="false" aria-controls="tabPanelTypeChip06">
+                                            <span class="text">신탁</span>
+                                        </button>
+                                    </li>
+                                </ul>
+                                <!-- [dev] 예금 나의 관심상품 탭 영역 -->
+                                <div class="box-tab-content" id="tabPanelTypeButton01" role="tabpanel" aria-labelledby="tabBtnTypeButton01" style="display: block">
+                                    <h3 class="blind">예금 나의 관심 상품 탭</h3>
+                                    <div class="product-wrapper">
+                                        <div class="table-type02">
+                                            <table class="product-list">
+                                                <caption>
+                                                    예금 나의 관심 상품의 상품명, 금리, 비교 항목에 대한 구성 테이블입니다.
+                                                </caption>
+                                                <colgroup>
+                                                    <col width="auto" />
+                                                    <col width="200px" />
+                                                    <col width="160px" />
+                                                </colgroup>
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">상품명</th>
+                                                        <th scope="col">금리</th>
+                                                        <th scope="col">비교</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <h4 class="title">
+                                                                <a href="">Sh모두행복海기업적금</a><!-- [dev] 상품상세페이지 링크 추가 -->
+                                                                <!-- 활성화일때 is-active 클래스 추가 -->
+                                                                <button class="fav-btn is-active" aria-pressed="false">
+                                                                    <i aria-hidden="true"></i>
+                                                                    <span class="blind">관심버튼</span>
+                                                                </button>
+                                                            </h4>
+                                                            <p class="des"><span class="blind">상품설명 </span>가족친화인증서 또는 가족친화정책 증빙자료 제출, 신규금액, 월평잔, 자동이체실적에 따라 <br />우대금리를 제공하는 적립식 예금</p>
+                                                            <h5 class="blind">관심상품 카테고리</h5>
+                                                            <ul class="flex gap-4">
+                                                                <li>
+                                                                    <span class="badge-outline size-md type-blue">
+                                                                        <span class="text">개인</span>
+                                                                    </span>
+                                                                </li>
+                                                                <li>
+                                                                    <span class="badge-outline size-md type-blue">
+                                                                        <span class="text">개인사업자</span>
+                                                                    </span>
+                                                                </li>
+                                                                <li>
+                                                                    <span class="badge-outline size-md type-blue">
+                                                                        <span class="text">법인사업자</span>
+                                                                    </span>
+                                                                </li>
+                                                                <li>
+                                                                    <span class="badge-light size-md type-cyan">
+                                                                        <span class="text">인터넷</span>
+                                                                    </span>
+                                                                </li>
+                                                                <li>
+                                                                    <span class="badge-light size-md type-fuchsia">
+                                                                        <span class="text">영업점</span>
+                                                                    </span>
+                                                                </li>
+                                                                <li>
+                                                                    <span class="badge-light size-md type-blue">
+                                                                        <span class="text">스마트폰</span>
+                                                                    </span>
+                                                                </li>
+                                                            </ul>
+                                                        </td>
+                                                        <td>
+                                                            <div class="tbl-rate">
+                                                                <dl class="tbl-rate-inner">
+                                                                    <div class="rate-max">
+                                                                        <dt class="blind">최고 연 이율</dt>
+                                                                        <dd class="typeLg flex"><span class="typeLg">최고 연</span> <span class="typeH2">2.50%</span></dd>
+                                                                    </div>
+                                                                    <div class="rate-base">
+                                                                        <dt class="blind">기본 이율</dt>
+                                                                        <dd class="typeLg flex">기본 <span class="typeH4">1.90%</span></dd>
+                                                                    </div>
+                                                                    <div class="rate-period">
+                                                                        <dt class="blind">적용 기간</dt>
+                                                                        <dd class="typeMd">(1년 기준)</dd>
+                                                                    </div>
+                                                                </dl>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <div class="flex justify-center items-stretch">
+                                                                <button type="button" class="btn type-line-secondary size-sm">
+                                                                    <span class="text">비교담기</span>
+                                                                </button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <h4 class="title">
+                                                                <a href="">일반정기예금(기업)</a><!-- [dev] 상품상세페이지 링크 추가 -->
+                                                                <!-- 활성화일때 is-active 클래스 추가 -->
+                                                                <button class="fav-btn is-active" aria-pressed="false">
+                                                                    <i aria-hidden="true"></i>
+                                                                    <span class="blind">관심버튼</span>
+                                                                </button>
+                                                            </h4>
+                                                            <p class="des"><span class="blind">상품설명 </span>여유자금을 가장 안전하게 맡기고 매월 높은 이자를 받으실 수 있는 예금</p>
+                                                            <h5 class="blind">관심상품 카테고리</h5>
+                                                            <ul class="flex gap-4">
+                                                                <li>
+                                                                    <span class="badge-outline size-md type-blue">
+                                                                        <span class="text">개인</span>
+                                                                    </span>
+                                                                </li>
+                                                                <li>
+                                                                    <span class="badge-outline size-md type-blue">
+                                                                        <span class="text">개인사업자</span>
+                                                                    </span>
+                                                                </li>
+                                                                <li>
+                                                                    <span class="badge-outline size-md type-blue">
+                                                                        <span class="text">법인사업자</span>
+                                                                    </span>
+                                                                </li>
+                                                                <li>
+                                                                    <span class="badge-light size-md type-cyan">
+                                                                        <span class="text">인터넷</span>
+                                                                    </span>
+                                                                </li>
+                                                                <li>
+                                                                    <span class="badge-light size-md type-fuchsia">
+                                                                        <span class="text">영업점</span>
+                                                                    </span>
+                                                                </li>
+                                                                <li>
+                                                                    <span class="badge-light size-md type-blue">
+                                                                        <span class="text">스마트폰</span>
+                                                                    </span>
+                                                                </li>
+                                                            </ul>
+                                                        </td>
+                                                        <td>
+                                                            <div class="tbl-rate">
+                                                                <dl class="tbl-rate-inner">
+                                                                    <div class="rate-max">
+                                                                        <dt class="blind">최고 연 이율</dt>
+                                                                        <dd class="typeLg flex"><span class="typeLg">최고 연</span> <span class="typeH2">2.50%</span></dd>
+                                                                    </div>
+                                                                    <div class="rate-base">
+                                                                        <dt class="blind">기본 이율</dt>
+                                                                        <dd class="typeLg flex">기본 <span class="typeH4">1.90%</span></dd>
+                                                                    </div>
+                                                                    <div class="rate-period">
+                                                                        <dt class="blind">적용 기간</dt>
+                                                                        <dd class="typeMd">(1년 기준)</dd>
+                                                                    </div>
+                                                                </dl>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <div class="flex justify-center items-stretch">
+                                                                <button type="button" class="btn type-line-secondary size-sm">
+                                                                    <span class="text">비교담기</span>
+                                                                </button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <h4 class="title">
+                                                                <a href="">Sh모두행복海기업적금</a><!-- [dev] 상품상세페이지 링크 추가 -->
+                                                                <!-- 활성화일때 is-active 클래스 추가 -->
+                                                                <button class="fav-btn is-active" aria-pressed="false">
+                                                                    <i aria-hidden="true"></i>
+                                                                    <span class="blind">관심버튼</span>
+                                                                </button>
+                                                            </h4>
+                                                            <p class="des"><span class="blind">상품설명 </span>가족친화인증서 또는 가족친화정책 증빙자료 제출, 신규금액, 월평잔, 자동이체실적에 따라 <br />우대금리를 제공하는 적립식 예금</p>
+                                                            <h5 class="blind">관심상품 카테고리</h5>
+                                                            <ul class="flex gap-4">
+                                                                <li>
+                                                                    <span class="badge-outline size-md type-blue">
+                                                                        <span class="text">개인</span>
+                                                                    </span>
+                                                                </li>
+                                                                <li>
+                                                                    <span class="badge-outline size-md type-blue">
+                                                                        <span class="text">개인사업자</span>
+                                                                    </span>
+                                                                </li>
+                                                                <li>
+                                                                    <span class="badge-outline size-md type-blue">
+                                                                        <span class="text">법인사업자</span>
+                                                                    </span>
+                                                                </li>
+                                                                <li>
+                                                                    <span class="badge-light size-md type-cyan">
+                                                                        <span class="text">인터넷</span>
+                                                                    </span>
+                                                                </li>
+                                                                <li>
+                                                                    <span class="badge-light size-md type-fuchsia">
+                                                                        <span class="text">영업점</span>
+                                                                    </span>
+                                                                </li>
+                                                                <li>
+                                                                    <span class="badge-light size-md type-blue">
+                                                                        <span class="text">스마트폰</span>
+                                                                    </span>
+                                                                </li>
+                                                            </ul>
+                                                        </td>
+                                                        <td>
+                                                            <div class="tbl-rate">
+                                                                <dl class="tbl-rate-inner">
+                                                                    <div class="rate-max">
+                                                                        <dt class="blind">최고 연 이율</dt>
+                                                                        <dd class="typeLg flex"><span class="typeLg">최고 연</span> <span class="typeH2">2.50%</span></dd>
+                                                                    </div>
+                                                                    <div class="rate-base">
+                                                                        <dt class="blind">기본 이율</dt>
+                                                                        <dd class="typeLg flex">기본 <span class="typeH4">1.90%</span></dd>
+                                                                    </div>
+                                                                    <div class="rate-period">
+                                                                        <dt class="blind">적용 기간</dt>
+                                                                        <dd class="typeMd">(1년 기준)</dd>
+                                                                    </div>
+                                                                </dl>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <div class="flex justify-center items-stretch">
+                                                                <button type="button" class="btn type-line-secondary size-sm">
+                                                                    <span class="text">비교담기</span>
+                                                                </button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- // [dev] 예금 나의 관심상품 탭 영역 -->
+                                <!-- [dev] 대출 나의 관심상품 탭 영역 -->
+                                <div class="box-tab-content active" id="tabPanelTypeButton02" role="tabpanel" aria-labelledby="tabBtnTypeButton02" style="display: none">
+                                    <h3 class="blind">대출 나의 관심상품</h3>
+                                    <div class="product-wrapper">
+                                        <div class="table-type02">
+                                            <table class="product-list">
+                                                <caption>
+                                                    대출 나의 관심 상품의 상품명, 비교 항목에 대한 구성 테이블입니다.
+                                                </caption>
+                                                <colgroup>
+                                                    <col width="auto" />
+                                                    <col width="160px" />
+                                                </colgroup>
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">상품명</th>
+                                                        <th scope="col">비교</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <h4 class="title">
+                                                                <a href="">Sh소상공인성장촉진보증대출</a><!-- [dev] 상품상세페이지 링크 추가 -->
+                                                                <!-- 활성화일때 is-active 클래스 추가 -->
+                                                                <button class="fav-btn is-active" aria-pressed="false">
+                                                                    <i aria-hidden="true"></i>
+                                                                    <span class="blind">관심버튼</span>
+                                                                </button>
+                                                            </h4>
+                                                            <p class="des"><span class="blind">상품설명 </span>경쟁력 강화 계획이 있는 소상공인에게 추가 사업자금을 지원하는 상품</p>
+                                                            <h5 class="blind">관심상품 카테고리</h5>
+                                                            <ul class="flex gap-4">
+                                                                <li>
+                                                                    <span class="badge-outline size-md type-blue">
+                                                                        <span class="text">개인</span>
+                                                                    </span>
+                                                                </li>
+                                                                <li>
+                                                                    <span class="badge-outline size-md type-blue">
+                                                                        <span class="text">개인사업자</span>
+                                                                    </span>
+                                                                </li>
+                                                                <li>
+                                                                    <span class="badge-outline size-md type-blue">
+                                                                        <span class="text">법인사업자</span>
+                                                                    </span>
+                                                                </li>
+                                                                <li>
+                                                                    <span class="badge-light size-md type-cyan">
+                                                                        <span class="text">인터넷</span>
+                                                                    </span>
+                                                                </li>
+                                                                <li>
+                                                                    <span class="badge-light size-md type-fuchsia">
+                                                                        <span class="text">영업점</span>
+                                                                    </span>
+                                                                </li>
+                                                                <li>
+                                                                    <span class="badge-light size-md type-blue">
+                                                                        <span class="text">스마트폰</span>
+                                                                    </span>
+                                                                </li>
+                                                            </ul>
+                                                        </td>
+                                                        <td>
+                                                            <div class="flex justify-center items-stretch">
+                                                                <button type="button" class="btn type-line-secondary size-sm">
+                                                                    <span class="text">비교담기</span>
+                                                                </button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <h4 class="title">
+                                                                <a href="">Sh소상공인성장촉진보증대출</a><!-- [dev] 상품상세페이지 링크 추가 -->
+                                                                <!-- 활성화일때 is-active 클래스 추가 -->
+                                                                <button class="fav-btn is-active" aria-pressed="false">
+                                                                    <i aria-hidden="true"></i>
+                                                                    <span class="blind">관심버튼</span>
+                                                                </button>
+                                                            </h4>
+                                                            <p class="des"><span class="blind">상품설명 </span>경쟁력 강화 계획이 있는 소상공인에게 추가 사업자금을 지원하는 상품</p>
+                                                            <h5 class="blind">관심상품 카테고리</h5>
+                                                            <ul class="flex gap-4">
+                                                                <li>
+                                                                    <span class="badge-outline size-md type-blue">
+                                                                        <span class="text">개인</span>
+                                                                    </span>
+                                                                </li>
+                                                                <li>
+                                                                    <span class="badge-outline size-md type-blue">
+                                                                        <span class="text">개인사업자</span>
+                                                                    </span>
+                                                                </li>
+                                                                <li>
+                                                                    <span class="badge-outline size-md type-blue">
+                                                                        <span class="text">법인사업자</span>
+                                                                    </span>
+                                                                </li>
+                                                                <li>
+                                                                    <span class="badge-light size-md type-cyan">
+                                                                        <span class="text">인터넷</span>
+                                                                    </span>
+                                                                </li>
+                                                                <li>
+                                                                    <span class="badge-light size-md type-fuchsia">
+                                                                        <span class="text">영업점</span>
+                                                                    </span>
+                                                                </li>
+                                                                <li>
+                                                                    <span class="badge-light size-md type-blue">
+                                                                        <span class="text">스마트폰</span>
+                                                                    </span>
+                                                                </li>
+                                                            </ul>
+                                                        </td>
+                                                        <td>
+                                                            <div class="flex justify-center items-stretch">
+                                                                <button type="button" class="btn type-line-secondary size-sm">
+                                                                    <span class="text">비교담기</span>
+                                                                </button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- // [dev] 대출 나의 관심상품 탭 영역 -->
+                                <!-- [dev] 해양수산금융 나의 관심상품 탭 영역 -->
+                                <div class="box-tab-content active" id="tabPanelTypeButton03" role="tabpanel" aria-labelledby="tabBtnTypeButton03" style="display: none">
+                                    <h3 class="blind">해양수산금융 나의 관심상품</h3>
+                                    <div class="product-wrapper">
+                                        <div class="table-type02">
+                                            <table class="product-list">
+                                                <caption>
+                                                    해양수산금융 나의 관심 상품의 상품명 항목에 대한 구성 테이블입니다.
+                                                </caption>
+                                                <colgroup>
+                                                    <col width="auto" />
+                                                </colgroup>
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">상품명</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <h4 class="title">
+                                                                <a href="">귀어 창업 및 주택구입 지원자금</a><!-- [dev] 상품상세페이지 링크 추가 -->
+                                                                <!-- 활성화일때 is-active 클래스 추가 -->
+                                                                <button class="fav-btn is-active" aria-pressed="false">
+                                                                    <i aria-hidden="true"></i>
+                                                                    <span class="blind">관심버튼</span>
+                                                                </button>
+                                                            </h4>
+                                                            <p class="des"><span class="blind">상품설명 </span>귀어·귀촌을 희망하는 도시민에게 창업자금과 어가 주택구입 자금을 저리로 지원하는 수산정책 자금</p>
+                                                            <h5 class="blind">관심상품 카테고리</h5>
+                                                            <ul class="flex gap-4">
+                                                                <li>
+                                                                    <span class="badge-outline size-md type-blue">
+                                                                        <span class="text">개인</span>
+                                                                    </span>
+                                                                </li>
+                                                                <li>
+                                                                    <span class="badge-outline size-md type-blue">
+                                                                        <span class="text">개인사업자</span>
+                                                                    </span>
+                                                                </li>
+                                                                <li>
+                                                                    <span class="badge-outline size-md type-blue">
+                                                                        <span class="text">법인사업자</span>
+                                                                    </span>
+                                                                </li>
+                                                                <li>
+                                                                    <span class="badge-light size-md type-cyan">
+                                                                        <span class="text">인터넷</span>
+                                                                    </span>
+                                                                </li>
+                                                                <li>
+                                                                    <span class="badge-light size-md type-fuchsia">
+                                                                        <span class="text">영업점</span>
+                                                                    </span>
+                                                                </li>
+                                                                <li>
+                                                                    <span class="badge-light size-md type-blue">
+                                                                        <span class="text">스마트폰</span>
+                                                                    </span>
+                                                                </li>
+                                                            </ul>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- // [dev] 해양수산금융 나의 관심상품 탭 영역 -->
+                                <!-- [dev] 카드 나의 관심상품 탭 영역 -->
+                                <div class="box-tab-content active" id="tabPanelTypeButton04" role="tabpanel" aria-labelledby="tabBtnTypeButton04" style="display: none">
+                                    <h3 class="blind">카드 나의 관심상품</h3>
+                                    <div class="product-wrapper">
+                                        <div class="table-type02">
+                                            <table class="product-list">
+                                                <caption>
+                                                    카드 나의 관심 상품의 상품명 항목에 대한 구성 테이블입니다.
+                                                </caption>
+                                                <colgroup>
+                                                    <col width="auto" />
+                                                </colgroup>
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">상품명</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <div class="flex align-center gap-24">
+                                                                <div class="card-list-img" aria-hidden="true"><img src=""><!-- [dev] 카드이미지 경로 삽입 --></div>
+                                                                <div class="card-info">
+                                                                    <h4 class="title">
+                                                                        <a href="">biz top기업 신용카드</a><!-- [dev] 상품상세페이지 링크 추가 -->
+                                                                        <!-- 활성화일때 is-active 클래스 추가 -->
+                                                                        <button class="fav-btn is-active" aria-pressed="false">
+                                                                            <i aria-hidden="true"></i>
+                                                                            <span class="blind">관심버튼</span>
+                                                                        </button>
+                                                                    </h4>
+                                                                    <p class="des"><span class="blind">상품설명 </span>법인/개인사업자에 최적화된 혜택을 드리는 카드</p>
+                                                                    <h5 class="blind">관심상품 카테고리</h5>
+                                                                    <ul class="flex gap-4">
+                                                                        <li>
+                                                                            <span class="badge-solid size-md type-blue">
+                                                                                <span class="text">할인형</span>
+                                                                            </span>
+                                                                        </li>
+                                                                        <li>
+                                                                            <span class="badge-solid size-md type-fuchsia">
+                                                                                <span class="text">캐시백</span>
+                                                                            </span>
+                                                                        </li>
+                                                                        <li>
+                                                                            <span class="badge-solid size-md type-cyan">
+                                                                                <span class="text">적립형</span>
+                                                                            </span>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- // [dev] 카드 나의 관심상품 탭 영역 -->
+                                <!-- [dev] 공제/보험 나의 관심상품 탭 영역 -->
+                                <div class="box-tab-content active" id="tabPanelTypeButton05" role="tabpanel" aria-labelledby="tabBtnTypeButton05" style="display: none">
+                                    <h3 class="blind">공제/보험 나의 관심상품</h3>
+                                    <div class="product-wrapper">
+                                        <div class="table-type02">
+                                            <table class="product-list">
+                                                <caption>
+                                                    공제/보험 나의 관심 상품의 상품명 항목에 대한 구성 테이블입니다.
+                                                </caption>
+                                                <colgroup>
+                                                    <col width="auto" />
+                                                </colgroup>
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">상품명</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <h4 class="title">
+                                                                <a href="">무배당 Sh다이렉트간편아파트화재공제2604</a><!-- [dev] 상품상세페이지 링크 추가 -->
+                                                                <!-- 활성화일때 is-active 클래스 추가 -->
+                                                                <button class="fav-btn is-active" aria-pressed="false">
+                                                                    <i aria-hidden="true"></i>
+                                                                    <span class="blind">관심버튼</span>
+                                                                </button>
+                                                            </h4>
+                                                            <p class="des"><span class="blind">상품설명 </span>재산 목록 1호, 우리아파트 Sh수협보험이 지켜드려요. 자가도, 전월세도 가입가능. <br>비례보상 NO, 가입금액한도 발생손해액 전부 보상!</p>
+                                                            <h5 class="blind">관심상품 카테고리</h5>
+                                                            <ul class="flex gap-4">
+                                                                <li>
+                                                                    <span class="badge-outline size-md type-blue">
+                                                                        <span class="text">개인</span>
+                                                                    </span>
+                                                                </li>
+                                                                <li>
+                                                                    <span class="badge-outline size-md type-blue">
+                                                                        <span class="text">개인사업자</span>
+                                                                    </span>
+                                                                </li>
+                                                                <li>
+                                                                    <span class="badge-outline size-md type-blue">
+                                                                        <span class="text">법인사업자</span>
+                                                                    </span>
+                                                                </li>
+                                                                <li>
+                                                                    <span class="badge-light size-md type-cyan">
+                                                                        <span class="text">인터넷</span>
+                                                                    </span>
+                                                                </li>
+                                                                <li>
+                                                                    <span class="badge-light size-md type-fuchsia">
+                                                                        <span class="text">영업점</span>
+                                                                    </span>
+                                                                </li>
+                                                                <li>
+                                                                    <span class="badge-light size-md type-blue">
+                                                                        <span class="text">스마트폰</span>
+                                                                    </span>
+                                                                </li>
+                                                            </ul>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- // [dev] 공제/보험 나의 관심상품 탭 영역 -->
+                                <!-- [dev] 신탁 나의 관심상품 탭 영역 -->
+                                <div class="box-tab-content active" id="tabPanelTypeButton06" role="tabpanel" aria-labelledby="tabBtnTypeButton06" style="display: none">
+                                    <h3 class="blind">신탁 나의 관심상품</h3>
+                                    <div class="product-wrapper">
+                                        <div class="table-type02">
+                                            <table class="product-list">
+                                                <caption>
+                                                    신탁 나의 관심 상품의 상품명 항목에 대한 구성 테이블입니다.
+                                                </caption>
+                                                <colgroup>
+                                                    <col width="auto" />
+                                                </colgroup>
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">상품명</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <h4 class="title">
+                                                                <a href="">개인종합자산관리계좌(ISA-신탁형)</a><!-- [dev] 상품상세페이지 링크 추가 -->
+                                                                <!-- 활성화일때 is-active 클래스 추가 -->
+                                                                <button class="fav-btn is-active" aria-pressed="false">
+                                                                    <i aria-hidden="true"></i>
+                                                                    <span class="blind">관심버튼</span>
+                                                                </button>
+                                                            </h4>
+                                                            <p class="des"><span class="blind">상품설명 </span>예금·펀드 등 다양한 금융상품을 하나의 계좌로 통합 관리할 수 있는 상품으로 일정기간 동안 발생하는 손익을 통산한 후 순이익에 대해 세제혜택을 부여하는 상품</p>
+                                                            <h5 class="blind">관심상품 카테고리</h5>
+                                                            <ul class="flex gap-4">
+                                                                <li>
+                                                                    <span class="badge-outline size-md type-blue">
+                                                                        <span class="text">개인</span>
+                                                                    </span>
+                                                                </li>
+                                                                <li>
+                                                                    <span class="badge-outline size-md type-blue">
+                                                                        <span class="text">개인사업자</span>
+                                                                    </span>
+                                                                </li>
+                                                                <li>
+                                                                    <span class="badge-outline size-md type-blue">
+                                                                        <span class="text">법인사업자</span>
+                                                                    </span>
+                                                                </li>
+                                                                <li>
+                                                                    <span class="badge-light size-md type-cyan">
+                                                                        <span class="text">인터넷</span>
+                                                                    </span>
+                                                                </li>
+                                                                <li>
+                                                                    <span class="badge-light size-md type-fuchsia">
+                                                                        <span class="text">영업점</span>
+                                                                    </span>
+                                                                </li>
+                                                                <li>
+                                                                    <span class="badge-light size-md type-blue">
+                                                                        <span class="text">스마트폰</span>
+                                                                    </span>
+                                                                </li>
+                                                            </ul>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- // [dev] 신탁 나의 관심상품 탭 영역 -->
+                            </div>
+                            <!-- 비교함  -->
+                            <div class="sticky-bar" aria-label="나의 관심상품 비교하기 상품 선택 바">
+                                <div class="sticky-bar-inner">
+                                    <div class="chip-group">
+                                        <span class="chip-input">
+                                            <span class="text">Sh모두행복海기업적금</span>
+                                            <button type="button" class="btn-cancel">
+                                            <i class="ico-cancel" aria-hidden="true"></i>
+                                            <span class="blind">항목 삭제</span>
+                                            </button>
+                                        </span>
+                                        <span class="chip-input">
+                                            <span class="text">일반정기예금(기업)</span>
+                                            <button type="button" class="btn-cancel">
+                                            <i class="ico-cancel" aria-hidden="true"></i>
+                                            <span class="blind">항목 삭제</span>
+                                            </button>
+                                        </span>
+                                        <span class="chip-input">
+                                            <span class="text">Sh해양플라스틱Zero!</span>
+                                            <button type="button" class="btn-cancel">
+                                            <i class="ico-cancel" aria-hidden="true"></i>
+                                            <span class="blind">항목 삭제</span>
+                                            </button>
+                                        </span>
+                                    </div>
+
+                                    <div class="btn-wrap">
+                                        <button type="button" class="btn type-line-neutral size-xl">
+                                            <i class="ico-reset" aria-hidden="true"></i>
+                                            <span class="text">다시 선택</span>
+                                        </button>
+                                        <button type="button" class="btn type-bg-primary size-xl">
+                                            <span class="text">비교하기(3/3)</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- // 비교함  -->
+                        </div>
+                    </div>
+                </div>
+                <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+            </div>
+            <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+        </div>
+        <script src="/static/js/ui/cib_ui_common.js"></script>
+    </body>
+</html>
+<script>
+    let fav = document.querySelectorAll(".fav-btn");
+    fav.forEach(element => {
+        element.addEventListener("click", () => {
+            console.log('눌림');
+        });
+    });
+</script>

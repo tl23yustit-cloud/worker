@@ -1,161 +1,1533 @@
 <!doctype html>
 <html lang="ko">
-<head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>수협은행</title>
-	<link rel="stylesheet" href="/static/css/reset.css" />
-	<link rel="stylesheet" href="/static/css/layout.css" />
-	<link rel="stylesheet" href="/static/css/component.css" />
-	<link rel="stylesheet" href="/static/css/common.css" />
-	<link rel="stylesheet" href="/static/css/fin_mfi.css" />
-	<link rel="stylesheet" href="/static/css/cst.css" />
-</head>
-<body>
-	<div class="wrapper">
-		<div id="header">
-			@@include('static/html/pub/layout/skipNavigation.html')
-			@@include('static/html/pub/layout/header_sub.html')
-		</div>
-		<div id="container" class="container">
-			<div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
-			<div id="contents">
-				<div class="content">
-					@@include('static/html/pub/layout/breadcrumb.html')
-					<div class="cst">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>수협은행</title>
+        <link rel="stylesheet" href="/static/css/reset.css" />
+        <link rel="stylesheet" href="/static/css/layout.css" />
+        <link rel="stylesheet" href="/static/css/component.css" />
+        <link rel="stylesheet" href="/static/css/common.css" />
+        <link rel="stylesheet" href="/static/css/cst.css" />
+    </head>
+    <body>
+        <div class="wrapper">
+            <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
+            <div id="container" class="container">
+                <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+                <div id="contents">
+                    <div class="content">
+                        @@include('static/html/pub/layout/breadcrumb.html')
+                        <div class="cst">
+                            <h2 class="typeH2">자주묻는 질문 FAQ</h2>
+                            <form class="box-search">
+                                <div class="box-input-search">
+                                    <input type="text" class="input search size-xl wSize-full" placeholder="궁금한 질문을 검색해 보세요." title="검색어" />
+                                    <div class="group-button">
+                                        <button type="button" class="btn-delete">
+                                            <span class="blind">내용 삭제</span>
+                                        </button>
+                                        <button type="button" class="btn-search">
+                                            <span class="blind">검색</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="box-tab">
+                                <ul class="list-tab-button type-outline case-faq mb-24" role="tablist" aria-label="탭 이름">
+                                    <li class="item-tab-button">
+                                        <button type="button" class="btn-tab active" title="선택됨" id="tabBtnTypeOutline01" role="tab" aria-selected="true" aria-controls="tabPanelTypeOutline01">
+                                            <span class="text">전체</span>
+                                        </button>
+                                    </li>
+                                    <li class="item-tab-button">
+                                        <button type="button" class="btn-tab" id="tabBtnTypeOutline02" role="tab" aria-selected="false" aria-controls="tabPanelTypeOutline02">
+                                            <span class="text">예금</span>
+                                        </button>
+                                    </li>
+                                    <li class="item-tab-button">
+                                        <button type="button" class="btn-tab" id="tabBtnTypeOutline03" role="tab" aria-selected="false" aria-controls="tabPanelTypeOutline03">
+                                            <span class="text">카드</span>
+                                        </button>
+                                    </li>
+                                    <li class="item-tab-button">
+                                        <button type="button" class="btn-tab" id="tabBtnTypeOutline04" role="tab" aria-selected="false" aria-controls="tabPanelTypeOutline04">
+                                            <span class="text">펀드</span>
+                                        </button>
+                                    </li>
+                                    <li class="item-tab-button">
+                                        <button type="button" class="btn-tab" id="tabBtnTypeOutline05" role="tab" aria-selected="false" aria-controls="tabPanelTypeOutline05">
+                                            <span class="text">신탁</span>
+                                        </button>
+                                    </li>
+                                    <li class="item-tab-button">
+                                        <button type="button" class="btn-tab" id="tabBtnTypeOutline06" role="tab" aria-selected="false" aria-controls="tabPanelTypeOutline06">
+                                            <span class="text">우수고객</span>
+                                        </button>
+                                    </li>
+                                    <li class="item-tab-button">
+                                        <button type="button" class="btn-tab" id="tabBtnTypeOutline07" role="tab" aria-selected="false" aria-controls="tabPanelTypeOutline07">
+                                            <span class="text">공과금</span>
+                                        </button>
+                                    </li>
+                                    <li class="item-tab-button">
+                                        <button type="button" class="btn-tab" id="tabBtnTypeOutline08" role="tab" aria-selected="false" aria-controls="tabPanelTypeOutline08">
+                                            <span class="text">기업금융</span>
+                                        </button>
+                                    </li>
+                                    <li class="item-tab-button">
+                                        <button type="button" class="btn-tab" id="tabBtnTypeOutline09" role="tab" aria-selected="false" aria-controls="tabPanelTypeOutline09">
+                                            <span class="text">인터넷/스마트뱅킹</span>
+                                        </button>
+                                    </li>
+                                    <li class="item-tab-button">
+                                        <button type="button" class="btn-tab" id="tabBtnTypeOutline10" role="tab" aria-selected="false" aria-controls="tabPanelTypeOutline10">
+                                            <span class="text">텔레뱅킹</span>
+                                        </button>
+                                    </li>
+                                    <li class="item-tab-button">
+                                        <button type="button" class="btn-tab" id="tabBtnTypeOutline11" role="tab" aria-selected="false" aria-controls="tabPanelTypeOutline11">
+                                            <span class="text">대출</span>
+                                        </button>
+                                    </li>
+                                    <li class="item-tab-button">
+                                        <button type="button" class="btn-tab" id="tabBtnTypeOutline12" role="tab" aria-selected="false" aria-controls="tabPanelTypeOutline12">
+                                            <span class="text">일반</span>
+                                        </button>
+                                    </li>
+                                    <li class="item-tab-button">
+                                        <button type="button" class="btn-tab" id="tabBtnTypeOutline13" role="tab" aria-selected="false" aria-controls="tabPanelTypeOutline13">
+                                            <span class="text">인증보안</span>
+                                        </button>
+                                    </li>
+                                    <li class="item-tab-button">
+                                        <button type="button" class="btn-tab" id="tabBtnTypeOutline14" role="tab" aria-selected="false" aria-controls="tabPanelTypeOutline14">
+                                            <span class="text">외한</span>
+                                        </button>
+                                    </li>
+                                </ul>
+                                <div class="box-tab-content active" id="tabPanelTypeOutline01" role="tabpanel" aria-labelledby="tabBtnTypeOutline01" style="display: block">
+                                    <h3 class="blind">전체</h3>
+                                    <h4 class="typeH4 mb-12">전체보기</h4>
 
-              <h2 class="typeH2">자주묻는질문(FAQ)</h2>
-              <p class="faq-note typeMd"><span class="faq-ico" aria-hidden="true">i</span>질문하시기 이전에 FAQ를 검색하시면 더욱 빠르고 편리합니다.</p>
-              <div class="faq-cats">
-                <a class="faq-all is-on" href="/static/html/pub/cst/01/01/01/001/CIBCST010101001M.html">전체</a>
-<ul>
-<li><a class="" href="/static/html/pub/cst/01/01/01/002/CIBCST010101002M.html">금융상품_예금</a></li>
-<li><a class="" href="/static/html/pub/cst/01/01/01/001/CIBCST010101001M.html">금융상품_카드</a></li>
-<li><a class="" href="/static/html/pub/cst/01/01/01/001/CIBCST010101001M.html">금융상품_펀드</a></li>
-<li><a class="" href="/static/html/pub/cst/01/01/01/001/CIBCST010101001M.html">금융상품_신탁</a></li>
-<li><a class="" href="/static/html/pub/cst/01/01/01/001/CIBCST010101001M.html">우수고객</a></li>
-<li><a class="" href="/static/html/pub/cst/01/01/01/001/CIBCST010101001M.html">공과금</a></li>
-<li><a class="" href="/static/html/pub/cst/01/01/01/001/CIBCST010101001M.html">기업금융</a></li>
-<li><a class="" href="/static/html/pub/cst/01/01/01/001/CIBCST010101001M.html">인터넷/스마트뱅킹</a></li>
-<li><a class="" href="/static/html/pub/cst/01/01/01/001/CIBCST010101001M.html">알림서비스</a></li>
-<li><a class="" href="/static/html/pub/cst/01/01/01/001/CIBCST010101001M.html">텔레뱅킹</a></li>
-<li><a class="" href="/static/html/pub/cst/01/01/01/001/CIBCST010101001M.html">금융상품_대출</a></li>
-<li><a class="" href="/static/html/pub/cst/01/01/01/001/CIBCST010101001M.html">일반</a></li>
-<li><a class="" href="/static/html/pub/cst/01/01/01/001/CIBCST010101001M.html">인증보안</a></li>
-<li><a class="" href="/static/html/pub/cst/01/01/01/001/CIBCST010101001M.html">금융상품_외환</a></li>
-</ul>
-              </div>
-              <form class="box-search" action="/static/html/pub/cst/01/01/01/003/CIBCST010101003M.html" method="get">
-                <div class="box-input-search">
-                  <input type="text" class="input search size-xl wSize-full" name="query" title="검색어" placeholder="궁금한 질문을 검색해 보세요." />
-                  <div class="group-button">
-                    <button type="submit" class="btn-search"><span class="blind">검색</span></button>
-                  </div>
-                </div>
-              </form>
-              <h4 class="typeH4">전체보기</h4>
-              
-                <div class="box-accordion line is-open">
-                  <div class="box-item-list">
-                    <div class="box-title">
-                      <span class="title typeLg">Q. <span class="title-cate">[금융상품_예금]</span> 한도제한계좌의 입출금 한도는 어떻게 되나요</span>
+                                    <div class="box-accordion line">
+                                        <div class="box-item-list">
+                                            <div class="box-title">
+                                                <span class="title-cate">예금</span>
+                                                <div class="box-qna">
+                                                    <b class="title typeLg label-q">Q</b>
+                                                    <span class="title typeLg">농림수산업자신용보증이 무엇입니까?</span>
+                                                </div>
+                                            </div>
+                                            <button type="button" class="btn-accordion" aria-expanded="false" aria-controls="accordionContent01">
+                                                <i class="ico-arrow" aria-hidden="true"></i>
+                                                <span class="blind">상세내용 열기</span>
+                                            </button>
+                                        </div>
+                                        <div id="accordionContent01" class="content-accordion">
+                                            <div class="box-qna">
+                                                <span class="typeMd label-a">A</span>
+                                                <span class="typeMd">경영능력 및 사업성은 있으나 담보력이 미약한 농림수산업자 등의 신용을 보증함으로써 농림수산업에 필요한 소요자금을 원활하게 마련할 수 있도록 하여 농어촌경제의 균형 있는 발전에 기여하는 신용보완제도입니다.</span>
+                                            </div>
+                                            <div class="list type-bar">
+                                                <ul>
+                                                    <li class="typeMd">동일인당 보증 한도는 개인 및 단체 15억원, 법인 20억원 이내입니다. (신보 및 기보 보증잔액 포함)</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="box-accordion line">
+                                        <div class="box-item-list">
+                                            <div class="box-title">
+                                                <span class="title-cate">예금</span>
+                                                <div class="box-qna">
+                                                    <b class="title typeLg label-q">Q</b>
+                                                    <span class="title typeLg">농신보 보증서를 발급받고 싶은데 어디로 가면 발급받을 수 있습니까?</span>
+                                                </div>
+                                            </div>
+                                            <button type="button" class="btn-accordion" aria-expanded="false" aria-controls="accordionContent01">
+                                                <i class="ico-arrow" aria-hidden="true"></i>
+                                                <span class="blind">상세내용 열기</span>
+                                            </button>
+                                        </div>
+                                        <div id="accordionContent01" class="content-accordion">
+                                            <div class="box-qna">
+                                                <span class="typeMd label-a">A</span>
+                                                <span class="typeMd">대출금액 5천만원이하는 대출을 신청하시는 수협 영업점에서 신용조사를 자체실시하여 위탁발급이 가능하며, 5천만원을 초과시는 관할 농신보 지역센타에서 직접 신용조사를 실시하여 발급하게 됩니다. 신용조사에 필요한 제반 서류와 절차는 대출을 받고자 하는 인근 수협 영업점에서 상담 받으시기 바랍니다.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="box-accordion line">
+                                        <div class="box-item-list">
+                                            <div class="box-title">
+                                                <span class="title-cate">신탁</span>
+                                                <div class="box-qna">
+                                                    <b class="title typeLg label-q">Q</b>
+                                                    <span class="title typeLg">대손보전기금이 무엇입니까?</span>
+                                                </div>
+                                            </div>
+                                            <button type="button" class="btn-accordion" aria-expanded="false" aria-controls="accordionContent01">
+                                                <i class="ico-arrow" aria-hidden="true"></i>
+                                                <span class="blind">상세내용 열기</span>
+                                            </button>
+                                        </div>
+                                        <div id="accordionContent01" class="content-accordion">
+                                            <div class="box-qna">
+                                                <span class="typeMd label-a">A</span>
+                                                <span class="typeMd">어업인에게 지원하는 정책자금의 원활한 집행을 위해 수협이 정책자금을 취급함에 따라 부득이하게 발생되는 손실은 대손보전기금이 설치되어 운영됨으로써 보전되고 있습니다. '07. 07. 01이후 신규 및 대환대출된 수산정책자금 담보대출은 대손보전에서 제외되고, '19.01.01.부로 신규및 대환대출로 취급된 수산정책자금대출은 대손보전되고 있습니다.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="box-accordion line">
+                                        <div class="box-item-list">
+                                            <div class="box-title">
+                                                <span class="title-cate">우수고객</span>
+                                                <div class="box-qna">
+                                                    <b class="title typeLg label-q">Q</b>
+                                                    <span class="title typeLg">정책자금 이차보전이란?</span>
+                                                </div>
+                                            </div>
+                                            <button type="button" class="btn-accordion" aria-expanded="false" aria-controls="accordionContent01">
+                                                <i class="ico-arrow" aria-hidden="true"></i>
+                                                <span class="blind">상세내용 열기</span>
+                                            </button>
+                                        </div>
+                                        <div id="accordionContent01" class="content-accordion">
+                                            <div class="box-qna">
+                                                <span class="typeMd label-a">A</span>
+                                                <span class="typeMd">정부의 시책에 의하여 금융기관에서 정책자금을 저리로 어가에 대출함에 따라 발생한 금리의 차액을 정부가 보전하는 제도입니다.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="box-tab-content" id="tabPanelTypeOutline02" role="tabpanel" aria-labelledby="tabBtnTypeOutline02" style="display: none">
+                                    <h3 class="blind">예금</h3>
+                                    <div class="box-accordion line">
+                                        <div class="box-item-list">
+                                            <div class="box-title">
+                                                <span class="title-cate">예금</span>
+                                                <div class="box-qna">
+                                                    <b class="title typeLg label-q">Q</b>
+                                                    <span class="title typeLg">해태양식의 어업기간은 보통 준비기간이 8월부터 시작되어 익년 4월에 완료가 되는데, 비어기인 4월~8월에 영어자금 신청시 지원이 가능한가요?</span>
+                                                </div>
+                                            </div>
+                                            <button type="button" class="btn-accordion" aria-expanded="false" aria-controls="accordionContent01">
+                                                <i class="ico-arrow" aria-hidden="true"></i>
+                                                <span class="blind">상세내용 열기</span>
+                                            </button>
+                                        </div>
+                                        <div id="accordionContent01" class="content-accordion">
+                                            <div class="box-qna">
+                                                <span class="typeMd label-a">A</span>
+                                                <span class="typeMd">영어자금운용요령 제15조 1항에 의거 "융자기관의 장은 대출금이 타목적에 사용되지 아니하도록 관리하여야 한다"로 되어 있으므로, 어업시기 도래시 지원하는 것이 원칙임. 다만, 비어기에도 시설보완 등 양식어업에 운전성자금으로 투자하는 것이 확실한 경우에는 융자한도 범위내에서 동 금액의 지원은 가능함.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="box-accordion line">
+                                        <div class="box-item-list">
+                                            <div class="box-title">
+                                                <span class="title-cate">예금</span>
+                                                <div class="box-qna">
+                                                    <b class="title typeLg label-q">Q</b>
+                                                    <span class="title typeLg">맨손어업신고필증 및 기타 어업허가(어선어업, 양식업 및 내수면어업)에 대한 영어자금을 동시에 신청하였을 때 일괄지원이 가능한지요?</span>
+                                                </div>
+                                            </div>
+                                            <button type="button" class="btn-accordion" aria-expanded="false" aria-controls="accordionContent01">
+                                                <i class="ico-arrow" aria-hidden="true"></i>
+                                                <span class="blind">상세내용 열기</span>
+                                            </button>
+                                        </div>
+                                        <div id="accordionContent01" class="content-accordion">
+                                            <div class="box-qna">
+                                                <span class="typeMd label-a">A</span>
+                                                <span class="typeMd">영어자금운용지침에 의하면 어업별.규모별 가구(업체)당 경영비를 기준으로 융자비율을 차등 적용하여 지원하도록 되어 있으므로 한 어업인이 2종이상의 서로 다른 어업을 영위하고 있는 경우에도 영어자금 소요액의 합계금액을 기준으로 해당 융자비율을 곱하여 산출된 융자가능금액 이내에서 일괄 지원은 가능함.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="box-accordion line">
+                                        <div class="box-item-list">
+                                            <div class="box-title">
+                                                <span class="title-cate">예금</span>
+                                                <div class="box-qna">
+                                                    <b class="title typeLg label-q">Q</b>
+                                                    <span class="title typeLg">세대원 A,B,C 모두가 맨손어업신고필증을 소지하고 어업을 영위할 때 지원방법 어떻게 되는가요?</span>
+                                                </div>
+                                            </div>
+                                            <button type="button" class="btn-accordion" aria-expanded="false" aria-controls="accordionContent01">
+                                                <i class="ico-arrow" aria-hidden="true"></i>
+                                                <span class="blind">상세내용 열기</span>
+                                            </button>
+                                        </div>
+                                        <div id="accordionContent01" class="content-accordion">
+                                            <div class="box-qna">
+                                                <span class="typeMd label-a">A</span>
+                                                <span class="typeMd">영어자금운용지침에 의거 신고(맨손)어업의 경우 가구당 300만원까지 지원토록 되어 있으므로 세대원 A,B,C가 맨손어업신고필증을 소지하고 각자 어업을 영위할지라도 세대원에 대한 영어자금 대출합계액은 가구당 지원한도인 300만원을 초과하여 지원할 수는 없음.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="box-accordion line">
+                                        <div class="box-item-list">
+                                            <div class="box-title">
+                                                <span class="title-cate">예금</span>
+                                                <div class="box-qna">
+                                                    <b class="title typeLg label-q">Q</b>
+                                                    <span class="title typeLg">2개 이상의 어업을 동시에 영위하는 어업인이 1개 어업에 대하여 수산관계법령 위반으로 어업정지 60일 이상의 처분(과징금 포함)을 받은 경우 나머지 어업에 대하여도 수산정책자금을 회수하여야 하는지요?</span>
+                                                </div>
+                                            </div>
+                                            <button type="button" class="btn-accordion" aria-expanded="false" aria-controls="accordionContent01">
+                                                <i class="ico-arrow" aria-hidden="true"></i>
+                                                <span class="blind">상세내용 열기</span>
+                                            </button>
+                                        </div>
+                                        <div id="accordionContent01" class="content-accordion">
+                                            <div class="box-qna">
+                                                <span class="typeMd label-a">A</span>
+                                                <span class="typeMd">수산관계법령위반으로 어업정지 60일 이상의 처분을 받은 어업에 대해서만 자금을 회수하여야 함.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="box-accordion line">
+                                        <div class="box-item-list">
+                                            <div class="box-title">
+                                                <span class="title-cate">예금</span>
+                                                <div class="box-qna">
+                                                    <b class="title typeLg label-q">Q</b>
+                                                    <span class="title typeLg">내수면 양식어업의 노지식 또는 시설 양식장에서 연초에 양식물을 입식시키고, 가을경에 모두 출하, 양식장이 비어 있는 상태가 약 11월부터 익년 4월까지(약 5~6개월)의 경우에도 계절성 어업의 비어기 기간으로 볼 수 있는지요?</span>
+                                                </div>
+                                            </div>
+                                            <button type="button" class="btn-accordion" aria-expanded="false" aria-controls="accordionContent01">
+                                                <i class="ico-arrow" aria-hidden="true"></i>
+                                                <span class="blind">상세내용 열기</span>
+                                            </button>
+                                        </div>
+                                        <div id="accordionContent01" class="content-accordion">
+                                            <div class="box-qna">
+                                                <span class="typeMd label-a">A</span>
+                                                <span class="typeMd">영어자금운용요령 제2조(정의)에 의거 “계절성어업”이라 함은 어업의 특성상 일정한 시기에만 어업이 가능한 업종을 말한다로 되어 있으므로, 내수면 어업은 계절성어업이 아님.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="box-accordion line">
+                                        <div class="box-item-list">
+                                            <div class="box-title">
+                                                <span class="title-cate">예금</span>
+                                                <div class="box-qna">
+                                                    <b class="title typeLg label-q">Q</b>
+                                                    <span class="title typeLg">어업허가증과 어선등록원부에 공동소유 및 어업경영자로 되어 있는 공동명의 어업자가 모두 조합원인 경우 영어자금 및 정책자금 등의 지원 및 배분은 어떻게 하여야 하는지요?</span>
+                                                </div>
+                                            </div>
+                                            <button type="button" class="btn-accordion" aria-expanded="false" aria-controls="accordionContent01">
+                                                <i class="ico-arrow" aria-hidden="true"></i>
+                                                <span class="blind">상세내용 열기</span>
+                                            </button>
+                                        </div>
+                                        <div id="accordionContent01" class="content-accordion">
+                                            <div class="box-qna">
+                                                <span class="typeMd label-a">A</span>
+                                                <span class="typeMd">다수인이 어업허가의 지분권자로 되어 있고, 공동으로 경영하고 있는 경우에는 지분권자 전원을 연대차주로 하여 지원하는 것이 원칙임. 다만, 실제로 어업을 경영하는 대표자가 자금지원을 신청하여 대출하고자 할 때에는 타 지분권자 전원의 동의를 받아 이중지원 또는 사후분쟁이 없도록 하여야 하며, 어업경영자가 개인별로 자금지원을 신청하는 경우에는 영어자금운용지침 등에 의한 융자한도를 기준으로 지분에 해당하는 금액이내에서 대출 가능함.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="box-accordion line">
+                                        <div class="box-item-list">
+                                            <div class="box-title">
+                                                <span class="title-cate">예금</span>
+                                                <div class="box-qna">
+                                                    <b class="title typeLg label-q">Q</b>
+                                                    <span class="title typeLg">어촌계 명의 신고어업(맨손어업)에 대하여 해당 어촌계 소속 어촌계원으로써 어업행위자(행사계약자)로 등재된 어업인을 맨손어업인으로 간주하여 영어자금 지원이 가능한지요?</span>
+                                                </div>
+                                            </div>
+                                            <button type="button" class="btn-accordion" aria-expanded="false" aria-controls="accordionContent01">
+                                                <i class="ico-arrow" aria-hidden="true"></i>
+                                                <span class="blind">상세내용 열기</span>
+                                            </button>
+                                        </div>
+                                        <div id="accordionContent01" class="content-accordion">
+                                            <div class="box-qna">
+                                                <span class="typeMd label-a">A</span>
+                                                <span class="typeMd">영어자금 운용요령 제4조(융자대상자)에 의하면 영어자금의 융자대상자는 수산업법 제8조, 제41조 및 제47조의 규정에 의하여 면허(행사계약에 의한 입어를 포함한다) 또는 허가를 받았거나 신고를 필한자로 명시되어 있어 신고어업에 대한 행사계약자(어업행위자)는 영어자금 지원이 불가함.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="box-accordion line">
+                                        <div class="box-item-list">
+                                            <div class="box-title">
+                                                <span class="title-cate">예금</span>
+                                                <div class="box-qna">
+                                                    <b class="title typeLg label-q">Q</b>
+                                                    <span class="title typeLg">해당관청으로부터 어업의 면허 또는 허가를 받지 아니한 자가 현재 어업행위를 하고 있는 경우 어업인으로 볼 수 있는지요?</span>
+                                                </div>
+                                            </div>
+                                            <button type="button" class="btn-accordion" aria-expanded="false" aria-controls="accordionContent01">
+                                                <i class="ico-arrow" aria-hidden="true"></i>
+                                                <span class="blind">상세내용 열기</span>
+                                            </button>
+                                        </div>
+                                        <div id="accordionContent01" class="content-accordion">
+                                            <div class="box-qna">
+                                                <span class="typeMd label-a">A</span>
+                                                <span class="typeMd">어업을 경영하고자 하는 자는 어업의 종류에 따라 해당 행정관청으로부터 면허 또는 허가를 얻거나 신고를 필하여야 하며, 면허 또는 허가를 얻지 아니하거나 신고를 필하지 아니하고 어업을 경영하는 자는 어업인에 해당하지 아니함</span>
+                                            </div>
+                                            <div class="list type-bar mt-12">
+                                                <ul>
+                                                    <li class="typeMd">면허어업 : 어업면허증 교부 및 어업권 등록</li>
+                                                    <li class="typeMd">허가어업 : 어업허가증 교부</li>
+                                                    <li class="typeMd">신고어업 : 어업신고필증 교부</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="box-tab-content" id="tabPanelTypeOutline03" role="tabpanel" aria-labelledby="tabBtnTypeOutline03" style="display: none">
+                                    <h3 class="blind">카드</h3>
+                                    <div class="box-accordion line">
+                                        <div class="box-item-list">
+                                            <div class="box-title">
+                                                <span class="title-cate">카드</span>
+                                                <div class="box-qna">
+                                                    <b class="title typeLg label-q">Q</b>
+                                                    <span class="title typeLg">농림수산업자신용보증이 무엇입니까?</span>
+                                                </div>
+                                            </div>
+                                            <button type="button" class="btn-accordion" aria-expanded="false" aria-controls="accordionContent01">
+                                                <i class="ico-arrow" aria-hidden="true"></i>
+                                                <span class="blind">상세내용 열기</span>
+                                            </button>
+                                        </div>
+                                        <div id="accordionContent01" class="content-accordion">
+                                            <div class="box-qna">
+                                                <span class="typeMd label-a">A</span>
+                                                <span class="typeMd">경영능력 및 사업성은 있으나 담보력이 미약한 농림수산업자 등의 신용을 보증함으로써 농림수산업에 필요한 소요자금을 원활하게 마련할 수 있도록 하여 농어촌경제의 균형 있는 발전에 기여하는 신용보완제도입니다.</span>
+                                            </div>
+                                            <div class="list type-bar">
+                                                <ul>
+                                                    <li class="typeMd">동일인당 보증 한도는 개인 및 단체 15억원, 법인 20억원 이내입니다. (신보 및 기보 보증잔액 포함)</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="box-accordion line">
+                                        <div class="box-item-list">
+                                            <div class="box-title">
+                                                <span class="title-cate">카드</span>
+                                                <div class="box-qna">
+                                                    <b class="title typeLg label-q">Q</b>
+                                                    <span class="title typeLg">농신보 보증서를 발급받고 싶은데 어디로 가면 발급받을 수 있습니까?</span>
+                                                </div>
+                                            </div>
+                                            <button type="button" class="btn-accordion" aria-expanded="false" aria-controls="accordionContent01">
+                                                <i class="ico-arrow" aria-hidden="true"></i>
+                                                <span class="blind">상세내용 열기</span>
+                                            </button>
+                                        </div>
+                                        <div id="accordionContent01" class="content-accordion">
+                                            <div class="box-qna">
+                                                <span class="typeMd label-a">A</span>
+                                                <span class="typeMd">대출금액 5천만원이하는 대출을 신청하시는 수협 영업점에서 신용조사를 자체실시하여 위탁발급이 가능하며, 5천만원을 초과시는 관할 농신보 지역센타에서 직접 신용조사를 실시하여 발급하게 됩니다. 신용조사에 필요한 제반 서류와 절차는 대출을 받고자 하는 인근 수협 영업점에서 상담 받으시기 바랍니다.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="box-accordion line">
+                                        <div class="box-item-list">
+                                            <div class="box-title">
+                                                <span class="title-cate">카드</span>
+                                                <div class="box-qna">
+                                                    <b class="title typeLg label-q">Q</b>
+                                                    <span class="title typeLg">대손보전기금이 무엇입니까?</span>
+                                                </div>
+                                            </div>
+                                            <button type="button" class="btn-accordion" aria-expanded="false" aria-controls="accordionContent01">
+                                                <i class="ico-arrow" aria-hidden="true"></i>
+                                                <span class="blind">상세내용 열기</span>
+                                            </button>
+                                        </div>
+                                        <div id="accordionContent01" class="content-accordion">
+                                            <div class="box-qna">
+                                                <span class="typeMd label-a">A</span>
+                                                <span class="typeMd">어업인에게 지원하는 정책자금의 원활한 집행을 위해 수협이 정책자금을 취급함에 따라 부득이하게 발생되는 손실은 대손보전기금이 설치되어 운영됨으로써 보전되고 있습니다. '07. 07. 01이후 신규 및 대환대출된 수산정책자금 담보대출은 대손보전에서 제외되고, '19.01.01.부로 신규및 대환대출로 취급된 수산정책자금대출은 대손보전되고 있습니다.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="box-accordion line">
+                                        <div class="box-item-list">
+                                            <div class="box-title">
+                                                <span class="title-cate">카드</span>
+                                                <div class="box-qna">
+                                                    <b class="title typeLg label-q">Q</b>
+                                                    <span class="title typeLg">정책자금 이차보전이란?</span>
+                                                </div>
+                                            </div>
+                                            <button type="button" class="btn-accordion" aria-expanded="false" aria-controls="accordionContent01">
+                                                <i class="ico-arrow" aria-hidden="true"></i>
+                                                <span class="blind">상세내용 열기</span>
+                                            </button>
+                                        </div>
+                                        <div id="accordionContent01" class="content-accordion">
+                                            <div class="box-qna">
+                                                <span class="typeMd label-a">A</span>
+                                                <span class="typeMd">정부의 시책에 의하여 금융기관에서 정책자금을 저리로 어가에 대출함에 따라 발생한 금리의 차액을 정부가 보전하는 제도입니다.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="box-tab-content" id="tabPanelTypeOutline04" role="tabpanel" aria-labelledby="tabBtnTypeOutline04" style="display: none">
+                                    <h3 class="blind">펀드</h3>
+                                    <div class="box-accordion line">
+                                        <div class="box-item-list">
+                                            <div class="box-title">
+                                                <span class="title-cate">펀드</span>
+                                                <div class="box-qna">
+                                                    <b class="title typeLg label-q">Q</b>
+                                                    <span class="title typeLg">농림수산업자신용보증이 무엇입니까?</span>
+                                                </div>
+                                            </div>
+                                            <button type="button" class="btn-accordion" aria-expanded="false" aria-controls="accordionContent01">
+                                                <i class="ico-arrow" aria-hidden="true"></i>
+                                                <span class="blind">상세내용 열기</span>
+                                            </button>
+                                        </div>
+                                        <div id="accordionContent01" class="content-accordion">
+                                            <div class="box-qna">
+                                                <span class="typeMd label-a">A</span>
+                                                <span class="typeMd">경영능력 및 사업성은 있으나 담보력이 미약한 농림수산업자 등의 신용을 보증함으로써 농림수산업에 필요한 소요자금을 원활하게 마련할 수 있도록 하여 농어촌경제의 균형 있는 발전에 기여하는 신용보완제도입니다.</span>
+                                            </div>
+                                            <div class="list type-bar">
+                                                <ul>
+                                                    <li class="typeMd">동일인당 보증 한도는 개인 및 단체 15억원, 법인 20억원 이내입니다. (신보 및 기보 보증잔액 포함)</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="box-accordion line">
+                                        <div class="box-item-list">
+                                            <div class="box-title">
+                                                <span class="title-cate">펀드</span>
+                                                <div class="box-qna">
+                                                    <b class="title typeLg label-q">Q</b>
+                                                    <span class="title typeLg">농신보 보증서를 발급받고 싶은데 어디로 가면 발급받을 수 있습니까?</span>
+                                                </div>
+                                            </div>
+                                            <button type="button" class="btn-accordion" aria-expanded="false" aria-controls="accordionContent01">
+                                                <i class="ico-arrow" aria-hidden="true"></i>
+                                                <span class="blind">상세내용 열기</span>
+                                            </button>
+                                        </div>
+                                        <div id="accordionContent01" class="content-accordion">
+                                            <div class="box-qna">
+                                                <span class="typeMd label-a">A</span>
+                                                <span class="typeMd">대출금액 5천만원이하는 대출을 신청하시는 수협 영업점에서 신용조사를 자체실시하여 위탁발급이 가능하며, 5천만원을 초과시는 관할 농신보 지역센타에서 직접 신용조사를 실시하여 발급하게 됩니다. 신용조사에 필요한 제반 서류와 절차는 대출을 받고자 하는 인근 수협 영업점에서 상담 받으시기 바랍니다.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="box-accordion line">
+                                        <div class="box-item-list">
+                                            <div class="box-title">
+                                                <span class="title-cate">펀드</span>
+                                                <div class="box-qna">
+                                                    <b class="title typeLg label-q">Q</b>
+                                                    <span class="title typeLg">대손보전기금이 무엇입니까?</span>
+                                                </div>
+                                            </div>
+                                            <button type="button" class="btn-accordion" aria-expanded="false" aria-controls="accordionContent01">
+                                                <i class="ico-arrow" aria-hidden="true"></i>
+                                                <span class="blind">상세내용 열기</span>
+                                            </button>
+                                        </div>
+                                        <div id="accordionContent01" class="content-accordion">
+                                            <div class="box-qna">
+                                                <span class="typeMd label-a">A</span>
+                                                <span class="typeMd">어업인에게 지원하는 정책자금의 원활한 집행을 위해 수협이 정책자금을 취급함에 따라 부득이하게 발생되는 손실은 대손보전기금이 설치되어 운영됨으로써 보전되고 있습니다. '07. 07. 01이후 신규 및 대환대출된 수산정책자금 담보대출은 대손보전에서 제외되고, '19.01.01.부로 신규및 대환대출로 취급된 수산정책자금대출은 대손보전되고 있습니다.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="box-accordion line">
+                                        <div class="box-item-list">
+                                            <div class="box-title">
+                                                <span class="title-cate">펀드</span>
+                                                <div class="box-qna">
+                                                    <b class="title typeLg label-q">Q</b>
+                                                    <span class="title typeLg">정책자금 이차보전이란?</span>
+                                                </div>
+                                            </div>
+                                            <button type="button" class="btn-accordion" aria-expanded="false" aria-controls="accordionContent01">
+                                                <i class="ico-arrow" aria-hidden="true"></i>
+                                                <span class="blind">상세내용 열기</span>
+                                            </button>
+                                        </div>
+                                        <div id="accordionContent01" class="content-accordion">
+                                            <div class="box-qna">
+                                                <span class="typeMd label-a">A</span>
+                                                <span class="typeMd">정부의 시책에 의하여 금융기관에서 정책자금을 저리로 어가에 대출함에 따라 발생한 금리의 차액을 정부가 보전하는 제도입니다.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="box-tab-content" id="tabPanelTypeOutline05" role="tabpanel" aria-labelledby="tabBtnTypeOutline05" style="display: none">
+                                    <h3 class="blind">신탁</h3>
+                                    <div class="box-accordion line">
+                                        <div class="box-item-list">
+                                            <div class="box-title">
+                                                <span class="title-cate">신탁</span>
+                                                <div class="box-qna">
+                                                    <b class="title typeLg label-q">Q</b>
+                                                    <span class="title typeLg">농림수산업자신용보증이 무엇입니까?</span>
+                                                </div>
+                                            </div>
+                                            <button type="button" class="btn-accordion" aria-expanded="false" aria-controls="accordionContent01">
+                                                <i class="ico-arrow" aria-hidden="true"></i>
+                                                <span class="blind">상세내용 열기</span>
+                                            </button>
+                                        </div>
+                                        <div id="accordionContent01" class="content-accordion">
+                                            <div class="box-qna">
+                                                <span class="typeMd label-a">A</span>
+                                                <span class="typeMd">경영능력 및 사업성은 있으나 담보력이 미약한 농림수산업자 등의 신용을 보증함으로써 농림수산업에 필요한 소요자금을 원활하게 마련할 수 있도록 하여 농어촌경제의 균형 있는 발전에 기여하는 신용보완제도입니다.</span>
+                                            </div>
+                                            <div class="list type-bar">
+                                                <ul>
+                                                    <li class="typeMd">동일인당 보증 한도는 개인 및 단체 15억원, 법인 20억원 이내입니다. (신보 및 기보 보증잔액 포함)</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="box-accordion line">
+                                        <div class="box-item-list">
+                                            <div class="box-title">
+                                                <span class="title-cate">신탁</span>
+                                                <div class="box-qna">
+                                                    <b class="title typeLg label-q">Q</b>
+                                                    <span class="title typeLg">농신보 보증서를 발급받고 싶은데 어디로 가면 발급받을 수 있습니까?</span>
+                                                </div>
+                                            </div>
+                                            <button type="button" class="btn-accordion" aria-expanded="false" aria-controls="accordionContent01">
+                                                <i class="ico-arrow" aria-hidden="true"></i>
+                                                <span class="blind">상세내용 열기</span>
+                                            </button>
+                                        </div>
+                                        <div id="accordionContent01" class="content-accordion">
+                                            <div class="box-qna">
+                                                <span class="typeMd label-a">A</span>
+                                                <span class="typeMd">대출금액 5천만원이하는 대출을 신청하시는 수협 영업점에서 신용조사를 자체실시하여 위탁발급이 가능하며, 5천만원을 초과시는 관할 농신보 지역센타에서 직접 신용조사를 실시하여 발급하게 됩니다. 신용조사에 필요한 제반 서류와 절차는 대출을 받고자 하는 인근 수협 영업점에서 상담 받으시기 바랍니다.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="box-accordion line">
+                                        <div class="box-item-list">
+                                            <div class="box-title">
+                                                <span class="title-cate">신탁</span>
+                                                <div class="box-qna">
+                                                    <b class="title typeLg label-q">Q</b>
+                                                    <span class="title typeLg">대손보전기금이 무엇입니까?</span>
+                                                </div>
+                                            </div>
+                                            <button type="button" class="btn-accordion" aria-expanded="false" aria-controls="accordionContent01">
+                                                <i class="ico-arrow" aria-hidden="true"></i>
+                                                <span class="blind">상세내용 열기</span>
+                                            </button>
+                                        </div>
+                                        <div id="accordionContent01" class="content-accordion">
+                                            <div class="box-qna">
+                                                <span class="typeMd label-a">A</span>
+                                                <span class="typeMd">어업인에게 지원하는 정책자금의 원활한 집행을 위해 수협이 정책자금을 취급함에 따라 부득이하게 발생되는 손실은 대손보전기금이 설치되어 운영됨으로써 보전되고 있습니다. '07. 07. 01이후 신규 및 대환대출된 수산정책자금 담보대출은 대손보전에서 제외되고, '19.01.01.부로 신규및 대환대출로 취급된 수산정책자금대출은 대손보전되고 있습니다.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="box-accordion line">
+                                        <div class="box-item-list">
+                                            <div class="box-title">
+                                                <span class="title-cate">신탁</span>
+                                                <div class="box-qna">
+                                                    <b class="title typeLg label-q">Q</b>
+                                                    <span class="title typeLg">정책자금 이차보전이란?</span>
+                                                </div>
+                                            </div>
+                                            <button type="button" class="btn-accordion" aria-expanded="false" aria-controls="accordionContent01">
+                                                <i class="ico-arrow" aria-hidden="true"></i>
+                                                <span class="blind">상세내용 열기</span>
+                                            </button>
+                                        </div>
+                                        <div id="accordionContent01" class="content-accordion">
+                                            <div class="box-qna">
+                                                <span class="typeMd label-a">A</span>
+                                                <span class="typeMd">정부의 시책에 의하여 금융기관에서 정책자금을 저리로 어가에 대출함에 따라 발생한 금리의 차액을 정부가 보전하는 제도입니다.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="box-tab-content" id="tabPanelTypeOutline06" role="tabpanel" aria-labelledby="tabBtnTypeOutline06" style="display: none">
+                                    <h3 class="blind">우수고객</h3>
+                                    <div class="box-accordion line">
+                                        <div class="box-item-list">
+                                            <div class="box-title">
+                                                <span class="title-cate">우수고객</span>
+                                                <div class="box-qna">
+                                                    <b class="title typeLg label-q">Q</b>
+                                                    <span class="title typeLg">농림수산업자신용보증이 무엇입니까?</span>
+                                                </div>
+                                            </div>
+                                            <button type="button" class="btn-accordion" aria-expanded="false" aria-controls="accordionContent01">
+                                                <i class="ico-arrow" aria-hidden="true"></i>
+                                                <span class="blind">상세내용 열기</span>
+                                            </button>
+                                        </div>
+                                        <div id="accordionContent01" class="content-accordion">
+                                            <div class="box-qna">
+                                                <span class="typeMd label-a">A</span>
+                                                <span class="typeMd">경영능력 및 사업성은 있으나 담보력이 미약한 농림수산업자 등의 신용을 보증함으로써 농림수산업에 필요한 소요자금을 원활하게 마련할 수 있도록 하여 농어촌경제의 균형 있는 발전에 기여하는 신용보완제도입니다.</span>
+                                            </div>
+                                            <div class="list type-bar">
+                                                <ul>
+                                                    <li class="typeMd">동일인당 보증 한도는 개인 및 단체 15억원, 법인 20억원 이내입니다. (신보 및 기보 보증잔액 포함)</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="box-accordion line">
+                                        <div class="box-item-list">
+                                            <div class="box-title">
+                                                <span class="title-cate">우수고객</span>
+                                                <div class="box-qna">
+                                                    <b class="title typeLg label-q">Q</b>
+                                                    <span class="title typeLg">농신보 보증서를 발급받고 싶은데 어디로 가면 발급받을 수 있습니까?</span>
+                                                </div>
+                                            </div>
+                                            <button type="button" class="btn-accordion" aria-expanded="false" aria-controls="accordionContent01">
+                                                <i class="ico-arrow" aria-hidden="true"></i>
+                                                <span class="blind">상세내용 열기</span>
+                                            </button>
+                                        </div>
+                                        <div id="accordionContent01" class="content-accordion">
+                                            <div class="box-qna">
+                                                <span class="typeMd label-a">A</span>
+                                                <span class="typeMd">대출금액 5천만원이하는 대출을 신청하시는 수협 영업점에서 신용조사를 자체실시하여 위탁발급이 가능하며, 5천만원을 초과시는 관할 농신보 지역센타에서 직접 신용조사를 실시하여 발급하게 됩니다. 신용조사에 필요한 제반 서류와 절차는 대출을 받고자 하는 인근 수협 영업점에서 상담 받으시기 바랍니다.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="box-accordion line">
+                                        <div class="box-item-list">
+                                            <div class="box-title">
+                                                <span class="title-cate">우수고객</span>
+                                                <div class="box-qna">
+                                                    <b class="title typeLg label-q">Q</b>
+                                                    <span class="title typeLg">대손보전기금이 무엇입니까?</span>
+                                                </div>
+                                            </div>
+                                            <button type="button" class="btn-accordion" aria-expanded="false" aria-controls="accordionContent01">
+                                                <i class="ico-arrow" aria-hidden="true"></i>
+                                                <span class="blind">상세내용 열기</span>
+                                            </button>
+                                        </div>
+                                        <div id="accordionContent01" class="content-accordion">
+                                            <div class="box-qna">
+                                                <span class="typeMd label-a">A</span>
+                                                <span class="typeMd">어업인에게 지원하는 정책자금의 원활한 집행을 위해 수협이 정책자금을 취급함에 따라 부득이하게 발생되는 손실은 대손보전기금이 설치되어 운영됨으로써 보전되고 있습니다. '07. 07. 01이후 신규 및 대환대출된 수산정책자금 담보대출은 대손보전에서 제외되고, '19.01.01.부로 신규및 대환대출로 취급된 수산정책자금대출은 대손보전되고 있습니다.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="box-accordion line">
+                                        <div class="box-item-list">
+                                            <div class="box-title">
+                                                <span class="title-cate">우수고객</span>
+                                                <div class="box-qna">
+                                                    <b class="title typeLg label-q">Q</b>
+                                                    <span class="title typeLg">정책자금 이차보전이란?</span>
+                                                </div>
+                                            </div>
+                                            <button type="button" class="btn-accordion" aria-expanded="false" aria-controls="accordionContent01">
+                                                <i class="ico-arrow" aria-hidden="true"></i>
+                                                <span class="blind">상세내용 열기</span>
+                                            </button>
+                                        </div>
+                                        <div id="accordionContent01" class="content-accordion">
+                                            <div class="box-qna">
+                                                <span class="typeMd label-a">A</span>
+                                                <span class="typeMd">정부의 시책에 의하여 금융기관에서 정책자금을 저리로 어가에 대출함에 따라 발생한 금리의 차액을 정부가 보전하는 제도입니다.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="box-tab-content" id="tabPanelTypeOutline07" role="tabpanel" aria-labelledby="tabBtnTypeOutline07" style="display: none">
+                                    <h3 class="blind">공과금</h3>
+                                    <div class="box-accordion line">
+                                        <div class="box-item-list">
+                                            <div class="box-title">
+                                                <span class="title-cate">공과금</span>
+                                                <div class="box-qna">
+                                                    <b class="title typeLg label-q">Q</b>
+                                                    <span class="title typeLg">농림수산업자신용보증이 무엇입니까?</span>
+                                                </div>
+                                            </div>
+                                            <button type="button" class="btn-accordion" aria-expanded="false" aria-controls="accordionContent01">
+                                                <i class="ico-arrow" aria-hidden="true"></i>
+                                                <span class="blind">상세내용 열기</span>
+                                            </button>
+                                        </div>
+                                        <div id="accordionContent01" class="content-accordion">
+                                            <div class="box-qna">
+                                                <span class="typeMd label-a">A</span>
+                                                <span class="typeMd">경영능력 및 사업성은 있으나 담보력이 미약한 농림수산업자 등의 신용을 보증함으로써 농림수산업에 필요한 소요자금을 원활하게 마련할 수 있도록 하여 농어촌경제의 균형 있는 발전에 기여하는 신용보완제도입니다.</span>
+                                            </div>
+                                            <div class="list type-bar">
+                                                <ul>
+                                                    <li class="typeMd">동일인당 보증 한도는 개인 및 단체 15억원, 법인 20억원 이내입니다. (신보 및 기보 보증잔액 포함)</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="box-accordion line">
+                                        <div class="box-item-list">
+                                            <div class="box-title">
+                                                <span class="title-cate">공과금</span>
+                                                <div class="box-qna">
+                                                    <b class="title typeLg label-q">Q</b>
+                                                    <span class="title typeLg">농신보 보증서를 발급받고 싶은데 어디로 가면 발급받을 수 있습니까?</span>
+                                                </div>
+                                            </div>
+                                            <button type="button" class="btn-accordion" aria-expanded="false" aria-controls="accordionContent01">
+                                                <i class="ico-arrow" aria-hidden="true"></i>
+                                                <span class="blind">상세내용 열기</span>
+                                            </button>
+                                        </div>
+                                        <div id="accordionContent01" class="content-accordion">
+                                            <div class="box-qna">
+                                                <span class="typeMd label-a">A</span>
+                                                <span class="typeMd">대출금액 5천만원이하는 대출을 신청하시는 수협 영업점에서 신용조사를 자체실시하여 위탁발급이 가능하며, 5천만원을 초과시는 관할 농신보 지역센타에서 직접 신용조사를 실시하여 발급하게 됩니다. 신용조사에 필요한 제반 서류와 절차는 대출을 받고자 하는 인근 수협 영업점에서 상담 받으시기 바랍니다.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="box-accordion line">
+                                        <div class="box-item-list">
+                                            <div class="box-title">
+                                                <span class="title-cate">공과금</span>
+                                                <div class="box-qna">
+                                                    <b class="title typeLg label-q">Q</b>
+                                                    <span class="title typeLg">대손보전기금이 무엇입니까?</span>
+                                                </div>
+                                            </div>
+                                            <button type="button" class="btn-accordion" aria-expanded="false" aria-controls="accordionContent01">
+                                                <i class="ico-arrow" aria-hidden="true"></i>
+                                                <span class="blind">상세내용 열기</span>
+                                            </button>
+                                        </div>
+                                        <div id="accordionContent01" class="content-accordion">
+                                            <div class="box-qna">
+                                                <span class="typeMd label-a">A</span>
+                                                <span class="typeMd">어업인에게 지원하는 정책자금의 원활한 집행을 위해 수협이 정책자금을 취급함에 따라 부득이하게 발생되는 손실은 대손보전기금이 설치되어 운영됨으로써 보전되고 있습니다. '07. 07. 01이후 신규 및 대환대출된 수산정책자금 담보대출은 대손보전에서 제외되고, '19.01.01.부로 신규및 대환대출로 취급된 수산정책자금대출은 대손보전되고 있습니다.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="box-accordion line">
+                                        <div class="box-item-list">
+                                            <div class="box-title">
+                                                <span class="title-cate">공과금</span>
+                                                <div class="box-qna">
+                                                    <b class="title typeLg label-q">Q</b>
+                                                    <span class="title typeLg">정책자금 이차보전이란?</span>
+                                                </div>
+                                            </div>
+                                            <button type="button" class="btn-accordion" aria-expanded="false" aria-controls="accordionContent01">
+                                                <i class="ico-arrow" aria-hidden="true"></i>
+                                                <span class="blind">상세내용 열기</span>
+                                            </button>
+                                        </div>
+                                        <div id="accordionContent01" class="content-accordion">
+                                            <div class="box-qna">
+                                                <span class="typeMd label-a">A</span>
+                                                <span class="typeMd">정부의 시책에 의하여 금융기관에서 정책자금을 저리로 어가에 대출함에 따라 발생한 금리의 차액을 정부가 보전하는 제도입니다.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="box-tab-content" id="tabPanelTypeOutline08" role="tabpanel" aria-labelledby="tabBtnTypeOutline08" style="display: none">
+                                    <h3 class="blind">기업금융</h3>
+                                    <div class="box-accordion line">
+                                        <div class="box-item-list">
+                                            <div class="box-title">
+                                                <span class="title-cate">기업금융</span>
+                                                <div class="box-qna">
+                                                    <b class="title typeLg label-q">Q</b>
+                                                    <span class="title typeLg">농림수산업자신용보증이 무엇입니까?</span>
+                                                </div>
+                                            </div>
+                                            <button type="button" class="btn-accordion" aria-expanded="false" aria-controls="accordionContent01">
+                                                <i class="ico-arrow" aria-hidden="true"></i>
+                                                <span class="blind">상세내용 열기</span>
+                                            </button>
+                                        </div>
+                                        <div id="accordionContent01" class="content-accordion">
+                                            <div class="box-qna">
+                                                <span class="typeMd label-a">A</span>
+                                                <span class="typeMd">경영능력 및 사업성은 있으나 담보력이 미약한 농림수산업자 등의 신용을 보증함으로써 농림수산업에 필요한 소요자금을 원활하게 마련할 수 있도록 하여 농어촌경제의 균형 있는 발전에 기여하는 신용보완제도입니다.</span>
+                                            </div>
+                                            <div class="list type-bar">
+                                                <ul>
+                                                    <li class="typeMd">동일인당 보증 한도는 개인 및 단체 15억원, 법인 20억원 이내입니다. (신보 및 기보 보증잔액 포함)</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="box-accordion line">
+                                        <div class="box-item-list">
+                                            <div class="box-title">
+                                                <span class="title-cate">기업금융</span>
+                                                <div class="box-qna">
+                                                    <b class="title typeLg label-q">Q</b>
+                                                    <span class="title typeLg">농신보 보증서를 발급받고 싶은데 어디로 가면 발급받을 수 있습니까?</span>
+                                                </div>
+                                            </div>
+                                            <button type="button" class="btn-accordion" aria-expanded="false" aria-controls="accordionContent01">
+                                                <i class="ico-arrow" aria-hidden="true"></i>
+                                                <span class="blind">상세내용 열기</span>
+                                            </button>
+                                        </div>
+                                        <div id="accordionContent01" class="content-accordion">
+                                            <div class="box-qna">
+                                                <span class="typeMd label-a">A</span>
+                                                <span class="typeMd">대출금액 5천만원이하는 대출을 신청하시는 수협 영업점에서 신용조사를 자체실시하여 위탁발급이 가능하며, 5천만원을 초과시는 관할 농신보 지역센타에서 직접 신용조사를 실시하여 발급하게 됩니다. 신용조사에 필요한 제반 서류와 절차는 대출을 받고자 하는 인근 수협 영업점에서 상담 받으시기 바랍니다.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="box-accordion line">
+                                        <div class="box-item-list">
+                                            <div class="box-title">
+                                                <span class="title-cate">기업금융</span>
+                                                <div class="box-qna">
+                                                    <b class="title typeLg label-q">Q</b>
+                                                    <span class="title typeLg">대손보전기금이 무엇입니까?</span>
+                                                </div>
+                                            </div>
+                                            <button type="button" class="btn-accordion" aria-expanded="false" aria-controls="accordionContent01">
+                                                <i class="ico-arrow" aria-hidden="true"></i>
+                                                <span class="blind">상세내용 열기</span>
+                                            </button>
+                                        </div>
+                                        <div id="accordionContent01" class="content-accordion">
+                                            <div class="box-qna">
+                                                <span class="typeMd label-a">A</span>
+                                                <span class="typeMd">어업인에게 지원하는 정책자금의 원활한 집행을 위해 수협이 정책자금을 취급함에 따라 부득이하게 발생되는 손실은 대손보전기금이 설치되어 운영됨으로써 보전되고 있습니다. '07. 07. 01이후 신규 및 대환대출된 수산정책자금 담보대출은 대손보전에서 제외되고, '19.01.01.부로 신규및 대환대출로 취급된 수산정책자금대출은 대손보전되고 있습니다.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="box-accordion line">
+                                        <div class="box-item-list">
+                                            <div class="box-title">
+                                                <span class="title-cate">기업금융</span>
+                                                <div class="box-qna">
+                                                    <b class="title typeLg label-q">Q</b>
+                                                    <span class="title typeLg">정책자금 이차보전이란?</span>
+                                                </div>
+                                            </div>
+                                            <button type="button" class="btn-accordion" aria-expanded="false" aria-controls="accordionContent01">
+                                                <i class="ico-arrow" aria-hidden="true"></i>
+                                                <span class="blind">상세내용 열기</span>
+                                            </button>
+                                        </div>
+                                        <div id="accordionContent01" class="content-accordion">
+                                            <div class="box-qna">
+                                                <span class="typeMd label-a">A</span>
+                                                <span class="typeMd">정부의 시책에 의하여 금융기관에서 정책자금을 저리로 어가에 대출함에 따라 발생한 금리의 차액을 정부가 보전하는 제도입니다.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="box-tab-content" id="tabPanelTypeOutline09" role="tabpanel" aria-labelledby="tabBtnTypeOutline09" style="display: none">
+                                    <h3 class="blind">인터넷/스마트뱅킹</h3>
+                                    <div class="box-accordion line">
+                                        <div class="box-item-list">
+                                            <div class="box-title">
+                                                <span class="title-cate">인터넷/스마트뱅킹</span>
+                                                <div class="box-qna">
+                                                    <b class="title typeLg label-q">Q</b>
+                                                    <span class="title typeLg">농림수산업자신용보증이 무엇입니까?</span>
+                                                </div>
+                                            </div>
+                                            <button type="button" class="btn-accordion" aria-expanded="false" aria-controls="accordionContent01">
+                                                <i class="ico-arrow" aria-hidden="true"></i>
+                                                <span class="blind">상세내용 열기</span>
+                                            </button>
+                                        </div>
+                                        <div id="accordionContent01" class="content-accordion">
+                                            <div class="box-qna">
+                                                <span class="typeMd label-a">A</span>
+                                                <span class="typeMd">경영능력 및 사업성은 있으나 담보력이 미약한 농림수산업자 등의 신용을 보증함으로써 농림수산업에 필요한 소요자금을 원활하게 마련할 수 있도록 하여 농어촌경제의 균형 있는 발전에 기여하는 신용보완제도입니다.</span>
+                                            </div>
+                                            <div class="list type-bar">
+                                                <ul>
+                                                    <li class="typeMd">동일인당 보증 한도는 개인 및 단체 15억원, 법인 20억원 이내입니다. (신보 및 기보 보증잔액 포함)</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="box-accordion line">
+                                        <div class="box-item-list">
+                                            <div class="box-title">
+                                                <span class="title-cate">인터넷/스마트뱅킹</span>
+                                                <div class="box-qna">
+                                                    <b class="title typeLg label-q">Q</b>
+                                                    <span class="title typeLg">농신보 보증서를 발급받고 싶은데 어디로 가면 발급받을 수 있습니까?</span>
+                                                </div>
+                                            </div>
+                                            <button type="button" class="btn-accordion" aria-expanded="false" aria-controls="accordionContent01">
+                                                <i class="ico-arrow" aria-hidden="true"></i>
+                                                <span class="blind">상세내용 열기</span>
+                                            </button>
+                                        </div>
+                                        <div id="accordionContent01" class="content-accordion">
+                                            <div class="box-qna">
+                                                <span class="typeMd label-a">A</span>
+                                                <span class="typeMd">대출금액 5천만원이하는 대출을 신청하시는 수협 영업점에서 신용조사를 자체실시하여 위탁발급이 가능하며, 5천만원을 초과시는 관할 농신보 지역센타에서 직접 신용조사를 실시하여 발급하게 됩니다. 신용조사에 필요한 제반 서류와 절차는 대출을 받고자 하는 인근 수협 영업점에서 상담 받으시기 바랍니다.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="box-accordion line">
+                                        <div class="box-item-list">
+                                            <div class="box-title">
+                                                <span class="title-cate">인터넷/스마트뱅킹</span>
+                                                <div class="box-qna">
+                                                    <b class="title typeLg label-q">Q</b>
+                                                    <span class="title typeLg">대손보전기금이 무엇입니까?</span>
+                                                </div>
+                                            </div>
+                                            <button type="button" class="btn-accordion" aria-expanded="false" aria-controls="accordionContent01">
+                                                <i class="ico-arrow" aria-hidden="true"></i>
+                                                <span class="blind">상세내용 열기</span>
+                                            </button>
+                                        </div>
+                                        <div id="accordionContent01" class="content-accordion">
+                                            <div class="box-qna">
+                                                <span class="typeMd label-a">A</span>
+                                                <span class="typeMd">어업인에게 지원하는 정책자금의 원활한 집행을 위해 수협이 정책자금을 취급함에 따라 부득이하게 발생되는 손실은 대손보전기금이 설치되어 운영됨으로써 보전되고 있습니다. '07. 07. 01이후 신규 및 대환대출된 수산정책자금 담보대출은 대손보전에서 제외되고, '19.01.01.부로 신규및 대환대출로 취급된 수산정책자금대출은 대손보전되고 있습니다.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="box-accordion line">
+                                        <div class="box-item-list">
+                                            <div class="box-title">
+                                                <span class="title-cate">인터넷/스마트뱅킹</span>
+                                                <div class="box-qna">
+                                                    <b class="title typeLg label-q">Q</b>
+                                                    <span class="title typeLg">정책자금 이차보전이란?</span>
+                                                </div>
+                                            </div>
+                                            <button type="button" class="btn-accordion" aria-expanded="false" aria-controls="accordionContent01">
+                                                <i class="ico-arrow" aria-hidden="true"></i>
+                                                <span class="blind">상세내용 열기</span>
+                                            </button>
+                                        </div>
+                                        <div id="accordionContent01" class="content-accordion">
+                                            <div class="box-qna">
+                                                <span class="typeMd label-a">A</span>
+                                                <span class="typeMd">정부의 시책에 의하여 금융기관에서 정책자금을 저리로 어가에 대출함에 따라 발생한 금리의 차액을 정부가 보전하는 제도입니다.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="box-tab-content" id="tabPanelTypeOutline10" role="tabpanel" aria-labelledby="tabBtnTypeOutline10" style="display: none">
+                                    <h3 class="blind">텔레뱅킹</h3>
+                                    <div class="box-accordion line">
+                                        <div class="box-item-list">
+                                            <div class="box-title">
+                                                <span class="title-cate">텔레뱅킹</span>
+                                                <div class="box-qna">
+                                                    <b class="title typeLg label-q">Q</b>
+                                                    <span class="title typeLg">농림수산업자신용보증이 무엇입니까?</span>
+                                                </div>
+                                            </div>
+                                            <button type="button" class="btn-accordion" aria-expanded="false" aria-controls="accordionContent01">
+                                                <i class="ico-arrow" aria-hidden="true"></i>
+                                                <span class="blind">상세내용 열기</span>
+                                            </button>
+                                        </div>
+                                        <div id="accordionContent01" class="content-accordion">
+                                            <div class="box-qna">
+                                                <span class="typeMd label-a">A</span>
+                                                <span class="typeMd">경영능력 및 사업성은 있으나 담보력이 미약한 농림수산업자 등의 신용을 보증함으로써 농림수산업에 필요한 소요자금을 원활하게 마련할 수 있도록 하여 농어촌경제의 균형 있는 발전에 기여하는 신용보완제도입니다.</span>
+                                            </div>
+                                            <div class="list type-bar">
+                                                <ul>
+                                                    <li class="typeMd">동일인당 보증 한도는 개인 및 단체 15억원, 법인 20억원 이내입니다. (신보 및 기보 보증잔액 포함)</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="box-accordion line">
+                                        <div class="box-item-list">
+                                            <div class="box-title">
+                                                <span class="title-cate">텔레뱅킹</span>
+                                                <div class="box-qna">
+                                                    <b class="title typeLg label-q">Q</b>
+                                                    <span class="title typeLg">농신보 보증서를 발급받고 싶은데 어디로 가면 발급받을 수 있습니까?</span>
+                                                </div>
+                                            </div>
+                                            <button type="button" class="btn-accordion" aria-expanded="false" aria-controls="accordionContent01">
+                                                <i class="ico-arrow" aria-hidden="true"></i>
+                                                <span class="blind">상세내용 열기</span>
+                                            </button>
+                                        </div>
+                                        <div id="accordionContent01" class="content-accordion">
+                                            <div class="box-qna">
+                                                <span class="typeMd label-a">A</span>
+                                                <span class="typeMd">대출금액 5천만원이하는 대출을 신청하시는 수협 영업점에서 신용조사를 자체실시하여 위탁발급이 가능하며, 5천만원을 초과시는 관할 농신보 지역센타에서 직접 신용조사를 실시하여 발급하게 됩니다. 신용조사에 필요한 제반 서류와 절차는 대출을 받고자 하는 인근 수협 영업점에서 상담 받으시기 바랍니다.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="box-accordion line">
+                                        <div class="box-item-list">
+                                            <div class="box-title">
+                                                <span class="title-cate">텔레뱅킹</span>
+                                                <div class="box-qna">
+                                                    <b class="title typeLg label-q">Q</b>
+                                                    <span class="title typeLg">대손보전기금이 무엇입니까?</span>
+                                                </div>
+                                            </div>
+                                            <button type="button" class="btn-accordion" aria-expanded="false" aria-controls="accordionContent01">
+                                                <i class="ico-arrow" aria-hidden="true"></i>
+                                                <span class="blind">상세내용 열기</span>
+                                            </button>
+                                        </div>
+                                        <div id="accordionContent01" class="content-accordion">
+                                            <div class="box-qna">
+                                                <span class="typeMd label-a">A</span>
+                                                <span class="typeMd">어업인에게 지원하는 정책자금의 원활한 집행을 위해 수협이 정책자금을 취급함에 따라 부득이하게 발생되는 손실은 대손보전기금이 설치되어 운영됨으로써 보전되고 있습니다. '07. 07. 01이후 신규 및 대환대출된 수산정책자금 담보대출은 대손보전에서 제외되고, '19.01.01.부로 신규및 대환대출로 취급된 수산정책자금대출은 대손보전되고 있습니다.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="box-accordion line">
+                                        <div class="box-item-list">
+                                            <div class="box-title">
+                                                <span class="title-cate">텔레뱅킹</span>
+                                                <div class="box-qna">
+                                                    <b class="title typeLg label-q">Q</b>
+                                                    <span class="title typeLg">정책자금 이차보전이란?</span>
+                                                </div>
+                                            </div>
+                                            <button type="button" class="btn-accordion" aria-expanded="false" aria-controls="accordionContent01">
+                                                <i class="ico-arrow" aria-hidden="true"></i>
+                                                <span class="blind">상세내용 열기</span>
+                                            </button>
+                                        </div>
+                                        <div id="accordionContent01" class="content-accordion">
+                                            <div class="box-qna">
+                                                <span class="typeMd label-a">A</span>
+                                                <span class="typeMd">정부의 시책에 의하여 금융기관에서 정책자금을 저리로 어가에 대출함에 따라 발생한 금리의 차액을 정부가 보전하는 제도입니다.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="box-tab-content" id="tabPanelTypeOutline11" role="tabpanel" aria-labelledby="tabBtnTypeOutline11" style="display: none">
+                                    <h3 class="blind">대출</h3>
+                                    <div class="box-accordion line">
+                                        <div class="box-item-list">
+                                            <div class="box-title">
+                                                <span class="title-cate">대출</span>
+                                                <div class="box-qna">
+                                                    <b class="title typeLg label-q">Q</b>
+                                                    <span class="title typeLg">농림수산업자신용보증이 무엇입니까?</span>
+                                                </div>
+                                            </div>
+                                            <button type="button" class="btn-accordion" aria-expanded="false" aria-controls="accordionContent01">
+                                                <i class="ico-arrow" aria-hidden="true"></i>
+                                                <span class="blind">상세내용 열기</span>
+                                            </button>
+                                        </div>
+                                        <div id="accordionContent01" class="content-accordion">
+                                            <div class="box-qna">
+                                                <span class="typeMd label-a">A</span>
+                                                <span class="typeMd">경영능력 및 사업성은 있으나 담보력이 미약한 농림수산업자 등의 신용을 보증함으로써 농림수산업에 필요한 소요자금을 원활하게 마련할 수 있도록 하여 농어촌경제의 균형 있는 발전에 기여하는 신용보완제도입니다.</span>
+                                            </div>
+                                            <div class="list type-bar">
+                                                <ul>
+                                                    <li class="typeMd">동일인당 보증 한도는 개인 및 단체 15억원, 법인 20억원 이내입니다. (신보 및 기보 보증잔액 포함)</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="box-accordion line">
+                                        <div class="box-item-list">
+                                            <div class="box-title">
+                                                <span class="title-cate">대출</span>
+                                                <div class="box-qna">
+                                                    <b class="title typeLg label-q">Q</b>
+                                                    <span class="title typeLg">농신보 보증서를 발급받고 싶은데 어디로 가면 발급받을 수 있습니까?</span>
+                                                </div>
+                                            </div>
+                                            <button type="button" class="btn-accordion" aria-expanded="false" aria-controls="accordionContent01">
+                                                <i class="ico-arrow" aria-hidden="true"></i>
+                                                <span class="blind">상세내용 열기</span>
+                                            </button>
+                                        </div>
+                                        <div id="accordionContent01" class="content-accordion">
+                                            <div class="box-qna">
+                                                <span class="typeMd label-a">A</span>
+                                                <span class="typeMd">대출금액 5천만원이하는 대출을 신청하시는 수협 영업점에서 신용조사를 자체실시하여 위탁발급이 가능하며, 5천만원을 초과시는 관할 농신보 지역센타에서 직접 신용조사를 실시하여 발급하게 됩니다. 신용조사에 필요한 제반 서류와 절차는 대출을 받고자 하는 인근 수협 영업점에서 상담 받으시기 바랍니다.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="box-accordion line">
+                                        <div class="box-item-list">
+                                            <div class="box-title">
+                                                <span class="title-cate">대출</span>
+                                                <div class="box-qna">
+                                                    <b class="title typeLg label-q">Q</b>
+                                                    <span class="title typeLg">대손보전기금이 무엇입니까?</span>
+                                                </div>
+                                            </div>
+                                            <button type="button" class="btn-accordion" aria-expanded="false" aria-controls="accordionContent01">
+                                                <i class="ico-arrow" aria-hidden="true"></i>
+                                                <span class="blind">상세내용 열기</span>
+                                            </button>
+                                        </div>
+                                        <div id="accordionContent01" class="content-accordion">
+                                            <div class="box-qna">
+                                                <span class="typeMd label-a">A</span>
+                                                <span class="typeMd">어업인에게 지원하는 정책자금의 원활한 집행을 위해 수협이 정책자금을 취급함에 따라 부득이하게 발생되는 손실은 대손보전기금이 설치되어 운영됨으로써 보전되고 있습니다. '07. 07. 01이후 신규 및 대환대출된 수산정책자금 담보대출은 대손보전에서 제외되고, '19.01.01.부로 신규및 대환대출로 취급된 수산정책자금대출은 대손보전되고 있습니다.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="box-accordion line">
+                                        <div class="box-item-list">
+                                            <div class="box-title">
+                                                <span class="title-cate">대출</span>
+                                                <div class="box-qna">
+                                                    <b class="title typeLg label-q">Q</b>
+                                                    <span class="title typeLg">정책자금 이차보전이란?</span>
+                                                </div>
+                                            </div>
+                                            <button type="button" class="btn-accordion" aria-expanded="false" aria-controls="accordionContent01">
+                                                <i class="ico-arrow" aria-hidden="true"></i>
+                                                <span class="blind">상세내용 열기</span>
+                                            </button>
+                                        </div>
+                                        <div id="accordionContent01" class="content-accordion">
+                                            <div class="box-qna">
+                                                <span class="typeMd label-a">A</span>
+                                                <span class="typeMd">정부의 시책에 의하여 금융기관에서 정책자금을 저리로 어가에 대출함에 따라 발생한 금리의 차액을 정부가 보전하는 제도입니다.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="box-tab-content" id="tabPanelTypeOutline12" role="tabpanel" aria-labelledby="tabBtnTypeOutline12" style="display: none">
+                                    <h3 class="blind">일반</h3>
+                                    <div class="box-accordion line">
+                                        <div class="box-item-list">
+                                            <div class="box-title">
+                                                <span class="title-cate">일반</span>
+                                                <div class="box-qna">
+                                                    <b class="title typeLg label-q">Q</b>
+                                                    <span class="title typeLg">농림수산업자신용보증이 무엇입니까?</span>
+                                                </div>
+                                            </div>
+                                            <button type="button" class="btn-accordion" aria-expanded="false" aria-controls="accordionContent01">
+                                                <i class="ico-arrow" aria-hidden="true"></i>
+                                                <span class="blind">상세내용 열기</span>
+                                            </button>
+                                        </div>
+                                        <div id="accordionContent01" class="content-accordion">
+                                            <div class="box-qna">
+                                                <span class="typeMd label-a">A</span>
+                                                <span class="typeMd">경영능력 및 사업성은 있으나 담보력이 미약한 농림수산업자 등의 신용을 보증함으로써 농림수산업에 필요한 소요자금을 원활하게 마련할 수 있도록 하여 농어촌경제의 균형 있는 발전에 기여하는 신용보완제도입니다.</span>
+                                            </div>
+                                            <div class="list type-bar">
+                                                <ul>
+                                                    <li class="typeMd">동일인당 보증 한도는 개인 및 단체 15억원, 법인 20억원 이내입니다. (신보 및 기보 보증잔액 포함)</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="box-accordion line">
+                                        <div class="box-item-list">
+                                            <div class="box-title">
+                                                <span class="title-cate">일반</span>
+                                                <div class="box-qna">
+                                                    <b class="title typeLg label-q">Q</b>
+                                                    <span class="title typeLg">농신보 보증서를 발급받고 싶은데 어디로 가면 발급받을 수 있습니까?</span>
+                                                </div>
+                                            </div>
+                                            <button type="button" class="btn-accordion" aria-expanded="false" aria-controls="accordionContent01">
+                                                <i class="ico-arrow" aria-hidden="true"></i>
+                                                <span class="blind">상세내용 열기</span>
+                                            </button>
+                                        </div>
+                                        <div id="accordionContent01" class="content-accordion">
+                                            <div class="box-qna">
+                                                <span class="typeMd label-a">A</span>
+                                                <span class="typeMd">대출금액 5천만원이하는 대출을 신청하시는 수협 영업점에서 신용조사를 자체실시하여 위탁발급이 가능하며, 5천만원을 초과시는 관할 농신보 지역센타에서 직접 신용조사를 실시하여 발급하게 됩니다. 신용조사에 필요한 제반 서류와 절차는 대출을 받고자 하는 인근 수협 영업점에서 상담 받으시기 바랍니다.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="box-accordion line">
+                                        <div class="box-item-list">
+                                            <div class="box-title">
+                                                <span class="title-cate">일반</span>
+                                                <div class="box-qna">
+                                                    <b class="title typeLg label-q">Q</b>
+                                                    <span class="title typeLg">대손보전기금이 무엇입니까?</span>
+                                                </div>
+                                            </div>
+                                            <button type="button" class="btn-accordion" aria-expanded="false" aria-controls="accordionContent01">
+                                                <i class="ico-arrow" aria-hidden="true"></i>
+                                                <span class="blind">상세내용 열기</span>
+                                            </button>
+                                        </div>
+                                        <div id="accordionContent01" class="content-accordion">
+                                            <div class="box-qna">
+                                                <span class="typeMd label-a">A</span>
+                                                <span class="typeMd">어업인에게 지원하는 정책자금의 원활한 집행을 위해 수협이 정책자금을 취급함에 따라 부득이하게 발생되는 손실은 대손보전기금이 설치되어 운영됨으로써 보전되고 있습니다. '07. 07. 01이후 신규 및 대환대출된 수산정책자금 담보대출은 대손보전에서 제외되고, '19.01.01.부로 신규및 대환대출로 취급된 수산정책자금대출은 대손보전되고 있습니다.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="box-accordion line">
+                                        <div class="box-item-list">
+                                            <div class="box-title">
+                                                <span class="title-cate">일반</span>
+                                                <div class="box-qna">
+                                                    <b class="title typeLg label-q">Q</b>
+                                                    <span class="title typeLg">정책자금 이차보전이란?</span>
+                                                </div>
+                                            </div>
+                                            <button type="button" class="btn-accordion" aria-expanded="false" aria-controls="accordionContent01">
+                                                <i class="ico-arrow" aria-hidden="true"></i>
+                                                <span class="blind">상세내용 열기</span>
+                                            </button>
+                                        </div>
+                                        <div id="accordionContent01" class="content-accordion">
+                                            <div class="box-qna">
+                                                <span class="typeMd label-a">A</span>
+                                                <span class="typeMd">정부의 시책에 의하여 금융기관에서 정책자금을 저리로 어가에 대출함에 따라 발생한 금리의 차액을 정부가 보전하는 제도입니다.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="box-tab-content" id="tabPanelTypeOutline13" role="tabpanel" aria-labelledby="tabBtnTypeOutline13" style="display: none">
+                                    <h3 class="blind">인증보안</h3>
+                                    <div class="box-accordion line">
+                                        <div class="box-item-list">
+                                            <div class="box-title">
+                                                <span class="title-cate">인증보안</span>
+                                                <div class="box-qna">
+                                                    <b class="title typeLg label-q">Q</b>
+                                                    <span class="title typeLg">농림수산업자신용보증이 무엇입니까?</span>
+                                                </div>
+                                            </div>
+                                            <button type="button" class="btn-accordion" aria-expanded="false" aria-controls="accordionContent01">
+                                                <i class="ico-arrow" aria-hidden="true"></i>
+                                                <span class="blind">상세내용 열기</span>
+                                            </button>
+                                        </div>
+                                        <div id="accordionContent01" class="content-accordion">
+                                            <div class="box-qna">
+                                                <span class="typeMd label-a">A</span>
+                                                <span class="typeMd">경영능력 및 사업성은 있으나 담보력이 미약한 농림수산업자 등의 신용을 보증함으로써 농림수산업에 필요한 소요자금을 원활하게 마련할 수 있도록 하여 농어촌경제의 균형 있는 발전에 기여하는 신용보완제도입니다.</span>
+                                            </div>
+                                            <div class="list type-bar">
+                                                <ul>
+                                                    <li class="typeMd">동일인당 보증 한도는 개인 및 단체 15억원, 법인 20억원 이내입니다. (신보 및 기보 보증잔액 포함)</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="box-accordion line">
+                                        <div class="box-item-list">
+                                            <div class="box-title">
+                                                <span class="title-cate">인증보안</span>
+                                                <div class="box-qna">
+                                                    <b class="title typeLg label-q">Q</b>
+                                                    <span class="title typeLg">농신보 보증서를 발급받고 싶은데 어디로 가면 발급받을 수 있습니까?</span>
+                                                </div>
+                                            </div>
+                                            <button type="button" class="btn-accordion" aria-expanded="false" aria-controls="accordionContent01">
+                                                <i class="ico-arrow" aria-hidden="true"></i>
+                                                <span class="blind">상세내용 열기</span>
+                                            </button>
+                                        </div>
+                                        <div id="accordionContent01" class="content-accordion">
+                                            <div class="box-qna">
+                                                <span class="typeMd label-a">A</span>
+                                                <span class="typeMd">대출금액 5천만원이하는 대출을 신청하시는 수협 영업점에서 신용조사를 자체실시하여 위탁발급이 가능하며, 5천만원을 초과시는 관할 농신보 지역센타에서 직접 신용조사를 실시하여 발급하게 됩니다. 신용조사에 필요한 제반 서류와 절차는 대출을 받고자 하는 인근 수협 영업점에서 상담 받으시기 바랍니다.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="box-accordion line">
+                                        <div class="box-item-list">
+                                            <div class="box-title">
+                                                <span class="title-cate">인증보안</span>
+                                                <div class="box-qna">
+                                                    <b class="title typeLg label-q">Q</b>
+                                                    <span class="title typeLg">대손보전기금이 무엇입니까?</span>
+                                                </div>
+                                            </div>
+                                            <button type="button" class="btn-accordion" aria-expanded="false" aria-controls="accordionContent01">
+                                                <i class="ico-arrow" aria-hidden="true"></i>
+                                                <span class="blind">상세내용 열기</span>
+                                            </button>
+                                        </div>
+                                        <div id="accordionContent01" class="content-accordion">
+                                            <div class="box-qna">
+                                                <span class="typeMd label-a">A</span>
+                                                <span class="typeMd">어업인에게 지원하는 정책자금의 원활한 집행을 위해 수협이 정책자금을 취급함에 따라 부득이하게 발생되는 손실은 대손보전기금이 설치되어 운영됨으로써 보전되고 있습니다. '07. 07. 01이후 신규 및 대환대출된 수산정책자금 담보대출은 대손보전에서 제외되고, '19.01.01.부로 신규및 대환대출로 취급된 수산정책자금대출은 대손보전되고 있습니다.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="box-accordion line">
+                                        <div class="box-item-list">
+                                            <div class="box-title">
+                                                <span class="title-cate">인증보안</span>
+                                                <div class="box-qna">
+                                                    <b class="title typeLg label-q">Q</b>
+                                                    <span class="title typeLg">정책자금 이차보전이란?</span>
+                                                </div>
+                                            </div>
+                                            <button type="button" class="btn-accordion" aria-expanded="false" aria-controls="accordionContent01">
+                                                <i class="ico-arrow" aria-hidden="true"></i>
+                                                <span class="blind">상세내용 열기</span>
+                                            </button>
+                                        </div>
+                                        <div id="accordionContent01" class="content-accordion">
+                                            <div class="box-qna">
+                                                <span class="typeMd label-a">A</span>
+                                                <span class="typeMd">정부의 시책에 의하여 금융기관에서 정책자금을 저리로 어가에 대출함에 따라 발생한 금리의 차액을 정부가 보전하는 제도입니다.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="box-tab-content" id="tabPanelTypeOutline14" role="tabpanel" aria-labelledby="tabBtnTypeOutline14" style="display: none">
+                                    <h3 class="blind">외한</h3>
+                                    <div class="box-accordion line">
+                                        <div class="box-item-list">
+                                            <div class="box-title">
+                                                <span class="title-cate">외한</span>
+                                                <div class="box-qna">
+                                                    <b class="title typeLg label-q">Q</b>
+                                                    <span class="title typeLg">농림수산업자신용보증이 무엇입니까?</span>
+                                                </div>
+                                            </div>
+                                            <button type="button" class="btn-accordion" aria-expanded="false" aria-controls="accordionContent01">
+                                                <i class="ico-arrow" aria-hidden="true"></i>
+                                                <span class="blind">상세내용 열기</span>
+                                            </button>
+                                        </div>
+                                        <div id="accordionContent01" class="content-accordion">
+                                            <div class="box-qna">
+                                                <span class="typeMd label-a">A</span>
+                                                <span class="typeMd">경영능력 및 사업성은 있으나 담보력이 미약한 농림수산업자 등의 신용을 보증함으로써 농림수산업에 필요한 소요자금을 원활하게 마련할 수 있도록 하여 농어촌경제의 균형 있는 발전에 기여하는 신용보완제도입니다.</span>
+                                            </div>
+                                            <div class="list type-bar">
+                                                <ul>
+                                                    <li class="typeMd">동일인당 보증 한도는 개인 및 단체 15억원, 법인 20억원 이내입니다. (신보 및 기보 보증잔액 포함)</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="box-accordion line">
+                                        <div class="box-item-list">
+                                            <div class="box-title">
+                                                <span class="title-cate">외한</span>
+                                                <div class="box-qna">
+                                                    <b class="title typeLg label-q">Q</b>
+                                                    <span class="title typeLg">농신보 보증서를 발급받고 싶은데 어디로 가면 발급받을 수 있습니까?</span>
+                                                </div>
+                                            </div>
+                                            <button type="button" class="btn-accordion" aria-expanded="false" aria-controls="accordionContent01">
+                                                <i class="ico-arrow" aria-hidden="true"></i>
+                                                <span class="blind">상세내용 열기</span>
+                                            </button>
+                                        </div>
+                                        <div id="accordionContent01" class="content-accordion">
+                                            <div class="box-qna">
+                                                <span class="typeMd label-a">A</span>
+                                                <span class="typeMd">대출금액 5천만원이하는 대출을 신청하시는 수협 영업점에서 신용조사를 자체실시하여 위탁발급이 가능하며, 5천만원을 초과시는 관할 농신보 지역센타에서 직접 신용조사를 실시하여 발급하게 됩니다. 신용조사에 필요한 제반 서류와 절차는 대출을 받고자 하는 인근 수협 영업점에서 상담 받으시기 바랍니다.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="box-accordion line">
+                                        <div class="box-item-list">
+                                            <div class="box-title">
+                                                <span class="title-cate">외한</span>
+                                                <div class="box-qna">
+                                                    <b class="title typeLg label-q">Q</b>
+                                                    <span class="title typeLg">대손보전기금이 무엇입니까?</span>
+                                                </div>
+                                            </div>
+                                            <button type="button" class="btn-accordion" aria-expanded="false" aria-controls="accordionContent01">
+                                                <i class="ico-arrow" aria-hidden="true"></i>
+                                                <span class="blind">상세내용 열기</span>
+                                            </button>
+                                        </div>
+                                        <div id="accordionContent01" class="content-accordion">
+                                            <div class="box-qna">
+                                                <span class="typeMd label-a">A</span>
+                                                <span class="typeMd">어업인에게 지원하는 정책자금의 원활한 집행을 위해 수협이 정책자금을 취급함에 따라 부득이하게 발생되는 손실은 대손보전기금이 설치되어 운영됨으로써 보전되고 있습니다. '07. 07. 01이후 신규 및 대환대출된 수산정책자금 담보대출은 대손보전에서 제외되고, '19.01.01.부로 신규및 대환대출로 취급된 수산정책자금대출은 대손보전되고 있습니다.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="box-accordion line">
+                                        <div class="box-item-list">
+                                            <div class="box-title">
+                                                <span class="title-cate">외한</span>
+                                                <div class="box-qna">
+                                                    <b class="title typeLg label-q">Q</b>
+                                                    <span class="title typeLg">정책자금 이차보전이란?</span>
+                                                </div>
+                                            </div>
+                                            <button type="button" class="btn-accordion" aria-expanded="false" aria-controls="accordionContent01">
+                                                <i class="ico-arrow" aria-hidden="true"></i>
+                                                <span class="blind">상세내용 열기</span>
+                                            </button>
+                                        </div>
+                                        <div id="accordionContent01" class="content-accordion">
+                                            <div class="box-qna">
+                                                <span class="typeMd label-a">A</span>
+                                                <span class="typeMd">정부의 시책에 의하여 금융기관에서 정책자금을 저리로 어가에 대출함에 따라 발생한 금리의 차액을 정부가 보전하는 제도입니다.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <nav class="pagination size-md" aria-label="페이지네이션">
+                                <button type="button" class="btn-nav first" disabled aria-disabled="true" aria-label="첫 페이지"><span class="blind">첫 페이지</span></button>
+                                <button type="button" class="btn-nav prev" disabled aria-disabled="true" aria-label="이전 페이지"><span class="blind">이전 페이지</span></button>
+                                <ol class="list-pagination">
+                                    <li>
+                                        <button type="button" class="btn-page active" aria-current="page" aria-label="1페이지">1</button>
+                                    </li>
+                                    <li>
+                                        <button type="button" class="btn-page" aria-label="2페이지">2</button>
+                                    </li>
+                                    <li>
+                                        <button type="button" class="btn-page" aria-label="3페이지">3</button>
+                                    </li>
+                                    <li>
+                                        <button type="button" class="btn-page" aria-label="4페이지">4</button>
+                                    </li>
+                                    <li>
+                                        <button type="button" class="btn-page" aria-label="5페이지">5</button>
+                                    </li>
+                                    <li>
+                                        <button type="button" class="btn-page" aria-label="6페이지">6</button>
+                                    </li>
+                                    <li>
+                                        <button type="button" class="btn-page" aria-label="7페이지">7</button>
+                                    </li>
+                                    <li>
+                                        <button type="button" class="btn-page" aria-label="8페이지">8</button>
+                                    </li>
+                                    <li>
+                                        <button type="button" class="btn-page" aria-label="9페이지">9</button>
+                                    </li>
+                                    <li>
+                                        <button type="button" class="btn-page" aria-label="10페이지">10</button>
+                                    </li>
+                                </ol>
+                                <button type="button" class="btn-nav next" aria-label="다음 페이지"><span class="blind">다음 페이지</span></button>
+                                <button type="button" class="btn-nav last" aria-label="마지막 페이지"><span class="blind">마지막 페이지</span></button>
+                            </nav>
+                        </div>
                     </div>
-                    <button type="button" class="btn-accordion" aria-expanded="true" aria-controls="faq1">
-                      <i class="ico-arrow" aria-hidden="true"></i>
-                      <span class="blind">상세내용 닫기</span>
-                    </button>
-                  </div>
-                  <div id="faq1" class="content-accordion">
-                      <p class="typeMd">A. 수협은행을 이용해 주셔서 감사합니다.</p>
-                      <p class="typeMd">한도제한 계좌의 1일 이용한도는 창구거래 300만원/전자금융거래 100만원/자동화기기거래(인출 이체 포함) 100만원 입니다.</p>
-                      <p class="typeMd">(시행일자 : 20240501) 시행일자 이전에 신규한 금융거래한도제한 계좌는 기존 거래한도가 적용됩니다.</p>
-
-                  </div>
                 </div>
-
-                <div class="box-accordion line">
-                  <div class="box-item-list">
-                    <div class="box-title">
-                      <span class="title typeLg">Q. <span class="title-cate">[금융상품_예금]</span> 한도제한 계좌 신규 개설 후 추가적으로 계좌 개설이 가능...</span>
-                    </div>
-                    <button type="button" class="btn-accordion" aria-expanded="false" aria-controls="faq2">
-                      <i class="ico-arrow" aria-hidden="true"></i>
-                      <span class="blind">상세내용 열기</span>
-                    </button>
-                  </div>
-                  <div id="faq2" class="content-accordion">
-                  </div>
-                </div>
-
-                <div class="box-accordion line">
-                  <div class="box-item-list">
-                    <div class="box-title">
-                      <span class="title typeLg">Q. <span class="title-cate">[금융상품_카드]</span> 한도제한을 적용 받지 않은 거래가 있나요?</span>
-                    </div>
-                    <button type="button" class="btn-accordion" aria-expanded="false" aria-controls="faq3">
-                      <i class="ico-arrow" aria-hidden="true"></i>
-                      <span class="blind">상세내용 열기</span>
-                    </button>
-                  </div>
-                  <div id="faq3" class="content-accordion">
-                  </div>
-                </div>
-
-                <div class="box-accordion line">
-                  <div class="box-item-list">
-                    <div class="box-title">
-                      <span class="title typeLg">Q. <span class="title-cate">[금융상품_예금]</span> 한도제한 계좌 신규 가능한 계좌는 어떻게 되나요</span>
-                    </div>
-                    <button type="button" class="btn-accordion" aria-expanded="false" aria-controls="faq4">
-                      <i class="ico-arrow" aria-hidden="true"></i>
-                      <span class="blind">상세내용 열기</span>
-                    </button>
-                  </div>
-                  <div id="faq4" class="content-accordion">
-                  </div>
-                </div>
-
-                <div class="box-accordion line">
-                  <div class="box-item-list">
-                    <div class="box-title">
-                      <span class="title typeLg">Q. <span class="title-cate">[일반]</span> 전자금융사기를 당해 피해금을 입금했습니다.</span>
-                    </div>
-                    <button type="button" class="btn-accordion" aria-expanded="false" aria-controls="faq5">
-                      <i class="ico-arrow" aria-hidden="true"></i>
-                      <span class="blind">상세내용 열기</span>
-                    </button>
-                  </div>
-                  <div id="faq5" class="content-accordion">
-                  </div>
-                </div>
-              
-                <nav class="pagination size-md" aria-label="페이지네이션">
-                  <button type="button" class="btn-nav first" disabled aria-disabled="true" aria-label="첫 페이지"><span class="blind">첫 페이지</span></button>
-                  <button type="button" class="btn-nav prev" disabled aria-disabled="true" aria-label="이전 페이지"><span class="blind">이전 페이지</span></button>
-                  <ol class="list-pagination">
-                    <li><button type="button" class="btn-page active" aria-current="page">1</button></li>
-                    <li><button type="button" class="btn-page">2</button></li>
-                    <li><button type="button" class="btn-page">3</button></li>
-                    <li><button type="button" class="btn-page">4</button></li>
-                    <li><button type="button" class="btn-page">5</button></li>
-                    <li><button type="button" class="btn-page">6</button></li>
-                    <li><button type="button" class="btn-page">7</button></li>
-                    <li><button type="button" class="btn-page">8</button></li>
-                    <li><button type="button" class="btn-page">9</button></li>
-                    <li><button type="button" class="btn-page">10</button></li>
-                  </ol>
-                  <button type="button" class="btn-nav next" aria-label="다음 페이지"><span class="blind">다음 페이지</span></button>
-                  <button type="button" class="btn-nav last" aria-label="마지막 페이지"><span class="blind">마지막 페이지</span></button>
-                </nav>
-
-
-					</div>
-				</div>
-			</div>
-			<div id="aside">@@include('static/html/pub/layout/aside.html')</div>
-		</div>
-		<div id="footer">@@include('static/html/pub/layout/footer.html')</div>
-	</div>
-	<script src="/static/js/ui/cib_ui_common.js"></script>
-</body>
+                <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+            </div>
+            <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+        </div>
+        <script src="/static/js/ui/cib_ui_common.js"></script>
+    </body>
 </html>

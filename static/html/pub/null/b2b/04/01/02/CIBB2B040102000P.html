@@ -1,148 +1,104 @@
 <!doctype html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>수협은행</title>
-    <link rel="stylesheet" href="/static/css/reset.css" />
-    <link rel="stylesheet" href="/static/css/layout.css" />
-    <link rel="stylesheet" href="/static/css/component.css" />
-    <link rel="stylesheet" href="/static/css/common.css" />
-  </head>
 
-  <body>
-    <div class="wrapper">
-      <div id="header">
-        @@include('static/html/pub/layout/skipNavigation.html')
-        @@include('static/html/pub/layout/header_sub.html')
-      </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>수협은행</title>
+  <link rel="stylesheet" href="/static/css/reset.css" />
+  <link rel="stylesheet" href="/static/css/layout.css" />
+  <link rel="stylesheet" href="/static/css/component.css" />
+  <link rel="stylesheet" href="/static/css/common.css" />
+</head>
 
-      <div id="container" class="container">
-        <div id="leftArea">
-          @@include('static/html/pub/layout/leftArea.html')
-        </div>
-        <div id="contents">
-          <div class="content">
-            @@include('static/html/pub/layout/breadcrumb.html')
-            <div class="bop">
-              <button
-                type="button"
-                class="btn type-bg-primary size-md btn-modal"
-                data-target="modal-16"
-                aria-haspopup="dialog"
-                aria-controls="modal-16"
-              >
-                <span class="text">자주쓰는 사업자번호</span>
-              </button>
-            </div>
-          </div>
-        </div>
-        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
-      </div>
-      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+<body>
+  <div class="wrapper">
+    <div id="header">
+      @@include('static/html/pub/layout/skipNavigation.html')
+      @@include('static/html/pub/layout/header_sub.html')
     </div>
-    <script src="/static/js/ui/cib_ui_common.js"></script>
-    <div
-      id="modal-16"
-      class="modal is-active"
-      data-dim="true"
-      data-backdrop-close="false"
-      data-alert="true"
-      data-size="md"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="modal-title"
-      aria-describedby="modal-desc"
-    >
-      <div class="modal-wrapper">
-        <div class="modal-title">
-          <h4 class="typeH4">자주쓰는 사업자번호</h4>
-        </div>
-        <div class="modal-slot">
-          <div id="modal-desc">
-            <table class="table-type01">
-              <!-- [수정] 20260903 col width 값 수정  -->
-              <!-- [수정] 20260910 col width style 수정  -->
-              <colgroup>
-                <col style="width:160px" />
-                <col style="width:auto" />
-              </colgroup>
-              <tbody>
-                <tr>
-                  <th scope="row">
-                    <span id="bizNoLabel">사업자번호</span>
-                  </th>
-                  <td>
-                    <div class="tbl-flex" role="group" aria-labelledby="bizNoLabel">
-                      <label for="bizNoPart1" class="blind">사업자번호 앞 3자리</label>
-                      <input
-                        id="bizNoPart1"
-                        type="text"
-                        class="input wSize-smMd size-lg"
-                        inputmode="numeric"
-                        maxlength="3"
-                        aria-label="사업자번호 앞 3자리"
-                        value=""
-                        placeholder=""
-                      />
-                      <span aria-hidden="true">-</span>
-                      <label for="bizNoPart2" class="blind">사업자번호 중간 2자리</label>
-                      <input
-                        id="bizNoPart2"
-                        type="text"
-                        class="input wSize-smMd size-lg"
-                        inputmode="numeric"
-                        maxlength="2"
-                        aria-label="사업자번호 중간 2자리"
-                        value=""
-                        placeholder=""
-                      />
-                      <span aria-hidden="true">-</span>
-                      <label for="bizNoPart3" class="blind">사업자번호 마지막 5자리</label>
-                      <input
-                        id="bizNoPart3"
-                        type="text"
-                        class="input wSize-smMd size-lg"
-                        inputmode="numeric"
-                        maxlength="5"
-                        aria-label="사업자번호 마지막 5자리"
-                        value=""
-                        placeholder=""
-                      />
-                    </div>
-                  </td>
-                </tr>
 
-                <tr>
-                  <th scope="row">
-                    <label for="companyName">업체명</label>
-                  </th>
-                  <td>
-                    <input
-                      id="companyName"
-                      type="text"
-                      class="input wSize-md size-lg"
-                      title="업체명"
-                      value=""
-                      placeholder="입력해주세요"
-                    />
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+    <div id="container" class="container">
+      <div id="leftArea">
+        @@include('static/html/pub/layout/leftArea.html')
+      </div>
+      <div id="contents">
+        <div class="content">
+          @@include('static/html/pub/layout/breadcrumb.html')
+          <div class="bop">
+            <button type="button" class="btn type-bg-primary size-md btn-modal" data-target="modal-16"
+              aria-haspopup="dialog" aria-controls="modal-16">
+              <span class="text">자주쓰는 사업자번호</span>
+            </button>
           </div>
         </div>
-        <div class="modal-footer flex items-center justify-center gap-6">
-          <button type="button" class="btn type-bg-primary size-lg">
-            <span class="text">저장</span>
-          </button>
+      </div>
+      <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+    </div>
+    <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+  </div>
+  <script src="/static/js/ui/cib_ui_common.js"></script>
+  <div id="modal-16" class="modal is-active" data-dim="true" data-backdrop-close="false" data-alert="true"
+    data-size="md" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc">
+    <div class="modal-wrapper">
+      <div class="modal-title">
+        <h4 class="typeH4">자주쓰는 사업자번호</h4>
+      </div>
+      <div class="modal-slot">
+        <div id="modal-desc">
+          <table class="table-type01">
+            <!-- [수정] 20260903 col width 값 수정  -->
+            <!-- [수정] 20260910 col width style 수정  -->
+            <colgroup>
+              <col style="width:160px" />
+              <col style="width:auto" />
+            </colgroup>
+            <tbody>
+              <tr>
+                <th scope="row">
+                  <span id="bizNoLabel">사업자번호</span>
+                </th>
+                <td>
+                  <div class="tbl-flex" role="group" aria-labelledby="bizNoLabel">
+                    <label for="bizNoPart1" class="blind">사업자번호 앞 3자리</label>
+                    <input id="bizNoPart1" type="text" class="input wSize-smMd size-lg" inputmode="numeric"
+                      maxlength="3" aria-label="사업자번호 앞 3자리" value="" placeholder="" />
+                    <span aria-hidden="true">-</span>
+                    <label for="bizNoPart2" class="blind">사업자번호 중간 2자리</label>
+                    <input id="bizNoPart2" type="text" class="input wSize-smMd size-lg" inputmode="numeric"
+                      maxlength="2" aria-label="사업자번호 중간 2자리" value="" placeholder="" />
+                    <span aria-hidden="true">-</span>
+                    <label for="bizNoPart3" class="blind">사업자번호 마지막 5자리</label>
+                    <input id="bizNoPart3" type="text" class="input wSize-smMd size-lg" inputmode="numeric"
+                      maxlength="5" aria-label="사업자번호 마지막 5자리" value="" placeholder="" />
+                  </div>
+                </td>
+              </tr>
+
+              <tr>
+                <th scope="row">
+                  <label for="companyName">업체명</label>
+                </th>
+                <td>
+                  <input id="companyName" type="text" class="input wSize-md size-lg" title="업체명" value=""
+                    placeholder="입력해주세요" />
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-        <button type="button" class="ico btn-close" aria-label="모달 닫기">
-          <i class="ico-close ico-size-smMd" aria-hidden="true"></i>
-          <span class="blind">닫기</span>
+      </div>
+      <div class="modal-footer flex items-center justify-center gap-6">
+        <button type="button" class="btn type-bg-primary size-lg">
+          <span class="text">저장</span>
         </button>
       </div>
+      <button type="button" class="ico btn-close" aria-label="모달 닫기">
+        <i class="ico-close ico-size-smMd" aria-hidden="true"></i>
+        <span class="blind">닫기</span>
+      </button>
     </div>
-  </body>
-</html>
+  </div>
+</body>
 
+</html>

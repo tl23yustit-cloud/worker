@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>뱅킹업무 &gt; 예금/신탁 &gt; 예금 &gt; 해지계좌조회 &gt; 2단계</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/fin.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
+
+      <div id="container" class="container">
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="fin">
+              <h2 class="typeH2">
+                투자성향분석
+                <div class="box-steps">
+                  <ol class="list-steps">
+                    <!-- 
+												[dev] 상태값 class 안내
+												class="item-steps" 기본 숫자 표기
+												class="item-steps passed" 완료
+												class="item-steps current" 현재
+											 -->
+                    <li class="item-steps passed">
+                      <span class="blind">1</span>
+                      <i class="icon" aria-hidden="true">1</i>
+                      <span class="text">사전문답</span>
+                    </li>
+                    <li class="item-steps current" aria-current="step">
+                      <i class="icon" aria-hidden="true">2</i>
+                      <span class="text">투자자 정보 확인</span>
+                    </li>
+                    <li class="item-steps">
+                      <i class="icon" aria-hidden="true">3</i>
+                      <span class="text">투자 성향 설문지</span>
+                    </li>
+                    <li class="item-steps">
+                      <i class="icon" aria-hidden="true">4</i>
+                      <span class="text">투자성향분석 결과</span>
+                    </li>
+                  </ol>
+                </div>
+              </h2>
+
+              <h3 class="typeH3">투자자 정보 확인</h3>
+
+              <div class="verification-banner">
+                <div class="img-left">
+                  <span class="blind">이미지영역</span>
+                </div>
+                <p class="text-rig">
+                  다음 질문은 <span>현재 투자자금의</span> 성격에 관한 질문입니다. <br />
+                  현재투자자금은 고객님께 적합한 금융상품 선택에 도움을 드리기 위해 <span>투자 시 마다</span> 확인합니다.
+                </p>
+              </div>
+
+              <div class="surver-box">
+                <!-- q1(s) -->
+                <section class="surver-quest-box">
+                  <article>
+                    <header>
+                      <h3><strong>Q1</strong> 현재 투자자금의 투자목적은 무엇입니까?</h3>
+                    </header>
+
+                    <div class="surver-group">
+                      <div class="surver-card">
+                        <input type="radio" id="loan-status0101" name="loan-qa0101" value="surver-val0101" class="radio-input" checked />
+                        <label for="loan-status0101" class="surver-label"> 목적자금 마련(결혼자금, 교육자금 등) </label>
+                      </div>
+                      <div class="surver-card">
+                        <input type="radio" id="loan-status0102" name="loan-qa0101" value="surver-val0102" class="radio-input" />
+                        <label for="loan-status0102" class="surver-label"> 사용예정자금(전체금, 임대차보증금 등) 단기운용 </label>
+                      </div>
+                      <div class="surver-card">
+                        <input type="radio" id="loan-status0103" name="loan-qa0101" value="surver-val0103" class="radio-input" />
+                        <label for="loan-status0103" class="surver-label"> 노후자금 마련 </label>
+                      </div>
+                      <div class="surver-card">
+                        <input type="radio" id="loan-status0104" name="loan-qa0101" value="surver-val0104" class="radio-input" />
+                        <label for="loan-status0104" class="surver-label"> 여유자금 투자 </label>
+                      </div>
+                    </div>
+                  </article>
+                </section>
+                <!-- q1(e) -->
+
+                <!-- q2(s) -->
+                <section class="surver-quest-box">
+                  <article>
+                    <header>
+                      <h3><strong>Q2</strong> 현재 투자하는 자금의 투자 목적을 고려하는 원금 보존에 따른 손실 감내 수준은 무엇입니까?</h3>
+                    </header>
+
+                    <div class="surver-group">
+                      <div class="surver-card">
+                        <input type="radio" id="loan-status0201" name="loan-qa0201" value="surver-val0201" class="radio-input" checked />
+                        <label for="loan-status0201" class="surver-label"> 투자수익율 고려하나 원금보존추구 </label>
+                      </div>
+                      <div class="surver-card">
+                        <input type="radio" id="loan-status0202" name="loan-qa0201" value="surver-val0202" class="radio-input" />
+                        <label for="loan-status0202" class="surver-label"> 10% 이내 손실 감내 가능 </label>
+                      </div>
+                      <div class="surver-card">
+                        <input type="radio" id="loan-status0203" name="loan-qa0201" value="surver-val0203" class="radio-input" />
+                        <label for="loan-status0203" class="surver-label"> 20% 이내 손실 감내 가능 </label>
+                      </div>
+                      <div class="surver-card">
+                        <input type="radio" id="loan-status0204" name="loan-qa0201" value="surver-val0204" class="radio-input" />
+                        <label for="loan-status0204" class="surver-label"> 50% 이내 손실 감내 가능 </label>
+                      </div>
+                      <div class="surver-card">
+                        <input type="radio" id="loan-status0205" name="loan-qa0201" value="surver-val0205" class="radio-input" />
+                        <label for="loan-status0205" class="surver-label"> 70% 이내 손실 감내 가능 </label>
+                      </div>
+                      <div class="surver-card">
+                        <input type="radio" id="loan-status0206" name="loan-qa0201" value="surver-val0206" class="radio-input" />
+                        <label for="loan-status0206" class="surver-label"> 전액 손실 감내 가능 </label>
+                      </div>
+                    </div>
+                  </article>
+                </section>
+                <!-- q2(e) -->
+
+                <!-- q3(s) -->
+                <section class="surver-quest-box">
+                  <article>
+                    <header>
+                      <h3><strong>Q3</strong> 현재 투자하는 자금의 투자 예정 기간은 얼마나 되십니까?</h3>
+                    </header>
+
+                    <div class="surver-group">
+                      <div class="surver-card">
+                        <input type="radio" id="loan-status0301" name="loan-qa0301" value="surver-val0301" class="radio-input" checked />
+                        <label for="loan-status0301" class="surver-label"> 6개월 미만 </label>
+                      </div>
+                      <div class="surver-card">
+                        <input type="radio" id="loan-status0302" name="loan-qa0301" value="surver-val0302" class="radio-input" />
+                        <label for="loan-status0302" class="surver-label"> 6개월 이상 ~ 1년 미만 </label>
+                      </div>
+                      <div class="surver-card">
+                        <input type="radio" id="loan-status0303" name="loan-qa0301" value="surver-val0303" class="radio-input" />
+                        <label for="loan-status0303" class="surver-label"> 1년 이상 ~ 2년 미만 </label>
+                      </div>
+                      <div class="surver-card">
+                        <input type="radio" id="loan-status0304" name="loan-qa0301" value="surver-val0304" class="radio-input" />
+                        <label for="loan-status0304" class="surver-label"> 2년 이상 ~ 3년 미만 </label>
+                      </div>
+                      <div class="surver-card">
+                        <input type="radio" id="loan-status0305" name="loan-qa0301" value="surver-val0305" class="radio-input" />
+                        <label for="loan-status0305" class="surver-label"> 3년 이상 </label>
+                      </div>
+                    </div>
+                  </article>
+                </section>
+                <!-- q3(e) -->
+              </div>
+
+              <div class="btn-wrap center lg-bot">
+                <button type="button" class="btn type-bg-primary-tint size-xxl">
+                  <span class="text">취소</span>
+                </button>
+                <button type="button" class="btn type-bg-primary size-xxl">
+                  <span class="text">확인</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
+</html>

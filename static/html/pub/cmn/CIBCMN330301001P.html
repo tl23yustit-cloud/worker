@@ -1,0 +1,135 @@
+<!-- 1.05v적용 -->
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/cmn.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
+
+      <div id="container" class="container">
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="cmn">
+              <button type="button" class="btn type-bg-primary size-md btn-modal" data-target="modal-01">
+                <span class="text">모달버튼</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <div id="modal-01" class="modal is-active" data-dim="true" data-backdrop-close="false" data-alert="true" data-size="md" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc">
+      <div class="modal-wrapper">
+        <div class="modal-title" id="modal-title">
+          <h4 class="typeH4">디지털 OTP 응답번호</h4>
+        </div>
+        <div id="modal-desc" class="blind">OTP응답번호 모달</div>
+        <div class="modal-slot">
+          <div class="tbl-area">
+            <table class="table-type01">
+              <caption>
+                디지털OTP응답번호(구,스마트보안카드)에 대한 구성 테이블입니다.
+              </caption>
+              <colgroup>
+                <col />
+                <col />
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th scope="row" rowspan="2" class="noradius">
+                    <span> 디지털OTP<br />응답번호(구,스마트<br />보안카드) </span>
+                  </th>
+                  <td>
+                    <div class="tbl-column">
+                      <div class="form-box">
+                        <input type="password" class="input size-lg wSize-md" placeholder="6자리 입력" aria-label="디지털OTP 응답번호(구,스마트 보안카드) " />
+                        <button class="btn-mouse-keypad">
+                          <!-- 키패드 활성화시 is-active 클래스 추가 -->
+                          <i class="ico ico-size-smMd" aria-hidden="true"></i>
+                          <span class="blind">마우스 입력 열기</span>
+                        </button>
+                        <button type="button" class="btn type-line-secondary size-lg">
+                          <span class="text">요청</span>
+                        </button>
+                      </div>
+                      <div class="form-box">
+                        <input type="password" class="input size-lg wSize-md" placeholder="6자리 입력" aria-label="디지털OTP 응답번호(구,스마트 보안카드) " />
+                        <button class="btn-mouse-keypad">
+                          <!-- 키패드 활성화시 is-active 클래스 추가 -->
+                          <i class="ico ico-size-smMd" aria-hidden="true"></i>
+                          <span class="blind">마우스 입력 열기</span>
+                        </button>
+                        <button type="button" class="btn type-line-secondary size-lg">
+                          <span class="text">재요청</span>
+                        </button>
+                      </div>
+                      <div class="list type-reference">
+                        <ul>
+                          <li class="typeMd">[요청]버튼 클릭 후 앱호출-인증번호를 입력하세요.</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <div class="typeMd mb-16">디지털 OTP 인증번호 입력 예시</div>
+                    <div class="otp-noti type02">
+                      <div class="otp-noti-inner">
+                        <div class="list type-reference">
+                          <ul>
+                            <li class="typeMd">
+                              본 화면은 이해를 돕기 위한 입력 예시 참조화면 입니다.<br />
+                              고객님께서 보유하신 카드의 해당 번호를 입력해 주시기 바랍니다.
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="line-box size-xl mt-48">
+            <span class="typeLgSemibold">이용안내</span>
+            <div class="list type-dotted">
+              <ul>
+                <li class="typeMd">본인확인용 OTP 응답번호를 입력하세요</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer flex items-center justify-center gap-8">
+          <button type="button" class="btn type-bg-primary-tint size-lg">
+            <span class="text">취소</span>
+          </button>
+          <button type="button" class="btn type-bg-primary size-lg">
+            <span class="text">확인</span>
+          </button>
+        </div>
+        <button type="button" class="ico btn-close" aria-label="모달 닫기">
+          <i class="ico-close ico-size-smMd" aria-hidden="true"></i>
+          <span class="blind">닫기</span>
+        </button>
+      </div>
+    </div>
+
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
+</html>
