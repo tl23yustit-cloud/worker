@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수협은행</title>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/component.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+    <link rel="stylesheet" href="/static/css/b2b.css" />
+    <link rel="stylesheet" href="/static/css/leeran.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header">@@include('static/html/pub/layout/skipNavigation.html') @@include('static/html/pub/layout/header_sub.html')</div>
+
+      <div id="container" class="container">
+        <div id="leftArea">@@include('static/html/pub/layout/leftArea.html')</div>
+        <div id="contents">
+          <div class="content">
+            @@include('static/html/pub/layout/breadcrumb.html')
+            <div class="b2b">
+              <h2 class="typeH2">할인신청 승인내역 조회</h2>
+              <div class="tbl-area">
+                <table class="table-type01">
+                  <caption>주민(사업자)등록번호, 조회기간에 대한 구성 테이블입니다.</caption>
+                  <colgroup>
+                    <col style="width: 160px" />
+                    <col style="width: auto" />
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th>주민(사업자)등록번호</th>
+                      <td><span class="typeMd">000-00-00000</span></td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span>조회기간</span>
+                      </th>
+                      <td>
+                        <div class="tbl-column">
+                          <!-- 1. radiogroup에 aria-label 추가 -->
+                          <div class="radio-group" role="radiogroup" aria-labelledby="label-period">
+                            <span class="form-box">
+                              <input type="radio" name="SampleRadio0302_01" id="SampleRadio0302_01" class="radio-btn"
+                                checked="" />
+                              <label for="SampleRadio0302_01" class="form-label">1주일</label>
+                              <input type="radio" name="SampleRadio0302_01" id="SampleRadio0302_02" class="radio-btn" />
+                              <label for="SampleRadio0302_02" class="form-label">1개월</label>
+                              <input type="radio" name="SampleRadio0302_01" id="SampleRadio0302_03" class="radio-btn" />
+                              <label for="SampleRadio0302_03" class="form-label">3개월</label>
+                              <input type="radio" name="SampleRadio0302_01" id="SampleRadio0302_04" class="radio-btn" />
+                              <label for="SampleRadio0302_04" class="form-label">6개월</label>
+                            </span>
+                          </div>
+
+                          <div class="calendar-wrap">
+                            <!-- 날짜 입력 영역 -->
+                            <div class="input-box">
+                              <input type="text" class="input" placeholder="조회 시작일" aria-label="조회 시작일" value="2026-01-06" />
+                              <button type="button" class="btn">
+                                <i class="ico-calendar ico-size-smMd" aria-hidden="true"></i>
+                                <span class="blind">조회 시작일 달력 열기</span>
+                              </button>
+                            </div>
+                            <span aria-hidden="true">~</span>
+                            <div class="input-box">
+                              <input type="text" class="input" placeholder="조회 종료일" aria-label="조회 종료일" value="2026-01-06" />
+                              <button type="button" class="btn">
+                                <i class="ico-calendar ico-size-smMd" aria-hidden="true"></i>
+                                <span class="blind">조회 종료일 달력 열기</span>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="btn-wrap center sm-mid">
+                <button type="button" class="btn type-bg-primary size-xl">
+                  <span class="text">조회</span>
+                </button>
+              </div>
+              <!-- 결과 영역 -->
+              <div class="tbl-area">
+                <h4 class="typeH4">조회결과</h4>
+                <div class="tbl-head">
+                  <div class="left-area">
+                    <span class="total typeMd">총 <span class="num">$n$</span></span>
+                  </div>
+                  <div class="right-area"><span class="color-fg-secondary typeMd">조회기간 : 2026-07-01 ~ 2026-07-01</span></div>
+                </div>
+                <table class="table-type03">
+                  <caption>
+                    전자어음번호, 분할번호, 배서번호, 어음상태, 어음금액, 발행일자, 만기일자, 발행인명, 할인신청 버튼으로 구성된 어음할인신청 조회결과 표
+                  </caption>
+                  <colgroup>
+                    <col style="width: 200px" />
+                    <col style="width: 80px" />
+                    <col style="width: 80px" />
+                    <col style="width: auto" />
+                    <col style="width: 110px" />
+                    <col style="width: 110px" />
+                    <col style="width: 110px" />
+                    <col style="width: 110px" />
+                    <col style="width: 100px" />
+                    <col style="width: 120px" />
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th scope="col">전자어음번호</th>
+                      <th scope="col">분할번호</th>
+                      <th scope="col">배서번호</th>
+                      <th scope="col">어음상태</th>
+                      <th scope="col">거래일자</th>
+                      <th scope="col">어음금액 (원)</th>
+                      <th scope="col">발행일자</th>
+                      <th scope="col">만기일자</th>
+                      <th scope="col">발행인명</th>
+                      <th scope="col">상세보기</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <span class="typeMd">00720260818409000000</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">00</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">00</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">영업점신청승인</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">2026-08-19</span>
+                      </td>
+                      <td class="text-right">
+                        <span class="typeMd">400,000</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">2026-08-19</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">2026-09-19</span>
+                      </td>
+                      <td>
+                        <span class="typeMd">김나다</span>
+                      </td>
+                      <td>
+                        <button type="button" class="btn type-line-neutral size-sm" title="전자어음번호 00720260818409000000 상세보기" aria-label="전자어음번호 00720260818409000000 상세보기">
+                          <span class="text">상세보기</span>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <nav class="pagination size-md" aria-label="페이지네이션">
+                <button type="button" class="btn-nav first" disabled="" aria-disabled="true" aria-label="첫 페이지">
+                  <span class="blind">첫 페이지</span>
+                </button>
+                <button type="button" class="btn-nav prev" disabled="" aria-disabled="true" aria-label="이전 페이지">
+                  <span class="blind">이전 페이지</span>
+                </button>
+
+                <ol class="list-pagination">
+                  <li>
+                    <button type="button" class="btn-page active" aria-current="page" title="현재 페이지">1</button>
+                  </li>
+                  <li>
+                    <button type="button" class="btn-page" aria-label="2페이지">2</button>
+                  </li>
+                  <li>
+                    <button type="button" class="btn-page" aria-label="3페이지">3</button>
+                  </li>
+                  <li>
+                    <button type="button" class="btn-page" aria-label="4페이지">4</button>
+                  </li>
+                  <li>
+                    <button type="button" class="btn-page" aria-label="5페이지">5</button>
+                  </li>
+                  <li>
+                    <button type="button" class="btn-page" aria-label="6페이지">6</button>
+                  </li>
+                  <li>
+                    <button type="button" class="btn-page" aria-label="7페이지">7</button>
+                  </li>
+                  <li>
+                    <button type="button" class="btn-page" aria-label="8페이지">8</button>
+                  </li>
+                  <li>
+                    <button type="button" class="btn-page" aria-label="9페이지">9</button>
+                  </li>
+                  <li>
+                    <button type="button" class="btn-page" aria-label="10페이지">10</button>
+                  </li>
+                </ol>
+
+                <button type="button" class="btn-nav next" aria-label="다음 페이지">
+                  <span class="blind">다음 페이지</span>
+                </button>
+                <button type="button" class="btn-nav last" aria-label="마지막 페이지">
+                  <span class="blind">마지막 페이지</span>
+                </button>
+              </nav>
+            </div>
+          </div>
+        </div>
+        <div id="aside">@@include('static/html/pub/layout/aside.html')</div>
+      </div>
+      <div id="footer">@@include('static/html/pub/layout/footer.html')</div>
+    </div>
+    <script src="/static/js/ui/cib_ui_common.js"></script>
+  </body>
+</html>

@@ -6,6 +6,7 @@ const worker5 = require("./worker5");
 const worker6 = require("./worker6");
 const menuList = require("./menuList");
 const worker7 = require('./worker7');
+const worker8 = require('./worker8');
 module.exports = {
   ...worker1,
   ...worker2,
@@ -14,5 +15,6 @@ module.exports = {
   ...worker5,
   ...worker6,
   ...menuList,
-  ...worker7
+  ...worker7,
+  ...worker8
 };

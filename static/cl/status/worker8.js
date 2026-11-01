@@ -1,0 +1,20 @@
+module.exports = {
+  // B2B전자결제
+  "CIBB2B022201000M": { title: "전자어음_할인신청승인내역조회_조회", status: "검수중", worker: "이란", note: "" },
+  "CIBB2B022202000M": { title: "전자어음_할인신청승인내역조회_OTP인증", status: "검수중", worker: "이란", note: "" },
+  "CIBB2B022203000M": { title: "전자어음_할인신청승인내역조회_내용확인", status: "검수중", worker: "이란", note: "" },
+  "CIBB2B022204000M": { title: "전자어음_할인신청승인내역조회_배서완료", status: "검수중", worker: "이란", note: "" },
+  "CIBB2B022205000M": { title: "전자어음_할인신청승인내역조회_할인취소완료", status: "검수중", worker: "이란", note: "" },
+  "CIBB2B022301000M": { title: "전자어음_중도반환승인내역조회_조회", status: "검수중", worker: "이란", note: "" },
+  "CIBB2B022302000M": { title: "전자어음_중도반환승인내역조회_OTP인증", status: "검수중", worker: "이란", note: "" },
+  "CIBB2B022303000M": { title: "전자어음_중도반환승인내역조회_중도반환확인", status: "검수중", worker: "이란", note: "" },
+  "CIBB2B022304000M": { title: "전자어음_중도반환승인내역조회_중도반환완료", status: "검수중", worker: "이란", note: "" },
+  "CIBB2B022401000M": { title: "전자어음_부도어음반환승인내역조회_조회", status: "검수중", worker: "이란", note: "" },
+  "CIBB2B022402000M": { title: "전자어음_부도어음반환승인내역조회_OTP인증", status: "검수중", worker: "이란", note: "" },
+  "CIBB2B022403000M": { title: "전자어음_부도어음반환승인내역조회_부도어음반환확인", status: "검수중", worker: "이란", note: "" },
+  "CIBB2B022404000M": { title: "전자어음_부도어음반환승인내역조회_반환완료", status: "검수중", worker: "이란", note: "" },
+  "CIBB2B022501000M": { title: "전자어음_기한후배서승인내역조회_조회", status: "검수중", worker: "이란", note: "" },
+  "CIBB2B022502000M": { title: "전자어음_기한후배서승인내역조회_OTP인증", status: "검수중", worker: "이란", note: "" },
+  "CIBB2B022503000M": { title: "전자어음_기한후배서승인내역조회_기한후배서확인", status: "검수중", worker: "이란", note: "" },
+  "CIBB2B022504000M": { title: "전자어음_기한후배서승인내역조회_배서완료", status: "검수중", worker: "이란", note: "" },
+};
